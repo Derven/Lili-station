@@ -1,0 +1,85 @@
+// DM Environment file for dervenbay_mk_1000.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+#define FILE_DIR "icons"
+#define FILE_DIR "icons/mob"
+#define FILE_DIR "icons/obj"
+#define FILE_DIR "icons/obj/atmos"
+#define FILE_DIR "icons/obj/control"
+#define FILE_DIR "icons/obj/items"
+#define FILE_DIR "icons/obj/power"
+#define FILE_DIR "icons/turf"
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+#define DEBUG
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include "dervenbay_mk_1000.dm"
+#include "global.dm"
+#include "global_2.dm"
+#include "setup.dm"
+#include "code\FEA_airgroup.dm"
+#include "code\FEA_fire.dm"
+#include "code\FEA_gas_mixture.dm"
+#include "code\FEA_group_helpers.dm"
+#include "code\FEA_system.dm"
+#include "code\FEA_turf_tile.dm"
+#include "code\area\area.dm"
+#include "code\atom\atom.dm"
+#include "code\atom\interact.dm"
+#include "code\chemical\holder.dm"
+#include "code\chemical\reagents.dm"
+#include "code\chemical\recipes.dm"
+#include "code\chemical\tools.dm"
+#include "code\chemical\reagents\bottle.dm"
+#include "code\controller\game.dm"
+#include "code\controller\ticker.dm"
+#include "code\datum\powernet.dm"
+#include "code\datum\radio.dm"
+#include "code\mob\defines.dm"
+#include "code\mob\hud.dm"
+#include "code\mob\mob.dm"
+#include "code\mob\new_player.dm"
+#include "code\obj\landmark.dm"
+#include "code\obj\obj.dm"
+#include "code\obj\machinery\door.dm"
+#include "code\obj\machinery\machine.dm"
+#include "code\obj\machinery\atmos\atmos.dm"
+#include "code\obj\machinery\atmos\connectors.dm"
+#include "code\obj\machinery\atmos\datum_pipeline.dm"
+#include "code\obj\machinery\atmos\he_pipes.dm"
+#include "code\obj\machinery\atmos\meter.dm"
+#include "code\obj\machinery\atmos\pipe_network.dm"
+#include "code\obj\machinery\atmos\pipes.dm"
+#include "code\obj\machinery\atmos\portable.dm"
+#include "code\obj\machinery\atmos\binary\base.dm"
+#include "code\obj\machinery\atmos\binary\circulator.dm"
+#include "code\obj\machinery\atmos\unary\base.dm"
+#include "code\obj\machinery\atmos\unary\cold_sink.dm"
+#include "code\obj\machinery\atmos\unary\vent_pump.dm"
+#include "code\obj\machinery\atmos\unary\vent_scrubber.dm"
+#include "code\obj\machinery\ship_control\moving.dm"
+#include "code\obj\machinery\ship_control\panic.dm"
+#include "code\obj\stack\mineral.dm"
+#include "code\obj\structure\structure.dm"
+#include "code\power\APC.dm"
+#include "code\power\base.dm"
+#include "code\power\cable.dm"
+#include "code\power\generator.dm"
+#include "code\power\power.dm"
+#include "code\power\powercell.dm"
+#include "code\power\smes.dm"
+#include "code\power\terminal.dm"
+#include "code\turfs\glass.dm"
+#include "code\turfs\turf.dm"
+#include "map\STATION.dmm"
+// END_INCLUDE
+
