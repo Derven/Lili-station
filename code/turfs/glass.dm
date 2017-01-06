@@ -16,6 +16,15 @@
 	icon_state = "glass"
 	icon = 'floors.dmi'
 
+	whore
+		icon = null
+
+		Crossed(atom/movable/O)
+			var/turf/T = locate(x, y, z-1)
+			if(T.density != 1)
+				O.Move(T)
+				O << "\red Вы проваливаетесь в дыру в полу!"
+
 	New()
 		..()
 		update_turf()

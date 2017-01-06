@@ -58,6 +58,18 @@
 	var/to_be_destroyed = 0 //Used for fire, if a melting temperature was reached, it will be destroyed
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
 
+	attackby(obj/item/weapon/weldingtool/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/weapon/weldingtool))
+			if(W.use())
+				brat << "Вы развариваете пол..."
+				if(do_after(brat, 5))
+					if(z > 1)
+						new /obj/glass/whore(src)
+					else
+						del(src)
+			else
+				brat << "Заправьте горелку!"
+
 /turf/simulated/floor
 	name = "floor"
 	icon_state = "floor"
