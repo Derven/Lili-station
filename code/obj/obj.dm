@@ -1,3 +1,7 @@
+/obj/item
+	var
+		force
+
 /obj
 	proc/initialize()
 
@@ -45,6 +49,10 @@
 
 /obj/item/device/analyzer
 
+/obj/item/weapon/wirecutters
+	icon = 'tools.dmi'
+	icon_state = "cutters"
+
 /obj/item/weapon/weldingtool
 	icon = 'tools.dmi'
 	icon_state = "welder"
@@ -66,6 +74,8 @@
 
 /obj/effect/list_container
 	name = "list container"
+
+/obj/item/weapon/gun
 
 /obj/structure/stool/bed
 
@@ -93,6 +103,14 @@
 	var/allow_upgrade = 1.0
 	var/last_suffocate = 1.0
 	layer = 21
+
+/obj/structure/cable/proc/updateicon()
+	if(invisibility)
+		icon_state = "[d1]-[d2]-f"
+	else
+		icon_state = "[d1]-[d2]"
+
+
 
 /obj/structure/cable
 	level = 1

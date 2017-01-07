@@ -18,7 +18,6 @@
 	var/chargemode = 1
 	var/chargecount = 1
 	var/locked = 1
-	var/coverlocked = 1
 	var/aidisabled = 0
 	var/tdir = null
 	var/obj/machinery/power/terminal/terminal = null
@@ -34,12 +33,9 @@
 	var/apcwires = 15
 	netnum = -1		// set so that APCs aren't found as powernet nodes
 	var/malfhack = 0 //New var for my changes to AI malf. --NeoFite
-	var/mob/living/silicon/ai/malfai = null //See above --NeoFite
 //	luminosity = 1
 	var/has_electronics = 0 // 0 - none, 1 - plugged in, 2 - secured by screwdriver
 	var/overload = 1 //used for the Blackout malf module
-	var/mob/living/silicon/ai/occupant = null
-
 /proc/autoset(var/val, var/on)
 
 	if(on==0)
@@ -129,7 +125,6 @@
 		t += "Environmental:[add_lspace(lastused_environ, 6)] W : <B>[L[environ+1]]</B><BR>"
 
 		t += "<BR>Total load: [lastused_light + lastused_equip + lastused_environ] W</PRE>"
-		t += "<HR>Cover lock: <B>[coverlocked ? "Engaged" : "Disengaged"]</B>"
 
 	else
 		t += "<I>(Swipe ID card to lock interface.)</I><BR>"
@@ -187,7 +182,6 @@
 
 
 		t += "<BR>Total load: [lastused_light + lastused_equip + lastused_environ] W</PRE>"
-		t += "<HR>Cover lock: [coverlocked ? "<B><A href='?src=\ref[src];lock=1'>Engaged</A></B>" : "<B><A href='?src=\ref[src];lock=1'>Disengaged</A></B>"]"
 
 	t += "<BR><HR><A href='?src=\ref[src];close=1'>Close</A>"
 

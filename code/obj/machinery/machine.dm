@@ -19,6 +19,20 @@
 			gl_uid = 1
 
 
+/obj/machinery/motor
+	idle_power_usage = 0
+	use_power = 1
+	icon_state = "motor_off"
+	icon = 'motor.dmi'
+
+	proc/on()
+		idle_power_usage = 5000
+		icon_state = "motor_on"
+
+	proc/off()
+		idle_power_usage = 0
+		icon_state = "motor_off"
+
 /obj/machinery/lamp
 	icon_state = "lamp"
 	power_channel = LIGHT

@@ -1,4 +1,4 @@
-/obj/structure
+/obj
 	var/obj/item/parts = null
 
 /obj/structure/table
@@ -12,6 +12,11 @@
 			brat << "Вы разбираете стол..."
 			if(do_after(brat, 5))
 				deconstruct()
+			return
+
+		usr.drop_item(src)
+		return
+
 
 /obj/structure/stool
 	icon = 'stool.dmi'
@@ -32,6 +37,6 @@
 	attack_hand(mob/user)
 		user.Move(locate(user.x, user.y, user.z + 1))
 
-/obj/structure/proc/deconstruct()
+/obj/proc/deconstruct()
 	new parts(src.loc)
 	del(src)

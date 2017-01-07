@@ -58,9 +58,22 @@
 	var/to_be_destroyed = 0 //Used for fire, if a melting temperature was reached, it will be destroyed
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
 
-	attackby(obj/item/weapon/weldingtool/W as obj, mob/user as mob)
+/turf/simulated/floor
+	name = "floor"
+	icon_state = "floor"
+	luminosity = 0
+	thermal_conductivity = 0.040
+	heat_capacity = 10000
+	intact = 0
+
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/weapon/cable_coil))
+			var/obj/item/weapon/cable_coil/coil = W
+			coil.turf_place(src, usr)
+
 		if(istype(W, /obj/item/weapon/weldingtool))
-			if(W.use())
+			var/obj/item/weapon/weldingtool/WD = W
+			if(WD.use())
 				brat << "Вы развариваете пол..."
 				if(do_after(brat, 5))
 					if(z > 1)
@@ -69,11 +82,6 @@
 						del(src)
 			else
 				brat << "Заправьте горелку!"
-
-/turf/simulated/floor
-	name = "floor"
-	icon_state = "floor"
-	luminosity = 0
 
 /turf/ship
 	name = "floor"

@@ -88,18 +88,18 @@
 	else if (istype(W, /obj/item/weapon/wrench))
 		if(connected_port)
 			disconnect()
-			user << "\blue You disconnect [name] from the port."
+			brat << "\blue Вы отключаете [name] от порта."
 			//update_icon()
 			return
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
 				if(connect(possible_port))
-					user << "\blue You connect [name] to the port."
+					brat << "\blue Вы включаете [name] в порт."
 					//update_icon()
 					return
 				else
-					user << "\blue [name] failed to connect to the port."
+					brat << "\blue [name] failed to connect to the port."
 					return
 			else
 				user << "\blue Nothing happens."

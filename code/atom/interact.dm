@@ -13,7 +13,8 @@ atom/proc/afterattack()
 			else
 				attackby(usr.get_active_hand())
 				var/obj/item/I = usr.get_active_hand()
-				I.afterattack(src, usr)
+				if(I)
+					I.afterattack(src, usr)
 
 
 /atom/proc/attack_self()
