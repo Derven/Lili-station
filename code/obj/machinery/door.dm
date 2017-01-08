@@ -6,6 +6,7 @@
 	idle_power_usage = 1200
 	active_power_usage = 1000
 	density = 1
+	opacity = 1
 	anchored = 1
 
 	var
@@ -27,10 +28,12 @@
 				icon_state = "open"
 				close = 0
 				density = 0
+				opacity = 0
 				T.blocks_air = 0
 			else
 				close = 1
 				T.blocks_air = 1
 				density = 1
+				opacity = 1
 				icon_state = "close"
 			T.update_air_properties()

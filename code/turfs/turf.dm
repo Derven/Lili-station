@@ -89,17 +89,35 @@
 	oxygen = 0
 	nitrogen = 0
 
+	New()
+		..()
+		generate_ship()
+
+	proc/generate_ship()
+		icon_state = "[icon_state]_[rand(1,8)]"
+
 /turf/simulated/wall
 	name = "wall"
-	icon_state = "wall"
+	icon = 'walls.dmi'
+	icon_state = "wall0"
 	density = 1
 	blocks_air = 1
 	opacity = 1
+	var/walltype = "wall"
+
+	New()
+		..()
+		relativewall_neighbours()
+
+	Del()
+		..()
+		relativewall_neighbours()
 
 /turf/simulated/wall/window
 	name = "window"
 	icon_state = "window"
 	opacity = 0
+	walltype = "window"
 
 /turf/unsimulated/floor
 	name = "floor"

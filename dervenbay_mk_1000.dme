@@ -101,6 +101,7 @@
 #include "code\power\terminal.dm"
 #include "code\turfs\glass.dm"
 #include "code\turfs\turf.dm"
+#include "code\turfs\wall.dm"
 #include "map\AURORA.dmm"
 // END_INCLUDE
 
