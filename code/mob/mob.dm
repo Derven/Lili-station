@@ -14,6 +14,22 @@
 		if(src.pulling)
 			step(src.pulling, get_dir(src.pulling.loc, usr))
 
+/proc/dd_range(var/low, var/high, var/num)
+	return max(low,min(high,num))
+
+/proc/shake_camera(mob/M, duration, strength=1)
+	if(!M || !M.client || M.shakecamera)
+		return
+	spawn(1)
+		var/oldeye=M.client.eye
+		var/x
+		M.shakecamera = 1
+		for(x=0; x<duration, x++)
+			M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
+			sleep(1)
+		M.shakecamera = 0
+		M.client.eye=oldeye
+
 /mob/proc/u_equip(obj/item/W as obj)
 	if (W == r_hand)
 		r_hand = null

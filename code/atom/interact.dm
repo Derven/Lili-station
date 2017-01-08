@@ -4,6 +4,9 @@ atom/proc/afterattack()
 	return
 
 /atom/Click()
+	var/obj/item/I = usr.get_active_hand()
+	if(istype(I, /obj/item/weapon/gun))
+		I.afterattack(src)
 	if(src in range(1, usr))
 		if(!usr.get_active_hand())
 			attack_hand(usr)
@@ -12,10 +15,8 @@ atom/proc/afterattack()
 				attack_self()
 			else
 				attackby(usr.get_active_hand())
-				var/obj/item/I = usr.get_active_hand()
 				if(I)
 					I.afterattack(src, usr)
-
 
 /atom/proc/attack_self()
 	return
@@ -113,7 +114,10 @@ atom/proc/afterattack()
 /atom/proc/Bumped(AM as mob|obj)
 	return
 
-/atom/movable/Bump(var/atom/A as mob|obj|turf|area)
+/atom/proc/bullet_act(var/obj/item/projectile/Proj)
+	return 0
+
+/atom/movable/Bump(var/atom/A as mob|obj|turf)
 	spawn( 0 )
 		if ((A))
 			A.Bumped(src)
