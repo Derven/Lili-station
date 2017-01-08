@@ -25,9 +25,6 @@
 	var/unwrenchable = 1
 	var/image/overlay
 
-	proc
-		update_icon()
-
 	afterattack()
 		return
 

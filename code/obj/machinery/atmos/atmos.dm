@@ -55,6 +55,3 @@ obj/machinery/atmospherics
 			// Is permitted to return null
 
 		disconnect(obj/machinery/atmospherics/reference)
-
-		update_icon()
-			return null

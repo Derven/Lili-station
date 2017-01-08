@@ -109,3 +109,26 @@ atom/proc/afterattack()
 	else
 		RH.icon_state = "r_hand_a"
 		LH.icon_state = "l_hand"
+
+/atom/proc/Bumped(AM as mob|obj)
+	return
+
+/atom/movable/Bump(var/atom/A as mob|obj|turf|area)
+	spawn( 0 )
+		if ((A))
+			A.Bumped(src)
+		return
+	..()
+	return
+
+/obj/Bumped(atom/movable/MV)
+	if(density == 1)
+		if(istype(MV, /mob))
+			var/mob/user = MV
+			if(!anchored)
+				step(src, user.dir)
+				user.pulling = 0
+				user.update_pulling()
+		else
+			if(!anchored)
+				step(src, MV.dir)

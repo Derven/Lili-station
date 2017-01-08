@@ -18,6 +18,8 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 
 /atom/movable/overlay
 
+/atom/proc/update_icon()
+
 /atom/verb/examine()
 	set name = "Examine"
 	set category = "IC"

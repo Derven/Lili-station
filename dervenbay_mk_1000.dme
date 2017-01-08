@@ -67,6 +67,7 @@
 #include "code\obj\machinery\atmos\pipe_network.dm"
 #include "code\obj\machinery\atmos\pipes.dm"
 #include "code\obj\machinery\atmos\portable.dm"
+#include "code\obj\machinery\atmos\pump.dm"
 #include "code\obj\machinery\atmos\tanks.dm"
 #include "code\obj\machinery\atmos\binary\base.dm"
 #include "code\obj\machinery\atmos\binary\circulator.dm"
