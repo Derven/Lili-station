@@ -3,6 +3,25 @@ atom/proc/attack_hand()
 atom/proc/afterattack()
 	return
 
+/proc/get_edge_target_turf(var/atom/A, var/direction)
+
+	var/turf/target = locate(A.x, A.y, A.z)
+		//since NORTHEAST == NORTH & EAST, etc, doing it this way allows for diagonal mass drivers in the future
+		//and isn't really any more complicated
+
+		// Note diagonal directions won't usually be accurate
+	if(direction & NORTH)
+		target = locate(target.x, world.maxy, target.z)
+	if(direction & SOUTH)
+		target = locate(target.x, 1, target.z)
+	if(direction & EAST)
+		target = locate(world.maxx, target.y, target.z)
+	if(direction & WEST)
+		target = locate(1, target.y, target.z)
+
+	return target
+
+
 /atom/Click()
 	var/obj/item/I = usr.get_active_hand()
 	if(istype(I, /obj/item/weapon/gun))

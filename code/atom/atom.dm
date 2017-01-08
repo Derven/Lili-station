@@ -11,10 +11,21 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 	var/move_speed = 10
 	var/l_move_time = 1
 	var/m_flag = 1
-	var/throwowing = 0
-	var/throwow_speed = 2
-	var/throwow_range = 7
+	var/throw_hyuowing = 0
+	var/throw_hyuow_speed = 2
+	var/throw_hyuow_range = 7
 	var/moved_recently = 0
+
+/atom/proc/MouseDrop_T()
+	return
+
+/atom/MouseDrop(atom/over_object as mob|obj|turf|area)
+	spawn( 0 )
+		if (istype(over_object, /atom))
+			over_object.MouseDrop_T(src, usr)
+		return
+	..()
+	return
 
 /atom/movable/overlay
 

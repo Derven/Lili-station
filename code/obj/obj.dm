@@ -75,6 +75,8 @@
 /obj/effect/list_container
 	name = "list container"
 
+/obj/item/stack/tile
+
 /obj/item/weapon/gun
 
 /obj/structure/stool/bed

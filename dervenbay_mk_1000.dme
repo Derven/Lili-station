@@ -88,6 +88,8 @@
 #include "code\obj\machinery\ship_control\panic.dm"
 #include "code\obj\stack\mineral.dm"
 #include "code\obj\structure\closets.dm"
+#include "code\obj\structure\disp_construct.dm"
+#include "code\obj\structure\disposal.dm"
 #include "code\obj\structure\structure.dm"
 #include "code\power\APC.dm"
 #include "code\power\base.dm"
