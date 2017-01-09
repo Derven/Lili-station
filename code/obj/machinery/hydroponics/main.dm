@@ -25,9 +25,6 @@
 	var/unwrenchable = 1
 	var/image/overlay
 
-	afterattack()
-		return
-
 obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 
 	// Requires 5 mutagen to possibly change species.// Poor man's mutagen.

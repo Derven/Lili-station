@@ -248,6 +248,13 @@ the mob is also allowed to move without any sort of restriction. For instance, i
 	var/canstun = 1 	// determines if this mob can be stunned by things
 	var/canweaken = 1	// determines if this mob can be weakened/knocked down by things
 
+	var/list/body_standing = list()
+	var/list/body_lying = list()
+
+	var/mutantrace = null
+
+	var/list/organs = list()
+
 /client/verb/windowclose(var/atomref as text)
 	set hidden = 1						// hide this verb from the user's panel
 	set name = ".windowclose"			// no autocomplete on cmd line

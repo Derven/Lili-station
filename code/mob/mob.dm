@@ -2,6 +2,43 @@
 	icon = 'mob.dmi'
 	icon_state = "mob"
 
+	gender = MALE
+	var/list/stomach_contents = list()
+
+	var/brain_op_stage = 0.0
+	var/eye_op_stage = 0.0
+	var/appendix_op_stage = 0.0
+
+	//var/datum/disease2/disease/virus2 = null
+	//var/list/datum/disease2/disease/resistances2 = list()
+	var/antibodies = 0
+
+	New()
+		var/datum/reagents/R = new/datum/reagents(1000)
+		reagents = R
+		R.my_atom = src
+
+		var/datum/organ/external/chest/chest = new /datum/organ/external/chest(src)
+		var/datum/organ/external/head/head = new /datum/organ/external/head(src)
+		var/datum/organ/external/l_arm/l_arm = new /datum/organ/external/l_arm(src)
+		var/datum/organ/external/r_arm/r_arm = new /datum/organ/external/r_arm(src)
+		var/datum/organ/external/r_leg/r_leg = new /datum/organ/external/r_leg(src)
+		var/datum/organ/external/l_leg/l_leg = new /datum/organ/external/l_leg(src)
+		chest.owner = src
+		head.owner = src
+		r_arm.owner = src
+		l_arm.owner = src
+		r_leg.owner = src
+		l_leg.owner = src
+		organs += chest
+		organs += head
+		organs += r_arm
+		organs += l_arm
+		organs += r_leg
+		organs += l_leg
+
+		..()
+
 	proc/update_pulling()
 		if (!pulling)
 			PULL.icon_state = "pull_1"
@@ -9,10 +46,37 @@
 		else
 			PULL.icon_state = "pull_2"
 
+	proc/Life()
+		set invisibility = 0
+		set background = 1
+		handle_stomach()
+
+	proc/death(gibbed)
+		timeofdeath = world.time
+		world << "DEATH"
+		return
+
 	Move()
 		..()
 		if(src.pulling)
 			step(src.pulling, get_dir(src.pulling.loc, usr))
+
+	proc/handle_stomach()
+		spawn(0)
+			for(var/mob/M in stomach_contents)
+				if(M.loc != src)
+					stomach_contents.Remove(M)
+					continue
+				if(istype(M, /mob) && stat != 2)
+					if(M.stat == 2)
+						M.death(1)
+						stomach_contents.Remove(M)
+						del(M)
+						continue
+					if(air_master.current_cycle%3==1)
+						if(!M.nodamage)
+							M.adjustBruteLoss(5)
+						nutrition += 10
 
 /atom/proc/relaymove()
 	return

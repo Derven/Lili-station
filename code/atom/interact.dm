@@ -1,6 +1,8 @@
 atom/proc/attack_hand()
 
-atom/proc/afterattack()
+/obj/item/proc/afterattack(var/atom/movable/M, var/mob/user)
+	if(istype(M, /mob))
+		M:attacked_by(src, user)
 	return
 
 /proc/get_edge_target_turf(var/atom/A, var/direction)
@@ -36,6 +38,8 @@ atom/proc/afterattack()
 				attackby(usr.get_active_hand())
 				if(I)
 					I.afterattack(src, usr)
+
+
 
 /atom/proc/attack_self()
 	return

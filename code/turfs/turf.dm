@@ -83,6 +83,9 @@
 			else
 				brat << "Заправьте горелку!"
 
+/turf/simulated/floor/plating
+	icon_state = "plating"
+
 /turf/ship
 	name = "floor"
 	icon_state = "ship"

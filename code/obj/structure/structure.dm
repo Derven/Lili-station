@@ -82,7 +82,6 @@
 
 /obj/structure/ladder
 	anchored = 1
-	density = 1
 
 /obj/structure/ladder/down
 	icon = 'ladder_down.dmi'

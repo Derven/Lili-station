@@ -61,8 +61,8 @@ datum/controller/game_controller
 
 		sleep(-1)
 
-	//for(var/mob/M in world)
-	//		M.Life()
+		for(var/mob/M in world)
+			M.Life()
 
 		//for(var/datum/disease/D in active_diseases)
 		//	D.process()
