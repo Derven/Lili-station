@@ -2,7 +2,7 @@ atom/proc/attack_hand()
 
 /obj/item/proc/afterattack(var/atom/movable/M, var/mob/user)
 	if(istype(M, /mob))
-		M:attacked_by(src, user)
+		M:attacked_by(src, user, parse_zone(user.ZN_SEL.selecting))
 	return
 
 /proc/get_edge_target_turf(var/atom/A, var/direction)

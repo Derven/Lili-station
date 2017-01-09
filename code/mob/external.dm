@@ -4,11 +4,11 @@
 	max_damage = 150
 	body_part = UPPER_TORSO
 
-/*/datum/organ/external/groin
+/datum/organ/external/groin
 	name = "groin"
 	icon_name = "groin"
 	body_part = LOWER_TORSO
-*/
+
 /datum/organ/external/head
 	name = "head"
 	icon_name = "head"

@@ -185,7 +185,7 @@
 			zone = "chest"
 	return zone
 
-/mob/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0)
+/mob/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0)
 	if((damagetype != BRUTE) && (damagetype != BURN))
 		..(damage, damagetype, def_zone, blocked)
 		return 1
@@ -248,7 +248,7 @@
 	var/datum/organ/external/affecting = get_organ(ran_zone(user.ZN_SEL.selecting))
 	var/hit_area = parse_zone(affecting.name)
 
-	usr << "\red <B>[src] has been attacked in the [hit_area] with [I.name] by [user]!</B>"
+	usr << "\red <B>[src] атакован(а) [user] в [hit_area] с помощью [I.name] !</B>"
 
 	if((user != src))
 		return 0
@@ -268,3 +268,20 @@
 					apply_effect(5, WEAKEN, 0)
 
 	src.UpdateDamageIcon()
+
+/mob/proc/upd_status(var/datum/organ/external/O)
+	var/return_color
+
+	if(O.brute_dam + O.burn_dam < 20)
+		return_color = "#00FF21" //good
+
+	if(O.brute_dam + O.burn_dam > 20)
+		return_color = "#FFD800" //bad
+
+	if(O.brute_dam + O.burn_dam > 70)
+		return_color = "#FF0000" //very bad
+
+	if(O.brute_dam + O.burn_dam > 100)
+		return_color = "#FF006E" //pizdec
+
+	return return_color

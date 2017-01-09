@@ -23,6 +23,7 @@
 /obj/item/weapon/wrench
 	icon = 'tools.dmi'
 	icon_state = "wrench"
+	force = 20
 
 /obj/item/pipe_meter
 

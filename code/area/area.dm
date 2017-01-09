@@ -35,6 +35,10 @@
 	ship
 		luminosity = 0
 
+		deck_1
+
+		deck_2
+
 /area/New()
 	master = src
 	related = list(src)

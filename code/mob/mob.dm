@@ -8,7 +8,13 @@
 	var/brain_op_stage = 0.0
 	var/eye_op_stage = 0.0
 	var/appendix_op_stage = 0.0
-
+	var/datum/organ/external/chest/chest
+	var/datum/organ/external/head/head
+	var/datum/organ/external/l_arm/l_arm
+	var/datum/organ/external/r_arm/r_arm
+	var/datum/organ/external/r_leg/r_leg
+	var/datum/organ/external/l_leg/l_leg
+	var/datum/organ/external/groin/groin
 	//var/datum/disease2/disease/virus2 = null
 	//var/list/datum/disease2/disease/resistances2 = list()
 	var/antibodies = 0
@@ -18,24 +24,29 @@
 		reagents = R
 		R.my_atom = src
 
-		var/datum/organ/external/chest/chest = new /datum/organ/external/chest(src)
-		var/datum/organ/external/head/head = new /datum/organ/external/head(src)
-		var/datum/organ/external/l_arm/l_arm = new /datum/organ/external/l_arm(src)
-		var/datum/organ/external/r_arm/r_arm = new /datum/organ/external/r_arm(src)
-		var/datum/organ/external/r_leg/r_leg = new /datum/organ/external/r_leg(src)
-		var/datum/organ/external/l_leg/l_leg = new /datum/organ/external/l_leg(src)
+		chest = new /datum/organ/external/chest(src)
+		head = new /datum/organ/external/head(src)
+		l_arm = new /datum/organ/external/l_arm(src)
+		r_arm = new /datum/organ/external/r_arm(src)
+		r_leg = new /datum/organ/external/r_leg(src)
+		l_leg = new /datum/organ/external/l_leg(src)
+		groin = new /datum/organ/external/groin(src)
+
 		chest.owner = src
 		head.owner = src
 		r_arm.owner = src
 		l_arm.owner = src
 		r_leg.owner = src
 		l_leg.owner = src
+		groin.owner = src
+
 		organs += chest
 		organs += head
 		organs += r_arm
 		organs += l_arm
 		organs += r_leg
 		organs += l_leg
+		organs += groin
 
 		..()
 
