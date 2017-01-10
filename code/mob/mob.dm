@@ -61,6 +61,7 @@
 		set invisibility = 0
 		set background = 1
 		handle_stomach()
+		handle_injury()
 
 	proc/death(gibbed)
 		timeofdeath = world.time
@@ -68,9 +69,12 @@
 		return
 
 	Move()
-		..()
-		if(src.pulling)
-			step(src.pulling, get_dir(src.pulling.loc, usr))
+		if(lying)
+			return
+		else
+			if(src.pulling)
+				step(src.pulling, get_dir(src.pulling.loc, usr))
+			..()
 
 	proc/handle_stomach()
 		spawn(0)
@@ -88,6 +92,43 @@
 						if(!M.nodamage)
 							M.adjustBruteLoss(5)
 						nutrition += 10
+
+	//pain
+
+	proc/handle_injury()
+		spawn(0)
+			if(istype(src, /mob) && stat != 2)
+				for(var/datum/organ/external/O in organs)
+					if(istype(O, /datum/organ/external/r_leg))
+						if(O.brute_dam + O.burn_dam > 60)
+							if(prob(40))
+								rest()
+								src << "\red Вам очень больно! Права&#255; нога болит"
+					if(istype(O, /datum/organ/external/l_leg))
+						if(O.brute_dam + O.burn_dam > 60)
+							if(prob(40))
+								rest()
+								src << "\red Вам очень больно! Левая&#255; нога болит"
+
+					if(istype(O, /datum/organ/external/l_arm))
+						if(O.brute_dam + O.burn_dam > 60)
+							if(prob(40))
+								if (hand)
+									drop_item_v()
+								else
+									swap_hand()
+									drop_item_v()
+								src << "\red Вам очень больно! Лева&#255; рука болит"
+
+					if(istype(O, /datum/organ/external/r_arm))
+						if(O.brute_dam + O.burn_dam > 60)
+							if(prob(40))
+								if (!hand)
+									drop_item_v()
+								else
+									swap_hand()
+									drop_item_v()
+								src << "\red Вам очень больно! Права&#255; рука болит"
 
 /atom/proc/relaymove()
 	return

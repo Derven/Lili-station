@@ -158,10 +158,6 @@
 #define HANDS			1536
 #define FULL_BODY		2047
 
-//HELIUM VOICE
-#define HELIUM			4096
-
-
 //bitflags for mutations
 var/const
 	TK				=(1<<0)

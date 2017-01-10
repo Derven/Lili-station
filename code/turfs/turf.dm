@@ -122,6 +122,29 @@
 	opacity = 0
 	walltype = "window"
 
+	var/image/damage
+	var/health = 100
+
+	update_icon()
+		if(health > 80)
+			return
+		if(health > 60)
+			damage = image("icon" = 'walls.dmi', "icon_state" = "damage_1")
+		if(health > 30)
+			damage = image("icon" = 'walls.dmi', "icon_state" = "damage_2")
+
+		overlays += damage
+
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		health -= W.force
+		brat << "Вы бьете стекло и оно трещит от ваших ударов"
+		update_icon()
+		if(health < 30)
+			src = new /turf/simulated/floor/plating(src)
+			relativewall_neighbours()
+			brat << "<b>Стекло разбиваетс&#255;</b>"
+			//del(src)
+
 /turf/unsimulated/floor
 	name = "floor"
 	icon_state = "floor"

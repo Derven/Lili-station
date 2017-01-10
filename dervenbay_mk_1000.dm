@@ -18,6 +18,10 @@ mob
 obj
 	step_size = 32
 
+	lobby
+		icon = 'lobby.dmi'
+		screen_loc = "0,0"
+		layer = 60
 
 /world/New()
 

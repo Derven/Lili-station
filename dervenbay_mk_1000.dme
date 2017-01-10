@@ -15,6 +15,7 @@
 #define FILE_DIR "icons/obj/items"
 #define FILE_DIR "icons/obj/power"
 #define FILE_DIR "icons/turf"
+#define FILE_DIR "sound"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
@@ -57,6 +58,8 @@
 #include "code\mob\mob.dm"
 #include "code\mob\new_player.dm"
 #include "code\mob\organ.dm"
+#include "code\mob\procs_and_verbs.dm"
+#include "code\mob\Topic.dm"
 #include "code\obj\item.dm"
 #include "code\obj\landmark.dm"
 #include "code\obj\obj.dm"
