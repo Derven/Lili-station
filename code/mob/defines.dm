@@ -131,6 +131,7 @@
 	var/obj/item/weapon/tank/internal = null//Human/Monkey
 	var/obj/item/weapon/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
+	var/obj/item/clothing/suit/cloth= null//Carbon
 	var/r_epil = 0
 	var/r_ch_cou = 0
 	var/r_Tourette = 0//Carbon

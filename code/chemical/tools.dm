@@ -206,6 +206,17 @@
 	icon = 'stationobjs.dmi'
 	icon_state = "dieseltank"
 	amount_per_transfer_from_this = 10
+
 	New()
 		..()
 		reagents.add_reagent("diesel",1000)
+
+	bullet_act(var/obj/item/projectile/Proj)
+		del(Proj)
+		message_to(5, "\red Цистерна с дизелем взлетает на воздух поджига&#255; все вокруг")
+		var/turf/simulated/floor/F = src.loc
+		F.air.toxins += 100
+		for(var/turf/simulated/floor/floor_in_range in range(1, src))
+			new /obj/effect/hotspot(floor_in_range)
+		F.update_air_properties()
+		del(src)

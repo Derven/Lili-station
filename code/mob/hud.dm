@@ -32,6 +32,21 @@ obj/hud
 		Click()
 			iam.drop_item_v()
 
+	cloth
+		icon_state = "cloth"
+		screen_loc = "SOUTH-1, 5"
+
+		Click()
+			var/obj/item/I = iam.get_active_hand()
+			if(I && istype(I,/obj/item/clothing/suit))
+				var/obj/item/clothing/suit/mysuit = I
+				if(I && iam.cloth == null)
+					iam.drop_item(src)
+					I.layer = 21
+					iam.cloth = I
+					update_slot(I)
+					mysuit.wear_clothing(iam)
+
 	pulling
 		icon_state = "pull_1"
 		screen_loc = "SOUTH-1, 6"
@@ -137,6 +152,7 @@ obj/hud
 		obj/hud/drop/DP
 		obj/hud/pulling/PULL
 		obj/hud/zone_sel/ZN_SEL
+		obj/hud/cloth/CL
 
 	proc
 		create_hud(var/client/C)
@@ -145,9 +161,11 @@ obj/hud
 			DP = new(src)
 			PULL = new(src)
 			ZN_SEL = new(src)
+			CL = new(src)
 
 			C.screen.Add(LH)
 			C.screen.Add(RH)
 			C.screen.Add(DP)
 			C.screen.Add(PULL)
 			C.screen.Add(ZN_SEL)
+			C.screen.Add(CL)
