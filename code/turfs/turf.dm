@@ -86,6 +86,9 @@
 /turf/simulated/floor/plating
 	icon_state = "plating"
 
+	attack_hand()
+		replace_turf()
+
 /turf/ship
 	name = "floor"
 	icon_state = "ship"
@@ -99,6 +102,10 @@
 	proc/generate_ship()
 		icon_state = "[icon_state]_[rand(1,8)]"
 
+/turf/proc/replace_turf()
+	for(var/turf/T in locate(x,y,z+1))
+		T = src
+
 /turf/simulated/wall
 	name = "wall"
 	icon = 'walls.dmi'
@@ -111,6 +118,10 @@
 	New()
 		..()
 		relativewall_neighbours()
+		if(!istype(src, /turf/simulated/wall/window))
+			if(prob(30))
+				var/rand_num = rand(1,2)
+				overlays += image(icon = 'walls.dmi', icon_state = "overlay_[rand_num]")
 
 	Del()
 		..()
@@ -149,7 +160,15 @@
 	name = "floor"
 	icon_state = "floor"
 
+	planet
+		icon_state = "sand"
 
+	station_base
+		density = 0
+		invisibility = 101
+
+		wall
+			icon_state = "wall"
 
 /turf/space
 	icon = 'space.dmi'
