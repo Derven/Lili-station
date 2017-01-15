@@ -62,6 +62,7 @@
 #include "code\mob\procs_and_verbs.dm"
 #include "code\mob\Topic.dm"
 #include "code\mob\monkey\main.dm"
+#include "code\new\cables_and_sockets.dm"
 #include "code\obj\item.dm"
 #include "code\obj\landmark.dm"
 #include "code\obj\obj.dm"

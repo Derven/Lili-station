@@ -59,15 +59,23 @@ proc/off_engine()
 			SHIP.off()
 
 proc/move_to_planet(var/z_level)
+	for(var/obj/station_base/ST in world)
+		ST.invisibility = 0
+
+		if(istype(ST, /obj/station_base/wall))
+			ST.density = 1
+			ST.anchored = 1
+
+		for(var/obj/O in ST.loc)
+			O.invisibility = 0
+
 	for(var/turf/space/S in world)
 		if(z_level == S.z || z_level - 1 == S.z)
 			S = new /turf/unsimulated/floor/planet(S)
 
-	for(var/turf/unsimulated/floor/station_base/ST in world)
-		ST.invisibility = 0
+			if(z_level == S.z)
+				new /obj/glass/whore(S)
 
-		if(istype(ST, /turf/unsimulated/floor/station_base/wall))
-			ST.density = 1
 
 
 proc/move_to_space(var/z_level)
@@ -75,5 +83,18 @@ proc/move_to_space(var/z_level)
 		if(z_level == S.z || z_level - 1 == S.z)
 			S = new /turf/space(S)
 
-	for(var/turf/unsimulated/floor/station_base/ST in world)
+	for(var/obj/station_base/ST in world)
 		ST.invisibility = 0
+
+		if(istype(ST, /obj/station_base/wall))
+			ST.density = 0
+			ST.anchored = 0
+
+		for(var/obj/O in ST.loc)
+			O.invisibility = 101
+
+/area/station_base
+
+/proc/hide_objs()
+	for(var/obj/O in locate(/area/station_base))
+		O.invisibility = 101

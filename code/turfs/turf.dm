@@ -163,12 +163,17 @@
 	planet
 		icon_state = "sand"
 
+/obj
 	station_base
+		icon = 'floors.dmi'
+		name = "floor"
+		icon_state = "floor"
 		density = 0
 		invisibility = 101
 
 		wall
 			icon_state = "wall"
+
 
 /turf/space
 	icon = 'space.dmi'

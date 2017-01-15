@@ -68,7 +68,7 @@ datum/controller/game_controller
 		//	D.process()
 
 		for(var/obj/machinery/machine in machines)
-			if(machine)
+			if(machine && machine.switcher == 1)
 				machine.process()
 				if(machine && machine.use_power)
 					machine.auto_use_power()

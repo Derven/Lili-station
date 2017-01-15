@@ -31,5 +31,7 @@ obj
 
 	makepowernets()
 
+	hide_objs()
+
 	spawn(-1) master_controller.setup()
 	return
