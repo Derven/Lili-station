@@ -5,6 +5,7 @@ var/list/obj/smart_cable/cables_plus = list()
 	var/obj/item/weapon/cable_web/parent
 	icon = 'power.dmi'
 	icon_state = "smart_coil"
+	layer = 2.5
 	anchored = 1
 
 	New(loc, var/obj/item/weapon/cable_web/Parent)
@@ -128,7 +129,7 @@ var/list/obj/smart_cable/cables_plus = list()
 		if(amount > 0)
 			SM = new(last_loc, src)
 			amount -= 1
-			brat << "\blue Вы т&#255;ните кабель! Турум-пум-пам!"
+			brat << "\blue Вы т&#255;нете кабель! Турум-пум-пам!"
 			usr.drop_item_v()
 		else
 			for(var/obj/smart_cable/SM in cables_plus)
