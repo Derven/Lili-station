@@ -19,6 +19,9 @@
 	//var/list/datum/disease2/disease/resistances2 = list()
 	var/antibodies = 0
 
+	proc/handle_chemicals_in_body()
+		if(reagents) reagents.metabolize(src)
+
 	New()
 		var/datum/reagents/R = new/datum/reagents(1000)
 		reagents = R
@@ -50,6 +53,44 @@
 
 		..()
 
+	proc/heal_brute(var/vol)
+		if(chest.brute_dam >= vol)
+			chest.brute_dam -= vol
+
+		if(head.brute_dam >= vol)
+			head.brute_dam -= vol
+
+		if(r_arm.brute_dam >= vol)
+			r_arm.brute_dam -= vol
+
+		if(l_arm.brute_dam >= vol)
+			l_arm.brute_dam -= vol
+
+		if(r_leg.brute_dam >= vol)
+			r_leg.brute_dam -= vol
+
+		if(l_leg.brute_dam >= vol)
+			l_leg.brute_dam -= vol
+
+		if(chest.brute_dam < vol)
+			chest.brute_dam = vol
+
+		if(head.brute_dam < vol)
+			head.brute_dam = 0
+
+		if(r_arm.brute_dam < vol)
+			r_arm.brute_dam = 0
+
+		if(l_arm.brute_dam < vol)
+			l_arm.brute_dam = 0
+
+		if(r_leg.brute_dam  < vol)
+			r_leg.brute_dam = 0
+
+		if(l_leg.brute_dam < vol)
+			l_leg.brute_dam = 0
+
+
 	proc/update_pulling()
 		if (!pulling)
 			PULL.icon_state = "pull_1"
@@ -62,6 +103,7 @@
 		set background = 1
 		handle_stomach()
 		handle_injury()
+		handle_chemicals_in_body()
 
 	proc/death(gibbed)
 		timeofdeath = world.time

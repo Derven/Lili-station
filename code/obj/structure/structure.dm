@@ -98,3 +98,6 @@
 /obj/proc/deconstruct()
 	new parts(src.loc)
 	del(src)
+
+/obj/structure/sign
+	icon ='sign.dmi'
