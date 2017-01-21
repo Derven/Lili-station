@@ -26,8 +26,10 @@
 #include "dervenbay_mk_1000.dm"
 #include "global.dm"
 #include "global_2.dm"
+#include "parallax.dm"
 #include "setup.dm"
 #include "text.dm"
+#include "iso_test.dmm"
 #include "code\FEA_airgroup.dm"
 #include "code\FEA_fire.dm"
 #include "code\FEA_gas_mixture.dm"
@@ -116,6 +118,5 @@
 #include "code\turfs\glass.dm"
 #include "code\turfs\turf.dm"
 #include "code\turfs\wall.dm"
-#include "map\AURORA.dmm"
 // END_INCLUDE
 

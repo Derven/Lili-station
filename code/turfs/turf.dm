@@ -109,7 +109,7 @@
 /turf/simulated/wall
 	name = "wall"
 	icon = 'walls.dmi'
-	icon_state = "wall0"
+	icon_state = "wall"
 	density = 1
 	blocks_air = 1
 	opacity = 1
@@ -117,7 +117,7 @@
 
 	New()
 		..()
-		relativewall_neighbours()
+		//relativewall_neighbours()
 		if(!istype(src, /turf/simulated/wall/window))
 			if(prob(30))
 				var/rand_num = rand(1,2)
@@ -179,6 +179,7 @@
 	icon = 'space.dmi'
 	name = "space"
 	icon_state = "placeholder"
+	layer = 0.5
 
 	temperature = TCMB
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
