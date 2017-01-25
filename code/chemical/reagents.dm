@@ -438,6 +438,11 @@ datum/reagent/medicine/tricordrazine
 	id = "tricordrazine"
 	description = "Has a high chance to heal all types of damage. Overdose instead causes it."
 
+	on_mob_life(var/mob/M as mob)
+		M.heal_brute(volume)
+		..()
+		return
+
 /datum/reagent/consumable/vitamin
 	name = "Vitamin"
 	id = "vitamin"

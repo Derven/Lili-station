@@ -1,4 +1,5 @@
 obj/machinery/atmospherics/pipe
+	pixel_z = -3
 
 	var/datum/gas_mixture/air_temporary //used when reconstructing a pipeline that broke
 	var/datum/pipeline/parent
@@ -296,6 +297,9 @@ obj/machinery/atmospherics/pipe
 	simple/general/visible
 		level = 2
 		icon_state = "intact"
+
+		attack_hand()
+			world << "[dir]"
 
 	simple/general/hidden
 		level = 1

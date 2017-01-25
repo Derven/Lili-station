@@ -140,6 +140,10 @@ turf
 		New()
 			..()
 
+			if(istype(src, /turf/simulated/floor/plating))
+				var/turf/simulated/floor/plating/P = src
+				P.merge()
+
 			if(!blocks_air)
 				air = new
 

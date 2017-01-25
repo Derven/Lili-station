@@ -40,3 +40,7 @@
 		if(A.name == N)
 			return A
 	return 0
+
+/atom/proc/message_to(var/rang, var/msg)
+	for(var/mob/M in range(rang, src))
+		M << msg
