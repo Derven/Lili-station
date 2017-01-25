@@ -28,7 +28,9 @@
 #include "global_2.dm"
 #include "parallax.dm"
 #include "setup.dm"
+#include "stylesheet.dm"
 #include "text.dm"
+#include "skin.dmf"
 #include "iso_test.dmm"
 #include "code\FEA_airgroup.dm"
 #include "code\FEA_fire.dm"
@@ -116,7 +118,7 @@
 #include "code\power\smes.dm"
 #include "code\power\terminal.dm"
 #include "code\turfs\glass.dm"
+#include "code\turfs\iso_wall.dm"
 #include "code\turfs\turf.dm"
-#include "code\turfs\wall.dm"
 // END_INCLUDE
 

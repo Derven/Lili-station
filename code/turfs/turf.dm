@@ -83,11 +83,38 @@
 			else
 				brat << "Заправьте горелку!"
 
+	floor_down
+		pixel_z = -64
+
+	ladder
+		icon = 'floor_ladder.dmi'
+
+		Entered(atom/movable/O)
+
+		Exited(atom/movable/O)
+
 /turf/simulated/floor/plating
 	icon_state = "plating"
+	pixel_z = -3
 
 	attack_hand()
 		replace_turf()
+
+	proc/merge()
+		var/turf/N = get_step(src, NORTH)
+		var/turf/W = get_step(src, WEST)
+
+		if(N && istype(N, /turf/simulated/floor) && !istype(N, /turf/simulated/floor/plating) && W && istype(W, /turf/simulated/floor) && !istype(W, /turf/simulated/floor/plating))
+			icon_state = "plating_nw"
+			return
+		if(N && istype(N, /turf/simulated/floor) && !istype(N, /turf/simulated/floor/plating))
+			icon_state = "plating_n"
+			return
+		if(W && istype(W, /turf/simulated/floor) && !istype(W, /turf/simulated/floor/plating))
+			icon_state = "plating_w"
+			return
+		else
+			icon_state = "plating"
 
 /turf/ship
 	name = "floor"
@@ -117,6 +144,7 @@
 
 	New()
 		..()
+		merge()
 		//relativewall_neighbours()
 		if(!istype(src, /turf/simulated/wall/window))
 			if(prob(30))
@@ -125,7 +153,7 @@
 
 	Del()
 		..()
-		relativewall_neighbours()
+		//relativewall_neighbours()
 
 /turf/simulated/wall/window
 	name = "window"
@@ -135,6 +163,10 @@
 
 	var/image/damage
 	var/health = 100
+
+	New()
+		..()
+		merge()
 
 	update_icon()
 		if(health > 80)
@@ -152,9 +184,51 @@
 		update_icon()
 		if(health < 30)
 			src = new /turf/simulated/floor/plating(src)
-			relativewall_neighbours()
+			//relativewall_neighbours()
 			brat << "<b>Стекло разбиваетс&#255;</b>"
 			//del(src)
+
+	merge()
+		var/turf/N = get_step(src, NORTH)
+		var/turf/S = get_step(src, SOUTH)
+		var/turf/W = get_step(src, WEST)
+		var/turf/E = get_step(src, EAST)
+
+		if(N && istype(N, /turf/simulated/wall/window))
+			icon_state = "window_n"
+			if(S && istype(S, /turf/simulated/wall/window))
+				icon_state = "window_ns"
+			if(W && istype(W, /turf/simulated/wall/window))
+				icon_state = "window_nw"
+			if(E && istype(E, /turf/simulated/wall/window))
+				icon_state = "window_ne"
+
+		if(S && istype(S, /turf/simulated/wall/window))
+			icon_state = "window_s"
+			if(N && istype(N, /turf/simulated/wall/window))
+				icon_state = "window_ns"
+			if(W && istype(W, /turf/simulated/wall/window))
+				icon_state = "window_sw"
+			if(E && istype(E, /turf/simulated/wall/window))
+				icon_state = "window_se"
+
+		if(W && istype(W, /turf/simulated/wall/window))
+			icon_state = "window_w"
+			if(N && istype(N, /turf/simulated/wall/window))
+				icon_state = "window_nw"
+			if(S && istype(S, /turf/simulated/wall/window))
+				icon_state = "window_sw"
+			if(E && istype(E, /turf/simulated/wall/window))
+				icon_state = "window_we"
+
+		if(E && istype(E, /turf/simulated/wall/window))
+			icon_state = "window_w"
+			if(N && istype(N, /turf/simulated/wall/window))
+				icon_state = "window_nw"
+			if(S && istype(S, /turf/simulated/wall/window))
+				icon_state = "window_sw"
+			if(E && istype(E, /turf/simulated/wall/window))
+				icon_state = "window_we"
 
 /turf/unsimulated/floor
 	name = "floor"

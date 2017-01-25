@@ -6,7 +6,7 @@ world
 	fps = 25		// 25 frames per second
 	icon_size = 64	// 32x32 icon size by default
 
-	view = 5		// show up to 6 tiles outward from center (13x13 view)
+	view = 8		// show up to 6 tiles outward from center (13x13 view)
 	turf = /turf/space
 	map_format = ISOMETRIC_MAP
 

@@ -62,7 +62,7 @@ obj/hud
 		icon_state = "blank"
 		var/selecting = "chest"
 		var/image/myzone
-		screen_loc = "EAST+1,NORTH"
+		screen_loc = "EAST,NORTH"
 
 		MouseDown(location, control,params)
 			// Changes because of 4.0
