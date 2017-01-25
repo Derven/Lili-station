@@ -259,6 +259,9 @@
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 700000
 
+/turf/space/New()
+	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
+
 /turf/proc/ReplaceWithSpace()
 	var/old_dir = dir
 	var/turf/space/S = new /turf/space( locate(src.x, src.y, src.z) )
