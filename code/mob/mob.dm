@@ -116,6 +116,26 @@
 		else
 			if(src.pulling)
 				step(src.pulling, get_dir(src.pulling.loc, usr))
+			var/turf/wall_east = get_step(src, EAST)
+			var/turf/wall_south = get_step(src, SOUTH)
+
+			if(dir == 2)
+				wall_east = locate(usr.x + 1, usr.y - 1, usr.z)
+
+			if(dir == 1)
+				wall_east = locate(usr.x + 1, usr.y, usr.z)
+
+			for(var/turf/simulated/wall/W in range(2, src))
+				W.clear_images()
+
+			if(wall_east && istype(wall_east, /turf/simulated/wall))
+				var/turf/simulated/wall/my_wall = wall_east
+				my_wall.hide_me()
+
+			if(wall_south && istype(wall_south, /turf/simulated/wall))
+				var/turf/simulated/wall/my_wall = wall_south
+				my_wall.hide_me()
+
 			..()
 
 	proc/handle_stomach()
