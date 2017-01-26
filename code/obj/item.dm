@@ -19,3 +19,19 @@
 	pressure_resistance = 50
 //	causeerrorheresoifixthis
 	var/obj/item/master = null
+	var/image/I
+
+	proc/wear_clothing(var/mob/M)
+		if(src == M.cloth)
+			I = image(icon = src.icon, icon_state = "[src.icon_state]_onmob")
+			M.overlays += I
+			return
+		else
+			M.overlays -= I
+			return
+
+/obj/item/clothing/suit
+	icon = 'suit.dmi'
+
+/obj/item/clothing/suit/soviet
+	icon_state = "soviet_spacesuit"

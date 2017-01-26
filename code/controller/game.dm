@@ -63,13 +63,13 @@ datum/controller/game_controller
 
 		for(var/mob/M in world)
 			M.Life()
-
 		//for(var/datum/disease/D in active_diseases)
 		//	D.process()
 
 		for(var/obj/machinery/machine in machines)
 			if(machine)
-				machine.process()
+				if(machine.switcher == 1 || !machine.use_power)
+					machine.process()
 				if(machine && machine.use_power)
 					machine.auto_use_power()
 

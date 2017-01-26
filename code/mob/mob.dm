@@ -19,6 +19,9 @@
 	//var/list/datum/disease2/disease/resistances2 = list()
 	var/antibodies = 0
 
+	proc/handle_chemicals_in_body()
+		if(reagents) reagents.metabolize(src)
+
 	New()
 		var/datum/reagents/R = new/datum/reagents(1000)
 		reagents = R
@@ -50,6 +53,44 @@
 
 		..()
 
+	proc/heal_brute(var/vol)
+		if(chest.brute_dam >= vol)
+			chest.brute_dam -= vol
+
+		if(head.brute_dam >= vol)
+			head.brute_dam -= vol
+
+		if(r_arm.brute_dam >= vol)
+			r_arm.brute_dam -= vol
+
+		if(l_arm.brute_dam >= vol)
+			l_arm.brute_dam -= vol
+
+		if(r_leg.brute_dam >= vol)
+			r_leg.brute_dam -= vol
+
+		if(l_leg.brute_dam >= vol)
+			l_leg.brute_dam -= vol
+
+		if(chest.brute_dam < vol)
+			chest.brute_dam = vol
+
+		if(head.brute_dam < vol)
+			head.brute_dam = 0
+
+		if(r_arm.brute_dam < vol)
+			r_arm.brute_dam = 0
+
+		if(l_arm.brute_dam < vol)
+			l_arm.brute_dam = 0
+
+		if(r_leg.brute_dam  < vol)
+			r_leg.brute_dam = 0
+
+		if(l_leg.brute_dam < vol)
+			l_leg.brute_dam = 0
+
+
 	proc/update_pulling()
 		if (!pulling)
 			PULL.icon_state = "pull_1"
@@ -62,6 +103,7 @@
 		set background = 1
 		handle_stomach()
 		handle_injury()
+		handle_chemicals_in_body()
 
 	proc/death(gibbed)
 		timeofdeath = world.time
@@ -74,6 +116,27 @@
 		else
 			if(src.pulling)
 				step(src.pulling, get_dir(src.pulling.loc, usr))
+			var/turf/wall_east = get_step(src, EAST)
+			var/turf/wall_south = get_step(src, SOUTH)
+
+			if(usr)
+				if(dir == 2)
+					wall_east = locate(usr.x + 1, usr.y - 1, usr.z)
+
+				if(dir == 1)
+					wall_east = locate(usr.x + 1, usr.y, usr.z)
+
+			for(var/turf/simulated/wall/W in range(2, src))
+				W.clear_images()
+
+			if(wall_east && istype(wall_east, /turf/simulated/wall))
+				var/turf/simulated/wall/my_wall = wall_east
+				my_wall.hide_me()
+
+			if(wall_south && istype(wall_south, /turf/simulated/wall))
+				var/turf/simulated/wall/my_wall = wall_south
+				my_wall.hide_me()
+
 			..()
 
 	proc/handle_stomach()
@@ -152,8 +215,12 @@
 /mob/proc/u_equip(obj/item/W as obj)
 	if (W == r_hand)
 		r_hand = null
+
 	else if (W == l_hand)
 		l_hand = null
+
+	else if (W == cloth)
+		cloth = null
 
 /atom/movable/verb/pull()
 	set name = "Pull"

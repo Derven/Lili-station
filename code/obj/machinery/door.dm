@@ -8,6 +8,7 @@
 	density = 1
 	opacity = 1
 	anchored = 1
+	switcher = 1
 
 	var
 		close = 1

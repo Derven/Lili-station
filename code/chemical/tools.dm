@@ -38,6 +38,33 @@
 
 /obj/item/weapon/reagent_containers/food
 
+	afterattack(mob/target, mob/user , flag)
+		if(istype(target, /mob))
+			if(!target.reagents) return
+
+
+			if(target.reagents.total_volume >= target.reagents.maximum_volume)
+				user << "\red [target] is full."
+				return
+
+			if(ismob(target))
+				for(var/mob/O in viewers(world.view, user))
+					//O.show_message(text("\red <B>[] drips something onto []!</B>", user, target), 1)
+				src.reagents.reaction(target, TOUCH)
+
+			user << "\blue [target] ест [src]."
+			if (src.reagents.total_volume<=0)
+				user.drop_item_v()
+				del(src)
+
+			else
+				if(!target.reagents.total_volume)
+					user.drop_item_v()
+					del(src)
+
+			return
+
+
 /obj/structure/reagent_dispensers
 
 /obj/item/weapon/reagent_containers/glass
@@ -206,6 +233,17 @@
 	icon = 'stationobjs.dmi'
 	icon_state = "dieseltank"
 	amount_per_transfer_from_this = 10
+
 	New()
 		..()
 		reagents.add_reagent("diesel",1000)
+
+	bullet_act(var/obj/item/projectile/Proj)
+		del(Proj)
+		message_to(5, "\red Цистерна с дизелем взлетает на воздух поджига&#255; все вокруг")
+		var/turf/simulated/floor/F = src.loc
+		F.air.toxins += 100
+		for(var/turf/simulated/floor/floor_in_range in range(1, src))
+			new /obj/effect/hotspot(floor_in_range)
+		F.update_air_properties()
+		del(src)

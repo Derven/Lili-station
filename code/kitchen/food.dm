@@ -339,6 +339,8 @@
 		bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/momeatpie
+
+/obj/item/weapon/reagent_containers/food/snacks/momeatpie
 	name = "Meat-pie"
 	icon_state = "meatpie"
 	desc = "A delicious meatpie."
@@ -805,4 +807,13 @@
 	icon_state = "vegetablepizzaslice"
 	bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/pill
+	icon = 'chemical.dmi'
+	icon_state = "pill"
 
+	tric_pill
+
+	New()
+		..()
+		reagents.add_reagent("tricordrazine", 30)
+		bitesize = 2

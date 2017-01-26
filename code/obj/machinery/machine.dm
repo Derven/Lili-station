@@ -2,6 +2,7 @@
 	name = "machinery"
 	icon = 'stationobjs.dmi'
 	var
+		switcher = 0
 		stat = 0
 		emagged = 0
 		use_power = 0
@@ -37,6 +38,7 @@
 	icon_state = "lamp"
 	power_channel = LIGHT
 	idle_power_usage = 100
+	switcher = 1
 	use_power = 1
 	anchored = 1
 
@@ -64,13 +66,16 @@
 	return
 
 /obj/machinery/proc/auto_use_power()
-	if(!powered(power_channel))
+	if(switcher)
+		if(!powered(power_channel))
+			return 0
+		if(src.use_power == 1)
+			use_power(idle_power_usage,power_channel)
+		else if(src.use_power >= 2)
+			use_power(active_power_usage,power_channel)
+		return 1
+	else
 		return 0
-	if(src.use_power == 1)
-		use_power(idle_power_usage,power_channel)
-	else if(src.use_power >= 2)
-		use_power(active_power_usage,power_channel)
-	return 1
 
 /obj/machinery/power
 	name = null

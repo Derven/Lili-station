@@ -499,6 +499,7 @@
 	desc = "An underfloor disposal pipe."
 	anchored = 1
 	density = 0
+	pixel_z = -3
 
 	level = 1			// underfloor only
 	var/dpdir = 0		// bitmask of pipe directions
@@ -914,6 +915,7 @@
 
 	New()
 		..()
+		invisibility = 101
 		dpdir = dir
 		spawn(1)
 			getlinked()
