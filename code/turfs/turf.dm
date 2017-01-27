@@ -39,10 +39,15 @@
 
 		var/datum/gas_mixture/environment = return_air()
 
-		var/pressure = environment.return_pressure()
 		var/total_moles = environment.total_moles()
+		var/pressure = environment.return_pressure()
+		var/o2_level
 
-		var/o2_level = environment.oxygen/total_moles
+		//space runtime fix
+		if(total_moles != 0)
+			o2_level = environment.oxygen/total_moles
+		else
+			o2_level = 0
 
 		world << "Давление: [round(pressure,0.1)] kPa"
 		world << "Кислород: [round(o2_level*100)]%"
