@@ -127,7 +127,7 @@
 					wall_east = locate(usr.x + 1, usr.y, usr.z)
 
 			for(var/turf/simulated/wall/W in range(2, src))
-				W.clear_images()
+				W.clear_for_all()
 
 			if(wall_east && istype(wall_east, /turf/simulated/wall))
 				var/turf/simulated/wall/my_wall = wall_east

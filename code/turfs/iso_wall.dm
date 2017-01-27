@@ -7,6 +7,9 @@
 	down_wall
 		pixel_z = -64
 
+	test
+		icon_state = "test"
+
 	attack_hand()
 		merge()
 
@@ -29,6 +32,11 @@
 
 	proc/clear_images()
 		usr.client.images -= hide_wall
+
+	proc/clear_for_all()
+		for(var/mob/M in view(5, usr))
+			if(M.client && !istype(src, /turf/simulated/wall/window))
+				M.client.images -= hide_wall
 
 	proc/merge()
 		if(!istype(src, /turf/simulated/wall/window))
