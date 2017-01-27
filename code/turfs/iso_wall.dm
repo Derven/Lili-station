@@ -12,7 +12,6 @@
 
 	verb/hide()
 		set src in view(usr)
-		hide_wall.override = 1
 		usr << hide_wall
 		overlays.Cut()
 		sleep(25)
@@ -23,7 +22,6 @@
 	proc/hide_me()
 		for(var/mob/M in view(5, usr))
 			if(M.client && !istype(src, /turf/simulated/wall/window))
-				hide_wall.override = 1
 				M << hide_wall
 				overlays.Cut()
 				merge()

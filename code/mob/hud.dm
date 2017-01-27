@@ -18,6 +18,16 @@ obj/hud
 		Click()
 			iam.swap_hand()
 
+	hide_walls
+		icon_state = "hide_wall"
+		screen_loc = "SOUTH-1, WEST+6"
+
+		Click()
+			for(var/turf/simulated/wall/W in view(iam))
+				W.hide_me()
+				spawn(25)
+					W.clear_images()
+
 	r_hand
 		icon_state = "r_hand"
 		screen_loc = "SOUTH-1, WEST+1"
@@ -179,6 +189,7 @@ obj/hud
 		obj/hud/zone_sel/ZN_SEL
 		obj/hud/cloth/CL
 		obj/hud/rose_of_winds/ROW
+		obj/hud/hide_walls/HW
 
 	proc
 		create_hud(var/client/C)
@@ -189,6 +200,7 @@ obj/hud
 			ZN_SEL = new(src)
 			CL = new(src)
 			ROW = new(src)
+			HW = new(src)
 
 			C.screen.Add(LH)
 			C.screen.Add(RH)
@@ -197,3 +209,4 @@ obj/hud
 			C.screen.Add(ZN_SEL)
 			C.screen.Add(CL)
 			C.screen.Add(ROW)
+			C.screen.Add(HW)

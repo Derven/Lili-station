@@ -145,6 +145,7 @@
 	New()
 		..()
 		hide_wall = image('walls.dmi', icon_state = "wall_hide", layer = 10, loc = src)
+		hide_wall.override = 1
 		merge()
 		//relativewall_neighbours()
 		if(!istype(src, /turf/simulated/wall/window))
