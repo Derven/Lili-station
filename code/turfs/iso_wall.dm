@@ -17,7 +17,8 @@
 		usr << hide_wall
 		overlays.Cut()
 		sleep(25)
-		del(hide_wall)
+		usr.client.images -= hide_wall
+		//del(hide_wall) 10 îïòèìèçàöèé èç 10
 		merge()
 
 	proc/hide_me()
@@ -31,7 +32,7 @@
 			..()
 
 	proc/clear_images()
-		del(hide_wall)
+		usr.client.images -= hide_wall
 
 	proc/merge()
 		if(!istype(src, /turf/simulated/wall/window))
