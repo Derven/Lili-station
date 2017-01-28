@@ -16,6 +16,22 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 	var/throw_hyuow_range = 7
 	var/moved_recently = 0
 
+/mob
+	var/image/select_overlay
+
+/atom/MouseEntered()
+	usr.select_overlay.icon = icon
+	usr.select_overlay.icon_state = icon_state
+	usr.select_overlay.layer = layer
+	usr.select_overlay.loc = src
+	if(!istype(src, /obj/hud))
+		usr.select_overlay.color = "blue"
+		usr << usr.select_overlay
+
+
+/atom/MouseExited()
+	usr.client.images -= usr.select_overlay
+
 /atom/proc/MouseDrop_T()
 	return
 

@@ -23,6 +23,8 @@
 		if(reagents) reagents.metabolize(src)
 
 	New()
+		select_overlay = image(usr)
+		usr.select_overlay.override = 1
 		var/datum/reagents/R = new/datum/reagents(1000)
 		reagents = R
 		R.my_atom = src
