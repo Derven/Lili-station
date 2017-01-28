@@ -91,13 +91,6 @@
 	floor_down
 		pixel_z = -64
 
-	ladder
-		icon = 'floor_ladder.dmi'
-
-		Entered(atom/movable/O)
-
-		Exited(atom/movable/O)
-
 /turf/simulated/floor/plating
 	icon_state = "plating"
 	pixel_z = -3
