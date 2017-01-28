@@ -120,11 +120,33 @@
 			var/turf/wall_south = get_step(src, SOUTH)
 
 			if(usr)
-				if(dir == 2)
-					wall_east = locate(usr.x + 1, usr.y - 1, usr.z)
+				if(usr.client.dir == NORTH)
+					if(dir == 2)
+						wall_east = locate(usr.x + 1, usr.y - 1, usr.z)
 
-				if(dir == 1)
-					wall_east = locate(usr.x + 1, usr.y, usr.z)
+					if(dir == 1)
+						wall_east = locate(usr.x + 1, usr.y, usr.z)
+
+				if(usr.client.dir == EAST)
+					if(dir == 2)
+						wall_east = locate(usr.x - 1, usr.y - 1, usr.z)
+
+					if(dir == 1)
+						wall_east = locate(usr.x - 1, usr.y, usr.z)
+
+				if(usr.client.dir == SOUTH)
+					if(dir == 2)
+						wall_east = locate(usr.x - 1, usr.y, usr.z)
+
+					if(dir == 1)
+						wall_east = locate(usr.x - 1, usr.y + 1, usr.z)
+
+				if(usr.client.dir == WEST)
+					if(dir == 2)
+						wall_east = locate(usr.x + 1, usr.y, usr.z)
+
+					if(dir == 1)
+						wall_east = locate(usr.x + 1, usr.y + 1, usr.z)
 
 			for(var/turf/simulated/wall/W in range(2, src))
 				W.clear_for_all()
