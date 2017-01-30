@@ -35,7 +35,6 @@
 		icon_state = "motor_off"
 
 /obj/machinery/lamp
-	icon_state = "lamp"
 	power_channel = LIGHT
 	idle_power_usage = 100
 	switcher = 1
@@ -47,7 +46,7 @@
 		luminosity = 0
 		return
 	else
-		luminosity = 4
+		luminosity = 6
 
 /obj/machinery/New()
 	..()

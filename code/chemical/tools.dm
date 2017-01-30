@@ -70,6 +70,7 @@
 /obj/item/weapon/reagent_containers/glass
 	name = " "
 	desc = " "
+	layer = 8
 	icon = 'chemical.dmi'
 	icon_state = "bottle"
 	amount_per_transfer_from_this = 10

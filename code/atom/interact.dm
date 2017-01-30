@@ -57,6 +57,7 @@ atom/proc/attack_hand()
 		return r_hand
 
 /obj/item/proc/pickup(mob/user)
+	pixel_z = 0
 	return
 
 /mob/proc/put_in_hand(var/obj/item/I)

@@ -95,8 +95,7 @@
 	icon_state = "plating"
 	pixel_z = -3
 
-	attack_hand()
-		replace_turf()
+
 
 	proc/merge()
 		var/turf/N = get_step(src, NORTH)

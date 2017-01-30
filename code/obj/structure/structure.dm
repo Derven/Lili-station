@@ -19,9 +19,12 @@
 		if(istype(W, /obj/item/weapon/wrench))
 			brat << "Вы разбираете стол..."
 			if(do_after(brat, 5))
+				for(var/obj/O in src.loc)
+					O.pixel_z = -16
 				deconstruct()
 			return
 
+		W.pixel_z = 6
 		usr.drop_item(src)
 		return
 
