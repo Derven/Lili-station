@@ -23,6 +23,21 @@
 		usr.drop_item(src)
 		return
 
+	closet_2
+		anchored = 1
+		name = "Closet"
+		desc = "It's a closet!"
+		icon = 'closet.dmi'
+		icon_state = "closed1"
+
+	closet_3
+		anchored = 1
+		name = "Closet"
+		desc = "It's a closet!"
+		icon = 'closet.dmi'
+		icon_state = "polka"
+
+
 /obj/structure/closet/proc/can_open()
 	if(src.welded)
 		return 0
