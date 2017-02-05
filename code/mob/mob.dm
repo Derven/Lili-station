@@ -1,6 +1,7 @@
 /mob
 	icon = 'mob.dmi'
 	icon_state = "mob"
+	layer = 15
 
 	gender = MALE
 	var/list/stomach_contents = list()

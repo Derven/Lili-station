@@ -15,6 +15,7 @@ world
 
 mob
 	step_size = 64
+	layer = 18
 
 obj
 	step_size = 64

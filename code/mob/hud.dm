@@ -41,7 +41,7 @@ obj/hud
 
 		Click()
 			iam.drop_item_v()
-
+/*
 	rose_of_winds
 		icon_state = "rose_of_winds"
 		screen_loc = "SOUTH-1, WEST+5"
@@ -66,7 +66,7 @@ obj/hud
 				icon_state = "rose_of_winds_n"
 				iam.client.dir = NORTH
 				return
-
+*/
 	cloth
 		icon_state = "cloth"
 		screen_loc = "SOUTH-1, WEST+3"
@@ -188,7 +188,7 @@ obj/hud
 		obj/hud/pulling/PULL
 		obj/hud/zone_sel/ZN_SEL
 		obj/hud/cloth/CL
-		obj/hud/rose_of_winds/ROW
+		//obj/hud/rose_of_winds/ROW
 		obj/hud/hide_walls/HW
 
 	proc
@@ -199,7 +199,7 @@ obj/hud
 			PULL = new(src)
 			ZN_SEL = new(src)
 			CL = new(src)
-			ROW = new(src)
+			//ROW = new(src)
 			HW = new(src)
 
 			C.screen.Add(LH)
@@ -208,5 +208,5 @@ obj/hud
 			C.screen.Add(PULL)
 			C.screen.Add(ZN_SEL)
 			C.screen.Add(CL)
-			C.screen.Add(ROW)
+			//C.screen.Add(ROW)
 			C.screen.Add(HW)

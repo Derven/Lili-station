@@ -96,6 +96,12 @@
 	pixel_z = -3
 
 
+	Entered(var/atom/movable/O)
+		O.pixel_z = -3
+
+	Exited(var/atom/movable/O)
+		O.pixel_z = 0
+
 
 	proc/merge()
 		var/turf/N = get_step(src, NORTH)
@@ -156,6 +162,7 @@
 	name = "wall"
 	icon = 'walls.dmi'
 	icon_state = "wall"
+	Height = 2
 	density = 1
 	blocks_air = 1
 	opacity = 1
