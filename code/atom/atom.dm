@@ -25,7 +25,7 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 	usr.select_overlay.layer = layer
 	usr.select_overlay.loc = src
 	if(!istype(src, /obj/hud))
-		usr.select_overlay.color = "blue"
+		usr.select_overlay.color = "#c0e0ff"
 		usr << usr.select_overlay
 
 
