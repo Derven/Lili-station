@@ -2,6 +2,7 @@
 	icon = 'mob.dmi'
 	icon_state = "mob"
 	layer = 15
+	var/death = 0
 
 	gender = MALE
 	var/list/stomach_contents = list()
@@ -54,6 +55,8 @@
 		organs += l_leg
 		organs += groin
 
+		reagents.add_reagent("blood",300)
+
 		..()
 
 	proc/heal_brute(var/vol)
@@ -93,6 +96,28 @@
 		if(l_leg.brute_dam < vol)
 			l_leg.brute_dam = 0
 
+	proc/blood_flow()
+		if(chest.brute_dam > 80)
+			reagents.remove_reagent("blood", 20)
+			src << "\red Вы тер&#255;ете немного крови"
+		if(head.brute_dam > 80)
+			reagents.remove_reagent("blood", 18)
+			src << "\red Вы тер&#255;ете немного крови"
+		if(r_leg.brute_dam > 80)
+			reagents.remove_reagent("blood", 14)
+			src << "\red Вы тер&#255;ете немного крови"
+		if(l_leg.brute_dam > 80)
+			reagents.remove_reagent("blood", 14)
+			src << "\red Вы тер&#255;ете немного крови"
+		if(r_arm.brute_dam > 80)
+			reagents.remove_reagent("blood", 8)
+			src << "\red Вы тер&#255;ете немного крови"
+		if(l_arm.brute_dam > 80)
+			reagents.remove_reagent("blood", 8)
+			src << "\red Вы тер&#255;ете немного крови"
+		if(!reagents.has_reagent("blood", 50))
+			death()
+
 
 	proc/update_pulling()
 		if (!pulling)
@@ -102,15 +127,17 @@
 			PULL.icon_state = "pull_2"
 
 	proc/Life()
-		set invisibility = 0
-		set background = 1
-		handle_stomach()
-		handle_injury()
-		handle_chemicals_in_body()
+		if(death == 0)
+			set invisibility = 0
+			set background = 1
+			handle_stomach()
+			handle_injury()
+			handle_chemicals_in_body()
 
 	proc/death(gibbed)
 		timeofdeath = world.time
 		world << "DEATH"
+		death = 1
 		return
 
 	Move()
@@ -185,6 +212,7 @@
 
 	proc/handle_injury()
 		spawn(0)
+			blood_flow()
 			if(istype(src, /mob) && stat != 2)
 				for(var/datum/organ/external/O in organs)
 					if(istype(O, /datum/organ/external/r_leg))

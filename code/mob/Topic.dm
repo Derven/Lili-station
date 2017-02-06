@@ -3,5 +3,6 @@
 		Move(pick(jobmarks))
 		lobby.invisibility = 101
 		usr << sound(null)
+		usr << browse(null, "window=setup")
 	if(href_list["enter"] == "nahoy")
 		Logout()
