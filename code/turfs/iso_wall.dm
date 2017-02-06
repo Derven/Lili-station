@@ -5,7 +5,7 @@ atom/var
 	ZLevel = 1
 
 proc/init_z_pixel()
-	for(var/atom/All as mob | obj | turf in world) //This sets the initial height of the atoms in the world
+	for(var/atom/movable/All as mob | obj in world) //This sets the initial height of the atoms in the world
 		All.pixel_z = (All.ZLevel - 1) * 32
 
 turf
@@ -28,6 +28,16 @@ mob
 	var
 	//	list/SightBlockersList = /list
 		Climbing //Tells if you are currently ascending stairs or not
+
+/turf/simulated/floor/floorwall
+	Height = 2
+	density = 0
+	icon_state = "floorwall"
+
+/turf/simulated/floor/platingwall
+	Height = 2
+	density = 0
+	pixel_z = -3
 
 /turf/simulated/wall/stairs
 	icon_state = "stairsnorth"

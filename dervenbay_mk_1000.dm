@@ -35,5 +35,7 @@ obj
 
 	hide_objs()
 
+	init_z_pixel()
+
 	spawn(-1) master_controller.setup()
 	return

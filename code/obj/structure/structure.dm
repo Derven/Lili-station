@@ -10,6 +10,9 @@
 	var/auto_type = /obj/structure/table
 	var/auto = 1
 
+	zlevel_2
+		ZLevel = 2
+
 	New()
 		..()
 		set_up()
