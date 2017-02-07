@@ -14,8 +14,6 @@ var/list/obj/smart_cable/cables_plus = list()
 		for(var/obj/smart_cable/SC in orange(1,src))
 			SC.upd()
 		upd()
-		for(var/obj/power_socket/PW in src.loc)
-			PW.connect(src)
 		..()
 
 	attackby(var/obj/item/weapon/W as obj)
@@ -143,34 +141,3 @@ var/list/obj/smart_cable/cables_plus = list()
 
 	dropped()
 		last_loc = src.loc
-
-/obj/power_socket
-	icon = 'power.dmi'
-	icon_state = "socket"
-	anchored = 1
-	var/obj/machinery/slot
-	var/obj/item/weapon/cable_web/CB
-
-	attack_hand()
-		if(slot && CB)
-			disconnect()
-
-	proc/connect(var/obj/smart_cable/SM)
-		if(!slot)
-			SM.parent.machine.switcher = 1
-			for(var/mob/M in range(3, src))
-				M << "[SM.parent.machine] подключен к сети!"
-			slot = SM.parent.machine
-			CB = SM.parent
-			CB.invisibility = 101
-		else
-			for(var/mob/M in range(3, src))
-				M << "\red Попытка подключить [SM.parent.machine] к сети сорвалась! Розетка не имеет свободных портов!"
-
-	proc/disconnect()
-		CB.machine.switcher = 0
-		for(var/mob/M in range(3, src))
-			M << "[CB.machine] отключен от сети!"
-		slot = null
-		CB.invisibility = 0
-		CB = null

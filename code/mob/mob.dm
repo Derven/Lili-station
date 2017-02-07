@@ -109,21 +109,33 @@
 		if(chest.brute_dam > 80)
 			reagents.remove_reagent("blood", 20)
 			src << "\red Вы тер&#255;ете немного крови"
+			new /obj/blood (src.loc)
+
 		if(head.brute_dam > 80)
 			reagents.remove_reagent("blood", 18)
 			src << "\red Вы тер&#255;ете немного крови"
+			new /obj/blood (src.loc)
+
 		if(r_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
 			src << "\red Вы тер&#255;ете немного крови"
+			new /obj/blood (src.loc)
+
 		if(l_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
 			src << "\red Вы тер&#255;ете немного крови"
+			new /obj/blood (src.loc)
+
 		if(r_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
 			src << "\red Вы тер&#255;ете немного крови"
+			new /obj/blood (src.loc)
+
 		if(l_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
 			src << "\red Вы тер&#255;ете немного крови"
+			new /obj/blood (src.loc)
+
 		if(!reagents.has_reagent("blood", 50))
 			death()
 

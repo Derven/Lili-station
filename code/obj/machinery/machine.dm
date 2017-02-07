@@ -2,7 +2,7 @@
 	name = "machinery"
 	icon = 'stationobjs.dmi'
 	var
-		switcher = 0
+		switcher = 1
 		stat = 0
 		emagged = 0
 		use_power = 0

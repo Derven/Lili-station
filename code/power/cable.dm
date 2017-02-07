@@ -462,12 +462,3 @@ obj/structure/cable/proc/cablecolor_hyalor(var/color_hyalorC)
 	if(color_hyalorC)
 		color_hyalor_n = color_hyalorC
 	color_hyalor = color_hyalor_n
-	switch(color_hyalorC)
-		if("red")
-			icon = 'power_cond_red.dmi'
-		if("yellow")
-			icon = 'power_cond_yellow.dmi'
-		if("green")
-			icon = 'power_cond_green.dmi'
-		if("blue")
-			icon = 'power_cond_blue.dmi'

@@ -110,8 +110,14 @@
 		var/turf/S = get_step(src, SOUTH)
 		var/turf/E = get_step(src, EAST)
 
+		if(W && istype(W, /turf/simulated/floor) && !istype(W, /turf/simulated/floor/plating) && E && istype(E, /turf/simulated/floor) && !istype(E, /turf/simulated/floor/plating))
+			icon_state = "plating_we"
+			return
 		if(N && istype(N, /turf/simulated/floor) && !istype(N, /turf/simulated/floor/plating) && W && istype(W, /turf/simulated/floor) && !istype(W, /turf/simulated/floor/plating))
 			icon_state = "plating_nw"
+			return
+		if(N && istype(N, /turf/simulated/floor) && !istype(N, /turf/simulated/floor/plating) && S && istype(S, /turf/simulated/floor) && !istype(S, /turf/simulated/floor/plating))
+			icon_state = "plating_sn"
 			return
 		if(S && istype(S, /turf/simulated/floor) && !istype(S, /turf/simulated/floor/plating) && E && istype(W, /turf/simulated/floor) && !istype(E, /turf/simulated/floor/plating))
 			icon_state = "plating_se"
@@ -121,9 +127,6 @@
 			return
 		if(N && istype(N, /turf/simulated/floor) && !istype(N, /turf/simulated/floor/plating) && E && istype(E, /turf/simulated/floor) && !istype(E, /turf/simulated/floor/plating))
 			icon_state = "plating_ne"
-			return
-		if(W && istype(W, /turf/simulated/floor) && !istype(W, /turf/simulated/floor/plating) && E && istype(E, /turf/simulated/floor) && !istype(E, /turf/simulated/floor/plating))
-			icon_state = "plating_we"
 			return
 		if(N && istype(N, /turf/simulated/floor) && !istype(N, /turf/simulated/floor/plating))
 			icon_state = "plating_n"
