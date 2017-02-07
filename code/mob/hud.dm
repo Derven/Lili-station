@@ -18,6 +18,19 @@ obj/hud
 		Click()
 			iam.swap_hand()
 
+	act_intent
+		icon_state = "help"
+		screen_loc = "SOUTH-1, WEST+5"
+
+		Click()
+			iam.switch_intent()
+			if(icon_state == "help")
+				icon_state = "harm"
+				return
+			else
+				icon_state = "help"
+				return
+
 	hide_walls
 		icon_state = "hide_wall"
 		screen_loc = "SOUTH-1, WEST+6"
@@ -190,6 +203,7 @@ obj/hud
 		obj/hud/cloth/CL
 		//obj/hud/rose_of_winds/ROW
 		obj/hud/hide_walls/HW
+		obj/hud/act_intent/AC
 
 	proc
 		create_hud(var/client/C)
@@ -199,6 +213,7 @@ obj/hud
 			PULL = new(src)
 			ZN_SEL = new(src)
 			CL = new(src)
+			AC = new(src)
 			//ROW = new(src)
 			HW = new(src)
 
@@ -210,3 +225,4 @@ obj/hud
 			C.screen.Add(CL)
 			//C.screen.Add(ROW)
 			C.screen.Add(HW)
+			C.screen.Add(AC)

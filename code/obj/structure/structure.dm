@@ -58,8 +58,6 @@
 			if(locate(/obj/structure/table, east) && locate(/obj/structure/table, west))
 				icon_state = "we"
 
-
-
 //			if(locate(/obj/structure/table,get_step(src,direction)))
 //				var/obj/structure/table/T = locate(/obj/structure/table,get_step(src,direction))
 

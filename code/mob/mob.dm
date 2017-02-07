@@ -3,6 +3,7 @@
 	icon_state = "mob"
 	layer = 15
 	var/death = 0
+	var/intent = 1 //1 - help, 0 - harm
 
 	gender = MALE
 	var/list/stomach_contents = list()
@@ -58,6 +59,14 @@
 		reagents.add_reagent("blood",300)
 
 		..()
+
+	proc/switch_intent()
+		if(intent)
+			intent = 0
+			return
+		else
+			intent = 1
+			return
 
 	proc/heal_brute(var/vol)
 		if(chest.brute_dam >= vol)
@@ -118,7 +127,6 @@
 		if(!reagents.has_reagent("blood", 50))
 			death()
 
-
 	proc/update_pulling()
 		if (!pulling)
 			PULL.icon_state = "pull_1"
@@ -138,7 +146,17 @@
 		timeofdeath = world.time
 		world << "DEATH"
 		death = 1
+		rest()
 		return
+
+	attack_hand()
+		if(usr.intent == 0) //harm
+			var/datum/organ/external/affecting = get_organ(ran_zone(usr.ZN_SEL.selecting))
+			apply_damage(rand(5, 10), BRUTE , affecting, 0)
+			for(var/mob/M in range(5, src))
+				M << "\red [usr] בüוע [src] ג מבכאסעü [affecting]"
+		else
+			return
 
 	Move()
 		if(lying)
