@@ -162,13 +162,14 @@
 		return
 
 	attack_hand()
-		if(usr.intent == 0) //harm
-			var/datum/organ/external/affecting = get_organ(ran_zone(usr.ZN_SEL.selecting))
-			apply_damage(rand(5, 10), BRUTE , affecting, 0)
-			for(var/mob/M in range(5, src))
-				M << "\red [usr] בüוע [src] ג מבכאסעü [affecting]"
-		else
-			return
+		if(death == 0)
+			if(usr.intent == 0) //harm
+				var/datum/organ/external/affecting = get_organ(ran_zone(usr.ZN_SEL.selecting))
+				apply_damage(rand(5, 10), BRUTE , affecting, 0)
+				for(var/mob/M in range(5, src))
+					M << "\red [usr] בüוע [src] ג מבכאסעü [affecting]"
+			else
+				return
 
 	Move()
 		if(lying)
