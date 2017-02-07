@@ -98,6 +98,7 @@
 
 /obj/structure/sign
 	icon ='sign.dmi'
+	anchored = 1
 
 /obj/structure/decor
 	icon ='stationobjs.dmi'

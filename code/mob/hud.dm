@@ -24,7 +24,7 @@ obj/hud
 
 		Click()
 			iam.switch_intent()
-			if(icon_state == "help")
+			if(iam.intent == 0)
 				icon_state = "harm"
 				return
 			else

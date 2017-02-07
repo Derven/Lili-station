@@ -11,3 +11,8 @@
 
 /mob/verb/rest()
 	resting()
+
+/mob/verb/miracle()
+	death = 0
+	reagents.add_reagent("blood", 300)
+	heal_brute(100)
