@@ -40,7 +40,7 @@ mob
 	pixel_z = -3
 	icon_state = "floorplating"
 
-/turf/simulated/wall/stairs
+/turf/simulated/floor/stairs
 	icon_state = "stairsnorth"
 	density = 1
 	Height = 2
