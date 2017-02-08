@@ -12,6 +12,7 @@
 	flags = FPRINT
 	var/health = 100
 	var/lastbang
+	parts = /obj/item/wood
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))

@@ -243,7 +243,7 @@
 	return 1
 
 /mob/proc/attacked_by(var/obj/item/I, var/mob/user, var/def_zone)
-	if(!I || !user)	return 0
+	if((!I || !user) && istype(I, /obj/item/weapon/reagent_containers))	return 0
 
 	var/datum/organ/external/affecting = get_organ(ran_zone(user.ZN_SEL.selecting))
 	var/hit_area = parse_zone(affecting.name)

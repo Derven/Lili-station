@@ -98,5 +98,6 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 		if (!( istype(W, /obj/item/weapon/grab) ) && !(istype(W, /obj/item/weapon/plastique)) &&!(istype(W, /obj/item/weapon/cleaner)) &&!(istype(W, /obj/item/weapon/chemsprayer)) &&!(istype(W, /obj/item/weapon/pepperspray)) && !(istype(W, /obj/item/weapon/plantbgone)) )
 			for(var/mob/O in viewers(src, null))
 				if (O.client)
-					O << text("\red <B>[] גû בüועו [] ס ןמלמשü‏ []</B>", src, user, W)
+					if(O.intent == 0)
+						O << text("\red <B>[] גû בüועו [] ס ןמלמשü‏ []</B>", src, user, W)
 	return

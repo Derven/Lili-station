@@ -43,16 +43,6 @@
 	test_area
 		requires_power = 0
 
-		z_down
-
-			Entered(atom/movable/O)
-				O.pixel_z -= 64
-				O.pixel_y += 64
-
-			Exited(atom/movable/O)
-				O.pixel_z += 64
-				O.pixel_y -= 64
-
 /area/New()
 	master = src
 	related = list(src)

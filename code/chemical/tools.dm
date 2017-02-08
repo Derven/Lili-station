@@ -53,6 +53,7 @@
 				src.reagents.reaction(target, TOUCH)
 
 			user << "\blue [target] ест [src]."
+			src.reagents.trans_to(target, amount_per_transfer_from_this)
 			if (src.reagents.total_volume<=0)
 				user.drop_item_v()
 				del(src)

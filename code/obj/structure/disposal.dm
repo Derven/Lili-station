@@ -285,16 +285,12 @@
 	// should usually only occur if the pipe network is modified
 	proc/expel(var/obj/structure/disposalholder/H)
 
-		var/turf/target
 		//playsound(src, 'hiss.ogg', 50, 0, 0)
 		for(var/atom/movable/AM in H)
-			target = get_offset_target_turf(src.loc, rand(5)-rand(5), rand(5)-rand(5))
 
 			AM.loc = src.loc
 			AM.pipe_eject(0)
-			spawn(1)
-				if(AM)
-					AM.throw_hyuow_at(target, 5, 1)
+
 
 		H.vent_gas(loc)
 		del(H)
@@ -620,7 +616,7 @@
 				AM.pipe_eject(direction)
 				spawn(1)
 					if(AM)
-						AM.throw_hyuow_at(target, 100, 1)
+						AM.throw_hyuow_at(target, 1, 1)
 			H.vent_gas(T)
 			del(H)
 
@@ -905,9 +901,6 @@
 		return P
 
 
-
-
-
 //a trunk joining to a disposal bin or outlet on the same turf
 /obj/structure/disposalpipe/trunk
 	icon_state = "pipe-t"
@@ -1002,7 +995,7 @@
 		..()
 
 		spawn(1)
-			target = get_ranged_target_turf(src, dir, 10)
+			target = get_ranged_target_turf(src, dir, 1)
 
 	// expel the contents of the holder object, then delete it
 	// called when the holder exits the outlet
@@ -1016,9 +1009,7 @@
 
 		for(var/atom/movable/AM in H)
 			AM.loc = src.loc
-			AM.pipe_eject(dir)
-			spawn(1)
-				AM.throw_hyuow_at(target, 3, 1)
+			//AM.pipe_eject(dir)
 		H.vent_gas(src.loc)
 		del(H)
 
