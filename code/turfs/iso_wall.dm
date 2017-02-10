@@ -46,6 +46,7 @@ mob
 	Height = 2
 
 	Enter(var/atom/movable/A)
+		..()
 		if(A.x == src.x && (A.y + 1) == src.y && A.ZLevel == src.ZLevel)
 			A.ZLevel += 1
 			spawn(1) A.pixel_z += Pixel_Height/8
@@ -62,6 +63,8 @@ mob
 		else if((A.x + 1) == src.x && A.y == src.y && (A.ZLevel - 1) == src.ZLevel && A.Climbing)
 			return 1
 		else if((A.x - 1) == src.x && A.y == src.y && (A.ZLevel - 1) == src.ZLevel && A.Climbing)
+			return 1
+		else
 			return 1
 
 	Exit(var/atom/movable/A) //Checks when you exit if you are moving in an acceptable direction.
@@ -89,6 +92,8 @@ mob
 			for(var/turf/simulated/floor/stairs/Stairs in oview(1))
 				if((Stairs.x + 1) == src.x && Stairs.y == src.y && Stairs.ZLevel == src.ZLevel)
 					return 1
+		else
+			return 1
 
 /turf/simulated/wall
 	var/image/wall_overlay

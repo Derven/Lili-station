@@ -25,6 +25,12 @@
 	proc/handle_chemicals_in_body()
 		if(reagents) reagents.metabolize(src)
 
+	verb/who()
+		for(var/mob/M in world)
+			usr << "игроки в игре: "
+			if(M.client)
+				usr << M.ckey
+
 	New()
 		select_overlay = image(usr)
 		usr.select_overlay.override = 1
@@ -219,6 +225,9 @@
 			if(wall_south && istype(wall_south, /turf/simulated/wall))
 				var/turf/simulated/wall/my_wall = wall_south
 				my_wall.hide_me()
+
+			if(!istype(loc, /turf/simulated/floor/stairs))
+				pixel_z = (ZLevel-1) * 32
 
 			..()
 
