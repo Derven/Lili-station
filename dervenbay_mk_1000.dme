@@ -64,6 +64,7 @@
 #include "code\mob\organ.dm"
 #include "code\mob\procs_and_verbs.dm"
 #include "code\mob\say.dm"
+#include "code\mob\Stat.dm"
 #include "code\mob\Topic.dm"
 #include "code\mob\monkey\main.dm"
 #include "code\new\cables_and_sockets.dm"

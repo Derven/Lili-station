@@ -1,6 +1,4 @@
 /obj/machinery/atmospherics/unary/vent_scrubber
-	icon = 'vent_scrubber.dmi'
-	icon_state = "off"
 
 	name = "Air Scrubber"
 	desc = "Has a valve and pump attached to it"

@@ -21,6 +21,11 @@
 	var/obj/item/master = null
 	var/image/I
 
+	verb/get_from_closet()
+		set src in oview(1)
+		if(istype(loc, /obj/structure/closet))
+			Move(loc.loc)
+
 	proc/wear_clothing(var/mob/M)
 		if(src == M.cloth)
 			I = image(icon = src.icon, icon_state = "[src.icon_state]_onmob")

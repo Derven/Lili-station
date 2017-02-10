@@ -1,6 +1,4 @@
 /obj/machinery/atmospherics/unary/vent_pump
-	icon = 'vent_pump.dmi'
-	icon_state = "off"
 
 	name = "Air Vent"
 	desc = "Has a valve and pump attached to it"

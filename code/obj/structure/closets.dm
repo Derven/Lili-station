@@ -36,8 +36,15 @@
 		name = "Closet"
 		desc = "It's a closet!"
 		icon = 'closet.dmi'
-		icon_state = "polka"
+		icon_state = "polka_0"
 
+		attack_hand()
+			usr.cur_object_i_give = src
+
+		attackby(var/obj/item/I)
+			usr.drop_item(src)
+			I.Move(src)
+			icon_state = "polka_1"
 
 /obj/structure/closet/proc/can_open()
 	if(src.welded)
