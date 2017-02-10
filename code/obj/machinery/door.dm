@@ -14,7 +14,7 @@
 		close = 1
 
 	hydro
-		icon = 'airlock_hydro.dmi'
+		//icon = 'airlock_hydro.dmi'
 
 	New()
 		..()

@@ -16,6 +16,13 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 	var/throw_hyuow_range = 7
 	var/moved_recently = 0
 
+/atom/movable/var/list/pullers = list()
+
+/atom/movable/Move()
+	..()
+	for(var/mob/M in pullers)
+		M.update_pulling()
+
 /mob
 	var/image/select_overlay
 
