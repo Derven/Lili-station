@@ -13,6 +13,9 @@
 	var
 		close = 1
 
+	hydro
+		icon = 'airlock_hydro.dmi'
+
 	New()
 		..()
 		var/turf/simulated/floor/T = src.loc

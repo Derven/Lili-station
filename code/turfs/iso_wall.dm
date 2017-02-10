@@ -110,7 +110,6 @@ mob
 	verb/hide()
 		set src in view(usr)
 		usr << hide_wall
-		overlays.Cut()
 		sleep(25)
 		usr.client.images -= hide_wall
 		//del(hide_wall) 10 оптимизаций из 10
