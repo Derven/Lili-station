@@ -145,12 +145,14 @@
 		if(!reagents.has_reagent("blood", 50))
 			death()
 
+	proc/stop_pulling()
+		pulling.pullers -= src
+		pulling = null
+		PULL.icon_state = "pull_1"
+
 	proc/update_pulling()
-		if (!pulling)
-			PULL.icon_state = "pull_1"
-			return 0
-		else
-			PULL.icon_state = "pull_2"
+		if((get_dist(src, pulling) > 1) || !isturf(pulling.loc))
+			stop_pulling()
 
 	proc/Life()
 		if(death == 0)
@@ -180,56 +182,57 @@
 	Move()
 		if(lying)
 			return
-		else
-			if(src.pulling)
-				step(src.pulling, get_dir(src.pulling.loc, usr))
-			var/turf/wall_east = get_step(src, EAST)
-			var/turf/wall_south = get_step(src, SOUTH)
 
-			if(usr)
-				if(usr.client.dir == NORTH)
-					if(dir == 2)
-						wall_east = locate(usr.x + 1, usr.y - 1, usr.z)
+		var/turf/wall_east = get_step(src, EAST)
+		var/turf/wall_south = get_step(src, SOUTH)
 
-					if(dir == 1)
-						wall_east = locate(usr.x + 1, usr.y, usr.z)
+		if(usr)
+			if(usr.client.dir == NORTH)
+				if(dir == 2)
+					wall_east = locate(usr.x + 1, usr.y - 1, usr.z)
 
-				if(usr.client.dir == EAST)
-					if(dir == 2)
-						wall_east = locate(usr.x - 1, usr.y - 1, usr.z)
+				if(dir == 1)
+					wall_east = locate(usr.x + 1, usr.y, usr.z)
 
-					if(dir == 1)
-						wall_east = locate(usr.x - 1, usr.y, usr.z)
+			if(usr.client.dir == EAST)
+				if(dir == 2)
+					wall_east = locate(usr.x - 1, usr.y - 1, usr.z)
 
-				if(usr.client.dir == SOUTH)
-					if(dir == 2)
-						wall_east = locate(usr.x - 1, usr.y, usr.z)
+				if(dir == 1)
+					wall_east = locate(usr.x - 1, usr.y, usr.z)
 
-					if(dir == 1)
-						wall_east = locate(usr.x - 1, usr.y + 1, usr.z)
+			if(usr.client.dir == SOUTH)
+				if(dir == 2)
+					wall_east = locate(usr.x - 1, usr.y, usr.z)
 
-				if(usr.client.dir == WEST)
-					if(dir == 2)
-						wall_east = locate(usr.x + 1, usr.y, usr.z)
+				if(dir == 1)
+					wall_east = locate(usr.x - 1, usr.y + 1, usr.z)
 
-					if(dir == 1)
-						wall_east = locate(usr.x + 1, usr.y + 1, usr.z)
+			if(usr.client.dir == WEST)
+				if(dir == 2)
+					wall_east = locate(usr.x + 1, usr.y, usr.z)
 
-			for(var/turf/simulated/wall/W in range(2, src))
-				W.clear_for_all()
+				if(dir == 1)
+					wall_east = locate(usr.x + 1, usr.y + 1, usr.z)
 
-			if(wall_east && istype(wall_east, /turf/simulated/wall))
-				var/turf/simulated/wall/my_wall = wall_east
-				my_wall.hide_me()
+		for(var/turf/simulated/wall/W in range(2, src))
+			W.clear_for_all()
 
-			if(wall_south && istype(wall_south, /turf/simulated/wall))
-				var/turf/simulated/wall/my_wall = wall_south
-				my_wall.hide_me()
+		if(wall_east && istype(wall_east, /turf/simulated/wall))
+			var/turf/simulated/wall/my_wall = wall_east
+			my_wall.hide_me()
 
-			if(!istype(loc, /turf/simulated/floor/stairs))
-				pixel_z = (ZLevel-1) * 32
+		if(wall_south && istype(wall_south, /turf/simulated/wall))
+			var/turf/simulated/wall/my_wall = wall_south
+			my_wall.hide_me()
 
-			..()
+		if(!istype(loc, /turf/simulated/floor/stairs))
+			pixel_z = (ZLevel-1) * 32
+
+		..()
+
+		if(src.pulling)
+			step_towards(src.pulling, src)
 
 	proc/handle_stomach()
 		spawn(0)
@@ -319,24 +322,15 @@
 	set name = "Pull"
 	set src in oview(1)
 	set category = "Local"
-
-	if(usr.pulling != src)
-		if (!( usr ))
-			return
-
-		if(src.loc == usr)
-			return
-
-		if (!( src.anchored ))
-			usr.pulling = src
-			//Wire: Hi this was so dumb. Turns out it isn't only humans that have huds, who woulda thunk!!
-			if (usr && usr.PULL) //yes this uses the dreaded ":", deal with it
-				usr.update_pulling()
+	if(usr.pulling == src)
+		usr.stop_pulling()
 		return
-	else
-		usr.pulling = null
-		usr.update_pulling()
-		return
+	if(usr.pulling)
+		usr.stop_pulling()
+	src.pullers += usr
+	usr.pulling = src
+	usr.PULL.icon_state = "pull_2"
+	usr.update_pulling()
 
 /atom/movable/proc/throw_hyuow_at(atom/target, range, speed)
 	if(!target)	return 0
