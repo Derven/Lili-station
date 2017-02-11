@@ -164,12 +164,5 @@ atom/proc/attack_hand()
 
 /obj/Bumped(atom/movable/MV)
 	if(density == 1)
-		if(istype(MV, /mob))
-			var/mob/user = MV
-			if(!anchored)
-				step(src, user.dir)
-				user.pulling = 0
-				user.update_pulling()
-		else
-			if(!anchored)
-				step(src, MV.dir)
+		if(!anchored)
+			step(src, MV.dir)

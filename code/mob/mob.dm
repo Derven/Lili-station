@@ -146,9 +146,8 @@
 			death()
 
 	proc/stop_pulling()
-		if(pulling)
-			pulling.pullers -= src
-			pulling = null
+		pulling.pullers -= src
+		pulling = null
 		PULL.icon_state = "pull_1"
 
 	proc/update_pulling()
@@ -230,10 +229,13 @@
 		if(!istype(loc, /turf/simulated/floor/stairs))
 			pixel_z = (ZLevel-1) * 32
 
+		var/oldloc = src.loc
 		..()
 
 		if(src.pulling)
-			step_towards(src.pulling, src)
+			if(!step_towards(src.pulling, src) && (get_dist(src.pulling, src) > 1))
+				if(!step_towards(src.pulling, oldloc))
+					update_pulling()
 
 	proc/handle_stomach()
 		spawn(0)
