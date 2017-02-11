@@ -146,8 +146,9 @@
 			death()
 
 	proc/stop_pulling()
-		pulling.pullers -= src
-		pulling = null
+		if(pulling)
+			pulling.pullers -= src
+			pulling = null
 		PULL.icon_state = "pull_1"
 
 	proc/update_pulling()
