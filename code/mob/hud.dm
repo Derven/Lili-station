@@ -100,7 +100,8 @@ obj/hud
 		screen_loc = "SOUTH-1, WEST+4"
 
 		Click()
-			iam.stop_pulling()
+			if(iam.pulling)
+				iam.stop_pulling()
 
 	zone_sel
 		name = "Damage Zone"
