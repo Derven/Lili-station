@@ -33,6 +33,7 @@
 				max_n_of_items = max(max_n_of_items,recipe.items.len)
 
 /obj/machinery/microwave/attackby(var/obj/item/O)
+	usr.drop_item(src)
 	O.loc = src
 	usr << "\blue <b>Вы положили [O]  в [src].<b>"
 
