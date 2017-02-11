@@ -1,6 +1,7 @@
 #define brat usr
 
 var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWEST, SOUTHEAST)
+var/list/visible_containers = list(/obj/structure/closet/closet_3)
 
 /atom/movable
 	layer = 3
@@ -19,15 +20,14 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 /atom/movable/var/list/pullers = list()
 
 /atom/movable/Move()
-	..()
-	if(anchored)
-		return 0
-	for(var/mob/M in pullers)
-		M.update_pulling()
-	. = ..()
-	if(.)
+	if(!anchored)
+		..()
 		for(var/mob/M in pullers)
 			M.update_pulling()
+		. = ..()
+		if(.)
+			for(var/mob/M in pullers)
+				M.update_pulling()
 
 /mob
 	var/image/select_overlay

@@ -88,6 +88,7 @@
 	else if (istype(W, /obj/item/weapon/wrench))
 		if(connected_port)
 			disconnect()
+			anchored = 0
 			brat << "\blue Вы отключаете [name] от порта."
 			//update_icon()
 			return
@@ -95,6 +96,7 @@
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
 				if(connect(possible_port))
+					anchored = 1
 					brat << "\blue Вы включаете [name] в порт."
 					//update_icon()
 					return

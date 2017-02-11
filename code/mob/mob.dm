@@ -26,8 +26,8 @@
 		if(reagents) reagents.metabolize(src)
 
 	verb/who()
+		usr << "игроки в игре: "
 		for(var/mob/M in world)
-			usr << "игроки в игре: "
 			if(M.client)
 				usr << M.ckey
 
