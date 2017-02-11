@@ -24,6 +24,10 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 		return 0
 	for(var/mob/M in pullers)
 		M.update_pulling()
+	. = ..()
+	if(.)
+		for(var/mob/M in pullers)
+			M.update_pulling()
 
 /mob
 	var/image/select_overlay
