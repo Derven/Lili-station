@@ -171,8 +171,7 @@
 		terminal.powernet.newload += amount
 
 /obj/machinery/power/smes/attack_hand(mob/user)
-	if(stat & BROKEN) return
-
+	world << "[powernet]"
 	interact(user)
 
 /obj/machinery/power/smes/proc/interact(mob/user)

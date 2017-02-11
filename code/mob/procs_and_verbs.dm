@@ -2,10 +2,12 @@
 	if(!lying)
 		src.transform = turn(src.transform, 90)
 		lying = 1
+		density = 0
 		return
 	else
 		if(death == 0)
 			src.transform = turn(src.transform, -90)
+			density = 1
 			lying = 0
 			return
 

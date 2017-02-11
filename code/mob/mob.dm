@@ -13,10 +13,10 @@
 	var/appendix_op_stage = 0.0
 	var/datum/organ/external/chest/chest
 	var/datum/organ/external/head/head
-	var/datum/organ/external/l_arm/l_arm
-	var/datum/organ/external/r_arm/r_arm
-	var/datum/organ/external/r_leg/r_leg
-	var/datum/organ/external/l_leg/l_leg
+	var/datum/organ/external/arm/l_arm/l_arm
+	var/datum/organ/external/arm/r_arm/r_arm
+	var/datum/organ/external/leg/r_leg/r_leg
+	var/datum/organ/external/leg/l_leg/l_leg
 	var/datum/organ/external/groin/groin
 	//var/datum/disease2/disease/virus2 = null
 	//var/list/datum/disease2/disease/resistances2 = list()
@@ -40,10 +40,10 @@
 
 		chest = new /datum/organ/external/chest(src)
 		head = new /datum/organ/external/head(src)
-		l_arm = new /datum/organ/external/l_arm(src)
-		r_arm = new /datum/organ/external/r_arm(src)
-		r_leg = new /datum/organ/external/r_leg(src)
-		l_leg = new /datum/organ/external/l_leg(src)
+		l_arm = new /datum/organ/external/arm/l_arm(src)
+		r_arm = new /datum/organ/external/arm/r_arm(src)
+		r_leg = new /datum/organ/external/leg/r_leg(src)
+		l_leg = new /datum/organ/external/leg/l_leg(src)
 		groin = new /datum/organ/external/groin(src)
 
 		chest.owner = src
@@ -165,7 +165,7 @@
 
 	proc/death(gibbed)
 		timeofdeath = world.time
-		world << "DEATH"
+		usr << "Ты умер. Пам-пам"
 		death = 1
 		rest()
 		return
@@ -259,36 +259,31 @@
 			blood_flow()
 			if(istype(src, /mob) && stat != 2)
 				for(var/datum/organ/external/O in organs)
-					if(istype(O, /datum/organ/external/r_leg))
+					if(istype(O, /datum/organ/external/leg))
 						if(O.brute_dam + O.burn_dam > 60)
 							if(prob(40))
 								rest()
-								src << "\red Вам очень больно! Права&#255; нога болит"
-					if(istype(O, /datum/organ/external/l_leg))
-						if(O.brute_dam + O.burn_dam > 60)
-							if(prob(40))
-								rest()
-								src << "\red Вам очень больно! Левая&#255; нога болит"
-
-					if(istype(O, /datum/organ/external/l_arm))
-						if(O.brute_dam + O.burn_dam > 60)
-							if(prob(40))
-								if (hand)
-									drop_item_v()
+								if(istype(O, /datum/organ/external/leg/r_leg))
+									src << "\red Вам очень больно! Права&#255; нога болит"
 								else
-									swap_hand()
-									drop_item_v()
-								src << "\red Вам очень больно! Лева&#255; рука болит"
+									src << "\red Вам очень больно! Лева&#255; нога болит"
 
-					if(istype(O, /datum/organ/external/r_arm))
+					if(istype(O, /datum/organ/external/arm))
 						if(O.brute_dam + O.burn_dam > 60)
 							if(prob(40))
-								if (!hand)
-									drop_item_v()
+								if(istype(O, /datum/organ/external/arm/r_arm))
+									if (hand)
+										drop_item_v()
+									else
+										swap_hand()
+									src << "\red Вам очень больно! Права&#255; рука болит"
 								else
-									swap_hand()
-									drop_item_v()
-								src << "\red Вам очень больно! Права&#255; рука болит"
+									if (!hand)
+										drop_item_v()
+									else
+										swap_hand()
+									src << "\red Вам очень больно! Лева&#255; рука болит"
+								drop_item_v()
 
 /atom/proc/relaymove()
 	return

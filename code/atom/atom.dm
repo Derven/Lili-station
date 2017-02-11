@@ -20,6 +20,8 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 
 /atom/movable/Move()
 	..()
+	if(anchored)
+		return 0
 	for(var/mob/M in pullers)
 		M.update_pulling()
 

@@ -39,9 +39,10 @@ atom/proc/attack_hand()
 				if(I)
 					I.afterattack(src, usr)
 	else if(src.loc in range(1, usr))
-		attack_hand(usr)
-		for(var/obj/structure/closet/closet_3/CL in range(1, usr))
-			CL.upd_closet()
+		if(!usr.get_active_hand())
+			attack_hand(usr)
+			for(var/obj/structure/closet/closet_3/CL in range(1, usr))
+				CL.upd_closet()
 
 /atom/proc/attack_self()
 	return

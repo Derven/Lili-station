@@ -7,5 +7,5 @@
 	if(href_list["enter"] == "nahoy")
 		Logout()
 	if(href_list["display"] == "show")
-		usr.screen_res = input("Выберите разрешение вашего экрана или близкое к нему (это нужно для корректного отображения интерфейса).","Ваше разрешение", usr.screen_res) in screen_resolution
+		usr.screen_res = input("Выберите разрешение вашего экрана или близкое к нему (это нужно дл&#1103; корректного отображени&#1103; интерфейса).","Ваше разрешение", usr.screen_res) in screen_resolution
 		view_to_res()

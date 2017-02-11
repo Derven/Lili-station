@@ -15,25 +15,25 @@
 	max_damage = 125
 	body_part = HEAD
 
-/datum/organ/external/l_arm
+/datum/organ/external/arm/l_arm
 	name = "l_arm"
 	icon_name = "l_arm"
 	max_damage = 75
 	body_part = ARM_LEFT
 
-/datum/organ/external/l_leg
+/datum/organ/external/leg/l_leg
 	name = "l_leg"
 	icon_name = "l_leg"
 	max_damage = 75
 	body_part = LEG_LEFT
 
-/datum/organ/external/r_arm
+/datum/organ/external/arm/r_arm
 	name = "r_arm"
 	icon_name = "r_arm"
 	max_damage = 75
 	body_part = ARM_RIGHT
 
-/datum/organ/external/r_leg
+/datum/organ/external/leg/r_leg
 	name = "r_leg"
 	icon_name = "r_leg"
 	max_damage = 75
