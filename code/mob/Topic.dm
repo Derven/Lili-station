@@ -6,3 +6,6 @@
 		usr << browse(null, "window=setup")
 	if(href_list["enter"] == "nahoy")
 		Logout()
+	if(href_list["display"] == "show")
+		usr.screen_res = input("Выберите разрешение вашего экрана или близкое к нему (это нужно для корректного отображения интерфейса).","Ваше разрешение", usr.screen_res) in screen_resolution
+		view_to_res()

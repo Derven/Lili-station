@@ -38,8 +38,10 @@ atom/proc/attack_hand()
 				attackby(usr.get_active_hand())
 				if(I)
 					I.afterattack(src, usr)
-
-
+	else if(src.loc in range(1, usr))
+		attack_hand(usr)
+		for(var/obj/structure/closet/closet_3/CL in range(1, usr))
+			CL.upd_closet()
 
 /atom/proc/attack_self()
 	return
@@ -79,7 +81,7 @@ atom/proc/attack_hand()
 
 /obj/item/attack_hand(mob/user as mob)
 
-	src.loc = user
+	Move(user)
 	src.layer = 20
 
 	if (user.hand)

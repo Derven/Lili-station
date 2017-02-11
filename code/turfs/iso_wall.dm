@@ -119,7 +119,6 @@ mob
 		for(var/mob/M in view(5, usr))
 			if(M.client && !istype(src, /turf/simulated/wall/window))
 				M << hide_wall
-				overlays.Cut()
 				merge()
 			..()
 

@@ -38,8 +38,14 @@
 		icon = 'closet.dmi'
 		icon_state = "polka_0"
 
+		proc/upd_closet()
+			if(contents.len == 0)
+				icon_state = "polka_0"
+			if(contents.len > 0)
+				icon_state = "polka_1"
+
 		attack_hand()
-			usr.cur_object_i_give = src
+			return
 
 		attackby(var/obj/item/I)
 			usr.drop_item(src)

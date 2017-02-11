@@ -57,6 +57,7 @@
 #include "code\kitchen\recipes.dm"
 #include "code\mob\damage.dm"
 #include "code\mob\defines.dm"
+#include "code\mob\display_and_hud_config.dm"
 #include "code\mob\external.dm"
 #include "code\mob\hud.dm"
 #include "code\mob\mob.dm"

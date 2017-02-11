@@ -27,6 +27,7 @@ var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWE
 	var/image/select_overlay
 
 /atom/MouseEntered()
+	usr.cur_object_i_see = src
 	usr.select_overlay.icon = icon
 	usr.select_overlay.icon_state = icon_state
 	usr.select_overlay.layer = layer

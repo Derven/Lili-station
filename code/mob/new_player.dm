@@ -16,6 +16,9 @@
 	<html> \
 	<head><title>Приемный пункт</title></head> \
 	<body style=\"font-family: Georgia, sans-serif;\"> \
+	<a href='?src=\ref[src];display=show'>Разрешение</a>\
+	<br> \
+	<br> \
 	<a href='?src=\ref[src];enter=yes'>Вход</a>\
 	<br> \
 	<a href='?src=\ref[src];enter=nahoy'>Выход</a> \
