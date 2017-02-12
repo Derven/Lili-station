@@ -1,5 +1,15 @@
 /obj/item/weapon/storage/bag/plants
 
+/obj/item/weapon/storage/box
+	icon = 'tools.dmi'
+	icon_state = "box"
+
+	attackby(var/obj/item/I)
+		if(!istype(I, /obj/item/weapon/storage))
+			usr.drop_item(src)
+			I.Move(src)
+			usr << "Вы положили [I] в коробку!"
+
 /proc/seedify(var/obj/item/O as obj, var/t_max)
 	var/t_amount = 0
 	if(t_max == -1)
