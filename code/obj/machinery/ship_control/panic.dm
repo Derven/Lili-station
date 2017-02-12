@@ -29,18 +29,11 @@
 					if(!BL.powered())
 						return
 					else
-						if(BL.close == 1)
-							BL.icon_state = "open"
-							BL.close = 0
-							BL.density = 0
-							BL.opacity = 0
-							T.blocks_air = 0
-						else
-							BL.close = 1
-							T.blocks_air = 1
-							BL.density = 1
-							BL.opacity = 1
-							BL.icon_state = "close"
+						BL.close = !BL.close
+						BL.density = BL.close
+						BL.opacity = BL.close
+						T.blocks_air = BL.close
+						BL.icon_state = BL.close ? "close" : "open"
 						T.update_air_properties()
 
 /obj/machinery/consol/panic

@@ -81,29 +81,29 @@ atom/proc/attack_hand()
 	I.layer = 20
 
 /obj/item/attack_hand(mob/user as mob)
+	if(user.death != 0)
+		Move(user)
+		src.layer = 20
 
-	Move(user)
-	src.layer = 20
+		if (user.hand)
+			if(src == user.l_hand || src == user.r_hand || src == user.cloth)
+				user.u_equip(src)
+				if(istype(src, /obj/item/clothing))
+					var/obj/item/clothing/clthg = src
+					clthg.wear_clothing(user)
 
-	if (user.hand)
-		if(src == user.l_hand || src == user.r_hand || src == user.cloth)
-			user.u_equip(src)
-			if(istype(src, /obj/item/clothing))
-				var/obj/item/clothing/clthg = src
-				clthg.wear_clothing(user)
+			user.l_hand = src
+			user.LH.update_slot(src)
+		else
+			if(src == user.l_hand || src == user.r_hand || src == user.cloth)
+				user.u_equip(src)
+				if(istype(src, /obj/item/clothing))
+					var/obj/item/clothing/clthg = src
+					clthg.wear_clothing(user)
+			user.r_hand = src
+			user.RH.update_slot(src)
 
-		user.l_hand = src
-		user.LH.update_slot(src)
-	else
-		if(src == user.l_hand || src == user.r_hand || src == user.cloth)
-			user.u_equip(src)
-			if(istype(src, /obj/item/clothing))
-				var/obj/item/clothing/clthg = src
-				clthg.wear_clothing(user)
-		user.r_hand = src
-		user.RH.update_slot(src)
-
-	src.pickup(user)
+		src.pickup(user)
 
 /obj/item/proc/dropped(mob/user as mob)
 	..()
