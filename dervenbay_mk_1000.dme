@@ -55,6 +55,7 @@
 #include "code\kitchen\processor.dm"
 #include "code\kitchen\recipe.dm"
 #include "code\kitchen\recipes.dm"
+#include "code\mob\battle_system.dm"
 #include "code\mob\damage.dm"
 #include "code\mob\defines.dm"
 #include "code\mob\display_and_hud_config.dm"

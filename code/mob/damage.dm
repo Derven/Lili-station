@@ -245,8 +245,15 @@
 /mob/proc/attacked_by(var/obj/item/I, var/mob/user, var/def_zone)
 	if((!I || !user) && istype(I, /obj/item/weapon/reagent_containers))	return 0
 
+	var/datum/organ/external/defen_zone
+	if(client)
+		defen_zone = get_organ(ran_zone(DF_ZONE.selecting))
+
 	var/datum/organ/external/affecting = get_organ(ran_zone(user.ZN_SEL.selecting))
 	var/hit_area = parse_zone(affecting.name)
+	var/def_area
+	if(def_zone)
+		def_area = parse_zone(defen_zone.name)
 
 	usr << "\red <B>[src] атакован(а) [user] в [hit_area] с помощью [I.name] !</B>"
 
@@ -254,7 +261,13 @@
 		return 0
 
 	if(!I.force)	return 0
+	if(def_area)
+		if(def_area == hit_area)
+			I.force -= defense
+			src << "\blue ¬ы блокируете часть урона!"
+			user << "\red [src] блокирует часть урона!"
 	apply_damage(I.force, I.damtype, affecting, 0)
+	I.force = initial(I.force)
 
 	if((I.damtype == BRUTE) && prob(25 + (I.force * 2)))
 

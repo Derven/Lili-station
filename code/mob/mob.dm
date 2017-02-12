@@ -172,8 +172,19 @@
 	attack_hand()
 		if(death == 0)
 			if(usr.intent == 0) //harm
+
+				var/datum/organ/external/defen_zone
+				if(client)
+					defen_zone = get_organ(ran_zone(DF_ZONE.selecting))
+
 				var/datum/organ/external/affecting = get_organ(ran_zone(usr.ZN_SEL.selecting))
-				apply_damage(rand(5, 10), BRUTE , affecting, 0)
+				if(defen_zone)
+					if(defen_zone == affecting )
+						src << "\blue Вы блокируете часть урона!"
+						usr << "\red [src] блокирует часть урона!"
+						apply_damage(rand(6, 12) - defense, BRUTE , affecting, 0)
+				else
+					apply_damage(rand(6, 12), BRUTE , affecting, 0)
 				for(var/mob/M in range(5, src))
 					M << "\red [usr] бьет [src] в область [affecting]"
 			else
