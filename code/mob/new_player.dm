@@ -27,7 +27,12 @@
 
 /mob/Login()
 	..()
-	brat << "<h1>Здраствуйte, товариsch! Экипаж космического крейсера \"Аврора\" желает вам удачного полета</h1>"
+	brat << "<h1>Приветствую вас на тестовом запуске изометрической станции. Здесь вы можете ознакомитьс&#255; с текущими особенност&#255;ми и возможност&#255;ми данного проекта</h1>"
+	brat << "<h1><b>Врем&#255; мен&#255;ть станцию. И спасибо за внимание.</b></h2>"
+	brat << "<h2><a href=\"https://discord.gg/2VyzxfE\">Багрепорты слать сюда. Здесь можно присоединитьс&#255; к обсуждению.</h2>"
+	brat << "<h2><a href=\"https://sites.google.com/view/space-station-13-isometric\">Первый сайт проекта</h2>"
+	brat << "<h2><a href=\"https://plinhost.github.io/Aurora_the_cruiser\">Второй сайт проекта</h2>"
+	brat << "<h2><a href=\"https://github.com/Derven/Aurora_the_cruiser\">Репозиторий</h2>"
 	lobby = new(usr)
 	create_hud(usr.client)
 	create_lobby(usr.client)

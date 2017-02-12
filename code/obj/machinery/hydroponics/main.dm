@@ -257,9 +257,13 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 	if(myseed)
 		if(waterlevel > maxwater)
 			waterlevel = maxwater
+		if(waterlevel < 0)
+			waterlevel = 0
 
 		if(nutrilevel > maxnutri)
 			nutrilevel = maxnutri
+		if(nutrilevel < 0)
+			nutrilevel = 0
 
 		if(myseed && (myseed.loc != src))
 			myseed.loc = src

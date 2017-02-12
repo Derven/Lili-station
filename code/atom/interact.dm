@@ -81,7 +81,7 @@ atom/proc/attack_hand()
 	I.layer = 20
 
 /obj/item/attack_hand(mob/user as mob)
-	if(user.death != 0)
+	if(user.death == 0)
 		Move(user)
 		src.layer = 20
 

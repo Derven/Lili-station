@@ -38,6 +38,7 @@
 			return
 		else
 			if(close == 1)
+				flick("open_state",src)
 				icon_state = "open"
 				close = 0
 				density = 0
@@ -48,5 +49,6 @@
 				T.blocks_air = 1
 				density = 1
 				opacity = 1
+				flick("close_state",src)
 				icon_state = "close"
 			T.update_air_properties()
