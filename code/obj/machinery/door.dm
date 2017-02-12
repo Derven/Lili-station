@@ -16,6 +16,15 @@
 	hydro
 		icon = 'airlock_hydro.dmi'
 
+	brig
+		icon = 'airlock_brig.dmi'
+
+		briglock
+			icon = 'airlock_briglockd.dmi'
+			attack_hand(mob/user)
+				return
+
+
 	New()
 		..()
 		var/turf/simulated/floor/T = src.loc

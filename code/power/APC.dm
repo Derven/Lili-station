@@ -270,10 +270,10 @@
 
 	// offset 24 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
-	if (building)
-		dir = ndir
-	src.tdir = dir		// to fix Vars bug
-	dir = SOUTH
+	//if (building)
+	//	dir = ndir
+	//src.tdir = dir		// to fix Vars bug
+	//dir = SOUTH
 
 	//pixel_x = (src.tdir & 3)? 0 : (src.tdir == 4 ? 24 : -24)
 //	pixel_y = (src.tdir & 3)? (src.tdir ==1 ? 24 : -24) : 0
