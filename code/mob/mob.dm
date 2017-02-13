@@ -4,6 +4,7 @@
 	layer = 15
 	var/death = 0
 	var/intent = 1 //1 - help, 0 - harm
+	var/image/overlay_cur
 
 	gender = MALE
 	var/list/stomach_contents = list()
@@ -33,6 +34,11 @@
 
 	New()
 		select_overlay = image(usr)
+		overlay_cur = image('sign.dmi', icon_state = "say", layer = 10)
+		overlay_cur.layer = 16
+		overlay_cur.pixel_z = 5
+		overlay_cur.pixel_x = -14
+
 		usr.select_overlay.override = 1
 		var/datum/reagents/R = new/datum/reagents(1000)
 		reagents = R
