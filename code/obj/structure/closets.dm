@@ -31,6 +31,9 @@
 		icon = 'closet.dmi'
 		icon_state = "closed1"
 
+	fridge
+		icon = 'fridge.dmi'
+
 	closet_3
 		anchored = 1
 		name = "Closet"

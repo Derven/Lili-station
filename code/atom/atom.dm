@@ -1,7 +1,7 @@
 #define brat usr
 
 var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWEST, SOUTHEAST)
-var/list/visible_containers = list(/obj/structure/closet/closet_3, /obj/item/weapon/storage/box)
+var/list/visible_containers = list(/obj/structure/closet/closet_3, /obj/item/weapon/storage/box, /obj/structure/closet/closet_3/food_closet)
 
 /atom/movable
 	layer = 3
