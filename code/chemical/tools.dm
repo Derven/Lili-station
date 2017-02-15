@@ -44,7 +44,8 @@
 
 
 			if(target.reagents.total_volume >= target.reagents.maximum_volume)
-				user << "\red [target] is full."
+				//user << "\red [target] is full."
+				user << usr.select_lang("\red [target] полон.", "\red [target] is full.")
 				return
 
 			if(ismob(target))
@@ -52,7 +53,8 @@
 					//O.show_message(text("\red <B>[] drips something onto []!</B>", user, target), 1)
 				src.reagents.reaction(target, TOUCH)
 
-			user << "\blue [target] ест [src]."
+			//user << "\blue [target] ест [src]."
+			user << usr.select_lang("\blue [target] ест [src].", "\blue [target] eat [src].")
 			src.reagents.trans_to(target, amount_per_transfer_from_this)
 			if (src.reagents.total_volume<=0)
 				user.drop_item_v()
@@ -83,12 +85,14 @@
 		set src in view()
 		..()
 		if (!(usr in view(2)) && usr!=src.loc) return
-		usr << "\blue It contains:"
+		usr << usr.select_lang("\blue Это содержит:", "\blue It contains:")
 		if(reagents && reagents.reagent_list.len)
 			for(var/datum/reagent/R in reagents.reagent_list)
 				usr << "\blue [R.volume] units of [R.name]"
+				usr << usr.select_lang("\blue [R.volume] единиц [R.name]", "\blue [R.volume] units of [R.name]")
 		else
-			usr << "\blue Nothing."
+			usr << usr.select_lang("\blue Ничего", "\blue Nothing")
+			// "\blue Nothing."
 
 	afterattack(obj/target, mob/user , flag)
 		if(ismob(target) && target.reagents && reagents.total_volume)
@@ -204,12 +208,12 @@
 		set src in view()
 		..()
 		if (!(usr in view(2)) && usr!=src.loc) return
-		usr << "\blue It contains:"
+		usr << usr.select_lang("\blue Это содержит:", "\blue It contains:")
 		if(reagents && reagents.reagent_list.len)
 			for(var/datum/reagent/R in reagents.reagent_list)
-				usr << "\blue [R.volume] units of [R.name]"
+				usr << usr.select_lang("\blue [R.volume] единиц [R.name]", "\blue [R.volume] units of [R.name]")
 		else
-			usr << "\blue Nothing."
+			usr << usr.select_lang("\blue Ничего", "\blue Nothing")
 
 	verb/set_APTFT() //set amount_per_transfer_from_this
 		set name = "Set transfer amount"

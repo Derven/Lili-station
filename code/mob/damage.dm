@@ -256,6 +256,7 @@
 		def_area = parse_zone(defen_zone.name)
 
 	usr << "\red <B>[src] атакован(а) [user] в [hit_area] с помощью [I.name] !</B>"
+	usr << select_lang("\red <B>[src] атакован(а) [user] в [hit_area] с помощью [I.name] !</B>", "\red <B>[src] attacked [user] to [hit_area] by [I.name] !</B>")
 
 	if((user != src))
 		return 0
@@ -265,7 +266,9 @@
 		if(def_area == hit_area)
 			I.force -= defense
 			src << "\blue ¬ы блокируете часть урона!"
+			user << select_lang("\blue ¬ы блокируете часть урона!", "\blue You block damage partially")
 			user << "\red [src] блокирует часть урона!"
+			usr << select_lang("\red [src] блокирует часть урона!", "\red [src] block damage partially!")
 	apply_damage(I.force, I.damtype, affecting, 0)
 	I.force = initial(I.force)
 

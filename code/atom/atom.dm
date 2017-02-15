@@ -68,7 +68,8 @@ var/list/visible_containers = list(/obj/structure/closet/closet_3, /obj/item/wea
 
 	if (!( usr ))
 		return
-	usr << "This is \an [name]."
+
+	usr << usr.select_lang("Это [name].", "This is \an [name].") //here
 	usr << desc
 	// *****RM
 	//usr << "[name]: Dn:[density] dir:[dir] cont:[contents] icon:[icon] is:[icon_state] loc:[loc]"
@@ -107,11 +108,12 @@ var/list/visible_containers = list(/obj/structure/closet/closet_3, /obj/item/wea
 	if (istype(W, /obj/item/device/detective_scanner))
 		for(var/mob/O in viewers(src, null))
 			if (O.client)
-				O << text("\red [src] has been scanned by [user] with the [W]")
+				O << usr.select_lang(text("\red [src] отсканировано [user] с помощью [W]"), text("\red [src] has been scanned by [user] with the [W]"))
 	else
 		if (!( istype(W, /obj/item/weapon/grab) ) && !(istype(W, /obj/item/weapon/plastique)) &&!(istype(W, /obj/item/weapon/cleaner)) &&!(istype(W, /obj/item/weapon/chemsprayer)) &&!(istype(W, /obj/item/weapon/pepperspray)) && !(istype(W, /obj/item/weapon/plantbgone)) )
 			for(var/mob/O in viewers(src, null))
 				if (O.client)
 					if(O.intent == 0)
-						O << text("\red <B>[] вы бьете [] с помощью []</B>", src, user, W)
+						//O << text("\red <B>[] вы бьете [] с помощью []</B>", src, user, W)
+						O << usr.select_lang(text("\red <B>[] вы бьете [] с помощью []</B>", src, user, W), text("\red <B>[] has been attacked by [] with the []</B>", src, user, W))
 	return

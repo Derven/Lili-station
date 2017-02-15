@@ -27,7 +27,7 @@
 		if(reagents) reagents.metabolize(src)
 
 	verb/who()
-		usr << "игроки в игре: "
+		usr << usr.select_lang("игроки в игре: ", "players in game: ")
 		for(var/mob/M in world)
 			if(M.client)
 				usr << M.ckey
@@ -120,32 +120,32 @@
 	proc/blood_flow()
 		if(chest.brute_dam > 80)
 			reagents.remove_reagent("blood", 20)
-			src << "\red Вы тер&#255;ете немного крови"
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
 			new /obj/blood (src.loc)
 
 		if(head.brute_dam > 80)
 			reagents.remove_reagent("blood", 18)
-			src << "\red Вы тер&#255;ете немного крови"
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
 			new /obj/blood (src.loc)
 
 		if(r_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
-			src << "\red Вы тер&#255;ете немного крови"
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
 			new /obj/blood (src.loc)
 
 		if(l_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
-			src << "\red Вы тер&#255;ете немного крови"
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
 			new /obj/blood (src.loc)
 
 		if(r_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
-			src << "\red Вы тер&#255;ете немного крови"
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
 			new /obj/blood (src.loc)
 
 		if(l_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
-			src << "\red Вы тер&#255;ете немного крови"
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, еп
 			new /obj/blood (src.loc)
 
 		if(!reagents.has_reagent("blood", 50))
@@ -170,7 +170,7 @@
 
 	proc/death(gibbed)
 		timeofdeath = world.time
-		usr << "Ты умер. Пам-пам"
+		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
 		death = 1
 		rest()
 		return
@@ -186,13 +186,14 @@
 				var/datum/organ/external/affecting = get_organ(ran_zone(usr.ZN_SEL.selecting))
 				if(defen_zone)
 					if(defen_zone == affecting )
-						src << "\blue Вы блокируете часть урона!"
-						usr << "\red [src] блокирует часть урона!"
+						src << select_lang("\red Вы блокируете часть урона", "\red You block damage partially")
+						usr << usr.select_lang("\red [src] блокирует часть урона!", "\red [src] block damage partially")
 						apply_damage(rand(6, 12) - defense, BRUTE , affecting, 0)
 				else
 					apply_damage(rand(6, 12), BRUTE , affecting, 0)
 				for(var/mob/M in range(5, src))
-					M << "\red [usr] бьет [src] в область [affecting]"
+					//M << "\red [usr] бьет [src] в область [affecting]"
+					M << M.select_lang("\red [usr] бьет [src] в область [affecting]", "\red [usr] punch [src] to [affecting]")
 			else
 				return
 
@@ -283,9 +284,9 @@
 							if(prob(40))
 								rest()
 								if(istype(O, /datum/organ/external/leg/r_leg))
-									src << "\red Вам очень больно! Права&#255; нога болит"
+									src << select_lang("\red Вам очень больно! Права&#255; нога болит", "\red You feel pain. Your right leg hurt")
 								else
-									src << "\red Вам очень больно! Лева&#255; нога болит"
+									src << select_lang("\red Вам очень больно! Лева&#255; нога болит", "\red You feel pain. Your left leg hurt")
 
 					if(istype(O, /datum/organ/external/arm))
 						if(O.brute_dam + O.burn_dam > 60)
@@ -295,13 +296,13 @@
 										drop_item_v()
 									else
 										swap_hand()
-									src << "\red Вам очень больно! Права&#255; рука болит"
+									src << select_lang("\red Вам очень больно! Права&#255; рука болит", "\red You feel pain. Your right arm hurt")
 								else
 									if (!hand)
 										drop_item_v()
 									else
 										swap_hand()
-									src << "\red Вам очень больно! Лева&#255; рука болит"
+									src << select_lang("\red Вам очень больно! Лева&#255; рука болит", "\red You feel pain. Your left arm hurt")
 								drop_item_v()
 
 /atom/proc/relaymove()

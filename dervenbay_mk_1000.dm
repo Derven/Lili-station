@@ -1,6 +1,8 @@
 /*
 	These are simple defaults for your project.
  */
+#define RUS 111
+#define ENG 222
 
 world
 	fps = 25		// 25 frames per second
@@ -16,6 +18,15 @@ world
 mob
 	step_size = 64
 	layer = 18
+	var
+		language = RUS
+
+	proc/select_lang(var/rus_msg, var/eng_msg)
+		switch(language)
+			if(RUS)
+				return rus_msg
+			if(ENG)
+				return eng_msg
 
 obj
 	step_size = 64
