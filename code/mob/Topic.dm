@@ -7,5 +7,9 @@
 	if(href_list["enter"] == "nahoy")
 		Logout()
 	if(href_list["display"] == "show")
-		usr.screen_res = input("Выберите разрешение вашего экрана или близкое к нему (это нужно дл&#1103; корректного отображени&#1103; интерфейса).","Ваше разрешение", usr.screen_res) in screen_resolution
+		usr.screen_res = input("Select the resolution.","Ваше разрешение", usr.screen_res) in screen_resolution
 		view_to_res()
+	if(href_list["lang"] == "rus")
+		language = RUS
+	if(href_list["lang"] == "eng")
+		language = ENG

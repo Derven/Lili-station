@@ -19,7 +19,7 @@ mob
 	step_size = 64
 	layer = 18
 	var
-		language = RUS
+		language = ENG
 
 	proc/select_lang(var/rus_msg, var/eng_msg)
 		switch(language)

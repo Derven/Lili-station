@@ -237,12 +237,12 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 			planted = 1
 			age = 1
 			usr.drop_item(src)
-			brat << "\bold Вы суете [O] в [src]"
+			usr << usr.select_lang("\bold Вы суете [O] в [src]", "\bold You put [O] into [src]")
 			myseed = O
 			health = myseed.endurance
 			lastcycle = world.time
 		else
-			usr << "\red The [src] already has seeds in it!"
+			usr << usr.select_lang("[src] уже зан&#255;то", "\red The [src] already has seeds in it!")
 	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		do_after(usr, 4)
 		if(O.reagents.total_volume)
@@ -250,7 +250,7 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 				applyChemicals(O.reagents)
 				O.reagents.clear_reagents()
 		else
-			usr << "\red [src] is empty."
+			usr << usr.select_lang("[src] пусто", "\red [src] is empty.")
 
 /obj/machinery/hydroponics/process()
 	sleep(4)
@@ -363,7 +363,7 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 	else if(dead)
 		planted = 0
 		dead = 0
-		usr << text("You remove the dead plant from the [src].")
+		usr << usr.select_lang("Вы очищаете [src].", "You remove the dead plant from the [src].")
 		del(myseed)
 	else
 		if(planted && !dead)

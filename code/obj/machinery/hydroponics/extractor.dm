@@ -8,7 +8,7 @@
 		if(!istype(I, /obj/item/weapon/storage))
 			usr.drop_item(src)
 			I.Move(src)
-			usr << "Вы положили [I] в коробку!"
+			usr << usr.select_lang("Вы положили [I] в коробку!", "You put [I] into box!")
 
 /proc/seedify(var/obj/item/O as obj, var/t_max)
 	var/t_amount = 0
@@ -54,7 +54,7 @@ obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob
 	//Called when mob user "attacks" it with object O
 	if (istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/))
 		var/obj/item/weapon/reagent_containers/food/snacks/grown/F = O
-		user << "\blue You extract some seeds from the [F.name]"
+		user << user.select_lang("Вы получили сем&#255;на из [F.name]", "You extract some seeds from the [F.name]")
 		var/seed = text2path(F.seed)
 		var/t_amount = 0
 		var/t_max = rand(1,4)

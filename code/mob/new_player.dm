@@ -14,14 +14,19 @@
 /mob/proc/show_lobby()
 	lobby_text = " \
 	<html> \
-	<head><title>Приемный пункт</title></head> \
+	<head><title>[usr.select_lang("Приемный пункт","Start game")]</title></head> \
 	<body style=\"font-family: Georgia, sans-serif;\"> \
-	<a href='?src=\ref[src];display=show'>Разрешение</a>\
+	<a href='?src=\ref[src];display=show'>[usr.select_lang("Разрешение","Screen resolution")]</a>\
 	<br> \
 	<br> \
-	<a href='?src=\ref[src];enter=yes'>Вход</a>\
+	<a href='?src=\ref[src];lang=eng'>ENG</a>\
 	<br> \
-	<a href='?src=\ref[src];enter=nahoy'>Выход</a> \
+	<a href='?src=\ref[src];lang=rus'>RUS</a>\
+	<br> \
+	<br> \
+	<a href='?src=\ref[src];enter=yes'>[usr.select_lang("Вход","Join")]</a>\
+	<br> \
+	<a href='?src=\ref[src];enter=nahoy'>[usr.select_lang("Выход","Exit")]</a> \
 	</body></html>"
 	usr << browse(lobby_text,"window=setup")
 
