@@ -35,23 +35,6 @@
 	proc/return_siding_icon_state()
 		return 0
 
-	attack_hand()
-
-		var/datum/gas_mixture/environment = return_air()
-
-		var/total_moles = environment.total_moles()
-		var/pressure = environment.return_pressure()
-		var/o2_level
-
-		//space runtime fix
-		if(total_moles != 0)
-			o2_level = environment.oxygen/total_moles
-		else
-			o2_level = 0
-
-		world << "Давление: [round(pressure,0.1)] kPa"
-		world << "Кислород: [round(o2_level*100)]%"
-
 /turf/simulated
 	name = "station"
 	var/wet = 0

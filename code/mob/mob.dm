@@ -118,38 +118,42 @@
 			l_leg.brute_dam = 0
 
 	proc/blood_flow()
+		var/obj/blood/BD
 		if(chest.brute_dam > 80)
 			reagents.remove_reagent("blood", 20)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new /obj/blood (src.loc)
+			new BD(src.loc)
 
 		if(head.brute_dam > 80)
 			reagents.remove_reagent("blood", 18)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new /obj/blood (src.loc)
+			new BD(src.loc)
 
 		if(r_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new /obj/blood (src.loc)
+			new BD(src.loc)
 
 		if(l_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new /obj/blood (src.loc)
+			new BD(src.loc)
 
 		if(r_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new /obj/blood (src.loc)
+			new BD(src.loc)
 
 		if(l_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, еп
-			new /obj/blood (src.loc)
+			new BD(src.loc)
 
 		if(!reagents.has_reagent("blood", 50))
 			death()
+
+		if(BD)
+			BD.pixel_z = (ZLevel - 1) * 32
 
 	proc/stop_pulling()
 		pulling.pullers -= src
