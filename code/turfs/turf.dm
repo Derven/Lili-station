@@ -200,12 +200,12 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		health -= W.force
-		brat << "Вы бьете стекло и оно трещит от ваших ударов"
+		usr << usr.select_lang("Вы бьете стекло и оно трещит от ваших ударов", "You attack the glass!")
 		update_icon()
 		if(health < 30)
 			src = new /turf/simulated/floor/plating(src)
 			//relativewall_neighbours()
-			brat << "<b>Стекло разбиваетс&#255;</b>"
+			usr << usr.select_lang("<b>Стекло разбиваетс&#255;</b>", "<b>Glass is broken</b>")
 			//del(src)
 
 	merge()

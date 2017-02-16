@@ -122,32 +122,32 @@
 		if(chest.brute_dam > 80)
 			reagents.remove_reagent("blood", 20)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new BD(src.loc)
+			BD = new(src.loc)
 
 		if(head.brute_dam > 80)
 			reagents.remove_reagent("blood", 18)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new BD(src.loc)
+			BD = new(src.loc)
 
 		if(r_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new BD(src.loc)
+			BD = new(src.loc)
 
 		if(l_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new BD(src.loc)
+			BD = new(src.loc)
 
 		if(r_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
-			new BD(src.loc)
+			BD = new(src.loc)
 
 		if(l_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
 			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, еп
-			new BD(src.loc)
+			BD = new(src.loc)
 
 		if(!reagents.has_reagent("blood", 50))
 			death()
