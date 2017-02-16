@@ -60,6 +60,7 @@
 #include "code\mob\defines.dm"
 #include "code\mob\display_and_hud_config.dm"
 #include "code\mob\external.dm"
+#include "code\mob\hairs.dm"
 #include "code\mob\hud.dm"
 #include "code\mob\mob.dm"
 #include "code\mob\new_player.dm"
