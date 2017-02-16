@@ -255,7 +255,11 @@
 	icon_state = "floor"
 
 	planet
-		icon_state = "sand"
+		icon_state = "asteroid"
+
+		New()
+			..()
+			icon_state = "asteroid[pick("1","2","3","")]"
 
 /obj
 	station_base

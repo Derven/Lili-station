@@ -104,6 +104,25 @@ mob
 	test
 		icon_state = "test"
 
+	asteroid
+		icon_state = "asteroid"
+		var/health = 300
+		var/obj/item/my_mineral
+
+		attackby(obj/item/weapon/W as obj, mob/user as mob)
+			if(istype(W, /obj/item/weapon/pickaxe))
+				health -= W.force
+				usr << usr.select_lang("Вы бьете астероид", "You attack the asteroid!")
+				update_icon()
+				if(health < 30)
+					clear_for_all()
+					src = new /turf/unsimulated/floor/planet(src)
+					//relativewall_neighbours()
+					usr << usr.select_lang("<b>Часть породы рушится</b>", "<b>Part of the rock destroyed</b>")
+
+		mineral
+			icon_state = "mineral"
+
 	attack_hand()
 		merge()
 
@@ -131,22 +150,23 @@ mob
 				M.client.images -= hide_wall
 
 	proc/merge()
-		if(!istype(src, /turf/simulated/wall/window))
-			overlays.Cut()
-			var/turf/N = get_step(src, NORTH)
-			var/turf/S = get_step(src, SOUTH)
-			var/turf/W = get_step(src, WEST)
-			var/turf/E = get_step(src, EAST)
+		if(!istype(src, /turf/simulated/wall/asteroid))
+			if(!istype(src, /turf/simulated/wall/window))
+				overlays.Cut()
+				var/turf/N = get_step(src, NORTH)
+				var/turf/S = get_step(src, SOUTH)
+				var/turf/W = get_step(src, WEST)
+				var/turf/E = get_step(src, EAST)
 
-			if(N && istype(N, /turf/simulated/wall))
-				wall_overlay = image('walls.dmi', icon_state = "overlay_n", layer = 10)
-				overlays.Add(wall_overlay)
-			if(S && istype(S, /turf/simulated/wall))
-				wall_overlay = image('walls.dmi', icon_state = "overlay_s", layer = 10)
-				overlays.Add(wall_overlay)
-			if(W && istype(W, /turf/simulated/wall))
-				wall_overlay = image('walls.dmi', icon_state = "overlay_w", layer = 10)
-				overlays.Add(wall_overlay)
-			if(E && istype(E, /turf/simulated/wall))
-				wall_overlay = image('walls.dmi', icon_state = "overlay_e", layer = 10)
-				overlays.Add(wall_overlay)
+				if(N && istype(N, /turf/simulated/wall))
+					wall_overlay = image('walls.dmi', icon_state = "overlay_n", layer = 10)
+					overlays.Add(wall_overlay)
+				if(S && istype(S, /turf/simulated/wall))
+					wall_overlay = image('walls.dmi', icon_state = "overlay_s", layer = 10)
+					overlays.Add(wall_overlay)
+				if(W && istype(W, /turf/simulated/wall))
+					wall_overlay = image('walls.dmi', icon_state = "overlay_w", layer = 10)
+					overlays.Add(wall_overlay)
+				if(E && istype(E, /turf/simulated/wall))
+					wall_overlay = image('walls.dmi', icon_state = "overlay_e", layer = 10)
+					overlays.Add(wall_overlay)

@@ -25,6 +25,11 @@
 	icon_state = "wrench"
 	force = 20
 
+/obj/item/weapon/pickaxe
+	icon = 'tools.dmi'
+	icon_state = "pickaxe"
+	force = 25
+
 /obj/item/pipe_meter
 
 /obj/effect/overlay
