@@ -25,24 +25,25 @@ atom/proc/attack_hand()
 
 
 /atom/Click()
-	var/obj/item/I = usr.get_active_hand()
-	if(istype(I, /obj/item/weapon/gun))
-		I.afterattack(src)
-	if(src in range(1, usr))
-		if(!usr.get_active_hand())
-			attack_hand(usr)
-		else
-			if(src == usr.get_active_hand())
-				attack_self()
+	if(!istype(usr, /mob/ghost))
+		var/obj/item/I = usr.get_active_hand()
+		if(istype(I, /obj/item/weapon/gun))
+			I.afterattack(src)
+		if(src in range(1, usr))
+			if(!usr.get_active_hand())
+				attack_hand(usr)
 			else
-				attackby(usr.get_active_hand())
-				if(I)
-					I.afterattack(src, usr)
-	else if(src.loc in range(1, usr))
-		if(!usr.get_active_hand())
-			attack_hand(usr)
-			for(var/obj/structure/closet/closet_3/CL in range(1, usr))
-				CL.upd_closet()
+				if(src == usr.get_active_hand())
+					attack_self()
+				else
+					attackby(usr.get_active_hand())
+					if(I)
+						I.afterattack(src, usr)
+		else if(src.loc in range(1, usr))
+			if(!usr.get_active_hand())
+				attack_hand(usr)
+				for(var/obj/structure/closet/closet_3/CL in range(1, usr))
+					CL.upd_closet()
 
 /atom/proc/attack_self()
 	return
@@ -81,7 +82,7 @@ atom/proc/attack_hand()
 	I.layer = 20
 
 /obj/item/attack_hand(mob/user as mob)
-	if(user.death == 0)
+	if(user.death == 0 && !istype(src, /mob/ghost))
 		Move(user)
 		src.layer = 20
 

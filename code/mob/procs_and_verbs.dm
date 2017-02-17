@@ -16,5 +16,12 @@
 
 /mob/verb/miracle()
 	death = 0
-	reagents.add_reagent("blood", 300)
-	heal_brute(100)
+	reagents.add_reagent("blood", 200)
+	heal_brute(80)
+
+/mob/ghost
+	invisibility = 100
+	alpha = 128
+	see_invisible = 101
+	density = 0
+	death = 1

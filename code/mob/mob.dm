@@ -177,24 +177,29 @@
 		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
 		death = 1
 		rest()
+		var/mob/ghost/zhmur = new(loc)
+		zhmur.client = client
 		return
 
+	verb/suicide()
+		death()
+
 	attack_hand()
-		if(death == 0)
+		if(death == 0 && !istype(src, /mob/ghost))
 			if(usr.intent == 0) //harm
 
 				var/datum/organ/external/defen_zone
 				if(client)
-					defen_zone = get_organ(ran_zone(DF_ZONE.selecting))
+					defen_zone = get_organ(ran_zone(src.DF_ZONE.selecting))
 
 				var/datum/organ/external/affecting = get_organ(ran_zone(usr.ZN_SEL.selecting))
 				if(defen_zone)
 					if(defen_zone == affecting )
 						src << select_lang("\red Вы блокируете часть урона", "\red You block damage partially")
 						usr << usr.select_lang("\red [src] блокирует часть урона!", "\red [src] block damage partially")
-						apply_damage(rand(6, 12) - defense, BRUTE , affecting, 0)
+						apply_damage(rand(6, 12) - defense, "brute" , affecting, 0)
 				else
-					apply_damage(rand(6, 12), BRUTE , affecting, 0)
+					apply_damage(rand(6, 12), "brute" , affecting, 0)
 				for(var/mob/M in range(5, src))
 					//M << "\red [usr] бьет [src] в область [affecting]"
 					M << M.select_lang("\red [usr] бьет [src] в область [affecting]", "\red [usr] punch [src] to [affecting]")
@@ -208,7 +213,7 @@
 		var/turf/wall_east = get_step(src, EAST)
 		var/turf/wall_south = get_step(src, SOUTH)
 
-		if(usr)
+		if(usr && usr.client)
 			if(usr.client.dir == NORTH)
 				if(dir == 2)
 					wall_east = locate(usr.x + 1, usr.y - 1, usr.z)
