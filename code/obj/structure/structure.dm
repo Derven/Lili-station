@@ -2,6 +2,7 @@
 	var/obj/item/parts = null
 
 /obj/structure/table
+	name = "table"
 	icon = 'table.dmi'
 	icon_state = "0"
 	anchored = 1
@@ -97,6 +98,7 @@
 	del(src)
 
 /obj/structure/sign
+	name = "sign"
 	icon ='sign.dmi'
 	anchored = 1
 

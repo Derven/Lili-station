@@ -21,11 +21,13 @@
 			src.attack_hand(M)
 
 /obj/item/weapon/wrench
+	name = "wrench"
 	icon = 'tools.dmi'
 	icon_state = "wrench"
 	force = 20
 
 /obj/item/weapon/pickaxe
+	name = "pickaxe"
 	icon = 'tools.dmi'
 	icon_state = "pickaxe"
 	force = 25
@@ -56,10 +58,12 @@
 /obj/item/device/analyzer
 
 /obj/item/weapon/wirecutters
+	name = "wirecutters"
 	icon = 'tools.dmi'
 	icon_state = "cutters"
 
 /obj/item/weapon/weldingtool
+	name = "weldingtool"
 	icon = 'tools.dmi'
 	icon_state = "welder"
 	var/volume = 60
@@ -88,6 +92,7 @@
 /obj/structure/stool/bed
 
 /obj/item/weapon/tank
+	name = "tank"
 
 /obj/effect/list_container/mobl
 	name = "mobl"

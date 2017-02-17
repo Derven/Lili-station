@@ -1,4 +1,5 @@
 /obj/machinery/airlock
+	name = "airlock"
 	icon = 'airlock.dmi'
 	icon_state = "close"
 	power_channel = ENVIRON

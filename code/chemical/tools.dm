@@ -71,8 +71,7 @@
 /obj/structure/reagent_dispensers
 
 /obj/item/weapon/reagent_containers/glass
-	name = " "
-	desc = " "
+	name = "glass"
 	layer = 8
 	icon = 'chemical.dmi'
 	icon_state = "bottle"

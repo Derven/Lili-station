@@ -1,6 +1,7 @@
 /obj/item/weapon/storage/bag/plants
 
 /obj/item/weapon/storage/box
+	name = "box"
 	icon = 'tools.dmi'
 	icon_state = "box"
 
