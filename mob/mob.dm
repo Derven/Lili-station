@@ -37,7 +37,7 @@ mob
 	var/obj/item/weapon/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 	var/obj/item/clothing/suit/cloth= null//Carbon
-	var/stat
+	var/stat = 0
 	var/atom/movable/pulling = null
 	var/in_throw_hyuow_mode = 0
 

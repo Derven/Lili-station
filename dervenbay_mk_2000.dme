@@ -7,6 +7,14 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "mob"
+#define FILE_DIR "obj"
+#define FILE_DIR "obj/atmos"
+#define FILE_DIR "obj/control"
+#define FILE_DIR "obj/items"
+#define FILE_DIR "obj/power"
+#define FILE_DIR "sound"
+#define FILE_DIR "turf"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES

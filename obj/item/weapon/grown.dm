@@ -379,7 +379,7 @@
 	seed = "/obj/item/seeds/bananaseed"
 	name = "banana"
 	desc = "It's an excellent prop for a clown."
-	icon = 'icons/obj/grown.dmi'
+	icon = 'grown.dmi'
 	icon_state = "banana"
 	trash = /obj/item/weapon/grown/bananapeel
 	//dried_type = /obj/item/weapon/reagent_containers/food/snacks/grown/banana
