@@ -9,7 +9,6 @@ mob
 		revenge = 0
 		image/hair
 
-
 	proc/select_lang(var/rus_msg, var/eng_msg)
 		switch(language)
 			if(RUS)
