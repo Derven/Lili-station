@@ -26,15 +26,6 @@
 	afterattack(atom/target as mob|obj|turf|area, flag, params)//TODO: go over this
 		if(flag)	return //we're placing gun on a table or in backpack
 
-		if(istype(usr, /mob))
-			var/mob/M = usr
-			if ((M.mutations & CLUMSY) && prob(50))
-				M << "\red The [src.name] blows up in your face."
-				//M.take_organ_damage(0,20)
-				M.drop_item()
-				del(src)
-				return
-
 		var/turf/curloc = usr.loc
 		var/turf/targloc = get_turf(target)
 		if (!istype(targloc) || !istype(curloc))
@@ -55,10 +46,6 @@
 			del(in_chamber)
 			update_icon()
 			return
-
-		if(recoil)
-			spawn()
-				shake_camera(usr, recoil + 1, recoil)
 
 		//if(silenced)
 			//playsound(usr, fire_sound, 10, 1)

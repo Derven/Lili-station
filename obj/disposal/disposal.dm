@@ -76,17 +76,17 @@
 			return
 
 		for (var/mob/V in viewers(usr))
-			if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
+			if(target == user)
 				V << "[usr] starts climbing into the disposal."
-			if(target != user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
+			if(target != user)
 				if(target.anchored) return
 				V << "[usr] starts stuffing [target.name] into the disposal."
 		if(!do_after(usr, 20))
 			return
-		if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)	// if drop self, then climbed in
+		if(target == user)	// if drop self, then climbed in
 												// must be awake, not stunned or whatever
 			user << "You climb into the [src]."
-		else if(target != user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
+		else if(target != user)
 			user << "You stuff [target.name] into the [src]!"
 		else
 			return
@@ -304,22 +304,8 @@
 	density = 0//So you can stand on it.
 	mode = 2
 
-	attackby(var/obj/item/I, var/mob/user)
-		if( !(stat & BROKEN) )
-			if(istype(I, /obj/item/weapon/grab))
-				var/obj/item/weapon/grab/G = I
-				if(istype(G)) // handle grabbed mob
-					if(ismob(G.affecting))
-						var/mob/GM = G.affecting
-						if(do_after(user, 30))
-							if(G.state>1&&!GM.internal)
-								GM.oxyloss += 5
-			else
-				user << "\red That item cannot be placed into the toilet."
-		return
-
 	MouseDrop_T(mob/target, mob/user)
-		if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat)
+		if (!istype(target) || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat)
 			return//Damn that list is long
 
 		for (var/mob/V in viewers(usr))
@@ -391,16 +377,6 @@
 	proc/init(var/obj/machinery/disposal/D)
 		if(!istype(D, /obj/machinery/disposal/toilet))//So it does not drain gas from a toilet which does not function on it.
 			gas = D.air_contents// transfer gas resv. into holder object
-
-		// now everything inside the disposal gets put into the holder
-		// note AM since can contain mobs or objs
-		for(var/atom/movable/AM in D)
-			AM.loc = src
-			if(istype(AM, /mob))
-				var/mob/H = AM
-				if(H.mutations & FAT)		// is a human and fat?
-					has_fat_guy = 1			// set flag on holder
-
 	// start the movement process
 	// argument is the disposal unit the holder started in
 	proc/start(var/obj/machinery/disposal/D)

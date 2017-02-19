@@ -1,6 +1,20 @@
 mob
 	step_size = 64
 	layer = 18
+	density = 1
+	layer = 4.0
+	animate_movement = 2
+	flags = NOREACT
+	var/datum/mind/mind
+	var/hand = null
+	//MOB overhaul
+
+	//Not in use yet
+	var/obj/organstructure/organStructure = null
+
+	//Vars that have been relocated to organStructure
+	//Vars that have been relocated to organStructure ++END
+	var/obj/machinery/machine = null
 	var
 		language = ENG
 		image/select_overlay
@@ -8,7 +22,28 @@ mob
 		defense = 5
 		revenge = 0
 		image/hair
+	var/next_move = null
+	var/nutrition = 400.0//Carbon
+	var/lying
+	var/nodamage = 0
 
+	//Vars that should only be accessed via procs
+	var/bruteloss = 0.0//Living
+	var/fireloss = 0.0//Living
+	var/obj/item/l_hand = null//Living
+	var/obj/item/r_hand = null//Living
+	var/obj/item/weapon/back = null//Human/Monkey
+	var/obj/item/weapon/tank/internal = null//Human/Monkey
+	var/obj/item/weapon/storage/s_active = null//Carbon
+	var/obj/item/clothing/mask/wear_mask = null//Carbon
+	var/obj/item/clothing/suit/cloth= null//Carbon
+	var/stat
+	var/atom/movable/pulling = null
+	var/in_throw_hyuow_mode = 0
+
+//Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
+	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
+	var/list/organs = list()
 
 	proc/select_lang(var/rus_msg, var/eng_msg)
 		switch(language)
@@ -110,7 +145,6 @@ mob
 		if(BURN)
 			organ.take_damage(0, damage)
 	UpdateDamageIcon()
-	updatehealth()
 	return 1
 
 /proc/parse_zone(zone)
@@ -123,26 +157,6 @@ mob
 	else if (zone == "l_foot") return "left foot"
 	else if (zone == "r_foot") return "right foot"
 	else return zone
-
-/mob/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
-	if(!effect || (blocked >= 2))	return 0
-	switch(effecttype)
-		if(WEAKEN)
-			Weaken(effect/(blocked+1))
-		if(PARALYZE)
-			Paralyse(effect/(blocked+1))
-		if(IRRADIATE)
-			radiation += effect//Rads auto check armor
-		if(STUTTER)
-			if(canstun) // stun is usually associated with stutter
-				stuttering = max(stuttering,(effect/(blocked+1)))
-		if(EYE_BLUR)
-			eye_blurry = max(eye_blurry,(effect/(blocked+1)))
-		if(DROWSY)
-			drowsyness = max(drowsyness,(effect/(blocked+1)))
-	UpdateDamageIcon()
-	updatehealth()
-	return 1
 
 /mob/proc/attacked_by(var/obj/item/I, var/mob/user, var/def_zone)
 	if((!I || !user) && istype(I, /obj/item/weapon/reagent_containers))	return 0
@@ -171,18 +185,6 @@ mob
 			usr << select_lang("\red [src] блокирует часть урона!", "\red [src] block damage partially!")
 	apply_damage(I.force, I.damtype, affecting, 0)
 	I.force = initial(I.force)
-
-	if((I.damtype == BRUTE) && prob(25 + (I.force * 2)))
-
-		switch(hit_area)
-			if("head")//Harder to score a stun but if you do it lasts a bit longer
-				if(prob(I.force))
-					apply_effect(20, PARALYZE, 0)
-
-			if("chest")//Easier to score a stun but lasts less time
-				if(prob((I.force + 10)))
-					apply_effect(5, WEAKEN, 0)
-
 	src.UpdateDamageIcon()
 
 /mob/proc/upd_status(var/datum/organ/external/O)
@@ -202,43 +204,6 @@ mob
 
 	return return_color
 
-/mob/proc/SetStunned(amount) //if you REALLY need to set stun to a set amount without the whole "can't go below current stunned"
-	if(canstun)
-		stunned = max(amount,0)
-	return
-
-/mob/proc/AdjustStunned(amount)
-	if(canstun)
-		stunned = max(stunned + amount,0)
-	return
-
-/mob/proc/Weaken(amount)
-	if(canweaken)
-		weakened = max(max(weakened,amount),0)
-	return
-
-/mob/proc/SetWeakened(amount)
-	if(canweaken)
-		weakened = max(amount,0)
-	return
-
-/mob/proc/AdjustWeakened(amount)
-	if(canweaken)
-		weakened = max(weakened + amount,0)
-	return
-
-/mob/proc/Paralyse(amount)
-	paralysis = max(max(paralysis,amount),0)
-	return
-
-/mob/proc/SetParalysis(amount)
-	paralysis = max(amount,0)
-	return
-
-/mob/proc/AdjustParalysis(amount)
-	paralysis = max(paralysis + amount,0)
-	return
-
 // ++++ROCKDTBEN++++ MOB PROCS -- Ask me before touching
 
 /mob/proc/getBruteLoss()
@@ -247,52 +212,16 @@ mob
 /mob/proc/adjustBruteLoss(var/amount)
 	bruteloss = max(bruteloss + amount, 0)
 
-/mob/proc/getOxyLoss()
-	return oxyloss
-
-/mob/proc/adjustOxyLoss(var/amount)
-	oxyloss = max(oxyloss + amount, 0)
-
-/mob/proc/setOxyLoss(var/amount)
-	oxyloss = amount
-
-/mob/proc/getToxLoss()
-	return toxloss
-
-/mob/proc/adjustToxLoss(var/amount)
-	toxloss = max(toxloss + amount, 0)
-
-/mob/proc/setToxLoss(var/amount)
-	toxloss = amount
-
 /mob/proc/getFireLoss()
 	return fireloss
 
 /mob/proc/adjustFireLoss(var/amount)
 	fireloss = max(fireloss + amount, 0)
 
-/mob/proc/getCloneLoss()
-	return cloneloss
-
-/mob/proc/adjustCloneLoss(var/amount)
-	cloneloss = max(cloneloss + amount, 0)
-
-/mob/proc/setCloneLoss(var/amount)
-	cloneloss = amount
-
-/mob/proc/getBrainLoss()
-	return brainloss
-
-/mob/proc/adjustBrainLoss(var/amount)
-	brainloss = max(brainloss + amount, 0)
-
-/mob/proc/setBrainLoss(var/amount)
-	brainloss = amount
-
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
 /mob/proc/UpdateDamageIcon()
-		return
+	return
 
 /mob/proc/HealDamage(zone, brute, burn)
 	var/datum/organ/external/E = get_organ(zone)
@@ -312,40 +241,12 @@ mob
 		if(BRUTE)
 			adjustBruteLoss(damage/(blocked+1))
 		if(BURN)
-			if(mutations & COLD_RESISTANCE)	damage = 0
 			adjustFireLoss(damage/(blocked+1))
-		if(TOX)
-			adjustToxLoss(damage/(blocked+1))
-		if(OXY)
-			adjustOxyLoss(damage/(blocked+1))
-		if(CLONE)
-			adjustCloneLoss(damage/(blocked+1))
 	UpdateDamageIcon()
-	updatehealth()
 	return 1
 
-/mob/proc/updatehealth()
-	if(!src.nodamage)
-		src.health = 100 - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss() - src.getCloneLoss()
-	else
-		src.health = 100
-		src.stat = 0
-
 /mob/UpdateDamageIcon()
-	del(body_standing)
-	body_standing = list()
-	del(body_lying)
-	body_lying = list()
-	for(var/datum/organ/external/O in organs)
-		var/icon/DI = new /icon('dam_human.dmi', O.damage_state)			// the damage icon for whole human
-		DI.Blend(new /icon('dam_mask.dmi', O.icon_name), ICON_MULTIPLY)		// mask with this organ's pixels
-	//		world << "[O.icon_name] [O.damage_state] \icon[DI]"
-		body_standing += DI
-		DI = new /icon('dam_human.dmi', "[O.damage_state]-2")				// repeat for lying icons
-		DI.Blend(new /icon('dam_mask.dmi', "[O.icon_name]2"), ICON_MULTIPLY)
-	//		world << "[O.r_name]2 [O.d_i_state]-2 \icon[DI]"
-		body_lying += DI
-
+	return
 
 /mob/proc/get_organ(var/zone)
 	if(!zone)	zone = "chest"
@@ -353,263 +254,6 @@ mob
 		if(O.name == zone)
 			return O
 	return null
-
-/mob
-	density = 1
-	layer = 4.0
-	animate_movement = 2
-	flags = NOREACT
-	var/datum/mind/mind
-
-	//MOB overhaul
-
-	//Not in use yet
-	var/obj/organstructure/organStructure = null
-
-	//Vars that have been relocated to organStructure
-	//Vars that have been relocated to organStructure ++END
-
-
-
-	//Vars that should only be accessed via procs
-	var/bruteloss = 0.0//Living
-	var/oxyloss = 0.0//Living
-	var/toxloss = 0.0//Living
-	var/fireloss = 0.0//Living
-	var/cloneloss = 0//Carbon
-	var/brainloss = 0//Carbon
-	//Vars that should only be accessed via procs ++END
-
-
-//	var/uses_hud = 0
-	var/obj/screen/flash = null
-	var/obj/screen/blind = null
-	var/obj/screen/hands = null
-	var/obj/screen/mach = null
-	var/obj/screen/sleep = null
-	var/obj/screen/rest = null
-	var/obj/screen/pullin = null
-	var/obj/screen/internals = null
-	var/obj/screen/oxygen = null
-	var/obj/screen/i_select = null
-	var/obj/screen/m_select = null
-	var/obj/screen/toxin = null
-	var/obj/screen/fire = null
-	var/obj/screen/bodytemp = null
-	var/obj/screen/healths = null
-	var/obj/screen/throw_hyuow_icon = null
-	var/obj/screen/nutrition_icon = null
-	var/obj/screen/pressure = null
-
-	var/total_luminosity = 0 //This controls luminosity for mobs, when you pick up lights and such this is edited.  If you want the mob to use lights it must update its lum in its life proc or such.  Note clamp this value around 7 or such to prevent massive light lag.
-	var/last_luminosity = 0
-
-	/*A bunch of this stuff really needs to go under their own defines instead of being globally attached to mob.
-	A variable should only be globally attached to turfs/objects/whatever, when it is in fact needed as such.
-	The current method unnecessarily clusters up the variable list, especially for humans (although rearranging won't really clean it up a lot but the difference will be noticable for other mobs).
-	I'll make some notes on where certain variable defines should probably go.
-	Changing this around would probably require a good look-over the pre-existing code.
-	*/
-	var/midis = 1 //Check if midis should be played for someone
-	var/alien_egg_flag = 0//Have you been infected?
-	var/last_special = 0
-	var/obj/screen/zone_sel/zone_sel = null
-
-	var/emote_allowed = 1
-	var/computer_id = null
-	var/lastattacker = null
-	var/lastattacked = null
-	var/attack_log = list( )
-	var/already_placed = 0.0
-	var/obj/machinery/machine = null
-	var/other_mobs = null
-	var/memory = ""
-	var/poll_answer = 0.0
-	var/sdisabilities = 0//Carbon
-	var/disabilities = 0//Carbon
-	var/atom/movable/pulling = null
-	var/stat = 0.0
-	var/next_move = null
-	var/prev_move = null
-	var/monkeyizing = null//Carbon
-	var/other = 0.0
-	var/hand = null
-	var/eye_blind = null//Carbon
-	var/eye_blurry = null//Carbon
-	var/ear_deaf = null//Carbon
-	var/ear_damage = null//Carbon
-	var/stuttering = null//Carbon
-	var/real_name = null
-	var/blinded = null
-	var/bhunger = 0//Carbon
-	var/ajourn = 0
-	var/rejuv = null
-	var/druggy = 0//Carbon
-	var/confused = 0//Carbon
-	var/antitoxs = null
-	var/plasma = null
-	var/sleeping = 0.0//Carbon
-	var/resting = 0.0//Carbon
-	var/lying = 0.0
-	var/canmove = 1.0
-	var/eye_stat = null//Living, potentially Carbon
-
-	var/name_archive //For admin things like possession
-
-	var/timeofdeath = 0.0//Living
-	var/cpr_time = 1.0//Carbon
-	var/health = 100//Living
-	var/bodytemperature = 310.055	//98.7 F
-	var/drowsyness = 0.0//Carbon
-	var/dizziness = 0//Carbon
-	var/is_dizzy = 0
-	var/is_jittery = 0
-	var/jitteriness = 0//Carbon
-	var/charges = 0.0
-	var/nutrition = 400.0//Carbon
-	var/overeatduration = 0		// How long this guy is overeating //Carbon
-	var/paralysis = 0.0
-	var/stunned = 0.0
-	var/weakened = 0.0
-	var/losebreath = 0.0//Carbon
-	var/shakecamera = 0
-	var/a_intent = "help"//Living
-	var/m_int = null//Living
-	var/m_intent = "run"//Living
-	var/lastDblClick = 0
-	var/lastKnownIP = null
-	var/obj/structure/stool/buckled = null//Living
-	var/obj/item/weapon/handcuffs/handcuffed = null//Living
-	var/obj/item/l_hand = null//Living
-	var/obj/item/r_hand = null//Living
-	var/obj/item/weapon/back = null//Human/Monkey
-	var/obj/item/weapon/tank/internal = null//Human/Monkey
-	var/obj/item/weapon/storage/s_active = null//Carbon
-	var/obj/item/clothing/mask/wear_mask = null//Carbon
-	var/obj/item/clothing/suit/cloth= null//Carbon
-	var/r_epil = 0
-	var/r_ch_cou = 0
-	var/r_Tourette = 0//Carbon
-
-	var/seer = 0 //for cult//Carbon, probably Human
-
-	var/miming = null //checks if the guy is a mime//Human
-	var/silent = null //Can't talk. Value goes down every life proc.//Human
-
-	var/obj/hud/hud_used = null
-
-	//var/list/organs = list(  ) //moved to human.
-	var/list/grabbed_by = list(  )
-	var/list/requests = list(  )
-
-	var/list/mapobjs = list()
-
-	var/in_throw_hyuow_mode = 0
-
-	var/coughedtime = null
-
-	var/inertia_dir = 0
-	var/footstep = 1
-
-	var/music_lastplayed = "null"
-
-	var/job = null//Living
-
-	var/nodamage = 0
-	var/logged_in = 0
-
-	var/underwear = 1//Human
-	var/be_syndicate = 0//This really should be a client variable.
-	var/be_random_name = 0
-	var/const/blindness = 1//Carbon
-	var/const/deafness = 2//Carbon
-	var/const/muteness = 4//Carbon
-
-
-	var/datum/dna/dna = null//Carbon
-	var/radiation = 0.0//Carbon
-
-	var/mutations = 0//Carbon
-	//telekinesis = 1
-	//firemut = 2
-	//xray = 4
-	//hulk = 8
-	//clumsy = 16
-	//obese = 32
-	//husk = 64
-
-	var/voice_name = "unidentifiable voice"
-	var/voice_message = null // When you are not understood by others (replaced with just screeches, hisses, chimpers etc.)
-	var/say_message = null // When you are understood by others. Currently only used by aliens and monkeys in their say_quote procs
-
-//Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
-	var/proc_holder_list[] = list()//Right now unused.
-	//Also unlike the spell list, this would only store the object in contents, not an object in itself.
-
-	/* Add this line to whatever stat module you need in order to use the proc holder list.
-	Unlike the object spell system, it's also possible to attach verb procs from these objects to right-click menus.
-	This requires creating a verb for the object proc holder.
-
-	if (proc_holder_list.len)//Generic list for proc_holder objects.
-		for(var/obj/effect/proc_holder/P in proc_holder_list)
-			statpanel("[P.panel]","",P)
-	*/
-
-//The last mob/living/carbon to push/drag/grab this mob (mostly used by Metroids friend recognition)
-	var/mob/living/carbon/LAssailant = null
-
-//Wizard mode, but can be used in other modes thanks to the brand new "Give Spell" badmin button
-	var/obj/effect/proc_holder/spell/list/spell_list = list()
-
-//List of active diseases
-
-	var/viruses = list() // replaces var/datum/disease/virus
-
-//Monkey/infected mode
-	var/list/resistances = list()
-	var/datum/disease/virus = null
-
-	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
-
-/*
-//Changeling mode stuff//Carbon
-	var/changeling_level = 0
-	var/list/absorbed_dna = list()
-	var/changeling_fakedeath = 0
-	var/chem_charges = 20.00
-	var/sting_range = 1
-*/
-	var/datum/changeling/changeling = null
-
-	var/universal_speak = 0 // Set to 1 to enable the mob to speak to everyone -- TLE
-	var/obj/control_object // Hacking in to control objects -- TLE
-
-	var/robot_talk_understand = 0
-	var/alien_talk_understand = 0
-
-/*For ninjas and others. This variable is checked when a mob moves and I guess it was supposed to allow the mob to move
-through dense areas, such as walls. Setting density to 0 does the same thing. The difference here is that
-the mob is also allowed to move without any sort of restriction. For instance, in space or out of holder objects.*/
-//0 is off, 1 is normal, 2 is for ninjas.
-	var/incorporeal_move = 0
-
-
-	var/update_icon = 1 // Set to 0 if you want that the mob's icon doesn't update when it moves -- Skie
-						// This can be used if you want to change the icon on the fly and want it to stay
-
-	var/UI = 'screen1_old.dmi' // For changing the UI from preferences
-
-//	var/obj/effect/organstructure/organStructure = null //for dem organs
-
-	var/canstun = 1 	// determines if this mob can be stunned by things
-	var/canweaken = 1	// determines if this mob can be weakened/knocked down by things
-
-	var/list/body_standing = list()
-	var/list/body_lying = list()
-
-	var/mutantrace = null
-
-	var/list/organs = list()
 
 /client/verb/windowclose(var/atomref as text)
 	set hidden = 1						// hide this verb from the user's panel
@@ -863,7 +507,6 @@ the mob is also allowed to move without any sort of restriction. For instance, i
 			handle_chemicals_in_body()
 
 	proc/death(gibbed)
-		timeofdeath = world.time
 		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
 		death = 1
 		rest()
@@ -1009,19 +652,6 @@ the mob is also allowed to move without any sort of restriction. For instance, i
 
 /proc/dd_range(var/low, var/high, var/num)
 	return max(low,min(high,num))
-
-/proc/shake_camera(mob/M, duration, strength=1)
-	if(!M || !M.client || M.shakecamera)
-		return
-	spawn(1)
-		var/oldeye=M.client.eye
-		var/x
-		M.shakecamera = 1
-		for(x=0; x<duration, x++)
-			M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
-			sleep(1)
-		M.shakecamera = 0
-		M.client.eye=oldeye
 
 /mob/proc/u_equip(obj/item/W as obj)
 	if (W == r_hand)
