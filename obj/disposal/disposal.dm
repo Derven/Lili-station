@@ -377,6 +377,11 @@
 	proc/init(var/obj/machinery/disposal/D)
 		if(!istype(D, /obj/machinery/disposal/toilet))//So it does not drain gas from a toilet which does not function on it.
 			gas = D.air_contents// transfer gas resv. into holder object
+
+		// now everything inside the disposal gets put into the holder
+		// note AM since can contain mobs or objs
+		for(var/atom/movable/AM in D)
+			AM.loc = src
 	// start the movement process
 	// argument is the disposal unit the holder started in
 	proc/start(var/obj/machinery/disposal/D)
