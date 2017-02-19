@@ -57,6 +57,17 @@ obj/item/weapon/gun/energy/laser/retro
 	force = 10
 	var/charge_tick = 0
 
+
+	New()
+		..()
+		processing_objects.Add(src)
+
+
+	Del()
+		processing_objects.Remove(src)
+		..()
+
+
 	process()
 		charge_tick++
 		if(charge_tick < 4) return 0

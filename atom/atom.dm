@@ -22,6 +22,16 @@ atom/var
 
 /atom/movable/var/list/pullers = list()
 
+/atom/movable/Move()
+	if(!anchored)
+		..()
+		for(var/mob/M in pullers)
+			M.update_pulling()
+		. = ..()
+		if(.)
+			for(var/mob/M in pullers)
+				M.update_pulling()
+
 /atom/MouseEntered()
 	usr.cur_object_i_see = src
 	usr.select_overlay.icon = icon

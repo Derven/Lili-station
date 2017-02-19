@@ -504,6 +504,36 @@
 	layer = 2.3			// slightly lower than wires and other pipes
 	var/base_icon_state	// initial icon state on map
 
+	// new pipe, set the icon_state as on map
+	New()
+		..()
+		base_icon_state = icon_state
+		return
+
+
+	// pipe is deleted
+	// ensure if holder is present, it is expelled
+	Del()
+		var/obj/structure/disposalholder/H = locate() in src
+		if(H)
+			// holder was present
+			H.active = 0
+			var/turf/T = src.loc
+			if(T.density)
+				// deleting pipe is inside a dense turf (wall)
+				// this is unlikely, but just dump out everything into the turf in case
+
+				for(var/atom/movable/AM in H)
+					AM.loc = T
+					AM.pipe_eject(0)
+				del(H)
+				..()
+				return
+
+			// otherwise, do normal expel from turf
+			expel(H, T, 0)
+		..()
+
 	// returns the direction of the next pipe object, given the entrance dir
 	// by default, returns the bitmask of remaining directions
 	proc/nextdir(var/fromdir)

@@ -19,6 +19,14 @@
 		global
 			gl_uid = 1
 
+/obj/machinery/New()
+	..()
+	machines.Add(src)
+
+/obj/machinery/Del()
+	machines.Remove(src)
+	..()
+
 /obj/machinery/process()//If you dont use process or power why are you here
 //	machines.Remove(src)Not going to do this till I test it a bit more
 	return

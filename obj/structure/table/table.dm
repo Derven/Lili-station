@@ -15,6 +15,10 @@
 		..()
 		set_up()
 
+	Del()
+		..()
+		set_up()
+
 	proc/set_up()
 		spawn(10)
 			var/turf/south = get_step(src, SOUTH)

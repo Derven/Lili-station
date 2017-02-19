@@ -135,6 +135,55 @@ turf
 					if("sleeping_agent")
 						overlays.Add(slmaster)
 
+
+
+		New()
+			..()
+
+			if(istype(src, /turf/simulated/floor/plating))
+				var/turf/simulated/floor/plating/P = src
+				P.merge()
+
+			if(!blocks_air)
+				air = new
+
+				air.oxygen = oxygen
+				air.carbon_dioxide = carbon_dioxide
+				air.nitrogen = nitrogen
+				air.toxins = toxins
+
+				air.temperature = temperature
+
+				if(air_master)
+					air_master.tiles_to_update.Add(src)
+
+					find_group()
+
+//				air.parent = src //TODO DEBUG REMOVE
+
+			else
+				if(air_master)
+					for(var/direction in cardinal)
+						var/turf/simulated/floor/target = get_step(src,direction)
+						if(istype(target))
+							air_master.tiles_to_update.Add(target)
+
+		Del()
+			if(air_master)
+				if(parent)
+					air_master.groups_to_rebuild.Add(parent)
+					parent.members.Remove(src)
+				else
+					air_master.active_singletons.Remove(src)
+			if(active_hotspot)
+				del(active_hotspot)
+			if(blocks_air)
+				for(var/direction in list(NORTH, SOUTH, EAST, WEST))
+					var/turf/simulated/tile = get_step(src,direction)
+					if(istype(tile) && !tile.blocks_air)
+						air_master.tiles_to_update.Add(tile)
+			..()
+
 		assume_air(datum/gas_mixture/giver)
 			if(!giver)	return 0
 			var/datum/gas_mixture/receiver = air

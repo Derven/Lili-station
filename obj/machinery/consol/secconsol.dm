@@ -1,4 +1,5 @@
 /obj/machinery/consol
+
 	secconsol
 		icon_state = "sec_consol"
 		var/data

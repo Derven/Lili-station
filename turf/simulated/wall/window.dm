@@ -7,6 +7,16 @@
 	var/image/damage
 	var/health = 100
 
+	Del()
+		..()
+		for(var/atom/movable/AM in src)
+			AM.ZLevel -= 1
+			pixel_z = (ZLevel - 1) * 32
+
+	New()
+		..()
+		merge()
+
 	update_icon()
 		if(health > 80)
 			return

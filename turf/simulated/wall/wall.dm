@@ -8,6 +8,21 @@
 	opacity = 1
 	var/walltype = "wall"
 
+	New()
+		..()
+		hide_wall = image('walls.dmi', icon_state = "[src.icon_state]_hide", layer = 10, loc = src)
+		hide_wall.override = 1
+		merge()
+		//relativewall_neighbours()
+		if(!istype(src, /turf/simulated/wall/window))
+			if(prob(30))
+				var/rand_num = rand(1,2)
+				overlays += image(icon = 'walls.dmi', icon_state = "overlay_[rand_num]")
+
+	Del()
+		..()
+		//relativewall_neighbours()
+
 /turf/simulated/wall
 	var/image/wall_overlay
 	var/image/hide_wall
