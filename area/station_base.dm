@@ -1,0 +1,1 @@
+/area/station_base
