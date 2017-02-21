@@ -32,6 +32,8 @@
 		merge()
 
 	verb/hide()
+		set name = "Hide"
+		set category = null
 		set src in view(usr)
 		usr << hide_wall
 		sleep(25)

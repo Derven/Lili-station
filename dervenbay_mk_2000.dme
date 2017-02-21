@@ -29,6 +29,7 @@
 #include "obj.dm"
 #include "skin.dmf"
 #include "iso_test.dmm"
+#include "stylesheet.dms"
 #include "area\station_base.dm"
 #include "area\test_area.dm"
 #include "area\ship\deck_1.dm"
