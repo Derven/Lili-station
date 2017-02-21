@@ -6,7 +6,6 @@
 	density = 1
 	parts = /obj/item/wood
 	var/auto_type = /obj/structure/table
-	var/auto = 1
 
 	zlevel_2
 		ZLevel = 2
