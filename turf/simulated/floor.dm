@@ -5,6 +5,7 @@
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
 	intact = 0
+	second_name = 1
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/cable_coil))
@@ -17,6 +18,3 @@
 				usr << "Вы развариваете пол..."
 			else
 				usr << "Заправьте горелку!"
-
-	floor_down
-		pixel_z = -64

@@ -2,9 +2,15 @@
 	for(var/mob/M in range(rang, src))
 		M << msg
 
-atom/var
+/atom
+	verb/my_code()
+		set src in oview(12)	//make it work from farther away
+		usr << "https://raw.githubusercontent.com/Derven/Aurora_the_cruiser/master[type].dm"
+
+/atom/var
 	ZLevel = 1
 	Climbing
+	second_name = 0
 
 /atom/movable
 	layer = 3

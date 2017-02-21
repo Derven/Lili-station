@@ -1,6 +1,7 @@
 /obj/machinery/consol
-	name = "computer"
+	name = "consol"
 	anchored = 1
 	icon_state = "consol"
 	power_channel = ENVIRON
 	idle_power_usage = 200
+	second_name = 1

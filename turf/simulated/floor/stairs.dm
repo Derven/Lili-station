@@ -2,6 +2,7 @@
 	icon_state = "stairsnorth"
 	density = 1
 	Height = 2
+	second_name = 0
 
 	Enter(var/atom/movable/A)
 		..()

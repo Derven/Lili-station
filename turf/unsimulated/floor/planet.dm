@@ -1,4 +1,5 @@
 /turf/unsimulated/floor
+	second_name = 0
 
 	planet
 		icon_state = "asteroid"

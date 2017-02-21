@@ -1,4 +1,5 @@
 /obj/structure/closet
+	second_name = 0
 	fridge
 		icon = 'fridge.dmi'
 

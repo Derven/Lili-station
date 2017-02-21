@@ -235,3 +235,11 @@
 proc/init_z_pixel()
 	for(var/atom/movable/All as mob | obj in world) //This sets the initial height of the atoms in the world
 		All.pixel_z = (All.ZLevel - 1) * 32
+
+///roof///
+proc/generate_roof()
+	var/image/roof = image(icon = 'floors.dmi', icon_state = "roof")
+	roof.override = 1
+	return roof
+//изображение потолка не видно на первом этаже, видно на втором, потолок полупрозрачный
+//со второго этажа на потолок зайти можно, но на первом можно ходить под ним

@@ -1,5 +1,5 @@
 /obj/structure/closet
-	name = "Closet"
+	name = "closet"
 	desc = "It's a closet!"
 	icon = 'closet.dmi'
 	icon_state = "closed"
@@ -13,6 +13,7 @@
 	var/health = 100
 	var/lastbang
 	parts = /obj/item/wood
+	second_name = 1
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))

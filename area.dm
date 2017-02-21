@@ -42,6 +42,7 @@
 /area/proc/poweralert(var/state, var/source)
 	return
 
+/*
 /area/proc/usage(var/chan)
 	var/used = 0
 	switch(chan)
@@ -55,6 +56,7 @@
 			used += master.used_light + master.used_equip + master.used_environ
 
 	return used
+*/
 
 /area/proc/clear_usage()
 

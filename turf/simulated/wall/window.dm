@@ -3,6 +3,7 @@
 	icon_state = "window"
 	opacity = 0
 	walltype = "window"
+	second_name = 0
 
 	var/image/damage
 	var/health = 100

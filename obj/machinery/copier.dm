@@ -105,7 +105,7 @@
 
 			// dup the file
 			if(istype(template, /obj/item/weapon/paper))
-				// make duplicate paper
+				// make second_name paper
 				var/obj/item/weapon/paper/P = new(src.loc)
 				P.name = template.name
 				P.info = template:info
