@@ -361,6 +361,8 @@ mob
 		if(reagents) reagents.metabolize(src)
 
 	verb/who()
+		set name = "Who"
+		set category = "OOC"
 		usr << usr.select_lang("игроки в игре: ", "players in game: ")
 		for(var/mob/M in world)
 			if(M.client)
@@ -515,6 +517,8 @@ mob
 		return
 
 	verb/suicide()
+		set name = "Suicide"
+		set category = "IC"
 		death()
 
 	attack_hand()
@@ -827,9 +831,13 @@ mob
 			return
 
 /mob/verb/rest()
+	set name = "Rest"
+	set category = "IC"
 	resting()
 
 /mob/verb/miracle()
+	set name = "Miracle"
+	set category = "IC"
 	death = 0
 	reagents.add_reagent("blood", 200)
 	heal_brute(80)
@@ -842,6 +850,8 @@ mob
 	death = 1
 
 /mob/verb/Say(msg as text)
+	set name = "Say"
+	set category = "IC"
 	if(!findtext(msg," ",1,2) && msg)
 		overlays.Add(overlay_cur)
 		for(var/mob/M in range(5, src))
@@ -851,12 +861,16 @@ mob
 		overlays.Remove(overlay_cur)
 
 /mob/verb/Emote(msg as text)
+	set name = "Emote"
+	set category = "IC"
 	for(var/mob/M in range(5, src))
 		if(msg)
 			if(!findtext(msg," ",1,2))
 				M << "<b>[src] [fix255(msg)]</b>"
 
 /mob/verb/OOC(msg as text)
+	set name = "OOC"
+	set category = "OOC"
 	if(msg)
 		if(!findtext(msg," ",1,2))
 			world << "\blue OOC [usr.ckey]: [fix255(msg)]"
