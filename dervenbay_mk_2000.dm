@@ -16,8 +16,6 @@ world
 
 	radio_controller = new /datum/controller/radio()
 
-	makepowernets()
-
 	hide_objs()
 
 	init_z_pixel()

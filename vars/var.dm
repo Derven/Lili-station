@@ -2,9 +2,9 @@ var/global
 	obj/datacore/data_core = null
 	obj/effect/overlay/plmaster = null
 	obj/effect/overlay/slmaster = null
+	list/obj/machinery/simple_smes/smes_powernet = list()
 
 	//obj/hud/main_hud1 = null
-	list/APCWirecolor_hyalorToFlag = RandomAPCWires()
 	list/machines = list()
 	list/processing_objects = list()
 	list/active_diseases = list()

@@ -20,9 +20,8 @@
 			var/cur_door = href_list["door"]
 			for(var/obj/machinery/airlock/brig/briglock/BL in locate(/area/test_area))
 				if(BL.name == cur_door)
-					BL.power_change()
 					var/turf/simulated/floor/T = BL.loc
-					if(!BL.powered())
+					if(BL.charge == 0)
 						return
 					else
 						BL.close = !BL.close

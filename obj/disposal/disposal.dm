@@ -235,13 +235,8 @@
 		if(stat & NOPOWER)			// won't charge if no power
 			return
 
-		use_power(100)		// base power usage
-
 		if(mode != 1)		// if off or ready, no need to charge
 			return
-
-		// otherwise charge
-		use_power(500)		// charging power usage
 
 		// if full enough, switch to ready mode
 		return
@@ -272,14 +267,6 @@
 			mode = 1	// switch to charging
 		update()
 		return
-
-
-	// called when area power changes
-	power_change()
-		..()	// do default setting/reset of stat NOPOWER bit
-		update()	// update icon
-		return
-
 
 	// called when holder is expelled from a disposal
 	// should usually only occur if the pipe network is modified
@@ -340,8 +327,6 @@
 			updateDialog()
 			if(!flush&&contents.len)
 				flush++
-				flush()
-			use_power(100)// base power usage
 			update()
 		return
 

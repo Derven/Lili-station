@@ -62,5 +62,6 @@ turf
 		if(istype(src, /turf/simulated/floor/roof))
 			for(var/atom/movable/AM in src)
 				if(AM.density == 1 && AM.ZLevel == A.ZLevel)
+					A.invisibility = 15 * (A.ZLevel-1)
 					return 0
 			return 1

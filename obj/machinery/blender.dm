@@ -70,7 +70,6 @@ the blender or the processor: Processor items are solid objects and Blender resu
 	//playsound(src.loc, 'blender.ogg', 50, 1)
 	src.processing = 1
 	usr << usr.select_lang("\red Вы включаете блендер.", "\blue You turn on the blender.")
-	use_power(250)
 	for(var/obj/O in src.contents)
 		if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/soybeans))	 //  Mass balance law
 			src.reagents.add_reagent("soymilk", O.reagents.get_reagent_amount("nutriment"))

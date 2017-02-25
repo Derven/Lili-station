@@ -2,7 +2,7 @@ mob
 	step_size = 64
 	layer = 18
 	density = 1
-	layer = 4.0
+	layer = 18.0
 	animate_movement = 2
 	flags = NOREACT
 	var/datum/mind/mind

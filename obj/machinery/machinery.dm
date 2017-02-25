@@ -2,6 +2,8 @@
 	name = "machinery"
 	icon = 'stationobjs.dmi'
 	var
+		charge = 0
+		load = 0
 		switcher = 1
 		stat = 0
 		emagged = 0
@@ -32,6 +34,11 @@
 	return
 
 /obj/machinery/proc/auto_use_power()
+	if(charge > 0)
+		return 1
+	else
+		return 0
+/*
 	if(switcher)
 		if(!powered(power_channel))
 			return 0
@@ -42,6 +49,7 @@
 		return 1
 	else
 		return 0
+*/
 
 /obj/machinery/power
 	name = null

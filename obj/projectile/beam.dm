@@ -11,27 +11,12 @@
 
 	New()
 		..()
-		if(cell_type)
-			power_supply = new cell_type(src)
-		else
-			power_supply = new(src)
-		power_supply.give(power_supply.maxcharge)
 		return
 
 
 	load_into_chamber()
-		if(in_chamber)	return 1
-		if(!power_supply)	return 0
-		if(!power_supply.use(charge_cost))	return 0
-		if(!projectile_type)	return 0
 		in_chamber = new projectile_type(src)
 		return 1
-
-
-	update_icon()
-		var/ratio = power_supply.charge / power_supply.maxcharge
-		ratio = round(ratio, 0.25) * 100
-		icon_state = text("[][]", initial(icon_state), ratio)
 
 /obj/item/weapon/gun/energy/laser
 	name = "laser gun"
@@ -72,9 +57,6 @@ obj/item/weapon/gun/energy/laser/retro
 		charge_tick++
 		if(charge_tick < 4) return 0
 		charge_tick = 0
-		if(!power_supply) return 0
-		power_supply.give(100)
-		update_icon()
 		return 1
 
 

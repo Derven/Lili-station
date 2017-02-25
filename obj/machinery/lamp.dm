@@ -4,9 +4,11 @@
 	switcher = 1
 	use_power = 1
 	anchored = 1
+	load = 5
 
 /obj/machinery/lamp/process()
-	if(!powered())
+	sleep(2)
+	if(charge == 0)
 		luminosity = 0
 		return
 	else

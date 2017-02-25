@@ -277,13 +277,6 @@
 		if(welded)
 			usr << "It seems welded shut."
 
-	power_change()
-		if(powered(power_channel))
-			stat &= ~NOPOWER
-		else
-			stat |= NOPOWER
-		update_icon()
-
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 		if (!istype(W, /obj/item/weapon/wrench))
 			return ..()

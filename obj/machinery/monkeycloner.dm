@@ -16,7 +16,6 @@
 /obj/machinery/monkeycloner/process()
 	if(stat & (NOPOWER|BROKEN))
 		return
-	use_power(500)
 	//src.updateDialog()
 
 	if(cloning)

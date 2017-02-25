@@ -8,10 +8,6 @@
 	second_name = 1
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/cable_coil))
-			var/obj/item/weapon/cable_coil/coil = W
-			coil.turf_place(src, usr)
-
 		if(istype(W, /obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/WD = W
 			if(WD.use())

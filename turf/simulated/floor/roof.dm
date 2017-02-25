@@ -11,6 +11,7 @@
 		roof.loc = src
 
 	proc/show(var/mob/M)
+		roof.layer = M.layer - 1
 		M.client.images += roof
 
 	proc/hide(var/mob/M)

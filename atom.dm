@@ -45,7 +45,7 @@
 	usr.select_overlay.icon_state = icon_state
 	usr.select_overlay.layer = layer
 	usr.select_overlay.loc = src
-	if(!istype(src, /obj/hud) && !istype(src, /obj/lobby))
+	if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof))
 		usr.select_overlay.color = "#c0e0ff"
 		usr << usr.select_overlay
 

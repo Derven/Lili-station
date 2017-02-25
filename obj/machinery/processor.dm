@@ -91,7 +91,6 @@
 			"You turn on \a [src].", \
 			"You hear a food processor")
 		//playsound(src.loc, 'blender.ogg', 50, 1)
-		use_power(500)
 		sleep(P.time)
 		P.process(src.loc, O)
 		src.processing = 0

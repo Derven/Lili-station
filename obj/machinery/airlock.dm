@@ -11,6 +11,7 @@
 	anchored = 1
 	switcher = 1
 	second_name = 1
+	load = 25
 	var
 		close = 1
 
@@ -21,9 +22,8 @@
 		T.update_air_properties()
 
 	attack_hand(mob/user)
-		power_change()
 		var/turf/simulated/floor/T = src.loc
-		if(!powered())
+		if(charge == 0)
 			return
 		else
 			if(close == 1)
