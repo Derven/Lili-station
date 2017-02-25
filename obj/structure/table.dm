@@ -11,11 +11,13 @@
 		ZLevel = 2
 		pixel_z = 32
 		layer = 20
+		color = "red"
 
 	New()
 		..()
 		set_up()
 		second_name = 1
+		color = null
 
 	Del()
 		..()
