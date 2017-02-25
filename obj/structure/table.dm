@@ -9,6 +9,8 @@
 
 	zlevel_2
 		ZLevel = 2
+		pixel_z = 32
+		layer = 20
 
 	New()
 		..()

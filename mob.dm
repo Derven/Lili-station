@@ -546,9 +546,16 @@ mob
 	Move()
 		if(lying)
 			return
-
+		see_invisible = 16 * (ZLevel-1)
 		var/turf/wall_east = get_step(src, EAST)
 		var/turf/wall_south = get_step(src, SOUTH)
+
+		for(var/turf/simulated/floor/roof/RF in oview())
+			RF.hide(usr)
+
+		if(ZLevel == 2)
+			for(var/turf/simulated/floor/roof/RF in oview())
+				RF.show(usr)
 
 		if(usr && usr.client)
 			if(usr.client.dir == NORTH)

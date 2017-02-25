@@ -7,7 +7,6 @@
 /turf
 	icon = 'floors.dmi'
 	var/intact = 1 //for floors, use is_plating(), is_steel_floor() and is_light_floor()
-
 	level = 1.0
 
 	var
@@ -57,6 +56,11 @@ turf
 	Enter(var/mob/A)
 		if(A.ZLevel == src.Height) //If the player is not on the same Z plane as the turf, you can't enter it
 			for(var/atom/movable/AM in src)
-				if(AM.density == 1)
+				if(AM.density == 1 && AM.ZLevel == A.ZLevel)
+					return 0
+			return 1
+		if(istype(src, /turf/simulated/floor/roof))
+			for(var/atom/movable/AM in src)
+				if(AM.density == 1 && AM.ZLevel == A.ZLevel)
 					return 0
 			return 1
