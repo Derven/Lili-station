@@ -8,7 +8,6 @@ mob
 	var/datum/mind/mind
 	var/hand = null
 	//MOB overhaul
-
 	//Not in use yet
 	var/obj/organstructure/organStructure = null
 
@@ -22,10 +21,23 @@ mob
 		defense = 5
 		revenge = 0
 		image/hair
+		turf/SLOC = null
 	var/next_move = null
 	var/nutrition = 400.0//Carbon
 	var/lying
 	var/nodamage = 0
+
+	proc/Life()
+		if(death == 0)
+			SLOC = src.loc
+			//set invisibility = 0
+			//set background = 1
+			var/datum/gas_mixture/environment = SLOC.return_air()
+			var/SLOC_temperature = environment.temperature
+			handle_stomach()
+			handle_injury()
+			handle_chemicals_in_body()
+			handle_temperature(SLOC_temperature)
 
 	//Vars that should only be accessed via procs
 	var/bruteloss = 0.0//Living
@@ -51,7 +63,6 @@ mob
 				return rus_msg
 			if(ENG)
 				return eng_msg
-
 
 mob
 	//	list/SightBlockersList = /list
@@ -500,18 +511,6 @@ mob
 		if((get_dist(src, pulling) > 1) || !isturf(pulling.loc))
 			stop_pulling()
 
-	proc/Life()
-		if(death == 0)
-			var/turf/SLOC = src.loc
-			var/datum/gas_mixture/environment = SLOC.return_air()
-			var/SLOC_temperature = environment.temperature
-			set invisibility = 0
-			set background = 1
-			handle_stomach()
-			handle_injury()
-			handle_chemicals_in_body()
-			handle_temperature(SLOC_temperature)
-
 	proc/handle_temperature(var/mytemp)
 		if(mytemp > 373)
 			var/datum/organ/external/affecting = get_organ("chest")
@@ -579,6 +578,11 @@ mob
 
 		for(var/turf/simulated/floor/roof/RF in oview())
 			RF.hide(usr)
+
+		if(istype(SLOC, /turf/simulated/floor/roof) && !istype(src, /mob/ghost))
+			invisibility = 15
+		if(!istype(SLOC, /turf/simulated/floor/roof) && !istype(src, /mob/ghost))
+			invisibility = 0
 
 		if(ZLevel == 2)
 			for(var/turf/simulated/floor/roof/RF in oview())
