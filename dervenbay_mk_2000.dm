@@ -9,6 +9,7 @@ world
 	view = 8		// show up to 8 tiles outward from center (13x13 view)
 	turf = /turf/space
 	map_format = ISOMETRIC_MAP
+	hub = "SSting.SpaceCruiserAurora"
 
 /world/New()
 

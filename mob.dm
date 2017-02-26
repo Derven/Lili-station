@@ -143,7 +143,7 @@ mob
 		if(BRUTE)
 			organ.take_damage(damage, 0)
 		if(BURN)
-			organ.take_damage(0, damage)
+			organ.take_damage(damage, 0)
 	UpdateDamageIcon()
 	return 1
 
@@ -502,11 +502,38 @@ mob
 
 	proc/Life()
 		if(death == 0)
+			var/turf/SLOC = src.loc
+			var/datum/gas_mixture/environment = SLOC.return_air()
+			var/SLOC_temperature = environment.temperature
 			set invisibility = 0
 			set background = 1
 			handle_stomach()
 			handle_injury()
 			handle_chemicals_in_body()
+			handle_temperature(SLOC_temperature)
+
+	proc/handle_temperature(var/mytemp)
+		if(mytemp > 373)
+			var/datum/organ/external/affecting = get_organ("chest")
+			apply_damage(round(mytemp/10), BURN, affecting, 0)
+			affecting = get_organ("head")
+			apply_damage(round(mytemp/10), BURN, affecting, 0)
+			src << select_lang("\red Вы чувствуете тепло", "\red You feel the heat!")
+
+		if(mytemp < 273)
+			var/datum/organ/external/affecting = get_organ("chest")
+			apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
+			affecting = get_organ("head")
+			apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
+			src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
+
+		if(istype(src.loc, /turf/space))
+			var/datum/organ/external/affecting = get_organ("chest")
+			mytemp = 300
+			apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
+			affecting = get_organ("head")
+			apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
+			src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
 
 	proc/death(gibbed)
 		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")

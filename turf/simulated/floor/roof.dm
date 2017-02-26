@@ -8,6 +8,7 @@
 		..()
 		roof = image(icon='floors.dmi',icon_state="roof")
 		roof.override = 1
+		roof.alpha = 128
 		roof.loc = src
 
 	proc/show(var/mob/M)
