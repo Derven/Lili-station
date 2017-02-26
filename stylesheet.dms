@@ -2,4 +2,8 @@
 	body {
 		font-family: 'Georgia', 'sans-serif';
 	}
+	.lobby {
+		font-family: 'Georgia', 'sans-serif';
+		color: #30302D;
+	}
 </style>

@@ -810,10 +810,12 @@ mob
 	Move(pick(landmarks))
 
 /mob/proc/show_lobby()
-	lobby_text = " \
+/*	lobby_text = " \
 	<html> \
 	<head><title>[usr.select_lang("Приемный пункт","Start game")]</title></head> \
-	<body style=\"font-family: Georgia, sans-serif;\"> \
+	<body link=\"#464743\" alink=\"#464743\"><b> \
+	<div class=\"lobby\">\
+	<h1>Aurora</h1> \
 	<a href='?src=\ref[src];display=show'>[usr.select_lang("Разрешение","Screen resolution")]</a>\
 	<br> \
 	<br> \
@@ -834,8 +836,27 @@ mob
 	<a href='?src=\ref[src];enter=yes'>[usr.select_lang("Вход","Join")]</a>\
 	<br> \
 	<a href='?src=\ref[src];enter=nahoy'>[usr.select_lang("Выход","Exit")]</a> \
-	</body></html>"
-	usr << browse(lobby_text,"window=setup")
+	</b></div></body></html>"
+*/
+	lobby_text = " \
+	<html> \
+		<head> \
+			<title> Aurora lobby </title> \
+		</head> \
+		<body> \
+			<div class=\"lobby\"> \
+				<a href='?src=\ref[src];enter=yes'>JOIN </a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </a> \
+				<br> \
+				<center><h1>AURORA</h1></center> \
+				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \
+				LANGUAGE <a href='?src=\ref[src];lang=eng'> ENG </a> / <a href='?src=\ref[src];lang=rus'> RUS </a><br> \
+				GENDER <a href='?src=\ref[src];gender=male'> MALE </a> / <a href='?src=\ref[src];gender=female'> FEMALE </a><br> \
+				<a href='?src=\ref[src];hair=new'> HAIR </a><br> \
+				<a href='?src=\ref[src];display=show'>SCREEN RESOLUTION</a></h3></div> \
+			</div> \
+		</body> \
+	</html>"
+	usr << browse(lobby_text,"window=setup;size=300x250;can_resize=0;can_close=0")
 
 /mob/Login()
 	..()
@@ -926,6 +947,9 @@ mob/Stat()
 		lobby.invisibility = 101
 		usr << sound(null)
 		usr << browse(null, "window=setup")
+	if(href_list["name"] == "newname")
+		usr.name = input("Choose a name for your character.",
+			"Your Name",usr.name)
 	if(href_list["enter"] == "nahoy")
 		Logout()
 	if(href_list["display"] == "show")
