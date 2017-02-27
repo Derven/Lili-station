@@ -812,6 +812,7 @@
 	icon_state = "pill"
 
 	tric_pill
+		name = "tricordrazine pill"
 
 	New()
 		..()

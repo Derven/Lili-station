@@ -106,7 +106,6 @@ mob
 
 /mob/proc/drop_item(var/atom/target)
 	var/obj/item/W = equipped()
-
 	if (W)
 		if (client)
 			client.screen -= W
@@ -118,7 +117,8 @@ mob
 			W.dropped(src)
 			u_equip(W)
 			if (W)
-				W.layer = initial(W.layer)
+				W.layer = initial(W.layer) + (15 * (ZLevel - 1))
+				W.pixel_z = 32 * (ZLevel - 1)
 		var/turf/T = get_turf(loc)
 		if (istype(T))
 			T.Entered(W)
@@ -182,7 +182,6 @@ mob
 	if(def_zone)
 		def_area = parse_zone(defen_zone.name)
 
-	usr << "\red <B>[src] атакован(а) [user] в [hit_area] с помощью [I.name] !</B>"
 	usr << select_lang("\red <B>[src] атакован(а) [user] в [hit_area] с помощью [I.name] !</B>", "\red <B>[src] attacked [user] to [hit_area] by [I.name] !</B>")
 
 	if((user != src))
@@ -585,14 +584,6 @@ mob
 
 		for(var/turf/simulated/floor/roof/RF in oview())
 			RF.hide(usr)
-
-		if(istype(SLOC, /turf/simulated/floor/roof) && !istype(src, /mob/ghost))
-			invisibility = 15
-			for(var/turf/simulated/floor/F in locate(SLOC.x, SLOC.y, SLOC.z))
-				if(!istype(F, /turf/simulated/floor/roof))
-					invisibility = 0
-		if(!istype(SLOC, /turf/simulated/floor/roof) && !istype(src, /mob/ghost))
-			invisibility = 0
 
 		if(ZLevel == 2)
 			for(var/turf/simulated/floor/roof/RF in oview())

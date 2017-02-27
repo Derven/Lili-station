@@ -30,6 +30,9 @@
 /atom/movable/var/list/pullers = list()
 
 /atom/movable/Move()
+	var/turf/T = loc
+	if(T)
+		layer = initial(layer) + (15 * (T.Height - 1))
 	if(!anchored)
 		..()
 		for(var/mob/M in pullers)
