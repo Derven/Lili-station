@@ -468,32 +468,32 @@ mob
 		var/obj/blood/BD
 		if(chest.brute_dam > 80)
 			reagents.remove_reagent("blood", 20)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 			BD = new(src.loc)
 
 		if(head.brute_dam > 80)
 			reagents.remove_reagent("blood", 18)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 			BD = new(src.loc)
 
 		if(r_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 			BD = new(src.loc)
 
 		if(l_leg.brute_dam > 80)
 			reagents.remove_reagent("blood", 14)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 			BD = new(src.loc)
 
 		if(r_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, епта
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 			BD = new(src.loc)
 
 		if(l_arm.brute_dam > 80)
 			reagents.remove_reagent("blood", 8)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have blood loss") //Хуй знает как еще перевести! Соре, еп
+			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, еп
 			BD = new(src.loc)
 
 		if(!reagents.has_reagent("blood", 50))
@@ -512,27 +512,28 @@ mob
 			stop_pulling()
 
 	proc/handle_temperature(var/mytemp)
-		if(mytemp > 373)
-			var/datum/organ/external/affecting = get_organ("chest")
-			apply_damage(round(mytemp/10), BURN, affecting, 0)
-			affecting = get_organ("head")
-			apply_damage(round(mytemp/10), BURN, affecting, 0)
-			src << select_lang("\red Вы чувствуете тепло", "\red You feel the heat!")
+		if(cloth == null)
+			if(mytemp > 373)
+				var/datum/organ/external/affecting = get_organ("chest")
+				apply_damage(round(mytemp/10), BURN, affecting, 0)
+				affecting = get_organ("head")
+				apply_damage(round(mytemp/10), BURN, affecting, 0)
+				src << select_lang("\red Вы чувствуете тепло", "\red You feel the heat!")
 
-		if(mytemp < 273)
-			var/datum/organ/external/affecting = get_organ("chest")
-			apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
-			affecting = get_organ("head")
-			apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
-			src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
+			if(mytemp < 273)
+				var/datum/organ/external/affecting = get_organ("chest")
+				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
+				affecting = get_organ("head")
+				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
+				src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
 
-		if(istype(src.loc, /turf/space))
-			var/datum/organ/external/affecting = get_organ("chest")
-			mytemp = 300
-			apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
-			affecting = get_organ("head")
-			apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
-			src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
+			if(istype(src.loc, /turf/space))
+				var/datum/organ/external/affecting = get_organ("chest")
+				mytemp = 300
+				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
+				affecting = get_organ("head")
+				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
+				src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
 
 	proc/death(gibbed)
 		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
