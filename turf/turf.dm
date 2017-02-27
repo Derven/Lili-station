@@ -40,6 +40,17 @@
 	proc/return_siding_icon_state()
 		return 0
 
+	attack_hand()
+		if(usr.mycraft_atom)
+			if(istype(usr.mycraft_atom, /turf))
+				src = new usr.mycraft_atom.type(src)
+			else
+				new usr.mycraft_atom.type(src)
+			usr << usr.select_lang("\blue Вы строите [usr.mycraft_atom]", "\blue You build [usr.mycraft_atom]")
+			usr.mycraft_atom = null
+			usr.client.images -= usr.mycraft
+			usr.mycraft = null
+
 /turf/proc/replace_turf()
 	for(var/turf/T in locate(x,y,z+1))
 		T = src

@@ -4,7 +4,7 @@
 	icon_state = "0"
 	anchored = 1
 	density = 1
-	parts = /obj/item/wood
+	parts = /obj/item/stack/table_parts
 	var/auto_type = /obj/structure/table
 
 	zlevel_2

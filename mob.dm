@@ -985,3 +985,16 @@ mob/Stat()
 	if (stat == 0)
 		drop_item()
 	return
+
+///BUILD/CRAFT SYSTEM
+/mob
+	var/atom/mycraft_atom
+	var/image/mycraft
+
+/mob/proc/show(var/atom/mybuild)
+	if(mycraft)
+		client.screen.Remove(mycraft)
+	mycraft = image(icon = mybuild.icon, icon_state = mybuild.icon_state, layer = 15)
+	mycraft_atom = mybuild
+
+///BUILD/CRAFT SYSTEM

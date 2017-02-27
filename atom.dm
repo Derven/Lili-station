@@ -44,18 +44,25 @@
 				M.update_pulling()
 
 /atom/MouseEntered()
-	usr.cur_object_i_see = src
-	usr.select_overlay.icon = icon
-	usr.select_overlay.icon_state = icon_state
-	usr.select_overlay.layer = layer
-	usr.select_overlay.loc = src
-	if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof) && !(ZLevel > usr.ZLevel))
-		usr.select_overlay.color = "#c0e0ff"
-		usr << usr.select_overlay
-
+	if(usr.mycraft == null)
+		usr.cur_object_i_see = src
+		usr.select_overlay.icon = icon
+		usr.select_overlay.icon_state = icon_state
+		usr.select_overlay.layer = layer
+		usr.select_overlay.loc = src
+		if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof) && !(ZLevel > usr.ZLevel))
+			usr.select_overlay.color = "#c0e0ff"
+			usr << usr.select_overlay
+	else
+		if(get_dist(usr, src) < 2)
+			usr.mycraft.loc = src
+			usr.mycraft.color = "green"
+			usr << usr.mycraft
 
 /atom/MouseExited()
 	usr.client.images -= usr.select_overlay
+	if(usr.mycraft)
+		usr.client.images -= usr.mycraft
 
 /atom/proc/MouseDrop_T()
 	return
