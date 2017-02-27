@@ -32,7 +32,8 @@
 /atom/movable/Move()
 	var/turf/T = loc
 	if(T)
-		layer = initial(layer) + (15 * (T.Height - 1))
+		if(istype(T, /turf))
+			layer = initial(layer) + (15 * (T.Height - 1))
 	if(!anchored)
 		..()
 		for(var/mob/M in pullers)
@@ -48,7 +49,7 @@
 	usr.select_overlay.icon_state = icon_state
 	usr.select_overlay.layer = layer
 	usr.select_overlay.loc = src
-	if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof))
+	if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof) && !(ZLevel > usr.ZLevel))
 		usr.select_overlay.color = "#c0e0ff"
 		usr << usr.select_overlay
 

@@ -28,7 +28,7 @@ var
 var/global/list/turf/landmarks = list()
 var/global/list/turf/jobmarks = list()
 var/list/screen_resolution = list("640x480", "800x600", "1024x768", "1280x1024", "1920x1080")
-var/list/image/hairs = list("hair_1", "hair_2", "hair_3")
+var/list/image/hairs = list("hair_1", "hair_2", "hair_3", "hair_4", "hair_5", "hair_6")
 var
 
 	//////////////

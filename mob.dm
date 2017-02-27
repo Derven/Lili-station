@@ -7,6 +7,7 @@ mob
 	flags = NOREACT
 	var/datum/mind/mind
 	var/hand = null
+	var/list/obj/last_contents = list()
 	//MOB overhaul
 	//Not in use yet
 	var/obj/organstructure/organStructure = null
@@ -940,10 +941,12 @@ mob/var/atom/cur_object_i_see
 
 mob/Stat()
 	for(var/M in visible_containers)
+		if(last_contents)
+			statpanel("contents", last_contents)
 		if(cur_object_i_see)
 			if(M == cur_object_i_see.type)
+				last_contents = cur_object_i_see.contents
 				if(!istype(cur_object_i_see, /mob) && cur_object_i_see && cur_object_i_see.contents.len > 0) statpanel("contents", cur_object_i_see.contents)
-				sleep(rand(5,8))
 	//if(!istype(cur_object_i_give, /mob) && cur_object_i_give && cur_object_i_give.contents.len > 0) statpanel("container", cur_object_i_give.contents)
 
 /mob/Topic(href,href_list[])
@@ -965,7 +968,7 @@ mob/Stat()
 		if(hair)
 			overlays.Remove(hair)
 		hair = image('mob.dmi', hair_state)
-		hair.layer = layer + 1
+		hair.layer = layer + 5
 		overlays.Add(hair)
 
 	if(href_list["gender"] == "male")
