@@ -65,7 +65,7 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))
-			usr << "Вы разбираете стол..."
+			usr << usr.select_lang("Вы разбираете стол...", "You deconstruct the table...")
 			if(do_after(usr, 5))
 				for(var/obj/O in src.loc)
 					O.pixel_z = -16
