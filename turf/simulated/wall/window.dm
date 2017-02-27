@@ -69,3 +69,13 @@
 				icon_state = "window_sw"
 			if(E && istype(E, /turf/simulated/wall/window))
 				icon_state = "window_we"
+
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		health -= W.force
+		usr << usr.select_lang("\red Вы бьете стекло с помощью [W]", "\red You punch the glass with [W]")
+		update_icon()
+		if(health < 30)
+			src = new /turf/simulated/floor/plating(src)
+			//relativewall_neighbours()
+			usr << usr.select_lang("\red Стекло разбиваетс&#255;", "The glass is broken")
+			//del(src)

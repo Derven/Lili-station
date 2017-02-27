@@ -4,6 +4,7 @@
 	icon_state = "apc"
 	charge = 0
 	load = 0
+	anchored = 1
 
 	New()
 		..()

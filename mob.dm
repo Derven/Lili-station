@@ -567,6 +567,13 @@ mob
 					//M << "\red [usr] бьет [src] в область [affecting]"
 					M << M.select_lang("\red [usr] бьет [src] в область [affecting]", "\red [usr] punch [src] to [affecting]")
 			else
+				if(src.ZLevel < usr.ZLevel)
+					for(var/mob/M in range(5, src))
+						M << M.select_lang("\red [usr] прот&#255;гивает руку [src] и поднимает на второй этаж", "\red [usr] lift [src] to [usr.ZLevel] level")
+					src.Move(usr.loc)
+					src.ZLevel = usr.ZLevel
+					layer = 17
+					pixel_z = 32 * (ZLevel - 1)
 				return
 
 	Move()
@@ -581,6 +588,9 @@ mob
 
 		if(istype(SLOC, /turf/simulated/floor/roof) && !istype(src, /mob/ghost))
 			invisibility = 15
+			for(var/turf/simulated/floor/F in locate(SLOC.x, SLOC.y, SLOC.z))
+				if(!istype(F, /turf/simulated/floor/roof))
+					invisibility = 0
 		if(!istype(SLOC, /turf/simulated/floor/roof) && !istype(src, /mob/ghost))
 			invisibility = 0
 

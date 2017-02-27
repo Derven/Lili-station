@@ -11,9 +11,17 @@
 		roof.alpha = 128
 		roof.loc = src
 
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/weapon/wrench))
+			usr << usr.select_lang("\red Вы разбираете потолок с помощью [W]", "\red You deconstruct the roof with [W]")
+			hide(usr)
+			src = new /turf/simulated/floor(src)
+
 	proc/show(var/mob/M)
-		roof.layer = M.layer - 1
+		roof.layer = 16
+		M.layer = 17
 		M.client.images += roof
 
 	proc/hide(var/mob/M)
 		M.client.images -= roof
+		M.layer = initial(M.layer)

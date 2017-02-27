@@ -4,6 +4,7 @@
 	var/list/obj/machinery/simple_apc/SA = list()
 	charge = 100000
 	load = 0
+	anchored = 1
 
 	New()
 		..()
