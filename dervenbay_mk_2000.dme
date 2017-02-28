@@ -136,6 +136,7 @@
 #include "obj\seeds\seeds.dm"
 #include "obj\stack\glass.dm"
 #include "obj\stack\metal.dm"
+#include "obj\stack\metal_ore.dm"
 #include "obj\stack\stack.dm"
 #include "obj\stack\table_parts.dm"
 #include "obj\stack\tile.dm"
