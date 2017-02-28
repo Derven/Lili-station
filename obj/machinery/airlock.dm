@@ -10,7 +10,7 @@
 	opacity = 1
 	anchored = 1
 	switcher = 1
-	second_name = 1
+
 	load = 25
 	var
 		close = 1

@@ -2,4 +2,3 @@
 	Height = 2
 	density = 0
 	icon_state = "floorwall"
-	second_name = 0

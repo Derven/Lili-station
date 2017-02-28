@@ -870,6 +870,7 @@
 //a trunk joining to a disposal bin or outlet on the same turf
 /obj/structure/disposalpipe/trunk
 	icon_state = "pipe-t"
+	invisibility = 101
 	var/obj/linked 	// the linked obj/machinery/disposal or obj/disposaloutlet
 
 	New()

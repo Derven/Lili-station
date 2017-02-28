@@ -7,7 +7,7 @@
 	blocks_air = 1
 	opacity = 1
 	var/walltype = "wall"
-	second_name = 1
+
 
 	New()
 		..()

@@ -1,5 +1,5 @@
 /turf/simulated/floor/plating
-	second_name = 0
+
 	icon_state = "plating"
 	pixel_z = -3
 

@@ -969,7 +969,7 @@ mob/Stat()
 		if(hair)
 			overlays.Remove(hair)
 		hair = image('mob.dmi', hair_state)
-		hair.layer = layer + 5
+		hair.layer = initial(layer) + 5
 		overlays.Add(hair)
 
 	if(href_list["gender"] == "male")

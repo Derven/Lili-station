@@ -1,5 +1,5 @@
 /turf/simulated/wall
-	second_name = 0
+
 	asteroid
 		icon_state = "asteroid"
 		var/health = 300

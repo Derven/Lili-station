@@ -5,7 +5,7 @@
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
 	intact = 0
-	second_name = 1
+
 
 	verb/fall()
 		set src in range(1, usr)

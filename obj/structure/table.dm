@@ -16,7 +16,7 @@
 	New()
 		..()
 		set_up()
-		second_name = 1
+
 		color = null
 
 	Del()

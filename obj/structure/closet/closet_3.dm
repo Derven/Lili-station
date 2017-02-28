@@ -5,7 +5,7 @@
 		desc = "It's a closet!"
 		icon = 'closet.dmi'
 		icon_state = "polka_0"
-		second_name = 1
+
 
 		proc/upd_closet()
 			if(contents.len == 0)

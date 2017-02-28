@@ -11,7 +11,6 @@
 /atom/var
 	ZLevel = 1
 	Climbing
-	second_name = 0
 
 /atom/movable
 	layer = 3
@@ -98,11 +97,6 @@ atom/proc/attack_hand()
 /atom
 	layer = 2
 	var/level = 2
-	var/fingerprints = null
-	var/list/fingerprintshidden = new/list()
-	var/fingerprintslast = null
-	var/blood_DNA = null
-	var/blood_type = null
 	var/last_bumped = 0
 	var/pass_flags = 0
 
