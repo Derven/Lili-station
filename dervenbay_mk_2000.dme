@@ -71,6 +71,7 @@
 #include "obj\hud\l_hand.dm"
 #include "obj\hud\pulling.dm"
 #include "obj\hud\r_hand.dm"
+#include "obj\hud\run_intent.dm"
 #include "obj\hud\zone_sel.dm"
 #include "obj\item\item.dm"
 #include "obj\item\pipe.dm"

@@ -27,6 +27,8 @@
 			damage = image("icon" = 'walls.dmi', "icon_state" = "damage_2")
 
 		overlays += damage
+		if(health <= 0)
+			src = new /turf/simulated/floor/plating(src)
 
 	merge()
 		var/turf/N = get_step(src, NORTH)

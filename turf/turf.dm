@@ -70,6 +70,15 @@ turf
 				if(AM.density == 1 && AM.ZLevel == A.ZLevel)
 					return 0
 			return 1
+		if(A.ZLevel > src.Height)
+			A.ZLevel = Height
+			A.pixel_z = 32 * (A.ZLevel - 1)
+			A.rest()
+			A.apply_damage(rand(5, 25) - A.defense, "brute" , A.get_organ(pick("r_leg", "l_leg")), 0)
+			for(var/mob/mob_fall in range(5, A))
+				mob_fall << mob_fall.select_lang("\red [A.name] упал на пол", "\red [A.name] fall on the floor")
+			return 1
+
 		if(istype(src, /turf/simulated/floor/roof))
 			for(var/atom/movable/AM in src)
 				if(AM.density == 1 && AM.ZLevel == A.ZLevel)

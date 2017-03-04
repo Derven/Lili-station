@@ -28,6 +28,9 @@ mob
 	var/lying
 	var/nodamage = 0
 
+	verb/run_intent()
+		usr.client.switch_rintent()
+
 	proc/Life()
 		if(death == 0)
 			SLOC = src.loc
@@ -68,6 +71,66 @@ mob
 mob
 	//	list/SightBlockersList = /list
 	Climbing //Tells if you are currently ascending stairs or not
+
+	Bump(var/atom/A)
+		var/MY_PAIN
+		var/turf/OTBROSOK = get_step(src, turn(dir, 180))
+		if(usr.client.run_intent == 2)
+			if(prob(60))
+				MY_PAIN = get_organ("head")
+			if(prob(40))
+				MY_PAIN = get_organ(pick("chest", "r_leg", "l_leg","r_arm", "l_arm"))
+		if(istype(A, /obj/machinery/airlock))
+			var/obj/machinery/airlock/A_LOCK = A
+			if(MY_PAIN && A_LOCK.charge == 0 && A_LOCK.close == 1)
+				if(MY_PAIN == get_organ("head"))
+					apply_damage(rand(15, 55) - defense, "brute" , MY_PAIN, 0)
+					for(var/mob/mober in range(5, A))
+						mober << mober.select_lang("\red [name] врезалс&#255; в аирлок", "\red [name] smash to the airlock")
+					Move(OTBROSOK)
+					rest()
+					run_intent()
+					RI.icon_state = "walk"
+				else
+					apply_damage(rand(1, 15) - defense, "brute" , MY_PAIN, 0)
+					Move(OTBROSOK)
+
+			var/turf/simulated/floor/T = src.loc
+			if(A_LOCK.charge == 0)
+				return
+			else
+				if(A_LOCK.close == 1)
+					flick("open_state",A_LOCK)
+					A_LOCK.icon_state = "open"
+					A_LOCK.close = 0
+					A_LOCK.density = 0
+					A_LOCK.opacity = 0
+					T.blocks_air = 0
+				else
+					A_LOCK.close = 1
+					T.blocks_air = 1
+					A_LOCK.density = 1
+					A_LOCK.opacity = 1
+					flick("close_state",A_LOCK)
+					A_LOCK.icon_state = "close"
+				T.update_air_properties()
+		if(istype(A, /turf/simulated/wall))
+			if(usr.client.run_intent == 2)
+				for(var/mob/mober in range(5, A))
+					mober << mober.select_lang("\red [name] врезалс&#255; в [A]", "\red [name] smash to [A]")
+				if(istype(A, /turf/simulated/wall/window))
+					var/turf/simulated/wall/window/WIN = A
+					WIN.health -= rand(15,45)
+					WIN.update_icon()
+				if(MY_PAIN == get_organ("head"))
+					apply_damage(rand(15, 55) - defense, "brute" , MY_PAIN, 0)
+					Move(OTBROSOK)
+					rest()
+					run_intent()
+					RI.icon_state = "walk"
+				else
+					apply_damage(rand(1, 15) - defense, "brute" , MY_PAIN, 0)
+					Move(OTBROSOK)
 
 /mob/proc/get_active_hand()
 	if (hand)
@@ -317,6 +380,7 @@ mob
 		//obj/hud/rose_of_winds/ROW
 		obj/hud/hide_walls/HW
 		obj/hud/act_intent/AC
+		obj/hud/run_intent/RI
 
 
 	proc
@@ -331,6 +395,7 @@ mob
 			//ROW = new(src)
 			HW = new(src)
 			DF_ZONE = new(src)
+			RI = new(src)
 
 			C.screen.Add(LH)
 			C.screen.Add(RH)
@@ -342,6 +407,7 @@ mob
 			C.screen.Add(HW)
 			C.screen.Add(AC)
 			C.screen.Add(DF_ZONE)
+			C.screen.Add(RI)
 
 /mob
 	icon = 'mob.dmi'

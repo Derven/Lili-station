@@ -3,69 +3,37 @@ macro "macro"
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#F0F0F0\""
 		is-disabled = false
-	elem 
-		name = "NORTHEAST"
-		command = ".northeast"
+	elem "ne"
+		name = "NORTHEAST+REP"
+		command = ".north"
 		is-disabled = false
-	elem 
-		name = "SOUTHEAST"
-		command = ".southeast"
+	elem "se"
+		name = "SOUTHEAST+REP"
+		command = ".east"
 		is-disabled = false
-	elem 
-		name = "SOUTHWEST"
-		command = ".southwest"
+	elem "sw"
+		name = "SOUTHWEST+REP"
+		command = ".south"
 		is-disabled = false
-	elem 
-		name = "NORTHWEST"
-		command = ".northwest"
+	elem "nw"
+		name = "NORTHWEST+REP"
+		command = ".west"
 		is-disabled = false
 	elem "w"
 		name = "WEST+REP"
-		command = ".west"
+		command = ".southwest"
 		is-disabled = false
 	elem "n"
 		name = "NORTH+REP"
-		command = ".north"
+		command = ".northwest"
 		is-disabled = false
 	elem "e"
 		name = "EAST+REP"
-		command = ".east"
+		command = ".northeast"
 		is-disabled = false
 	elem "s"
 		name = "SOUTH+REP"
-		command = ".south"
-		is-disabled = false
-	elem "w_2"
-		name = "A+REP"
-		command = ".west"
-		is-disabled = false
-	elem "se"
-		name = "C+REP"
 		command = ".southeast"
-		is-disabled = false
-	elem "e_2"
-		name = "D+REP"
-		command = ".east"
-		is-disabled = false
-	elem "ne"
-		name = "E+REP"
-		command = ".northeast"
-		is-disabled = false
-	elem "nw"
-		name = "Q+REP"
-		command = ".northwest"
-		is-disabled = false
-	elem "s_2"
-		name = "S+REP"
-		command = ".south"
-		is-disabled = false
-	elem "w_2"
-		name = "W+REP"
-		command = ".north"
-		is-disabled = false
-	elem "sw"
-		name = "Z+REP"
-		command = ".southwest"
 		is-disabled = false
 
 macro "hotkeymode"
