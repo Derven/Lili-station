@@ -32,5 +32,6 @@ obj
 	var/obj/item/parts = null
 
 /obj/proc/deconstruct()
-	new parts(src.loc)
+	if(parts)
+		new parts(src.loc)
 	del(src)

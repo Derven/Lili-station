@@ -830,8 +830,9 @@ mob
 			<title> Aurora lobby </title> \
 		</head> \
 		<body> \
-			<div class=\"lobby\"> \
-				<a href='?src=\ref[src];enter=yes'>JOIN </a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </a> \
+			<div class=lobby> \
+				<span class=miniheader style=\"{color: #FFDE40; background-color: #200772; width: 100%; border: 4px double #FFDE40;}\">\
+				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
 				<br> \
 				<center><h1>AURORA</h1></center> \
 				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \

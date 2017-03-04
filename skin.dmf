@@ -158,7 +158,7 @@ window "mainwindow"
 		image = ""
 		image-mode = stretch
 		keep-aspect = false
-		transparent-color = none
+		transparent-color = #ff80ff
 		alpha = 255
 		macro = "macro"
 		menu = "menu"

@@ -213,19 +213,19 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 	overlays -= overlay
 	if(!overlay)
 		if(harvest)
-			overlay = image('hydroponics.dmi', "berry-grow6")
+			overlay = image('hydroponics.dmi', "harvest")
 			overlays += overlay
 		else if(dead)
-			overlay = image('hydroponics.dmi', "ambrosiavulgaris-dead")
+			overlay = image('hydroponics.dmi', "noharvest")
 			overlays += overlay
 		else
 			overlay = null
 	else
 		if(harvest)
-			overlay = image('hydroponics.dmi', "berry-grow6")
+			overlay = image('hydroponics.dmi', "harvest")
 			overlays += overlay
 		else if(dead)
-			overlay = image('hydroponics.dmi', "ambrosiavulgaris-dead")
+			overlay = image('hydroponics.dmi', "noharvest")
 			overlays += overlay
 
 

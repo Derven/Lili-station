@@ -11,6 +11,9 @@ world
 	map_format = ISOMETRIC_MAP
 	hub = "SSting.SpaceCruiserAurora"
 
+/mob
+	step_size = 1
+
 /world/New()
 
 	master_controller = new /datum/controller/game_controller()
