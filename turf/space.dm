@@ -3,6 +3,7 @@
 	name = "space"
 	icon_state = "placeholder"
 	layer = 0.5
+	color = "#2c2d2d"
 
 	temperature = TCMB
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT

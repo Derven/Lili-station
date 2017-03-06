@@ -1,3 +1,5 @@
+#define DEBUG 1
+
 /turf/proc/ReplaceWithSpace()
 	var/old_dir = dir
 	var/turf/space/S = new /turf/space( locate(src.x, src.y, src.z) )

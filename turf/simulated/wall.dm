@@ -24,6 +24,10 @@
 		..()
 		//relativewall_neighbours()
 
+	verb/light_capacity()
+		set src in range(1, usr)
+		world << lightcapacity
+
 /turf/simulated/wall
 	var/image/wall_overlay
 	var/image/hide_wall

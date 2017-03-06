@@ -31,6 +31,9 @@ mob
 	verb/run_intent()
 		usr.client.switch_rintent()
 
+	verb/fuck_you()
+		usr.client.view = "1024x1024"
+
 	proc/Life()
 		if(death == 0)
 			SLOC = src.loc

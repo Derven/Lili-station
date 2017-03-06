@@ -51,6 +51,8 @@ datum/controller/game_controller
 
 		air_master.process()
 
+		my_light()
+
 		sleep(-1)
 
 		for(var/mob/M in world)

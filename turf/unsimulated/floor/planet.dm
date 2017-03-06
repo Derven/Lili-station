@@ -3,6 +3,7 @@
 
 	planet
 		icon_state = "asteroid"
+		color = "#2c2d2d"
 
 		New()
 			..()
