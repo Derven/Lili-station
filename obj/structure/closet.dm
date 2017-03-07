@@ -47,6 +47,8 @@
 			M.client.perspective = MOB_PERSPECTIVE
 
 /obj/structure/closet/proc/open()
+	for(var/mob/M in range(5, src))
+		M << 'bin_open.ogg'
 	if(src.opened)
 		return 0
 
@@ -62,6 +64,8 @@
 	return 1
 
 /obj/structure/closet/proc/close()
+	for(var/mob/M in range(5, src))
+		M << 'bin_open.ogg'
 	if(!src.opened)
 		return 0
 	if(!src.can_close())

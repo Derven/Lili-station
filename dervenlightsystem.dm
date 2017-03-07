@@ -74,21 +74,22 @@ proc/global_turf_init()
 
 /atom
 	proc/mylightcolor()
-		if(lightcapacity < 0)
-			lightcapacity = 0
-		switch(lightcapacity)
-			if(0)
-				color = "#a0a09f"
-			if(1)
-				color = "#a3a3a1"
-			if(2)
-				color = "#cccccc"
-			if(3)
-				color = "#dbdbd9"
-			if(4)
-				color = "#f2f2ef"
-			else
-				color = null
+		if(!(istype(src, /turf/space)) && !(istype(src, /turf/unsimulated)))
+			if(lightcapacity < 0)
+				lightcapacity = 0
+			switch(lightcapacity)
+				if(0)
+					color = "#a0a09f"
+				if(1)
+					color = "#a3a3a1"
+				if(2)
+					color = "#cccccc"
+				if(3)
+					color = "#dbdbd9"
+				if(4)
+					color = "#f2f2ef"
+				else
+					color = null
 
 proc/my_light()
 	spawn(5)

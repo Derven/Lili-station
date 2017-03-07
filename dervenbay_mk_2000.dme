@@ -53,6 +53,7 @@
 #include "FEA_ATMOS\FEA_group_helpers.dm"
 #include "FEA_ATMOS\FEA_system.dm"
 #include "FEA_ATMOS\FEA_turf_tile.dm"
+#include "logic\main.dm"
 #include "mob\ghost.dm"
 #include "mob\monkey.dm"
 #include "obj\blood.dm"

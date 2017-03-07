@@ -1,7 +1,6 @@
 /turf/simulated/wall
 
 	asteroid
-		color = "#2c2d2d"
 		icon_state = "asteroid"
 		var/health = 300
 		var/obj/item/my_mineral

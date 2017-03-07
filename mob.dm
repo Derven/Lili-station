@@ -90,6 +90,7 @@ mob
 					apply_damage(rand(15, 55) - defense, "brute" , MY_PAIN, 0)
 					for(var/mob/mober in range(5, A))
 						mober << mober.select_lang("\red [name] врезалс&#255; в аирлок", "\red [name] smash to the airlock")
+						mober << 'smash.ogg'
 					Move(OTBROSOK)
 					rest()
 					run_intent()
@@ -102,6 +103,8 @@ mob
 			if(A_LOCK.charge == 0)
 				return
 			else
+				for(var/mob/M in range(5, src))
+					M << 'airlock.ogg'
 				if(A_LOCK.close == 1)
 					flick("open_state",A_LOCK)
 					A_LOCK.icon_state = "open"
@@ -121,6 +124,7 @@ mob
 			if(usr.client.run_intent == 2)
 				for(var/mob/mober in range(5, A))
 					mober << mober.select_lang("\red [name] врезалс&#255; в [A]", "\red [name] smash to [A]")
+					mober << 'smash.ogg'
 				if(istype(A, /turf/simulated/wall/window))
 					var/turf/simulated/wall/window/WIN = A
 					WIN.health -= rand(15,45)
@@ -652,6 +656,9 @@ mob
 		see_invisible = 16 * (ZLevel-1)
 		var/turf/wall_east
 
+		for(var/mob/mober in range(5, src))
+			mober << 'steps.ogg'
+
 		for(var/turf/simulated/floor/roof/RF in oview())
 			RF.hide(usr)
 
@@ -854,7 +861,7 @@ mob
 /mob
 	var/obj/lobby/lobby
 	var/lobby_text
-	var/sound/lobbysound = sound('sound/soviet_hymn.it')
+	var/sound/lobbysound = sound('title1.ogg')
 
 
 	proc/create_lobby(var/client/C)
@@ -992,11 +999,11 @@ mob/var/atom/cur_object_i_see
 mob/Stat()
 	for(var/M in visible_containers)
 		if(last_contents)
-			statpanel("contents", last_contents)
+			statpanel("Contents", last_contents)
 		if(cur_object_i_see)
 			if(M == cur_object_i_see.type)
 				last_contents = cur_object_i_see.contents
-				if(!istype(cur_object_i_see, /mob) && cur_object_i_see && cur_object_i_see.contents.len > 0) statpanel("contents", cur_object_i_see.contents)
+				if(!istype(cur_object_i_see, /mob) && cur_object_i_see && cur_object_i_see.contents.len > 0) statpanel("Contents", cur_object_i_see.contents)
 	//if(!istype(cur_object_i_give, /mob) && cur_object_i_give && cur_object_i_give.contents.len > 0) statpanel("container", cur_object_i_give.contents)
 
 /mob/Topic(href,href_list[])
