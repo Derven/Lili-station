@@ -24,4 +24,7 @@ world
 	global_turf_init()
 
 	spawn(-1) master_controller.setup()
+
+	load_admins()
+
 	return
