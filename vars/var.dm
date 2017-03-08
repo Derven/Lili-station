@@ -80,8 +80,7 @@ var
 	list/bombers = list(  )
 	list/admin_log = list (  )
 	list/lastsignalers = list(	)	//keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
-	list/lawchanges = list(  ) //Stores who uploaded laws to which silicon-based lifeform, and what the law was
-	list/admins = list(  )
+	list/lawchanges = list(  ) //Stores who uploaded laws to which silicon-based lifeform, and what the law wasmob/
 	list/shuttles = list(  )
 	list/reg_dna = list(  )
 //	list/traitobj = list(  )

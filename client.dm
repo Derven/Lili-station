@@ -24,3 +24,31 @@ client
 			speeding = 0
 		else
 			return
+
+	New()
+		if(src.ckey in admins)
+			src.verbs += admin_verbs
+		return ..()
+
+	Topic(href,list/href_list,hsrc)
+		if(hsrc == src)
+			if(href_list["admin"])
+				if(usr.client != src)
+					return
+				var/mob/target
+				if(href_list["target"])
+					target = locate(href_list["target"])
+				switch(href_list["admin"])
+					if("pm")
+						if(!(src.ckey in admins) && !(target.ckey in admins))
+							return
+						src.pm(target, input("Enter message:", "Private Message") as text)
+					if("kick")
+						if(!(src.ckey in admins))
+							return
+						src.kick(target)
+					if("ban")
+						if(!(src.ckey in admins))
+							return
+						src.ban(target)
+		else ..()
