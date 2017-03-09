@@ -16,8 +16,8 @@
 	New()
 		..()
 		set_up()
-
-		color = null
+		if(!(istype(src, /obj/structure/table/wood)))
+			color = null
 
 	Del()
 		..()

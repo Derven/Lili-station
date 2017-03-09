@@ -21,6 +21,14 @@
 		global
 			gl_uid = 1
 
+/obj/machinery/proc/RefreshParts() //Placeholder proc for machines that are built using frames.
+	return
+	return 0
+
+/obj/machinery/proc/assign_uid()
+	uid = gl_uid
+	gl_uid++
+
 /obj/machinery/New()
 	..()
 	machines.Add(src)
@@ -62,7 +70,3 @@
 	use_power = 0
 	idle_power_usage = 0
 	active_power_usage = 0
-
-/obj/machinery/proc/assign_uid()
-	uid = gl_uid
-	gl_uid++

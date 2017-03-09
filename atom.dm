@@ -12,6 +12,9 @@
 	ZLevel = 1
 	Climbing
 
+/atom/proc/ex_act()
+	return
+
 /atom/movable
 	layer = 3
 	var/flags

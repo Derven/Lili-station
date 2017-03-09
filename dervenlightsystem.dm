@@ -74,7 +74,7 @@ proc/global_turf_init()
 
 /atom
 	proc/mylightcolor()
-		if(!(istype(src, /turf/space)) && !(istype(src, /turf/unsimulated)))
+		if(!(istype(src, /turf/space)) && !(istype(src, /turf/unsimulated)) && !(istype(src, /obj)))
 			if(lightcapacity < 0)
 				lightcapacity = 0
 			switch(lightcapacity)
