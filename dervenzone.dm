@@ -1,3 +1,5 @@
+#define TRAIN 545
+
 /dz
 	parent_type = /obj //zone for moving multitile transport
 	icon = 'floors.dmi'
@@ -8,6 +10,20 @@
 		center = 0
 		curdir = "north" //west, south, east
 		list/obj/partslist = list()
+	layer = 1
+
+	train
+		id = TRAIN
+
+		verb/back()
+			set src in range(1, usr)
+			for(var/dz/DZ in world)
+				if(DZ.id == id)
+					DZ.rotate180()
+			drive_my_car()
+			for(var/dz/DZ in world)
+				if(DZ.id == id)
+					DZ.rotate180()
 
 	New()
 		..()
@@ -33,24 +49,34 @@
 			curdir = "north"
 			return
 
+	proc/rotate180()
+		if(curdir == "north")
+			curdir = "south"
+			return
+
+		if(curdir == "south")
+			curdir = "north"
+			return
+
 	proc/rotate_me(cx, cy)
 		for(var/atom/movable/M in loc)
 			M.rotate_(cx, cy)
 
 	verb/rotate_my_car()
 		set src in range(1, usr)
-		var/center_x
-		var/center_y
+		if(!istype(src, /dz/train))
+			var/center_x
+			var/center_y
 
-		for(var/dz/DZ in world)
-			if(DZ.id == id && DZ.center == 1)
-				center_x = DZ.x
-				center_y = DZ.y
+			for(var/dz/DZ in world)
+				if(DZ.id == id && DZ.center == 1)
+					center_x = DZ.x
+					center_y = DZ.y
 
-		for(var/dz/DZ in world)
-			if(DZ.id == id)
-				DZ.rotate_me(center_x, center_y)
-				DZ.mdr()
+			for(var/dz/DZ in world)
+				if(DZ.id == id)
+					DZ.rotate_me(center_x, center_y)
+					DZ.mdr()
 
 	verb/drive()
 		set src in range(1, usr)
