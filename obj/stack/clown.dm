@@ -1,0 +1,1 @@
+/obj/item/stack/sheet/clown
