@@ -15,7 +15,7 @@ datum/pipe_network
 
 		..()
 
-	proc/process()
+	process()
 		//Equalize gases amongst pipe if called for
 		if(update)
 			update = 0

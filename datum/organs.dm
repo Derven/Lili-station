@@ -50,9 +50,8 @@ proc/isorgan(A)
 		owner = null
 
 
-	proc/process()
+	process()
 		return 0
-
 
 	proc/receive_chem(chemical as obj)
 		return 0

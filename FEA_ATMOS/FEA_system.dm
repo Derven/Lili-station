@@ -79,7 +79,7 @@ turf
 			return 1
 
 
-var/global/datum/controller/air_system/air_master
+var/global/datum/controller/air_system/air_master = new()
 
 datum
 	controller
@@ -108,9 +108,6 @@ datum
 					//Expands the group until all valid borders explored
 
 //				assemble_group_object(obj/movable/floor/base)
-
-				process()
-					//Call this to process air movements for a cycle
 
 				process_groups()
 					//Used by process()

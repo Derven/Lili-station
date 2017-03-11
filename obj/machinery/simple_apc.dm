@@ -6,6 +6,9 @@
 	load = 0
 	anchored = 1
 
+	attack_hand()
+		world << charge
+
 	New()
 		..()
 		spawn(3)
@@ -15,8 +18,9 @@
 
 
 	process()
-		sleep(1)
 		load = 0
+		if(charge < 0)
+			charge = 0
 		for(var/obj/machinery/M in range(7, src))
 			if(!istype(M, /obj/machinery/simple_generator) && !istype(M, /obj/machinery/simple_smes) && !istype(M, /obj/machinery/simple_apc))
 				load += M.load

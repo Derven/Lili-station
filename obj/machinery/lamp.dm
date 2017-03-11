@@ -14,9 +14,11 @@
 	proc/nolight()
 		dark()
 
+	attack_hand()
+		world << charge
+
 /obj/machinery/lamp/process()
-	sleep(2)
-	if(charge == 0)
+	if(charge <= 0)
 		nolight()
 	else
 		light_process()

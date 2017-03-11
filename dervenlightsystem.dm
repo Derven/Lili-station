@@ -35,32 +35,28 @@ proc/global_turf_init()
 
 
 /obj/proc/dark()
-	spawn(2)
-		for(var/turf/L in range(6,src))
-			L.lightcapacity = 0
+	for(var/turf/L in range(6,src))
+		L.lightcapacity = 0
+		L.mylightcolor()
 
 /obj/proc/part_of(var/turf/where)
-	spawn(2)
-		where.lightcapacity = 5
-		for(var/turf/LI in range(1,where))
-			if(LI.lightcapacity < 5)
-				LI.lightcapacity = 4
-				LI.mylightcolor()
-				spawn(1)
-					for(var/turf/LIGHTEX in range(1,LI))
-						if(LIGHTEX.lightcapacity < 4)
-							LIGHTEX.lightcapacity = 3
-							LIGHTEX.mylightcolor()
-							spawn(1)
-								for(var/turf/LIGHT2 in range(1,LIGHTEX))
-									if(LIGHT2.lightcapacity < 3)
-										LIGHT2.lightcapacity = 2
-										LIGHT2.mylightcolor()
-										spawn(1)
-											for(var/turf/LIGHT3 in range(1,LIGHT2))
-												if(LIGHT3.lightcapacity < 2)
-													LIGHT3.lightcapacity = 1
-													LIGHT3.mylightcolor()
+	where.lightcapacity = 5
+	for(var/turf/LI in range(1,where))
+		if(LI.lightcapacity < 5)
+			LI.lightcapacity = 4
+			LI.mylightcolor()
+			for(var/turf/LIGHTEX in range(1,LI))
+				if(LIGHTEX.lightcapacity < 4)
+					LIGHTEX.lightcapacity = 3
+					LIGHTEX.mylightcolor()
+					for(var/turf/LIGHT2 in range(1,LIGHTEX))
+						if(LIGHT2.lightcapacity < 3)
+							LIGHT2.lightcapacity = 2
+							LIGHT2.mylightcolor()
+							for(var/turf/LIGHT3 in range(1,LIGHT2))
+								if(LIGHT3.lightcapacity < 2)
+									LIGHT3.lightcapacity = 1
+									LIGHT3.mylightcolor()
 
 /obj/proc/lumina()
 	part_of(NORTHTURF)

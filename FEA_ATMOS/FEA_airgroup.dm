@@ -1,4 +1,4 @@
-datum
+/datum
 	air_group
 
 		var/tmp/group_processing = 1 //Processing all tiles as one large tile if 1

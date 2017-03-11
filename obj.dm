@@ -24,10 +24,6 @@ obj
 		if ((M.client && M.machine == src))
 			src.attack_hand(M)
 
-/obj/proc/process()
-	processing_objects.Remove(src)
-	return 0
-
 /obj
 	var/obj/item/parts = null
 

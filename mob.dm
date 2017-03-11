@@ -34,7 +34,7 @@ mob
 	verb/fuck_you()
 		usr.client.view = "1024x1024"
 
-	proc/Life()
+	process()
 		if(death == 0)
 			SLOC = src.loc
 			//set invisibility = 0
@@ -453,6 +453,7 @@ mob
 				usr << M.ckey
 
 	New()
+		START_PROCESSING(SSmobs, src)
 		select_overlay = image(usr)
 		overlay_cur = image('sign.dmi', icon_state = "say", layer = 10)
 		overlay_cur.layer = 16
