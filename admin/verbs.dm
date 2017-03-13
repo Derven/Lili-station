@@ -2,7 +2,8 @@ var/list/admin_verbs = list(\
 	/client/proc/pm,\
 	/client/proc/kick,\
 	/client/proc/ban,\
-	/client/proc/player_panel)
+	/client/proc/player_panel,\
+	/client/proc/world_reboot)
 
 /client/proc/pm(mob/m as mob in world, msg as text)
 	set name = "PM"
@@ -61,3 +62,8 @@ var/list/admin_verbs = list(\
 			[content]
 		</body>
 	</html>"}, "window=player_panel")
+
+/client/proc/world_reboot()
+	set name = "Restart"
+	set category = "Admin"
+	world.Reboot()

@@ -612,6 +612,7 @@ mob
 	proc/death(gibbed)
 		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
 		death = 1
+		STOP_PROCESSING(SSmobs, src)
 		rest()
 		var/mob/ghost/zhmur = new(loc)
 		zhmur.client = client

@@ -139,7 +139,7 @@ turf
 
 		New()
 			..()
-
+			/*
 			if(istype(src, /turf/simulated/floor/plating))
 				var/turf/simulated/floor/plating/P = src
 				P.merge()
@@ -167,7 +167,7 @@ turf
 						var/turf/simulated/floor/target = get_step(src,direction)
 						if(istype(target))
 							air_master.tiles_to_update.Add(target)
-
+			*/
 		Del()
 			if(air_master)
 				if(parent)

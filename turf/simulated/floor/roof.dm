@@ -23,5 +23,6 @@
 		M.client.images += roof
 
 	proc/hide(var/mob/M)
-		M.client.images -= roof
-		M.layer = initial(M.layer)
+		if(M.client)
+			M.client.images -= roof
+			M.layer = initial(M.layer)
