@@ -7,3 +7,8 @@
 
 	var
 		mystate = "off"
+
+/obj/machinery/consol/arcade
+	name = "arcade"
+	anchored = 2
+	icon_state = "arcade"

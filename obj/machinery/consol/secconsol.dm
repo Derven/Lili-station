@@ -30,3 +30,7 @@
 						T.blocks_air = BL.close
 						BL.icon_state = BL.close ? "close" : "open"
 						T.update_air_properties()
+
+/obj/machinery/printer
+	icon = 'stationobjs.dmi'
+	icon_state = "printer"
