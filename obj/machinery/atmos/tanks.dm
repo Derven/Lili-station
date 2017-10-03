@@ -20,6 +20,9 @@
 	name = "Gas Tank (Air Mix)"
 	desc = "Mixed anyone?"
 
+/obj/item/weapon/igniter
+	icon_state = "igniter"
+	icon = 'tank.dmi'
 
 /obj/item/weapon/tank/oxygen
 
@@ -29,11 +32,24 @@
 	src.air_contents.oxygen = (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
 	return
 
-/obj/item/weapon/tank/plasma/New()
-	..()
-	air_contents = new()
-	src.air_contents.toxins = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C)
-	return
+/obj/item/weapon/tank/plasma
+
+	icon_state = "plasma"
+
+	New()
+		..()
+		air_contents = new()
+		src.air_contents.toxins = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C)
+		return
+
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/weapon/igniter))
+			var/obj/item/weapon/tank/plasma/bomb/B = new(src.loc)
+			B.air_contents.oxygen = src.air_contents.oxygen
+			B.air_contents.toxins = src.air_contents.toxins
+			usr.drop_item_v()
+			del(W)
+			del(src)
 
 /obj/item/weapon/tank/plasma/proc/ignite()
 	var/fuel_moles = air_contents.toxins + air_contents.oxygen/6
