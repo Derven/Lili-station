@@ -3,6 +3,7 @@
 	icon_state = "window"
 	opacity = 0
 	walltype = "window"
+	robustness = 10
 
 
 	var/image/damage

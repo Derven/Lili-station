@@ -1,5 +1,13 @@
 /turf/simulated/floor/plating
 
+	robustness = 45
+
+	ex_act()
+		for(var/mob/M in range(2, src))
+			M << 'Explosion2.ogg'
+			if(rand(1, 100) < 100 - robustness)
+				del(src)
+
 	icon_state = "plating"
 	pixel_z = -3
 

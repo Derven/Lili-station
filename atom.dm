@@ -13,7 +13,10 @@
 	Climbing
 
 /atom/proc/ex_act()
-	return
+	for(var/mob/M in range(2, src))
+		M << 'Explosion2.ogg'
+		if(rand(1, 100) < 100 - robustness)
+			del(src)
 
 /atom/movable
 	layer = 3

@@ -5,7 +5,17 @@
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
 	intact = 0
+	robustness = 25
 
+	ex_act()
+		for(var/mob/M in range(2, src))
+			M << 'Explosion2.ogg'
+
+			if(rand(1, 100) < 100 - robustness)
+				src = new /turf/simulated/floor/plating(src)
+
+			if(rand(1, 100) < rand(1,5))
+				del(src)
 
 	verb/fall()
 		set src in range(1, usr)

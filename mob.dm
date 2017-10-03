@@ -1,4 +1,5 @@
 mob
+	robustness = 200
 	step_size = 64
 	layer = 18
 	density = 1

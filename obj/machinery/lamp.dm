@@ -8,6 +8,9 @@
 	luminosity = 6
 	load = 5
 
+	dir_2
+		pixel_y = 64
+
 	proc/light_process()
 		lumina()
 

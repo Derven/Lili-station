@@ -1,6 +1,7 @@
 /obj/machinery
 	name = "machinery"
 	icon = 'stationobjs.dmi'
+	robustness = 25
 	var
 		charge = 0
 		load = 0
@@ -20,6 +21,12 @@
 		manual = 0
 		global
 			gl_uid = 1
+
+	ex_act()
+		for(var/mob/M in range(2, src))
+			M << 'Explosion2.ogg'
+			if(rand(1, 100) < 100 - robustness)
+				del(src)
 
 /obj/machinery/proc/RefreshParts() //Placeholder proc for machines that are built using frames.
 	return

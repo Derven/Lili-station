@@ -7,7 +7,13 @@
 	blocks_air = 1
 	opacity = 1
 	var/walltype = "wall"
+	robustness = 65
 
+	ex_act()
+		for(var/mob/M in range(2, src))
+			M << 'Explosion2.ogg'
+			if(rand(1, 100) < 100 - robustness)
+				src = new /turf/simulated/floor/plating(src)
 
 	New()
 		..()
