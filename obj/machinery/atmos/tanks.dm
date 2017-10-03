@@ -72,7 +72,7 @@
 		..()
 		air_contents = new()
 		src.air_contents.oxygen = (2*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C)
-		src.air_contents.toxins = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C)
+		src.air_contents.toxins = (6*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C)
 		air_contents.temperature = 900
 		return
 

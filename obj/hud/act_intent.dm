@@ -11,3 +11,6 @@
 			else
 				icon_state = "help"
 				return
+
+	ex_act()
+		return
