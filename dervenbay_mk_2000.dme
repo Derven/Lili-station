@@ -130,6 +130,7 @@
 #include "obj\machinery\smelter.dm"
 #include "obj\machinery\airlock\brig.dm"
 #include "obj\machinery\airlock\briglock.dm"
+#include "obj\machinery\airlock\glass.dm"
 #include "obj\machinery\airlock\hydro.dm"
 #include "obj\machinery\airlock\med.dm"
 #include "obj\machinery\airlock\space.dm"

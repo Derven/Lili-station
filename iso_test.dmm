@@ -89,7 +89,7 @@
 "bK" = (/turf/space,/obj/machinery/simple_apc{pixel_x = -64},/turf/simulated/floor/plating,/area/ship/deck_1)
 "bL" = (/turf/space,/obj/structure/closet/closet_3/food_closet{pixel_z = 32; ZLevel = 2},/turf/simulated/floor/floorwall,/area/ship/deck_1)
 "bM" = (/turf/space,/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/obj/structure/disposalpipe/segment,/turf/simulated/floor,/area/ship/deck_1)
-"bN" = (/turf/space,/obj/structure/table/zlevel_2,/turf/simulated/floor/floorwall,/area/ship/deck_1)
+"bN" = (/turf/space,/obj/structure/table/zlevel_2,/obj/machinery/consol/z_level,/turf/simulated/floor/floorwall,/area/ship/deck_1)
 "bO" = (/turf/space,/obj/machinery/atmospherics/pipe/simple/general/visible,/obj/machinery/lamp{dir = 1; icon_state = "lamp"; pixel_x = -64; tag = "icon-lamp (NORTH)"},/turf/simulated/floor/plating,/area/ship/deck_1)
 "bP" = (/turf/space,/obj/structure/table,/obj/item/stack/tile,/obj/item/stack/tile,/obj/item/stack/tile,/obj/item/stack/tile,/turf/simulated/floor,/area/ship/deck_1)
 "bQ" = (/turf/space,/obj/machinery/lamp{dir = 1; icon_state = "lamp"; pixel_x = -64; tag = "icon-lamp (NORTH)"},/turf/simulated/floor/plating,/area/ship/deck_1)
@@ -246,7 +246,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqamaFaFaFaFaF
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqamaFaFaFaFaFamblblblbmasaPaIasasasamaOaFaFaFaFaFaFamaqaqaqaqaqbkasamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqamamamamamamamblbnblasasaPasboboasamaFaFaFbpbqaFaFbraqaqaqaqaqasasamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqaqaqaqaqaqaqaWasasaJasasaPasboboasaWaFaFaFbsbpaFaFbraqbtbubvbvbwasamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahamamamamamamamaqacbxasamasasasasasaPaIboboasamaOaFaFaFaFaFaFamaqaqbyasasbzasamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamamamamamamamaqacbxasamasasasasasaPaIboboasamaOaFaFaFaFaFaFamaqaqbyasasbzasamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaambAbAbAasasamaqacbBamamamamasasasamasasasasamaFaFaFaFaFaFaFamamamamamambCamamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaPaIasasasasamaqaqamaRaRaRamasasasambDbEbFbGamamamamamamamamambHbvbvbvbvbIasamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaPbJasasasasambKaqambLaRamamamamamamamambMamamaRbNbNbNbNaRaRambOaqamamaPaPamamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

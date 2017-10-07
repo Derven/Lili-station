@@ -1,4 +1,2 @@
-/obj/machinery/airlock
-
-	hydro
-		icon = 'airlock_hydro.dmi'
+/obj/machinery/airlock/hydro
+	icon = 'airlock_hydro.dmi'
