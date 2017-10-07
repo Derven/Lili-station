@@ -26,6 +26,74 @@
 
 /obj/item/weapon/tank/oxygen
 
+/obj/machinery/plasmaheater
+	icon = 'atmos.dmi'
+	icon_state = "hater_empty"
+	var/obj/item/weapon/tank/TANK = null
+
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/weapon/tank))
+			if(!TANK)
+				TANK = W
+				usr.drop_item_v()
+				TANK.Move(src)
+				icon_state = "hater"
+
+	attack_hand()
+		var/body = "<html><body>" + "TANK TEMPERATURE: [TANK ? TANK.air_contents.temperature : 0];<br>" + "<a href='?src=\ref[src];remove=1'>" + usr.select_lang("Вытащить канистру","Remove tank") + "</a><br>" + "<a href='?src=\ref[src];on_off=1'>" + usr.select_lang("Вкл/Выкл","On/Off") + "</a></body></html>"
+		usr << browse(body,"window=plasmaheater")
+
+	Topic(href,href_list[])
+		if(href_list["remove"])
+			if(TANK)
+				TANK.Move(src.loc)
+				TANK = null
+				icon_state = "hater_empty"
+			else
+				return
+		if(href_list["on_off"])
+			while(TANK && TANK.air_contents.temperature < 5000)
+				sleep(rand(1,6))
+				if(TANK)
+					TANK.air_contents.temperature += rand(1,5)
+					icon_state = "hater_on"
+			icon_state = "hater"
+
+
+/obj/machinery/plasmacooler
+	icon = 'atmos.dmi'
+	icon_state = "cooler_empty"
+	var/obj/item/weapon/tank/TANK = null
+
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/weapon/tank))
+			if(!TANK)
+				TANK = W
+				usr.drop_item_v()
+				TANK.Move(src)
+				icon_state = "cooler"
+
+	attack_hand()
+		var/body = "<html><body>" + "TANK TEMPERATURE: [TANK ? TANK.air_contents.temperature : 0];<br>" + "<a href='?src=\ref[src];remove=1'>" + usr.select_lang("Вытащить канистру","Remove tank") + "</a><br>" + "<a href='?src=\ref[src];on_off=1'>" + usr.select_lang("Вкл/Выкл","On/Off") + "</a></body></html>"
+		usr << browse(body,"window=plasmacooler")
+
+	Topic(href,href_list[])
+		if(href_list["remove"])
+			if(TANK)
+				TANK.Move(src.loc)
+				TANK = null
+				icon_state = "cooler_empty"
+			else
+				return
+		if(href_list["on_off"])
+			while(TANK && TANK.air_contents.temperature > -300)
+				sleep(rand(1,6))
+				if(TANK)
+					TANK.air_contents.temperature -= rand(1,5)
+					icon_state = "cooler_on"
+			icon_state = "cooler"
+
+
 /obj/item/weapon/tank/oxygen/New()
 	..()
 	air_contents = new()
@@ -47,6 +115,7 @@
 			var/obj/item/weapon/tank/plasma/bomb/B = new(src.loc)
 			B.air_contents.oxygen = src.air_contents.oxygen
 			B.air_contents.toxins = src.air_contents.toxins
+			B.air_contents.temperature = src.air_contents.temperature
 			usr.drop_item_v()
 			del(W)
 			del(src)
