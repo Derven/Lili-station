@@ -1,4 +1,4 @@
-/turf/simulated/wall/window
+/turf/unsimulated/wall/window
 	name = "window"
 	icon_state = "window"
 	opacity = 0
@@ -37,40 +37,40 @@
 		var/turf/W = get_step(src, WEST)
 		var/turf/E = get_step(src, EAST)
 
-		if(N && istype(N, /turf/simulated/wall/window))
+		if(N && istype(N, /turf/unsimulated/wall/window))
 			icon_state = "window_n"
-			if(S && istype(S, /turf/simulated/wall/window))
+			if(S && istype(S, /turf/unsimulated/wall/window))
 				icon_state = "window_ns"
-			if(W && istype(W, /turf/simulated/wall/window))
+			if(W && istype(W, /turf/unsimulated/wall/window))
 				icon_state = "window_nw"
-			if(E && istype(E, /turf/simulated/wall/window))
+			if(E && istype(E, /turf/unsimulated/wall/window))
 				icon_state = "window_ne"
 
-		if(S && istype(S, /turf/simulated/wall/window))
+		if(S && istype(S, /turf/unsimulated/wall/window))
 			icon_state = "window_s"
-			if(N && istype(N, /turf/simulated/wall/window))
+			if(N && istype(N, /turf/unsimulated/wall/window))
 				icon_state = "window_ns"
-			if(W && istype(W, /turf/simulated/wall/window))
+			if(W && istype(W, /turf/unsimulated/wall/window))
 				icon_state = "window_sw"
-			if(E && istype(E, /turf/simulated/wall/window))
+			if(E && istype(E, /turf/unsimulated/wall/window))
 				icon_state = "window_se"
 
-		if(W && istype(W, /turf/simulated/wall/window))
+		if(W && istype(W, /turf/unsimulated/wall/window))
 			icon_state = "window_w"
-			if(N && istype(N, /turf/simulated/wall/window))
+			if(N && istype(N, /turf/unsimulated/wall/window))
 				icon_state = "window_nw"
-			if(S && istype(S, /turf/simulated/wall/window))
+			if(S && istype(S, /turf/unsimulated/wall/window))
 				icon_state = "window_sw"
-			if(E && istype(E, /turf/simulated/wall/window))
+			if(E && istype(E, /turf/unsimulated/wall/window))
 				icon_state = "window_we"
 
-		if(E && istype(E, /turf/simulated/wall/window))
+		if(E && istype(E, /turf/unsimulated/wall/window))
 			icon_state = "window_w"
-			if(N && istype(N, /turf/simulated/wall/window))
+			if(N && istype(N, /turf/unsimulated/wall/window))
 				icon_state = "window_nw"
-			if(S && istype(S, /turf/simulated/wall/window))
+			if(S && istype(S, /turf/unsimulated/wall/window))
 				icon_state = "window_sw"
-			if(E && istype(E, /turf/simulated/wall/window))
+			if(E && istype(E, /turf/unsimulated/wall/window))
 				icon_state = "window_we"
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)

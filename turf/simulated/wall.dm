@@ -1,13 +1,21 @@
-/turf/simulated/wall
+/turf/unsimulated/wall
 	name = "wall"
 	icon = 'walls.dmi'
 	icon_state = "wall"
 	Height = 2
 	density = 1
-	blocks_air = 1
 	opacity = 1
 	var/walltype = "wall"
+		//Properties for airtight tiles (/wall)
+	thermal_conductivity = 0
+	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m steel wall
+
+		//Properties for both
+	temperature = T20C
 	robustness = 65
+	temperature = TCMB
+	oxygen = MOLES_O2STANDARD
+	nitrogen = MOLES_N2STANDARD
 
 	ex_act()
 		for(var/mob/M in range(2, src))
@@ -21,10 +29,14 @@
 		hide_wall.override = 1
 		merge()
 		//relativewall_neighbours()
-		if(!istype(src, /turf/simulated/wall/window))
+		if(!istype(src, /turf/unsimulated/wall/window))
 			if(prob(30))
 				var/rand_num = rand(1,2)
 				overlays += image(icon = 'walls.dmi', icon_state = "overlay_[rand_num]")
+
+		for(var/turf/T in locate(x,y,z))
+			if(T != src)
+				del(T)
 
 	Del()
 		..()
@@ -34,7 +46,7 @@
 		set src in range(1, usr)
 		world << lightcapacity
 
-/turf/simulated/wall
+/turf/unsimulated/wall
 	var/image/wall_overlay
 	var/image/hide_wall
 
@@ -53,7 +65,7 @@
 
 	proc/hide_me()
 		for(var/mob/M in view(5, usr))
-			if(M.client && !istype(src, /turf/simulated/wall/window))
+			if(M.client && !istype(src, /turf/unsimulated/wall/window))
 				M << hide_wall
 				merge()
 			..()
@@ -63,27 +75,27 @@
 
 	proc/clear_for_all()
 		for(var/mob/M in view(5, usr))
-			if(M.client && !istype(src, /turf/simulated/wall/window))
+			if(M.client && !istype(src, /turf/unsimulated/wall/window))
 				M.client.images -= hide_wall
 
 	proc/merge()
-		if(!istype(src, /turf/simulated/wall/asteroid))
-			if(!istype(src, /turf/simulated/wall/window))
+		if(!istype(src, /turf/unsimulated/wall/asteroid))
+			if(!istype(src, /turf/unsimulated/wall/window))
 				overlays.Cut()
 				var/turf/N = get_step(src, NORTH)
 				var/turf/S = get_step(src, SOUTH)
 				var/turf/W = get_step(src, WEST)
 				var/turf/E = get_step(src, EAST)
 
-				if(N && istype(N, /turf/simulated/wall))
+				if(N && istype(N, /turf/unsimulated/wall))
 					wall_overlay = image('walls.dmi', icon_state = "overlay_n", layer = 10)
 					overlays.Add(wall_overlay)
-				if(S && istype(S, /turf/simulated/wall))
+				if(S && istype(S, /turf/unsimulated/wall))
 					wall_overlay = image('walls.dmi', icon_state = "overlay_s", layer = 10)
 					overlays.Add(wall_overlay)
-				if(W && istype(W, /turf/simulated/wall))
+				if(W && istype(W, /turf/unsimulated/wall))
 					wall_overlay = image('walls.dmi', icon_state = "overlay_w", layer = 10)
 					overlays.Add(wall_overlay)
-				if(E && istype(E, /turf/simulated/wall))
+				if(E && istype(E, /turf/unsimulated/wall))
 					wall_overlay = image('walls.dmi', icon_state = "overlay_e", layer = 10)
 					overlays.Add(wall_overlay)

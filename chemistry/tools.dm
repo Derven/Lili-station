@@ -248,7 +248,5 @@
 		message_to(5, "\red Цистерна с дизелем взлетает на воздух поджига&#255; все вокруг")
 		var/turf/simulated/floor/F = src.loc
 		F.air.toxins += 100
-		for(var/turf/simulated/floor/floor_in_range in range(1, src))
-			new /obj/effect/hotspot(floor_in_range)
 		F.update_air_properties()
 		del(src)

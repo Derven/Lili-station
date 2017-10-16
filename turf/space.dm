@@ -4,7 +4,9 @@
 	icon_state = "placeholder"
 	layer = 0.5
 
-	temperature = TCMB
+	temperature = 0
+	oxygen = 0
+	nitrogen = 0
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 700000
 

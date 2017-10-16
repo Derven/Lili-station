@@ -12,10 +12,20 @@ atom/movable/proc/experience_pressure_difference(pressure_difference, direction)
 
 turf
 	assume_air(datum/gas_mixture/giver) //use this for machines to adjust air
+		//First, ensure there is no movable shuttle or what not on tile that is taking over
+//		var/obj/movable/floor/movable_on_me = locate(/obj/movable/floor) in src
+//		if(istype(movable_on_me))
+//			return movable_on_me.assume_air(giver)
+
 		del(giver)
 		return 0
 
 	return_air()
+		//First, ensure there is no movable shuttle or what not on tile that is taking over
+//		var/obj/movable/floor/movable_on_me = locate(/obj/movable/floor) in src
+//		if(istype(movable_on_me))
+//			return movable_on_me.return_air()
+
 		//Create gas mixture to hold data for passing
 		var/datum/gas_mixture/GM = new
 
@@ -29,6 +39,11 @@ turf
 		return GM
 
 	remove_air(amount as num)
+		//First, ensure there is no movable shuttle or what not on tile that is taking over
+//		var/obj/movable/floor/movable_on_me = locate(/obj/movable/floor) in src
+//		if(istype(movable_on_me))
+//			return movable_on_me.remove_air(amount)
+
 		var/datum/gas_mixture/GM = new
 
 		var/sum = oxygen + carbon_dioxide + nitrogen + toxins
@@ -45,10 +60,6 @@ turf
 turf
 	var/pressure_difference = 0
 	var/pressure_direction = 0
-
-	//optimization vars
-	var/next_check = 0  //number of ticks before this tile updates
-	var/check_delay = 0  //number of ticks between updates
 
 	proc
 		high_pressure_movements()
@@ -79,10 +90,7 @@ turf
 								air_master.high_pressure_delta += src
 							pressure_direction = direction
 							pressure_difference = connection_difference
-
-
 							return 1
-
 
 turf
 	simulated
@@ -102,7 +110,7 @@ turf
 			archived_cycle = 0
 			current_cycle = 0
 
-			obj/effect/hotspot/active_hotspot
+			obj/hotspot/active_hotspot
 
 			temperature_archived //USED ONLY FOR SOLIDS
 			being_superconductive = 0
@@ -119,30 +127,21 @@ turf
 			mimic_temperature_with_tile(turf/model)
 			share_temperature_with_tile(turf/simulated/sharer)
 
-
 			super_conduct()
 
 			update_visuals(datum/gas_mixture/model)
 				overlays = null
-
-				var/siding_icon_state = return_siding_icon_state()
-				if(siding_icon_state)
-					overlays += image('floors.dmi',siding_icon_state)
 
 				switch(model.graphic)
 					if("plasma")
 						overlays.Add(plmaster)
 					if("sleeping_agent")
 						overlays.Add(slmaster)
-
-
+					else
+						overlays = null
 
 		New()
 			..()
-			/*
-			if(istype(src, /turf/simulated/floor/plating))
-				var/turf/simulated/floor/plating/P = src
-				P.merge()
 
 			if(!blocks_air)
 				air = new
@@ -167,7 +166,7 @@ turf
 						var/turf/simulated/floor/target = get_step(src,direction)
 						if(istype(target))
 							air_master.tiles_to_update.Add(target)
-			*/
+
 		Del()
 			if(air_master)
 				if(parent)
@@ -185,17 +184,12 @@ turf
 			..()
 
 		assume_air(datum/gas_mixture/giver)
-			if(!giver)	return 0
-			var/datum/gas_mixture/receiver = air
-			if(istype(receiver))
+			if(air)
 				if(parent&&parent.group_processing)
 					if(!parent.air.check_then_merge(giver))
 						parent.suspend_group_processing()
 						air.merge(giver)
 				else
-					if (giver.total_moles() > MINIMUM_AIR_TO_SUSPEND)
-						reset_delay()
-
 					air.merge(giver)
 
 					if(!processing)
@@ -299,17 +293,6 @@ turf
 				processing = 0
 
 		process_cell()
-			//this proc does all the heavy lifting for individual tile processing
-			//it shares with all of its neighbors, spreads fire, calls superconduction
-			//and doesn't afraid of anything
-
-			//check if we're skipping this tick
-			if (next_check > 0)
-				next_check--
-				return 1
-			next_check += check_delay + rand(0,check_delay/2)
-			check_delay++
-
 			var/turf/simulated/list/possible_fire_spreads = list()
 			if(processing)
 				if(archived_cycle < air_master.current_cycle) //archive self if not already done
@@ -321,29 +304,20 @@ turf
 						var/turf/simulated/enemy_tile = get_step(src, direction)
 						var/connection_difference = 0
 
-						if(istype(enemy_tile))  //enemy_tile == neighbor, btw
+						if(istype(enemy_tile))
 							if(enemy_tile.archived_cycle < archived_cycle) //archive bordering tile information if not already done
 								enemy_tile.archive()
-
-							if (air && enemy_tile.air)
-								var/delay_trigger = air.compare(enemy_tile.air)
-								if (!delay_trigger) //if compare() didn't return 1, air is different enough to trigger processing
-									reset_delay()
-									enemy_tile.reset_delay()
-
 							if(enemy_tile.parent && enemy_tile.parent.group_processing) //apply tile to group sharing
-								if(enemy_tile.parent.current_cycle < current_cycle) //if the group hasn't been archived, it could just be out of date
+								if(enemy_tile.parent.current_cycle < current_cycle)
 									if(enemy_tile.parent.air.check_gas_mixture(air))
 										connection_difference = air.share(enemy_tile.parent.air)
 									else
 										enemy_tile.parent.suspend_group_processing()
 										connection_difference = air.share(enemy_tile.air)
 										//group processing failed so interact with individual tile
-
 							else
 								if(enemy_tile.current_cycle < current_cycle)
 									connection_difference = air.share(enemy_tile.air)
-
 							if(active_hotspot)
 								possible_fire_spreads += enemy_tile
 						else
@@ -394,7 +368,6 @@ turf
 				update_visuals(air)
 
 			if(air.temperature > FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
-				reset_delay() //hotspots always process quickly
 				hotspot_expose(air.temperature, CELL_VOLUME)
 				for(var/atom/movable/item in src)
 					item.temperature_expose(air, air.temperature, CELL_VOLUME)
@@ -540,7 +513,7 @@ turf
 
 		proc/share_temperature_mutual_solid(turf/simulated/sharer, conduction_coefficient)
 			var/delta_temperature = (temperature_archived - sharer.temperature_archived)
-			if(abs(delta_temperature) > MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER && heat_capacity && sharer.heat_capacity)
+			if(abs(delta_temperature) > MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER)
 
 				var/heat = conduction_coefficient*delta_temperature* \
 					(heat_capacity*sharer.heat_capacity/(heat_capacity+sharer.heat_capacity))
@@ -565,12 +538,3 @@ turf
 			being_superconductive = 1
 
 			air_master.active_super_conductivity += src
-
-		proc/reset_delay()
-			//sets this turf to process quickly again
-			next_check=0
-			check_delay= -5 //negative numbers mean a mandatory quick-update period
-
-			//if this turf has a parent air group, suspend its processing
-			if (parent && parent.group_processing)
-				parent.suspend_group_processing()

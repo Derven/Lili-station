@@ -23,7 +23,7 @@
 		heat_capacity = 1
 
 		//Properties for both
-		temperature = T20C
+		temperature = 0
 
 		blocks_air = 0
 		icon_old = null

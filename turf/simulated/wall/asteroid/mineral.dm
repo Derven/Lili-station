@@ -1,4 +1,4 @@
-/turf/simulated/wall/asteroid
+/turf/unsimulated/wall/asteroid
 
 	mineral
 		icon_state = "mineral"

@@ -79,7 +79,7 @@ turf
 			return 1
 
 
-var/global/datum/controller/air_system/air_master = new()
+var/global/datum/controller/air_system/air_master
 
 datum
 	controller
@@ -165,7 +165,6 @@ datum
 				world << "\red \b Geometry processed in [(world.timeofday-start_time)/10] seconds!"
 
 			assemble_group_turf(turf/simulated/base)
-
 
 				var/list/turf/simulated/members = list(base) //Confirmed group members
 				var/list/turf/simulated/possible_members = list(base) //Possible places for group expansion

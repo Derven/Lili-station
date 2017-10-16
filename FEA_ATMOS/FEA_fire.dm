@@ -3,19 +3,6 @@ atom
 		temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 			return null
 
-/turf/simulated/floor/proc/burn_tile()
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-//CODE IS NEEDED HERE
-
-
 turf
 	proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
@@ -52,17 +39,15 @@ turf
 				active_hotspot.just_spawned = (current_cycle < air_master.current_cycle)
 					//remove just_spawned protection if no longer processing this cell
 
-				//start processing quickly if we aren't already
-				reset_delay()
-
 			return igniting
 
 obj
-	effect/hotspot
+	hotspot
 		//Icon for fire on turfs, also helps for nurturing small fires until they are full tile
 
 		anchored = 1
 		mouse_opacity = 0
+		unacidable = 1//So you can't melt fire with acid.
 
 		//luminosity = 3
 
@@ -129,7 +114,6 @@ obj
 
 			if(bypassing)
 				icon_state = "3"
-				location.burn_tile()
 
 				//Possible spread due to radiated heat
 				if(location.air.temperature > FIRE_MINIMUM_TEMPERATURE_TO_SPREAD)
@@ -158,14 +142,12 @@ obj
 
 		New()
 			..()
-			dir = pick(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWEST, SOUTHEAST)
-			//sd_SetLuminosity(3)
+			dir = pick(cardinal)
 
 		Del()
 			if (istype(loc, /turf/simulated))
 				var/turf/simulated/T = loc
 				loc:active_hotspot = null
-				//src.sd_SetLuminosity(0)
 
 
 

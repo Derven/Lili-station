@@ -1,4 +1,4 @@
-/turf/simulated/wall
+/turf/unsimulated/wall
 
 	asteroid
 		icon_state = "asteroid"

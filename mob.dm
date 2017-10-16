@@ -121,13 +121,13 @@ mob
 					flick("close_state",A_LOCK)
 					A_LOCK.icon_state = "close"
 				T.update_air_properties()
-		if(istype(A, /turf/simulated/wall))
+		if(istype(A, /turf/unsimulated/wall))
 			if(usr.client.run_intent == 2)
 				for(var/mob/mober in range(5, A))
 					mober << mober.select_lang("\red [name] врезалс&#255; в [A]", "\red [name] smash to [A]")
 					mober << 'smash.ogg'
-				if(istype(A, /turf/simulated/wall/window))
-					var/turf/simulated/wall/window/WIN = A
+				if(istype(A, /turf/unsimulated/wall/window))
+					var/turf/unsimulated/wall/window/WIN = A
 					WIN.health -= rand(15,45)
 					WIN.update_icon()
 				if(MY_PAIN == get_organ("head"))
@@ -657,7 +657,7 @@ mob
 		if(lying)
 			return
 		see_invisible = 16 * (ZLevel-1)
-		var/turf/wall_east
+		var/turf/unsimulated/wall_east
 
 		for(var/mob/mober in range(5, src))
 			mober << 'steps.ogg'
@@ -676,7 +676,7 @@ mob
 			if(dir == 1)
 				wall_east = locate(usr.x + 1, usr.y, usr.z)
 
-		for(var/turf/simulated/wall/W in range(2, src))
+		for(var/turf/unsimulated/wall/W in range(2, src))
 			W.clear_for_all()
 
 		if(!istype(loc, /turf/simulated/floor/stairs))
@@ -685,14 +685,14 @@ mob
 		var/oldloc = src.loc
 		..()
 		wall_east = get_step(src, EAST)
-		var/turf/wall_south = get_step(src, SOUTH)
+		var/turf/unsimulated/wall_south = get_step(src, SOUTH)
 
-		if(wall_east && istype(wall_east, /turf/simulated/wall))
-			var/turf/simulated/wall/my_wall = wall_east
+		if(wall_east && istype(wall_east, /turf/unsimulated/wall))
+			var/turf/unsimulated/wall/my_wall = wall_east
 			my_wall.hide_me()
 
-		if(wall_south && istype(wall_south, /turf/simulated/wall))
-			var/turf/simulated/wall/my_wall = wall_south
+		if(wall_south && istype(wall_south, /turf/unsimulated/wall))
+			var/turf/unsimulated/wall/my_wall = wall_south
 			my_wall.hide_me()
 
 		if(src.pulling)

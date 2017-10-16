@@ -102,27 +102,27 @@
 	proc/MOVETO(var/curdir, var/list/obj/partslist)
 		spawn(2)
 			if(curdir == "north")
-				if(!istype(locate(x, y + 1, z), /turf/simulated/wall))
+				if(!istype(locate(x, y + 1, z), /turf/unsimulated/wall))
 					for(var/obj/O in locate(x, y + 1, z))
 						if(!(partslist.Find(O)))
 							O.deconstruct()
 					loc = locate(x, y + 1, z)
 			if(curdir == "south")
-				if(!istype(locate(x, y - 1, z), /turf/simulated/wall))
+				if(!istype(locate(x, y - 1, z), /turf/unsimulated/wall))
 					loc = locate(x, y - 1, z)
 					for(var/obj/O in locate(x, y - 1, z))
 						if(!(partslist.Find(O)))
 							O.deconstruct()
 
 			if(curdir == "west")
-				if(!istype(locate(x - 1, y, z), /turf/simulated/wall))
+				if(!istype(locate(x - 1, y, z), /turf/unsimulated/wall))
 					loc = locate(x - 1, y, z)
 					for(var/obj/O in locate(x - 1, y, z))
 						if(!(partslist.Find(O)))
 							O.deconstruct()
 
 			if(curdir == "east")
-				if(!istype(locate(x + 1, y, z), /turf/simulated/wall))
+				if(!istype(locate(x + 1, y, z), /turf/unsimulated/wall))
 					loc = locate(x + 1, y, z)
 					for(var/obj/O in locate(x + 1, y, z))
 						if(!(partslist.Find(O)))
@@ -130,19 +130,19 @@
 
 	proc/CHECK(var/curdir)
 		if(curdir == "north")
-			if(istype(locate(x, y + 1, z), /turf/simulated/wall))
+			if(istype(locate(x, y + 1, z), /turf/unsimulated/wall))
 				return 333
 
 		if(curdir == "south")
-			if(istype(locate(x, y - 1, z), /turf/simulated/wall))
+			if(istype(locate(x, y - 1, z), /turf/unsimulated/wall))
 				return 333
 
 		if(curdir == "west")
-			if(istype(locate(x - 1, y, z), /turf/simulated/wall))
+			if(istype(locate(x - 1, y, z), /turf/unsimulated/wall))
 				return 333
 
 		if(curdir == "east")
-			if(istype(locate(x + 1, y, z), /turf/simulated/wall))
+			if(istype(locate(x + 1, y, z), /turf/unsimulated/wall))
 				return 333
 
 //X = x0 + (x - x0) * cos(a) - (y - y0) * sin(a);
