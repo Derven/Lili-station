@@ -15,10 +15,6 @@ datum/controller/game_controller
 			return
 			//There can be only one master.
 
-		if(!air_master)
-			air_master = new /datum/controller/air_system()
-			air_master.setup()
-
 		world.tick_lag = 0.9
 
 		setup_objects()

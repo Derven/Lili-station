@@ -79,10 +79,10 @@ turf
 			return 1
 
 
-var/global/datum/controller/air_system/air_master
+var/global/datum/controller/subsystem/air_system/air_master
 
 datum
-	controller
+	controller/subsystem
 		air_system
 			//Geoemetry lists
 			var/list/datum/air_group/air_groups = list()

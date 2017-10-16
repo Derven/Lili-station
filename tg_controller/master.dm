@@ -202,6 +202,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		var/datum/controller/subsystem/SS = thing
 		if (SS.flags & SS_NO_FIRE)
 			continue
+
 		SS.queued_time = 0
 		SS.queue_next = null
 		SS.queue_prev = null

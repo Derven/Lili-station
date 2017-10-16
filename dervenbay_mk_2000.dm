@@ -28,8 +28,11 @@ world
 	spawn(1)
 		Master.Initialize(15, FALSE)
 	Master.process()
-	air_master = new /datum/controller/air_system()
-	air_master.setup()
+
+	if(!air_master)
+		air_master = new /datum/controller/subsystem/air_system()
+		air_master.setup()
+
 
 	//spawn(-1) master_controller.setup()
 
