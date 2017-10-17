@@ -1,4 +1,2 @@
-# Aurora_the_cruiser
-based on space station 13 game
-
-If you have errors activate build -> preferences -> automatically dir
+# Lili station
+Hello this repository is the isometric space station 13. 
