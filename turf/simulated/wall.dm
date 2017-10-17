@@ -35,7 +35,7 @@
 				overlays += image(icon = 'walls.dmi', icon_state = "overlay_[rand_num]")
 
 		for(var/turf/T in locate(x,y,z))
-			if(T != src)
+			if(istype(T, /turf/space))
 				del(T)
 
 	Del()
