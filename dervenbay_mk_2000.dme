@@ -32,7 +32,7 @@
 #include "mob.dm"
 #include "obj.dm"
 #include "skin.dmf"
-#include "Lili_1001.dmm"
+#include "map_zero.dmm"
 #include "__DATASTRUCTURES\heap.dm"
 #include "__DATASTRUCTURES\linked_lists.dm"
 #include "__DATASTRUCTURES\priority_queue.dm"

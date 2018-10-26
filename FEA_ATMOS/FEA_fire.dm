@@ -54,7 +54,7 @@ obj
 		icon = 'fire.dmi'
 		icon_state = "1"
 
-		layer = TURF_LAYER
+		layer = TURF_LAYER + 5
 
 		var
 			volume = 125

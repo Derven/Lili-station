@@ -43,7 +43,6 @@ turf
 //		var/obj/movable/floor/movable_on_me = locate(/obj/movable/floor) in src
 //		if(istype(movable_on_me))
 //			return movable_on_me.remove_air(amount)
-
 		var/datum/gas_mixture/GM = new
 
 		var/sum = oxygen + carbon_dioxide + nitrogen + toxins
@@ -274,14 +273,7 @@ turf
 									parent.space_borders = list(src)
 								length_space_border++
 
-							else
-								if(parent.borders)
-									parent.borders -= src
-									parent.borders += src
-								else
-									parent.borders = list(src)
-
-							group_border |= direction
+								group_border |= direction
 
 				parent.length_space_border += length_space_border
 

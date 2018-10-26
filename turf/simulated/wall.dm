@@ -7,15 +7,15 @@
 	opacity = 1
 	var/walltype = "wall"
 		//Properties for airtight tiles (/wall)
-	thermal_conductivity = 0
+	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 	heat_capacity = 312500 //a little over 5 cm thick , 312500 for 1 m by 2.5 m by 0.25 m steel wall
-
-		//Properties for both
 	temperature = T20C
 	robustness = 65
-	temperature = TCMB
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
+
+	CanPass()
+		return 0
 
 	ex_act()
 		for(var/mob/M in range(2, src))
