@@ -99,3 +99,9 @@
 				if(E && istype(E, /turf/unsimulated/wall))
 					wall_overlay = image('walls.dmi', icon_state = "overlay_e", layer = 10)
 					overlays.Add(wall_overlay)
+
+/turf/unsimulated/wall/out
+	icon_state = "out"
+
+	New()
+		..()

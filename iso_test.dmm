@@ -126,7 +126,7 @@
 "cv" = (/turf/space,/turf/simulated/floor,/obj/structure/disposalpipe/segment{tag = "icon-pipe-s (WEST)"; icon_state = "pipe-s"; dir = 8},/turf/unsimulated/wall/window,/area/ship/deck_1)
 "cw" = (/turf/space,/turf/simulated/floor,/obj/structure/disposalpipe/segment{tag = "icon-pipe-s (WEST)"; icon_state = "pipe-s"; dir = 8},/turf/simulated/floor/roof,/area/ship/deck_1)
 "cx" = (/turf/space,/turf/simulated/floor,/obj/machinery/disposal,/obj/structure/disposalpipe/trunk{tag = "icon-pipe-t (WEST)"; icon_state = "pipe-t"; dir = 8},/obj/machinery/lamp{pixel_y = 64},/turf/simulated/floor/roof,/area/ship/deck_1)
-"cy" = (/turf/space,/turf/simulated/floor,/obj/machinery/lamp{pixel_y = 64},/turf/simulated/floor/roof,/area/ship/deck_1)
+"cy" = (/turf/space,/turf/simulated/floor,/obj/structure/closet/oxygen,/turf/simulated/floor/roof,/area/ship/deck_1)
 "cz" = (/turf/space,/turf/simulated/floor{tag = "icon-bar"; icon_state = "bar"},/obj/structure/closet/closet_3,/turf/simulated/floor/roof,/area/ship/deck_1)
 "cA" = (/turf/space,/turf/simulated/floor,/obj/structure/table,/turf/simulated/floor/roof,/area/ship/deck_1)
 "cB" = (/turf/space,/turf/simulated/floor,/obj/machinery/simple_apc{pixel_x = -64},/turf/simulated/floor/roof,/area/ship/deck_1)
@@ -160,42 +160,43 @@
 "dd" = (/turf/space,/turf/unsimulated/wall/asteroid,/area)
 "de" = (/turf/space,/obj/structure/disposalpipe/trunk,/obj/structure/disposaloutlet,/turf/simulated/floor,/area/ship/deck_1)
 "df" = (/turf/simulated/floor,/turf/simulated/floor/roof,/area/ship/deck_1)
-"dg" = (/turf/space,/turf/simulated/floor,/obj/machinery/airlock/brig/briglock{name = "cell1"},/turf/simulated/floor/roof,/area/ship/deck_1)
-"dh" = (/turf/space,/turf/simulated/floor,/obj/structure/table,/obj/item/weapon/reagent_containers/food/snacks/donut,/obj/machinery/lamp{pixel_y = 64},/turf/simulated/floor/roof,/area/ship/deck_1)
-"di" = (/turf/space,/obj/structure/table,/obj/machinery/consol/secconsol,/turf/simulated/floor,/area/ship/deck_1)
-"dj" = (/obj/item/stack/metal,/turf/space,/area)
-"dk" = (/turf/space,/area/ship/deck_1)
-"dl" = (/turf/space,/obj/item/weapon/storage/box,/turf/unsimulated/floor/planet,/area)
-"dm" = (/turf/space,/turf/simulated/floor,/obj/machinery/airlock/brig/briglock{name = "cell2"},/turf/simulated/floor/roof,/area/ship/deck_1)
-"dn" = (/turf/space,/turf/unsimulated/wall/asteroid,/turf/unsimulated/floor/planet,/area)
-"do" = (/turf/space,/turf/unsimulated/floor/planet,/turf/unsimulated/wall/asteroid/mineral,/area)
-"dp" = (/turf/space,/obj/machinery/airlock/brig,/turf/simulated/floor,/area/ship/deck_1)
-"dq" = (/turf/space,/obj/item/weapon/pickaxe,/turf/unsimulated/floor/planet,/area)
-"dr" = (/turf/space,/turf/simulated/floor,/obj/machinery/airlock/brig/briglock{name = "cell3"},/turf/simulated/floor/roof,/area/ship/deck_1)
-"ds" = (/turf/space,/turf/unsimulated/wall/asteroid/mineral,/area)
-"dt" = (/turf/space,/turf/simulated/floor{tag = "icon-asteroid"; icon_state = "asteroid"},/turf/unsimulated/floor/planet,/area)
-"du" = (/turf/space,/turf/simulated/floor{tag = "icon-asteroid"; icon_state = "asteroid"},/turf/unsimulated/wall,/area/test_area)
-"dv" = (/turf/space,/turf/simulated/floor,/turf/unsimulated/wall,/area/test_area)
-"dw" = (/turf/space,/turf/simulated/floor,/turf/unsimulated/wall/window,/area/test_area)
-"dx" = (/turf/space,/turf/simulated/floor,/obj/structure/closet/closet_3{pixel_z = 32; ZLevel = 2},/turf/simulated/floor/floorwall,/area/test_area)
-"dy" = (/turf/space,/turf/simulated/floor,/area/test_area)
-"dz" = (/turf/space,/obj/structure/table,/turf/simulated/floor,/area/test_area)
-"dA" = (/turf/space,/turf/simulated/floor,/turf/simulated/floor/floorwall,/area/test_area)
-"dB" = (/turf/space,/turf/simulated/floor,/turf/simulated/floor/stairs,/area/test_area)
-"dC" = (/turf/space,/obj/machinery/smelter,/turf/simulated/floor,/area/test_area)
-"dD" = (/turf/space,/turf/unsimulated/wall{color = "#2c2d2d"},/area)
-"dE" = (/turf/space,/turf/unsimulated/wall{color = "#3b3d3d"},/area)
-"dF" = (/turf/space,/turf/unsimulated/wall{color = "#4c4f4f"},/area)
-"dG" = (/turf/space,/turf/unsimulated/wall{color = "#5f6363"},/area)
-"dH" = (/turf/space,/turf/unsimulated/wall{color = "#717575"},/area)
-"dI" = (/turf/space,/turf/unsimulated/wall{color = "#818787"},/area)
-"dJ" = (/turf/space,/turf/unsimulated/wall{color = "#abb5b5"},/area)
-"dK" = (/turf/space,/turf/unsimulated/wall{color = "#c9d3d3"},/area)
-"dL" = (/turf/space,/obj/machinery/simple_apc{pixel_x = -64},/turf/simulated/floor,/area/test_area)
-"dM" = (/turf/space,/obj/machinery/airlock,/turf/simulated/floor,/area/test_area)
-"dN" = (/turf/space,/obj/structure/closet{tag = "icon-closed (EAST)"; icon_state = "closed"; dir = 4},/turf/simulated/floor,/area/test_area)
-"dO" = (/turf/unsimulated/wall,/area/test_area)
-"dP" = (/turf/space,/obj/landmark,/turf/unsimulated/floor/planet,/area/test_area)
+"dg" = (/turf/space,/turf/simulated/floor,/obj/machinery/lamp{pixel_y = 64},/turf/simulated/floor/roof,/area/ship/deck_1)
+"dh" = (/turf/space,/turf/simulated/floor,/obj/machinery/airlock/brig/briglock{name = "cell1"},/turf/simulated/floor/roof,/area/ship/deck_1)
+"di" = (/turf/space,/turf/simulated/floor,/obj/structure/table,/obj/item/weapon/reagent_containers/food/snacks/donut,/obj/machinery/lamp{pixel_y = 64},/turf/simulated/floor/roof,/area/ship/deck_1)
+"dj" = (/turf/space,/obj/structure/table,/obj/machinery/consol/secconsol,/turf/simulated/floor,/area/ship/deck_1)
+"dk" = (/obj/item/stack/metal,/turf/space,/area)
+"dl" = (/turf/space,/area/ship/deck_1)
+"dm" = (/turf/space,/obj/item/weapon/storage/box,/turf/unsimulated/floor/planet,/area)
+"dn" = (/turf/space,/turf/simulated/floor,/obj/machinery/airlock/brig/briglock{name = "cell2"},/turf/simulated/floor/roof,/area/ship/deck_1)
+"do" = (/turf/space,/turf/unsimulated/wall/asteroid,/turf/unsimulated/floor/planet,/area)
+"dp" = (/turf/space,/turf/unsimulated/floor/planet,/turf/unsimulated/wall/asteroid/mineral,/area)
+"dq" = (/turf/space,/obj/machinery/airlock/brig,/turf/simulated/floor,/area/ship/deck_1)
+"dr" = (/turf/space,/obj/item/weapon/pickaxe,/turf/unsimulated/floor/planet,/area)
+"ds" = (/turf/space,/turf/simulated/floor,/obj/machinery/airlock/brig/briglock{name = "cell3"},/turf/simulated/floor/roof,/area/ship/deck_1)
+"dt" = (/turf/space,/turf/unsimulated/wall/asteroid/mineral,/area)
+"du" = (/turf/space,/turf/simulated/floor{tag = "icon-asteroid"; icon_state = "asteroid"},/turf/unsimulated/floor/planet,/area)
+"dv" = (/turf/space,/turf/simulated/floor{tag = "icon-asteroid"; icon_state = "asteroid"},/turf/unsimulated/wall,/area/test_area)
+"dw" = (/turf/space,/turf/simulated/floor,/turf/unsimulated/wall,/area/test_area)
+"dx" = (/turf/space,/turf/simulated/floor,/turf/unsimulated/wall/window,/area/test_area)
+"dy" = (/turf/space,/turf/simulated/floor,/obj/structure/closet/closet_3{pixel_z = 32; ZLevel = 2},/turf/simulated/floor/floorwall,/area/test_area)
+"dz" = (/turf/space,/turf/simulated/floor,/area/test_area)
+"dA" = (/turf/space,/obj/structure/table,/turf/simulated/floor,/area/test_area)
+"dB" = (/turf/space,/turf/simulated/floor,/turf/simulated/floor/floorwall,/area/test_area)
+"dC" = (/turf/space,/turf/simulated/floor,/turf/simulated/floor/stairs,/area/test_area)
+"dD" = (/turf/space,/obj/machinery/smelter,/turf/simulated/floor,/area/test_area)
+"dE" = (/turf/space,/turf/unsimulated/wall{color = "#2c2d2d"},/area)
+"dF" = (/turf/space,/turf/unsimulated/wall{color = "#3b3d3d"},/area)
+"dG" = (/turf/space,/turf/unsimulated/wall{color = "#4c4f4f"},/area)
+"dH" = (/turf/space,/turf/unsimulated/wall{color = "#5f6363"},/area)
+"dI" = (/turf/space,/turf/unsimulated/wall{color = "#717575"},/area)
+"dJ" = (/turf/space,/turf/unsimulated/wall{color = "#818787"},/area)
+"dK" = (/turf/space,/turf/unsimulated/wall{color = "#abb5b5"},/area)
+"dL" = (/turf/space,/turf/unsimulated/wall{color = "#c9d3d3"},/area)
+"dM" = (/turf/space,/obj/machinery/simple_apc{pixel_x = -64},/turf/simulated/floor,/area/test_area)
+"dN" = (/turf/space,/obj/machinery/airlock,/turf/simulated/floor,/area/test_area)
+"dO" = (/turf/space,/obj/structure/closet{tag = "icon-closed (EAST)"; icon_state = "closed"; dir = 4},/turf/simulated/floor,/area/test_area)
+"dP" = (/turf/unsimulated/wall,/area/test_area)
+"dQ" = (/turf/space,/obj/landmark,/turf/unsimulated/floor/planet,/area/test_area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -257,8 +258,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaOaIascoasasambSaqaqam
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamasasasasasamaqaqaqambYbYbYbYbYbYbYbYambZaqambpblcqcrcqblbpamcaaqaOcsckckckamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaOaOaOamamamaqamamamamambYbYbYbYbYbYamctcucvcwcxbobobocyboaOcaaqamckckckckamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqamczczczamaOaOcAcAamamambZaqaOcBboboboboboboaOcaaqcCckckckckamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqaOcDcEcEcEcEcFcEcEcEcEamciaqaObnboboboboboboaObQaqamcGcHckcHamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqaOcEcIcJcEcEcEcEcEcEcEambZaqbbbobocKcKcKboboaOcaaqamckckckckamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqaOcDcEcEcEcEcFcEcEcEcEamaqaqaObnboboboboboboaObQaqamcGcHckcHamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqaOcEcIcJcEcEcEcEcEcEcEambZaqbbbobocKcKcKboboaOaqaqamckckckckamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamaqaOcEcLcLcEcEcLcLcEcEcEbtbZaqbbboboaFaFbzbzbocMbKaqaOckcHckcHamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacNcNcNcNaaaaaaaaaaaaaaaaamcOaOcPcEcEcEcEcLcLcEcEcEambZaqaOcQboaFaFbzbzbobtaqaqaOckckckckamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacNcNcNcNaaaaaaaaaaaaaaaaamcOamcRcEcEcEcEcEcEcEcEcEamcSaqaOcTboaFaFbzbzboaOaqaqaOckcHckcHamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -266,28 +267,28 @@ aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcNcNaaaaaaaaaaaacNcNcNcNaaaaaaaaaaaaaaaaamcOamamaO
 aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaamaqacacacacacacacacacaccUamciaqamcVboboboboboboaOaqaqamcGcHckcHamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcWcWcNaaaaaaaaaaaaaaaaamamahahahahahahahahahahaqambZaqamcTboboboboboboblaqaqamcXcYckckamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcWcWcNcNcNcWcWcNcWcWcWcNcWcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNahcZamdaamamamaOdbaOamamamamaqaqamckckckckamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcNcWcWcWcWcWcWcNcNcNcNcNcNcNdcdccNcNdcdcdcddddddddddddcNcNcNcNcNcNaqdebldfcydgbodhdiblaqamamaqamamamamamamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaacNcWcWcNcNcNcWcWcWcNcNcNcWcNdcdcdcdjdjdjdcdcddddddddddddcNcNcNcNcNcNaqaqbldfboaOboboasblaqaqaqaqaqaqaqaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaacNcNcNcNcWcNcNcNcNcNcNcWcNcNcNcNdcdccWdcdjdjdjddddddddddddddddcNcNcNcNcNcNcNdkblboboaOboboasblaqaqaqaqaqaqaqaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaacNcNcNcNcWcWcNcWcWcNcNcWcNcNcWcNcNcWdcdcdjdjdjddddddcNcNcNcNcNcNcNcNdlcNcNcNaablajblblcBboasblaqaqamamamamamamamamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaacNcWcNcNcNcNcNcNcNcNcNcNcNcWcWcWdcdjdjdjddddddddddddddddcNcNcNcNcNcNcNaabldfcydmboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaacNcWcNcNcNcNcNcWcWcWcNcNcNcNcNdcdcdcdnddddddddddddddddddcNcNcNcNcNcNcNaabldfboaOboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcWcNcWcWcWcWcNcNcWcNcNcWcNcNdcdjdjdddddddddddddddddddddodlcNcNcNcNcNaablboboaOboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcWcNcWcWcWcWcNcNcNcNcNcNcNcNdndddddddddddddddddddddddddodocNcNcNcNcNaablajblblboboasdpaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcWcNcNcNcWcNcNcNcNcNcNcNcNcNdndddddddddddddddddddddddddodocNdqcNcNcNcNbldfcydrboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacNcNcNcWcWcWcWcWcNcWcNcNcNcNcWcNcNcNcNdndsdsdsdsddddddcWcWcWcWcWcNcNcNcNcNcNcNcNbldfboaOboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacNcNcNcWcWcWcWcWcNcNcNcNcNcNcNcNcNcWcNdndsdsdsdsddddddcNcNcNcNcNcNcNcNcNcNcNcNcNblboboaOboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacNcNcNcWcWcWcWcWcWcWcWcWcWcWcWcWcWcWcNdndsdsdsdsddcWcWcNcNdtdududvdwdududucNcNcNblajblblaOaOblblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaacNcNcNcWcWcWcWcWcWcWcWcWcWcWcWcWcWcWcNdndsdsdsdsddcWcWcNcNdtdudxdvdydzdzbDcNdqcNcNcNcNcNcNcNcNamamamamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcNcNcNcWcWcWcWdodocWcWcWcWcWcWcWcWcWcNdndsdsdsdscWcWcWcNcNdtdudAdvdydydybDcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcNcNcNcWcWcWcWcWcWcWcWcWcWcWcNcWcWcWcWdddsdsdsdscWcWcWcNcNcNdvdvdvdydydybDcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcWcWcWcWcWcWcWcWcWcWcWcWcWcWcNcNcNcNcNdddsdsdsdscWcWcWcNcNcNdwdBdvdCdydybDcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaadDdEdFdGdHdIdJdKahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcWcWcWcWcWcWcWcWcWcWcWcWcWcWcNcNcWcNcNddddddddcWcWcWcWcNcNcNdwdydydydydybDcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcWcWcWcWcWcWcWcWcWcWcWcWcNcNcNcWcWcNcNddddddddcWcWcWcWcNcNcNdwdLdydydydydMcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcWcWcWcWcWcWcWcWcWcWcNcNcWcWcNcNcNcNcNddddcWcWcWcWcWcWcNcNcNdwdNdydydydybDcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcWcWcWcNcWcWcNcNcWcWcNcNcWcWcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNbDdNdydydydybDcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcNcNcWcNcWcWcNcNcWcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNbDdNdydydydybDcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNbDbDdwdwdwbDbDcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcNcWcWcWcWcWcWcNcNcNcNcNcNcNdcdccNcNdcdcdcddddddddddddcNcNcNcNcNcNaqdebldfdgdhbodidjblaqamamaqamamamamamamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaacNcWcWcNcNcNcWcWcWcNcNcNcWcNdcdcdcdkdkdkdcdcddddddddddddcNcNcNcNcNcNaqaqbldfboaOboboasblaqaqaqaqaqaqaqaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaacNcNcNcNcWcNcNcNcNcNcNcWcNcNcNcNdcdccWdcdkdkdkddddddddddddddddcNcNcNcNcNcNcNdlblboboaOboboasblaqaqaqaqaqaqaqaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaacNcNcNcNcWcWcNcWcWcNcNcWcNcNcWcNcNcWdcdcdkdkdkddddddcNcNcNcNcNcNcNcNdmcNcNcNaablajblblcBboasblaqaqamamamamamamamamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaacNcWcNcNcNcNcNcNcNcNcNcNcNcWcWcWdcdkdkdkddddddddddddddddcNcNcNcNcNcNcNaabldfdgdnboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaacNcWcNcNcNcNcNcWcWcWcNcNcNcNcNdcdcdcdoddddddddddddddddddcNcNcNcNcNcNcNaabldfboaOboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcWcNcWcWcWcWcNcNcWcNcNcWcNcNdcdkdkdddddddddddddddddddddpdmcNcNcNcNcNaablboboaOboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcWcNcWcWcWcWcNcNcNcNcNcNcNcNdodddddddddddddddddddddddddpdpcNcNcNcNcNaablajblblboboasdqaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacNcNcNcNcNcWcNcNcNcWcNcNcNcNcNcNcNcNcNdodddddddddddddddddddddddddpdpcNdrcNcNcNcNbldfdgdsboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacNcNcNcWcWcWcWcWcNcWcNcNcNcNcWcNcNcNcNdodtdtdtdtddddddcWcWcWcWcWcNcNcNcNcNcNcNcNbldfboaOboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacNcNcNcWcWcWcWcWcNcNcNcNcNcNcNcNcNcWcNdodtdtdtdtddddddcNcNcNcNcNcNcNcNcNcNcNcNcNblboboaOboboasblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacNcNcNcWcWcWcWcWcWcWcWcWcWcWcWcWcWcWcNdodtdtdtdtddcWcWcNcNdudvdvdwdxdvdvdvcNcNcNblajblblaOaOblblaqaqamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaacNcNcNcWcWcWcWcWcWcWcWcWcWcWcWcWcWcWcNdodtdtdtdtddcWcWcNcNdudvdydwdzdAdAbDcNdrcNcNcNcNcNcNcNcNamamamamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcNcNcNcWcWcWcWdpdpcWcWcWcWcWcWcWcWcWcNdodtdtdtdtcWcWcWcNcNdudvdBdwdzdzdzbDcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcNcNcNcWcWcWcWcWcWcWcWcWcWcWcNcWcWcWcWdddtdtdtdtcWcWcWcNcNcNdwdwdwdzdzdzbDcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcWcWcWcWcWcWcWcWcWcWcWcWcWcWcNcNcNcNcNdddtdtdtdtcWcWcWcNcNcNdxdCdwdDdzdzbDcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaadEdFdGdHdIdJdKdLahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcWcWcWcWcWcWcWcWcWcWcWcWcWcWcNcNcWcNcNddddddddcWcWcWcWcNcNcNdxdzdzdzdzdzbDcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcWcWcWcWcWcWcWcWcWcWcWcWcNcNcNcWcWcNcNddddddddcWcWcWcWcNcNcNdxdMdzdzdzdzdNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcWcWcWcWcWcWcWcWcWcWcNcNcWcWcNcNcNcNcNddddcWcWcWcWcWcWcNcNcNdxdOdzdzdzdzbDcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcWcWcWcNcWcWcNcNcWcWcNcNcWcWcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNbDdOdzdzdzdzbDcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcNcNcWcNcWcWcNcNcWcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNbDdOdzdzdzdzbDcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNbDbDdxdxdxbDbDcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacNcNcNcNcNcNcNcNcNcNcNcNcNcNcNcNaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -363,9 +364,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadOdOdOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadOdPdOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadOdOdOaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadPdPdPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadPdQdPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadPdPdPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
