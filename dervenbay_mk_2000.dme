@@ -120,6 +120,7 @@
 #include "obj\machinery\microwave.dm"
 #include "obj\machinery\monkeycloner.dm"
 #include "obj\machinery\processor.dm"
+#include "obj\machinery\radio.dm"
 #include "obj\machinery\scanner.dm"
 #include "obj\machinery\seed_extractor.dm"
 #include "obj\machinery\simple_apc.dm"
