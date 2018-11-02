@@ -87,6 +87,12 @@
 	density = 1
 	return 1
 
+/obj/structure/closet/oldcloset
+	icon_state = "oldcloset"
+	density = 1
+	icon_closed = "oldcloset"
+	icon_opened = "oldcloset_open"
+
 /obj/structure/closet/proc/toggle()
 	if(src.opened)
 		return src.close()
