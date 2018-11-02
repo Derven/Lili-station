@@ -196,7 +196,7 @@
 "dN" = (/turf/space,/obj/machinery/airlock,/turf/simulated/floor,/area/test_area)
 "dO" = (/turf/space,/obj/structure/closet{tag = "icon-closed (EAST)"; icon_state = "closed"; dir = 4},/turf/simulated/floor,/area/test_area)
 "dP" = (/turf/unsimulated/wall,/area/test_area)
-"dQ" = (/turf/space,/obj/landmark,/turf/unsimulated/floor/planet,/area/test_area)
+"dQ" = (/obj/landmark,/turf/simulated/floor,/area/test_area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
