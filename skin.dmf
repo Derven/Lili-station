@@ -1,30 +1,30 @@
 macro "macro"
 	elem 
-		name = "TAB"
+		name = "Tab"
 		command = ".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#F0F0F0\""
 	elem "ne"
-		name = "NORTHEAST+REP"
+		name = "Northeast+REP"
 		command = ".north"
 	elem "se"
-		name = "SOUTHEAST+REP"
+		name = "Southeast+REP"
 		command = ".east"
 	elem "sw"
-		name = "SOUTHWEST+REP"
+		name = "Southwest+REP"
 		command = ".south"
 	elem "nw"
-		name = "NORTHWEST+REP"
+		name = "Northwest+REP"
 		command = ".west"
 	elem "w"
-		name = "WEST+REP"
+		name = "West+REP"
 		command = ".southwest"
 	elem "n"
-		name = "NORTH+REP"
+		name = "North+REP"
 		command = ".northwest"
 	elem "e"
-		name = "EAST+REP"
+		name = "East+REP"
 		command = ".northeast"
 	elem "s"
-		name = "SOUTH+REP"
+		name = "South+REP"
 		command = ".southeast"
 
 macro "hotkeymode"
@@ -134,7 +134,6 @@ window "mapwindow"
 		size = 1024x600
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -160,7 +159,7 @@ window "mapwindow"
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 219,0
 		size = 480x480
 		anchor1 = none
 		anchor2 = none
@@ -184,7 +183,7 @@ window "outputwindow"
 		saved-params = "max-lines"
 		link-color = #0080c0
 		visited-color = #ff0080
-		style = ".system {color:#ff0000;}"
+		style = ".system {color:#ff0000;}\nIMG.icon {width: 64px; height: 64px;}"
 
 window "rpane"
 	elem "rpane"
@@ -238,10 +237,11 @@ window "rpane"
 window "browserwindow"
 	elem "browserwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 219,0
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Browser"
 		is-pane = true

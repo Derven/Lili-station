@@ -3,6 +3,7 @@ client
 	body { \
 		font-family: 'Open Sans', 'fantasy'; \
 	} \
+	IMG.icon {width: 64px; height: 64px; float: left;};\
 	\
 	}</style>"
 	var/run_intent = 2

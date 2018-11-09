@@ -5,6 +5,9 @@
 	walltype = "window"
 	robustness = 10
 
+	examine()
+		world << "[icon_state]"
+
 
 	var/image/damage
 	var/health = 100

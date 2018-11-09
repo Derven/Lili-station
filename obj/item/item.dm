@@ -73,6 +73,9 @@
 /obj/item/clothing/suit/soviet
 	icon_state = "soviet_spacesuit"
 
+/obj/item/clothing/suit/assistant
+	icon_state = "assistant_suit"
+
 /obj/item
 	var
 		force

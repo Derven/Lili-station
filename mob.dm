@@ -926,12 +926,7 @@ mob
 
 /mob/Login()
 	..()
-	usr << "<h1>Hi!</h1>"
-	usr << "<h1><b>Everything is wrong</b></h2>"
-	usr << "<h2><a href=\"https://discord.gg/2VyzxfE\">Багрепорты слать сюда. Здесь можно присоединитьс&#255; к обсуждению.</h2>"
-	usr << "<h2><a href=\"https://sites.google.com/view/space-station-13-isometric\">Первый сайт проекта</h2>"
-	usr << "<h2><a href=\"https://plinhost.github.io/Aurora_the_cruiser\">Второй сайт проекта</h2>"
-	usr << "<h2><a href=\"https://github.com/Derven/Aurora_the_cruiser\">Репозиторий</h2>"
+	usr << "<h1><b>Wellcome to unique isometric station based on SS13 and named 'Lili station'.</b></h2>"
 	lobby = new(usr)
 	create_hud(usr.client)
 	create_lobby(usr.client)
@@ -980,6 +975,8 @@ mob
 				M << M.select_lang("[src] говорит, \"[fix255(msg)]\"", "[src] says, \"[fix255(msg)]\"")
 		sleep(8)
 		overlays.Remove(overlay_cur)
+	for(var/obj/machinery/radio/intercom/I in range(7, src))
+		I.tell_me_more(name, fix255(msg))
 
 /mob/verb/Emote(msg as text)
 	set name = "Emote"
@@ -1012,6 +1009,7 @@ mob/Stat()
 /mob/Topic(href,href_list[])
 	if(href_list["enter"] == "yes")
 		Move(pick(jobmarks))
+		radio_arrival()
 		lobby.invisibility = 101
 		usr << sound(null)
 		usr << browse(null, "window=setup")
@@ -1030,7 +1028,6 @@ mob/Stat()
 		hair = image('mob.dmi', hair_state)
 		hair.layer = initial(layer) + 5
 		overlays.Add(hair)
-
 	if(href_list["gender"] == "male")
 		icon_state = "mob"
 	if(href_list["gender"] == "female")

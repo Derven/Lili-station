@@ -53,6 +53,9 @@
 	attack_hand()
 		merge()
 
+	//MouseEntered()
+	//	hide_me()
+
 	verb/hide()
 		set name = "Hide"
 		set category = null
@@ -103,5 +106,5 @@
 /turf/unsimulated/wall/out
 	icon_state = "out"
 
-	New()
-		..()
+	merge()
+		return
