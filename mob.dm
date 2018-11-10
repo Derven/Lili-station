@@ -919,10 +919,45 @@ mob
 				GENDER <a href='?src=\ref[src];gender=male'> MALE </a> / <a href='?src=\ref[src];gender=female'> FEMALE </a><br> \
 				<a href='?src=\ref[src];hair=new'> HAIR </a><br> \
 				<a href='?src=\ref[src];display=show'>SCREEN RESOLUTION</a></h3></div> \
+				<h3>JOBS:</h3><hr> \
+				<span class='gray' style=\"{color: darkgray};\">Assistant</span> needed(4) exists([assist]) <a href='?src=\ref[src];assist=1'>select</a> <br> \
+				<span class='green' style=\"{color: darkgreen};\">Botanist</span> needed(2) exists([botanist])<a href='?src=\ref[src];botanist=0'>select</a><br> \
+				Bartender needed(1) exists([bart]) <a href='?src=\ref[src];bart=0'>select</a><br>  \
+				<span class='sec' style=\"{color: darkred};\">Security</span> needed(2) exists([sec]) <a href='?src=\ref[src];sec=0'>select</a><br>\
+				<span class='eng' style=\"{color: orange};\">Engineer</span> needed(2) exists([engi])<a href='?src=\ref[src];eng=0'>select</a><br> \
+				<span class='doc' style=\"{color: darkblue};\">Doctor</span> needed(2) exists([doc])<a href='?src=\ref[src];doc=0'>select</a><br> \
 			</div> \
 		</body> \
 	</html>"
-	usr << browse(lobby_text,"window=setup;size=300x250;can_resize=0;can_close=0")
+	usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
+
+/mob/proc/lobby_refresh()
+	lobby_text = " \
+	<html> \
+		<head> \
+			<title> Aurora lobby </title> \
+		</head> \
+		<body> \
+			<div class=lobby> \
+				<span class=miniheader style=\"{color: #FFDE40; background-color: #200772; width: 100%; border: 4px double #FFDE40;}\">\
+				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
+				<br> \
+				<center><h1>AURORA</h1></center> \
+				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \
+				LANGUAGE <a href='?src=\ref[src];lang=eng'> ENG </a> / <a href='?src=\ref[src];lang=rus'> RUS </a><br> \
+				GENDER <a href='?src=\ref[src];gender=male'> MALE </a> / <a href='?src=\ref[src];gender=female'> FEMALE </a><br> \
+				<a href='?src=\ref[src];hair=new'> HAIR </a><br> \
+				<a href='?src=\ref[src];display=show'>SCREEN RESOLUTION</a></h3></div> \
+				<h3>JOBS:</h3><hr> \
+				<span class='gray' style=\"{color: darkgray};\">Assistant</span> exists([assist]) <a href='?src=\ref[src];assist=1'>select</a> <br> \
+				<span class='green' style=\"{color: darkgreen};\">Botanist</span> needed(2) exists([botanist])<a href='?src=\ref[src];botanist=0'>select</a><br> \
+				Bartender needed(1) exists([bart]) <a href='?src=\ref[src];bart=0'>select</a><br>  \
+				<span class='sec' style=\"{color: darkred};\">Security</span> needed(2) exists([sec]) <a href='?src=\ref[src];sec=0'>select</a><br>\
+				<span class='eng' style=\"{color: orange};\">Engineer</span> needed(2) exists([engi])<a href='?src=\ref[src];eng=0'>select</a><br> \
+				<span class='doc' style=\"{color: darkblue};\">Doctor</span> needed(2) exists([doc])<a href='?src=\ref[src];doc=0'>select</a><br> \
+			</div> \
+		</body> \
+	</html>"
 
 /mob/Login()
 	..()
@@ -930,6 +965,7 @@ mob
 	lobby = new(usr)
 	create_hud(usr.client)
 	create_lobby(usr.client)
+	assist += 1
 	usr << lobbysound
 	show_lobby()
 
@@ -1008,11 +1044,24 @@ mob/Stat()
 
 /mob/Topic(href,href_list[])
 	if(href_list["enter"] == "yes")
+		if(ast == 1)
+			wear_on_spawn(/obj/item/clothing/suit/assistant)
+		if(brt == 1)
+			wear_on_spawn(/obj/item/clothing/suit/bartender)
+		if(dct == 1)
+			wear_on_spawn(/obj/item/clothing/suit/med)
+		if(eng == 1)
+			wear_on_spawn(/obj/item/clothing/suit/eng_suit)
+		if(sct == 1)
+			wear_on_spawn(/obj/item/clothing/suit/security_suit)
+		if(btn == 1)
+			wear_on_spawn(/obj/item/clothing/suit/hydro_suit)
 		Move(pick(jobmarks))
 		radio_arrival()
 		lobby.invisibility = 101
 		usr << sound(null)
 		usr << browse(null, "window=setup")
+
 	if(href_list["name"] == "newname")
 		usr.name = input("Choose a name for your character.",
 			"Your Name",usr.name)
@@ -1036,6 +1085,172 @@ mob/Stat()
 		language = RUS
 	if(href_list["lang"] == "eng")
 		language = ENG
+
+	//jobs
+	if(href_list["assist"] == "0")
+		if(ast == 0)
+			assist += 1
+			ast = 1
+			if(btn > 0)
+				botanist -= 1
+				btn = 0
+			if(sct > 0)
+				sct = 0
+				sec -= 1
+			if(dct > 0)
+				dct = 0
+				doc -= 1
+			if(brt > 0)
+				brt = 0
+				bart -= 1
+			if(eng > 0)
+				eng = 0
+				engi -= 1
+			lobby_refresh()
+			usr << browse(null, "window=setup")
+			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
+		else
+			usr << "\red Your job is assistant now or no vacancies!"
+
+	if(href_list["botanist"] == "0")
+		if(btn == 0 || botanist == 2)
+			botanist += 1
+			btn = 1
+			if(ast > 0)
+				assist -= 1
+				ast = 0
+			if(sct > 0)
+				sct = 0
+				sec -= 1
+			if(dct > 0)
+				dct = 0
+				doc -= 1
+			if(brt > 0)
+				brt = 0
+				bart -= 1
+			if(eng > 0)
+				eng = 0
+				engi -= 1
+			lobby_refresh()
+			usr << browse(null, "window=setup")
+			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
+		else
+			usr << "\red Your job is botanist now or no vacancies!"
+
+	if(href_list["sec"] == "0")
+		if(sct == 0 || sec == 2)
+			sec += 1
+			sct = 1
+			if(ast > 0)
+				assist -= 1
+				ast = 0
+			if(btn > 0)
+				btn = 0
+				botanist -= 1
+			if(dct > 0)
+				dct = 0
+				doc -= 1
+			if(brt > 0)
+				brt = 0
+				bart -= 1
+			if(eng > 0)
+				eng = 0
+				engi -= 1
+			lobby_refresh()
+			usr << browse(null, "window=setup")
+			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
+		else
+			usr << "\red Your job is security now or no vacancies!"
+
+	if(href_list["eng"] == "0")
+		if(eng == 0 || engi == 2)
+			engi += 1
+			eng = 1
+			if(ast > 0)
+				assist -= 1
+				ast = 0
+			if(btn > 0)
+				btn = 0
+				botanist -= 1
+			if(dct > 0)
+				dct = 0
+				doc -= 1
+			if(brt > 0)
+				brt = 0
+				bart -= 1
+			if(sct > 0)
+				sct = 0
+				sec -= 1
+			lobby_refresh()
+			usr << browse(null, "window=setup")
+			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
+		else
+			usr << "\red Your job is engineer now or no vacancies!"
+
+	if(href_list["doc"] == "0")
+		if(dct == 0 || doc == 2)
+			doc += 1
+			dct = 1
+			if(ast > 0)
+				assist -= 1
+				ast = 0
+			if(btn > 0)
+				btn = 0
+				botanist -= 1
+			if(engi > 0)
+				eng = 0
+				engi -= 1
+			if(brt > 0)
+				brt = 0
+				bart -= 1
+			if(sct > 0)
+				sct = 0
+				sec -= 1
+			lobby_refresh()
+			usr << browse(null, "window=setup")
+			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
+		else
+			usr << "\red Your job is doctor now or no vacancies!"
+
+	if(href_list["bart"] == "0")
+		if(brt == 0 || bart == 1)
+			bart +=1
+			brt = 1
+			if(ast > 0)
+				assist -= 1
+				ast = 0
+			if(btn > 0)
+				btn = 0
+				botanist -= 1
+			if(engi > 0)
+				eng = 0
+				engi -= 1
+			if(dct > 0)
+				dct = 0
+				doc -= 1
+			if(sct > 0)
+				sct = 0
+				sec -= 1
+			lobby_refresh()
+			usr << browse(null, "window=setup")
+			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
+		else
+			usr << "\red Your job is bartneder now or no vacancies!"
+/*
+	if(href_list["assist"] == "0")
+		assist = 1
+	if(href_list["botanist"] == "0")
+		botanist = 1
+	if(href_list["sec"] == "0")
+		sec = 1
+	if(href_list["eng"] == "0")
+		engi = 1
+	if(href_list["doc"] == "0")
+		doc = 1
+	if(href_list["bart"] == "0")
+		bart =1
+*/
+	//jobs
 
 /mob/proc/drop_item_v()
 	if (stat == 0)

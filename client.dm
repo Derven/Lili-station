@@ -5,6 +5,7 @@ client
 	} \
 	IMG.icon {width: 64px; height: 64px; float: left;};\
 	\
+	.gray{color: darkgray;}\
 	}</style>"
 	var/run_intent = 2
 	var/speeding = 0

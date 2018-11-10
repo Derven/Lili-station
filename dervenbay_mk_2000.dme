@@ -29,6 +29,7 @@
 #include "dervenbay_mk_2000.dm"
 #include "dervenlightsystem.dm"
 #include "dervenzone.dm"
+#include "jobs.dm"
 #include "mob.dm"
 #include "obj.dm"
 #include "skin.dmf"

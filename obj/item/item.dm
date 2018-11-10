@@ -60,9 +60,13 @@
 
 	proc/wear_clothing(var/mob/M)
 		if(src == M.cloth)
-			I = image(icon = src.icon, icon_state = "[src.icon_state]_onmob")
-			M.overlays += I
-			return
+			if(M.icon_state == "mob")
+				I = image(icon = src.icon, icon_state = "[src.icon_state]_onmob")
+				M.overlays += I
+				return
+			else
+				I = image(icon = src.icon, icon_state = "[src.icon_state]_onfem")
+				M.overlays += I
 		else
 			M.overlays -= I
 			return
@@ -75,6 +79,28 @@
 
 /obj/item/clothing/suit/assistant
 	icon_state = "assistant_suit"
+
+/obj/item/clothing/suit/NTspace
+	icon_state = "NT_spacesuit"
+
+/obj/item/clothing/suit/syndispace
+	icon_state = "syndi_spacesuit"
+
+/obj/item/clothing/suit/bartender
+	icon_state = "bartender_suit"
+
+/obj/item/clothing/suit/security_suit
+	icon_state = "security_suit"
+
+/obj/item/clothing/suit/eng_suit
+	icon_state = "eng_suit"
+
+/obj/item/clothing/suit/med
+	icon_state = "med_suit"
+
+/obj/item/clothing/suit/hydro_suit
+	icon_state = "hydro_suit"
+
 
 /obj/item
 	var
