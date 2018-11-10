@@ -15,6 +15,10 @@
 		icon_closed = "oxygen"
 		icon_opened = "open"
 
+		New()
+			..()
+			new /obj/item/clothing/suit/NTspace(src)
+
 	crate
 		name = "crate"
 		desc = "It's a crate!"
@@ -30,6 +34,10 @@
 		icon_state = "crate_oxygen"
 		icon_closed = "crate_oxygen"
 		icon_opened = "crate_open"
+
+		New()
+			..()
+			new /obj/item/clothing/suit/NTspace(src)
 
 	hydcrate
 		name = "green crate"
