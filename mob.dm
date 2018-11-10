@@ -619,10 +619,12 @@ mob
 		zhmur.client = client
 		return
 
-	verb/suicide()
-		set name = "Suicide"
-		set category = "IC"
-		death()
+// TOP FIX
+//	verb/suicide()
+//		set name = "Suicide"
+//		set category = "IC"
+//		death()
+// TOP FIX
 
 	attack_hand()
 		if(death == 0 && !istype(src, /mob/ghost))
