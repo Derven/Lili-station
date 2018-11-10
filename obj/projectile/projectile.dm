@@ -115,6 +115,12 @@
 		spawn while(src)
 			if((!( current ) || loc == current))
 				current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
+			for(var/atom/A in loc)
+				if(density == 1)
+					if(!istype(A, /mob))
+						A.bullet_act(src)
+					else
+						A.bullet_act(src, def_zone)
 			if((x == 1 || x == world.maxx || y == 1 || y == world.maxy))
 				del(src)
 				return
