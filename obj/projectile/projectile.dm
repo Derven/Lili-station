@@ -118,7 +118,17 @@
 			if((x == 1 || x == world.maxx || y == 1 || y == world.maxy))
 				del(src)
 				return
-			step_towards(src, current)
+			if(dir == 2)
+				y -= 1
+
+			if(dir == 4)
+				x += 1
+
+			if(dir == 8)
+				x -= 1
+
+			if(dir == 1)
+				y += 1
 			sleep(1)
 			if(!bumped)
 				if(loc == original)

@@ -38,6 +38,7 @@
 
 		if(!in_chamber)	return
 
+		in_chamber.dir = usr.dir
 		in_chamber.firer = usr
 		in_chamber.def_zone = usr.ZN_SEL.selecting
 
@@ -60,6 +61,10 @@
 		in_chamber.current = curloc
 		in_chamber.yo = targloc.y - curloc.y
 		in_chamber.xo = targloc.x - curloc.x
+		for(var/mob/B in range(usr, 6))
+			B << 'Laser.ogg'
+		flick("laser_pew", src)
+
 
 		if(params)
 			var/list/mouse_control = params2list(params)

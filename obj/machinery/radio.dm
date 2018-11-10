@@ -1,5 +1,6 @@
 /obj/machinery/radio
 	icon = 'radio.dmi'
+	anchored = 1
 
 	intercom
 		icon_state = "intercom"
