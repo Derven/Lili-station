@@ -61,6 +61,7 @@
 		buckled_mobs += M
 
 	electro
+		anchored = 1
 		icon_state = "electro"
 
 		proc/activate()

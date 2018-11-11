@@ -123,7 +123,7 @@ mob
 					A_LOCK.icon_state = "close"
 				T.update_air_properties()
 		if(istype(A, /turf/unsimulated/wall))
-			if(usr.client.run_intent == 2)
+			if(usr.client.run_intent == 2 && !istype(usr, /mob/ghost))
 				for(var/mob/mober in range(5, A))
 					mober << mober.select_lang("\red [name] врезалс&#255; в [A]", "\red [name] smash to [A]")
 					mober << 'smash.ogg'
@@ -601,7 +601,7 @@ mob
 			stop_pulling()
 
 	proc/handle_temperature(var/mytemp)
-		if(cloth == null)
+		if(cloth == null || cloth.space_suit == 0)
 			if(mytemp > 373)
 				var/datum/organ/external/affecting = get_organ("chest")
 				apply_damage(round(mytemp/10), BURN, affecting, 0)
@@ -936,7 +936,7 @@ mob
 				<a href='?src=\ref[src];hair=new'> HAIR </a><br> \
 				<a href='?src=\ref[src];display=show'>SCREEN RESOLUTION</a></h3></div> \
 				<h3>JOBS:</h3><hr> \
-				<span class='gray' style=\"{color: darkgray};\">Assistant</span> needed(4) exists([assist]) <a href='?src=\ref[src];assist=1'>select</a> <br> \
+				<span class='gray' style=\"{color: darkgray};\">Assistant</span> exists([assist]) <a href='?src=\ref[src];assist=1'>select</a> <br> \
 				<span class='green' style=\"{color: darkgreen};\">Botanist</span> needed(2) exists([botanist])<a href='?src=\ref[src];botanist=0'>select</a><br> \
 				Bartender needed(1) exists([bart]) <a href='?src=\ref[src];bart=0'>select</a><br>  \
 				<span class='sec' style=\"{color: darkred};\">Security</span> needed(2) exists([sec]) <a href='?src=\ref[src];sec=0'>select</a><br>\

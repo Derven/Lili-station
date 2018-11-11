@@ -73,18 +73,22 @@
 
 /obj/item/clothing/suit
 	icon = 'suit.dmi'
+	var/space_suit = 0
 
 /obj/item/clothing/suit/soviet
 	icon_state = "soviet_spacesuit"
+	space_suit = 1
 
 /obj/item/clothing/suit/assistant
 	icon_state = "assistant_suit"
 
 /obj/item/clothing/suit/NTspace
 	icon_state = "NT_spacesuit"
+	space_suit = 1
 
 /obj/item/clothing/suit/syndispace
 	icon_state = "syndi_spacesuit"
+	space_suit = 1
 
 /obj/item/clothing/suit/bartender
 	icon_state = "bartender_suit"
