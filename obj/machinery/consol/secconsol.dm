@@ -37,6 +37,13 @@
 	icon_state = "sec_consol"
 	var/list/control = new/list()
 
+/obj/machinery/consol/brigdoor_control/echair
+	icon = 'stationobjs.dmi'
+
+	attack_hand()
+		var/body = "<html><body>Electro chair system consol:<hr><a href='?src=\ref[src];action=echair;'>Activate!</a></html></body>"
+		usr << browse(body,"window=govno")
+
 /obj/machinery/consol/brigdoor_control/only_flash
 	attack_hand()
 		var/body = "<html><body>Brig system consol:<hr><a href='?src=\ref[src];action=flasher;'>flasher</a></html></body>"
@@ -73,6 +80,9 @@ mob/verb/debug_start()
 		if("flasher")
 			for(var/obj/machinery/flasher/FL in control)
 				FL.flash_me_please()
+		if("echair")
+			for(var/obj/structure/stool/chair/electro/EC in world)
+				EC.activate()
 
 /obj/machinery/consol/brigdoor_control/New()
 	..()
