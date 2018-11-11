@@ -104,6 +104,7 @@ mob
 			if(A_LOCK.charge == 0)
 				return
 			else
+				if(istype(A_LOCK, /obj/machinery/airlock/brig/briglock)) return
 				for(var/mob/M in range(5, src))
 					M << 'airlock.ogg'
 				if(A_LOCK.close == 1)
@@ -251,13 +252,26 @@ mob
 	var/datum/organ/external/affecting = get_organ(ran_zone(user.ZN_SEL.selecting))
 	var/hit_area = parse_zone(affecting.name)
 	var/def_area
-	if(def_zone)
+	if(def_zone && client)
 		def_area = parse_zone(defen_zone.name)
 
 	usr << select_lang("\red <B>[src] атакован(а) [user] в [hit_area] с помощью [I.name] !</B>", "\red <B>[src] attacked [user] to [hit_area] by [I.name] !</B>")
 
 	if((user != src))
 		return 0
+
+	if(istype(I, /obj/item/weapon/flasher))
+		for(var/mob/M in range(3, src))
+			M << 'flash.ogg'
+			M << "\red [user] blinds [src] with the flash!"
+		rest()
+		if(usr.client)
+			usr.client.show_map = 0
+			sleep(rand(3,9))
+			usr.client.show_map = 1
+			sleep(rand(2,5))
+			rest()
+		run_intent()
 
 	if(!I.force)	return 0
 	if(def_area)
@@ -908,14 +922,14 @@ mob
 	lobby_text = " \
 	<html> \
 		<head> \
-			<title> Aurora lobby </title> \
+			<title> lobby </title> \
 		</head> \
 		<body> \
 			<div class=lobby> \
 				<span class=miniheader style=\"{color: #FFDE40; background-color: #200772; width: 100%; border: 4px double #FFDE40;}\">\
 				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
 				<br> \
-				<center><h1>AURORA</h1></center> \
+				<center><h1>Lili station</h1></center> \
 				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \
 				LANGUAGE <a href='?src=\ref[src];lang=eng'> ENG </a> / <a href='?src=\ref[src];lang=rus'> RUS </a><br> \
 				GENDER <a href='?src=\ref[src];gender=male'> MALE </a> / <a href='?src=\ref[src];gender=female'> FEMALE </a><br> \
@@ -1238,6 +1252,8 @@ mob/Stat()
 			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
 		else
 			usr << "\red Your job is bartneder now or no vacancies!"
+
+	return
 /*
 	if(href_list["assist"] == "0")
 		assist = 1

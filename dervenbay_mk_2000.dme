@@ -23,6 +23,7 @@
 // BEGIN_INCLUDE
 #include "area.dm"
 #include "atom.dm"
+#include "bots.dm"
 #include "client.dm"
 #include "compile.dm"
 #include "defines.dm"

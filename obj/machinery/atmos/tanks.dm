@@ -59,6 +59,9 @@
 					icon_state = "hater_on"
 			icon_state = "hater"
 
+/obj/machinery/brigdoor_control
+	icon = 'stationobjs.dmi'
+	icon_state = "sec_consol"
 
 /obj/machinery/plasmacooler
 	icon = 'atmos.dmi'
@@ -79,6 +82,7 @@
 
 	Topic(href,href_list[])
 		if(href_list["remove"])
+			world << "HUI"
 			if(TANK)
 				TANK.Move(src.loc)
 				TANK = null

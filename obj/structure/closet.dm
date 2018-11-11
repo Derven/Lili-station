@@ -10,7 +10,7 @@
 	var/welded = 0
 	var/wall_mounted = 0 //never solid (You can always pass over it)
 	flags = FPRINT
-	var/health = 100
+	health = 100
 	var/lastbang
 	parts = /obj/item/wood
 
