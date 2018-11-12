@@ -115,6 +115,7 @@
 #include "obj\item\weapon\tank\tank.dm"
 #include "obj\machinery\airlock.dm"
 #include "obj\machinery\blender.dm"
+#include "obj\machinery\camera.dm"
 #include "obj\machinery\consol.dm"
 #include "obj\machinery\copier.dm"
 #include "obj\machinery\dnamodifer.dm"

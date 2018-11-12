@@ -20,4 +20,3 @@ var/engi  = 0
 		cloth = CLT
 		CL.update_slot(CLT)
 		CLT.wear_clothing(src)
-		world << "[cloth.type];[CLT]"
