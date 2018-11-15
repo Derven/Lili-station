@@ -423,6 +423,12 @@ datum/reagent/medicine/kelotane
 	id = "kelotane"
 	description = "Restores fire damage. Overdose causes it instead."
 
+	on_mob_life(var/mob/M as mob)
+		M.heal_burn(volume)
+		..()
+		return
+
+
 datum/reagent/medicine/antitoxin
 	name = "Anti-Toxin"
 	id = "antitoxin"
@@ -432,6 +438,11 @@ datum/reagent/medicine/inaprovaline
 	name = "Inaprovaline"
 	id = "inaprovaline"
 	description = "Stabilizes the breathing of patients. Good for those in critical condition."
+
+	on_mob_life(var/mob/M as mob)
+		M.heal_brute(volume)
+		..()
+		return
 
 datum/reagent/medicine/tricordrazine
 	name = "Tricordrazine"

@@ -809,12 +809,21 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/pill
 	icon = 'chemical.dmi'
-	icon_state = "pill"
+	icon_state = "pills"
 
 	tric_pill
 		name = "tricordrazine pill"
 
-	New()
-		..()
-		reagents.add_reagent("tricordrazine", 30)
-		bitesize = 2
+		New()
+			..()
+			reagents.add_reagent("tricordrazine", 30)
+			bitesize = 2
+
+	kelotane
+		name = "kelotane pill"
+		icon_state = "pills_orange"
+
+		New()
+			..()
+			reagents.add_reagent("kelotane", 30)
+			bitesize = 2

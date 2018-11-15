@@ -516,6 +516,43 @@ mob
 			intent = 1
 			return
 
+	proc/heal_burn(var/vol)
+		if(chest.brute_dam >= vol)
+			chest.burn_dam -= vol
+
+		if(head.brute_dam >= vol)
+			head.burn_dam -= vol
+
+		if(r_arm.brute_dam >= vol)
+			r_arm.burn_dam -= vol
+
+		if(l_arm.brute_dam >= vol)
+			l_arm.burn_dam -= vol
+
+		if(r_leg.brute_dam >= vol)
+			r_leg.burn_dam -= vol
+
+		if(l_leg.brute_dam >= vol)
+			l_leg.burn_dam -= vol
+
+		if(chest.brute_dam < vol)
+			chest.burn_dam = vol
+
+		if(head.brute_dam < vol)
+			head.burn_dam = 0
+
+		if(r_arm.brute_dam < vol)
+			r_arm.burn_dam = 0
+
+		if(l_arm.brute_dam < vol)
+			l_arm.burn_dam = 0
+
+		if(r_leg.brute_dam  < vol)
+			r_leg.burn_dam = 0
+
+		if(l_leg.brute_dam < vol)
+			l_leg.burn_dam = 0
+
 	proc/heal_brute(var/vol)
 		if(chest.brute_dam >= vol)
 			chest.brute_dam -= vol

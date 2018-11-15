@@ -175,4 +175,4 @@ var
 //	const/shuttle_time_to_arrive = 6000 // 10 minutes to arrive
 
 var/list/cardinal = list(SOUTH, NORTH, WEST, EAST, NORTHEAST, NORTHWEST, SOUTHWEST, SOUTHEAST)
-var/list/visible_containers = list(/obj/structure/closet/closet_3, /obj/item/weapon/storage/box, /obj/structure/closet/closet_3/food_closet)
+var/list/visible_containers = list(/obj/structure/closet/closet_3, /obj/item/weapon/storage/box/toolbox, /obj/item/weapon/storage/box/medbox, /obj/item/weapon/storage/box, /obj/structure/closet/closet_3/food_closet)
