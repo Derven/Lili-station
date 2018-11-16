@@ -12,6 +12,9 @@
 /obj/structure/stool/bed
 	icon_state = "bed"
 
+	roller_bed
+		icon_state = "roller_bed"
+
 /obj/structure/stool
 	icon = 'stationobjs.dmi'
 	icon_state = "stool"
