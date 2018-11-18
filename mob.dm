@@ -397,12 +397,14 @@ mob
 		obj/hud/drop/DP
 		obj/hud/pulling/PULL
 		obj/hud/zone_sel/ZN_SEL
+		obj/hud/health/H
 		obj/hud/zone_sel_def/DF_ZONE
 		obj/hud/cloth/CL
 		//obj/hud/rose_of_winds/ROW
 		obj/hud/hide_walls/HW
 		obj/hud/act_intent/AC
 		obj/hud/run_intent/RI
+
 
 
 	proc
@@ -412,6 +414,7 @@ mob
 			DP = new(src)
 			PULL = new(src)
 			ZN_SEL = new(src)
+			H = new(src)
 			CL = new(src)
 			AC = new(src)
 			//ROW = new(src)
@@ -430,6 +433,7 @@ mob
 			C.screen.Add(AC)
 			C.screen.Add(DF_ZONE)
 			C.screen.Add(RI)
+			C.screen.Add(H)
 
 /mob
 	icon = 'mob.dmi'
@@ -1065,7 +1069,7 @@ mob
 		sleep(8)
 		overlays.Remove(overlay_cur)
 	for(var/obj/machinery/radio/intercom/I in range(7, src))
-		I.tell_me_more(name, fix255(msg))
+		tell_me_more(name, fix255(msg))
 
 /mob/verb/Emote(msg as text)
 	set name = "Emote"

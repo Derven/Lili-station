@@ -12,8 +12,57 @@
 /obj/structure/stool/bed
 	icon_state = "bed"
 
+
 	roller_bed
 		icon_state = "roller_bed"
+		var/list/buckled_mobs = new/list()
+
+		Move()
+			..()
+			for(var/mob/M in buckled_mobs)
+				M.loc = src.loc
+
+		MouseDrop_T(mob/M as mob, mob/user as mob)
+			if (!istype(M)) return
+			buckle_mob(M, user)
+			return
+
+		proc/buckle_mob(mob/M as mob, mob/user as mob)
+			if ((!( istype(M, /mob) ) || get_dist(src, user) > 1 || M.loc != src.loc || usr.stat || M.buckled))
+				return
+			if (M == usr)
+				usr << "\blue You buckle yourself"
+			else
+				usr << "\blue [M] buckled by [usr]"
+			usr << 'handcuffs.ogg'
+			M.anchored = 1
+			M.buckled = src
+			M.loc = src.loc
+			M.dir = src.dir
+			if(!M.lying)
+				M.rest()
+			buckled_mobs += M
+
+		proc/manual_unbuckle_all(mob/user as mob)
+			var/N = 0;
+			for(var/mob/M in buckled_mobs)
+				if (M.buckled == src)
+					if (M != user)
+						M << "\blue You unbuckled from [src] by [user.name]."
+					else
+						user << "\blue You unbuckle yourself from [src]."
+		//			world << "[M] is no longer buckled to [src]"
+					usr << 'handcuffs.ogg'
+					M.anchored = 0
+					M.buckled = null
+					buckled_mobs -= M
+					if(M.lying)
+						M.rest()
+					N++
+			return N
+
+		attack_hand()
+			manual_unbuckle_all(usr)
 
 /obj/structure/stool
 	icon = 'stationobjs.dmi'

@@ -5,3 +5,6 @@
 
 		attack_hand(mob/user)
 			return
+
+	hardlock
+		icon = 'hardlock.dmi'

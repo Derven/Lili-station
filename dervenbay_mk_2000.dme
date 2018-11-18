@@ -79,6 +79,7 @@
 #include "obj\hud\cloth.dm"
 #include "obj\hud\def_zone_sel.dm"
 #include "obj\hud\drop.dm"
+#include "obj\hud\health.dm"
 #include "obj\hud\hide_walls.dm"
 #include "obj\hud\hud.dm"
 #include "obj\hud\l_hand.dm"
