@@ -77,6 +77,8 @@ mob
 	Climbing //Tells if you are currently ascending stairs or not
 
 	Bump(var/atom/A)
+		if(istype(src, /mob/ghost))
+			return
 		var/MY_PAIN
 		var/turf/OTBROSOK = get_step(src, turn(dir, 180))
 		if(usr.client.run_intent == 2)
@@ -409,31 +411,32 @@ mob
 
 	proc
 		create_hud(var/client/C)
-			LH = new(src)
-			RH = new(src)
-			DP = new(src)
-			PULL = new(src)
-			ZN_SEL = new(src)
-			H = new(src)
-			CL = new(src)
-			AC = new(src)
-			//ROW = new(src)
-			HW = new(src)
-			DF_ZONE = new(src)
-			RI = new(src)
+			if(C)
+				LH = new(src)
+				RH = new(src)
+				DP = new(src)
+				PULL = new(src)
+				ZN_SEL = new(src)
+				H = new(src)
+				CL = new(src)
+				AC = new(src)
+				//ROW = new(src)
+				HW = new(src)
+				DF_ZONE = new(src)
+				RI = new(src)
 
-			C.screen.Add(LH)
-			C.screen.Add(RH)
-			C.screen.Add(DP)
-			C.screen.Add(PULL)
-			C.screen.Add(ZN_SEL)
-			C.screen.Add(CL)
-			//C.screen.Add(ROW)
-			C.screen.Add(HW)
-			C.screen.Add(AC)
-			C.screen.Add(DF_ZONE)
-			C.screen.Add(RI)
-			C.screen.Add(H)
+				C.screen.Add(LH)
+				C.screen.Add(RH)
+				C.screen.Add(DP)
+				C.screen.Add(PULL)
+				C.screen.Add(ZN_SEL)
+				C.screen.Add(CL)
+				//C.screen.Add(ROW)
+				C.screen.Add(HW)
+				C.screen.Add(AC)
+				C.screen.Add(DF_ZONE)
+				C.screen.Add(RI)
+				C.screen.Add(H)
 
 /mob
 	icon = 'mob.dmi'
@@ -596,38 +599,65 @@ mob
 
 	proc/blood_flow()
 		var/obj/blood/BD
-		if(chest.brute_dam > 80)
-			reagents.remove_reagent("blood", 20)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-			BD = new(src.loc)
 
-		if(head.brute_dam > 80)
-			reagents.remove_reagent("blood", 18)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-			BD = new(src.loc)
+		if(prob(25))
+			if(!reagents.has_reagent("blood", 280))
+				reagents.add_reagent("blood", 20)
 
-		if(r_leg.brute_dam > 80)
-			reagents.remove_reagent("blood", 14)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-			BD = new(src.loc)
+		if(prob(75))
+			if(chest.brute_dam > 80)
+				reagents.remove_reagent("blood", 20)
+				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
+				BD = new(src.loc)
 
-		if(l_leg.brute_dam > 80)
-			reagents.remove_reagent("blood", 14)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-			BD = new(src.loc)
+			if(head.brute_dam > 80)
+				reagents.remove_reagent("blood", 18)
+				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
+				BD = new(src.loc)
 
-		if(r_arm.brute_dam > 80)
-			reagents.remove_reagent("blood", 8)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-			BD = new(src.loc)
+			if(r_leg.brute_dam > 80)
+				reagents.remove_reagent("blood", 14)
+				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
+				BD = new(src.loc)
 
-		if(l_arm.brute_dam > 80)
-			reagents.remove_reagent("blood", 8)
-			src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, еп
-			BD = new(src.loc)
+			if(l_leg.brute_dam > 80)
+				reagents.remove_reagent("blood", 14)
+				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
+				BD = new(src.loc)
+
+			if(r_arm.brute_dam > 80)
+				reagents.remove_reagent("blood", 8)
+				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
+				BD = new(src.loc)
+
+			if(l_arm.brute_dam > 80)
+				reagents.remove_reagent("blood", 8)
+				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, еп
+				BD = new(src.loc)
 
 		if(!reagents.has_reagent("blood", 50))
 			death()
+
+		if(H)
+			if(reagents.has_reagent("blood", 300))
+				src.H.icon_state = "health100"
+
+			if(!reagents.has_reagent("blood", 270))
+				src.H.icon_state = "health80"
+
+			if(!reagents.has_reagent("blood", 180))
+				src.H.icon_state = "health50"
+
+			if(!reagents.has_reagent("blood", 140))
+				src.H.icon_state = "health30"
+				if(prob(35))
+					if(!lying)
+						resting()
+
+			if(!reagents.has_reagent("blood", 80))
+				src.H.icon_state = "health10"
+				if(!lying)
+					resting()
 
 		if(BD)
 			BD.pixel_z = (ZLevel - 1) * 32
@@ -668,18 +698,21 @@ mob
 	proc/death(gibbed)
 		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
 		death = 1
+		usr.client.screen.Cut()
 		STOP_PROCESSING(SSmobs, src)
 		rest()
-		var/mob/ghost/zhmur = new(loc)
-		zhmur.client = client
+		var/mob/ghost/zhmur = new()
+		zhmur.key = key
+		Login()
+		zhmur.loc = loc
 		return
 
-// TOP FIX
-//	verb/suicide()
-//		set name = "Suicide"
-//		set category = "IC"
-//		death()
-// TOP FIX
+
+	verb/suicide()
+		set name = "Suicide"
+		set category = "IC"
+		death()
+
 
 	attack_hand()
 		if(death == 0 && !istype(src, /mob/ghost))
@@ -716,8 +749,9 @@ mob
 		see_invisible = 16 * (ZLevel-1)
 		var/turf/unsimulated/wall_east
 
-		for(var/mob/mober in range(5, src))
-			mober << 'steps.ogg'
+		if(!istype(src, /mob/ghost))
+			for(var/mob/mober in range(5, src))
+				mober << 'steps.ogg'
 
 		for(var/turf/simulated/floor/roof/RF in oview())
 			RF.hide(usr)
@@ -923,9 +957,16 @@ mob
 	var/lobby_text
 	var/sound/lobbysound = sound('title1.ogg')
 
+	verb/respawn()
+		if(istype(src, /mob/ghost))
+			var/mob/M = new()
+			M.key = key
+
+
 
 	proc/create_lobby(var/client/C)
-		C.screen += lobby
+		if(C)
+			C.screen += lobby
 
 /mob/New()
 	..()
@@ -1018,13 +1059,14 @@ mob
 
 /mob/Login()
 	..()
-	usr << "<h1><b>Wellcome to unique isometric station based on SS13 and named 'Lili station'.</b></h2>"
-	lobby = new(usr)
-	create_hud(usr.client)
-	create_lobby(usr.client)
-	assist += 1
-	usr << lobbysound
-	show_lobby()
+	if(!istype(src, /mob/ghost))
+		usr << "<h1><b>Wellcome to unique isometric station based on SS13 and named 'Lili station'.</b></h2>"
+		lobby = new(usr)
+		create_hud(usr.client)
+		create_lobby(usr.client)
+		assist += 1
+		usr << lobbysound
+		show_lobby()
 
 /mob/proc/resting()
 	if(!lying)
@@ -1033,7 +1075,7 @@ mob
 		density = 0
 		return
 	else
-		if(death == 0)
+		if(death == 0 && reagents.has_reagent("blood", 80))
 			src.transform = turn(src.transform, -90)
 			density = 1
 			lying = 0

@@ -67,6 +67,9 @@ turf
 
 turf
 	Enter(var/mob/A)
+		if(istype(A, /mob/ghost))
+			return 1
+
 		if(A.ZLevel == src.Height) //If the player is not on the same Z plane as the turf, you can't enter it
 			for(var/atom/movable/AM in src)
 				if(AM.density == 1 && AM.ZLevel == A.ZLevel)
