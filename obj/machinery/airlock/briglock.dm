@@ -8,3 +8,6 @@
 
 	hardlock
 		icon = 'hardlock.dmi'
+
+	shutters
+		icon = 'shutters.dmi'

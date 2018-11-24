@@ -71,6 +71,11 @@
 			M.overlays -= I
 			return
 
+
+
+/obj/item/clothing/id
+	icon_state = "id.dmi"
+
 /obj/item/clothing/suit
 	icon = 'suit.dmi'
 	var/space_suit = 0

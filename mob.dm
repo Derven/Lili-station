@@ -57,6 +57,7 @@ mob
 	var/obj/item/weapon/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 	var/obj/item/clothing/suit/cloth= null//Carbon
+	var/obj/item/clothing/id/id= null//Carbon
 	var/stat = 0
 	var/atom/movable/pulling = null
 	var/in_throw_hyuow_mode = 0
@@ -406,6 +407,8 @@ mob
 		obj/hud/hide_walls/HW
 		obj/hud/act_intent/AC
 		obj/hud/run_intent/RI
+		obj/hud/id/ID
+		obj/hud/switcher/SW
 
 
 
@@ -424,8 +427,11 @@ mob
 				HW = new(src)
 				DF_ZONE = new(src)
 				RI = new(src)
+				ID = new(src)
+				SW = new(src)
 
 				C.screen.Add(LH)
+				C.screen.Add(ID)
 				C.screen.Add(RH)
 				C.screen.Add(DP)
 				C.screen.Add(PULL)
@@ -437,6 +443,7 @@ mob
 				C.screen.Add(DF_ZONE)
 				C.screen.Add(RI)
 				C.screen.Add(H)
+				C.screen.Add(SW) //good hud in mood
 
 /mob
 	icon = 'mob.dmi'
@@ -1138,7 +1145,9 @@ mob/Stat()
 		if(cur_object_i_see)
 			if(M == cur_object_i_see.type)
 				last_contents = cur_object_i_see.contents
-				if(!istype(cur_object_i_see, /mob) && cur_object_i_see && cur_object_i_see.contents.len > 0) statpanel("Contents", cur_object_i_see.contents)
+				if(!istype(cur_object_i_see, /mob) && cur_object_i_see && cur_object_i_see.contents.len > 0)
+					statpanel("Contents", null) //top fix
+					statpanel("Contents", cur_object_i_see.contents)
 	//if(!istype(cur_object_i_give, /mob) && cur_object_i_give && cur_object_i_give.contents.len > 0) statpanel("container", cur_object_i_give.contents)
 
 /mob/Topic(href,href_list[])

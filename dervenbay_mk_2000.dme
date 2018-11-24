@@ -98,6 +98,7 @@
 #include "obj\item\weapon\chemsprayer.dm"
 #include "obj\item\weapon\cleaner.dm"
 #include "obj\item\weapon\crowbar.dm"
+#include "obj\item\weapon\fire_ext.dm"
 #include "obj\item\weapon\grown.dm"
 #include "obj\item\weapon\gun.dm"
 #include "obj\item\weapon\paper_pen.dm"
