@@ -414,8 +414,6 @@ mob
 		obj/hud/id/ID
 		obj/hud/switcher/SW
 
-
-
 	proc
 		create_hud(var/client/C)
 			if(C)
@@ -648,6 +646,7 @@ mob
 
 		if(!reagents.has_reagent("blood", 50))
 			death()
+			return
 
 		if(H)
 			if(reagents.has_reagent("blood", 300))
@@ -706,15 +705,16 @@ mob
 				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
 				src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
 
-	proc/death(gibbed)
-		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
+	proc/death()
 		death = 1
-		usr.client.screen.Cut()
+		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
+		client.screen.Cut()
 		STOP_PROCESSING(SSmobs, src)
 		rest()
 		var/mob/ghost/zhmur = new()
 		zhmur.key = key
-		Login()
+		if(client)
+			Login()
 		zhmur.loc = loc
 		return
 
