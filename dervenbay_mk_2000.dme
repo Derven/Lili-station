@@ -25,6 +25,7 @@
 #include "atom.dm"
 #include "bots.dm"
 #include "client.dm"
+#include "command.dm"
 #include "compile.dm"
 #include "defines.dm"
 #include "dervenbay_mk_2000.dm"

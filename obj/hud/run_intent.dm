@@ -1,6 +1,6 @@
 /obj/hud
 	run_intent
-		icon_state = "run"
+		icon_state = "walk"
 		name = "run_intent"
 		screen_loc = "SOUTH-1, WEST+7"
 

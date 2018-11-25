@@ -7,7 +7,7 @@ client
 	\
 	.gray{color: darkgray;}\
 	}</style>"
-	var/run_intent = 2
+	var/run_intent = 4
 	var/speeding = 0
 
 	proc/switch_rintent()

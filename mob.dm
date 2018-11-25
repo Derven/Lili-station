@@ -91,7 +91,7 @@ mob
 			var/obj/machinery/airlock/A_LOCK = A
 			if(MY_PAIN && A_LOCK.charge == 0 && A_LOCK.close == 1)
 				if(MY_PAIN == get_organ("head"))
-					apply_damage(rand(15, 55) - defense, "brute" , MY_PAIN, 0)
+					apply_damage(rand(5, 25) - defense, "brute" , MY_PAIN, 0)
 					for(var/mob/mober in range(5, A))
 						mober << mober.select_lang("\red [name] врезалс&#255; в аирлок", "\red [name] smash to the airlock")
 						mober << 'smash.ogg'
@@ -132,10 +132,10 @@ mob
 					mober << 'smash.ogg'
 				if(istype(A, /turf/unsimulated/wall/window))
 					var/turf/unsimulated/wall/window/WIN = A
-					WIN.health -= rand(15,45)
+					WIN.health -= rand(5,25)
 					WIN.update_icon()
 				if(MY_PAIN == get_organ("head"))
-					apply_damage(rand(15, 55) - defense, "brute" , MY_PAIN, 0)
+					apply_damage(rand(5, 35) - defense, "brute" , MY_PAIN, 0)
 					Move(OTBROSOK)
 					rest()
 					run_intent()
@@ -275,6 +275,10 @@ mob
 			sleep(rand(2,5))
 			rest()
 		run_intent()
+	if(istype(I, /obj/item/weapon/fire_ext))
+		for(var/mob/M in range(3, src))
+			M << 'smash2.ogg'
+
 
 	if(!I.force)	return 0
 	if(def_area)
