@@ -72,6 +72,7 @@
 #include "obj\jobmark.dm"
 #include "obj\landmark.dm"
 #include "obj\lobby.dm"
+#include "obj\singularity.dm"
 #include "obj\disposal\construct.dm"
 #include "obj\disposal\disposal.dm"
 #include "obj\effect\list_container.dm"
