@@ -1,3 +1,12 @@
+/mob/var/oxyloss = 0.0
+/mob/var/toxloss = 0.0
+/mob/var/brainloss = 0.0
+/mob/var/ear_deaf = null
+/mob/var/face_dmg = 0
+/mob/var/halloss = 0
+/mob/var/hallucination = 0
+/mob/var/list/atom/hallucinations = list()
+
 mob
 	robustness = 200
 	step_size = 64
@@ -42,6 +51,7 @@ mob
 			//set background = 1
 			var/datum/gas_mixture/environment = SLOC.return_air()
 			var/SLOC_temperature = environment.temperature
+			handle_pain()
 			handle_stomach()
 			handle_injury()
 			handle_chemicals_in_body()
@@ -72,6 +82,11 @@ mob
 				return rus_msg
 			if(ENG)
 				return eng_msg
+
+/mob/proc/rand_damage(var/mind, var/maxd)
+	var/MY_PAIN
+	MY_PAIN = get_organ(pick("chest", "r_leg", "l_leg","r_arm", "l_arm"))
+	apply_damage(rand(mind, maxd) - defense, "brute" , MY_PAIN, 0)
 
 mob
 	//	list/SightBlockersList = /list

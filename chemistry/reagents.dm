@@ -66,6 +66,29 @@ datum
 			id = "diesel"
 			reagent_state = LIQUID
 
+		antibodies
+			name = "Antibodies"
+			id = "antibodies"
+			description = "Little helpers produced by the body to fight off intruders."
+			reagent_state = LIQUID
+			var
+				antibodies = 0
+
+			on_mob_life(mob/M)
+				if (istype(M,/mob))
+					// the antibodies start killing stuff
+					var/mob/C = M
+					if(C.microorganism && C.microorganism.antigen & src.antibodies)
+						C.microorganism.dead = 1
+				return
+
+			proc/copy_from(mob/M)
+				if(istype(M,/datum/reagent/antibodies))
+					var/datum/reagent/antibodies/other = M
+					src.antibodies = other.antibodies
+				if(istype(M,/mob))
+					src.antibodies = M.antibodies
+
 		poison
 			name = "poison"
 			id = "poison"
@@ -78,6 +101,9 @@ datum
 		blood
 			name = "blood"
 			id = "blood"
+			var
+				datum/microorganism/disease/microorganism
+				antibodies = 0
 
 		ethanol
 			name = "ethanol"

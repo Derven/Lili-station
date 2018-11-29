@@ -1,6 +1,12 @@
 obj
 	step_size = 64
 
+/obj/item/weapon/screwdriver
+/obj/computerframe
+/obj/item/weapon/shard
+/obj/item/weapon/circuitboard/curer
+/obj/item/weapon/reagent_containers/glass/beaker
+
 /obj/Bumped(atom/movable/MV)
 	if(density == 1)
 		if(!anchored)

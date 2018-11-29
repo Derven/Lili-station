@@ -10,7 +10,7 @@
 	process()
 		var/buffer_x = x + rand(-1, 1)
 		var/buffer_y = y + rand(-1, 1)
-		if(check_xy(buffer_x, buffer_y) > 0)
+		if(check_xy(buffer_x, buffer_y) > 0 && (buffer_x == x || buffer_y == y)) //no diagonal
 			x = buffer_x
 			y = buffer_y
 		if(plevel < 3)
@@ -46,35 +46,12 @@
 	icon_state = "e_line"
 	icon = 'stationobjs.dmi'
 
-	process()
-		sleep(rand(2,4))
-		del(src)
+	//process()
+	//	sleep(rand(2,4))
+	//	del(src)
 
 proc/geom_prg(var/i, var/g, var/counter, var/mxcnt)
 	while(counter < mxcnt)
 		i = i * g
 		counter += 1
 	return i
-
-/obj/machinery/field_generator
-	var/dist = 4
-	icon = 'stationobjs.dmi'
-	process()
-
-		for(var/obj/machinery/field_generator/FG in range(dist, src))
-			if(x == FG.x)
-				var/buffer_y = y
-				while(buffer_y < FG.y)
-					new /obj/energyfield(x, buffer_y, 1)
-					buffer_y += 1
-				while(buffer_y > FG.y)
-					new /obj/energyfield(x, buffer_y, 1)
-					buffer_y += 1
-			if(y == FG.y)
-				var/buffer_x = x
-				while(buffer_x < FG.x)
-					new /obj/energyfield(x, buffer_x, 1)
-					buffer_x += 1
-				while(buffer_x > FG.x)
-					new /obj/energyfield(x, buffer_x, 1)
-					buffer_x += 1

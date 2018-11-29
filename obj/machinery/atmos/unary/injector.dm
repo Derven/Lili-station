@@ -133,7 +133,7 @@
 				broadcast_status()
 			return //do not update_icon
 
-			//log_admin("DEBUG \[[world.timeofday]\]: outlet_injector/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
+			////log_admin("DEBUG \[[world.timeofday]\]: outlet_injector/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
 			//return
 		spawn(2)
 			broadcast_status()

@@ -84,7 +84,7 @@
 	for(var/O in src.contents)
 		var/datum/food_processor_process/P = select_recipe(O)
 		if (!P)
-			//log_admin("DEBUG: [O] in processor havent suitable recipe. How do you put it in?") //-rastaf0
+			////log_admin("DEBUG: [O] in processor havent suitable recipe. How do you put it in?") //-rastaf0
 			continue
 		src.processing = 1
 		//user.visible_message("\blue [user] turns on \a [src].", \

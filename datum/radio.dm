@@ -168,7 +168,7 @@ datum/radio_frequency
 
 	proc
 		post_signal(obj/source as obj|null, datum/signal/signal, var/filter = null as text|null, var/range = null as num|null)
-			//log_admin("DEBUG \[[world.timeofday]\]: post_signal {source=\"[source]\", [signal.debug_print()], filter=[filter]}")
+			////log_admin("DEBUG \[[world.timeofday]\]: post_signal {source=\"[source]\", [signal.debug_print()], filter=[filter]}")
 //			var/N_f=0
 //			var/N_nf=0
 //			var/Nt=0
@@ -219,7 +219,7 @@ datum/radio_frequency
 						device.receive_signal(signal, TRANSMISSION_RADIO, frequency)
 //						N_nf++
 
-//			log_admin("DEBUG: post_signal(source=[source] ([source.x], [source.y], [source.z]),filter=[filter]) frequency=[frequency], N_f=[N_f], N_nf=[N_nf]")
+//			//log_admin("DEBUG: post_signal(source=[source] ([source.x], [source.y], [source.z]),filter=[filter]) frequency=[frequency], N_f=[N_f], N_nf=[N_nf]")
 
 
 			del(signal)
@@ -227,7 +227,7 @@ datum/radio_frequency
 		add_listener(obj/device as obj, var/filter as text|null)
 			if (!filter)
 				filter = "_default"
-			//log_admin("add_listener(device=[device],filter=[filter]) frequency=[frequency]")
+			////log_admin("add_listener(device=[device],filter=[filter]) frequency=[frequency]")
 			var/list/obj/devices_line = devices[filter]
 			if (!devices_line)
 				devices_line = new
@@ -235,8 +235,8 @@ datum/radio_frequency
 			devices_line+=device
 //			var/list/obj/devices_line___ = devices[filter_str]
 //			var/l = devices_line___.len
-			//log_admin("DEBUG: devices_line.len=[devices_line.len]")
-			//log_admin("DEBUG: devices(filter_str).len=[l]")
+			////log_admin("DEBUG: devices_line.len=[devices_line.len]")
+			////log_admin("DEBUG: devices(filter_str).len=[l]")
 
 		remove_listener(obj/device)
 			for (var/devices_filter in devices)
