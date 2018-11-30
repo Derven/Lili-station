@@ -13,7 +13,7 @@
 "am" = (/obj/structure/table,/obj/item/weapon/stunbaton{pixel_y = 5},/turf/simulated/floor,/area/ship/deck_1)
 "an" = (/obj/structure/table,/obj/item/weapon/flasher,/turf/simulated/floor,/area/ship/deck_1)
 "ao" = (/obj/structure/table,/turf/simulated/floor,/area/ship/deck_1)
-"ap" = (/obj/machinery/airlock/brig/briglock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor,/area/ship/deck_1)
+"ap" = (/obj/machinery/airlock/brig{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor,/area/ship/deck_1)
 "aq" = (/obj/machinery/simple_apc{tag = "icon-apc (NORTH)"; icon_state = "apc"; dir = 1},/turf/unsimulated/wall,/area/ship/deck_1)
 "ar" = (/obj/structure/sign{tag = "icon-symb5 (NORTH)"; icon_state = "symb5"; dir = 1},/turf/unsimulated/wall,/area/ship/deck_1)
 "as" = (/obj/structure/closet/sec{tag = "icon-sec (EAST)"; icon_state = "sec"; dir = 4},/turf/simulated/floor,/area/ship/deck_1)

@@ -60,6 +60,13 @@ mob
 	verb/fuck_you()
 		usr.client.view = "1024x1024"
 
+	bullet_act(var/obj/item/projectile/Proj)
+		if(Proj.firer != src)
+			rand_damage(Proj.damage - rand(1,4), Proj.damage)
+			del(Proj)
+			return 0
+
+
 	process()
 		if(death == 0)
 			SLOC = src.loc
