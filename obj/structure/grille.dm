@@ -16,3 +16,11 @@
 			//relativewall_neighbours()
 			usr << usr.select_lang("\red Решетка ломаетс&#255;", "The grille is broken")
 			del(src)
+
+	prison
+		health = 200000 //May the Force be with you
+		icon_state = "prison"
+		z_plus
+			pixel_z = 32
+			ZLevel = 2
+			layer = 18

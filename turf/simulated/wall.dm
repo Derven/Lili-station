@@ -2,7 +2,7 @@
 	name = "wall"
 	icon = 'walls.dmi'
 	icon_state = "wall"
-	Height = 2
+	Height = 3
 	density = 1
 	opacity = 1
 	var/walltype = "wall"

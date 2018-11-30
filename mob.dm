@@ -7,6 +7,22 @@
 /mob/var/hallucination = 0
 /mob/var/list/atom/hallucinations = list()
 
+var/image/HIDE_LEVEL_image
+
+client/proc/MYZL()
+	spawn(4)
+		for(var/obj/O in range(6, mob))
+			if(O.ZLevel > mob.ZLevel)
+				HIDE_LEVEL_image = image(null)
+				HIDE_LEVEL_image.override = 1
+				HIDE_LEVEL_image.loc = O
+				src << HIDE_LEVEL_image
+
+client/proc/clear_MYZL()
+	spawn(1)
+		for(HIDE_LEVEL_image in images)
+			images.Remove(HIDE_LEVEL_image)
+
 mob
 	robustness = 200
 	step_size = 64
@@ -56,6 +72,8 @@ mob
 			handle_injury()
 			handle_chemicals_in_body()
 			handle_temperature(SLOC_temperature)
+			if(client)
+				client.MYZL()
 
 	//Vars that should only be accessed via procs
 	var/bruteloss = 0.0//Living

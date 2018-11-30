@@ -179,6 +179,7 @@
 #include "obj\stack\uranium.dm"
 #include "obj\structure\closet.dm"
 #include "obj\structure\grille.dm"
+#include "obj\structure\ladder.dm"
 #include "obj\structure\shuttlefloor.dm"
 #include "obj\structure\shuttlewall.dm"
 #include "obj\structure\sign.dm"
