@@ -66,7 +66,6 @@ mob
 			del(Proj)
 			return 0
 
-
 	process()
 		if(death == 0)
 			SLOC = src.loc
@@ -118,7 +117,7 @@ mob
 	Climbing //Tells if you are currently ascending stairs or not
 
 	Bump(var/atom/A)
-		if(istype(src, /mob/ghost))
+		if(istype(src, /mob/ghost) || !client)
 			return
 		var/MY_PAIN
 		var/turf/OTBROSOK = get_step(src, turn(dir, 180))
@@ -453,6 +452,7 @@ mob
 		obj/hud/run_intent/RI
 		obj/hud/id/ID
 		obj/hud/switcher/SW
+		obj/hud/rest/R
 
 	proc
 		create_hud(var/client/C)
@@ -471,6 +471,7 @@ mob
 				RI = new(src)
 				ID = new(src)
 				SW = new(src)
+				R = new(src)
 
 				C.screen.Add(LH)
 				C.screen.Add(ID)
@@ -486,6 +487,7 @@ mob
 				C.screen.Add(RI)
 				C.screen.Add(H)
 				C.screen.Add(SW) //good hud in mood
+				C.screen.Add(R)
 
 /mob
 	icon = 'mob.dmi'
@@ -762,7 +764,10 @@ mob
 	verb/suicide()
 		set name = "Suicide"
 		set category = "IC"
-		death()
+		if(density == 1)
+			death()
+		else
+			src << "no"
 
 
 	attack_hand()
@@ -795,6 +800,7 @@ mob
 				return
 
 	Move()
+
 		if(lying)
 			return
 		see_invisible = 16 * (ZLevel-1)
@@ -1013,15 +1019,14 @@ mob
 			var/mob/M = new()
 			M.key = key
 
-
-
 	proc/create_lobby(var/client/C)
 		if(C)
 			C.screen += lobby
 
 /mob/New()
 	..()
-	Move(pick(landmarks))
+	if(length(landmarks) > 0)
+		Move(pick(landmarks))
 
 /mob/proc/show_lobby()
 /*	lobby_text = " \
@@ -1111,6 +1116,7 @@ mob
 /mob/Login()
 	..()
 	if(!istype(src, /mob/ghost))
+		density = 0
 		usr << "<h1><b>Wellcome to unique isometric station based on SS13 and named 'Lili station'.</b></h2>"
 		lobby = new(usr)
 		create_hud(usr.client)
@@ -1213,6 +1219,7 @@ mob/Stat()
 		lobby.invisibility = 101
 		usr << sound(null)
 		usr << browse(null, "window=setup")
+		density = 1
 
 	if(href_list["name"] == "newname")
 		usr.name = input("Choose a name for your character.",
