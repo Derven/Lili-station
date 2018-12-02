@@ -34,93 +34,55 @@ proc/global_turf_init()
 		O.init_turf()
 
 
-/obj/proc/dark()
-	for(var/turf/L in range(6,src))
-		L.lightcapacity = 0
-		L.mylightcolor()
-	for(var/obj/L in range(6,src))
-		L.lightcapacity = 0
-		L.mylightcolor()
+/atom/proc/dark()
+	for(var/atom/LI in view(6,src))
+		if(istype(LI, /turf) || istype(LI, /obj))
+			LI.lightcapacity = 0
+			LI.mylightcolor()
 
 /obj/proc/part_of(var/turf/where)
 	where.lightcapacity = 5
-	for(var/turf/LI in view(6,where))
-		switch(get_dist(LI,where))
-			if(1)
-				LI.lightcapacity = 5
-				LI.mylightcolor()
-			if(2)
-				LI.lightcapacity = 5
-				LI.mylightcolor()
-			if(3)
-				if(LI.lightcapacity > 4)
-					LI.lightcapacity = LI.lightcapacity
+	for(var/atom/LI in view(6,where))
+		if(istype(LI, /turf) || istype(LI, /obj))
+			switch(get_dist(LI,where))
+				if(1)
+					LI.lightcapacity = 5
 					LI.mylightcolor()
+				if(2)
+					LI.lightcapacity = 5
+					LI.mylightcolor()
+				if(3)
+					if(LI.lightcapacity > 4)
+						LI.lightcapacity = LI.lightcapacity
+						LI.mylightcolor()
+					else
+						LI.lightcapacity = 4
+						LI.mylightcolor()
+				if(4)
+					if(LI.lightcapacity > 3)
+						LI.lightcapacity = LI.lightcapacity
+						LI.mylightcolor()
+					else
+						LI.lightcapacity = 3
+						LI.mylightcolor()
+				if(5)
+					if(LI.lightcapacity > 2)
+						LI.lightcapacity = LI.lightcapacity
+						LI.mylightcolor()
+					else
+						LI.lightcapacity = 2
+						LI.mylightcolor()
 				else
-					LI.lightcapacity = 4
-					LI.mylightcolor()
-			if(4)
-				if(LI.lightcapacity > 3)
-					LI.lightcapacity = LI.lightcapacity
-					LI.mylightcolor()
-				else
-					LI.lightcapacity = 3
-					LI.mylightcolor()
-			if(5)
-				if(LI.lightcapacity > 2)
-					LI.lightcapacity = LI.lightcapacity
-					LI.mylightcolor()
-				else
-					LI.lightcapacity = 2
-					LI.mylightcolor()
-			else
-				if(LI.lightcapacity > 1)
-					LI.lightcapacity = LI.lightcapacity
-					LI.mylightcolor()
-				else
-					LI.lightcapacity = 1
-					LI.mylightcolor()
+					if(LI.lightcapacity > 1)
+						LI.lightcapacity = LI.lightcapacity
+						LI.mylightcolor()
+					else
+						LI.lightcapacity = 1
+						LI.mylightcolor()
 
-	for(var/obj/LI in view(6,where))
-		switch(get_dist(LI,where))
-			if(1)
-				LI.lightcapacity = 5
-				LI.mylightcolor()
-			if(2)
-				LI.lightcapacity = 5
-				LI.mylightcolor()
-			if(3)
-				if(LI.lightcapacity > 4)
-					LI.lightcapacity = LI.lightcapacity
-					LI.mylightcolor()
-				else
-					LI.lightcapacity = 4
-					LI.mylightcolor()
-			if(4)
-				if(LI.lightcapacity > 3)
-					LI.lightcapacity = LI.lightcapacity
-					LI.mylightcolor()
-				else
-					LI.lightcapacity = 3
-					LI.mylightcolor()
-			if(5)
-				if(LI.lightcapacity > 2)
-					LI.lightcapacity = LI.lightcapacity
-					LI.mylightcolor()
-				else
-					LI.lightcapacity = 2
-					LI.mylightcolor()
-			else
-				if(LI.lightcapacity > 1)
-					LI.lightcapacity = LI.lightcapacity
-					LI.mylightcolor()
-				else
-					LI.lightcapacity = 1
-					LI.mylightcolor()
-
-				//if(LIGHTEX.lightcapacity < 4)
-				//	LIGHTEX.lightcapacity = 3
-				//	LIGHTEX.mylightcolor()
+		if(istype(LI, /obj))
+			if(LI.lightcapacity > LI.loc.lightcapacity)
+				LI.lightcapacity = LI.loc.lightcapacity
 
 /obj/proc/lumina()
 	part_of(NORTHTURF)
@@ -131,6 +93,13 @@ proc/global_turf_init()
 
 	for(var/turf/L in CENTERTURF)
 		L.lightcapacity = 4
+
+	spawn(35)
+		NORTHTURF.lightcapacity = 0
+		NORTHTURF.lightcapacity = 0
+		NORTHTURF.lightcapacity = 0
+		NORTHTURF.lightcapacity = 0
+		NORTHTURF.lightcapacity = 0
 
 /atom
 	proc/mylightcolor()
