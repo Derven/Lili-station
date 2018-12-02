@@ -5,7 +5,7 @@
 	switcher = 1
 	use_power = 1
 	anchored = 1
-	luminosity = 6
+	luminosity = 5
 	load = 5
 
 	dir_2

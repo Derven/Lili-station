@@ -91,9 +91,8 @@ proc/global_turf_init()
 	part_of(EASTTURF)
 	part_of(CENTERTURF)
 
-	for(var/turf/L in CENTERTURF)
-		L.lightcapacity = 4
-
+//	for(var/turf/L in CENTERTURF)
+//		L.lightcapacity = 4
 	spawn(35)
 		NORTHTURF.lightcapacity = 0
 		NORTHTURF.lightcapacity = 0
@@ -101,11 +100,10 @@ proc/global_turf_init()
 		NORTHTURF.lightcapacity = 0
 		NORTHTURF.lightcapacity = 0
 
+
 /atom
 	proc/mylightcolor()
 		if(!(istype(src, /turf/space)))
-			if(lightcapacity < 0)
-				lightcapacity = 0
 			switch(lightcapacity)
 				if(0)
 					color = "#a0a09f"
@@ -122,6 +120,7 @@ proc/global_turf_init()
 
 proc/my_light()
 	spawn(5)
-		for(var/turf/simulated/A in world)
-			A.mylightcolor()
+		for(var/turf/A in world)
+			if(istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated))
+				A.mylightcolor()
 

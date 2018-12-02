@@ -23,6 +23,7 @@ world
 	init_z_pixel()
 
 	global_turf_init()
+	my_light()
 
 	start_processing()
 	spawn(1)
