@@ -1,0 +1,1 @@
+#define NAMEOF(datum, X) (#X || ##datum.##X)
