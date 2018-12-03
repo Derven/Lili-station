@@ -3,6 +3,7 @@ var/list/admin_verbs = list(\
 	/client/proc/kick,\
 	/client/proc/ban,\
 	/client/proc/player_panel,\
+	/client/proc/Spawn,\
 	/client/proc/world_reboot)
 
 /client/proc/pm(mob/m as mob in world, msg as text)
@@ -67,3 +68,10 @@ var/list/admin_verbs = list(\
 	set name = "Restart"
 	set category = "Admin"
 	world.Reboot()
+
+/client/proc/Spawn()
+	set name = "spawn"
+	set category = "Admin"
+	var/mytype = input(src, "Enter type", "spawn window", "/obj") as text
+	mytype = text2path(mytype)
+	new  mytype(mob.loc)
