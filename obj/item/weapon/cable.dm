@@ -1,1 +1,0 @@
-/obj/item/weapon/cable_coil

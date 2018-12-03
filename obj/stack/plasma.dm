@@ -1,1 +1,0 @@
-/obj/item/stack/sheet/plasma

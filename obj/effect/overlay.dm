@@ -1,1 +1,0 @@
-/obj/effect/overlay
