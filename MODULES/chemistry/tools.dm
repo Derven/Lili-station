@@ -6,6 +6,7 @@
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
+	massweight = 100
 
 	verb/set_APTFT() //set amount_per_transfer_from_this
 		set name = "Set transfer amount"

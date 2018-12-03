@@ -1,6 +1,7 @@
 /atom/var
 	ZLevel = 1
 	Climbing
+	massweight = 0 //some physics
 
 /atom/proc/ex_act()
 	for(var/mob/M in range(2, src))

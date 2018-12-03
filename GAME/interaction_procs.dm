@@ -44,6 +44,22 @@
 				MY_PAIN = get_organ("head")
 			if(prob(40))
 				MY_PAIN = get_organ(pick("chest", "r_leg", "l_leg","r_arm", "l_arm"))
+
+		if(istype(A, /obj/structure))
+			var/obj/structure/S = A
+			if(S.anchored == 0 && S.density == 1)
+				step(S, dir, 64)
+
+		if(istype(A, /mob))
+			if(A.density == 1)
+				if(intent == 0)
+					step(A, dir, 64)
+				else
+					A.density = 0
+					step(src, turn(A.dir, 180), 64)
+					step(A, dir, 64)
+					A.density = 1
+
 		if(istype(A, /obj/machinery/airlock))
 			var/obj/machinery/airlock/A_LOCK = A
 			if(MY_PAIN && A_LOCK.charge == 0 && A_LOCK.close == 1)
@@ -172,7 +188,10 @@ atom/proc/attack_hand()
 		usr.select_overlay.layer = layer
 		usr.select_overlay.loc = src
 		if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof) && !(ZLevel > usr.ZLevel))
-			usr.select_overlay.color = usr.usrcolor//"#c0e0ff"
+			if(usr.usrcolor)
+				usr.select_overlay.color = usr.usrcolor
+			else
+				usr.select_overlay.color = "#c0e0ff"
 			usr << usr.select_overlay
 	else
 		if(get_dist(usr, src) < 2)

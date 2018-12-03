@@ -19,3 +19,8 @@ client/proc/clear_MYZL()
 	spawn(1)
 		for(HIDE_LEVEL_image in images)
 			images.Remove(HIDE_LEVEL_image)
+
+/proc/in_range(source, user)
+	if(get_dist(source, user) <= 1)
+		return 1
+	return 0 //not in range and not telekinetic
