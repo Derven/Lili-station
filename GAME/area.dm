@@ -12,6 +12,11 @@
 		deck_2
 			name = "test_deck"
 
+		shuttle_station
+
+		shuttle_mining
+
+
 ///AREAS///
 /proc/get_area_name(N) //get area by it's name
 	for(var/area/A in world)

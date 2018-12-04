@@ -40,8 +40,5 @@ proc/boom(irange, epcntr)
 	for(var/atom/A in range(irange, epcntr))
 		A.ex_act()
 
-mob/verb/small_boom()
-	boom(4, src.loc)
-
 /atom
 	var/robustness = 5

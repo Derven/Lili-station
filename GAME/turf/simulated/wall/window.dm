@@ -5,6 +5,10 @@
 	walltype = "window"
 	robustness = 10
 
+	shuttle
+		merge()
+			return
+
 	examine()
 		world << "[icon_state]"
 

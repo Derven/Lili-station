@@ -185,6 +185,7 @@
 #include "GAME\turf\simulated\floor\stairs.dm"
 #include "GAME\turf\simulated\wall\asteroid.dm"
 #include "GAME\turf\simulated\wall\green.dm"
+#include "GAME\turf\simulated\wall\shuttle.dm"
 #include "GAME\turf\simulated\wall\window.dm"
 #include "GAME\turf\simulated\wall\asteroid\mineral.dm"
 #include "GAME\turf\simulated\wall\asteroid\mineral\metal.dm"
