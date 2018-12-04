@@ -99,6 +99,7 @@
 #include "GAME\obj\machinery\lamp.dm"
 #include "GAME\obj\machinery\machinery.dm"
 #include "GAME\obj\machinery\microwave.dm"
+#include "GAME\obj\machinery\portal.dm"
 #include "GAME\obj\machinery\processor.dm"
 #include "GAME\obj\machinery\radio.dm"
 #include "GAME\obj\machinery\scanner.dm"

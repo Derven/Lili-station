@@ -14,6 +14,34 @@
 	var/lastbang
 	parts = /obj/item/wood
 
+	materials
+		New()
+			..()
+			new /obj/item/stack/metal(src)
+			new /obj/item/stack/metal(src)
+			new /obj/item/stack/metal(src)
+			new /obj/item/stack/metal(src)
+			new /obj/item/stack/metal(src)
+			new /obj/item/stack/metal(src)
+			new /obj/item/stack/glass(src)
+			new /obj/item/stack/glass(src)
+			new /obj/item/stack/glass(src)
+			new /obj/item/stack/glass(src)
+			new /obj/item/stack/glass(src)
+			new /obj/item/stack/tile(src)
+			new /obj/item/stack/tile(src)
+			new /obj/item/stack/tile(src)
+			new /obj/item/stack/tile(src)
+			new /obj/item/stack/tile(src)
+			new /obj/item/stack/table_parts(src)
+			new /obj/item/stack/table_parts(src)
+			new /obj/item/stack/table_parts(src)
+			new /obj/item/stack/table_parts(src)
+
+	mining
+		icon_state = "mining"
+		icon_closed = "mining"
+		icon_opened = "mining_open"
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))

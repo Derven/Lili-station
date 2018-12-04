@@ -10,10 +10,6 @@
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
 
-	attack_hand()
-		usr << lightcapacity
-		usr << color
-
 	ex_act()
 		for(var/mob/M in range(2, src))
 			M << 'Explosion2.ogg'

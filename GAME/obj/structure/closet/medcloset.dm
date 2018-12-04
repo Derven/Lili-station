@@ -27,6 +27,13 @@
 		icon_closed = "crate"
 		icon_opened = "crate_open"
 
+		shaft
+			New()
+				..()
+				new /obj/item/clothing/suit/soviet(src)
+				new /obj/item/clothing/suit/soviet(src)
+				new /obj/item/clothing/suit/soviet(src)
+
 	oxycrate
 		name = "blue crate"
 		desc = "It's a crate!"

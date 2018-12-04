@@ -1,6 +1,7 @@
 /obj/machinery/consol/arcade
 	var/turtle = 0
 	var/dat
+	density = 1
 
 /obj/machinery/consol/arcade/New()
 	..()
