@@ -490,6 +490,11 @@
 		spawn(10)
 			src.attacking = 0
 
+/obj/critter/killertomato/fox_on_bike
+	icon_state = "fox"
+	name="plinfox"
+
+
 /obj/critter/mimic
 	name = "mechanical toolbox"
 	desc = null

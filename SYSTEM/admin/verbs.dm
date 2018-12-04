@@ -74,4 +74,5 @@ var/list/admin_verbs = list(\
 	set category = "Admin"
 	var/mytype = input(src, "Enter type", "spawn window", "/obj") as text
 	mytype = text2path(mytype)
-	new  mytype(mob.loc)
+	var/atom/A = new mytype(mob.loc)
+	START_PROCESSING(SSobj, A)
