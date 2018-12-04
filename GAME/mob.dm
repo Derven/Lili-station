@@ -112,6 +112,7 @@ mob
 		obj/hud/id/ID
 		obj/hud/switcher/SW
 		obj/hud/rest/R
+		obj/hud/movement/M
 
 	proc
 		create_hud(var/client/C)
@@ -131,6 +132,7 @@ mob
 				ID = new(src)
 				SW = new(src)
 				R = new(src)
+				M = new(src)
 
 				C.screen.Add(LH)
 				C.screen.Add(ID)
@@ -147,6 +149,7 @@ mob
 				C.screen.Add(H)
 				C.screen.Add(SW) //good hud in mood
 				C.screen.Add(R)
+				C.screen.Add(M)
 
 /mob
 	icon = 'mob.dmi'

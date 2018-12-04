@@ -1,0 +1,5 @@
+macro
+	North+UP return "NorthReleased"
+	East+UP  return "EastReleased"
+	South+UP return "SouthReleased"
+	West+UP  return "WestReleased"
