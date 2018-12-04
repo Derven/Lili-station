@@ -9,9 +9,22 @@
 		mystate = "off"
 
 /obj/machinery/consol/arcade
-	name = "arcade"
-	anchored = 2
+	name = "arcade machine"
+	desc = "Does not support Pin ball."
 	icon_state = "arcade"
+	var/enemy_name = "Space Villian"
+	var/temp = "Winners Don't Use Spacedrugs" //Temporary message, for attack messages, etc
+	var/player_hp = 30 //Player health/attack points
+	var/player_mp = 10
+	var/enemy_hp = 45 //Enemy health/attack points
+	var/enemy_mp = 20
+	var/gameover = 0
+	var/blocked = 0 //Player cannot attack/heal while set
+
+
+	New()
+		..()
+		new /datum/computer/file/computer_program/arcade(src)
 
 /obj/machinery/consol/command
 	name = "command"

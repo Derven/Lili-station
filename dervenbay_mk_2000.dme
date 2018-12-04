@@ -87,6 +87,8 @@
 #include "GAME\obj\item\weapon\storage\box.dm"
 #include "GAME\obj\item\weapon\tank\tank.dm"
 #include "GAME\obj\machinery\airlock.dm"
+#include "GAME\obj\machinery\arcade.dm"
+#include "GAME\obj\machinery\arcade_consol.dm"
 #include "GAME\obj\machinery\blender.dm"
 #include "GAME\obj\machinery\camera.dm"
 #include "GAME\obj\machinery\consol.dm"

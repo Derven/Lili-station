@@ -32,11 +32,9 @@ obj
 /obj/proc/hide(h)
 	return
 
-/obj/proc/updateUsrDialog()
-	var/list/nearby = viewers(1, src)
-	for(var/mob/M in nearby)
-		if ((M.client && M.machine == src))
-			src.attack_hand(M)
+/obj/proc/updateUsrDialog(var/mob/M)
+	if ((M.client && M.machine == src))
+		src.attack_hand(M)
 
 /obj/proc/updateDialog()
 	var/list/nearby = viewers(1, src)
