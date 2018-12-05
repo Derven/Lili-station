@@ -5,8 +5,8 @@
 	anchored = 1
 	var/metal = 7
 
-	var/list/one_metal_unit = list(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/weldingtool, /obj/item/construct/lamp)
-	var/list/two_metal_unit = list(/obj/item/weapon/fire_ext, /obj/item/construct/apc, /obj/item/construct/chair, /obj/item/construct/grille, /obj/item/construct/stool, /obj/item/stack/tile)
+	var/list/one_metal_unit = list(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/weldingtool)
+	var/list/two_metal_unit = list(/obj/item/weapon/fire_ext, /obj/item/construct/chair, /obj/item/construct/grille, /obj/item/construct/stool, /obj/item/stack/tile)
 	var/list/three_metal_unit = list(/obj/item/stack/table_parts, /obj/item/construct/closet, /obj/item/construct/crate)
 	var/list/one_metal_product = list()
 	var/list/two_metal_product = list()
@@ -53,6 +53,7 @@
 		if(istype(W, /obj/item/stack/metal))
 			metal += 1
 			usr.drop_item(src)
+			W.Move(src)
 
 /obj/machinery/autholate/Topic(href,href_list[])
 	if(href_list["product1"])
