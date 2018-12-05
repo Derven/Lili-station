@@ -28,8 +28,6 @@
 	var/area/from = locate(text2path(shuttleat))
 	var/area/dest = locate(text2path(shuttleto))
 
-	world << shuttleat
-	world << shuttleto
 	if(!from || !dest) return
 
 	from.move_contents_to(dest)
