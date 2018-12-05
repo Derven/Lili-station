@@ -398,6 +398,9 @@ mob
 		</body> \
 	</html>"
 
+client
+	var/played = 0
+
 /mob/Login()
 	..()
 	if(!istype(src, /mob/ghost))
@@ -412,6 +415,7 @@ mob
 
 //mob/var/atom/cur_object_i_give
 mob/var/atom/cur_object_i_see
+mob/var/inlobby = 1
 
 mob/Stat()
 	for(var/M in visible_containers)
@@ -439,12 +443,15 @@ mob/Stat()
 			wear_on_spawn(/obj/item/clothing/suit/security_suit)
 		if(btn == 1)
 			wear_on_spawn(/obj/item/clothing/suit/hydro_suit)
+		usr << sound(null)
+		usr << browse(null, "window=setup")
 		Move(pick(jobmarks))
 		radio_arrival()
 		lobby.invisibility = 101
-		usr << sound(null)
-		usr << browse(null, "window=setup")
 		density = 1
+		if(name == key || name == "mob")
+			name = rand_name(src)
+		inlobby = 0
 
 	if(href_list["name"] == "newname")
 		usr.name = input("Choose a name for your character.",

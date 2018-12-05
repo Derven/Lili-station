@@ -46,6 +46,7 @@
 #include "GAME\mob\actions_and_verbs.dm"
 #include "GAME\mob\damage.dm"
 #include "GAME\mob\ghost.dm"
+#include "GAME\mob\random_name.dm"
 #include "GAME\obj\blood.dm"
 #include "GAME\obj\jobmark.dm"
 #include "GAME\obj\landmark.dm"
