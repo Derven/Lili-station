@@ -36,6 +36,10 @@
 	anchored = 2
 	icon_state = "cargo"
 
+	mining_shuttle
+		attack_hand()
+			send_supply_shuttle()
+
 /obj/machinery/consol/shuttle
 	name = "cargo"
 	anchored = 2

@@ -1,4 +1,7 @@
 //this file contents areas and areas processing
+#define SUPPLY_STATION_AREATYPE "/area/ship/shuttle_mining" //Type of the supply shuttle area for station
+#define SUPPLY_DOCK_AREATYPE "/area/ship/shuttle_station" //Type of the supply shuttle area for dock
+
 /area
 	layer = 1
 	name = "Space"
@@ -15,6 +18,22 @@
 		shuttle_station
 
 		shuttle_mining
+
+
+/proc/send_supply_shuttle()
+
+	var/shuttleat = supply_shuttle_at_station ? SUPPLY_STATION_AREATYPE : SUPPLY_DOCK_AREATYPE
+	var/shuttleto = !supply_shuttle_at_station ? SUPPLY_STATION_AREATYPE : SUPPLY_DOCK_AREATYPE
+
+	var/area/from = locate(text2path(shuttleat))
+	var/area/dest = locate(text2path(shuttleto))
+
+	world << shuttleat
+	world << shuttleto
+	if(!from || !dest) return
+
+	from.move_contents_to(dest)
+	supply_shuttle_at_station = !supply_shuttle_at_station
 
 
 ///AREAS///

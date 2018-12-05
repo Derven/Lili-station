@@ -14,16 +14,15 @@
 
 	train
 		id = TRAIN
+		curdir = "west"
 
 		verb/back()
 			set src in range(1, usr)
-			for(var/dz/DZ in world)
-				if(DZ.id == id)
-					DZ.rotate180()
+			for(var/dz/train/T in range(8, src))
+				T.curdir = "east"
 			drive_my_car()
-			for(var/dz/DZ in world)
-				if(DZ.id == id)
-					DZ.rotate180()
+			for(var/dz/train/T in range(8, src))
+				T.curdir = "west"
 
 	New()
 		..()
@@ -93,6 +92,7 @@
 			if(DZ.id == id)
 				for(var/atom/movable/M in DZ.loc)
 					M.MOVETO(DZ.curdir, DZ.partslist)
+
 
 /atom/movable
 	proc/rotate_(cx, cy)
