@@ -30,6 +30,7 @@
 	var/bitesize
 	var/slices_num
 	var/slice_path
+	icon = 'chemical.dmi'
 
 /obj/item/weapon/reagent_containers/food/snacks/candy
 	name = "candy"
@@ -549,7 +550,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/vegetablesoup
 	name = "Vegetable soup"
 	desc = "" //TODO
-	icon_state = "vegetablesoup"
+	icon_state = "soup"
 	New()
 		..()
 		reagents.add_reagent("nutriments", 10)
@@ -730,7 +731,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/cheesewedge
 	name = "Cheese wedge"
 	desc = "A wedge of delicious Cheddar. The cheese wheel it was cut from can't have gone far."
-	icon_state = "cheesewedge"
+	icon_state = "cheese"
 	bitesize = 2
 
 
