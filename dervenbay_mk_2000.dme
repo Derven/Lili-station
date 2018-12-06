@@ -151,6 +151,7 @@
 #include "GAME\obj\stack\tile.dm"
 #include "GAME\obj\stack\uranium.dm"
 #include "GAME\obj\structure\closet.dm"
+#include "GAME\obj\structure\crematorium.dm"
 #include "GAME\obj\structure\grille.dm"
 #include "GAME\obj\structure\ladder.dm"
 #include "GAME\obj\structure\shuttlefloor.dm"

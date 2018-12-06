@@ -6,6 +6,7 @@
 	layer = 1
 	name = "Space"
 	var/sound = null
+	var/probality = 85
 
 	proc/soundreturn()
 		return pick('ambispace.ogg','title2.ogg')
@@ -13,7 +14,7 @@
 	proc/ambplay(var/mob/A)
 		sound = soundreturn()
 
-		if (prob(45))
+		if (prob(probality))
 			if(A && A:client && !A:client:played)
 				A << sound(sound, repeat = 0, wait = 0, volume = 35, channel = 1)
 				A:client:played = 1
@@ -33,6 +34,7 @@
 
 		deck_1
 			name = "test_deck"
+			probality = 45
 
 			soundreturn()
 				return pick('ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen5.ogg','ambigen6.ogg','ambigen7.ogg','ambigen8.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')

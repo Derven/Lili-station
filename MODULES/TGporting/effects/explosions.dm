@@ -1,9 +1,10 @@
 /obj/effect/expl_particles
 	name = "fire"
-	icon = 'effects.dmi'
-	icon_state = "explosion_particle"
+	icon = 'explode.dmi'
+	icon_state = "flick"
 	opacity = 1
 	anchored = 1
+	layer = 25
 	mouse_opacity = 0
 
 /obj/effect/expl_particles/New()
@@ -36,8 +37,45 @@
 				sleep(1)
 				step(expl,direct)
 
+/atom/movable
+	proc/force_to(var/value_of_force, var/dir_of_force)
+		var/turf/T2 = get_step(src, dir_of_force)
+		while(value_of_force > 0 && (!(istype(T2, /turf/unsimulated/wall))))
+			sleep(2)
+			Move(get_step(src, dir_of_force))
+			value_of_force -= rand(1,3)
+			if(value_of_force < 0)
+				value_of_force = 0
+
+	proc/force_all_directions(var/mydir, var/value)
+		if(mydir == 1)
+			src.force_to(value, NORTH)
+
+		if(mydir == 2)
+			src.force_to(value, SOUTH)
+
+		if(mydir == 4)
+			src.force_to(value, EAST)
+
+		if(mydir == 8)
+			src.force_to(value, WEST)
+
 proc/boom(irange, epcntr)
 	for(var/atom/A in range(irange, epcntr))
+		new /obj/effect/expl_particles(epcntr)
+		if(istype(A, /obj))
+			var/obj/M = A
+			if(prob(65))
+				if(M.anchored == 1)
+					if(prob(45))
+						M.anchored = 0
+				else
+					M.ex_act()
+					return
+				for(var/mob/MOB in range(5, M))
+					MOB << "<b>[M] flew away!</b>"
+				M.force_all_directions(turn(get_dir(A.loc,epcntr), 180), irange * 2)
+				return
 		A.ex_act()
 
 /atom

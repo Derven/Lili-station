@@ -71,7 +71,7 @@ var/list/admin_verbs = list(\
 	world.Reboot()
 
 /client/proc/small_boom()
-	set name = "spawn"
+	set name = "boom"
 	set category = "Admin"
 	boom(4, mob.loc)
 
