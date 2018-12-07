@@ -23,6 +23,9 @@
 			if(rand(1, 100) < 100 - robustness)
 				src = new /turf/simulated/floor/plating(src)
 
+	attackby(obj/item/O as obj, mob/user as mob)
+
+
 	New()
 		..()
 		hide_wall = image('walls.dmi', icon_state = "[src.icon_state]_hide", layer = 10, loc = src)

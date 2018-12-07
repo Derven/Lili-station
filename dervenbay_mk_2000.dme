@@ -78,6 +78,7 @@
 #include "GAME\obj\item\weapon\gun.dm"
 #include "GAME\obj\item\weapon\paper_pen.dm"
 #include "GAME\obj\item\weapon\pickaxe.dm"
+#include "GAME\obj\item\weapon\saw.dm"
 #include "GAME\obj\item\weapon\security.dm"
 #include "GAME\obj\item\weapon\weapon.dm"
 #include "GAME\obj\item\weapon\weldingtool.dm"
