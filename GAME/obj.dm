@@ -18,6 +18,7 @@ obj
 /obj/item/weapon/pepperspray
 /obj/item/weapon/plantbgone
 /obj/item/weapon/plastique
+/obj/item/weapon/coin
 //empty objects //fuck this crutches rewrite pls
 
 
