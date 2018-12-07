@@ -28,6 +28,16 @@
 		..()
 		reagents.add_reagent("milk", 40)
 
+/obj/item/weapon/reagent_containers/glass/bottle/cola
+	name = "cola"
+	desc = "space cola"
+	icon = 'chemical.dmi'
+	icon_state = "cola"
+
+	New()
+		..()
+		reagents.add_reagent("cola", 40)
+
 /obj/item/weapon/reagent_containers/glass/bottle/watercan
 	name = "watercan"
 	icon = 'chemical.dmi'

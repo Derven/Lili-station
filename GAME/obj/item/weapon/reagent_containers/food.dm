@@ -466,6 +466,15 @@
 		reagents.add_reagent("nutriments", 4)
 		bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/popcorn
+	name = "popcorn"
+	desc = "popcorn"
+	icon_state = "popcorn"
+	New()
+		..()
+		reagents.add_reagent("nutriments", 4)
+		bitesize = 2
+
 /obj/item/weapon/reagent_containers/food/snacks/cheesyfries
 	name = "Cheesy Fries"
 	desc = "Fries. Covered in cheese. Duh."

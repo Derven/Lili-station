@@ -42,7 +42,6 @@
 
 	Topic(href,href_list[])
 		if(href_list["my_item"] && href_list["my_what"])
-			world << "HI"
 			var/obj/item/l = href_list["my_item"]
 			var/what = text2num(href_list["my_what"])
 			if(items_num[what] > 0)
@@ -52,10 +51,3 @@
 			if(items_num[what] == 0)
 				usr << "\red <b>No [my_items[what]]</b>"
 			attack_hand()
-
-/obj/machinery/vending/tools
-	icon = 'vendomat.dmi'
-	name = "tools master"
-	my_items = list(/obj/item/weapon/wrench)
-	my_types = list(/obj/item/weapon/wrench)
-	items_num = list(3)
