@@ -18,6 +18,7 @@ world
 
 //	radio_controller = new /datum/controller/radio()
 
+	goodbay()
 	init_z_pixel()
 
 	global_turf_init()
