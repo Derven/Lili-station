@@ -25,10 +25,174 @@
 	var/unwrenchable = 1
 	var/image/overlay
 
+
+obj/machinery/hydroponics/proc/mutatespecie() // Mutagent produced a new plant!
+
+	if ( istype(src.myseed, /obj/item/seeds/amanitamycelium ))
+		del(src.myseed)
+		src.myseed = new /obj/item/seeds/angelmycelium
+
+	else if ( istype(src.myseed, /obj/item/seeds/plumpmycelium ))
+		del(src.myseed)
+		src.myseed = new /obj/item/seeds/walkingmushroommycelium
+
+	else if ( istype(src.myseed, /obj/item/seeds/chiliseed ))
+		del(src.myseed)
+		src.myseed = new /obj/item/seeds/icepepperseed
+
+	else if ( istype(src.myseed, /obj/item/seeds/berryseed ))
+		del(src.myseed)
+		switch(rand(1,100))
+			if(1 to 50)
+				src.myseed = new /obj/item/seeds/poisonberryseed
+			if(51 to 100)
+				src.myseed = new /obj/item/seeds/glowberryseed
+
+	else if ( istype(src.myseed, /obj/item/seeds/poisonberryseed ))
+		del(src.myseed)
+		src.myseed = new /obj/item/seeds/deathberryseed
+
+	else if ( istype(src.myseed, /obj/item/seeds/tomatoseed ))
+		del(src.myseed)
+		switch(rand(1,100))
+			if(71 to 100)
+				src.myseed = new /obj/item/seeds/killertomatoseed
+
+	else if ( istype(src.myseed, /obj/item/seeds/grapeseed ))
+		del(src.myseed)
+		src.myseed = new /obj/item/seeds/greengrapeseed
+/*
+	else if ( istype(src.myseed, /obj/item/seeds/tomatoseed ))
+		del(src.myseed)
+		src.myseed = new /obj/item/seeds/gibtomatoseed
+*/
+	else if ( istype(src.myseed, /obj/item/seeds/eggplantseed ))
+		del(src.myseed)
+		src.myseed = new /obj/item/seeds/eggyseed
+
+	else
+		return
+
+	src.dead = 0
+	src.hardmutate()
+	src.planted = 1
+	src.age = 0
+	src.health = src.myseed.endurance
+	src.lastcycle = world.time
+	src.harvest = 0
+	src.weedlevel = 0 // Reset
+
+	spawn(5) // Wait a while
+	for(var/mob/M in range(5, src))
+		M << "\red[src] has suddenly mutated into \blue [src.myseed.plantname]!"
+
+	return
+
+obj/machinery/hydroponics/proc/mutateweed() // If the weeds gets the mutagent instead. Mind you, this pretty much destroys the old plant
+	if ( src.weedlevel > 5 )
+		del(src.myseed)
+		switch(rand(100))
+			if(1 to 33)		src.myseed = new /obj/item/seeds/libertymycelium
+			if(34 to 66)	src.myseed = new /obj/item/seeds/angelmycelium
+		src.dead = 0
+		src.hardmutate()
+		src.planted = 1
+		src.age = 0
+		src.health = src.myseed.endurance
+		src.lastcycle = world.time
+		src.harvest = 0
+		src.weedlevel = 0 // Reset
+
+		spawn(5) // Wait a while
+		for(var/mob/M in range(5, src))
+			M << "\red The mutated weeds in [src] spawned a \blue [src.myseed.plantname]!"
+	return
+
+obj/machinery/hydroponics/proc/hardmutate() // Strongly mutates the current seed.
+
+	src.myseed.lifespan += rand(-4,4)
+	if(src.myseed.lifespan < 10)
+		src.myseed.lifespan = 10
+	else if(src.myseed.lifespan > 30) //hack to prevent glowshrooms from always resetting to 30 sec delay
+		src.myseed.lifespan = 30
+
+	src.myseed.endurance += rand(-10,10)
+	if(src.myseed.endurance < 10)
+		src.myseed.endurance = 10
+	else if(src.myseed.endurance > 100)
+		src.myseed.endurance = 100
+
+	src.myseed.production += rand(-2,2)
+	if(src.myseed.production < 2)
+		src.myseed.production = 2
+	else if(src.myseed.production > 10)
+		src.myseed.production = 10
+
+	if(src.myseed.yield != -1) // Unharvestable shouldn't suddenly turn harvestable
+		src.myseed.yield += rand(-4,4)
+		if(src.myseed.yield < 0)
+			src.myseed.yield = 0
+		else if(src.myseed.yield > 10)
+			src.myseed.yield = 10
+		if(src.myseed.yield == 0 && src.myseed.plant_type == 2)
+			src.myseed.yield = 1 // Mushrooms always have a minimum yield of 1.
+
+	if(src.myseed.potency != -1) //Not all plants have a potency
+		src.myseed.potency += rand(-50,50)
+		if(src.myseed.potency < 0)
+			src.myseed.potency = 0
+		else if(src.myseed.potency > 100)
+			src.myseed.potency = 100
+	return
+
+obj/machinery/hydroponics/proc/plantdies() // OH NOES!!!!! I put this all in one function to make things easier
+	src.health = 0
+	src.dead = 1
+	src.harvest = 0
+	return
+
+obj/machinery/hydroponics/proc/mutate() // Mutates the current seed
+
+	src.myseed.lifespan += rand(-2,2)
+	if(src.myseed.lifespan < 10)
+		src.myseed.lifespan = 10
+	else if(src.myseed.lifespan > 30)
+		src.myseed.lifespan = 30
+
+	src.myseed.endurance += rand(-5,5)
+	if(src.myseed.endurance < 10)
+		src.myseed.endurance = 10
+	else if(src.myseed.endurance > 100)
+		src.myseed.endurance = 100
+
+	src.myseed.production += rand(-1,1)
+	if(src.myseed.production < 2)
+		src.myseed.production = 2
+	else if(src.myseed.production > 10)
+		src.myseed.production = 10
+
+	if(src.myseed.yield != -1) // Unharvestable shouldn't suddenly turn harvestable
+		src.myseed.yield += rand(-2,2)
+		if(src.myseed.yield < 0)
+			src.myseed.yield = 0
+		else if(src.myseed.yield > 10)
+			src.myseed.yield = 10
+		if(src.myseed.yield == 0 && src.myseed.plant_type == 2)
+			src.myseed.yield = 1 // Mushrooms always have a minimum yield of 1.
+
+	if(src.myseed.potency != -1) //Not all plants have a potency
+		src.myseed.potency += rand(-25,25)
+		if(src.myseed.potency < 0)
+			src.myseed.potency = 0
+		else if(src.myseed.potency > 100)
+			src.myseed.potency = 100
+	return
+
+
 obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 
 	// Requires 5 mutagen to possibly change species.// Poor man's mutagen.
-/*
+
 	if(S.has_reagent("mutagen", 5) || S.has_reagent("radium", 10) || S.has_reagent("uranium", 10))
 		switch(rand(100))										//old value --> new value
 			if(95 to 100)	plantdies()									//10% -->  6%
@@ -37,7 +201,6 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 			if(52 to 65)	mutate()									//25% --> 14%
 			if(40 to 51)	usr << "The plants don't seem to react..."	//20% --> 12%
 			if(20 to 39)	mutateweed()								//10% --> 20%
-			if(00 to 19)	mutatepest()								//10% --> 20%
 //			else 			usr << "Nothing happens..."					// 1% -->  0%
 
 																		//101%--> 101%
@@ -54,7 +217,7 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 	if(S.has_reagent("radium", 1))
 		adjustHealth(-round(S.get_reagent_amount("radium")*1))
 		adjustToxic(round(S.get_reagent_amount("radium")*3)) // Radium is harsher (OOC: also easier to produce)
-*/
+
 	// Nutriments
 	if(S.has_reagent("eznutriment", 1))
 		yieldmod = 1
@@ -201,14 +364,6 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 /obj/machinery/hydroponics/proc/adjustPests(var/PEST)
 	pestlevel += PEST
 
-/obj/machinery/hydroponics/proc/plantdies() // OH NOES!!!!! I put this all in one function to make things easier
-	health = 0
-	harvest = 0
-	pestlevel = 0 // Pests die
-	if(!dead)
-		update_icon()
-		dead = 1
-
 /obj/machinery/hydroponics/proc/upd_icn()
 	overlays -= overlay
 	if(!overlay)
@@ -253,7 +408,7 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 			usr << usr.select_lang("[src] пусто", "\red [src] is empty.")
 
 /obj/machinery/hydroponics/process()
-	sleep(4)
+	sleep(rand(4,12))
 	if(myseed)
 		if(waterlevel > maxwater)
 			waterlevel = maxwater

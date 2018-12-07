@@ -18,3 +18,10 @@
 	my_items = list(/obj/item/weapon/reagent_containers/food/snacks/fries, /obj/item/weapon/reagent_containers/food/snacks/popcorn, /obj/item/weapon/reagent_containers/glass/bottle/cola)
 	my_types = list(/obj/item/weapon/reagent_containers/food/snacks/fries, /obj/item/weapon/reagent_containers/food/snacks/popcorn, /obj/item/weapon/reagent_containers/glass/bottle/cola)
 	items_num = list(5, 5, 5)
+
+/obj/machinery/vending/hydroponics
+	icon = 'vendomat.dmi'
+	name = "hydroponics"
+	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/nutriments, /obj/item/weapon/reagent_containers/glass/bottle/watercan, /obj/item/weapon/reagent_containers/glass/bottle/mutagen)
+	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/nutriments, /obj/item/weapon/reagent_containers/glass/bottle/watercan, /obj/item/weapon/reagent_containers/glass/bottle/mutagen)
+	items_num = list(5, 5, 2)

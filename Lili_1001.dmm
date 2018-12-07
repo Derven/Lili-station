@@ -310,7 +310,7 @@
 "fX" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor/plating,/area/ship/deck_1)
 "fY" = (/obj/structure/closet/books,/turf/simulated/floor{tag = "icon-carpet_2256"; icon_state = "carpet_2256"},/area/ship/deck_1)
 "fZ" = (/obj/machinery/camera{tag = "icon-camera (NORTH)"; icon_state = "camera"; dir = 1},/turf/simulated/floor/plating,/area/ship/deck_1)
-"ga" = (/obj/structure/closet/closet_3/food_closet/vendomat{tag = "icon-polka_1 (NORTH)"; icon_state = "polka_1"; dir = 1},/turf/simulated/floor,/area/ship/deck_1)
+"ga" = (/obj/machinery/vending/hydroponics{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area/ship/deck_1)
 "gb" = (/obj/item/seeds/amanitamycelium,/turf/simulated/floor,/area/ship/deck_1)
 "gc" = (/obj/machinery/camera{tag = "icon-camera (EAST)"; icon_state = "camera"; dir = 4},/obj/item/weapon/fire_ext,/turf/simulated/floor,/area/ship/deck_1)
 "gd" = (/obj/machinery/plasmacooler,/turf/simulated/floor,/area/ship/deck_1)
