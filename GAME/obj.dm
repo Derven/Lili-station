@@ -13,7 +13,6 @@ obj
 /obj/item/device/analyzer
 /obj/item/weapon/chemsprayer
 /obj/item/weapon/cleaner
-/obj/item/weapon/crowbar
 /obj/item/weapon/pepperspray
 /obj/item/weapon/plantbgone
 /obj/item/weapon/plastique

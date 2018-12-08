@@ -17,6 +17,18 @@
 	Exited(var/atom/movable/O)
 		O.pixel_z = 0
 
+	attackby(obj/item/O as obj, mob/user as mob)
+		if(istype(O, /obj/item/weapon/weldingtool))
+			var/obj/item/weapon/weldingtool/W = O
+			if(W.reagents.has_reagent("diesel", 10))
+				W.use()
+				flick("active", W)
+				new /obj/item/stack/tile(src)
+				del(src)
+			else
+				usr << "\red Oh no! Need more fuel!"
+				return
+
 	proc/merge()
 		var/turf/N = get_step(src, NORTH)
 		var/turf/W = get_step(src, WEST)

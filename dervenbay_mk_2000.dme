@@ -71,6 +71,7 @@
 #include "GAME\obj\hud\run_intent.dm"
 #include "GAME\obj\hud\zone_sel.dm"
 #include "GAME\obj\item\clothing.dm"
+#include "GAME\obj\item\crowbar.dm"
 #include "GAME\obj\item\item.dm"
 #include "GAME\obj\item\screwdriver.dm"
 #include "GAME\obj\item\device\scanner.dm"

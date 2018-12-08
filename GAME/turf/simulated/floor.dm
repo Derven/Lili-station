@@ -31,9 +31,6 @@
 			usr.pixel_z = 32 * (usr.ZLevel - 1)
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/weldingtool))
-			var/obj/item/weapon/weldingtool/WD = W
-			if(WD.use())
-				usr << "Вы развариваете пол..."
-			else
-				usr << "Заправьте горелку!"
+		if(istype(W, /obj/item/weapon/crowbar))
+			src = new /turf/simulated/floor/plating(src)
+			new /obj/item/stack/tile(src)
