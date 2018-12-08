@@ -1,9 +1,9 @@
 /obj/machinery/vending/tools
 	icon = 'vendomat.dmi'
 	name = "tools master"
-	my_items = list(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/screwdriver)
-	my_types = list(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/screwdriver)
-	items_num = list(3, 3, 3)
+	my_items = list(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/crowbar, /obj/item/weapon/saw)
+	my_types = list(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/crowbar, /obj/item/weapon/saw)
+	items_num = list(3, 3, 3, 3, 3, 3)
 
 /obj/machinery/vending/sectools
 	icon = 'vendomat_3.dmi'

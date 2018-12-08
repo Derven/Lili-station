@@ -68,6 +68,21 @@
 	icon = 'stationobjs.dmi'
 	icon_state = "stool"
 
+	attackby(obj/item/O as obj, mob/user as mob)
+		if(istype(O, /obj/item/weapon/weldingtool))
+			var/obj/item/weapon/weldingtool/W = O
+			if(W.reagents.has_reagent("diesel", 10))
+				W.use()
+				flick("active", W)
+				new /obj/item/stack/metal(src.loc)
+				del(src)
+			else
+				usr << "\red Oh no! Need more fuel!"
+				return
+		if(istype(O, /obj/item/weapon/wrench))
+			new /obj/item/construct/stool(src.loc)
+			del(src)
+
 /obj/structure/stool/chair/attack_hand(mob/user as mob)
 	manual_unbuckle_all(user)
 	return
@@ -75,6 +90,21 @@
 /obj/structure/stool/chair
 	icon_state = "chair"
 	var/list/buckled_mobs = new/list()
+
+	attackby(obj/item/O as obj, mob/user as mob)
+		if(istype(O, /obj/item/weapon/weldingtool))
+			var/obj/item/weapon/weldingtool/W = O
+			if(W.reagents.has_reagent("diesel", 10))
+				W.use()
+				flick("active", W)
+				new /obj/item/stack/metal(src.loc)
+				del(src)
+			else
+				usr << "\red Oh no! Need more fuel!"
+				return
+		if(istype(O, /obj/item/weapon/wrench))
+			new /obj/item/construct/chair(src.loc)
+			del(src)
 
 	MouseDrop_T(mob/M as mob, mob/user as mob)
 		if (!istype(M)) return

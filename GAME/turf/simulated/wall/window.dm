@@ -81,6 +81,8 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/screwdriver))
+			for(var/mob/M in range(5, src.loc))
+				M << 'Screwdriver.ogg'
 			src = new /turf/simulated/floor/plating(src)
 			new /obj/item/stack/glass(src)
 		else
