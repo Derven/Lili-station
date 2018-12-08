@@ -72,6 +72,7 @@
 #include "GAME\obj\hud\zone_sel.dm"
 #include "GAME\obj\item\clothing.dm"
 #include "GAME\obj\item\item.dm"
+#include "GAME\obj\item\screwdriver.dm"
 #include "GAME\obj\item\device\scanner.dm"
 #include "GAME\obj\item\weapon\fire_ext.dm"
 #include "GAME\obj\item\weapon\grown.dm"

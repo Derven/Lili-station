@@ -2,7 +2,6 @@ obj
 	step_size = 64
 
 //empty objects //fuck this crutches rewrite pls
-/obj/item/weapon/screwdriver
 /obj/computerframe
 /obj/item/weapon/shard
 /obj/item/weapon/circuitboard/curer

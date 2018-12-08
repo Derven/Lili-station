@@ -24,8 +24,17 @@
 				src = new /turf/simulated/floor/plating(src)
 
 	attackby(obj/item/O as obj, mob/user as mob)
-
-
+		if(istype(O, /obj/item/weapon/weldingtool))
+			var/obj/item/weapon/weldingtool/W = O
+			if(W.reagents.has_reagent("diesel", 10))
+				W.use()
+				flick("active", W)
+				new /obj/item/stack/metal(src)
+				clear_for_all()
+				src = new /turf/simulated/floor/plating(src)
+			else
+				usr << "\red Oh no! Need more fuel!"
+				return
 	New()
 		..()
 		hide_wall = image('walls.dmi', icon_state = "[src.icon_state]_hide", layer = 10, loc = src)
