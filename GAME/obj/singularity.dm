@@ -24,12 +24,17 @@
 	New()
 		START_PROCESSING(SSobj, src)
 
+	proc/generate_energy()
+		for(var/obj/machinery/collector/C in range(9, src))
+			C.power_generate()
+
 	process()
 		var/buffer_x = x + rand(-1, 1)
 		var/buffer_y = y + rand(-1, 1)
 		if(check_xy(buffer_x, buffer_y) > 0 && (buffer_x == x || buffer_y == y)) //no diagonal
 			x = buffer_x
 			y = buffer_y
+		generate_energy()
 		if(plevel < 3)
 			for(var/obj/machinery/containment_field/EF in range(4 + plevel, src))
 				return
