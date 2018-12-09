@@ -56,6 +56,7 @@
 #include "GAME\obj\disposal\disposal.dm"
 #include "GAME\obj\effect\sparks.dm"
 #include "GAME\obj\hud\act_intent.dm"
+#include "GAME\obj\hud\back.dm"
 #include "GAME\obj\hud\box.dm"
 #include "GAME\obj\hud\cloth.dm"
 #include "GAME\obj\hud\def_zone_sel.dm"

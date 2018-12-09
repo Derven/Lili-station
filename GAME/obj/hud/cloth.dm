@@ -35,7 +35,7 @@
 /obj/hud
 	switcher
 		icon_state = "switcher"
-		screen_loc = "SOUTH-1, WEST+3"
+		screen_loc = "SOUTH-1, WEST+4"
 
 		Click()
 			flick("switcher_flick", src)

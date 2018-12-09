@@ -2,7 +2,7 @@
 	run_intent
 		icon_state = "walk"
 		name = "run_intent"
-		screen_loc = "SOUTH-1, WEST+7"
+		screen_loc = "SOUTH-1, WEST+2"
 
 		Click()
 			iam.run_intent()

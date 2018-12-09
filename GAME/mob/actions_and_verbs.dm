@@ -89,7 +89,7 @@
 	proc/handle_temperature(var/mytemp)
 		if(cloth == null || cloth.space_suit == 0)
 			H.clear_overlay()
-			H.temppixels(mytemp)
+			H.temppixels(round(mytemp))
 			H.oxypixels(H.cur_onum)
 			H.healthpixels(H.cur_hnum)
 
