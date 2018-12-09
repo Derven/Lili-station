@@ -25,7 +25,7 @@
 		START_PROCESSING(SSobj, src)
 
 	proc/generate_energy()
-		for(var/obj/machinery/collector/C in range(9, src))
+		for(var/obj/machinery/collector/C in world)
 			C.power_generate()
 
 	process()

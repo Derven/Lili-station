@@ -140,7 +140,7 @@
 		if(!reagents.has_reagent("blood", 50))
 			death()
 			return
-
+/*
 		if(H)
 			if(reagents.has_reagent("blood", 300))
 				src.H.icon_state = "health100"
@@ -161,7 +161,7 @@
 				src.H.icon_state = "health10"
 				if(!lying)
 					resting()
-
+*/
 		if(BD)
 			BD.pixel_z = (ZLevel - 1) * 32
 

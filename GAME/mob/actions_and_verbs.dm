@@ -88,6 +88,11 @@
 
 	proc/handle_temperature(var/mytemp)
 		if(cloth == null || cloth.space_suit == 0)
+			H.clear_overlay()
+			H.temppixels(mytemp)
+			H.oxypixels(H.cur_onum)
+			H.healthpixels(H.cur_hnum)
+
 			if(mytemp > 373)
 				var/datum/organ/external/affecting = get_organ("chest")
 				apply_damage(round(mytemp/10), BURN, affecting, 0)
