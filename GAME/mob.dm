@@ -14,6 +14,7 @@ mob
 	flags = NOREACT
 	var/datum/mind/mind
 	var/hand = null
+	var/bodytemperature = 310.055
 	var/list/obj/last_contents = list()
 	//MOB overhaul
 	//Not in use yet
@@ -41,14 +42,14 @@ mob
 			//set invisibility = 0
 			//set background = 1
 			var/datum/gas_mixture/environment = SLOC.return_air()
-			var/SLOC_temperature = environment.temperature
 			handle_pain()
 			handle_stomach()
 			handle_injury()
 			handle_chemicals_in_body()
-			handle_temperature(SLOC_temperature)
+			handle_temperature(environment)
 			if(client)
 				client.MYZL()
+			updatehealth()
 
 	//Vars that should only be accessed via procs
 	var/obj/item/l_hand = null//Living
@@ -114,6 +115,7 @@ mob
 		obj/hud/rest/R
 		obj/hud/movement/M
 		obj/hud/back/B
+		obj/hud/swap/S
 
 	proc
 		create_hud(var/client/C)
@@ -135,6 +137,7 @@ mob
 				R = new(src)
 				M = new(src)
 				B = new(src)
+				S = new(src)
 
 				C.screen.Add(LH)
 				C.screen.Add(ID)
@@ -153,6 +156,7 @@ mob
 				C.screen.Add(R)
 				C.screen.Add(M)
 				C.screen.Add(B)
+				C.screen.Add(S)
 
 /mob
 	icon = 'mob.dmi'

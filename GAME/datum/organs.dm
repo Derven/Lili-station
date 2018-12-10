@@ -113,6 +113,12 @@ proc/isorgan(A)
 	proc/get_damage()	//returns total damage
 		return src.brute_dam + src.burn_dam	//could use src.health?
 
+	proc/get_brute()	//returns total damage
+		return src.brute_dam	//could use src.health?
+
+	proc/get_burn()	//returns total damage
+		return src.burn_dam	//could use src.health?
+
 
 // new damage icon system
 // returns just the brute/burn damage code

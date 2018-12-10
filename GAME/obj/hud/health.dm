@@ -30,6 +30,11 @@
 			overlays.Cut()
 
 		proc/healthpixels(var/num)
+			if(num < 0 || num > 100)
+				if(num > 100)
+					iam.health = 100
+				else
+					return
 			if(length(healthnums) == 0)
 				HBHUNDREDS = new(healthnums)
 				HBTENS = new(healthnums)
@@ -47,6 +52,8 @@
 			overlays += HBUNITS
 
 		proc/temppixels(var/num)
+			if(num < 0 || num > 800)
+				return
 			if(length(tempnums) == 0)
 				TBHUNDREDS = new(tempnums)
 				TBTENS = new(tempnums)
@@ -67,6 +74,8 @@
 			overlays += TBUNITS
 
 		proc/oxypixels(var/num)
+			if(num < 0 || num > 100)
+				return
 			if(length(oxynums) == 0)
 				OBHUNDREDS = new(oxynums)
 				OBTENS = new(oxynums)

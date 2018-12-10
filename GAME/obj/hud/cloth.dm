@@ -3,7 +3,7 @@
 
 	cloth
 		icon_state = "cloth"
-		screen_loc = "SOUTH-1, WEST+3"
+		screen_loc = "SOUTH-1, WEST+4"
 
 		Click()
 			var/obj/item/I = iam.get_active_hand()
@@ -19,7 +19,7 @@
 /obj/hud
 	id
 		icon_state = "id"
-		screen_loc = "SOUTH-1, WEST+3"
+		screen_loc = "SOUTH-1, WEST+4"
 		invisibility = 101
 
 		Click()
@@ -35,7 +35,7 @@
 /obj/hud
 	switcher
 		icon_state = "switcher"
-		screen_loc = "SOUTH-1, WEST+4"
+		screen_loc = "SOUTH-1, WEST+5"
 
 		Click()
 			flick("switcher_flick", src)

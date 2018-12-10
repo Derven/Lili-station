@@ -21,6 +21,8 @@
 /obj/machinery/collector
 	icon = 'stationobjs.dmi'
 	icon_state = "collector"
+	anchored = 1
+	density = 1
 
 	proc/power_generate()
 		charge = rand(2250, 5250)

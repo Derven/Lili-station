@@ -6,9 +6,11 @@
 	heat_capacity = 10000
 	intact = 0
 	robustness = 25
-	temperature = T20C
+	temperature = T20C - 23
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
+
+	attack_hand()
 
 	ex_act()
 		for(var/mob/M in range(2, src))

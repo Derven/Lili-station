@@ -67,7 +67,6 @@ datum
 				if(trace_gases.len)
 					for(var/datum/gas/trace_gas in trace_gases)
 						heat_capacity += trace_gas.moles*trace_gas.specific_heat
-
 				return heat_capacity
 
 			heat_capacity_archived()

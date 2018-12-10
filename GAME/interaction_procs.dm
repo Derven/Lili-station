@@ -64,7 +64,7 @@
 			var/obj/machinery/airlock/A_LOCK = A
 			if(MY_PAIN && A_LOCK.charge == 0 && A_LOCK.close == 1)
 				if(MY_PAIN == get_organ("head"))
-					apply_damage(rand(5, 25) - defense, "brute" , MY_PAIN, 0)
+					apply_damage(rand(2, 7) - defense, "brute" , MY_PAIN, 0)
 					for(var/mob/mober in range(5, A))
 						mober << mober.select_lang("\red [name] врезалс&#255; в аирлок", "\red [name] smash to the airlock")
 						mober << 'smash.ogg'
@@ -73,7 +73,7 @@
 					run_intent()
 					RI.icon_state = "walk"
 				else
-					apply_damage(rand(1, 15) - defense, "brute" , MY_PAIN, 0)
+					apply_damage(rand(2, 7) - defense, "brute" , MY_PAIN, 0)
 					Move(OTBROSOK)
 
 			var/turf/simulated/floor/T = src.loc
@@ -105,16 +105,16 @@
 					mober << 'smash.ogg'
 				if(istype(A, /turf/unsimulated/wall/window))
 					var/turf/unsimulated/wall/window/WIN = A
-					WIN.health -= rand(5,25)
+					WIN.health -= rand(2, 7)
 					WIN.update_icon()
 				if(MY_PAIN == get_organ("head"))
-					apply_damage(rand(5, 35) - defense, "brute" , MY_PAIN, 0)
+					apply_damage(rand(2, 7) - defense, "brute" , MY_PAIN, 0)
 					Move(OTBROSOK)
 					rest()
 					run_intent()
 					RI.icon_state = "walk"
 				else
-					apply_damage(rand(1, 15) - defense, "brute" , MY_PAIN, 0)
+					apply_damage(rand(2, 7) - defense, "brute" , MY_PAIN, 0)
 					Move(OTBROSOK)
 
 	attack_hand()

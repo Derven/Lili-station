@@ -86,34 +86,38 @@
 		if((get_dist(src, pulling) > 1) || !isturf(pulling.loc))
 			stop_pulling()
 
-	proc/handle_temperature(var/mytemp)
+	proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
+		if(nodamage) return
+
+		if(exposed_temperature > bodytemperature)
+			var/discomfort = min( abs(exposed_temperature - 310)/2000, 1.0)
+			//adjustFireLoss(2.5*discomfort)
+			//adjustFireLoss(5.0*discomfort)
+			rand_burn_damage(20.0*discomfort, 20.0*discomfort)
+
+		else
+			var/discomfort = min( abs(exposed_temperature - 310)/2000, 1.0)
+			//adjustFireLoss(2.5*discomfort)
+			rand_burn_damage(20.0*discomfort, 20.0*discomfort)
+
+	proc/handle_temperature(var/datum/gas_mixture/environment)
 		if(cloth == null || cloth.space_suit == 0)
 			H.clear_overlay()
-			H.temppixels(round(mytemp))
-			H.oxypixels(H.cur_onum)
-			H.healthpixels(H.cur_hnum)
+			H.temppixels(round(bodytemperature))
+			H.oxypixels(round(100 - oxyloss))
+			H.healthpixels(round(health))
+			var/environment_heat_capacity = environment.heat_capacity()
+			var/transfer_coefficient = 1
+			var/areatemp = environment.temperature
+			if( abs(areatemp - bodytemperature) > 50 )
+				var/diff = areatemp - bodytemperature
+				diff = diff / 5
+				//world << "changed from [bodytemperature] by [diff] to [bodytemperature + diff]"
+				bodytemperature += diff
+			if(bodytemperature < 310)
+				bodytemperature += rand(1, 2)
 
-			if(mytemp > 373)
-				var/datum/organ/external/affecting = get_organ("chest")
-				apply_damage(round(mytemp/10), BURN, affecting, 0)
-				affecting = get_organ("head")
-				apply_damage(round(mytemp/10), BURN, affecting, 0)
-				src << select_lang("\red Вы чувствуете тепло", "\red You feel the heat!")
-
-			if(mytemp < 273)
-				var/datum/organ/external/affecting = get_organ("chest")
-				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
-				affecting = get_organ("head")
-				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
-				src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
-
-			if(istype(src.loc, /turf/space))
-				var/datum/organ/external/affecting = get_organ("chest")
-				mytemp = 300
-				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
-				affecting = get_organ("head")
-				apply_damage(round((mytemp/10) * 3), BURN, affecting, 0)
-				src << select_lang("\red Вы чувствуете холод", "\red You feel the freeze!")
+			handle_temperature_damage(chest, environment.temperature, environment_heat_capacity*transfer_coefficient)
 
 
 /mob/proc/resting()

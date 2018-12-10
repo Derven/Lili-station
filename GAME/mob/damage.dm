@@ -6,6 +6,42 @@
 /mob/var/halloss = 0
 /mob/var/hallucination = 0
 /mob/var/list/atom/hallucinations = list()
+/mob/var/health = 100
+
+/mob/proc/updatehealth()
+	if(src.nodamage)
+		src.health = 100
+		src.stat = 0
+		return
+	if(cloth == null || cloth.space_suit == 0)
+		if(istype(src.loc, /turf/simulated/floor))
+			var/turf/simulated/floor/F = src.loc
+			var/datum/gas_mixture/G = F.return_air()
+			if(G.oxygen < HUMAN_NEEDED_OXYGEN)
+				oxyloss += 1
+			else
+				if(oxyloss > 1)
+					oxyloss -= 1
+		else
+			oxyloss += 1
+	src.health = 100 - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss()
+	if(health > 100)
+		health = 100
+	if(src.health < 0)
+		src.health = 0
+		death()
+
+/mob/proc/getOxyLoss()
+	return oxyloss
+
+/mob/proc/adjustOxyLoss(var/amount)
+	oxyloss = max(oxyloss + amount, 0)
+
+/mob/proc/getToxLoss()
+	return toxloss
+
+/mob/proc/adjustToxLoss(var/amount)
+	toxloss = max(toxloss + amount, 0)
 
 /mob
 	var/bruteloss = 0.0//Living
@@ -102,11 +138,16 @@
 	proc/blood_flow()
 		var/obj/blood/BD
 
+		H.clear_overlay()
+		H.temppixels(round(H.cur_tnum))
+		H.oxypixels(round(100 - oxyloss))
+		H.healthpixels(round(health))
+
 		if(prob(25))
 			if(!reagents.has_reagent("blood", 280))
 				reagents.add_reagent("blood", 20)
 
-		if(prob(75))
+		if(prob(25))
 			if(chest.brute_dam > 80)
 				reagents.remove_reagent("blood", 20)
 				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
@@ -183,6 +224,11 @@
 	var/MY_PAIN
 	MY_PAIN = get_organ(pick("chest", "r_leg", "l_leg","r_arm", "l_arm"))
 	apply_damage(rand(mind, maxd) - defense, "brute" , MY_PAIN, 0)
+
+/mob/proc/rand_burn_damage(var/mind, var/maxd)
+	var/MY_PAIN
+	MY_PAIN = get_organ(pick("chest", "r_leg", "l_leg","r_arm", "l_arm"))
+	apply_damage(rand(mind, maxd), "fire" , MY_PAIN, 0)
 
 /mob/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0)
 	if((damagetype != BRUTE) && (damagetype != BURN))
@@ -285,12 +331,28 @@
 // ++++ROCKDTBEN++++ MOB PROCS -- Ask me before touching
 
 /mob/proc/getBruteLoss()
+	bruteloss = 0
+	for(var/datum/organ/external/E in organs)
+		if(istype(E, /datum/organ/external/chest) || istype(E, /datum/organ/external/head) || istype(E, /datum/organ/external/groin))
+			var/dam = E.get_brute()
+			bruteloss += dam
+		else
+			var/dam = E.get_brute()
+			bruteloss += round(dam / 4)
 	return bruteloss
 
 /mob/proc/adjustBruteLoss(var/amount)
 	bruteloss = max(bruteloss + amount, 0)
 
 /mob/proc/getFireLoss()
+	fireloss = 0
+	for(var/datum/organ/external/E in organs)
+		if(istype(E, /datum/organ/external/chest) || istype(E, /datum/organ/external/head) || istype(E, /datum/organ/external/groin))
+			var/dam = E.get_burn()
+			fireloss += dam
+		else
+			var/dam = E.get_burn()
+			fireloss += round(dam / 4)
 	return fireloss
 
 /mob/proc/adjustFireLoss(var/amount)
