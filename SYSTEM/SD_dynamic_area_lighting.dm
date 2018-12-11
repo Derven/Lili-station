@@ -401,9 +401,38 @@ atom
 				new_luminosity is the new value for luminosity. */
 			if(luminosity>0)
 				sd_StripLum()
+
+			for(var/atom/A in view(luminosity,src))
+				if(!(istype(A, /turf/space)) && !(istype(A, /mob)) && !(istype(A, /area)) && !(istype(A, /obj/item)))
+					A.color = "#777776"
+
 			luminosity = new_luminosity
 			if(luminosity>0)
 				sd_ApplyLum()
+
+			for(var/atom/A in view(luminosity,src))
+				if(!(istype(A, /turf/space)) && !(istype(A, /mob)) && !(istype(A, /area)) && !(istype(A, /obj/item)))
+					var/area/AREA
+					if(istype(A, /turf))
+						AREA = A.loc
+					else
+						AREA = A.loc.loc
+					switch(AREA.sd_light_level)
+						if(5)
+							A.color = "#f2f2ef"
+						if(4)
+							A.color = "#d8d8d6"
+						if(3)
+							A.color = "#cccccc"
+						if(2)
+							A.color = "#c6c6c4"
+						if(1)
+							A.color = "#a3a3a1"
+						if(0)
+							A.color = "#777776"
+						else
+							A.color = null
+
 
 		sd_SetOpacity(new_opacity as num)
 			/* if(opacity != new_opacity)
@@ -513,6 +542,7 @@ turf
 						A.sd_LightLevel(light)
 				A.contents += src	// move the turf into the area
 
+
 		sd_ApplySpill()
 			if(opacity) return
 			var/oldlum = luminosity
@@ -601,7 +631,8 @@ area
 
 	proc
 		sd_LightLevel(level = sd_light_level as num, keep = 1)
-			if(!src) return
+			//if(!src) return
+
 			for(var/atom/A in src)
 				if(!(istype(A, /turf/space)))
 					A.color = null

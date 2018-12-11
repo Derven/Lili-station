@@ -8,10 +8,10 @@
 			SA.my_smes.charge += charge
 
 /obj/machinery/solar
-	charge = 1000
+	charge = 100
 
 	process()
-		charge = rand(250, 400)
+		charge = rand(50, 100)
 		for(var/obj/machinery/simple_apc/SA in range(4, src))
 			if(prob(45))
 				SA.my_smes.charge += rand(100, 150)

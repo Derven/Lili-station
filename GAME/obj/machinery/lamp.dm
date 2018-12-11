@@ -5,23 +5,23 @@
 	switcher = 1
 	use_power = 1
 	anchored = 1
-	luminosity = 5
+	luminosity = 0
 	load = 5
 
 	dir_2
 		pixel_y = 64
 
 	proc/light_process()
-		luminosity = 5
-		sd_SetLuminosity(luminosity)
+		sd_SetLuminosity(5)
 		//lumina()
 
 	proc/nolight()
-		luminosity = 0
 		sd_SetLuminosity(0)
 		//dark()
 
 	attack_hand()
+		sd_SetLuminosity(0)
+		del(src)
 		world << charge
 
 /obj/machinery/tablelamp
