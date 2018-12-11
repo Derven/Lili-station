@@ -239,7 +239,7 @@
 #include "SYSTEM\client.dm"
 #include "SYSTEM\command.dm"
 #include "SYSTEM\compile.dm"
-#include "SYSTEM\dervenlightsystem.dm"
+#include "SYSTEM\SD_dynamic_area_lighting.dm"
 #include "SYSTEM\__DATASTRUCTURES\heap.dm"
 #include "SYSTEM\__DATASTRUCTURES\linked_lists.dm"
 #include "SYSTEM\__DATASTRUCTURES\priority_queue.dm"

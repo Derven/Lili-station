@@ -12,10 +12,14 @@
 		pixel_y = 64
 
 	proc/light_process()
-		lumina()
+		luminosity = 5
+		sd_SetLuminosity(luminosity)
+		//lumina()
 
 	proc/nolight()
-		dark()
+		luminosity = 0
+		sd_SetLuminosity(0)
+		//dark()
 
 	attack_hand()
 		world << charge

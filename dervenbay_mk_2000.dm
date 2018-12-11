@@ -21,8 +21,8 @@ world
 	goodbay()
 	init_z_pixel()
 
-	global_turf_init()
-	my_light()
+	//global_turf_init()
+	sd_SetDarkIcon()
 
 	start_processing()
 	spawn(1)

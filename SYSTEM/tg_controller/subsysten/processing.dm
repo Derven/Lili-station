@@ -18,7 +18,6 @@ var/datum/controller/subsystem/processing/SSprocessing
 	..("[stat_tag]:[processing.len]")
 
 /datum/controller/subsystem/processing/fire(resumed = 0)
-	world << "HUI"
 	if (!resumed)
 		currentrun = processing.Copy()
 	//cache for sanic speed (lists are references anyways)

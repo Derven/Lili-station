@@ -33,7 +33,6 @@ proc/global_turf_init()
 	for(var/obj/machinery/lamp/O in world)
 		O.init_turf()
 
-
 /atom/proc/dark()
 	for(var/atom/LI in view(6,src))
 		if(istype(LI, /turf) || istype(LI, /obj))
@@ -100,7 +99,6 @@ proc/global_turf_init()
 		NORTHTURF.lightcapacity = 0
 		NORTHTURF.lightcapacity = 0
 
-
 /atom
 	proc/mylightcolor()
 		if(!(istype(src, /turf/space)))
@@ -119,8 +117,7 @@ proc/global_turf_init()
 					color = null
 
 proc/my_light()
-	spawn(5)
-		for(var/turf/A in world)
-			if(istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated))
-				A.mylightcolor()
+	for(var/turf/A in world)
+		if(istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated))
+			A.mylightcolor()
 

@@ -4,6 +4,7 @@
 	icon_state = "consol"
 	power_channel = ENVIRON
 	idle_power_usage = 200
+	luminosity = 2
 
 	var
 		mystate = "off"

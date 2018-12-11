@@ -15,11 +15,11 @@
 		sound = soundreturn()
 
 		if (prob(probality))
-			if(A && A:client && !A:client:played)
+			if(A && A.client && !A.client.played)
 				A << sound(sound, repeat = 0, wait = 0, volume = 35, channel = 1)
 				A:client:played = 1
 				spawn(600)
-					if(A && A:client)
+					if(A && A.client)
 						A:client:played = 0
 
 	Entered(mob/A)

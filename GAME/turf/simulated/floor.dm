@@ -11,6 +11,8 @@
 	nitrogen = MOLES_N2STANDARD
 
 	attack_hand()
+		var/area/A = loc
+		world << A.sd_light_level
 
 	ex_act()
 		for(var/mob/M in range(2, src))

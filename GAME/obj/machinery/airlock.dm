@@ -34,8 +34,11 @@
 				close = 0
 				density = 0
 				opacity = 0
+				sd_SetOpacity(0)
 				T.blocks_air = 0
+
 			else
+				sd_SetOpacity(1)
 				close = 1
 				T.blocks_air = 1
 				density = 1
