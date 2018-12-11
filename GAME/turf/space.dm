@@ -2,6 +2,7 @@
 	icon = 'space.dmi'
 	name = "space"
 	icon_state = "placeholder"
+	luminosity = 1
 	layer = 0.5
 
 	temperature = 0
