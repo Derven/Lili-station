@@ -9,6 +9,9 @@
 	var
 		mystate = "off"
 
+	process()
+		sd_SetLuminosity(2)
+
 /obj/machinery/consol/arcade
 	name = "arcade machine"
 	desc = "Does not support Pin ball."

@@ -19,11 +19,6 @@
 		sd_SetLuminosity(0)
 		//dark()
 
-	attack_hand()
-		sd_SetLuminosity(0)
-		del(src)
-		world << charge
-
 /obj/machinery/tablelamp
 	power_channel = LIGHT
 	idle_power_usage = 100

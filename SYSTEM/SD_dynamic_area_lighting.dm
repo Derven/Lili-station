@@ -647,22 +647,23 @@ area
 				luminosity = 0
 
 			for(var/atom/A in src)
-				if(!(istype(A, /turf/space)) && !(istype(A, /mob)) && !(istype(A, /obj/item)))
-					switch(sd_light_level)
-						if(5)
-							A.color = "#f2f2ef"
-						if(4)
-							A.color = "#d8d8d6"
-						if(3)
-							A.color = "#cccccc"
-						if(2)
-							A.color = "#c6c6c4"
-						if(1)
-							A.color = "#a3a3a1"
-						if(0)
-							A.color = "#777776"
-						else
-							A.color = null
+				if(!istype(A, /area))
+					if(!(istype(A, /turf/space)) && !(istype(A, /mob)) && !(istype(A, /obj/item)))
+						switch(sd_light_level)
+							if(5)
+								A.color = "#f2f2ef"
+							if(4)
+								A.color = "#d8d8d6"
+							if(3)
+								A.color = "#cccccc"
+							if(2)
+								A.color = "#c6c6c4"
+							if(1)
+								A.color = "#a3a3a1"
+							if(0)
+								A.color = "#777776"
+							else
+								A.color = null
 
 			//sd_darkimage = image(sd_dark_icon,,num2text(level),sd_light_layer)
 			//overlays += sd_darkimage
