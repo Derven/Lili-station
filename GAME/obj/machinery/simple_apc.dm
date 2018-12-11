@@ -7,7 +7,7 @@
 	anchored = 1
 
 	attack_hand()
-		world << charge
+		usr << charge
 
 	New()
 		..()

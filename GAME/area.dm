@@ -23,7 +23,8 @@
 						A:client:played = 0
 
 	Entered(mob/A)
-		ambplay(A)
+		if(istype(A, /mob))
+			ambplay(A)
 
 	lobby
 		Entered(mob/A)
