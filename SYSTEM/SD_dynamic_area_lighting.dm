@@ -625,9 +625,9 @@ area
 						if(3)
 							A.color = "#cccccc"
 						if(2)
-							A.color = "#a3a3a1"
-						if(1)
 							A.color = "#c6c6c4"
+						if(1)
+							A.color = "#a3a3a1"
 						if(0)
 							A.color = "#777776"
 						else
