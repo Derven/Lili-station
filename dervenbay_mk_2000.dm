@@ -21,6 +21,8 @@ world
 	goodbay()
 	init_z_pixel()
 
+	fun = new()
+
 	//global_turf_init()
 	sd_SetDarkIcon()
 

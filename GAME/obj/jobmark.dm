@@ -15,6 +15,6 @@
 		invisibility = 101
 
 	process()
-		if(prob(5))
+		if(prob(4))
 			var/obj/critter/C = pick(/obj/critter/killertomato/fox_on_bike/syndi1, /obj/critter/killertomato/fox_on_bike/syndi2)
 			new C(src.loc)

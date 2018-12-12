@@ -77,6 +77,8 @@
 	proc/patrol_step()
 		var/moveto = locate(src.x + rand(-1,1),src.y + rand(-1, 1),src.z)
 		if (istype(moveto, /turf/simulated/floor) || istype(moveto, /turf/unsimulated/floor)) step_towards(src, moveto)
+		if(istype(src, /obj/critter/killertomato/fox_on_bike/syndi1) || istype(src, /obj/critter/killertomato/fox_on_bike/syndi2))
+			if (istype(moveto, /turf/space)) step_towards(src, moveto)
 		if(src.aggressive) seek_target()
 		steps += 1
 		if (steps == rand(5,20)) src.task = "thinking"
@@ -529,6 +531,14 @@
 				del(Proj)
 			return 0
 
+		CritterAttack(mob/M)
+			src.attacking = 1
+			for(var/mob/O in viewers(src, null))
+				O.show_message("\red <B>[src]</B> attacks [src.target] with lightsaber!", 1)
+			M.rand_damage(8, 19)
+			spawn(10)
+				src.attacking = 0
+
 		seek_target()
 			src.anchored = 0
 			for (var/mob/C in view(src.seekrange,src))
@@ -557,6 +567,14 @@
 				health -= rand(Proj.damage - rand(1,4), Proj.damage)
 				del(Proj)
 			return 0
+
+		CritterAttack(mob/M)
+			src.attacking = 1
+			for(var/mob/O in viewers(src, null))
+				O.show_message("\red <B>[src]</B> attacks [src.target] with lightsaber!", 1)
+			M.rand_damage(4, 15)
+			spawn(10)
+				src.attacking = 0
 
 		seek_target()
 			src.anchored = 0

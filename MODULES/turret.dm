@@ -10,14 +10,17 @@
 
 	attack_hand()
 		sleep(4)
+		var/guncharge = 0
 		for(var/obj/machinery/simple_apc/SA in range(8, src))
-			SA.charge = SA.charge - 1200
-		var/i = 3
-		while(i > 0)
-			for(var/mob/M in range(5,src))
-				M << 'Laser22.ogg'
-			i -= 1
-			sleep(rand(1,2))
-			var/obj/item/projectile/beam/particles/A = new /obj/item/projectile/beam/particles(src.loc)
-			A.dir = dir
-			A.process()
+			SA.charge = SA.charge - 3200
+			guncharge = SA.charge + 3200
+		if(guncharge > 3200)
+			var/i = 3
+			while(i > 0)
+				for(var/mob/M in range(5,src))
+					M << 'Laser22.ogg'
+				i -= 1
+				sleep(rand(1,2))
+				var/obj/item/projectile/beam/particles/A = new /obj/item/projectile/beam/particles(src.loc)
+				A.dir = dir
+				A.process()

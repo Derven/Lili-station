@@ -34,6 +34,7 @@
 #include "GAME\crutches.dm"
 #include "GAME\dervenzone.dm"
 #include "GAME\diagonal_movement.dm"
+#include "GAME\events.dm"
 #include "GAME\interaction_procs.dm"
 #include "GAME\jobs.dm"
 #include "GAME\mob.dm"
