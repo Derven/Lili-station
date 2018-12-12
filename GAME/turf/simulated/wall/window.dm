@@ -87,6 +87,8 @@
 			new /obj/item/stack/glass(src)
 		else
 			health -= W.force
+			for(var/mob/M in range(5, src))
+				M << 'Glasshit.ogg'
 			usr << usr.select_lang("\red Вы бьете стекло с помощью [W]", "\red You punch the glass with [W]")
 			update_icon()
 			if(istype(src, /turf/unsimulated/wall/window))

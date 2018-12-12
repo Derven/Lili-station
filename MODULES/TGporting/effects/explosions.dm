@@ -61,8 +61,8 @@
 			src.force_to(value, WEST)
 
 proc/boom(irange, epcntr)
+	new /obj/effect/expl_particles(epcntr)
 	for(var/atom/A in range(irange, epcntr))
-		new /obj/effect/expl_particles(epcntr)
 		if(istype(A, /obj))
 			var/obj/M = A
 			if(prob(65))
@@ -76,7 +76,8 @@ proc/boom(irange, epcntr)
 					MOB << "<b>[M] flew away!</b>"
 				M.force_all_directions(turn(get_dir(A.loc,epcntr), 180), irange * 2)
 				return
-		A.ex_act()
+		else
+			A.ex_act()
 
 /atom
 	var/robustness = 5

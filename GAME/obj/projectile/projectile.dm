@@ -85,16 +85,28 @@
 				if(permutation == -1) // the bullet passes through a dense object!
 					bumped = 0 // reset bumped variable!
 					if(istype(A, /turf))
-						loc = A
+						world << "debug0"
+						if(A.density == 0 || A.opacity == 0)
+							loc = A
+							world << "debug1"
+						else
+							world << "debug"
+							A.bullet_act(src)
+							return
 					else
 						loc = A.loc
 					return
 
 				if(istype(A,/turf))
-					for(var/obj/O in A)
-						O.bullet_act(src)
-					for(var/mob/M in A)
-						M.bullet_act(src, def_zone)
+					world << "debug01"
+					if(A.density == 0 || A.opacity == 0)
+						for(var/obj/O in A)
+							O.bullet_act(src)
+						for(var/mob/M in A)
+							M.bullet_act(src, def_zone)
+					else
+						world << "debug"
+						A.bullet_act(src)
 
 				density = 0
 				invisibility = 101
@@ -121,6 +133,9 @@
 						A.bullet_act(src)
 					else
 						A.bullet_act(src, def_zone)
+			var/turf/T = loc
+			if(T.density == 1 && T.opacity == 1)
+				T.bullet_act(src)
 			if((x == 1 || x == world.maxx || y == 1 || y == world.maxy))
 				del(src)
 				return

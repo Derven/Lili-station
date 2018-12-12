@@ -17,11 +17,18 @@
 	CanPass()
 		return 0
 
+	bullet_act(var/obj/item/projectile/Proj)
+		if(Proj.firer != src)
+			if(istype(Proj, /obj/item/projectile/beam/explosive))
+				boom(rand(1,2), src)
+			del(Proj)
+		return 0
+
 	ex_act()
 		for(var/mob/M in range(2, src))
 			M << 'Explosion2.ogg'
-			if(rand(1, 100) < 100 - robustness)
-				src = new /turf/simulated/floor/plating(src)
+		if(rand(1, 100) < 100 - robustness)
+			src = new /turf/simulated/floor/plating(src)
 
 	attackby(obj/item/O as obj, mob/user as mob)
 		if(istype(O, /obj/item/weapon/weldingtool))

@@ -24,6 +24,9 @@
 	icon_state = "laser"
 	projectile_type = "/obj/item/projectile/beam"
 
+	explosive
+		projectile_type = "/obj/item/projectile/beam/explosive"
+
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser gun"
 	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice."
@@ -78,6 +81,8 @@ obj/item/weapon/gun/energy/laser/retro
 	damage_type = BURN
 	flag = "laser"
 	eyeblur = 2
+
+/obj/item/projectile/beam/explosive
 
 /obj/item/projectile/beam/practice
 	damage = 0

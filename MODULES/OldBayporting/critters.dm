@@ -81,8 +81,14 @@
 		steps += 1
 		if (steps == rand(5,20)) src.task = "thinking"
 
-	Bump(M as mob|obj)
+	Bump(var/atom/M)
 		spawn(0)
+			if(istype(M, /turf/unsimulated/wall/window))
+				var/turf/unsimulated/wall/window/WIN = M
+				for(var/mob/A in range(5, M))
+					A << 'Glasshit.ogg'
+				WIN.health -= rand(15, 25)
+				WIN.update_icon()
 			if ((istype(M, /obj/machinery/airlock)))
 				var/obj/machinery/airlock/D = M
 				if (src.opensdoors)
@@ -113,7 +119,7 @@
 			return
 		return
 
-	Bumped(M as mob|obj)
+	Bumped(M as mob|obj|turf)
 		spawn(0)
 			var/turf/T = get_turf(src)
 			M:loc = T
@@ -185,6 +191,20 @@
 					else
 						var/turf/olddist = get_dist(src, src.target)
 						walk_to(src, src.target,1,4)
+						if(istype(src, /obj/critter/killertomato/fox_on_bike/syndi1) || istype(src, /obj/critter/killertomato/fox_on_bike/syndi2))
+							if(prob(45))
+								for(var/mob/M in range(7,src))
+									M << 'Laser22.ogg'
+								var/mob/M = src.target
+								dir = turn(M.dir, 180)
+								var/obj/item/projectile/beam/A
+								if(prob(35))
+									A = new /obj/item/projectile/beam/explosive(src.loc)
+								else
+									A = new /obj/item/projectile/beam(src.loc)
+								A.firer = src
+								A.dir = dir
+								A.process()
 						if ((get_dist(src, src.target)) >= (olddist))
 							src.frustration++
 						else
@@ -494,6 +514,67 @@
 	icon_state = "fox"
 	name="plinfox"
 
+	New()
+		..()
+		process()
+
+	syndi1
+		icon_state = "syndi1"
+		name="syndicate soldier"
+		seekrange = 14
+
+		bullet_act(var/obj/item/projectile/Proj)
+			if(Proj.firer != src)
+				health -= rand(Proj.damage - rand(1,4), Proj.damage)
+				del(Proj)
+			return 0
+
+		seek_target()
+			src.anchored = 0
+			for (var/mob/C in view(src.seekrange,src))
+				if ((C.name == src.oldtarget_name) && (world.time < src.last_found + 100)) continue
+				if (istype(C, /mob/) && !src.atkcarbon) continue
+				if (C.death != 0) continue
+				if (C.name == src.attacker) src.attack = 1
+				if (istype(C, /mob) && src.atkcarbon) src.attack = 1
+
+				if (src.attack)
+					src.target = C
+					src.oldtarget_name = C.name
+					////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
+					src.task = "chasing"
+					break
+				else
+					continue
+
+	syndi2
+		icon_state = "syndi2"
+		name="syndicate soldier"
+		seekrange = 14
+
+		bullet_act(var/obj/item/projectile/Proj)
+			if(Proj.firer != src)
+				health -= rand(Proj.damage - rand(1,4), Proj.damage)
+				del(Proj)
+			return 0
+
+		seek_target()
+			src.anchored = 0
+			for (var/mob/C in view(src.seekrange,src))
+				if ((C.name == src.oldtarget_name) && (world.time < src.last_found + 100)) continue
+				if (istype(C, /mob/) && !src.atkcarbon) continue
+				if (C.death != 0) continue
+				if (C.name == src.attacker) src.attack = 1
+				if (istype(C, /mob) && src.atkcarbon) src.attack = 1
+
+				if (src.attack)
+					src.target = C
+					src.oldtarget_name = C.name
+					////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
+					src.task = "chasing"
+					break
+				else
+					continue
 
 /obj/critter/mimic
 	name = "mechanical toolbox"
