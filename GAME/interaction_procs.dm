@@ -37,14 +37,6 @@
 	Bump(var/atom/A)
 		if(istype(src, /mob/ghost) || !client)
 			return
-		var/MY_PAIN
-		var/turf/OTBROSOK = get_step(src, turn(dir, 180))
-		if(usr.client.run_intent == 2)
-			if(prob(60))
-				MY_PAIN = get_organ("head")
-			if(prob(40))
-				MY_PAIN = get_organ(pick("chest", "r_leg", "l_leg","r_arm", "l_arm"))
-
 		if(istype(A, /obj/structure))
 			var/obj/structure/S = A
 			if(S.anchored == 0 && S.density == 1)
@@ -62,20 +54,6 @@
 
 		if(istype(A, /obj/machinery/airlock))
 			var/obj/machinery/airlock/A_LOCK = A
-			if(MY_PAIN && A_LOCK.charge == 0 && A_LOCK.close == 1)
-				if(MY_PAIN == get_organ("head"))
-					apply_damage(rand(2, 7) - defense, "brute" , MY_PAIN, 0)
-					for(var/mob/mober in range(5, A))
-						mober << mober.select_lang("\red [name] врезалс&#255; в аирлок", "\red [name] smash to the airlock")
-						mober << 'smash.ogg'
-					Move(OTBROSOK)
-					rest()
-					run_intent()
-					RI.icon_state = "walk"
-				else
-					apply_damage(rand(2, 7) - defense, "brute" , MY_PAIN, 0)
-					Move(OTBROSOK)
-
 			var/turf/simulated/floor/T = src.loc
 			if(A_LOCK.charge == 0)
 				return
@@ -98,24 +76,6 @@
 					flick("close_state",A_LOCK)
 					A_LOCK.icon_state = "close"
 				T.update_air_properties()
-		if(istype(A, /turf/unsimulated/wall))
-			if(usr.client.run_intent == 2 && !istype(usr, /mob/ghost))
-				for(var/mob/mober in range(5, A))
-					mober << mober.select_lang("\red [name] врезалс&#255; в [A]", "\red [name] smash to [A]")
-					mober << 'smash.ogg'
-				if(istype(A, /turf/unsimulated/wall/window))
-					var/turf/unsimulated/wall/window/WIN = A
-					WIN.health -= rand(2, 7)
-					WIN.update_icon()
-				if(MY_PAIN == get_organ("head"))
-					apply_damage(rand(2, 7) - defense, "brute" , MY_PAIN, 0)
-					Move(OTBROSOK)
-					rest()
-					run_intent()
-					RI.icon_state = "walk"
-				else
-					apply_damage(rand(2, 7) - defense, "brute" , MY_PAIN, 0)
-					Move(OTBROSOK)
 
 	attack_hand()
 		if(death == 0 && !istype(src, /mob/ghost))

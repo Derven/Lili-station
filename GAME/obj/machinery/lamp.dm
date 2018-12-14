@@ -12,12 +12,18 @@
 		pixel_y = 64
 
 	proc/light_process()
+		..()
 		sd_SetLuminosity(5)
 		//lumina()
 
 	proc/nolight()
+		..()
 		sd_SetLuminosity(0)
 		//dark()
+
+	Del()
+		sd_SetLuminosity(0)
+		..()
 
 /obj/machinery/tablelamp
 	power_channel = LIGHT
@@ -28,6 +34,10 @@
 	anchored = 1
 	luminosity = 6
 	load = 5
+
+	Del()
+		sd_SetLuminosity(0)
+		..()
 
 /obj/machinery/lamp/process()
 	if(charge <= 0)
