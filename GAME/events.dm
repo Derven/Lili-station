@@ -11,6 +11,10 @@ var/datum/events/fun
 			cur_event = pick(eventslist)
 			world << "\red Current event is [cur_event]!"
 
+			if(cur_event == "meteor")
+				var/obj/meteorspawn = pick(meteormarks)
+				boom(rand(3,5), meteorspawn.loc)
+
 	New()
 		..()
 		myevents()
