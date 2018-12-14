@@ -10,9 +10,6 @@
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
 
-	attack_hand()
-		usr << "brightness:[sd_lumcount]"
-
 	ex_act()
 		for(var/mob/M in range(2, src))
 			M << 'Explosion2.ogg'
