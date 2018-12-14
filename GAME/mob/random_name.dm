@@ -9,7 +9,7 @@ var/global/list/f_first_names = list("Alisa", "Tanya", "Astrid", "Melissa", "Val
 "Chris", "Nora", "Rita", "Kara", "Karen", "Sandy", "Akko", "Ziv", "Diana", "Naomi", "Arina", "Ava", "Olivia","Emma","Chloe","Grace","Sofia","Miya",
 "Hanna", "Adolfina", "Lola", "Abby", "Barbara", "Esther", "Fionna", "Holly", "Carrie", "Jeanne", "Charlie")
 
-var/global/list/last_names1 = list("Craben", "Bob", "Log", "Cock", "Rock", "Flame", "Gram", "Ivan", "Thunder", "Lom", "Pop", "Gray", "Red", "Jack",
+var/global/list/last_names1 = list("Craben", "Solo", "Petr", "Bob", "Log", "Cock", "Rock", "Flame", "Gram", "Ivan", "Thunder", "Lom", "Pop", "Gray", "Red", "Jack",
 "Krok", "Bub", "Babakh", "Ein", "Like", "Stain", "Stein", "West", "Stone", "Black", "Chain", "Torch", "Sex ","Cold","Ray","Willer","Filat","Lamb","Stas",
 "Bucks", "Strat", "Trap", "Burger", "Meme", "Git", "Dam", "Smith", "Cooper", "King", "Hall", "Green", "Crime ","Bjorn")
 
