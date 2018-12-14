@@ -12,6 +12,19 @@
 	process()
 		sd_SetLuminosity(2)
 
+/obj/machinery/serverbox
+	icon = 'stationobjs.dmi'
+	name = "communication server"
+	icon_state = "serverbox"
+	density = 1
+	anchored = 1
+
+	process()
+		sleep(150)
+		for(var/mob/M in range(2, src))
+			M << 'signal.ogg'
+
+
 /obj/machinery/consol/arcade
 	name = "arcade machine"
 	desc = "Does not support Pin ball."

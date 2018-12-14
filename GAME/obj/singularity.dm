@@ -11,7 +11,6 @@
 			del(Proj)
 			del(src)
 
-
 /obj/singularity
 	icon = 'singularity.dmi'
 	icon_state = "singularity"
@@ -97,7 +96,6 @@ proc/geom_prg(var/i, var/g, var/counter, var/mxcnt)
 	proc/pewpew()
 		if(check_all_connect() == 1)
 			for(var/obj/machinery/pa/segment4/s4 in world)
-				world << "pew"
 				var/obj/item/projectile/beam/particles/A = new /obj/item/projectile/beam/particles(s4.loc)
 				A.dir = 4
 				A.process()

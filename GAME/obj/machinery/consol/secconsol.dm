@@ -41,7 +41,6 @@ var/CAMid = 0
 
 /obj/machinery/consol/camera_control/Topic(href,href_list[])
 	if(href_list["cid"])
-		world << "HI"
 		var/cam_id = text2num(href_list["cid"])
 		for(var/obj/machinery/camera/C in world)
 			if(C.id == cam_id)

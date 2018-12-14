@@ -12,13 +12,15 @@
 		pixel_y = 64
 
 	proc/light_process()
+		if(src)
+			sd_SetLuminosity(5)
 		..()
-		sd_SetLuminosity(5)
 		//lumina()
 
 	proc/nolight()
+		if(src)
+			sd_SetLuminosity(0)
 		..()
-		sd_SetLuminosity(0)
 		//dark()
 
 	Del()
