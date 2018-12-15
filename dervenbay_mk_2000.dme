@@ -38,6 +38,7 @@
 #include "GAME\interaction_procs.dm"
 #include "GAME\jobs.dm"
 #include "GAME\mob.dm"
+#include "GAME\nuclear.dm"
 #include "GAME\obj.dm"
 #include "GAME\bots\secbot.dm"
 #include "GAME\datum\organs.dm"

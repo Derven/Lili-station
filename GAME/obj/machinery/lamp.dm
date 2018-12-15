@@ -23,9 +23,16 @@
 		..()
 		//dark()
 
-	Del()
-		sd_SetLuminosity(0)
+	ex_act()
 		..()
+		sd_SetLuminosity(0)
+		sleep(1)
+		del(src)
+
+	Move()
+		return
+
+
 
 /obj/machinery/tablelamp
 	power_channel = LIGHT

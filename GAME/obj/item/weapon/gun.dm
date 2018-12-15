@@ -32,6 +32,15 @@
 			return
 
 		if(!special_check(usr))	return
+
+		if(istype(src, /obj/item/weapon/gun/energy/lasercannon))
+			var/obj/item/weapon/gun/energy/lasercannon/LC = src
+			if(LC.mypower < 0)
+				usr << "\red Oh no! Battery need recharge!"
+				return
+			else
+				LC.mypower -= 1
+
 		if(!load_into_chamber())
 			usr << "\red *click*";
 			return
@@ -62,7 +71,7 @@
 		in_chamber.yo = targloc.y - curloc.y
 		in_chamber.xo = targloc.x - curloc.x
 		for(var/mob/B in range(usr, 6))
-			B << 'Laser.ogg'
+			B << 'Laser22.ogg'
 		flick("laser_pew", src)
 
 

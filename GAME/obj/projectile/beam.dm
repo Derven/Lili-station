@@ -71,7 +71,8 @@ obj/item/weapon/gun/energy/laser/retro
 	name = "laser cannon"
 	desc = "With the L.A.S.E.R. cannon, the lasing medium is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core. This incredible technology may help YOU achieve high excitation rates with small laser volumes!"
 	icon_state = "lasercannon"
-	projectile_type = "/obj/item/projectile/beam/heavylaser"
+	projectile_type = "/obj/item/projectile/beam/explosive"
+	var/mypower = 5
 
 /obj/item/projectile/beam
 	name = "laser"

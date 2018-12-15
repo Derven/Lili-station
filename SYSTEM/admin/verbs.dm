@@ -5,6 +5,7 @@ var/list/admin_verbs = list(\
 	/client/proc/player_panel,\
 	/client/proc/Spawn,\
 	/client/proc/small_boom,\
+	/client/proc/nuclear,\
 	/client/proc/world_reboot)
 
 /client/proc/pm(mob/m as mob in world, msg as text)
@@ -73,7 +74,14 @@ var/list/admin_verbs = list(\
 /client/proc/small_boom()
 	set name = "boom"
 	set category = "Admin"
-	boom(4, mob.loc)
+	boom(6, mob.loc)
+
+/client/proc/nuclear()
+	set name = "nuclear"
+	set category = "Admin"
+	for(var/obj/nucmark/N in world)
+		new /obj/machinery/nuka(N.loc)
+
 
 /client/proc/Spawn()
 	set name = "spawn"

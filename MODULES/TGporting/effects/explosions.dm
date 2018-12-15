@@ -63,20 +63,25 @@
 proc/boom(irange, epcntr)
 	new /obj/effect/expl_particles(epcntr)
 	for(var/atom/A in range(irange, epcntr))
-		if(istype(A, /obj))
-			var/obj/M = A
-			if(prob(65))
-				if(M.anchored == 1)
-					if(prob(45))
-						M.anchored = 0
-				else
-					M.ex_act()
-					return
-				for(var/mob/MOB in range(5, M))
-					MOB << "<b>[M] flew away!</b>"
-				M.force_all_directions(turn(get_dir(A.loc,epcntr), 180), irange * 2)
-				return
-		else
+		if(!istype(A, /area))
+			if(istype(A, /obj))
+				var/obj/M = A
+				if(prob(65))
+					if(M.anchored == 1)
+						if(prob(45))
+							M.anchored = 0
+					else
+						M.ex_act()
+					for(var/mob/MOB in range(5, M))
+						MOB << "<b>[M] flew away!</b>"
+					M.force_all_directions(turn(get_dir(A.loc,epcntr), 180), irange * 2)
+			else
+				A.ex_act()
+
+proc/nuc_boom(irange, epcntr)
+	new /obj/effect/expl_particles(epcntr)
+	for(var/atom/A in range(irange, epcntr))
+		if(!istype(A, /area))
 			A.ex_act()
 
 /atom

@@ -21,6 +21,8 @@
 		if(Proj.firer != src)
 			if(istype(Proj, /obj/item/projectile/beam/explosive))
 				boom(rand(1,2), src)
+			else
+				new /obj/effect/sparks(src)
 			del(Proj)
 		return 0
 
