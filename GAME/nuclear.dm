@@ -18,7 +18,7 @@
 
 	Bump(var/atom/A)
 		if(istype(A, /turf/unsimulated/wall))
+			invisibility = 101
 			nuc_boom(70, A)
-			layer = 0
 			sleep(60)
 			world.Reboot()

@@ -217,6 +217,7 @@
 #include "MODULES\logic\main.dm"
 #include "MODULES\OldBayporting\alien.dm"
 #include "MODULES\OldBayporting\critters.dm"
+#include "MODULES\OldBayporting\emotes.dm"
 #include "MODULES\OldBayporting\pain.dm"
 #include "MODULES\OldBayporting\disease\analyser.dm"
 #include "MODULES\OldBayporting\disease\base.dm"

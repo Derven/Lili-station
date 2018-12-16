@@ -76,6 +76,9 @@
 						air_master.tiles_to_update.Add(tile)
 			..()
 
+	green
+		icon = 'airlock_green.dmi'
+
 /obj/machinery/airlock/firedor
 	name = "firedoor"
 	icon = 'firedoor.dmi'
