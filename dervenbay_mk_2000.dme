@@ -50,6 +50,7 @@
 #include "GAME\mob\ghost.dm"
 #include "GAME\mob\random_name.dm"
 #include "GAME\obj\blood.dm"
+#include "GAME\obj\conveyor.dm"
 #include "GAME\obj\jobmark.dm"
 #include "GAME\obj\landmark.dm"
 #include "GAME\obj\lobby.dm"
