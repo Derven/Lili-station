@@ -10,11 +10,6 @@
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
 
-	attack_hand()
-		var/datum/gas_mixture/GM = return_air()
-		world << "[GM.oxygen]"
-
-
 	ex_act()
 		for(var/mob/M in range(2, src))
 			M << 'Explosion2.ogg'

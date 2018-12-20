@@ -60,6 +60,12 @@
 			if(locate(/obj/structure/table, east) && locate(/obj/structure/table, west))
 				icon_state = "we"
 
+			if(locate(/obj/structure/table, east) && locate(/obj/structure/table, west) && locate(/obj/structure/table, north))
+				icon_state = "we1"
+
+			if(locate(/obj/structure/table, east) && locate(/obj/structure/table, west) && locate(/obj/structure/table, south))
+				icon_state = "we2"
+
 //			if(locate(/obj/structure/table,get_step(src,direction)))
 //				var/obj/structure/table/T = locate(/obj/structure/table,get_step(src,direction))
 
