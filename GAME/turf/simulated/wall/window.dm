@@ -1,4 +1,4 @@
-/turf/unsimulated/wall/window
+/turf/simulated/wall/window
 	name = "window"
 	icon_state = "window"
 	opacity = 0
@@ -35,7 +35,7 @@
 
 		overlays += damage
 		if(health <= 0)
-			src = new /turf/simulated/floor/plating(src)
+			ReplaceWithPlating()
 
 	merge()
 		var/turf/N = get_step(src, NORTH)
@@ -43,47 +43,47 @@
 		var/turf/W = get_step(src, WEST)
 		var/turf/E = get_step(src, EAST)
 
-		if(N && istype(N, /turf/unsimulated/wall/window))
+		if(N && istype(N, /turf/simulated/wall/window))
 			icon_state = "window_n"
-			if(S && istype(S, /turf/unsimulated/wall/window))
+			if(S && istype(S, /turf/simulated/wall/window))
 				icon_state = "window_ns"
-			if(W && istype(W, /turf/unsimulated/wall/window))
+			if(W && istype(W, /turf/simulated/wall/window))
 				icon_state = "window_nw"
-			if(E && istype(E, /turf/unsimulated/wall/window))
+			if(E && istype(E, /turf/simulated/wall/window))
 				icon_state = "window_ne"
 
-		if(S && istype(S, /turf/unsimulated/wall/window))
+		if(S && istype(S, /turf/simulated/wall/window))
 			icon_state = "window_s"
-			if(N && istype(N, /turf/unsimulated/wall/window))
+			if(N && istype(N, /turf/simulated/wall/window))
 				icon_state = "window_ns"
-			if(W && istype(W, /turf/unsimulated/wall/window))
+			if(W && istype(W, /turf/simulated/wall/window))
 				icon_state = "window_sw"
-			if(E && istype(E, /turf/unsimulated/wall/window))
+			if(E && istype(E, /turf/simulated/wall/window))
 				icon_state = "window_se"
 
-		if(W && istype(W, /turf/unsimulated/wall/window))
+		if(W && istype(W, /turf/simulated/wall/window))
 			icon_state = "window_w"
-			if(N && istype(N, /turf/unsimulated/wall/window))
+			if(N && istype(N, /turf/simulated/wall/window))
 				icon_state = "window_nw"
-			if(S && istype(S, /turf/unsimulated/wall/window))
+			if(S && istype(S, /turf/simulated/wall/window))
 				icon_state = "window_sw"
-			if(E && istype(E, /turf/unsimulated/wall/window))
+			if(E && istype(E, /turf/simulated/wall/window))
 				icon_state = "window_we"
 
-		if(E && istype(E, /turf/unsimulated/wall/window))
+		if(E && istype(E, /turf/simulated/wall/window))
 			icon_state = "window_w"
-			if(N && istype(N, /turf/unsimulated/wall/window))
+			if(N && istype(N, /turf/simulated/wall/window))
 				icon_state = "window_nw"
-			if(S && istype(S, /turf/unsimulated/wall/window))
+			if(S && istype(S, /turf/simulated/wall/window))
 				icon_state = "window_sw"
-			if(E && istype(E, /turf/unsimulated/wall/window))
+			if(E && istype(E, /turf/simulated/wall/window))
 				icon_state = "window_we"
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/screwdriver))
 			for(var/mob/M in range(5, src.loc))
 				M << 'Screwdriver.ogg'
-			src = new /turf/simulated/floor/plating(src)
+			ReplaceWithPlating()
 			new /obj/item/stack/glass(src)
 		else
 			health -= W.force
@@ -91,9 +91,9 @@
 				M << 'Glasshit.ogg'
 			usr << usr.select_lang("\red Вы бьете стекло с помощью [W]", "\red You punch the glass with [W]")
 			update_icon()
-			if(istype(src, /turf/unsimulated/wall/window))
+			if(istype(src, /turf/simulated/wall/window))
 				if(health < 30)
-					src = new /turf/simulated/floor/plating(src)
+					ReplaceWithPlating()
 					//relativewall_neighbours()
 					usr << usr.select_lang("\red Стекло разбиваетс&#255;", "The glass is broken")
 					//del(src)

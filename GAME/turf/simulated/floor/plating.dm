@@ -6,7 +6,7 @@
 		for(var/mob/M in range(2, src))
 			M << 'Explosion2.ogg'
 			if(rand(1, 100) < 100 - robustness)
-				del(src)
+				ReplaceWithSpace()
 
 	icon_state = "plating"
 	pixel_z = -3
@@ -24,7 +24,7 @@
 				W.use()
 				flick("active", W)
 				new /obj/item/stack/tile(src)
-				del(src)
+				ReplaceWithSpace()
 			else
 				usr << "\red Oh no! Need more fuel!"
 				return

@@ -40,7 +40,7 @@
 /atom/movable
 	proc/force_to(var/value_of_force, var/dir_of_force)
 		var/turf/T2 = get_step(src, dir_of_force)
-		while(value_of_force > 0 && (!(istype(T2, /turf/unsimulated/wall))))
+		while(value_of_force > 0 && (!(istype(T2, /turf/simulated/wall))))
 			sleep(2)
 			Move(get_step(src, dir_of_force))
 			value_of_force -= rand(1,3)

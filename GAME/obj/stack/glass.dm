@@ -4,7 +4,7 @@
 	icon_state = "glass"
 
 	attack_self()
-		var/turf/unsimulated/wall/window/F = locate(3, 1, 2)
+		var/turf/simulated/wall/window/F = locate(3, 1, 2)
 		usr.show(F)
 		usr.drop_item_v()
 		del(src)

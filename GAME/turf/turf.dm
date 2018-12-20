@@ -1,11 +1,5 @@
 #define DEBUG 1
 
-/turf/proc/ReplaceWithSpace()
-	var/old_dir = dir
-	var/turf/space/S = new /turf/space( locate(src.x, src.y, src.z) )
-	S.dir = old_dir
-	return S
-
 /turf
 	icon = 'floors.dmi'
 	var/intact = 1 //for floors, use is_plating(), is_steel_floor() and is_light_floor()

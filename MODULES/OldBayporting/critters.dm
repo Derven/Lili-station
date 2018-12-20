@@ -85,8 +85,8 @@
 
 	Bump(var/atom/M)
 		spawn(0)
-			if(istype(M, /turf/unsimulated/wall/window))
-				var/turf/unsimulated/wall/window/WIN = M
+			if(istype(M, /turf/simulated/wall/window))
+				var/turf/simulated/wall/window/WIN = M
 				for(var/mob/A in range(5, M))
 					A << 'Glasshit.ogg'
 				WIN.health -= rand(15, 25)

@@ -232,7 +232,7 @@ mob
 		if(lying)
 			return
 		see_invisible = 16 * (ZLevel-1)
-		var/turf/unsimulated/wall_east
+		var/turf/simulated/wall_east
 
 		if(!istype(src, /mob/ghost))
 			for(var/mob/mober in range(5, src))
@@ -252,7 +252,7 @@ mob
 			if(dir == 1)
 				wall_east = locate(usr.x + 1, usr.y, usr.z)
 
-		for(var/turf/unsimulated/wall/W in range(2, src))
+		for(var/turf/simulated/wall/W in range(2, src))
 			W.clear_for_all()
 
 		if(!istype(loc, /turf/simulated/floor/stairs))
@@ -261,14 +261,14 @@ mob
 		var/oldloc = src.loc
 		..()
 		wall_east = get_step(src, EAST)
-		var/turf/unsimulated/wall_south = get_step(src, SOUTH)
+		var/turf/simulated/wall_south = get_step(src, SOUTH)
 
-		if(wall_east && istype(wall_east, /turf/unsimulated/wall))
-			var/turf/unsimulated/wall/my_wall = wall_east
+		if(wall_east && istype(wall_east, /turf/simulated/wall))
+			var/turf/simulated/wall/my_wall = wall_east
 			my_wall.hide_me()
 
-		if(wall_south && istype(wall_south, /turf/unsimulated/wall))
-			var/turf/unsimulated/wall/my_wall = wall_south
+		if(wall_south && istype(wall_south, /turf/simulated/wall))
+			var/turf/simulated/wall/my_wall = wall_south
 			my_wall.hide_me()
 
 		if(src.pulling)

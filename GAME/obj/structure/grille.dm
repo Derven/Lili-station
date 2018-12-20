@@ -12,7 +12,7 @@
 		usr << usr.select_lang("\red Âû áüåòå ğåøåòêó ñ ïîìîùüş [W]", "\red You punch the grille with [W]")
 		update_icon()
 		if(health < 5)
-			//src = new /turf/simulated/floor/plating(src)
+			//ReplaceWithPlating()
 			//relativewall_neighbours()
 			usr << usr.select_lang("\red Ğåøåòêà ëîìàåòñ&#255;", "The grille is broken")
 			del(src)

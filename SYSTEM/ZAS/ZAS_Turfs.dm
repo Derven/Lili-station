@@ -134,7 +134,7 @@ turf
 				return ..()
 
 		proc/update_air_properties()
-			//. = 1
+			. = 1
 			var/air_directions_archived = air_check_directions
 			air_check_directions = 0
 

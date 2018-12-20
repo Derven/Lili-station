@@ -1,4 +1,4 @@
-/turf/unsimulated/wall/shuttle
+/turf/simulated/wall/shuttle
 
 	merge()
 		return

@@ -17,7 +17,7 @@
 		Move(locate(x+1, y - 1, z))
 
 	Bump(var/atom/A)
-		if(istype(A, /turf/unsimulated/wall))
+		if(istype(A, /turf/simulated/wall))
 			invisibility = 101
 			nuc_boom(70, A)
 			sleep(60)

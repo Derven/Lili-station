@@ -14,15 +14,13 @@
 		var/datum/gas_mixture/GM = return_air()
 		world << "[GM.oxygen]"
 
-/turf/simulated/floor/heat
-	temperature = 11500
 
 	ex_act()
 		for(var/mob/M in range(2, src))
 			M << 'Explosion2.ogg'
 
 			if(rand(1, 100) < 100 - robustness)
-				src = new /turf/simulated/floor/plating(src)
+				ReplaceWithPlating()
 
 			if(rand(1, 100) < rand(1,5))
 				del(src)
@@ -41,5 +39,66 @@
 		if(istype(W, /obj/item/weapon/crowbar))
 			for(var/mob/M in range(5, src.loc))
 				M << 'Crowbar.ogg'
-			src = new /turf/simulated/floor/plating(src)
+			ReplaceWithPlating()
 			new /obj/item/stack/tile(src)
+
+/turf/proc/ReplaceWithPlating()
+	var/prior_icon = icon_old
+	var/old_dir = dir
+
+	var/turf/simulated/floor/plating/W = new /turf/simulated/floor/plating(src)
+
+	W.dir = old_dir
+	if(prior_icon) W.icon_state = prior_icon
+	else W.icon_state = "plating"
+	W.opacity = 0
+
+	if(W && W.air)
+		var/new_ox = 0
+		var/new_n2 = 0
+		var/new_co2 = 0
+		var/new_tx = 0
+		for(var/direction in cardinal)
+			var/turf/T = get_step(src, direction)
+			if(istype(T))
+				var/datum/gas_mixture/G = T.return_air()
+				new_ox += G.oxygen
+				new_n2 += G.nitrogen
+				new_co2 += G.carbon_dioxide
+				new_tx += G.toxins
+
+		W.air.nitrogen = new_n2/4
+		W.air.oxygen = new_ox/4
+		W.air.carbon_dioxide = new_co2/4
+		W.air.toxins = new_tx/4
+		W.air.update_values()
+
+	air_master.tiles_to_update |= W
+
+	var/turf/simulated/north = get_step(W,NORTH)
+	var/turf/simulated/south = get_step(W,SOUTH)
+	var/turf/simulated/east = get_step(W,EAST)
+	var/turf/simulated/west = get_step(W,WEST)
+
+	if(istype(north)) air_master.tiles_to_update |= north
+	if(istype(south)) air_master.tiles_to_update |= south
+	if(istype(east)) air_master.tiles_to_update |= east
+	if(istype(west)) air_master.tiles_to_update |= west
+	return W
+
+/turf/proc/ReplaceWithSpace()
+	var/old_dir = dir
+	var/turf/space/S = new /turf/space( locate(src.x, src.y, src.z) )
+	S.dir = old_dir
+	air_master.tiles_to_update |= S
+
+	var/turf/simulated/north = get_step(S,NORTH)
+	var/turf/simulated/south = get_step(S,SOUTH)
+	var/turf/simulated/east = get_step(S,EAST)
+	var/turf/simulated/west = get_step(S,WEST)
+
+	if(istype(north)) air_master.tiles_to_update |= north
+	if(istype(south)) air_master.tiles_to_update |= south
+	if(istype(east)) air_master.tiles_to_update |= east
+	if(istype(west)) air_master.tiles_to_update |= west
+	return S

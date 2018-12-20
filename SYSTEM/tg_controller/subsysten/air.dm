@@ -20,6 +20,7 @@ datum/controller/subsystem/air_system/fire(resumed = 0)
 			air_master.failed_ticks++
 			if(air_master.failed_ticks > 5)
 				world << "<font color='red'><b>RUNTIMES IN ATMOS TICKER.  Killing air simulation!</font></b>"
+				world << air_master.tick_progress
 				kill_air = 1
 				air_master.failed_ticks = 0
 			/*else if (air_master.failed_ticks > 10)

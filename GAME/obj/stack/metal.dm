@@ -5,7 +5,7 @@
 		icon_state = "metal"
 
 		attack_self()
-			var/turf/unsimulated/wall/W = locate(1, 1, 2)
+			var/turf/simulated/wall/W = locate(1, 1, 2)
 			usr.show(W)
 			usr.drop_item_v()
 			del(src)
