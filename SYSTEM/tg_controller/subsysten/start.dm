@@ -1,4 +1,6 @@
 proc/start_processing()
+
+
 	spawn(3)
 		for(var/obj/O in world)
 			START_PROCESSING(SSobj, O)

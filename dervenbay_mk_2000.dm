@@ -10,18 +10,19 @@ world
 	turf = /turf/space
 	map_format = ISOMETRIC_MAP
 	hub = "SSting.SpaceCruiserAurora"
-	tick_lag = 0.5
+	tick_lag = 0.3
 
 /world/New()
 
 //	master_controller = new /datum/controller/game_controller()
 
-//	radio_controller = new /datum/controller/radio()
+	if(!air_master)
+		air_master = new /datum/controller/air_system()
+		air_master.setup()
+	..()
 
 	goodbay()
 	init_z_pixel()
-
-	fun = new()
 
 	//global_turf_init()
 	sd_SetDarkIcon()
@@ -30,11 +31,6 @@ world
 	spawn(1)
 		Master.Initialize(15, FALSE)
 	Master.process()
-
-	if(!air_master)
-		air_master = new /datum/controller/subsystem/air_system()
-		air_master.setup()
-
 
 	//spawn(-1) master_controller.setup()
 

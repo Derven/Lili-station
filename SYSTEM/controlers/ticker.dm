@@ -151,7 +151,7 @@ var/global/datum/controller/gameticker/ticker
 
 	proc/equip_characters()
 		var/captainless=1
-		for(var/mob/living/carbon/human/player in world)
+		for(var/mob/player in world)
 			if(player && player.mind && player.mind.assigned_role)
 				if(player.mind.assigned_role == "Captain")
 					captainless=0

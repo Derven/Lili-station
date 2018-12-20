@@ -76,6 +76,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		else
 			init_subtypes(/datum/controller/subsystem, subsystems)
 		Master = src
+	..()
 
 /datum/controller/master/Shutdown()
 	processing = FALSE

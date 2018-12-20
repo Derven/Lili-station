@@ -160,7 +160,7 @@ obj/machinery/atmospherics/pipe
 
 		proc/burst()
 			//src.visible_message("\red \bold [src] bursts!");
-			//playsound(src.loc, 'bang.ogg', 25, 1)
+			////playsound(src.loc, 'bang.ogg', 25, 1)
 			//var/datum/effect/effect/system/harmless_smoke_spread/smoke = new
 			//smoke.set_up(1,0, src.loc, 0)
 			//smoke.start()
@@ -820,7 +820,7 @@ obj/machinery/atmospherics/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/u
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 		user << "\red You cannot unwrench this [src], it too exerted due to internal pressure."
 		return 1
-	//playsound(src.loc, 'Ratchet.ogg', 50, 1)
+	////playsound(src.loc, 'Ratchet.ogg', 50, 1)
 	user << "\blue You begin to unfasten \the [src]..."
 	if (do_after(user, 40))
 		new /obj/item/pipe(loc, make_from=src)

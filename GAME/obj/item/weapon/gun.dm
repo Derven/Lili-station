@@ -58,9 +58,9 @@
 			return
 
 		//if(silenced)
-			//playsound(usr, fire_sound, 10, 1)
+			////playsound(usr, fire_sound, 10, 1)
 		//else
-			//playsound(usr, fire_sound, 50, 1)
+			////playsound(usr, fire_sound, 50, 1)
 			//usr.visible_message("\red [usr.name] fires the [src.name]!", "\red You fire the [src.name]!", "\blue You hear a [istype(in_chamber, /obj/item/projectile/beam) ? "laser blast" : "gunshot"]!")
 
 		in_chamber.original = targloc

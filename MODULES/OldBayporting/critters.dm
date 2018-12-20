@@ -289,7 +289,7 @@
 /obj/critter/proc/ChaseAttack(mob/M)
 	for(var/mob/O in viewers(src, null))
 		O.show_message("\red <B>[src]</B> leaps at [src.target]!", 1)
-	////playsound(src.loc, 'sound/weapons/genhit1.ogg', 50, 1, -1)
+	//////playsound(src.loc, 'sound/weapons/genhit1.ogg', 50, 1, -1)
 
 /obj/critter/proc/CritterAttack(mob/M)
 	src.attacking = 1
@@ -353,7 +353,7 @@
 
 	New()
 		..()
-		////playsound(src.loc, pick('MEilive.ogg'), 50, 0)	Strumpetplaya - Not supported
+		//////playsound(src.loc, pick('MEilive.ogg'), 50, 0)	Strumpetplaya - Not supported
 
 	seek_target()
 		src.anchored = 0
@@ -370,7 +370,7 @@
 				src.oldtarget_name = C.name
 				for(var/mob/O in viewers(src, null))
 					O.show_message("\red <b>[src]</b> charges at [C.name]!", 1)
-				////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
+				//////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
 				src.task = "chasing"
 				break
 			else continue
@@ -378,7 +378,7 @@
 	ChaseAttack(mob/M)
 		for(var/mob/O in viewers(src, null))
 			O.show_message("\red <B>[src]</B> slams into [M]!", 1)
-		//playsound(src.loc, 'sound/weapons/genhit1.ogg', 50, 1, -1)
+		////playsound(src.loc, 'sound/weapons/genhit1.ogg', 50, 1, -1)
 
 	CritterAttack(mob/M)
 		src.attacking = 1
@@ -389,7 +389,7 @@
 				if(istype(M,/mob))
 					for(var/mob/O in viewers(src, null))
 						O.show_message("\red <B>[src]</B> ravenously wolfs down [M]!", 1)
-					//playsound(src.loc, 'sound/items/eatfood.ogg', 30, 1, -2)
+					////playsound(src.loc, 'sound/items/eatfood.ogg', 30, 1, -2)
 					M.death(1)
 					M.icon = null
 					M.invisibility = 101
@@ -397,7 +397,7 @@
 					sleep(25)
 					src.target = null
 					src.task = "thinking"
-					////playsound(src.loc, pick('burp_alien.ogg'), 50, 0)	Strumpetplaya - Not supported
+					//////playsound(src.loc, pick('burp_alien.ogg'), 50, 0)	Strumpetplaya - Not supported
 			else
 				for(var/mob/O in viewers(src, null))
 					O.show_message("\red <B>[src]</B> gnashes its teeth in fustration!", 1)
@@ -432,7 +432,7 @@
 				src.oldtarget_name = C.name
 				for(var/mob/O in viewers(src, null))
 					O.show_message("\red <b>[src]</b> charges at [C:name]!", 1)
-				////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
+				//////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
 				src.task = "chasing"
 				break
 			else
@@ -455,7 +455,7 @@
 		for(var/mob/M in range(3, src))
 			M << "<b>[src]</b> messily splatters into a puddle of tomato sauce!"
 		src.alive = 0
-		//playsound(src.loc, 'sound/effects/splat.ogg', 100, 1)
+		////playsound(src.loc, 'sound/effects/splat.ogg', 100, 1)
 		var/obj/blood/B = new(src.loc)
 		B.name = "ruined tomato"
 		del src
@@ -551,7 +551,7 @@
 				if (src.attack)
 					src.target = C
 					src.oldtarget_name = C.name
-					////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
+					//////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
 					src.task = "chasing"
 					break
 				else
@@ -588,7 +588,7 @@
 				if (src.attack)
 					src.target = C
 					src.oldtarget_name = C.name
-					////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
+					//////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
 					src.task = "chasing"
 					break
 				else

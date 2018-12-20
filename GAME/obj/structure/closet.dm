@@ -87,7 +87,7 @@
 
 	src.icon_state = src.icon_opened
 	src.opened = 1
-	//playsound(src.loc, 'click.ogg', 15, 1, -3)
+	////playsound(src.loc, 'click.ogg', 15, 1, -3)
 	density = 0
 	return 1
 
@@ -111,7 +111,7 @@
 		M.loc = src
 	src.icon_state = src.icon_closed
 	src.opened = 0
-	//playsound(src.loc, 'click.ogg', 15, 1, -3)
+	////playsound(src.loc, 'click.ogg', 15, 1, -3)
 	density = 1
 	return 1
 

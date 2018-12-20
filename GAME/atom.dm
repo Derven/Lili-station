@@ -3,6 +3,20 @@
 	Climbing
 	massweight = 0 //some physics
 
+/atom/proc/assume_air(datum/gas_mixture/giver)
+	del(giver)
+	return 0
+
+/atom/proc/remove_air(amount)
+	return null
+
+/atom/proc/return_air()
+	if(loc)
+		return loc.return_air()
+	else
+		return null
+
+
 /atom/proc/ex_act()
 	for(var/mob/M in range(2, src))
 		M << 'Explosion2.ogg'
@@ -51,16 +65,3 @@
 	//var/chem_is_open_container = 0
 	// replaced by OPENCONTAINER flags and atom/proc/is_open_container()
 	///Chemistry.
-
-	proc/assume_air(datum/air_group/giver)
-		del(giver)
-		return null
-
-	proc/remove_air(amount)
-		return null
-
-	proc/return_air()
-		if(loc)
-			return loc.return_air()
-		else
-			return null

@@ -25,3 +25,10 @@
 	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/nutriments, /obj/item/weapon/reagent_containers/glass/bottle/watercan, /obj/item/weapon/reagent_containers/glass/bottle/mutagen)
 	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/nutriments, /obj/item/weapon/reagent_containers/glass/bottle/watercan, /obj/item/weapon/reagent_containers/glass/bottle/mutagen)
 	items_num = list(5, 5, 2)
+
+/obj/machinery/vending/bar
+	icon = 'vendomat_4.dmi'
+	name = "bar master"
+	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/cola)
+	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/cola)
+	items_num = list(3)

@@ -63,7 +63,7 @@
 		location.assume_air(air_contents)
 
 		src.destroyed = 1
-		//playsound(src.loc, 'spray.ogg', 10, 1, -3)
+		////playsound(src.loc, 'spray.ogg', 10, 1, -3)
 		src.density = 0
 		//update_icon()
 

@@ -255,7 +255,7 @@
 		air_contents = new()		// new empty gas resv.
 
 		sleep(10)
-		//playsound(src, 'disposalflush.ogg', 50, 0, 0)
+		////playsound(src, 'disposalflush.ogg', 50, 0, 0)
 		sleep(5) // wait for animation to finish
 
 
@@ -272,7 +272,7 @@
 	// should usually only occur if the pipe network is modified
 	proc/expel(var/obj/structure/disposalholder/H)
 
-		//playsound(src, 'hiss.ogg', 50, 0, 0)
+		////playsound(src, 'hiss.ogg', 50, 0, 0)
 		for(var/atom/movable/AM in H)
 
 			AM.loc = src.loc
@@ -335,7 +335,7 @@
 		var/obj/structure/disposalholder/H = new()
 		H.init(src)
 		sleep(10)
-		//playsound(src, 'disposalflush.ogg', 50, 0, 0)
+		////playsound(src, 'disposalflush.ogg', 50, 0, 0)
 		sleep(30) // To prevent spam.
 		H.start(src)
 		flush--
@@ -446,11 +446,11 @@
 			for (var/mob/M in hearers(src.loc.loc))
 				M << "<FONT size=[max(0, 5 - get_dist(src, M))]>CLONG, clong!</FONT>"
 
-		//playsound(src.loc, 'clang.ogg', 50, 0, 0)
+		////playsound(src.loc, 'clang.ogg', 50, 0, 0)
 
 	// called to vent all gas in holder to a location
 	proc/vent_gas(var/atom/location)
-		location.assume_air(gas)  // vent all gas to turf
+		//location.assume_air(gas)  // vent all gas to turf
 		return
 
 // Disposal pipes
@@ -576,7 +576,7 @@
 			else						// otherwise limit to 10 tiles
 				target = get_ranged_target_turf(T, direction, 10)
 
-			//playsound(src, 'hiss.ogg', 50, 0, 0)
+			////playsound(src, 'hiss.ogg', 50, 0, 0)
 			for(var/atom/movable/AM in H)
 				AM.loc = T
 				AM.pipe_eject(direction)
@@ -588,7 +588,7 @@
 
 		else	// no specified direction, so throw_hyuow in random direction
 
-			//playsound(src, 'hiss.ogg', 50, 0, 0)
+			////playsound(src, 'hiss.ogg', 50, 0, 0)
 			for(var/atom/movable/AM in H)
 				target = get_offset_target_turf(T, rand(5)-rand(5), rand(5)-rand(5))
 
@@ -969,9 +969,9 @@
 	proc/expel(var/obj/structure/disposalholder/H)
 
 		flick("outlet-open", src)
-		//playsound(src, 'warning-buzzer.ogg', 50, 0, 0)
+		////playsound(src, 'warning-buzzer.ogg', 50, 0, 0)
 		sleep(20)	//wait until correct animation frame
-		//playsound(src, 'hiss.ogg', 50, 0, 0)
+		////playsound(src, 'hiss.ogg', 50, 0, 0)
 
 
 		for(var/atom/movable/AM in H)

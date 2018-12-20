@@ -68,11 +68,12 @@
 		var/obj/item/weapon/reagent_containers/food/snacks/meat/newmeat1 = new /obj/item/weapon/reagent_containers/food/snacks/meat
 		var/obj/item/weapon/reagent_containers/food/snacks/meat/newmeat2 = new /obj/item/weapon/reagent_containers/food/snacks/meat
 		var/obj/item/weapon/reagent_containers/food/snacks/meat/newmeat3 = new /obj/item/weapon/reagent_containers/food/snacks/meat
-		src.occupant.loc = loc
-		src.occupant.client.perspective = EDGE_PERSPECTIVE
-		src.occupant.client.eye = src.occupant.client.mob
-		src.occupant.death()
-		del(occupant)
+		if (src.occupant.client)
+			src.occupant.loc = loc
+			src.occupant.client.perspective = EDGE_PERSPECTIVE
+			src.occupant.client.eye = src.occupant.client.mob
+			src.occupant.death()
+			del(occupant)
 
 		spawn(src.gibtime)
 			operating = 0

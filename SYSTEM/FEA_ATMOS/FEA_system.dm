@@ -277,7 +277,6 @@ datum
 				if(current_cycle%10==5) //Check for groups of tiles to resume group processing every 10 cycles
 					for(var/datum/air_group/AG in air_groups)
 						AG.check_regroup()
-
 				return 1
 
 			process_update_tiles()

@@ -32,6 +32,7 @@
 
 	ship
 		luminosity = 0
+		var/atmos = 1
 
 		deck_1
 			name = "test_deck"
@@ -39,6 +40,12 @@
 
 			soundreturn()
 				return pick('ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen5.ogg','ambigen6.ogg','ambigen7.ogg','ambigen8.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
+
+			hallway
+
+			medbay
+
+			geen
 
 		deck_2
 			name = "test_deck"

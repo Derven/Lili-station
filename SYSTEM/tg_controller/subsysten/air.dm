@@ -13,7 +13,17 @@ datum/controller/subsystem/air_system/stat_entry()
 	..("P:[processing.len]")
 
 datum/controller/subsystem/air_system/fire(resumed = 0)
-	air_master.process()
+	if(!kill_air)
+		air_master.current_cycle++
+		var/success = air_master.tick() //Changed so that a runtime does not crash the ticker.
+		if(!success) //Runtimed.
+			air_master.failed_ticks++
+			if(air_master.failed_ticks > 5)
+				world << "<font color='red'><b>RUNTIMES IN ATMOS TICKER.  Killing air simulation!</font></b>"
+				kill_air = 1
+				air_master.failed_ticks = 0
+			/*else if (air_master.failed_ticks > 10)
+				air_master.failed_ticks = 0*/
 
 /datum/controller/subsystem/objects/Recover()
 	processing = SSatmos.processing

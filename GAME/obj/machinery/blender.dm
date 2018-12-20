@@ -67,7 +67,7 @@ the blender or the processor: Processor items are solid objects and Blender resu
 	if(!src.container)
 		usr << usr.select_lang("\red Блендер не имеет контейнера.", "\red The blender doesn't have an attached container!.")
 		return
-	//playsound(src.loc, 'blender.ogg', 50, 1)
+	////playsound(src.loc, 'blender.ogg', 50, 1)
 	src.processing = 1
 	usr << usr.select_lang("\red Вы включаете блендер.", "\blue You turn on the blender.")
 	for(var/obj/O in src.contents)

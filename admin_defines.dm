@@ -7,7 +7,7 @@
 #define MUTE_ADMINHELP	(1<<3)
 #define MUTE_DEADCHAT	(1<<4)
 #define MUTE_ALL		(~0)
-
+#define subtypesof(typepath) ( typesof(typepath) - typepath )
 //Some constants for DB_Ban
 #define BANTYPE_PERMA		1
 #define BANTYPE_TEMP		2

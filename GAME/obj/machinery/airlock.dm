@@ -19,7 +19,6 @@
 		..()
 		var/turf/simulated/floor/T = src.loc
 		T.blocks_air = 1
-		T.update_air_properties()
 
 	attack_hand(mob/user)
 		var/turf/simulated/floor/T = src.loc
@@ -45,35 +44,6 @@
 				opacity = 1
 				flick("close_state",src)
 				icon_state = "close"
-
-		if(!T.blocks_air)
-			T.air = new
-
-			T.air.oxygen = T.oxygen
-			T.air.carbon_dioxide = T.carbon_dioxide
-			T.air.nitrogen = T.nitrogen
-			T.air.toxins = T.toxins
-
-			T.air.temperature = T.temperature
-
-			if(air_master)
-				air_master.tiles_to_update.Add(src)
-
-				T.find_group()
-		else
-			if(air_master)
-				if(T.parent)
-					air_master.groups_to_rebuild.Add(T.parent)
-					T.parent.members.Remove(src)
-				else
-					air_master.active_singletons.Remove(src)
-			if(T.active_hotspot)
-				del(T.active_hotspot)
-			if(T.blocks_air)
-				for(var/direction in list(NORTH, SOUTH, EAST, WEST))
-					var/turf/simulated/tile = get_step(src,direction)
-					if(istype(tile) && !tile.blocks_air)
-						air_master.tiles_to_update.Add(tile)
 			..()
 
 	green
@@ -99,45 +69,3 @@
 	New()
 		icon_state = "open"
 		..()
-
-	process()
-		var/turf/simulated/floor/T = src.loc
-		var/datum/gas_mixture/GM = T.return_air()
-		if(GM.oxygen < 21)
-			if(alert == 0)
-				alert = 1
-				close = 1
-				T.blocks_air = 1
-				density = 1
-				opacity = 1
-				flick("close_state",src)
-				icon_state = "close"
-
-		if(!T.blocks_air)
-			T.air = new
-
-			T.air.oxygen = T.oxygen
-			T.air.carbon_dioxide = T.carbon_dioxide
-			T.air.nitrogen = T.nitrogen
-			T.air.toxins = T.toxins
-
-			T.air.temperature = T.temperature
-
-			if(air_master)
-				air_master.tiles_to_update.Add(src)
-
-				T.find_group()
-		else
-			if(air_master)
-				if(T.parent)
-					air_master.groups_to_rebuild.Add(T.parent)
-					T.parent.members.Remove(src)
-				else
-					air_master.active_singletons.Remove(src)
-			if(T.active_hotspot)
-				del(T.active_hotspot)
-			if(T.blocks_air)
-				for(var/direction in list(NORTH, SOUTH, EAST, WEST))
-					var/turf/simulated/tile = get_step(src,direction)
-					if(istype(tile) && !tile.blocks_air)
-						air_master.tiles_to_update.Add(tile)

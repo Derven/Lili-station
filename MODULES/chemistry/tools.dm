@@ -251,3 +251,14 @@
 		F.air.toxins += 100
 		F.update_air_properties()
 		del(src)
+
+/obj/structure/reagent_dispensers/beertank
+	name = "beertank"
+	desc = "A beertank"
+	icon = 'stationobjs.dmi'
+	icon_state = "beertank"
+	amount_per_transfer_from_this = 10
+
+	New()
+		..()
+		reagents.add_reagent("beer",1000)

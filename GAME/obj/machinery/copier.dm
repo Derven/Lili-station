@@ -101,7 +101,7 @@
 
 			// fx
 			flick("copier_s", src)
-			//playsound(src, 'sound/items/polaroid1.ogg', 50, 1)
+			////playsound(src, 'sound/items/polaroid1.ogg', 50, 1)
 
 			// dup the file
 			if(istype(template, /obj/item/weapon/paper))

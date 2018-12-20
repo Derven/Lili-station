@@ -19,7 +19,7 @@ Using sd_DynamicAreaLighting
 
 	1)	Luminosity changes at run time.
 		If your program makes changes in luminosity while it is
-		running, you need to use sd_SetLuminosity(new_luminosity)
+		running, you need to use sd_//SetLuminosity(new_luminosity)
 		so the library can remove the effects of the old luminosity
 		and apply the new effects.
 
@@ -220,7 +220,7 @@ All atoms have the following procs:
 		IMPORTANT! Each sd_StripLocalLum() call should have a matching
 			sd_ApplyLocalLum() to restore the local effects.
 
-	sd_SetLuminosity(new_luminosity as num)
+	sd_//SetLuminosity(new_luminosity as num)
 		Sets the atom's luminosity, making adjustments to the
 		sd_lumcount of local turfs.
 
