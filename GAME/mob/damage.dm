@@ -286,7 +286,7 @@
 
 	if(istype(I, /obj/item/weapon/flasher))
 		for(var/mob/M in range(3, src))
-			M << 'flash.ogg'
+			M.playsoundforme('flash.ogg')
 			M << "\red [user] blinds [src] with the flash!"
 		rest()
 		if(usr.client)
@@ -298,7 +298,7 @@
 		run_intent()
 	if(istype(I, /obj/item/weapon/fire_ext))
 		for(var/mob/M in range(3, src))
-			M << 'smash2.ogg'
+			M.playsoundforme('smash2.ogg')
 
 
 	if(!I.force)	return 0

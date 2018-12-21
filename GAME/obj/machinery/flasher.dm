@@ -5,7 +5,7 @@
 
 	proc/flash_me_please()
 		for(var/mob/M in range(2, src))
-			M << 'flash.ogg'
+			M.playsoundforme('flash.ogg')
 			M << "\red flasher blinds [M] with the flash!"
 			M.rest()
 			if(M.client)

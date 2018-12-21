@@ -76,7 +76,7 @@
 
 /obj/structure/closet/proc/open()
 	for(var/mob/M in range(5, src))
-		M << 'bin_open.ogg'
+		M.playsoundforme('bin_open.ogg')
 	if(src.opened)
 		return 0
 
@@ -93,7 +93,7 @@
 
 /obj/structure/closet/proc/close()
 	for(var/mob/M in range(5, src))
-		M << 'bin_open.ogg'
+		M.playsoundforme('bin_open.ogg')
 	if(!src.opened)
 		return 0
 	if(!src.can_close())

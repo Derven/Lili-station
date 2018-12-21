@@ -3,6 +3,7 @@ var/list/meteormarks = list()
 
 /obj/jobmark
 	icon = 'landmarks.dmi'
+	var/job = "assistant"
 
 	New()
 		..()

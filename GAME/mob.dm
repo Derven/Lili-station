@@ -12,6 +12,7 @@ mob
 	layer = 18.0
 	animate_movement = 2
 	flags = NOREACT
+	var/job = "assistant"
 	var/datum/mind/mind
 	var/hand = null
 	var/bodytemperature = 310.055
@@ -236,7 +237,7 @@ mob
 
 		if(!istype(src, /mob/ghost))
 			for(var/mob/mober in range(5, src))
-				mober << 'steps.ogg'
+				mober.playsoundforme('steps.ogg')
 
 		for(var/turf/simulated/floor/roof/RF in oview())
 			RF.hide(usr)
@@ -365,12 +366,13 @@ mob
 				<a href='?src=\ref[src];hair=new'> HAIR </a><br> \
 				<a href='?src=\ref[src];display=show'>SCREEN RESOLUTION</a></h3></div> \
 				<h3>JOBS:</h3><hr> \
-				<span class='gray' style=\"{color: darkgray};\">Assistant</span> exists([assist]) <a href='?src=\ref[src];assist=1'>select</a> <br> \
-				<span class='green' style=\"{color: darkgreen};\">Botanist</span> needed(2) exists([botanist])<a href='?src=\ref[src];botanist=0'>select</a><br> \
-				Bartender needed(1) exists([bart]) <a href='?src=\ref[src];bart=0'>select</a><br>  \
-				<span class='sec' style=\"{color: darkred};\">Security</span> needed(2) exists([sec]) <a href='?src=\ref[src];sec=0'>select</a><br>\
-				<span class='eng' style=\"{color: orange};\">Engineer</span> needed(2) exists([engi])<a href='?src=\ref[src];eng=0'>select</a><br> \
-				<span class='doc' style=\"{color: darkblue};\">Doctor</span> needed(2) exists([doc])<a href='?src=\ref[src];doc=0'>select</a><br> \
+				<span class='gray' style=\"{color: darkgray};\">Assistant</span> <a href='?src=\ref[src];assist=1'>select</a> <br> \
+				<span class='green' style=\"{color: darkgreen};\">Botanist</span> <a href='?src=\ref[src];botanist=0'>select</a><br> \
+				Bartender <a href='?src=\ref[src];bart=0'>select</a><br>  \
+				<span class='sec' style=\"{color: darkred};\">Security</span> <a href='?src=\ref[src];sec=0'>select</a><br>\
+				<span class='eng' style=\"{color: orange};\">Engineer</span> <a href='?src=\ref[src];eng=0'>select</a><br> \
+				<span class='doc' style=\"{color: darkblue};\">Doctor</span> <a href='?src=\ref[src];doc=0'>select</a><br> \
+				<span class='cap' style=\"{color: blue};\">Captain</span> <a href='?src=\ref[src];cap=0'>select</a><br> \
 			</div> \
 		</body> \
 	</html>"
@@ -380,14 +382,14 @@ mob
 	lobby_text = " \
 	<html> \
 		<head> \
-			<title> Aurora lobby </title> \
+			<title> lobby </title> \
 		</head> \
 		<body> \
 			<div class=lobby> \
 				<span class=miniheader style=\"{color: #FFDE40; background-color: #200772; width: 100%; border: 4px double #FFDE40;}\">\
 				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
 				<br> \
-				<center><h1>AURORA</h1></center> \
+				<center><h1>Lili station</h1></center> \
 				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \
 				SELECTING <a href='?src=\ref[src];color=select'>COLOR</a><br> \
 				LANGUAGE <a href='?src=\ref[src];lang=eng'> ENG </a> / <a href='?src=\ref[src];lang=rus'> RUS </a><br> \
@@ -395,15 +397,17 @@ mob
 				<a href='?src=\ref[src];hair=new'> HAIR </a><br> \
 				<a href='?src=\ref[src];display=show'>SCREEN RESOLUTION</a></h3></div> \
 				<h3>JOBS:</h3><hr> \
-				<span class='gray' style=\"{color: darkgray};\">Assistant</span> exists([assist]) <a href='?src=\ref[src];assist=1'>select</a> <br> \
-				<span class='green' style=\"{color: darkgreen};\">Botanist</span> needed(2) exists([botanist])<a href='?src=\ref[src];botanist=0'>select</a><br> \
-				Bartender needed(1) exists([bart]) <a href='?src=\ref[src];bart=0'>select</a><br>  \
-				<span class='sec' style=\"{color: darkred};\">Security</span> needed(2) exists([sec]) <a href='?src=\ref[src];sec=0'>select</a><br>\
-				<span class='eng' style=\"{color: orange};\">Engineer</span> needed(2) exists([engi])<a href='?src=\ref[src];eng=0'>select</a><br> \
-				<span class='doc' style=\"{color: darkblue};\">Doctor</span> needed(2) exists([doc])<a href='?src=\ref[src];doc=0'>select</a><br> \
+				<span class='gray' style=\"{color: darkgray};\">Assistant</span> <a href='?src=\ref[src];assist=1'>select</a> <br> \
+				<span class='green' style=\"{color: darkgreen};\">Botanist</span> <a href='?src=\ref[src];botanist=0'>select</a><br> \
+				Bartender <a href='?src=\ref[src];bart=0'>select</a><br>  \
+				<span class='sec' style=\"{color: darkred};\">Security</span> <a href='?src=\ref[src];sec=0'>select</a><br>\
+				<span class='eng' style=\"{color: orange};\">Engineer</span> <a href='?src=\ref[src];eng=0'>select</a><br> \
+				<span class='doc' style=\"{color: darkblue};\">Doctor</span> <a href='?src=\ref[src];doc=0'>select</a><br> \
+				<span class='cap' style=\"{color: blue};\">Captain</span> <a href='?src=\ref[src];cap=0'>select</a><br> \
 			</div> \
 		</body> \
 	</html>"
+	usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
 
 client
 	var/played = 0
@@ -416,7 +420,6 @@ client
 		lobby = new(usr)
 		create_hud(usr.client)
 		create_lobby(usr.client)
-		assist += 1
 		usr << lobbysound
 		show_lobby()
 
@@ -436,28 +439,47 @@ mob/Stat()
 					statpanel("Contents", cur_object_i_see.contents)
 	//if(!istype(cur_object_i_give, /mob) && cur_object_i_give && cur_object_i_give.contents.len > 0) statpanel("container", cur_object_i_give.contents)
 
+/mob/verb/Change_Volume(newv as num)
+	set name = "Change Volume(0-75)"
+	set category = "OOC"
+	if(newv > 75  || newv < 0) src << "\red Your number is out of 0-75 range."
+	client.sound_volume = newv
+
+/client
+	var/sound_volume = 45 //From 0 to 30
+
+/mob/proc/playsoundforme(sound/S as sound)
+	if(client)
+		usr << sound(S,0,0,0,client.sound_volume)
+
 /mob/Topic(href,href_list[])
 	if(href_list["enter"] == "yes")
-		if(ast == 1)
+		if(job == "assistant")
 			wear_on_spawn(/obj/item/clothing/suit/assistant)
-		if(brt == 1)
+		if(job == "bartender")
 			wear_on_spawn(/obj/item/clothing/suit/bartender)
-		if(dct == 1)
+		if(job == "doctor")
 			wear_on_spawn(/obj/item/clothing/suit/med)
-		if(eng == 1)
+		if(job == "engineer")
 			wear_on_spawn(/obj/item/clothing/suit/eng_suit)
-		if(sct == 1)
+		if(job == "security")
 			wear_on_spawn(/obj/item/clothing/suit/security_suit)
-		if(btn == 1)
+		if(job == "botanist")
 			wear_on_spawn(/obj/item/clothing/suit/hydro_suit)
+		if(job == "captain")
+			wear_on_spawn(/obj/item/clothing/suit/captain)
 		usr << sound(null)
 		usr << browse(null, "window=setup")
-		Move(pick(jobmarks))
-		radio_arrival()
+		for(var/obj/jobmark/J in world)
+			if(J.job == job)
+				Move(J.loc)
 		lobby.invisibility = 101
 		density = 1
 		if(name == key || name == "mob")
 			name = rand_name(src)
+		radio_arrival()
+		sleep(2)
+		usr << "<H2>[about_job(job)]</H2>"
 		inlobby = 0
 
 	if(href_list["name"] == "newname")
@@ -487,24 +509,8 @@ mob/Stat()
 		usr.usrcolor = input(usr, "Please select color.", "color") as color
 	//jobs SHIT rewrite pls
 	if(href_list["assist"] == "0")
-		if(ast == 0)
-			assist += 1
-			ast = 1
-			if(btn > 0)
-				botanist -= 1
-				btn = 0
-			if(sct > 0)
-				sct = 0
-				sec -= 1
-			if(dct > 0)
-				dct = 0
-				doc -= 1
-			if(brt > 0)
-				brt = 0
-				bart -= 1
-			if(eng > 0)
-				eng = 0
-				engi -= 1
+		if(job != "assistant")
+			job = "assistant"
 			lobby_refresh()
 			usr << browse(null, "window=setup")
 			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
@@ -512,129 +518,99 @@ mob/Stat()
 			usr << "\red Your job is assistant now or no vacancies!"
 
 	if(href_list["botanist"] == "0")
-		if(btn == 0 || botanist == 2)
-			botanist += 1
-			btn = 1
-			if(ast > 0)
-				assist -= 1
-				ast = 0
-			if(sct > 0)
-				sct = 0
-				sec -= 1
-			if(dct > 0)
-				dct = 0
-				doc -= 1
-			if(brt > 0)
-				brt = 0
-				bart -= 1
-			if(eng > 0)
-				eng = 0
-				engi -= 1
+		if(job != "botanist")
+			job = "botanist"
+			var/i = 0
+			for(var/mob/M in world)
+				if(M.client && M.job == "botanist")
+					i+= 1
+			if(i > 1)
+				usr << "\red No vacancies!"
+				return
 			lobby_refresh()
 			usr << browse(null, "window=setup")
 			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
 		else
-			usr << "\red Your job is botanist now or no vacancies!"
+			usr << "\red Your job is botanist now!"
 
 	if(href_list["sec"] == "0")
-		if(sct == 0 || sec == 2)
-			sec += 1
-			sct = 1
-			if(ast > 0)
-				assist -= 1
-				ast = 0
-			if(btn > 0)
-				btn = 0
-				botanist -= 1
-			if(dct > 0)
-				dct = 0
-				doc -= 1
-			if(brt > 0)
-				brt = 0
-				bart -= 1
-			if(eng > 0)
-				eng = 0
-				engi -= 1
+		if(job != "security")
+			job = "security"
+			var/i = 0
+			for(var/mob/M in world)
+				if(M.client && M.job == "security")
+					i+= 1
+			if(i > 4)
+				usr << "\red No vacancies!"
+				return
 			lobby_refresh()
 			usr << browse(null, "window=setup")
 			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
 		else
-			usr << "\red Your job is security now or no vacancies!"
+			usr << "\red Your job is security now!"
 
 	if(href_list["eng"] == "0")
-		if(eng == 0 || engi == 2)
-			engi += 1
-			eng = 1
-			if(ast > 0)
-				assist -= 1
-				ast = 0
-			if(btn > 0)
-				btn = 0
-				botanist -= 1
-			if(dct > 0)
-				dct = 0
-				doc -= 1
-			if(brt > 0)
-				brt = 0
-				bart -= 1
-			if(sct > 0)
-				sct = 0
-				sec -= 1
+		if(job != "engineer")
+			job = "engineer"
+			var/i = 0
+			for(var/mob/M in world)
+				if(M.client && M.job == "engineer")
+					i+= 1
+			if(i > 1)
+				usr << "\red No vacancies!"
+				return
 			lobby_refresh()
 			usr << browse(null, "window=setup")
 			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
 		else
-			usr << "\red Your job is engineer now or no vacancies!"
+			usr << "\red Your job is engineer now!"
 
 	if(href_list["doc"] == "0")
-		if(dct == 0 || doc == 2)
-			doc += 1
-			dct = 1
-			if(ast > 0)
-				assist -= 1
-				ast = 0
-			if(btn > 0)
-				btn = 0
-				botanist -= 1
-			if(engi > 0)
-				eng = 0
-				engi -= 1
-			if(brt > 0)
-				brt = 0
-				bart -= 1
-			if(sct > 0)
-				sct = 0
-				sec -= 1
+		if(job != "doctor")
+			job = "doctor"
+			var/i = 0
+			for(var/mob/M in world)
+				if(M.client && M.job == "doctor")
+					i+= 1
+			if(i > 3)
+				usr << "\red No vacancies!"
+				return
 			lobby_refresh()
 			usr << browse(null, "window=setup")
 			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
 		else
-			usr << "\red Your job is doctor now or no vacancies!"
+			usr << "\red Your job is doctor now!"
+
+	if(href_list["cap"] == "0")
+		if(job != "captain")
+			job = "captain"
+			var/i = 0
+			for(var/mob/M in world)
+				if(M.client && M.job == "doctor")
+					i+= 1
+			if(i > 0)
+				usr << "\red No vacancies!"
+				return
+			lobby_refresh()
+			usr << browse(null, "window=setup")
+			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
+		else
+			usr << "\red Your job is captain now!"
 
 	if(href_list["bart"] == "0")
-		if(brt == 0 || bart == 1)
-			bart +=1
-			brt = 1
-			if(ast > 0)
-				assist -= 1
-				ast = 0
-			if(btn > 0)
-				btn = 0
-				botanist -= 1
-			if(engi > 0)
-				eng = 0
-				engi -= 1
-			if(dct > 0)
-				dct = 0
-				doc -= 1
-			if(sct > 0)
-				sct = 0
-				sec -= 1
+		if(job != "bartender")
+			job = "bartender"
+			var/i = 0
+			for(var/mob/M in world)
+				if(M.client && M.job == "bartender")
+					i+= 1
+			if(i > 0)
+				usr << "\red No vacancies!"
 			lobby_refresh()
 			usr << browse(null, "window=setup")
 			usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
 		else
-			usr << "\red Your job is bartneder now or no vacancies!"
+			usr << "\red Your job is bartender now!"
 
 	return
 /*

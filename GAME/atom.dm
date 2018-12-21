@@ -19,7 +19,7 @@
 
 /atom/proc/ex_act()
 	for(var/mob/M in range(2, src))
-		M << 'Explosion2.ogg'
+		M.playsoundforme('Explosion2.ogg')
 		if(rand(1, 100) < 100 - robustness)
 			del(src)
 

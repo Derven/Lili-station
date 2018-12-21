@@ -40,3 +40,7 @@
 
 /obj/item/clothing/suit/soviet
 	icon_state = "soviet_spacesuit"
+
+/obj/item/clothing/suit/captain
+	icon_state = "captain_suit"
+	space_suit = 1

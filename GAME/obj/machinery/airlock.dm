@@ -43,7 +43,7 @@
 			return
 		else
 			for(var/mob/M in range(5, src))
-				M << 'airlock.ogg'
+				M.playsoundforme('airlock.ogg')
 			if(close == 1)
 				flick("open_state",src)
 				icon_state = "open"

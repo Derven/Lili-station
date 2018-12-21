@@ -22,7 +22,7 @@
 	process()
 		sleep(150)
 		for(var/mob/M in range(2, src))
-			M << 'signal.ogg'
+			M.playsoundforme('signal.ogg')
 
 
 /obj/machinery/consol/arcade

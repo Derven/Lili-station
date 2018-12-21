@@ -11,7 +11,7 @@
 	afterattack(atom/target, mob/user , flag)
 		if(target.type in tometalscraps)
 			for(var/mob/M in range(5, target))
-				M << 'circsawhit.ogg'
+				M.playsoundforme('circsawhit.ogg')
 			if(istype(target, /turf/simulated/wall))
 				new /obj/item/stack/metalore/metalscraps(target)
 				var/turf/simulated/wall/W = target

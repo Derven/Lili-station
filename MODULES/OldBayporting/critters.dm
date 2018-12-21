@@ -88,7 +88,7 @@
 			if(istype(M, /turf/simulated/wall/window))
 				var/turf/simulated/wall/window/WIN = M
 				for(var/mob/A in range(5, M))
-					A << 'Glasshit.ogg'
+					A.playsoundforme('Glasshit.ogg')
 				WIN.health -= rand(15, 25)
 				WIN.update_icon()
 			if ((istype(M, /obj/machinery/airlock)))
@@ -98,7 +98,7 @@
 					if(D.charge == 0)
 						return
 					for(var/mob/MB in range(5, src))
-						MB << 'airlock.ogg'
+						MB.playsoundforme('airlock.ogg')
 					if(D.close == 1)
 						flick("open_state",D)
 						D.icon_state = "open"
@@ -196,7 +196,7 @@
 						if(istype(src, /obj/critter/killertomato/fox_on_bike/syndi1) || istype(src, /obj/critter/killertomato/fox_on_bike/syndi2))
 							if(prob(45))
 								for(var/mob/M in range(7,src))
-									M << 'Laser22.ogg'
+									M.playsoundforme('Laser22.ogg')
 								var/mob/M = src.target
 								dir = turn(M.dir, 180)
 								var/obj/item/projectile/beam/A
@@ -360,7 +360,7 @@
 		for (var/mob/C in view(src.seekrange,src))
 			if ((C.name == src.oldtarget_name) && (world.time < src.last_found + 100)) continue
 			if (istype(C, /mob/) && !src.atkcarbon) continue
-			if (C.btn == 1) continue
+			if (C.job == "botanist") continue
 			if (C.death != 0) continue
 			if (C.name == src.friend) continue
 			if (istype(C, /mob/) && src.atkcarbon) src.attack = 1

@@ -60,7 +60,7 @@
 			else
 				if(istype(A_LOCK, /obj/machinery/airlock/brig/briglock)) return
 				for(var/mob/M in range(5, src))
-					M << 'airlock.ogg'
+					M.playsoundforme('airlock.ogg')
 				if(A_LOCK.close == 1)
 					flick("open_state",A_LOCK)
 					A_LOCK.icon_state = "open"

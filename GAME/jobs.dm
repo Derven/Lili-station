@@ -1,19 +1,11 @@
-//this shit rewrite pls
-var/assist = 0
-var/bart  = 0
-var/botanist  = 0
-var/sec  = 0
-var/doc  = 0
-var/engi  = 0
+//ok_hand
+
+var/list/jobs = list("assitant", "engineer", "chief engineer", "captain", "head of personnel",
+"head of security", "warden", "security", "detective", "lawyer", "quartermaster", "shaft miner",
+"assistant", "janitor", "botanist", "research director", "chief of medical", "doctor", "chemist",
+ "genetist", "scientist", "bartender", "chief", "priest", "clown")
 
 /mob
-	//jobs
-	var/btn = 0
-	var/ast = 1
-	var/sct = 0
-	var/dct = 0
-	var/brt = 0
-	var/eng = 0
 
 	proc/wear_on_spawn(var/mytype)
 		var/obj/item/clothing/CLT = new mytype(src)
@@ -21,3 +13,22 @@ var/engi  = 0
 		cloth = CLT
 		CL.update_slot(CLT)
 		CLT.wear_clothing(src)
+
+	proc/about_job(var/job)
+		switch(job)
+			if("assistant")
+				return "Don't tell them you're a free assistant.</b>"
+			if("bartender")
+				return "Let them get drunk"
+			if("security")
+				return "You ignore space law."
+			if("engineer")
+				return "We build!"
+			if("botanist")
+				return "He steal my potatoes!"
+			if("doctor")
+				return "Casus incurabilis"
+			if("captain")
+				return "Tonight… you pukes will sleep with your rifles! You will give your rifle a girl’s name!\
+			    Because this is the only pussy you people are going to get! Your days of finger-banging old Mary Jane Rottencrotch\
+			    through her pretty pink panties are over! You’re married to this piece, this weapon of iron and wood! And you will be faithful!!"

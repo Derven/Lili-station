@@ -71,7 +71,7 @@
 		in_chamber.yo = targloc.y - curloc.y
 		in_chamber.xo = targloc.x - curloc.x
 		for(var/mob/B in range(usr, 6))
-			B << 'Laser22.ogg'
+			B.playsoundforme('Laser22.ogg')
 		flick("laser_pew", src)
 
 

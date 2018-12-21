@@ -12,7 +12,7 @@
 
 	ex_act()
 		for(var/mob/M in range(2, src))
-			M << 'Explosion2.ogg'
+			M.playsoundforme('Explosion2.ogg')
 
 			if(rand(1, 100) < 100 - robustness)
 				ReplaceWithPlating()
@@ -33,7 +33,7 @@
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/crowbar))
 			for(var/mob/M in range(5, src.loc))
-				M << 'Crowbar.ogg'
+				M.playsoundforme('Crowbar.ogg')
 			ReplaceWithPlating()
 			new /obj/item/stack/tile(src)
 

@@ -58,7 +58,7 @@ obj/item/proc
 
 /mob/proc/pl_effects()
 
-/mob/living/carbon/human/pl_effects()
+/mob/pl_effects()
 	//Handles all the bad things plasma can do.
 
 	//Contamination

@@ -229,8 +229,8 @@ atom/movable
 			step_away(src,loc)
 		if(ismob(src))
 			if(src:nodamage) return
-			if(istype(src, /mob/living/carbon/human))
-				if(istype(src, /mob/living/carbon/human))
+			if(istype(src, /mob))
+				if(istype(src, /mob))
 					if(src:buckled) return
 			src << "\red You are sucked away by airflow!"
 		var/airflow_falloff = 9 - airflow_dest //It's a fast falloff calc.  Very useful.
@@ -280,8 +280,8 @@ atom/movable
 			step_away(src,loc)
 		if(ismob(src))
 			if(src:nodamage) return
-			if(istype(src, /mob/living/carbon/human))
-				if(istype(src, /mob/living/carbon/human))
+			if(istype(src, /mob))
+				if(istype(src, /mob))
 					if(src:buckled) return
 			src << "\red You are pushed away by airflow!"
 		var/airflow_falloff = 9 - airflow_dest //It's a fast falloff calc.  Very useful.

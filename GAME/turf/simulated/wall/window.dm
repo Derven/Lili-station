@@ -82,13 +82,13 @@
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/screwdriver))
 			for(var/mob/M in range(5, src.loc))
-				M << 'Screwdriver.ogg'
+				M.playsoundforme('Screwdriver.ogg')
 			ReplaceWithPlating()
 			new /obj/item/stack/glass(src)
 		else
 			health -= W.force
 			for(var/mob/M in range(5, src))
-				M << 'Glasshit.ogg'
+				M.playsoundforme('Glasshit.ogg')
 			usr << usr.select_lang("\red Вы бьете стекло с помощью [W]", "\red You punch the glass with [W]")
 			update_icon()
 			if(istype(src, /turf/simulated/wall/window))

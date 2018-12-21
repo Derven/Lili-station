@@ -28,7 +28,7 @@
 	proc/use()
 		if(reagents.has_reagent("diesel", 10))
 			for(var/mob/M in range(5, src.loc))
-				M << 'Welder.ogg'
+				M.playsoundforme('Welder.ogg')
 			reagents.remove_reagent("diesel", 10, 0)
 			return 1
 		else

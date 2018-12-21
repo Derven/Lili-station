@@ -34,7 +34,7 @@
 				usr << "\blue You buckle yourself"
 			else
 				usr << "\blue [M] buckled by [usr]"
-			usr << 'handcuffs.ogg'
+			usr.playsoundforme('handcuffs.ogg')
 			M.anchored = 1
 			M.buckled = src
 			M.loc = src.loc
@@ -52,7 +52,7 @@
 					else
 						user << "\blue You unbuckle yourself from [src]."
 		//			world << "[M] is no longer buckled to [src]"
-					usr << 'handcuffs.ogg'
+					usr.playsoundforme('handcuffs.ogg')
 					M.anchored = 0
 					M.buckled = null
 					buckled_mobs -= M
@@ -120,7 +120,7 @@
 				else
 					user << "\blue You unbuckle yourself from [src]."
 	//			world << "[M] is no longer buckled to [src]"
-				usr << 'handcuffs.ogg'
+				usr.playsoundforme('handcuffs.ogg')
 				M.anchored = 0
 				M.buckled = null
 				buckled_mobs -= M
@@ -135,7 +135,7 @@
 			usr << "\blue You buckle yourself"
 		else
 			usr << "\blue [M] buckled by [usr]"
-		usr << 'handcuffs.ogg'
+		usr.playsoundforme('handcuffs.ogg')
 		M.anchored = 1
 		M.buckled = src
 		M.loc = src.loc
@@ -161,9 +161,9 @@
 					while(i > 1)
 						new /obj/effect/sparks(src.loc)
 						sleep(rand(1,3))
-						B << 'sparks.ogg'
-						B << 'scream.ogg'
-						B << 's.ogg'
+						B.playsoundforme('sparks.ogg')
+						B.playsoundforme('scream.ogg')
+						B.playsoundforme('s.ogg')
 						i -= 1
 				manual_unbuckle_all(M)
 				for(var/obj/machinery/radio/intercom/I in world)

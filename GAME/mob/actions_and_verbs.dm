@@ -160,8 +160,8 @@
 				M << M.select_lang("[src] говорит, \"[fix255(msg)]\"", "[src] says, \"[fix255(msg)]\"")
 		sleep(8)
 		overlays.Remove(overlay_cur)
-	//for(var/obj/machinery/radio/intercom/I in range(7, src))
-	//	tell_me_more(name, fix255(msg))
+	for(var/obj/machinery/radio/intercom/I in range(7, src))
+		tell_me_more(name, fix255(msg))
 	return fix255(msg)
 
 /mob/verb/Emote(msg as text)
