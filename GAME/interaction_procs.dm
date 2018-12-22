@@ -25,11 +25,12 @@
 					attack_self()
 				else
 					attackby(usr.get_active_hand())
+					if(I)
+						I.afterattack(src, usr)
 		else if(src.loc in range(1, usr))
-			if(!usr.get_active_hand())
-				attack_hand(usr)
-				for(var/obj/structure/closet/closet_3/CL in range(1, usr))
-					CL.upd_closet()
+			attack_hand(usr)
+			for(var/obj/structure/closet/closet_3/CL in range(1, usr))
+				CL.upd_closet()
 
 /mob
 	Bump(var/atom/A)
