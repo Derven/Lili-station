@@ -1,6 +1,5 @@
 /mob
-
-	proc/SHOTeyeShake()
+	proc/eyeShake()
 		if(src.client)
 			src.client.pixel_x+=rand(-3,3)
 			src.client.pixel_y+=rand(-3,3)
@@ -8,7 +7,6 @@
 				if(src.client)
 					src.client.pixel_x=0
 					src.client.pixel_y=0
-
 
 /obj/item/weapon/gun
 	name = "gun"
@@ -36,71 +34,69 @@
 		return 1
 
 	afterattack(atom/target as mob|obj|turf|area, flag, params)//TODO: go over this
-		while(usr.client.mdown == 1)
-			usr.SHOTeyeShake()
-			sleep(1)
-			if(flag)	return //we're placing gun on a table or in backpack
+		if(flag)	return //we're placing gun on a table or in backpack
 
-			var/turf/curloc = usr.loc
-			var/turf/targloc = get_turf(target)
-			if (!istype(targloc) || !istype(curloc))
+		var/turf/curloc = usr.loc
+		var/turf/targloc = get_turf(target)
+		if (!istype(targloc) || !istype(curloc))
+			return
+
+		if(!special_check(usr))	return
+
+		if(istype(src, /obj/item/weapon/gun/energy/lasercannon))
+			var/obj/item/weapon/gun/energy/lasercannon/LC = src
+			if(LC.mypower < 0)
+				usr << "\red Oh no! Battery need recharge!"
 				return
+			else
+				LC.mypower -= 1
 
-			if(!special_check(usr))	return
+		if(!load_into_chamber())
+			usr << "\red *click*";
+			return
 
-			if(istype(src, /obj/item/weapon/gun/energy/lasercannon))
-				var/obj/item/weapon/gun/energy/lasercannon/LC = src
-				if(LC.mypower < 0)
-					usr << "\red Oh no! Battery need recharge!"
-					return
-				else
-					LC.mypower -= 1
+		if(!in_chamber)	return
 
-			if(!load_into_chamber())
-				usr << "\red *click*";
-				return
+		in_chamber.dest = targloc
+		in_chamber.firer = usr
+		in_chamber.def_zone = usr.ZN_SEL.selecting
 
-			if(!in_chamber)	return
+		usr.eyeShake()
 
-			in_chamber.dest = targloc
-			in_chamber.firer = usr
-			in_chamber.def_zone = usr.ZN_SEL.selecting
-
-			if(targloc == curloc)
-				usr.bullet_act(in_chamber)
-				del(in_chamber)
-				update_icon()
-				return
-
-			//if(silenced)
-				////playsound(usr, fire_sound, 10, 1)
-			//else
-				////playsound(usr, fire_sound, 50, 1)
-				//usr.visible_message("\red [usr.name] fires the [src.name]!", "\red You fire the [src.name]!", "\blue You hear a [istype(in_chamber, /obj/item/projectile/beam) ? "laser blast" : "gunshot"]!")
-
-			in_chamber.original = targloc
-			in_chamber.loc = get_turf(usr)
-			usr.next_move = world.time + 4
-			in_chamber.silenced = silenced
-			in_chamber.current = curloc
-			in_chamber.yo = targloc.y - curloc.y
-			in_chamber.xo = targloc.x - curloc.x
-			for(var/mob/B in range(usr, 6))
-				B.playsoundforme('Laser22.ogg')
-			flick("laser_pew", src)
-
-
-			if(params)
-				var/list/mouse_control = params2list(params)
-				if(mouse_control["icon-x"])
-					in_chamber.p_x = text2num(mouse_control["icon-x"])
-				if(mouse_control["icon-y"])
-					in_chamber.p_y = text2num(mouse_control["icon-y"])
-
-			spawn()
-				if(in_chamber)	in_chamber.process()
-			sleep(1)
-			in_chamber = null
+		if(targloc == curloc)
+			usr.bullet_act(in_chamber)
+			del(in_chamber)
 			update_icon()
+			return
 
+		//if(silenced)
+			////playsound(usr, fire_sound, 10, 1)
+		//else
+			////playsound(usr, fire_sound, 50, 1)
+			//usr.visible_message("\red [usr.name] fires the [src.name]!", "\red You fire the [src.name]!", "\blue You hear a [istype(in_chamber, /obj/item/projectile/beam) ? "laser blast" : "gunshot"]!")
+
+		in_chamber.original = targloc
+		in_chamber.loc = get_turf(usr)
+		usr.next_move = world.time + 4
+		in_chamber.silenced = silenced
+		in_chamber.current = curloc
+		in_chamber.yo = targloc.y - curloc.y
+		in_chamber.xo = targloc.x - curloc.x
+		for(var/mob/B in range(usr, 6))
+			B.playsoundforme('Laser22.ogg')
+		flick("laser_pew", src)
+
+
+		if(params)
+			var/list/mouse_control = params2list(params)
+			if(mouse_control["icon-x"])
+				in_chamber.p_x = text2num(mouse_control["icon-x"])
+			if(mouse_control["icon-y"])
+				in_chamber.p_y = text2num(mouse_control["icon-y"])
+
+		spawn()
+			if(in_chamber)	in_chamber.process()
+		sleep(1)
+		in_chamber = null
+		update_icon()
 		return
