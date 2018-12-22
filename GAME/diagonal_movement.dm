@@ -59,12 +59,14 @@
 		..()
 		flick("movement_ne", mob.M)
 
+
 client
 	var
 		north
 		east
 		south
 		west
+		leftclick
 	verb
 		NorthReleased()
 			set hidden = 1
@@ -78,3 +80,11 @@ client
 		WestReleased()
 			set hidden = 1
 			west = 0
+		MLCP()
+			set hidden = 1
+			leftclick = 1
+			world << leftclick
+		MLCR()
+			set hidden = 1
+			leftclick = 0
+			world << leftclick

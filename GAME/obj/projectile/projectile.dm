@@ -27,6 +27,7 @@
 		xo = null
 		current = null
 		turf/original = null
+		turf/dest//Destination
 
 		p_x = 16
 		p_y = 16 // the pixel location of the tile that the player clicked. Default is the center
@@ -124,6 +125,7 @@
 
 
 	process()
+		var/go_away = 0
 		spawn while(src)
 			if((!( current ) || loc == current))
 				current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
@@ -139,17 +141,34 @@
 			if((x == 1 || x == world.maxx || y == 1 || y == world.maxy))
 				del(src)
 				return
-			if(dir == 2)
-				y -= 1
+			invisibility = 0
+			if(go_away == 0)
+				if(prob(75))
+					invisibility = 101
+				dir = get_dir(src,dest)
+				if(dest.x > x)
+					x += 1
+				if(dest.y > y)
+					y += 1
+				if(dest.x < x)
+					x -= 1
+				if(dest.y < y)
+					y -= 1
+			if((dest.y == y && dest.x == x) || go_away == 1)
+				go_away = 1
+				if(prob(75))
+					invisibility = 101
+				if(dir == 2)
+					y -= 1
 
-			if(dir == 4)
-				x += 1
+				if(dir == 4)
+					x += 1
 
-			if(dir == 8)
-				x -= 1
+				if(dir == 8)
+					x -= 1
 
-			if(dir == 1)
-				y += 1
+				if(dir == 1)
+					y += 1
 			sleep(1)
 			if(!bumped)
 				if(loc == original)
