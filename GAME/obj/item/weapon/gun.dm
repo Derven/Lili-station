@@ -13,6 +13,7 @@
 	desc = "Its a gun. It's pretty terrible, though."
 	icon = 'gun.dmi'
 	icon_state = "detective"
+	var/automatic = 0
 	flags =  FPRINT | TABLEPASS | CONDUCT | ONBELT | USEDELAY
 
 	var
