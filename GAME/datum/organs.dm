@@ -223,3 +223,8 @@ proc/isorgan(A)
 				else
 					pumppower = 100 - rand(65,100)
 			pumpupgrade()
+			switch(pumppower)
+				if(120 to 125)
+					brute_dam += rand(0,1)
+				if(130 to 500)
+					brute_dam += rand(20, 50)

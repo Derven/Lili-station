@@ -829,6 +829,15 @@
 			reagents.add_reagent("tricordrazine", 30)
 			bitesize = 2
 
+	epinephrine
+		name = "epinephrine pill"
+		icon_state = "pills"
+
+		New()
+			..()
+			reagents.add_reagent("epinephrine", 30)
+			bitesize = 2
+
 	caffeine
 		name = "caffeine pill"
 		icon_state = "pills"

@@ -403,6 +403,7 @@ datum
 	id = "ephedrine"
 	description = "Increases stun resistance and movement speed. Overdose deals toxin damage and inhibits breathing."
 
+
 /datum/reagent/medicine/diphenhydramine
 	name = "Diphenhydramine"
 	id = "diphenhydramine"
@@ -427,6 +428,13 @@ datum
 	name = "Epinephrine"
 	id = "epinephrine"
 	description = "Minor boost to stun resistance. Slowly heals damage if a patient is in critical condition, as well as regulating oxygen loss. Overdose causes weakness and toxin damage."
+
+	on_mob_life(mob/M)
+		if (istype(M,/mob))
+			M.heart.time_in_steps = 10
+			M.heart.volume = rand(20,25)
+			holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+			return
 
 /datum/reagent/medicine/mannitol
 	name = "Mannitol"
