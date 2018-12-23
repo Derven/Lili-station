@@ -233,6 +233,12 @@ datum
 		caffeine
 			name = "caffeine"
 			id = "caffeine"
+			on_mob_life(mob/M)
+				if (istype(M,/mob))
+					M.heart.time_in_steps = 10
+					M.heart.volume = rand(3,5)
+					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+				return
 
 		tea
 			name = "tea"
@@ -265,6 +271,19 @@ datum
 		tramadol
 			name = "tramadol"
 			id = "tramadol"
+
+			on_mob_life(mob/M)
+				if (istype(M,/mob))
+					if(M.heart.brute_dam > 1)
+						M.heart.brute_dam -= 1
+					if(M.heart.burn_dam > 1)
+						M.heart.burn_dam -= 1
+					if(M.lungs.brute_dam > 1)
+						M.lungs.brute_dam -= 1
+					if(M.lungs.burn_dam > 1)
+						M.lungs.burn_dam -= 1
+					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+				return
 
 		xanax
 			name = "xanax"
@@ -451,6 +470,7 @@ datum/reagent/medicine/kelotane
 
 	on_mob_life(var/mob/M as mob)
 		M.heal_burn(volume)
+		holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 		..()
 		return
 
@@ -467,6 +487,7 @@ datum/reagent/medicine/inaprovaline
 
 	on_mob_life(var/mob/M as mob)
 		M.heal_brute(volume)
+		holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 		..()
 		return
 

@@ -829,6 +829,24 @@
 			reagents.add_reagent("tricordrazine", 30)
 			bitesize = 2
 
+	caffeine
+		name = "caffeine pill"
+		icon_state = "pills"
+
+		New()
+			..()
+			reagents.add_reagent("caffeine", 30)
+			bitesize = 2
+
+	tramadol
+		name = "tramadol pill"
+		icon_state = "pills_orange"
+
+		New()
+			..()
+			reagents.add_reagent("tramadol", 30)
+			bitesize = 2
+
 	kelotane
 		name = "kelotane pill"
 		icon_state = "pills_orange"

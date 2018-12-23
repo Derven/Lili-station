@@ -162,3 +162,64 @@ proc/isorgan(A)
 ****************************************************/
 /datum/organ/internal
 	name = "internal"
+	var
+		icon_name = null
+		body_part = null
+
+		damage_state = "00"
+		brute_dam = 0
+		burn_dam = 0
+		max_damage = 0
+
+	proc
+		my_func()
+		pain_internal()
+
+	lungs
+		name = "lungs"
+		max_damage = 120
+
+		my_func()
+			if(brute_dam + burn_dam < max_damage)
+				return brute_dam + burn_dam
+			else
+				del(src)
+
+	heart
+		name = "heart"
+		max_damage = 100
+		var/pumppower = 100
+
+		//stimulators
+		var/time_in_steps = 0
+		var/volume = 0
+
+		proc/pumpupgrade()
+			while(time_in_steps > 0)
+				pumppower += volume
+				time_in_steps -= 1
+
+		pain_internal()
+			switch(brute_dam + burn_dam)
+				if (5 to 25)
+					return "<b>You feel sharp pain in your chest.</b>"
+				if (25 to 50)
+					return "<b><font size=1>Ouch! Your chest hurts in the left side.</b>"
+				if (50 to 90)
+					return "<b><font size=3>OH GOD! You feel the sharpest pain in your chest.</b>"
+
+		my_func()
+			switch(brute_dam + burn_dam)
+				if (0 to 5)
+					pumppower = 100 - rand(-5,5)
+				if (5 to 25)
+					pumppower = 100 - rand(5,15)
+				if (25 to 50)
+					pumppower = 100 - rand(15,35)
+				if (50 to 75)
+					pumppower = 100 - rand(15,35)
+				if (75 to 90)
+					pumppower = 100 - rand(35,65)
+				else
+					pumppower = 100 - rand(65,100)
+			pumpupgrade()

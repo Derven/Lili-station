@@ -76,6 +76,11 @@ mob
 			if(ENG)
 				return eng_msg
 
+
+/mob/Stat()
+   statpanel("Internal")
+   stat("pulse", (heart.pumppower / 100) * 60)
+
 /client/verb/windowclose(var/atomref as text)
 	set hidden = 1						// hide this verb from the user's panel
 	set name = ".windowclose"			// no autocomplete on cmd line
@@ -180,6 +185,8 @@ mob
 	var/datum/organ/external/leg/r_leg/r_leg
 	var/datum/organ/external/leg/l_leg/l_leg
 	var/datum/organ/external/groin/groin
+	var/datum/organ/internal/lungs/lungs
+	var/datum/organ/internal/heart/heart
 	//var/datum/disease2/disease/virus2 = null
 	//var/list/datum/disease2/disease/resistances2 = list()
 	var/antibodies = 0
@@ -207,6 +214,8 @@ mob
 		r_leg = new /datum/organ/external/leg/r_leg(src)
 		l_leg = new /datum/organ/external/leg/l_leg(src)
 		groin = new /datum/organ/external/groin(src)
+		lungs = new /datum/organ/internal/lungs(src)
+		heart = new /datum/organ/internal/heart(src)
 
 		chest.owner = src
 		head.owner = src
@@ -426,17 +435,6 @@ client
 //mob/var/atom/cur_object_i_give
 mob/var/atom/cur_object_i_see
 mob/var/inlobby = 1
-
-mob/Stat()
-	for(var/M in visible_containers)
-		if(last_contents)
-			statpanel("Contents", last_contents)
-		if(cur_object_i_see)
-			if(M == cur_object_i_see.type)
-				last_contents = cur_object_i_see.contents
-				if(!istype(cur_object_i_see, /mob) && cur_object_i_see && cur_object_i_see.contents.len > 0)
-					statpanel("Contents", null) //top fix
-					statpanel("Contents", cur_object_i_see.contents)
 	//if(!istype(cur_object_i_give, /mob) && cur_object_i_give && cur_object_i_give.contents.len > 0) statpanel("container", cur_object_i_give.contents)
 
 /mob/verb/Change_Volume(newv as num)

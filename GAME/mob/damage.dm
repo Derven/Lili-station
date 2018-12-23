@@ -17,13 +17,19 @@
 		if(istype(src.loc, /turf/simulated/floor))
 			var/turf/simulated/floor/F = src.loc
 			var/datum/gas_mixture/G = F.return_air()
-			if(G.oxygen < HUMAN_NEEDED_OXYGEN)
-				oxyloss += 1
+			if(lungs)
+				if(G.oxygen - (lungs.my_func()/5 + rand(1,10)) < HUMAN_NEEDED_OXYGEN + heart.pumppower/1000)
+					Emote(pick("gasps", "cough"))
+					oxyloss += 1
+				else
+					if(oxyloss > 1)
+						oxyloss -= 1
 			else
-				if(oxyloss > 1)
-					oxyloss -= 1
+				oxyloss += 2
 		else
+			Emote(pick("gasps", "cough"))
 			oxyloss += 1
+
 	src.health = 100 - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss()
 	if(health > 100)
 		health = 100
@@ -136,6 +142,30 @@
 			l_leg.brute_dam = 0
 
 	proc/blood_flow()
+
+		heart.my_func()
+		switch(heart.pumppower)
+			if (80 to 90)
+				if(prob(rand(2,5)))
+					src << heart.pain_internal()
+			if (50 to 80)
+				if(prob(rand(5,15)))
+					src << heart.pain_internal()
+					chest.brute_dam += rand(0,1)
+					head.brute_dam += rand(0,1)
+			if (30 to 50)
+				if(prob(rand(5,15)))
+					src << heart.pain_internal()
+					chest.brute_dam += rand(1,2)
+					head.brute_dam += rand(1,2)
+			if (5 to 30)
+				if(prob(rand(10,25)))
+					src << heart.pain_internal()
+					chest.brute_dam += rand(2,4)
+					head.brute_dam += rand(2,4)
+			if(0 to 5)
+				death()
+
 		var/obj/blood/BD
 
 		H.clear_overlay()
@@ -149,32 +179,32 @@
 
 		if(prob(25))
 			if(chest.brute_dam > 80)
-				reagents.remove_reagent("blood", 20)
+				reagents.remove_reagent("blood", 20 + heart.pumppower / 10)
 				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 				BD = new(src.loc)
 
 			if(head.brute_dam > 80)
-				reagents.remove_reagent("blood", 18)
+				reagents.remove_reagent("blood", 18  + heart.pumppower / 10)
 				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 				BD = new(src.loc)
 
 			if(r_leg.brute_dam > 80)
-				reagents.remove_reagent("blood", 14)
+				reagents.remove_reagent("blood", 14  + heart.pumppower / 10)
 				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 				BD = new(src.loc)
 
 			if(l_leg.brute_dam > 80)
-				reagents.remove_reagent("blood", 14)
+				reagents.remove_reagent("blood", 14  + heart.pumppower / 10)
 				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 				BD = new(src.loc)
 
 			if(r_arm.brute_dam > 80)
-				reagents.remove_reagent("blood", 8)
+				reagents.remove_reagent("blood", 8  + heart.pumppower / 10)
 				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
 				BD = new(src.loc)
 
 			if(l_arm.brute_dam > 80)
-				reagents.remove_reagent("blood", 8)
+				reagents.remove_reagent("blood", 8  + heart.pumppower / 10)
 				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, еп
 				BD = new(src.loc)
 
@@ -253,6 +283,13 @@
 		if(BURN)
 			organ.take_damage(damage, 0)
 	UpdateDamageIcon()
+
+
+	if(istype(def_zone, /datum/organ/external/chest))
+		if(damage - blocked > 8)
+			lungs.brute_dam += damage / 2
+			heart.brute_dam += damage / 3
+
 	return 1
 
 /proc/parse_zone(zone)

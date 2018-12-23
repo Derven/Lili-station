@@ -22,7 +22,7 @@ client
 		if(speeding <= 0)
 			speeding = 1
 			..()
-			sleep(run_intent)
+			sleep(run_intent - round(mob.heart.pumppower/100))
 			speeding = 0
 		else
 			return
