@@ -24,8 +24,11 @@
 			pixel_z = 2
 			anchored = 1
 
+			New()
+				..()
 
 			close()
+				src.icon_closed = "morgue"
 				for(var/mob/M in range(5, src))
 					M.playsoundforme('bin_open.ogg')
 				if(!src.opened)

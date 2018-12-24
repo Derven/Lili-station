@@ -215,7 +215,9 @@ mob/proc/dream()
 			if(!lying)
 				resting()
 		if (sleeping == 1)
-			lying = 1
+			if(!lying)
+				resting()
+				lying = 1
 			if(prob(2) && !dreaming)
 				dream()
 			drop_item_v()
