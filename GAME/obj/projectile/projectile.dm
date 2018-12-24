@@ -38,7 +38,6 @@
 		flag = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb
 		projectile_type = "/obj/item/projectile"
 		//Effects
-		stun = 0
 		weaken = 0
 		paralyze = 0
 		irradiate = 0
@@ -126,6 +125,7 @@
 
 	process()
 		var/go_away = 0
+		var/turf/oldloc = null
 		spawn while(src)
 			if((!( current ) || loc == current))
 				current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
@@ -169,6 +169,11 @@
 
 				if(dir == 1)
 					y += 1
+				if(oldloc == src.loc)
+					del(src)
+					return
+				else
+					oldloc = locate(x, y, z)
 			sleep(1)
 			if(!bumped)
 				if(loc == original)

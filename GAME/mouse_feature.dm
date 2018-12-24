@@ -29,7 +29,8 @@ client/MouseDrag(over_object,src_location,over_location,src_control,over_control
 	else if(istype(A, /area))
 		return
 	else
-		mloc = A.loc
+		if(A && A.loc)
+			mloc = A.loc
 	..()
 
 client/MouseUp()

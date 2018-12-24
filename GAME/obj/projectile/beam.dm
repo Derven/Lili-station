@@ -28,6 +28,9 @@
 	explosive
 		projectile_type = "/obj/item/projectile/beam/explosive"
 
+	taser
+		projectile_type = "/obj/item/projectile/beam/stun"
+
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser gun"
 	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice."
@@ -84,11 +87,17 @@ obj/item/weapon/gun/energy/laser/retro
 	damage_type = BURN
 	flag = "laser"
 	eyeblur = 2
+	stun = 0
 
 /obj/item/projectile/beam/explosive
 
+/obj/item/projectile/beam/stun
+	damage = 0
+	stun = 5
+
 /obj/item/projectile/beam/practice
 	damage = 0
+
 
 
 /obj/item/projectile/beam/heavylaser

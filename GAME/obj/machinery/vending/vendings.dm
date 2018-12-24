@@ -43,6 +43,6 @@
 /obj/machinery/vending/cola
 	icon = 'vendomat_6.dmi'
 	name = "colamat"
-	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/cola)
-	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/cola)
-	items_num = list(3)
+	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/cola, /obj/item/weapon/reagent_containers/glass/bottle/energy_gun)
+	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/cola, /obj/item/weapon/reagent_containers/glass/bottle/energy_gun)
+	items_num = list(3, 3)

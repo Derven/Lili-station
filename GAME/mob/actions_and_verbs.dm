@@ -102,20 +102,23 @@
 
 	proc/handle_temperature(var/datum/gas_mixture/environment)
 		if(cloth == null || cloth.space_suit == 0)
-			H.clear_overlay()
-			H.temppixels(round(bodytemperature))
-			H.oxypixels(round(100 - oxyloss))
-			H.healthpixels(round(health))
+			if(H)
+				H.clear_overlay()
+				H.temppixels(round(bodytemperature))
+				H.oxypixels(round(100 - oxyloss))
+				H.healthpixels(round(health))
 			var/environment_heat_capacity = environment.heat_capacity()
 			var/transfer_coefficient = 1
 			var/areatemp = environment.temperature
-			if( abs(areatemp - bodytemperature) > 50 )
+			if(abs(areatemp - bodytemperature) > 50)
 				var/diff = areatemp - bodytemperature
 				diff = diff / 5
 				//world << "changed from [bodytemperature] by [diff] to [bodytemperature + diff]"
 				bodytemperature += diff
 			if(bodytemperature < 310)
 				bodytemperature += rand(1, 2)
+				if(bodytemperature < 170)
+					heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
 
 			handle_temperature_damage(chest, environment.temperature, environment_heat_capacity*transfer_coefficient)
 
@@ -149,6 +152,75 @@
 	if (stat == 0)
 		drop_item()
 	return
+
+mob/proc/dream()
+	dreaming = 1
+	var/list/dreams = list(
+		"an ID card","a bottle","a familiar face","a crewmember","a toolbox","a security officer","the captain",
+		"voices from all around","deep space","a doctor","the engine","a traitor","an ally","darkness",
+		"light","a scientist","a monkey","a catastrophe","a loved one","a gun","warmth","freezing","the sun",
+		"a hat","the Lili","a ruined station","a planet","plasma","air","the medical bay","the bridge","blinking lights",
+		"a blue light","an abandoned laboratory","Nanotrasen","The Syndicate","blood","healing","power","respect",
+		"riches","space","a crash","happiness","pride","a fall","water","flames","ice","melons","flying"
+		)
+	for(var/i = rand(1,4),i > 0, i--)
+		var/dream_image = pick(dreams)
+		dreams -= dream_image
+		src << "\blue <i>... [dream_image] ...</i>"
+		sleep(rand(20,50))
+		if(sleeping <= 0)
+			dreaming = 0
+	dreaming = 0
+
+/mob/var/dreaming = 0
+/mob/var/paralysis = 0.0
+/mob/var/stunned = 0.0
+/mob/var/weakened = 0.0
+/mob/var/sleeping = 0
+
+/mob/proc/sleeping()
+	sleeping = 1
+	BL.invisibility = 0
+	SB.icon_state = "sleep2"
+	if(!lying)
+		resting()
+
+/mob/proc/awake()
+	sleeping = 0
+	BL.invisibility = 101
+	SB.icon_state = "sleep1"
+	if(lying)
+		resting()
+
+/mob/verb/sleepy()
+	set name = "sleep"
+	set category = "IC"
+	sleeping()
+
+/mob/verb/awakeme()
+	set name = "awake"
+	set category = "IC"
+	awake()
+
+/mob/proc/parstunweak()
+	if (sleeping || stunned || weakened) //Stunned etc.
+		if (stunned > 0)
+			stunned--
+			if(heart.pumppower < 145 && !lying)
+				resting()
+		if (stunned <= 0 && lying)
+			resting()
+		if (weakened > 0)
+			weakened--
+			if(!lying)
+				resting()
+		if (sleeping == 1)
+			lying = 1
+			if(prob(2) && !dreaming)
+				dream()
+			drop_item_v()
+			swap_hand()
+			drop_item_v()
 
 /mob/verb/Say(msg as text)
 	set name = "Say"

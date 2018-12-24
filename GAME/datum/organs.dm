@@ -189,15 +189,21 @@ proc/isorgan(A)
 		name = "heart"
 		max_damage = 100
 		var/pumppower = 100
-
-		//stimulators
-		var/time_in_steps = 0
-		var/volume = 0
+		var/list/HS = list()
+		var/volume
 
 		proc/pumpupgrade()
-			while(time_in_steps > 0)
+
+			for(var/datum/heart_stimulators/hs in HS)
+				if(hs.time_in_steps > 0)
+					volume += hs.volume + rand(-5,5)
+					hs.time_in_steps -= 1
+				else
+					volume -= hs.volume
+					HS.Remove(hs)
+					del(hs)
+
 				pumppower += volume
-				time_in_steps -= 1
 
 		pain_internal()
 			switch(brute_dam + burn_dam)
@@ -210,8 +216,8 @@ proc/isorgan(A)
 
 		my_func()
 			switch(brute_dam + burn_dam)
-				if (0 to 5)
-					pumppower = 100 - rand(-5,5)
+				if (-10 to 5)
+					pumppower = 100 - rand(-5,0)
 				if (5 to 25)
 					pumppower = 100 - rand(5,15)
 				if (25 to 50)
@@ -222,9 +228,35 @@ proc/isorgan(A)
 					pumppower = 100 - rand(35,65)
 				else
 					pumppower = 100 - rand(65,100)
+
 			pumpupgrade()
 			switch(pumppower)
-				if(120 to 125)
+				if(150 to 175)
 					brute_dam += rand(0,1)
-				if(130 to 500)
+				if(175 to 500)
 					brute_dam += rand(20, 50)
+
+		proc/activate_stimulators(var/heart_stimulators)
+			var/datum/heart_stimulators/hs = new heart_stimulators (src)
+			HS.Add(hs)
+
+/datum/heart_stimulators
+	//stimulators
+	var/time_in_steps = 0
+	var/volume = 0
+
+	adrenalin_ephedrine
+		time_in_steps = 1
+		volume = 60
+
+	caffeine
+		time_in_steps = 1
+		volume = 25
+
+	light_sedative
+		time_in_steps = 1
+		volume = -30
+
+	hard_sedative
+		time_in_steps = 1
+		volume = -55

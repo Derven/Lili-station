@@ -28,6 +28,17 @@
 		..()
 		reagents.add_reagent("cola", 40)
 
+/obj/item/weapon/reagent_containers/glass/bottle/energy_gun
+	name = "energy gun"
+	desc = "space energy drink"
+	icon = 'chemical.dmi'
+	icon_state = "mutagen"
+
+	New()
+		..()
+		reagents.add_reagent("cola", 20)
+		reagents.add_reagent("caffeine", 20)
+
 /obj/item/weapon/reagent_containers/glass/bottle/nutriments
 	name = "nutriments"
 	desc = "space nutriments"

@@ -235,8 +235,7 @@ datum
 			id = "caffeine"
 			on_mob_life(mob/M)
 				if (istype(M,/mob))
-					M.heart.time_in_steps = 10
-					M.heart.volume = rand(3,5)
+					M.heart.activate_stimulators(/datum/heart_stimulators/caffeine)
 					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 				return
 
@@ -263,6 +262,12 @@ datum
 		sleeping
 			name = "sleeping"
 			id = "sleeping"
+
+			on_mob_life(mob/M)
+				if (istype(M,/mob))
+					M.heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
+					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+				return
 
 		oxycodone
 			name = "oxycodone"
@@ -431,10 +436,8 @@ datum
 
 	on_mob_life(mob/M)
 		if (istype(M,/mob))
-			M.heart.time_in_steps = 10
-			M.heart.volume = rand(20,25)
-			holder.remove_reagent(src.id, REAGENTS_METABOLISM)
-			return
+			M.heart.activate_stimulators(/datum/heart_stimulators/adrenalin_ephedrine)
+			holder.remove_reagent(src.id, 2)
 
 /datum/reagent/medicine/mannitol
 	name = "Mannitol"

@@ -48,6 +48,7 @@ mob
 			handle_injury()
 			handle_chemicals_in_body()
 			handle_temperature(environment)
+			parstunweak()
 			if(client)
 				client.MYZL()
 			updatehealth()
@@ -122,6 +123,8 @@ mob
 		obj/hud/movement/M
 		obj/hud/back/B
 		obj/hud/swap/S
+		obj/hud/black/BL
+		obj/hud/sleepbut/SB
 
 	proc
 		create_hud(var/client/C)
@@ -134,6 +137,8 @@ mob
 				H = new(src)
 				CL = new(src)
 				AC = new(src)
+				BL = new(src)
+				SB = new(src)
 				//ROW = new(src)
 				HW = new(src)
 				DF_ZONE = new(src)
@@ -146,6 +151,8 @@ mob
 				S = new(src)
 
 				C.screen.Add(LH)
+				C.screen.Add(BL)
+				C.screen.Add(SB)
 				C.screen.Add(ID)
 				C.screen.Add(RH)
 				C.screen.Add(DP)

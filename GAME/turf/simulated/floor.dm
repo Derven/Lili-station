@@ -37,6 +37,9 @@
 			ReplaceWithPlating()
 			new /obj/item/stack/tile(src)
 
+	cool
+		temperature = T20C - 35
+
 /turf/proc/ReplaceWithPlating()
 	var/prior_icon = icon_old
 	var/old_dir = dir

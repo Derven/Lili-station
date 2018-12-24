@@ -8,6 +8,9 @@
 	var/sound = null
 	var/probality = 85
 
+	bullet_act(var/obj/item/projectile/Proj)
+		del(Proj)
+
 	proc/soundreturn()
 		return pick('ambispace.ogg','title2.ogg')
 

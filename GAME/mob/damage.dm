@@ -29,6 +29,8 @@
 		else
 			Emote(pick("gasps", "cough"))
 			oxyloss += 1
+	if(oxyloss > 75)
+		sleeping()
 
 	src.health = 100 - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss()
 	if(health > 100)
@@ -55,7 +57,10 @@
 
 	bullet_act(var/obj/item/projectile/Proj)
 		if(Proj.firer != src)
-			rand_damage(Proj.damage - rand(1,4), Proj.damage)
+			if(Proj.damage > 0)
+				rand_damage(Proj.damage - rand(1,4), Proj.damage)
+			else
+				stunned += Proj.stun
 			del(Proj)
 			return 0
 
@@ -151,13 +156,11 @@
 			if (50 to 80)
 				if(prob(rand(5,15)))
 					src << heart.pain_internal()
-					chest.brute_dam += rand(0,1)
-					head.brute_dam += rand(0,1)
 			if (30 to 50)
-				if(prob(rand(5,15)))
+				if(prob(rand(10,15)))
 					src << heart.pain_internal()
-					chest.brute_dam += rand(1,2)
-					head.brute_dam += rand(1,2)
+				if(sleeping == 0)
+					sleeping()
 			if (5 to 30)
 				if(prob(rand(10,25)))
 					src << heart.pain_internal()
@@ -168,10 +171,11 @@
 
 		var/obj/blood/BD
 
-		H.clear_overlay()
-		H.temppixels(round(H.cur_tnum))
-		H.oxypixels(round(100 - oxyloss))
-		H.healthpixels(round(health))
+		if(H)
+			H.clear_overlay()
+			H.temppixels(round(H.cur_tnum))
+			H.oxypixels(round(100 - oxyloss))
+			H.healthpixels(round(health))
 
 		if(prob(25))
 			if(!reagents.has_reagent("blood", 280))
@@ -239,7 +243,8 @@
 	proc/death()
 		death = 1
 		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
-		client.screen.Cut()
+		if(client)
+			client.screen.Cut()
 		STOP_PROCESSING(SSmobs, src)
 		rest()
 		var/mob/ghost/zhmur = new()
@@ -326,17 +331,16 @@
 			M.playsoundforme('flash.ogg')
 			M << "\red [user] blinds [src] with the flash!"
 		rest()
-		if(usr.client)
-			usr.client.show_map = 0
+		if(client)
+			client.show_map = 0
 			sleep(rand(3,9))
-			usr.client.show_map = 1
+			client.show_map = 1
 			sleep(rand(2,5))
 			rest()
 		run_intent()
 	if(istype(I, /obj/item/weapon/fire_ext))
 		for(var/mob/M in range(3, src))
 			M.playsoundforme('smash2.ogg')
-
 
 	if(!I.force)	return 0
 	if(def_area)
@@ -346,6 +350,9 @@
 			usr << select_lang("\red [src] блокирует часть урона!", "\red [src] block damage partially!")
 	apply_damage(I.force, I.damtype, affecting, 0)
 	I.force = initial(I.force)
+
+	stunned += I.stun
+
 	src.UpdateDamageIcon()
 
 /mob/proc/upd_status(var/datum/organ/external/O)

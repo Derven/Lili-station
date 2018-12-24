@@ -829,6 +829,15 @@
 			reagents.add_reagent("tricordrazine", 30)
 			bitesize = 2
 
+	sleeping
+		name = "sleeping pill"
+		icon_state = "pills"
+
+		New()
+			..()
+			reagents.add_reagent("sleeping", 30)
+			bitesize = 2
+
 	epinephrine
 		name = "epinephrine pill"
 		icon_state = "pills"
