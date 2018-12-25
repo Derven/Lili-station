@@ -79,6 +79,7 @@
 #include "GAME\obj\hud\run_intent.dm"
 #include "GAME\obj\hud\sleep_button.dm"
 #include "GAME\obj\hud\swap_hand.dm"
+#include "GAME\obj\hud\throw.dm"
 #include "GAME\obj\hud\zone_sel.dm"
 #include "GAME\obj\item\candle.dm"
 #include "GAME\obj\item\clothing.dm"

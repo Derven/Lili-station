@@ -21,6 +21,8 @@
 				i -= 1
 				var/type = pick(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/weldingtool)
 				contents += new type()
+	backpack
+		icon_state = "backpack"
 
 	attackby(var/obj/item/I)
 		if(!istype(I, /obj/item/weapon/storage))

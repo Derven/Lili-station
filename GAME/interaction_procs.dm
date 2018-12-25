@@ -15,6 +15,19 @@
 /atom/Click()
 	if(!istype(usr, /mob/ghost))
 		var/obj/item/I = usr.get_active_hand()
+
+		if(usr.throwing_mode == 1)
+			if(usr.hand && usr.l_hand)
+				var/obj/item/I2 = usr.l_hand
+				usr.drop_item()
+				I2.throw_hyuow_at(src, rand(4,9), 1)
+				usr.TH.icon_state = "throw1"
+			if(!usr.hand && usr.r_hand)
+				var/obj/item/I2 = usr.r_hand
+				usr.drop_item()
+				I2.throw_hyuow_at(src, rand(4,9), 1)
+				usr.TH.icon_state = "throw1"
+
 		if(istype(I, /obj/item/weapon/gun))
 			I.afterattack(src)
 		if(src in range(1, usr))

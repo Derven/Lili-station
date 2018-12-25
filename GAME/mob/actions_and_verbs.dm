@@ -206,6 +206,10 @@ mob/proc/dream()
 	if (sleeping || stunned || weakened) //Stunned etc.
 		if (stunned > 0)
 			stunned--
+			if(l_hand || r_hand)
+				drop_item_v()
+				swap_hand()
+				drop_item_v()
 			if(heart.pumppower < 145 && !lying)
 				resting()
 		if (stunned <= 0 && lying)
@@ -293,6 +297,12 @@ mob/proc/dream()
 
 	else if (W == cloth)
 		cloth = null
+
+	else if (W == back)
+		back = null
+
+	else if (W == id)
+		id = null
 
 /atom/movable/verb/pull()
 	set name = "Pull"

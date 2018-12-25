@@ -15,7 +15,7 @@
 		src.layer = 20
 
 		if (user.hand)
-			if(src == user.l_hand || src == user.r_hand || src == user.cloth)
+			if(src == user.l_hand || src == user.r_hand || src == user.cloth || src == user.back)
 				user.u_equip(src)
 				if(istype(src, /obj/item/clothing))
 					var/obj/item/clothing/clthg = src
@@ -24,7 +24,7 @@
 			user.l_hand = src
 			user.LH.update_slot(src)
 		else
-			if(src == user.l_hand || src == user.r_hand || src == user.cloth)
+			if(src == user.l_hand || src == user.r_hand || src == user.cloth  || src == user.back)
 				user.u_equip(src)
 				if(istype(src, /obj/item/clothing))
 					var/obj/item/clothing/clthg = src

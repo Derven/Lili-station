@@ -12,6 +12,7 @@ mob
 	layer = 18.0
 	animate_movement = 2
 	flags = NOREACT
+	var/throwing_mode = 0
 	var/job = "assistant"
 	var/datum/mind/mind
 	var/hand = null
@@ -56,7 +57,7 @@ mob
 	//Vars that should only be accessed via procs
 	var/obj/item/l_hand = null//Living
 	var/obj/item/r_hand = null//Living
-	var/obj/item/weapon/back = null//Human/Monkey
+	var/obj/item/weapon/storage/box/backpack/back = null//Human/Monkey
 	var/obj/item/weapon/tank/internal = null//Human/Monkey
 	var/obj/item/weapon/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
@@ -125,10 +126,14 @@ mob
 		obj/hud/swap/S
 		obj/hud/black/BL
 		obj/hud/sleepbut/SB
+		obj/hud/backpack/BP
+		obj/hud/throwbutton/TH
 
 	proc
 		create_hud(var/client/C)
 			if(C)
+				BP = new(src)
+				TH = new(src)
 				LH = new(src)
 				RH = new(src)
 				DP = new(src)
@@ -150,6 +155,8 @@ mob
 				B = new(src)
 				S = new(src)
 
+				C.screen.Add(BP)
+				C.screen.Add(TH)
 				C.screen.Add(LH)
 				C.screen.Add(BL)
 				C.screen.Add(SB)
@@ -159,7 +166,6 @@ mob
 				C.screen.Add(PULL)
 				C.screen.Add(ZN_SEL)
 				C.screen.Add(CL)
-				//C.screen.Add(ROW)
 				C.screen.Add(HW)
 				C.screen.Add(AC)
 				C.screen.Add(DF_ZONE)

@@ -33,6 +33,22 @@
 					update_slot(myid)
 
 /obj/hud
+	backpack
+		icon_state = "cloth"
+		screen_loc = "SOUTH-1, WEST+4"
+		invisibility = 101
+
+		Click()
+			var/obj/item/I = iam.get_active_hand()
+			var/obj/item/weapon/storage/box/backpack/myback = I
+			if(myback && istype(myback,/obj/item/weapon/storage/box/backpack))
+				if(iam.back == null)
+					iam.drop_item(src)
+					myback.layer = 21
+					iam.back = myback
+					update_slot(myback)
+
+/obj/hud
 	switcher
 		icon_state = "switcher"
 		screen_loc = "SOUTH-1, WEST+5"
@@ -42,17 +58,37 @@
 			if(cur_cloth_slot == 1) //cloth
 				cur_cloth_slot = 0 //id
 				iam.CL.invisibility = 101
+				iam.BP.invisibility = 101
 				if(iam.cloth)
 					iam.cloth.invisibility = 101
+				if(iam.back)
+					iam.back.invisibility = 101
 				iam.ID.invisibility = 0
 				if(iam.id)
 					iam.id.invisibility = 0
+				return
+			if(cur_cloth_slot == 0) //id
+				cur_cloth_slot = -1 //backpack
+				iam.ID.invisibility = 101
+				iam.CL.invisibility = 101
+				iam.BP.invisibility = 0
+				if(iam.id)
+					iam.id.invisibility = 101
+				if(iam.cloth)
+					iam.cloth.invisibility = 101
+				if(iam.back)
+					iam.back.invisibility = 0
+				return
 			else
 				cur_cloth_slot = 1 //cloth
+				iam.BP.invisibility = 101
 				iam.ID.invisibility = 101
 				if(iam.id)
 					iam.id.invisibility = 101
+				if(iam.back)
+					iam.back.invisibility = 101
 				iam.CL.invisibility = 0
 				if(iam.cloth)
 					iam.cloth.invisibility = 0
+				return
 				 //top feature
