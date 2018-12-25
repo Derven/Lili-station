@@ -61,13 +61,13 @@
 /obj/item/weapon/reagent_containers/food/snacks/donut
 	name = "donut"
 	desc = "Goes great with Robust Coffee."
-	icon_state = "donut1"
+	icon_state = "donut"
 	New()
 		..()
 		reagents.add_reagent("nutriments", 3)
 		reagents.add_reagent("sprinkles", 1)
 		if(prob(30))
-			src.icon_state = "donut2"
+			src.icon_state = "donut"
 			src.name = "frosted donut"
 			src.bitesize = 2
 			reagents.add_reagent("nutriments", 2)

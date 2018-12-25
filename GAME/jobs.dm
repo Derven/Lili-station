@@ -11,6 +11,11 @@ var/list/jobs = list("assitant", "engineer", "chief engineer", "captain", "head 
 		var/obj/item/clothing/CLT = new mytype(src)
 		CLT.layer = 21
 		cloth = CLT
+		var/obj/item/weapon/storage/box/backpack/BPI = new /obj/item/weapon/storage/box/backpack(src)
+		BPI.layer = 21
+		BPI.invisibility = 101
+		back = BPI
+		BP.update_slot(BPI)
 		CL.update_slot(CLT)
 		CLT.wear_clothing(src)
 
