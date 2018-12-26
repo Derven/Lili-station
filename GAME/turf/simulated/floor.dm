@@ -9,6 +9,7 @@
 	temperature = T20C - 23
 	oxygen = MOLES_O2STANDARD
 	nitrogen = MOLES_N2STANDARD
+	var/obj/wet/WET = null
 
 	ex_act()
 		for(var/mob/M in range(2, src))
@@ -34,8 +35,19 @@
 		if(istype(W, /obj/item/weapon/crowbar))
 			for(var/mob/M in range(5, src.loc))
 				M.playsoundforme('Crowbar.ogg')
+				for(var/obj/structure/disposalpipe/DP in src)
+					DP.invisibility = 0
 			ReplaceWithPlating()
 			new /obj/item/stack/tile(src)
+
+
+		if(istype(W, /obj/item/weapon/mop))
+			var/obj/item/weapon/mop/M = W
+			if(M.watered > 0)
+				M.watered -= 1
+				for(var/obj/blood/B in src)
+					del(B)
+				WET = new(src)
 
 	cool
 		temperature = T20C - 35

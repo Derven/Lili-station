@@ -37,15 +37,21 @@
 		icon_state = "cloth"
 		screen_loc = "SOUTH-1, WEST+4"
 		invisibility = 101
+		var/image/backoverlay
 
 		Click()
 			var/obj/item/I = iam.get_active_hand()
 			var/obj/item/weapon/storage/box/backpack/myback = I
 			if(myback && istype(myback,/obj/item/weapon/storage/box/backpack))
 				if(iam.back == null)
+					if(backoverlay)
+						backoverlay.layer = initial(backoverlay.layer)
 					iam.drop_item(src)
 					myback.layer = 21
 					iam.back = myback
+					backoverlay = image('suit.dmi',icon_state = myback.icon_state)
+					backoverlay.layer = 22
+					iam.overlays += backoverlay
 					update_slot(myback)
 
 /obj/hud

@@ -196,14 +196,14 @@ proc/isorgan(A)
 
 			for(var/datum/heart_stimulators/hs in HS)
 				if(hs.time_in_steps > 0)
-					volume += hs.volume + rand(-5,5)
+					volume += hs.volume
 					hs.time_in_steps -= 1
 				else
 					volume -= hs.volume
 					HS.Remove(hs)
 					del(hs)
 
-				pumppower += volume
+			pumppower += volume
 
 		pain_internal()
 			switch(brute_dam + burn_dam)
@@ -247,16 +247,16 @@ proc/isorgan(A)
 
 	adrenalin_ephedrine
 		time_in_steps = 1
-		volume = 60
+		volume = 65
 
 	caffeine
 		time_in_steps = 1
-		volume = 25
+		volume = 30
 
 	light_sedative
 		time_in_steps = 1
-		volume = -30
+		volume = -35
 
 	hard_sedative
 		time_in_steps = 1
-		volume = -55
+		volume = -60

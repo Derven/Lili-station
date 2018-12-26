@@ -26,6 +26,21 @@
 						oxyloss -= 1
 			else
 				oxyloss += 2
+
+		else if(istype(src.loc, /obj) && !istype(src.loc, /obj/structure/disposalholder))
+			var/obj/O = src.loc
+			var/turf/simulated/floor/F = O.loc
+			var/datum/gas_mixture/G = F.return_air()
+			if(lungs)
+				if(G.oxygen - (lungs.my_func()/5 + rand(1,10)) < HUMAN_NEEDED_OXYGEN + heart.pumppower/1000)
+					Emote(pick("gasps", "cough"))
+					oxyloss += 1
+				else
+					if(oxyloss > 1)
+						oxyloss -= 1
+			else
+				oxyloss += 2
+
 		else
 			Emote(pick("gasps", "cough"))
 			oxyloss += 1

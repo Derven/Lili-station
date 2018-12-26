@@ -5,6 +5,10 @@
 	walltype = "window"
 	robustness = 10
 
+	showcase
+		layer = 16
+		robustness = 30
+
 	shuttle
 		merge()
 			return

@@ -531,12 +531,13 @@
 	// update the icon_state to reflect hidden status
 	proc/update()
 		var/turf/T = src.loc
-		hide(T.intact && !istype(T,/turf/space))	// space never hides pipes
+		if(!istype(T,/turf/space) || !istype(T,/turf/simulated/floor/plating))
+			hide()	// space never hides pipes
 
 	// hide called by levelupdate if turf intact status changes
 	// change visibility status and force update of icon
-	hide(var/intact)
-		invisibility = intact ? 101: 0	// hide if floor is intact
+	hide()
+		invisibility = 101	// hide if floor is intact
 		updateicon()
 
 	// update actual icon_state depending on visibility
@@ -684,6 +685,7 @@
 // a straight or bent segment
 /obj/structure/disposalpipe/segment
 	icon_state = "pipe-s"
+	invisibility = 101
 
 	New()
 		..()

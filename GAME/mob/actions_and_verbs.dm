@@ -107,20 +107,21 @@
 				H.temppixels(round(bodytemperature))
 				H.oxypixels(round(100 - oxyloss))
 				H.healthpixels(round(health))
-			var/environment_heat_capacity = environment.heat_capacity()
-			var/transfer_coefficient = 1
-			var/areatemp = environment.temperature
-			if(abs(areatemp - bodytemperature) > 50)
-				var/diff = areatemp - bodytemperature
-				diff = diff / 5
-				//world << "changed from [bodytemperature] by [diff] to [bodytemperature + diff]"
-				bodytemperature += diff
-			if(bodytemperature < 310)
-				bodytemperature += rand(1, 2)
-				if(bodytemperature < 170)
-					heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
+			if(environment)
+				var/environment_heat_capacity = environment.heat_capacity()
+				var/transfer_coefficient = 1
+				var/areatemp = environment.temperature
+				if(abs(areatemp - bodytemperature) > 50)
+					var/diff = areatemp - bodytemperature
+					diff = diff / 5
+					//world << "changed from [bodytemperature] by [diff] to [bodytemperature + diff]"
+					bodytemperature += diff
+				if(bodytemperature < 310)
+					bodytemperature += rand(1, 2)
+					if(bodytemperature < 170)
+						heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
 
-			handle_temperature_damage(chest, environment.temperature, environment_heat_capacity*transfer_coefficient)
+				handle_temperature_damage(chest, environment.temperature, environment_heat_capacity*transfer_coefficient)
 
 
 /mob/proc/resting()
@@ -300,6 +301,7 @@ mob/proc/dream()
 
 	else if (W == back)
 		back = null
+		overlays -= BP.backoverlay
 
 	else if (W == id)
 		id = null

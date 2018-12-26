@@ -53,6 +53,10 @@ mob
 			if(client)
 				client.MYZL()
 			updatehealth()
+		else
+			heart.pumppower = 0
+
+
 
 	//Vars that should only be accessed via procs
 	var/obj/item/l_hand = null//Living

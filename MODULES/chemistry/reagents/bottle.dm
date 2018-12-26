@@ -63,3 +63,18 @@
 	name = "watercan"
 	icon = 'chemical.dmi'
 	icon_state = "watercan"
+
+/obj/item/weapon/reagent_containers/glass/bottle/bucket
+	name = "bucket"
+	icon = 'chemical.dmi'
+	icon_state = "bucket"
+
+	attackby(obj/item/I as obj, mob/user as mob)
+		if(istype(I, /obj/item/weapon/mop))
+			if(reagents.has_reagent("water", 10))
+				reagents.remove_reagent("water", 10)
+				user << "You wet the mop!"
+				var/obj/item/weapon/mop/M = I
+				M.watered = 5
+		//wrap(I, user)
+		return

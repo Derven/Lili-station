@@ -159,6 +159,9 @@ atom/proc/attack_hand()
 		usr.select_overlay.icon_state = icon_state
 		usr.select_overlay.layer = layer
 		usr.select_overlay.loc = src
+		usr.select_overlay.overlays.Cut()
+		if(istype(src, /mob))
+			usr.select_overlay.overlays += src.overlays
 		if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof) && !(ZLevel > usr.ZLevel))
 			if(usr.usrcolor)
 				usr.select_overlay.color = usr.usrcolor
