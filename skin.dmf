@@ -41,26 +41,20 @@ menu "menu"
 		can-check = true
 		group = "size"
 		saved-params = "is-checked"
+	elem "icon128"
+		name = "128x128 (&2x)"
+		command = ".winset \"mapwindow.map.icon-size=128\""
+		category = "&Icons"
+		can-check = true
+		group = "size"
+		saved-params = "is-checked"
 	elem "icon64"
-		name = "&64x64 (2x)"
+		name = "64x64 (&1x)"
 		command = ".winset \"mapwindow.map.icon-size=64\""
 		category = "&Icons"
 		is-checked = true
 		can-check = true
 		group = "size"
-		saved-params = "is-checked"
-	elem "icon32"
-		name = "&32x32"
-		command = ".winset \"mapwindow.map.icon-size=32\""
-		category = "&Icons"
-		can-check = true
-		group = "size"
-		saved-params = "is-checked"
-	elem "textmode"
-		name = "&Text"
-		command = ".winset \"menu.textmode.is-checked=true?mapwindow.map.text-mode=true:mapwindow.map.text-mode=false\""
-		category = "&Icons"
-		can-check = true
 		saved-params = "is-checked"
 	elem "SR"
 		name = "screen_resolution"
@@ -155,8 +149,8 @@ window "mainwindow"
 window "mapwindow"
 	elem "mapwindow"
 		type = MAIN
-		pos = 281,0
-		size = 1024x600
+		pos = none
+		size = 640x480
 		anchor1 = none
 		anchor2 = none
 		saved-params = "pos;size;is-minimized;is-maximized"
@@ -169,7 +163,7 @@ window "mapwindow"
 	elem "map"
 		type = MAP
 		pos = 0,0
-		size = 1184x720
+		size = 0x0
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = "Arial"
@@ -184,8 +178,8 @@ window "mapwindow"
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
-		pos = 219,0
-		size = 338x480
+		pos = none
+		size = 640x480
 		anchor1 = none
 		anchor2 = none
 		background-color = none
@@ -199,7 +193,7 @@ window "outputwindow"
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
-		size = 338x480
+		size = 0x0
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-size = 16
@@ -213,8 +207,8 @@ window "outputwindow"
 window "rpane"
 	elem "rpane"
 		type = MAIN
-		pos = 219,0
-		size = 296x440
+		pos = none
+		size = 640x480
 		anchor1 = none
 		anchor2 = none
 		background-color = none
@@ -228,7 +222,7 @@ window "rpane"
 	elem "rpanewindow"
 		type = CHILD
 		pos = 0,0
-		size = 296x440
+		size = 0x0
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = none
@@ -268,7 +262,7 @@ window "rpane"
 window "browserwindow"
 	elem "browserwindow"
 		type = MAIN
-		pos = 219,0
+		pos = none
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
@@ -278,7 +272,7 @@ window "browserwindow"
 	elem "browser"
 		type = BROWSER
 		pos = 0,0
-		size = 640x499
+		size = 0x0
 		anchor1 = 0,0
 		anchor2 = 100,100
 		background-color = #ffffff
@@ -290,8 +284,8 @@ window "browserwindow"
 window "infowindow"
 	elem "infowindow"
 		type = MAIN
-		pos = 219,0
-		size = 350x480
+		pos = none
+		size = 640x480
 		anchor1 = none
 		anchor2 = none
 		background-color = none
@@ -306,7 +300,7 @@ window "infowindow"
 	elem "info"
 		type = INFO
 		pos = 0,0
-		size = 350x480
+		size = 0x0
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-default = true
