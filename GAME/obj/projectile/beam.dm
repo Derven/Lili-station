@@ -29,6 +29,7 @@
 		projectile_type = "/obj/item/projectile/beam/explosive"
 
 	taser
+		name = "taser gun"
 		projectile_type = "/obj/item/projectile/beam/stun"
 
 /obj/item/weapon/gun/energy/laser/practice
