@@ -327,13 +327,15 @@
 	if((!I || !user) && istype(I, /obj/item/weapon/reagent_containers))	return 0
 
 	if(istype(I, /obj/item/weapon/handcuffs))
+		var/turf/cur_loc = loc
 		if(usr.do_after(25))
-			usr.drop_item_v()
-			I.Move(src)
-			handcuffed = 1
-			for(var/mob/M in range(5, src))
-				M.playsoundforme('handcuffs.ogg')
-			return
+			if(cur_loc == loc)
+				usr.drop_item_v()
+				I.Move(src)
+				handcuffed = 1
+				for(var/mob/M in range(5, src))
+					M.playsoundforme('handcuffs.ogg')
+				return
 
 	var/datum/organ/external/defen_zone
 	if(client)
