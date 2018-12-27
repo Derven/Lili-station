@@ -233,7 +233,7 @@ atom/movable
 				if(istype(src, /mob))
 					if(src:buckled) return
 			src << "\red You are sucked away by airflow!"
-		var/airflow_falloff = 9 - airflow_dest //It's a fast falloff calc.  Very useful.
+		var/airflow_falloff = 9 - get_dist(src.loc,airflow_dest) //It's a fast falloff calc.  Very useful.
 		if(airflow_falloff < 1)
 			airflow_dest = null
 			return

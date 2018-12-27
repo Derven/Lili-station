@@ -223,16 +223,6 @@ mob/proc/dream()
 	if(lying)
 		resting()
 
-/mob/verb/sleepy()
-	set name = "sleep"
-	set category = "IC"
-	sleeping()
-
-/mob/verb/awakeme()
-	set name = "awake"
-	set category = "IC"
-	awake()
-
 /mob/proc/parstunweak()
 	if (sleeping || stunned || weakened) //Stunned etc.
 		if (stunned > 0)
