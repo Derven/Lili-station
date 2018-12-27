@@ -37,11 +37,12 @@
 		if(istype(O, /obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/W = O
 			if(W.reagents.has_reagent("diesel", 10))
-				W.use()
-				flick("active", W)
-				new /obj/item/stack/metal(src)
-				clear_for_all()
-				ReplaceWithPlating()
+				if(usr.do_after(45))
+					W.use()
+					flick("active", W)
+					new /obj/item/stack/metal(src)
+					clear_for_all()
+					ReplaceWithPlating()
 			else
 				usr << "\red Oh no! Need more fuel!"
 				return

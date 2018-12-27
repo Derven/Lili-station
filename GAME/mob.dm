@@ -37,6 +37,7 @@ mob
 	var/nutrition = 400.0//Carbon
 	var/lying
 	var/nodamage = 0
+	var/handcuffed = 0
 
 	process()
 		if(death == 0)
@@ -381,13 +382,12 @@ mob
 		</head> \
 		<body> \
 			<div class=lobby> \
-				<span class=miniheader style=\"{color: #FFDE40; background-color: #1CBED5; width: 100%; border: 4px double #FFDE40;}\">\
+				<span class=miniheader style=\"{color: #FFDE40; background-color: #1CBED5; width: 100%; border: 4px double #CE24CB;}\">\
 				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=observe'>OBSERVE</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
 				<br> \
 				<center><h1>Lili station</h1></center> \
 				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \
 				SELECTING <a href='?src=\ref[src];color=select'>COLOR</a><br> \
-				LANGUAGE <a href='?src=\ref[src];lang=eng'> ENG </a> / <a href='?src=\ref[src];lang=rus'> RUS </a><br> \
 				GENDER <a href='?src=\ref[src];gender=male'> MALE </a> / <a href='?src=\ref[src];gender=female'> FEMALE </a><br> \
 				<a href='?src=\ref[src];hair=new'> HAIR </a><br> \
 				<a href='?src=\ref[src];display=show'>SCREEN RESOLUTION</a></h3></div> \
@@ -412,13 +412,12 @@ mob
 		</head> \
 		<body> \
 			<div class=lobby> \
-				<span class=miniheader style=\"{color: #FFDE40; background-color: #1CBED5; width: 100%; border: 4px double #FFDE40;}\">\
+				<span class=miniheader style=\"{color: #FFDE40; background-color: #1CBED5; width: 100%; border: 4px double #CE24CB;}\">\
 				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=observe'>OBSERVE</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
 				<br> \
 				<center><h1>Lili station</h1></center> \
 				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \
 				SELECTING <a href='?src=\ref[src];color=select'>COLOR</a><br> \
-				LANGUAGE <a href='?src=\ref[src];lang=eng'> ENG </a> / <a href='?src=\ref[src];lang=rus'> RUS </a><br> \
 				GENDER <a href='?src=\ref[src];gender=male'> MALE </a> / <a href='?src=\ref[src];gender=female'> FEMALE </a><br> \
 				<a href='?src=\ref[src];hair=new'> HAIR </a><br> \
 				<a href='?src=\ref[src];display=show'>SCREEN RESOLUTION</a></h3></div> \

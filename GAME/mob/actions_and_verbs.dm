@@ -14,6 +14,20 @@
 	else
 		return r_hand
 
+/mob/proc/do_after(var/time)
+	var/turf/oldloc = usr.loc
+	var/image/timeicon = image('screen1.dmi',icon_state = "time")
+	overlays.Add(timeicon)
+	while(time)
+		sleep(1)
+		time--
+		if(usr.loc != oldloc)
+			overlays.Remove(timeicon)
+			return 0
+	overlays.Remove(timeicon)
+	return 1
+
+
 /mob/proc/put_in_hand(var/obj/item/I)
 	if(!I) return
 	I.loc = src
@@ -30,6 +44,13 @@
 	else
 		r_hand = I
 	I.layer = 20
+
+/mob/verb/resist()
+	if(handcuffed == 1)
+		if(do_after(100))
+			for(var/obj/item/weapon/handcuffs/HC in src)
+				HC.Move(src.loc)
+				handcuffed = 0
 
 /mob/proc/equipped()
 	if (hand)

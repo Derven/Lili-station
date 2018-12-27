@@ -13,7 +13,7 @@
 	return
 
 /atom/Click()
-	if(!istype(usr, /mob/ghost))
+	if(!istype(usr, /mob/ghost) && usr.handcuffed == 0)
 		var/obj/item/I = usr.get_active_hand()
 
 		if(usr.throwing_mode == 1)

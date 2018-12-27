@@ -85,10 +85,11 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/screwdriver))
-			for(var/mob/M in range(5, src.loc))
-				M.playsoundforme('Screwdriver.ogg')
-			ReplaceWithPlating()
-			new /obj/item/stack/glass(src)
+			if(usr.do_after(25))
+				for(var/mob/M in range(5, src.loc))
+					M.playsoundforme('Screwdriver.ogg')
+				ReplaceWithPlating()
+				new /obj/item/stack/glass(src)
 		else
 			health -= W.force
 			for(var/mob/M in range(5, src))

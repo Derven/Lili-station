@@ -10,16 +10,17 @@
 
 	afterattack(atom/target, mob/user , flag)
 		if(target.type in tometalscraps)
-			for(var/mob/M in range(5, target))
-				M.playsoundforme('circsawhit.ogg')
-			if(istype(target, /turf/simulated/wall))
-				new /obj/item/stack/metalore/metalscraps(target)
-				var/turf/simulated/wall/W = target
-				W.clear_for_all()
-				target = new /turf/simulated/floor/plating(target)
-				new /obj/effect/sparks(target)
-			else
-				new /obj/item/stack/metalore/metalscraps(target.loc)
-				new /obj/effect/sparks(target.loc)
-				del(target)
+			if(usr.do_after(95))
+				for(var/mob/M in range(5, target))
+					M.playsoundforme('circsawhit.ogg')
+				if(istype(target, /turf/simulated/wall))
+					new /obj/item/stack/metalore/metalscraps(target)
+					var/turf/simulated/wall/W = target
+					W.clear_for_all()
+					target = new /turf/simulated/floor/plating(target)
+					new /obj/effect/sparks(target)
+				else
+					new /obj/item/stack/metalore/metalscraps(target.loc)
+					new /obj/effect/sparks(target.loc)
+					del(target)
 
