@@ -5,3 +5,4 @@
 
 		Click()
 			iam.swap_hand()
+			iam.doing_this = 0

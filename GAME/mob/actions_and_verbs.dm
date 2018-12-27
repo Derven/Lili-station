@@ -1,4 +1,5 @@
 /mob
+	var/doing_this = 0
 	verb/run_intent()
 		usr.client.switch_rintent()
 
@@ -15,18 +16,26 @@
 		return r_hand
 
 /mob/proc/do_after(var/time)
-	var/turf/oldloc = usr.loc
-	var/image/timeicon = image('screen1.dmi',icon_state = "time")
-	overlays.Add(timeicon)
-	while(time)
-		sleep(1)
-		time--
-		if(usr.loc != oldloc)
-			overlays.Remove(timeicon)
-			return 0
-	overlays.Remove(timeicon)
-	return 1
-
+	if(doing_this == 0)
+		var/turf/oldloc = usr.loc
+		doing_this = 1
+		var/image/timeicon = image('screen1.dmi',icon_state = "time")
+		overlays.Add(timeicon)
+		while(time)
+			if(doing_this == 1)
+				sleep(1)
+				time--
+				if(usr.loc != oldloc)
+					doing_this = 0
+					overlays.Remove(timeicon)
+					return 0
+			else
+				doing_this = 0
+				overlays.Remove(timeicon)
+				return 0
+		doing_this = 0
+		overlays.Remove(timeicon)
+		return 1
 
 /mob/proc/put_in_hand(var/obj/item/I)
 	if(!I) return

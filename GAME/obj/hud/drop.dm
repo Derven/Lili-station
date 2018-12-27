@@ -5,3 +5,4 @@
 
 		Click()
 			iam.drop_item_v()
+			iam.doing_this = 0
