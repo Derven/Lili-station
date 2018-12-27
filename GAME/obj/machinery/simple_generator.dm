@@ -11,10 +11,10 @@
 	charge = 100
 
 	process()
-		charge = rand(250, 400)
+		charge = rand(280, 420)
 		for(var/obj/machinery/simple_apc/SA in range(4, src))
 			if(prob(45))
-				SA.my_smes.charge += rand(100, 150)
+				SA.my_smes.charge += rand(130, 180)
 			else
 				SA.my_smes.charge += charge
 
