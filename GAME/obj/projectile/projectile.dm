@@ -52,7 +52,6 @@
 		//L.apply_effects(stun, weaken, paralyze, irradiate, stutter, eyeblur, drowsy, blocked)
 		return 1
 
-
 	Bump(atom/A as mob|obj|turf|area)
 		if(A == firer)
 			loc = A.loc
@@ -85,12 +84,9 @@
 				if(permutation == -1) // the bullet passes through a dense object!
 					bumped = 0 // reset bumped variable!
 					if(istype(A, /turf))
-						world << "debug0"
 						if(A.density == 0 || A.opacity == 0)
 							loc = A
-							world << "debug1"
 						else
-							world << "debug"
 							A.bullet_act(src)
 							return
 					else
@@ -98,14 +94,12 @@
 					return
 
 				if(istype(A,/turf))
-					world << "debug01"
 					if(A.density == 0 || A.opacity == 0)
 						for(var/obj/O in A)
 							O.bullet_act(src)
 						for(var/mob/M in A)
 							M.bullet_act(src, def_zone)
 					else
-						world << "debug"
 						A.bullet_act(src)
 
 				density = 0
@@ -116,11 +110,6 @@
 
 	CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 		if(air_group || (height==0)) return 1
-
-		if(istype(mover, /obj/item/projectile))
-			return prob(95)
-		else
-			return 1
 
 
 	process()
@@ -154,6 +143,9 @@
 					x -= 1
 				if(dest.y < y)
 					y -= 1
+				if(oldloc == src.loc)
+					del(src)
+					return
 			if((dest.y == y && dest.x == x) || go_away == 1)
 				go_away = 1
 				if(prob(75))

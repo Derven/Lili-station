@@ -381,8 +381,8 @@ mob
 		</head> \
 		<body> \
 			<div class=lobby> \
-				<span class=miniheader style=\"{color: #FFDE40; background-color: #200772; width: 100%; border: 4px double #FFDE40;}\">\
-				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
+				<span class=miniheader style=\"{color: #FFDE40; background-color: #1CBED5; width: 100%; border: 4px double #FFDE40;}\">\
+				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=observe'>OBSERVE</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
 				<br> \
 				<center><h1>Lili station</h1></center> \
 				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \
@@ -412,8 +412,8 @@ mob
 		</head> \
 		<body> \
 			<div class=lobby> \
-				<span class=miniheader style=\"{color: #FFDE40; background-color: #200772; width: 100%; border: 4px double #FFDE40;}\">\
-				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
+				<span class=miniheader style=\"{color: #FFDE40; background-color: #1CBED5; width: 100%; border: 4px double #FFDE40;}\">\
+				<a href='?src=\ref[src];enter=yes'>JOIN</a> / <a href='?src=\ref[src];enter=observe'>OBSERVE</a> / <a href='?src=\ref[src];enter=nahoy'> EXIT </span></a> \
 				<br> \
 				<center><h1>Lili station</h1></center> \
 				<h3><a href='?src=\ref[src];name=newname'>NAME</a><br> \
@@ -502,6 +502,17 @@ mob/var/inlobby = 1
 			"Your Name",usr.name)
 	if(href_list["enter"] == "nahoy")
 		Logout()
+	if(href_list["enter"] == "observe")
+		usr << sound(null)
+		usr << browse(null, "window=setup")
+		for(var/obj/jobmark/J in world)
+			if(J.job == "assistant")
+				Move(J.loc)
+		lobby.invisibility = 101
+		client.run_intent = 1
+		death()
+		del(src)
+
 	if(href_list["display"] == "show")
 		usr.screen_res = input("Select the resolution.","Ваше разрешение", usr.screen_res) in screen_resolution
 		view_to_res()

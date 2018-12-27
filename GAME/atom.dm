@@ -61,6 +61,9 @@
 	var/last_bumped = 0
 	var/pass_flags = 0
 
+	bullet_act(var/obj/item/projectile/Proj)
+		return 0
+
 	///Chemistry.
 	//var/chem_is_open_container = 0
 	// replaced by OPENCONTAINER flags and atom/proc/is_open_container()
