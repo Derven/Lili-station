@@ -487,7 +487,7 @@ mob/var/inlobby = 1
 		for(var/obj/jobmark/J in world)
 			if(J.job == job)
 				Move(J.loc)
-		lobby.invisibility = 101
+		client.screen -= lobby
 		density = 1
 		if(name == key || name == "mob")
 			name = rand_name(src)
