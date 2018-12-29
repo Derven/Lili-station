@@ -5,6 +5,7 @@ client
 	var/STFU_radio		//80+ people rounds are fun to admin when text flies faster than airport security
 
 mob
+	var/job = "assistant"
 	robustness = 200
 	step_size = 64
 	layer = 18
@@ -13,7 +14,6 @@ mob
 	animate_movement = 2
 	flags = NOREACT
 	var/throwing_mode = 0
-	var/job = "assistant"
 	var/datum/mind/mind
 	var/hand = null
 	var/bodytemperature = 310.055
@@ -56,8 +56,6 @@ mob
 			updatehealth()
 		else
 			heart.pumppower = 0
-
-
 
 	//Vars that should only be accessed via procs
 	var/obj/item/l_hand = null//Living
@@ -360,20 +358,11 @@ mob
 /proc/dd_range(var/low, var/high, var/num)
 	return max(low,min(high,num))
 
-/mob
-	var/obj/lobby/lobby
-	var/lobby_text
-	var/sound/lobbysound = sound('title1.ogg')
-
-	proc/create_lobby(var/client/C)
-		if(C)
-			C.screen += lobby
-
 /mob/New()
 	..()
 	if(length(landmarks) > 0)
 		Move(pick(landmarks))
-
+/*
 /mob/proc/show_lobby()
 	lobby_text = " \
 	<html> \
@@ -433,20 +422,9 @@ mob
 		</body> \
 	</html>"
 	usr << browse(lobby_text,"window=setup;size=350x500;can_resize=0;can_close=0")
-
+*/
 client
 	var/played = 0
-
-/mob/Login()
-	..()
-	if(!istype(src, /mob/ghost))
-		density = 0
-		usr << "<h1><b>Wellcome to unique isometric station based on SS13 and named 'Lili station'.</b></h2>"
-		lobby = new(usr)
-		create_hud(usr.client)
-		create_lobby(usr.client)
-		usr << lobbysound
-		show_lobby()
 
 //mob/var/atom/cur_object_i_give
 mob/var/atom/cur_object_i_see
@@ -465,7 +443,7 @@ mob/var/inlobby = 1
 /mob/proc/playsoundforme(sound/S as sound)
 	if(client)
 		usr << sound(S,0,0,0,client.sound_volume)
-
+/*
 /mob/Topic(href,href_list[])
 	if(href_list["enter"] == "yes")
 		if(job == "assistant")
@@ -638,6 +616,8 @@ mob/var/inlobby = 1
 			usr << "\red Your job is bartender now!"
 
 	return
+*/
+
 /*
 	if(href_list["assist"] == "0")
 		assist = 1

@@ -17,9 +17,9 @@ var/global/list/last_names2 = list("bang", "er", "erston", "ovich", "erbun", "bu
 "fight", "wallpaper", "ski", "ur", "s")
 
 /proc/rand_name(mob/C)
-	if(C.icon_state == "mob")
+	if(C.gender == "male" || C.gender == "neuter")
 		if(prob(60)) return "[pick(m_first_names)] [pick(last_names1)][pick(last_names2)]"
 		else return "[pick(m_first_names)] [pick(last_names1)]"
-	if(C.icon_state == "mob_f")
+	if(C.gender == "female")
 		if(prob(60)) return "[pick(f_first_names)] [pick(last_names1)][pick(last_names2)]"
 		else return "[pick(f_first_names)] [pick(last_names1)]"
