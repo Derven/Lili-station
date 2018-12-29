@@ -25,7 +25,7 @@
 		set src in range(1, usr)
 		if(Height < usr.ZLevel)
 			for(var/mob/M in range(5, src))
-				M << M.select_lang("\red [usr] падает на [src]", "\red [usr] falls onto [src]")
+				M << "\red [usr] falls onto [src]"
 			usr.Move(src)
 			usr.ZLevel = Height
 			usr.layer = initial(usr.layer)

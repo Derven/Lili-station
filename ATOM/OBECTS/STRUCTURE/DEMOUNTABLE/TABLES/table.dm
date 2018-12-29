@@ -69,9 +69,10 @@
 //			if(locate(/obj/structure/table,get_step(src,direction)))
 //				var/obj/structure/table/T = locate(/obj/structure/table,get_step(src,direction))
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/weapon/W as obj, var/mob/simulated/living/humanoid/user as mob)
+		user = usr
 		if(istype(W, /obj/item/weapon/wrench))
-			usr << usr.select_lang("Вы разбираете стол...", "You deconstruct the table...")
+			usr << "You deconstruct the table..."
 			if(do_after(usr, 5))
 				for(var/obj/O in src.loc)
 					O.pixel_z = -16
@@ -79,5 +80,5 @@
 			return
 
 		W.pixel_z = 6
-		usr.drop_item(src)
+		user.drop_item(src)
 		return

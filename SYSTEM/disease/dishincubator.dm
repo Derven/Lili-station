@@ -24,7 +24,8 @@
 					del(src)
 					return
 
-	attackby(var/obj/B as obj, var/mob/user as mob)
+	attackby(var/obj/B as obj, var/mob/simulated/living/humanoid/user as mob)
+		user = usr
 		if(istype(B, /obj/item/weapon/reagent_containers/glass) || istype(B,/obj/item/weapon/reagent_containers/syringe))
 
 			if(src.beaker)

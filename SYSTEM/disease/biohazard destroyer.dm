@@ -9,7 +9,8 @@
 	density = 1
 	anchored = 1
 
-/obj/machinery/microorganism/biodestroyer/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/machinery/microorganism/biodestroyer/attackby(var/obj/I as obj, var/mob/simulated/living/humanoid/user as mob)
+	user = usr
 	for(var/path in accepts)
 		if(I.type in typesof(path))
 			user.drop_item()

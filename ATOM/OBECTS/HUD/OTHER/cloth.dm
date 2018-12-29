@@ -6,13 +6,14 @@
 		screen_loc = "SOUTH-1, WEST+4"
 
 		Click()
-			var/obj/item/I = iam.get_active_hand()
+			var/mob/simulated/living/humanoid/H = iam
+			var/obj/item/I = H.get_active_hand()
 			if(I && istype(I,/obj/item/clothing/suit))
 				var/obj/item/clothing/suit/mysuit = I
-				if(I && iam.cloth == null)
-					iam.drop_item(src)
+				if(I && H.cloth == null)
+					H.drop_item(src)
 					I.layer = 21
-					iam.cloth = I
+					H.cloth = I
 					update_slot(I)
 					mysuit.wear_clothing(iam)
 
@@ -23,13 +24,14 @@
 		invisibility = 101
 
 		Click()
-			var/obj/item/I = iam.get_active_hand()
+			var/mob/simulated/living/humanoid/H = iam
+			var/obj/item/I = H.get_active_hand()
 			var/obj/item/clothing/id/myid = I
 			if(myid && istype(myid,/obj/item/clothing/id))
-				if(myid && iam.id == null)
-					iam.drop_item(src)
+				if(myid && H.id == null)
+					H.drop_item(src)
 					myid.layer = 21
-					iam.id = myid
+					H.id = myid
 					update_slot(myid)
 
 /obj/hud
@@ -40,18 +42,19 @@
 		var/image/backoverlay
 
 		Click()
-			var/obj/item/I = iam.get_active_hand()
+			var/mob/simulated/living/humanoid/H = iam
+			var/obj/item/I = H.get_active_hand()
 			var/obj/item/weapon/storage/box/backpack/myback = I
 			if(myback && istype(myback,/obj/item/weapon/storage/box/backpack))
-				if(iam.back == null)
+				if(H.back == null)
 					if(backoverlay)
 						backoverlay.layer = initial(backoverlay.layer)
-					iam.drop_item(src)
+					H.drop_item(src)
 					myback.layer = 21
-					iam.back = myback
+					H.back = myback
 					backoverlay = image('suit.dmi',icon_state = myback.icon_state)
 					backoverlay.layer = 22
-					iam.overlays += backoverlay
+					H.overlays += backoverlay
 					update_slot(myback)
 
 /obj/hud
@@ -60,41 +63,42 @@
 		screen_loc = "SOUTH-1, WEST+5"
 
 		Click()
+			var/mob/simulated/living/humanoid/H = iam
 			flick("switcher_flick", src)
 			if(cur_cloth_slot == 1) //cloth
 				cur_cloth_slot = 0 //id
-				iam.CL.invisibility = 101
-				iam.BP.invisibility = 101
-				if(iam.cloth)
-					iam.cloth.invisibility = 101
-				if(iam.back)
-					iam.back.invisibility = 101
-				iam.ID.invisibility = 0
-				if(iam.id)
-					iam.id.invisibility = 0
+				H.CL.invisibility = 101
+				H.BP.invisibility = 101
+				if(H.cloth)
+					H.cloth.invisibility = 101
+				if(H.back)
+					H.back.invisibility = 101
+				H.ID.invisibility = 0
+				if(H.id)
+					H.id.invisibility = 0
 				return
 			if(cur_cloth_slot == 0) //id
 				cur_cloth_slot = -1 //backpack
-				iam.ID.invisibility = 101
-				iam.CL.invisibility = 101
-				iam.BP.invisibility = 0
-				if(iam.id)
-					iam.id.invisibility = 101
-				if(iam.cloth)
-					iam.cloth.invisibility = 101
-				if(iam.back)
-					iam.back.invisibility = 0
+				H.ID.invisibility = 101
+				H.CL.invisibility = 101
+				H.BP.invisibility = 0
+				if(H.id)
+					H.id.invisibility = 101
+				if(H.cloth)
+					H.cloth.invisibility = 101
+				if(H.back)
+					H.back.invisibility = 0
 				return
 			else
 				cur_cloth_slot = 1 //cloth
-				iam.BP.invisibility = 101
-				iam.ID.invisibility = 101
-				if(iam.id)
-					iam.id.invisibility = 101
-				if(iam.back)
-					iam.back.invisibility = 101
-				iam.CL.invisibility = 0
-				if(iam.cloth)
-					iam.cloth.invisibility = 0
+				H.BP.invisibility = 101
+				H.ID.invisibility = 101
+				if(H.id)
+					H.id.invisibility = 101
+				if(H.back)
+					H.back.invisibility = 101
+				H.CL.invisibility = 0
+				if(H.cloth)
+					H.cloth.invisibility = 0
 				return
 				 //top feature

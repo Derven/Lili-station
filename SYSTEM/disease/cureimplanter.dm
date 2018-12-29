@@ -25,7 +25,7 @@
 				O.show_message("\red [user] injects themself with [src.name]!", 1)
 
 
-		var/mob/M = target
+		var/mob/simulated/living/M = target
 
 		if(works == 0)
 			M.resistances += resistance

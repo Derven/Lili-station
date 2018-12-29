@@ -8,6 +8,7 @@
 	var/pregame_flavor
 	var/pregame_job = "assistant"
 	var/pregame_hair_color = "black"
+	see_invisible = 101
 	var/pregame_body_color = "white"
 	var/obj/lobby/lobby
 	gender = "male"
@@ -122,7 +123,7 @@
 						<span class='doc' style=\"{color: darkblue};\"><a href='?src=\ref[src];job=6'>Doctor</a></span>
 						<span class='cap' style=\"{color: blue};\"><a href='?src=\ref[src];job=7'>Captain</a></span>
 					<hr>
-					<a href='?src=\ref[src];preview=1'>view</a> / <a href='?src=\ref[src];join=1'>join</a> / observe
+					<a href='?src=\ref[src];preview=1'>view</a> / <a href='?src=\ref[src];join=1'>join</a> / <a href='?src=\ref[src];observe=1'>observe</a>
 				</div>
 			</body>
 		</html>"}
@@ -181,14 +182,24 @@
 		if(href_list["join"] == "1")
 			usr << browse(null,"window=setup")
 			usr << sound(null)
-			var/mob/human/H = new(src.loc)
+			var/mob/simulated/living/humanoid/human/H = new(src.loc)
 			H.create(src)
 			for(var/obj/jobmark/J in world)
 				if(J.job == H.job)
 					H.Move(J.loc)
 			del(src)
 
-
+		if(href_list["observe"] == "1")
+			usr << browse(null,"window=setup")
+			usr << sound(null)
+			var/mob/ghost/G = new(src.loc)
+			G.icon = pregame_human
+			G.name = pregame_name
+			for(var/obj/jobmark/J in world)
+				if(J.job == pregame_job)
+					G.Move(J.loc)
+			G.key = key
+			del(src)
 
 /mob/new_player/Login()
 	..()

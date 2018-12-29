@@ -81,7 +81,7 @@
 
 // attack with item, place item on conveyor
 
-/obj/machinery/conveyor/attackby(var/obj/item/I, mob/user)
+/obj/machinery/conveyor/attackby(var/obj/item/I, mob/simulated/living/humanoid/user)
 	if(istype(I, /obj/item/weapon/grab))	// special handling if grabbing a mob
 		var/obj/item/weapon/grab/G = I
 		G.affecting.Move(src.loc)

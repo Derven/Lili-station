@@ -2,50 +2,19 @@
 	if (istype(W, /obj/item/device/detective_scanner))
 		for(var/mob/O in viewers(src, null))
 			if (O.client)
-				O << usr.select_lang(text("\red [src] отсканировано [user] с помощью [W]"), text("\red [src] has been scanned by [user] with the [W]"))
+				O << "\red [src] has been scanned by [user] with the [W]"
 	else
 		if (!( istype(W, /obj/item/weapon/grab) ) && !(istype(W, /obj/item/weapon/plastique)) &&!(istype(W, /obj/item/weapon/cleaner)) &&!(istype(W, /obj/item/weapon/chemsprayer)) &&!(istype(W, /obj/item/weapon/pepperspray)) && !(istype(W, /obj/item/weapon/plantbgone)) )
 			for(var/mob/O in viewers(src, null))
 				if (O.client)
 					if(O.intent == 0)
 						//O << text("\red <B>[] вы бьете [] с помощью []</B>", src, user, W)
-						O << usr.select_lang(text("\red <B>[] вы бьете [] с помощью []</B>", src, user, W), text("\red <B>[] has been attacked by [] with the []</B>", src, user, W))
+						O <<  "\red <B>[] has been attacked by [] with the []</B>"
 	return
 
 /atom/Click()
-	if(!istype(usr, /mob/ghost) && usr.handcuffed == 0)
-		var/obj/item/I = usr.get_active_hand()
-
-		if(usr.throwing_mode == 1)
-			if(usr.hand && usr.l_hand)
-				var/obj/item/I2 = usr.l_hand
-				usr.drop_item()
-				I2.throw_hyuow_at(src, rand(4,9), 1)
-				usr.throwing_mode = 0
-				usr.TH.icon_state = "throw1"
-			if(!usr.hand && usr.r_hand)
-				var/obj/item/I2 = usr.r_hand
-				usr.drop_item()
-				I2.throw_hyuow_at(src, rand(4,9), 1)
-				usr.throwing_mode = 0
-				usr.TH.icon_state = "throw1"
-
-		if(istype(I, /obj/item/weapon/gun))
-			I.afterattack(src)
-		if(src in range(1, usr))
-			if(!usr.get_active_hand())
-				attack_hand(usr)
-			else
-				if(src == usr.get_active_hand())
-					attack_self()
-				else
-					attackby(usr.get_active_hand())
-					if(I)
-						I.afterattack(src, usr)
-		else if(src.loc in range(1, usr))
-			attack_hand(usr)
-			for(var/obj/structure/closet/closet_3/CL in range(1, usr))
-				CL.upd_closet()
+	var/mob/M = usr
+	return M.myclick(src)
 
 /mob
 	Bump(var/atom/A)
@@ -102,18 +71,18 @@
 				var/datum/organ/external/affecting = get_organ(ran_zone(usr.ZN_SEL.selecting))
 				if(defen_zone)
 					if(defen_zone == affecting )
-						src << select_lang("\red Вы блокируете часть урона", "\red You block damage partially")
-						usr << usr.select_lang("\red [src] блокирует часть урона!", "\red [src] block damage partially")
+						src << "\red You block damage partially"
+						usr << "\red [src] block damage partially"
 						apply_damage(rand(6, 12) - defense, "brute" , affecting, 0)
 				else
 					apply_damage(rand(6, 12), "brute" , affecting, 0)
 				for(var/mob/M in range(5, src))
 					//M << "\red [usr] бьет [src] в область [affecting]"
-					M << M.select_lang("\red [usr] бьет [src] в область [affecting]", "\red [usr] punch [src] to [affecting]")
+					M << "\red [usr] punch [src] to [affecting]"
 			else
 				if(src.ZLevel < usr.ZLevel)
 					for(var/mob/M in range(5, src))
-						M << M.select_lang("\red [usr] прот&#255;гивает руку [src] и поднимает на второй этаж", "\red [usr] lift [src] to [usr.ZLevel] level")
+						M << "\red [usr] lift [src] to [usr.ZLevel] level"
 					src.Move(usr.loc)
 					src.ZLevel = usr.ZLevel
 					layer = 17
@@ -146,7 +115,7 @@
 	if (!( usr ))
 		return
 
-	usr << usr.select_lang("Это [name].", "This is \an [name].") //here
+	usr << "This is \an [name]."
 	usr << desc
 	// *****RM
 	//usr << "[name]: Dn:[density] dir:[dir] cont:[contents] icon:[icon] is:[icon_state] loc:[loc]"

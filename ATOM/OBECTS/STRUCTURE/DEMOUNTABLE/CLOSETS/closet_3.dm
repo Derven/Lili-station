@@ -16,8 +16,8 @@
 		attack_hand()
 			return
 
-		attackby(var/obj/item/I)
-			usr.drop_item(src)
+		attackby(var/obj/item/I, mob/simulated/living/humanoid/user as mob)
+			user.drop_item(src)
 			I.Move(src)
 			icon_state = "polka_1"
 
@@ -39,7 +39,7 @@
 		attack_hand()
 			return
 
-		attackby(var/obj/item/I)
-			usr.drop_item(src)
+		attackby(var/obj/item/I, mob/simulated/living/humanoid/user as mob)
+			user.drop_item(src)
 			I.Move(src)
 			icon_state = "books1"

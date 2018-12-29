@@ -1,5 +1,5 @@
 /mob/ghost
-	invisibility = 100
+	invisibility = 75
 	alpha = 128
 	see_invisible = 101
 	density = 0

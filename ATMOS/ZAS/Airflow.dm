@@ -55,12 +55,6 @@ mob/proc/airflow_stun()
 	if(last_airflow_stun > world.time - vsc.airflow_stun_cooldown)	return 0
 	last_airflow_stun = world.time
 
-mob/living/silicon/airflow_stun()
-	return
-
-mob/living/carbon/metroid/airflow_stun()
-	return
-
 mob/airflow_stun()
 	if(last_airflow_stun > world.time - vsc.airflow_stun_cooldown)	return 0
 	if(buckled) return 0
@@ -78,13 +72,6 @@ mob/check_airflow_movable(n)
 	if(n < vsc.airflow_heavy_pressure)
 		return 0
 	return 1
-
-mob/dead/observer/check_airflow_movable()
-	return 0
-
-mob/living/silicon/check_airflow_movable()
-	return 0
-
 
 obj/item/check_airflow_movable(n)
 	. = ..()

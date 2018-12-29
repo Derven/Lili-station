@@ -9,7 +9,7 @@
 	pixel_z = 0
 	return
 
-/obj/item/attack_hand(mob/user as mob)
+/obj/item/attack_hand(mob/simulated/living/humanoid/user as mob)
 	if(user.death == 0 && !istype(src, /mob/ghost))
 		Move(user)
 		src.layer = 20

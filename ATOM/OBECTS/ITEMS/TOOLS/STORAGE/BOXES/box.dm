@@ -25,29 +25,31 @@
 		icon_state = "backpack"
 
 	attackby(var/obj/item/I)
+		var/mob/simulated/living/humanoid/user = usr
 		if(!istype(I, /obj/item/weapon/storage))
-			usr.drop_item(src)
+			user.drop_item(src)
 			I.Move(src)
-			usr << usr.select_lang("Вы положили [I] в коробку!", "You put [I] into box!")
+			usr << "You put [I] into box!"
 
 /mob
 	var/list/boxes = list()
 
 /obj/item/weapon/storage
 	attack_self()
+		var/mob/simulated/living/humanoid/user = usr
 		//usr.client.screen
 		var/i = 0
 		for(var/obj/item/I in contents)
-			var/obj/hud/box/B = new(usr)
+			var/obj/hud/box/B = new(user)
 			B.screen_loc = "SOUTH+[1 + i], WEST+1"
 			I.screen_loc = B.screen_loc
 			I.layer = 21
 			B.myitem = I
-			usr.client.screen.Add(B)
-			usr.client.screen.Add(I)
-			usr.boxes.Add(B)
+			user.client.screen.Add(B)
+			user.client.screen.Add(I)
+			user.boxes.Add(B)
 			i += 1
-		var/obj/hud/box_close/X = new(usr)
+		var/obj/hud/box_close/X = new(user)
 		X.screen_loc = "SOUTH+[1 + i], WEST+1"
-		usr.client.screen.Add(X)
+		user.client.screen.Add(X)
 

@@ -230,7 +230,7 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 				equal = 0
 		return equal
 
-	proc/activate(var/mob/mob)
+	proc/activate(var/mob/simulated/living/mob)
 		if(dead)
 			cure(mob)
 			mob.microorganism = null
@@ -265,7 +265,7 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 			e.runeffect(mob,stage)
 		clicks+=speed
 
-	proc/cure(var/mob/mob)
+	proc/cure(var/mob/simulated/living/mob)
 		var/datum/microorganism/effectholder/E
 		if(stage>1)
 			E = effects[1]
@@ -315,13 +315,13 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 	var/name = "Blanking effect"
 	var/stage = 4
 	var/maxm = 1
-	proc/activate(var/mob/mob,var/multiplier)
-	proc/deactivate(var/mob/mob)
+	proc/activate(var/mob/simulated/living/mob,var/multiplier)
+	proc/deactivate(var/mob/simulated/living/mob)
 
 /datum/microorganism/effect/alien
 	name = "Unidentified Foreign Body"
 	stage = 4
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob << "\red You feel something tearing its way out of your stomach..."
 		mob.toxloss += 10
 		if(prob(40))
@@ -336,146 +336,146 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 /datum/microorganism/effect/greater/gibbingtons
 	name = "Gibbingtons Syndrome"
 	stage = 4
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.death()
 
 /datum/microorganism/effect/greater/radian
 	name = "Radian's syndrome"
 	stage = 4
 	maxm = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.radiation += (2*multiplier)
 
 /datum/microorganism/effect/greater/toxins
 	name = "Hyperacid Syndrome"
 	stage = 3
 	maxm = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.toxloss += (2*multiplier)
 
 /datum/microorganism/effect/greater/scream
 	name = "Random screaming syndrome"
 	stage = 2
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*scream")
 
 /datum/microorganism/effect/greater/shakey
 	name = "World Shaking syndrome"
 	stage = 3
 	maxm = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.shake_camera(5*multiplier)
 
 /datum/microorganism/effect/greater/deaf
 	name = "Hard of hearing syndrome"
 	stage = 4
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.ear_deaf += 20
 
 /datum/microorganism/effect/invisible
 	name = "Waiting Syndrome"
 	stage = 1
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		return
 
 /datum/microorganism/effect/greater/telepathic
 	name = "Telepathy Syndrome"
 	stage = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.mutations |= 512
 
 /datum/microorganism/effect/greater/noface
 	name = "Identity Loss syndrome"
 	stage = 4
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.face_dmg++
-	deactivate(var/mob/mob)
+	deactivate(var/mob/simulated/living/mob)
 		mob.face_dmg--
 
 /datum/microorganism/effect/greater/sneeze
 	name = "Coldingtons Effect"
 	stage = 1
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*sneeze")
 
 /datum/microorganism/effect/greater/gunck
 	name = "Flemmingtons"
 	stage = 1
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob << "\red Mucous runs down the back of your throat."
 
 /datum/microorganism/effect/greater/killertoxins
 	name = "Toxification syndrome"
 	stage = 4
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.toxloss += 15
 
 /datum/microorganism/effect/greater/hallucinations
 	name = "Hallucinational Syndrome"
 	stage = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.hallucination += 25
 
 /datum/microorganism/effect/greater/sleepy
 	name = "Resting syndrome"
 	stage = 2
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*collapse")
 
 /datum/microorganism/effect/greater/mind
 	name = "Lazy mind syndrome"
 	stage = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.brainloss = 50
 
 // lesser syndromes, partly just copypastes
 /datum/microorganism/effect/lesser/mind
 	name = "Lazy mind syndrome"
 	stage = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.brainloss = 20
 
 /datum/microorganism/effect/lesser/deaf
 	name = "Hard of hearing syndrome"
 	stage = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.ear_deaf = 5
 
 /datum/microorganism/effect/lesser/gunck
 	name = "Flemmingtons"
 	stage = 1
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob << "\red Mucous runs down the back of your throat."
 
 /datum/microorganism/effect/lesser/radian
 	name = "Radian's syndrome"
 	stage = 4
 	maxm = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.radiation += 1
 
 /datum/microorganism/effect/lesser/sneeze
 	name = "Coldingtons Effect"
 	stage = 1
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*sneeze")
 
 /datum/microorganism/effect/lesser/cough
 	name = "Anima Syndrome"
 	stage = 2
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*cough")
 
 /datum/microorganism/effect/lesser/hallucinations
 	name = "Hallucinational Syndrome"
 	stage = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.hallucination += 5
 
 /datum/microorganism/effect/lesser/arm
 	name = "Disarming Syndrome"
 	stage = 4
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		var/datum/organ/external/org = mob.organs["r_arm"]
 		org.take_damage(3,0,0,0)
 		mob << "\red You feel a sting in your right arm."
@@ -483,50 +483,50 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 /datum/microorganism/effect/lesser/hungry
 	name = "Appetiser Effect"
 	stage = 2
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.nutrition = max(0, mob.nutrition - 200)
 
 /datum/microorganism/effect/lesser/groan
 	name = "Groaning Syndrome"
 	stage = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*groan")
 
 /datum/microorganism/effect/lesser/scream
 	name = "Loudness Syndrome"
 	stage = 4
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*scream")
 
 /datum/microorganism/effect/lesser/drool
 	name = "Saliva Effect"
 	stage = 1
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*drool")
 
 /datum/microorganism/effect/lesser/fridge
 	name = "Refridgerator Syndrome"
 	stage = 2
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*shiver")
 
 /datum/microorganism/effect/lesser/twitch
 	name = "Twitcher"
 	stage = 1
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*twitch")
 
 /*Removed on request by Spaceman, due to it being detrimental to RP. -CN
 /datum/microorganism/effect/lesser/deathgasp
 	name = "Zombie Syndrome"
 	stage = 4
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*deathgasp")*/
 
 /datum/microorganism/effect/lesser/giggle
 	name = "Uncontrolled Laughter Effect"
 	stage = 3
-	activate(var/mob/mob,var/multiplier)
+	activate(var/mob/simulated/living/mob,var/multiplier)
 		mob.Say("*giggle")
 
 
@@ -542,7 +542,7 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 	var/multiplier = 1 //The chance the effects are WORSE
 	var/stage = 0
 
-	proc/runeffect(var/mob/mob)
+	proc/runeffect(var/mob/simulated/living/mob)
 		if(happensonce > -1 && effect.stage <= stage && prob(chance))
 			effect.activate(mob)
 			if(happensonce == 1)

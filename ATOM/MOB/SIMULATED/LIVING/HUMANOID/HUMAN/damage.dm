@@ -1,71 +1,3 @@
-/mob/var/oxyloss = 0.0
-/mob/var/toxloss = 0.0
-/mob/var/brainloss = 0.0
-/mob/var/ear_deaf = null
-/mob/var/face_dmg = 0
-/mob/var/halloss = 0
-/mob/var/hallucination = 0
-/mob/var/list/atom/hallucinations = list()
-/mob/var/health = 100
-
-/mob/proc/updatehealth()
-	if(src.nodamage)
-		src.health = 100
-		src.stat = 0
-		return
-	if(cloth == null || cloth.space_suit == 0)
-		if(istype(src.loc, /turf/simulated/floor))
-			var/turf/simulated/floor/F = src.loc
-			var/datum/gas_mixture/G = F.return_air()
-			if(lungs)
-				if(G.oxygen - (lungs.my_func()/5 + rand(1,10)) < HUMAN_NEEDED_OXYGEN + heart.pumppower/1000)
-					Emote(pick("gasps", "cough"))
-					oxyloss += 1
-				else
-					if(oxyloss > 1)
-						oxyloss -= 1
-			else
-				oxyloss += 2
-
-		else if(istype(src.loc, /obj) && !istype(src.loc, /obj/structure/disposalholder))
-			var/obj/O = src.loc
-			var/turf/simulated/floor/F = O.loc
-			var/datum/gas_mixture/G = F.return_air()
-			if(lungs)
-				if(G.oxygen - (lungs.my_func()/5 + rand(1,10)) < HUMAN_NEEDED_OXYGEN + heart.pumppower/1000)
-					Emote(pick("gasps", "cough"))
-					oxyloss += 1
-				else
-					if(oxyloss > 1)
-						oxyloss -= 1
-			else
-				oxyloss += 2
-
-		else
-			Emote(pick("gasps", "cough"))
-			oxyloss += 1
-	if(oxyloss > 75)
-		sleeping()
-
-	src.health = 100 - src.getOxyLoss() - src.getToxLoss() - src.getFireLoss() - src.getBruteLoss()
-	if(health > 100)
-		health = 100
-	if(src.health < 0)
-		src.health = 0
-		death()
-
-/mob/proc/getOxyLoss()
-	return oxyloss
-
-/mob/proc/adjustOxyLoss(var/amount)
-	oxyloss = max(oxyloss + amount, 0)
-
-/mob/proc/getToxLoss()
-	return toxloss
-
-/mob/proc/adjustToxLoss(var/amount)
-	toxloss = max(toxloss + amount, 0)
-
 /mob
 	var/bruteloss = 0.0//Living
 	var/fireloss = 0.0//Living
@@ -161,103 +93,9 @@
 		if(l_leg.brute_dam < vol)
 			l_leg.brute_dam = 0
 
-	proc/blood_flow()
-
-		heart.my_func()
-		switch(heart.pumppower)
-			if (80 to 90)
-				if(prob(rand(2,5)))
-					src << heart.pain_internal()
-			if (50 to 80)
-				if(prob(rand(5,15)))
-					src << heart.pain_internal()
-			if (30 to 50)
-				if(prob(rand(10,15)))
-					src << heart.pain_internal()
-				if(sleeping == 0)
-					sleeping()
-			if (5 to 30)
-				if(prob(rand(10,25)))
-					src << heart.pain_internal()
-					chest.brute_dam += rand(2,4)
-					head.brute_dam += rand(2,4)
-			if(0 to 5)
-				death()
-
-		var/obj/blood/BD
-
-		if(H)
-			H.clear_overlay()
-			H.temppixels(round(H.cur_tnum))
-			H.oxypixels(round(100 - oxyloss))
-			H.healthpixels(round(health))
-
-		if(prob(25))
-			if(!reagents.has_reagent("blood", 280))
-				reagents.add_reagent("blood", 20)
-
-		if(prob(25))
-			if(chest.brute_dam > 80)
-				reagents.remove_reagent("blood", 20 + heart.pumppower / 10)
-				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-				BD = new(src.loc)
-
-			if(head.brute_dam > 80)
-				reagents.remove_reagent("blood", 18  + heart.pumppower / 10)
-				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-				BD = new(src.loc)
-
-			if(r_leg.brute_dam > 80)
-				reagents.remove_reagent("blood", 14  + heart.pumppower / 10)
-				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-				BD = new(src.loc)
-
-			if(l_leg.brute_dam > 80)
-				reagents.remove_reagent("blood", 14  + heart.pumppower / 10)
-				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-				BD = new(src.loc)
-
-			if(r_arm.brute_dam > 80)
-				reagents.remove_reagent("blood", 8  + heart.pumppower / 10)
-				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, епта
-				BD = new(src.loc)
-
-			if(l_arm.brute_dam > 80)
-				reagents.remove_reagent("blood", 8  + heart.pumppower / 10)
-				src << select_lang("\red Вы тер&#255;ете немного крови", "You have the blood loss") //Хуй знает как еще перевести! Соре, еп
-				BD = new(src.loc)
-
-		if(!reagents.has_reagent("blood", 50))
-			death()
-			return
-/*
-		if(H)
-			if(reagents.has_reagent("blood", 300))
-				src.H.icon_state = "health100"
-
-			if(!reagents.has_reagent("blood", 270))
-				src.H.icon_state = "health80"
-
-			if(!reagents.has_reagent("blood", 180))
-				src.H.icon_state = "health50"
-
-			if(!reagents.has_reagent("blood", 140))
-				src.H.icon_state = "health30"
-				if(prob(35))
-					if(!lying)
-						resting()
-
-			if(!reagents.has_reagent("blood", 80))
-				src.H.icon_state = "health10"
-				if(!lying)
-					resting()
-*/
-		if(BD)
-			BD.pixel_z = (ZLevel - 1) * 32
-
 	proc/death()
 		death = 1
-		src << select_lang("\red Ты умер. Пам-пам", "\red You are dead")
+		src << "\red You are dead"
 		if(client)
 			client.screen.Cut()
 		STOP_PROCESSING(SSmobs, src)
@@ -323,14 +161,15 @@
 	else if (zone == "r_foot") return "right foot"
 	else return zone
 
-/mob/proc/attacked_by(var/obj/item/I, var/mob/user, var/def_zone)
+/mob/proc/attacked_by(var/obj/item/I, var/mob/simulated/living/humanoid/user, var/def_zone)
+	user = usr
 	if((!I || !user) && istype(I, /obj/item/weapon/reagent_containers))	return 0
 
 	if(istype(I, /obj/item/weapon/handcuffs))
 		var/turf/cur_loc = loc
 		if(usr.do_after(25))
 			if(cur_loc == loc)
-				usr.drop_item_v()
+				user.drop_item_v()
 				I.Move(src)
 				handcuffed = 1
 				for(var/mob/M in range(5, src))
@@ -347,7 +186,7 @@
 	if(def_zone && client)
 		def_area = parse_zone(defen_zone.name)
 
-	usr << select_lang("\red <B>[src] атакован(а) [user] в [hit_area] с помощью [I.name] !</B>", "\red <B>[src] attacked [user] to [hit_area] by [I.name] !</B>")
+	usr << "\red <B>[src] attacked [user] to [hit_area] by [I.name] !</B>"
 
 	if((user != src))
 		return 0
@@ -372,8 +211,8 @@
 	if(def_area)
 		if(def_area == hit_area)
 			I.force -= defense
-			user << select_lang("\blue Вы блокируете часть урона!", "\blue You block damage partially")
-			usr << select_lang("\red [src] блокирует часть урона!", "\red [src] block damage partially!")
+			user << "\blue You block damage partially"
+			usr << "\red [src] block damage partially!"
 	apply_damage(I.force, I.damtype, affecting, 0)
 	I.force = initial(I.force)
 

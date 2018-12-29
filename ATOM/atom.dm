@@ -46,11 +46,11 @@
 			layer = initial(layer) + (15 * (T.Height - 1))
 	if(!anchored)
 		..()
-		for(var/mob/M in pullers)
+		for(var/mob/simulated/M in pullers)
 			M.update_pulling()
 		. = ..()
 		if(.)
-			for(var/mob/M in pullers)
+			for(var/mob/simulated/M in pullers)
 				M.update_pulling()
 
 /atom/movable/overlay

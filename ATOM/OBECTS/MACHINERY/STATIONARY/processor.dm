@@ -50,7 +50,8 @@
 		return P
 	return 0
 
-/obj/machinery/processor/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/processor/attackby(var/obj/item/O as obj, var/mob/simulated/living/humanoid/user as mob)
+	user = usr
 	if(src.processing)
 		user << "\red The processor is in the process of processing."
 		return 1
@@ -68,7 +69,7 @@
 		return 1
 	//user.visible_message("[user] put [what] into [src].", \
 		"You put the [what] into [src].")
-	usr.drop_item()
+	user.drop_item()
 	what:loc = src
 	return
 

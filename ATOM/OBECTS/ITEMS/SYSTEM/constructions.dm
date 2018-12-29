@@ -4,9 +4,10 @@
 	name = "APC frame"
 
 	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
 		var/obj/machinery/simple_apc/T = new()
-		usr.show(T)
-		usr.drop_item_v()
+		H.show(T)
+		H.drop_item_v()
 		del(src)
 
 /obj/item/construct/chair
@@ -15,9 +16,10 @@
 	name = "chair frame"
 
 	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
 		var/obj/structure/stool/chair/T = new()
-		usr.show(T)
-		usr.drop_item_v()
+		H.show(T)
+		H.drop_item_v()
 		del(src)
 
 /obj/item/construct/grille
@@ -26,9 +28,10 @@
 	name = "grille frame"
 
 	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
 		var/obj/structure/grille/T = new()
-		usr.show(T)
-		usr.drop_item_v()
+		H.show(T)
+		H.drop_item_v()
 		del(src)
 
 /obj/item/construct/stool
@@ -37,9 +40,10 @@
 	name = "stool frame"
 
 	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
 		var/obj/structure/stool/T = new()
-		usr.show(T)
-		usr.drop_item_v()
+		H.show(T)
+		H.drop_item_v()
 		del(src)
 
 /obj/item/construct/closet
@@ -48,9 +52,10 @@
 	name = "closet frame"
 
 	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
 		var/obj/structure/closet/T = new()
-		usr.show(T)
-		usr.drop_item_v()
+		H.show(T)
+		H.drop_item_v()
 		del(src)
 
 /obj/item/construct/crate
@@ -59,7 +64,8 @@
 	name = "crate frame"
 
 	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
 		var/obj/structure/closet/crate/T = new()
-		usr.show(T)
-		usr.drop_item_v()
+		H.show(T)
+		H.drop_item_v()
 		del(src)

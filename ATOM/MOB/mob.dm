@@ -4,29 +4,60 @@ client
 	var/STFU_ghosts		//80+ people rounds are fun to admin when text flies faster than airport security
 	var/STFU_radio		//80+ people rounds are fun to admin when text flies faster than airport security
 
+/mob
+	proc/myclick(var/atom/A)
+		var/mob/simulated/living/humanoid/H = usr
+		if(istype(H, /mob/simulated/living/humanoid))
+			if(usr.handcuffed == 0)
+				var/obj/item/I = H.get_active_hand()
+
+				if(H.throwing_mode == 1)
+					if(H.hand && usr.l_hand)
+						var/obj/item/I2 = H.l_hand
+						H.drop_item()
+						I2.throw_hyuow_at(A, rand(4,9), 1)
+						H.throwing_mode = 0
+						H.TH.icon_state = "throw1"
+					if(!H.hand && H.r_hand)
+						var/obj/item/I2 = H.r_hand
+						H.drop_item()
+						I2.throw_hyuow_at(A, rand(4,9), 1)
+						H.throwing_mode = 0
+						H.TH.icon_state = "throw1"
+
+				if(istype(I, /obj/item/weapon/gun))
+					I.afterattack(A)
+				if(src in range(1, usr))
+					if(!H.get_active_hand())
+						A.attack_hand(usr)
+					else
+						if(A == H.get_active_hand())
+							A.attack_self()
+						else
+							A.attackby(H.get_active_hand())
+							if(I)
+								I.afterattack(A, usr)
+				else if(A.loc in range(1, usr))
+					A.attack_hand(usr)
+
 mob
 	var/job = "assistant"
-	robustness = 200
 	step_size = 64
 	layer = 18
 	density = 1
 	layer = 18.0
 	animate_movement = 2
 	flags = NOREACT
-	var/throwing_mode = 0
-	var/datum/mind/mind
-	var/hand = null
-	var/bodytemperature = 310.055
-	var/list/obj/last_contents = list()
+	//var/list/obj/last_contents = list()
 	//MOB overhaul
 	//Not in use yet
-	var/obj/organstructure/organStructure = null
+	//var/obj/organstructure/organStructure = null
 
 	//Vars that have been relocated to organStructure
 	//Vars that have been relocated to organStructure ++END
 	var/obj/machinery/machine = null
 	var
-		language = ENG
+		//language = ENG
 		image/select_overlay
 		damage_bonus = 0
 		defense = 5
@@ -38,25 +69,6 @@ mob
 	var/lying
 	var/nodamage = 0
 	var/handcuffed = 0
-
-	process()
-		if(death == 0)
-			SLOC = src.loc
-			//set invisibility = 0
-			//set background = 1
-			var/datum/gas_mixture/environment = SLOC.return_air()
-			handle_pain()
-			handle_stomach()
-			handle_injury()
-			handle_chemicals_in_body()
-			handle_temperature(environment)
-			parstunweak()
-			if(client)
-				client.MYZL()
-			updatehealth()
-		else
-			heart.pumppower = 0
-
 	//Vars that should only be accessed via procs
 	var/obj/item/l_hand = null//Living
 	var/obj/item/r_hand = null//Living
@@ -73,13 +85,6 @@ mob
 //Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	var/list/organs = list()
-
-	proc/select_lang(var/rus_msg, var/eng_msg)
-		switch(language)
-			if(RUS)
-				return rus_msg
-			if(ENG)
-				return eng_msg
 
 
 /mob/Stat()
@@ -253,54 +258,7 @@ mob
 
 		..()
 
-	Move()
 
-		if(lying)
-			return
-		see_invisible = 16 * (ZLevel-1)
-		var/turf/simulated/wall_east
-
-		if(!istype(src, /mob/ghost))
-			for(var/mob/mober in range(5, src))
-				mober.playsoundforme('steps.ogg')
-
-		for(var/turf/simulated/floor/roof/RF in oview())
-			RF.hide(usr)
-
-		if(ZLevel == 2)
-			for(var/turf/simulated/floor/roof/RF in oview())
-				RF.show(usr)
-
-		if(usr && usr.client)
-			if(dir == 2)
-				wall_east = locate(usr.x + 1, usr.y - 2, usr.z)
-
-			if(dir == 1)
-				wall_east = locate(usr.x + 1, usr.y, usr.z)
-
-		for(var/turf/simulated/wall/W in range(2, src))
-			W.clear_for_all()
-
-		if(!istype(loc, /turf/simulated/floor/stairs))
-			pixel_z = (ZLevel-1) * 32
-
-		var/oldloc = src.loc
-		..()
-		wall_east = get_step(src, EAST)
-		var/turf/simulated/wall_south = get_step(src, SOUTH)
-
-		if(wall_east && istype(wall_east, /turf/simulated/wall))
-			var/turf/simulated/wall/my_wall = wall_east
-			my_wall.hide_me()
-
-		if(wall_south && istype(wall_south, /turf/simulated/wall))
-			var/turf/simulated/wall/my_wall = wall_south
-			my_wall.hide_me()
-
-		if(src.pulling)
-			if(!step_towards(src.pulling, src) && (get_dist(src.pulling, src) > 1))
-				if(!step_towards(src.pulling, oldloc))
-					update_pulling()
 
 	proc/handle_stomach()
 		spawn(0)
@@ -320,37 +278,6 @@ mob
 						nutrition += 10
 
 	//pain
-
-	proc/handle_injury()
-		spawn(0)
-			blood_flow()
-			if(istype(src, /mob) && stat != 2)
-				for(var/datum/organ/external/O in organs)
-					if(istype(O, /datum/organ/external/leg))
-						if(O.brute_dam + O.burn_dam > 60)
-							if(prob(40))
-								rest()
-								if(istype(O, /datum/organ/external/leg/r_leg))
-									src << select_lang("\red Вам очень больно! Права&#255; нога болит", "\red You feel pain. Your right leg hurt")
-								else
-									src << select_lang("\red Вам очень больно! Лева&#255; нога болит", "\red You feel pain. Your left leg hurt")
-
-					if(istype(O, /datum/organ/external/arm))
-						if(O.brute_dam + O.burn_dam > 60)
-							if(prob(40))
-								if(istype(O, /datum/organ/external/arm/r_arm))
-									if (hand)
-										drop_item_v()
-									else
-										swap_hand()
-									src << select_lang("\red Вам очень больно! Права&#255; рука болит", "\red You feel pain. Your right arm hurt")
-								else
-									if (!hand)
-										drop_item_v()
-									else
-										swap_hand()
-									src << select_lang("\red Вам очень больно! Лева&#255; рука болит", "\red You feel pain. Your left arm hurt")
-								drop_item_v()
 
 /atom/proc/relaymove()
 	return

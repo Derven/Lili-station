@@ -30,9 +30,10 @@
 			overlays.Cut()
 
 		proc/healthpixels(var/num)
+			var/mob/simulated/living/H = iam
 			if(num < 0 || num > 100)
 				if(num > 100)
-					iam.health = 100
+					H.health = 100
 				else
 					return
 			if(length(healthnums) == 0)

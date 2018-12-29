@@ -49,8 +49,8 @@
 					i++
 		winset(user, "chemdispenser_reagents", "size=340x[8 + 40 * i]")
 
-	attackby(var/obj/item/weapon/reagent_containers/glass/B as obj, var/mob/user as mob)
-
+	attackby(var/obj/item/weapon/reagent_containers/glass/B as obj, var/mob/simulated/living/humanoid/user as mob)
+		user = usr
 		if(!istype(B, /obj/item/weapon/reagent_containers/glass))
 			return
 
@@ -94,7 +94,8 @@
 		reagents = R
 		R.my_atom = src
 
-	attackby(var/obj/item/weapon/reagent_containers/glass/B as obj, var/mob/user as mob)
+	attackby(var/obj/item/weapon/reagent_containers/glass/B as obj, var/mob/simulated/living/humanoid/user as mob)
+		user = usr
 		if(!istype(B, /obj/item/weapon/reagent_containers/glass))
 			return
 
@@ -279,7 +280,8 @@
 	return
 
 
-/obj/machinery/reagentgrinder/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/reagentgrinder/attackby(var/obj/item/O as obj, var/mob/simulated/living/humanoid/user as mob)
+	user = usr
 	if (istype(O,/obj/item/weapon/reagent_containers/glass))
 		if (beaker)
 			return 1

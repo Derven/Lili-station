@@ -33,10 +33,11 @@
 				max_n_of_items = max(max_n_of_items,recipe.items.len)
 
 /obj/machinery/microwave/attackby(var/obj/item/O)
-	usr.drop_item(src)
+	var/mob/simulated/living/humanoid/H = usr
+	H.drop_item(src)
 	O.loc = src
 	//usr << "\blue <b>Вы положили [O]  в [src].<b>"
-	usr << usr.select_lang("\blue <b>Вы положили [O]  в [src].<b>", "\blue <b>You insert [O] into [src].<b>")
+	usr << "\blue <b>You insert [O] into [src].<b>"
 
 /obj/machinery/microwave/attack_hand() // The microwave Menu
 	var/dat = ""

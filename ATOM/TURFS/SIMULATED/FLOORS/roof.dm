@@ -13,7 +13,7 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))
-			usr << usr.select_lang("\red Вы разбираете потолок с помощью [W]", "\red You deconstruct the roof with [W]")
+			usr << "\red You deconstruct the roof with [W]"
 			hide(usr)
 			src = new /turf/simulated/floor(src)
 

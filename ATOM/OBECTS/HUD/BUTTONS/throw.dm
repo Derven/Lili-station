@@ -4,11 +4,12 @@
 		screen_loc = "SOUTH-1, WEST+3"
 
 		Click()
-			if(iam.hand && iam.l_hand)
+			var/mob/simulated/living/humanoid/H = iam
+			if(H.hand && H.l_hand)
 				icon_state = "throw2"
-				iam.throwing_mode = 1
-			if(!iam.hand && iam.r_hand)
+				H.throwing_mode = 1
+			if(!H.hand && H.r_hand)
 				icon_state = "throw2"
-				iam.throwing_mode = 1
+				H.throwing_mode = 1
 			else
 				return

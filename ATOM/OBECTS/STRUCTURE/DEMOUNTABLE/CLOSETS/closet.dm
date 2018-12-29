@@ -43,14 +43,14 @@
 		icon_closed = "mining"
 		icon_opened = "mining_open"
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/weapon/W as obj, mob/simulated/living/humanoid/user as mob)
 		if(istype(W, /obj/item/weapon/wrench))
 			usr << "Вы разбираете шкаф..."
 			if(do_after(usr, 5))
 				deconstruct()
 			return
 
-		usr.drop_item(src)
+		user.drop_item(src)
 		return
 
 /obj/structure/closet/proc/can_open()

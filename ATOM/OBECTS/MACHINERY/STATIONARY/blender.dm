@@ -32,7 +32,7 @@ the blender or the processor: Processor items are solid objects and Blender resu
 
 	on_reagent_change()			//When the reagents change, change the icon as well.
 
-/obj/machinery/blender/attackby(var/obj/item/O as obj, var/mob/user as mob)		//Attack it with an object.
+/obj/machinery/blender/attackby(var/obj/item/O as obj, mob/simulated/living/humanoid/user as mob)		//Attack it with an object.
 	if(src.contents.len >= 10 || src.reagents.total_volume >= 80)		//Too full. Max 10 items or 80 units of reagent
 		user << "Too many items are already in the blending chamber."
 	else if(istype(O, /obj/item/weapon/reagent_containers/glass) && src.container == 0) //Load jug.
@@ -47,7 +47,7 @@ the blender or the processor: Processor items are solid objects and Blender resu
 		user << "There is no container to put [O] in to!"
 	else
 		if(istype(O, /obj/item/weapon/reagent_containers/food/snacks))	//Will only blend food items. Add others in this else clause.
-			usr.drop_item()
+			user.drop_item()
 			O.loc = src
 		else
 			user << "That probably won't blend."
@@ -62,14 +62,14 @@ the blender or the processor: Processor items are solid objects and Blender resu
 	if (src.stat != 0) //NOPOWER etc
 		return
 	if(src.processing)
-		usr << usr.select_lang("\red Блендер в процессе работы.", "\red The blender is in the process of blending.")
+		usr << "\red The blender is in the process of blending."
 		return
 	if(!src.container)
-		usr << usr.select_lang("\red Блендер не имеет контейнера.", "\red The blender doesn't have an attached container!.")
+		usr << "\red The blender doesn't have an attached container!."
 		return
 	////playsound(src.loc, 'blender.ogg', 50, 1)
 	src.processing = 1
-	usr << usr.select_lang("\red Вы включаете блендер.", "\blue You turn on the blender.")
+	usr << "\blue You turn on the blender."
 	for(var/obj/O in src.contents)
 		if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown/soybeans))	 //  Mass balance law
 			src.reagents.add_reagent("soymilk", O.reagents.get_reagent_amount("nutriment"))
@@ -84,8 +84,8 @@ the blender or the processor: Processor items are solid objects and Blender resu
 			O.reagents.trans_to(src, O.reagents.total_volume)			//Think of it as the "pulp" leftover.
 			del(O)
 	src.processing = 0
-	usr << usr.select_lang("\red Вы включаете блендер.", "\blue You turn on the blender.")
-	usr << usr.select_lang("Блендер обработал содержимое контейнера.", "The contents of the blender have been blended.")
+	usr << "\blue You turn on the blender."
+	usr << "The contents of the blender have been blended."
 	return
 
 /obj/machinery/blender/verb/detach()		//Transfers the contents of the Blender to the Blender Jug and then ejects the jug.
@@ -95,9 +95,9 @@ the blender or the processor: Processor items are solid objects and Blender resu
 	if (usr.stat != 0)
 		return
 	if(src.processing)
-		usr << usr.select_lang("Блендер обработал содержимое контейнера.", "The contents of the blender have been blended.")
+		usr << "The contents of the blender have been blended."
 	else if(!src.container)
-		usr << usr.select_lang("Нечего вытаскивать", "There is nothing to detach!")
+		usr << "There is nothing to detach!"
 	else
 		for(var/obj/O in src.contents)			//Searches through the contents for the jug.
 			if(istype(O, /obj/item/weapon/reagent_containers/glass))
@@ -106,7 +106,7 @@ the blender or the processor: Processor items are solid objects and Blender resu
 				O = null
 				src.flags = null
 				src.icon_state = "blender"
-				usr << usr.select_lang("Ты вытаскиваешь контейнер блендера", "You detatch the blending jug.")
+				usr << "You detatch the blending jug."
 				src.container = 0
 	return
 
@@ -117,9 +117,9 @@ the blender or the processor: Processor items are solid objects and Blender resu
 	if (usr.stat != 0)
 		return
 	if(src.processing)
-		usr << usr.select_lang("Блендер в процессе работы", "The blender is in the process of blending.")
+		usr << "The blender is in the process of blending."
 	else if(!src.container)
-		usr << usr.select_lang("Нечего извлекать", "There is nothing to eject!")
+		usr << "There is nothing to eject!"
 	else
 		for(var/obj/O in src.contents)
 			if(istype(O, /obj/item/weapon/reagent_containers/food/snacks))

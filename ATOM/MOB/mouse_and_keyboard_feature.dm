@@ -6,7 +6,8 @@ client/MouseDown(var/atom/O, var/turf/T)
 	mdown = 1
 	mloc = T
 	if(!istype(mob, /mob/ghost))
-		var/obj/item/I = mob.get_active_hand()
+		var/mob/simulated/living/humanoid/H = mob
+		var/obj/item/I = H.get_active_hand()
 		if(istype(I, /obj/item/weapon/gun))
 			var/obj/item/weapon/gun/G = I
 			if(G.automatic == 1)

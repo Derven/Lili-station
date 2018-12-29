@@ -94,11 +94,11 @@
 			health -= W.force
 			for(var/mob/M in range(5, src))
 				M.playsoundforme('Glasshit.ogg')
-			usr << usr.select_lang("\red Вы бьете стекло с помощью [W]", "\red You punch the glass with [W]")
+			usr << "\red You punch the glass with [W]"
 			update_icon()
 			if(istype(src, /turf/simulated/wall/window))
 				if(health < 30)
 					ReplaceWithPlating()
 					//relativewall_neighbours()
-					usr << usr.select_lang("\red Стекло разбиваетс&#255;", "The glass is broken")
+					usr << "The glass is broken"
 					//del(src)

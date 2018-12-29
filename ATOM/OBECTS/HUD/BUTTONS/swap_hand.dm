@@ -4,5 +4,6 @@
 		screen_loc = "SOUTH-1, WEST+3"
 
 		Click()
-			iam.swap_hand()
-			iam.doing_this = 0
+			var/mob/simulated/living/humanoid/H = iam
+			H.swap_hand()
+			H.doing_this = 0

@@ -5,7 +5,8 @@
 		name = "table frame"
 
 	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
 		var/obj/structure/table/T = new()
-		usr.show(T)
-		usr.drop_item_v()
+		H.show(T)
+		H.drop_item_v()
 		del(src)

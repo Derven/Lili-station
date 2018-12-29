@@ -1,43 +1,52 @@
+
+
 /datum/organ/external/chest
 	name = "chest"
 	icon_name = "chest"
 	max_damage = 150
 	body_part = UPPER_TORSO
+	blood_flow = 15
 
 /datum/organ/external/groin
 	name = "groin"
 	icon_name = "groin"
 	body_part = LOWER_TORSO
+	blood_flow = 10
 
 /datum/organ/external/head
 	name = "head"
 	icon_name = "head"
 	max_damage = 125
 	body_part = HEAD
+	blood_flow = 15
 
 /datum/organ/external/arm/l_arm
 	name = "l_arm"
 	icon_name = "l_arm"
 	max_damage = 75
 	body_part = ARM_LEFT
+	blood_flow = 5
 
 /datum/organ/external/leg/l_leg
 	name = "l_leg"
 	icon_name = "l_leg"
 	max_damage = 75
 	body_part = LEG_LEFT
+	blood_flow = 5
 
 /datum/organ/external/arm/r_arm
 	name = "r_arm"
 	icon_name = "r_arm"
 	max_damage = 75
 	body_part = ARM_RIGHT
+	blood_flow = 5
 
 /datum/organ/external/leg/r_leg
 	name = "r_leg"
 	icon_name = "r_leg"
 	max_damage = 75
 	body_part = LEG_RIGHT
+	blood_flow = 5
 
 proc/isorgan(A)
 	if(istype(A, /datum/organ/external))
@@ -74,7 +83,13 @@ proc/isorgan(A)
 		max_damage = 0
 		wound_size = 0
 		max_size = 0
+		blood_flow = 10
 
+	proc/blood_flow(var/mob/simulated/living/L)
+		if(brute_dam > 80)
+			L.reagents.remove_reagent("blood", blood_flow + L.heart.pumppower / 10)
+			L << "You have the blood loss"
+			new /obj/blood(L.loc)
 
 	proc/take_damage(brute, burn)
 		if((brute <= 0) && (burn <= 0))	return 0

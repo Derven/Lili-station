@@ -12,13 +12,13 @@
 
 	var/obj/item/weapon/virusdish/dish = null
 
-/obj/machinery/microorganism/diseaseanalyser/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/machinery/microorganism/diseaseanalyser/attackby(var/obj/I as obj, var/mob/simulated/living/humanoid/user as mob)
+	usr = user
 	if(istype(I,/obj/item/weapon/virusdish))
-		var/mob/c = user
 		if(!dish)
 
 			dish = I
-			c.drop_item()
+			user.drop_item()
 			I.loc = src
 			for(var/mob/M in viewers(src))
 				if(M == user)	continue

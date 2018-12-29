@@ -3,17 +3,6 @@
 	verb/run_intent()
 		usr.client.switch_rintent()
 
-/mob/proc/get_active_hand()
-	if (hand)
-		return l_hand
-	else
-		return r_hand
-
-/mob/proc/get_inactive_hand()
-	if ( ! hand)
-		return l_hand
-	else
-		return r_hand
 
 /mob/proc/do_after(var/time)
 	if(doing_this == 0)
@@ -36,123 +25,6 @@
 		doing_this = 0
 		overlays.Remove(timeicon)
 		return 1
-
-/mob/proc/put_in_hand(var/obj/item/I)
-	if(!I) return
-	I.loc = src
-	if (hand)
-		l_hand = I
-	else
-		r_hand = I
-	I.layer = 20
-
-/mob/proc/put_in_inactive_hand(var/obj/item/I)
-	I.loc = src
-	if (!hand)
-		l_hand = I
-	else
-		r_hand = I
-	I.layer = 20
-
-/mob/verb/resist()
-	if(handcuffed == 1)
-		if(do_after(100))
-			for(var/obj/item/weapon/handcuffs/HC in src)
-				HC.Move(src.loc)
-				handcuffed = 0
-
-/mob/proc/equipped()
-	if (hand)
-		return l_hand
-	else
-		return r_hand
-	return
-
-/mob/proc/drop_item(var/atom/target)
-	var/obj/item/W = equipped()
-	if (W)
-		if (client)
-			client.screen -= W
-		if (W)
-			if(target)
-				W.loc = target.loc
-			else
-				W.loc = loc
-			W.dropped(src)
-			u_equip(W)
-			if (W)
-				W.layer = initial(W.layer) + (15 * (ZLevel - 1))
-				W.pixel_z = 32 * (ZLevel - 1)
-		var/turf/T = get_turf(loc)
-		if (istype(T))
-			T.Entered(W)
-	return
-
-/mob
-
-	proc/swap_hand()
-		src.hand = !( src.hand )
-		if(hand)
-			LH.icon_state = "l_hand_a"
-			RH.icon_state = "r_hand"
-		else
-			RH.icon_state = "r_hand_a"
-			LH.icon_state = "l_hand"
-
-	verb/suicide()
-		set name = "Suicide"
-		set category = "IC"
-		if(density == 1)
-			death()
-		else
-			src << "no"
-
-	proc/stop_pulling()
-		pulling.pullers -= src
-		pulling = null
-		PULL.icon_state = "pull_1"
-
-	proc/update_pulling()
-		if((get_dist(src, pulling) > 1) || !isturf(pulling.loc))
-			stop_pulling()
-
-	proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
-		if(nodamage) return
-
-		if(exposed_temperature > bodytemperature)
-			var/discomfort = min( abs(exposed_temperature - 310)/2000, 1.0)
-			//adjustFireLoss(2.5*discomfort)
-			//adjustFireLoss(5.0*discomfort)
-			rand_burn_damage(20.0*discomfort, 20.0*discomfort)
-
-		else
-			var/discomfort = min( abs(exposed_temperature - 310)/2000, 1.0)
-			//adjustFireLoss(2.5*discomfort)
-			rand_burn_damage(20.0*discomfort, 20.0*discomfort)
-
-	proc/handle_temperature(var/datum/gas_mixture/environment)
-		if(cloth == null || cloth.space_suit == 0)
-			if(H)
-				H.clear_overlay()
-				H.temppixels(round(bodytemperature))
-				H.oxypixels(round(100 - oxyloss))
-				H.healthpixels(round(health))
-			if(environment)
-				var/environment_heat_capacity = environment.heat_capacity()
-				var/transfer_coefficient = 1
-				var/areatemp = environment.temperature
-				if(abs(areatemp - bodytemperature) > 50)
-					var/diff = areatemp - bodytemperature
-					diff = diff / 5
-					//world << "changed from [bodytemperature] by [diff] to [bodytemperature + diff]"
-					bodytemperature += diff
-				if(bodytemperature < 310)
-					bodytemperature += rand(1, 2)
-					if(bodytemperature < 170)
-						heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
-
-				handle_temperature_damage(chest, environment.temperature, environment_heat_capacity*transfer_coefficient)
-
 
 /mob/proc/resting()
 	if(!lying)
@@ -178,11 +50,6 @@
 	death = 0
 	reagents.add_reagent("blood", 200)
 	heal_brute(80)
-
-/mob/proc/drop_item_v()
-	if (stat == 0)
-		drop_item()
-	return
 
 mob/proc/dream()
 	dreaming = 1
@@ -223,32 +90,6 @@ mob/proc/dream()
 	if(lying)
 		resting()
 
-/mob/proc/parstunweak()
-	if (sleeping || stunned || weakened) //Stunned etc.
-		if (stunned > 0)
-			stunned--
-			if(l_hand || r_hand)
-				drop_item_v()
-				swap_hand()
-				drop_item_v()
-			if(heart.pumppower < 145 && !lying)
-				resting()
-		if (stunned <= 0 && lying)
-			resting()
-		if (weakened > 0)
-			weakened--
-			if(!lying)
-				resting()
-		if (sleeping == 1)
-			if(!lying)
-				resting()
-				lying = 1
-			if(prob(2) && !dreaming)
-				dream()
-			drop_item_v()
-			swap_hand()
-			drop_item_v()
-
 /mob/verb/Say(msg as text)
 	set name = "Say"
 	set category = "IC"
@@ -256,7 +97,7 @@ mob/proc/dream()
 		overlays.Add(overlay_cur)
 		for(var/mob/M in range(5, src))
 			if(death == 0)
-				M << M.select_lang("[src] говорит, \"[fix255(msg)]\"", "[src] says, \"[fix255(msg)]\"")
+				M << "[src] says, \"[fix255(msg)]\""
 		sleep(8)
 		overlays.Remove(overlay_cur)
 	for(var/obj/machinery/radio/intercom/I in range(7, src))
@@ -290,7 +131,7 @@ mob/proc/dream()
 	verb/who()
 		set name = "Who"
 		set category = "OOC"
-		usr << usr.select_lang("игроки в игре: ", "players in game: ")
+		usr << "players in game: "
 		for(var/mob/M in world)
 			if(M.client)
 				usr << M.ckey
@@ -330,15 +171,17 @@ mob/proc/dream()
 	set name = "Pull"
 	set src in oview(1)
 	set category = "Local"
-	if(usr.pulling == src)
-		usr.stop_pulling()
-		return
-	if(usr.pulling)
-		usr.stop_pulling()
-	src.pullers += usr
-	usr.pulling = src
-	usr.PULL.icon_state = "pull_2"
-	usr.update_pulling()
+	var/mob/simulated/S = usr
+	if(istype(S, /mob/simulated))
+		if(S.pulling == src)
+			S.stop_pulling()
+			return
+		if(S.pulling)
+			S.stop_pulling()
+		S.pullers += usr
+		S.pulling = src
+		S.PULL.icon_state = "pull_2"
+		S.update_pulling()
 
 /atom/movable/proc/throw_hyuow_at(atom/target, range, speed)
 	if(!target)	return 0

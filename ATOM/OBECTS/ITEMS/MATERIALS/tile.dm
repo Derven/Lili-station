@@ -4,7 +4,8 @@
 	icon_state = "tile"
 
 	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
 		var/turf/simulated/floor/F = locate(5, 5, 2)
-		usr.show(F)
-		usr.drop_item_v()
+		H.show(F)
+		H.drop_item_v()
 		del(src)

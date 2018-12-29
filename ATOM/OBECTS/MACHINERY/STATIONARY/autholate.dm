@@ -49,10 +49,10 @@
 		dat += "</body></html>"
 		usr << browse(dat,"window=autholate")
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/weapon/W as obj, mob/simulated/living/humanoid/user as mob)
 		if(istype(W, /obj/item/stack/metal))
 			metal += 1
-			usr.drop_item(src)
+			user.drop_item(src)
 			W.Move(src)
 
 /obj/machinery/autholate/Topic(href,href_list[])

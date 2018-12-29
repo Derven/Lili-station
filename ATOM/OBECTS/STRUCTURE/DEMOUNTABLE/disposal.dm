@@ -37,7 +37,8 @@
 
 
 	// attack by item places it in to disposal
-	attackby(var/obj/item/I, var/mob/user)
+	attackby(var/obj/item/I, var/mob/simulated/living/humanoid/user)
+		user = usr
 		if(stat & BROKEN || !I || !user)
 			return
 

@@ -384,20 +384,20 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 			overlays += overlay
 
 
-/obj/machinery/hydroponics/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/hydroponics/attackby(obj/item/O as obj, mob/simulated/living/humanoid/user as mob)
 	if(istype(O, /obj/item/seeds))
 		O.invisibility = 101
 		if(!planted)
 			dead = 0
 			planted = 1
 			age = 1
-			usr.drop_item(src)
-			usr << usr.select_lang("\bold Вы суете [O] в [src]", "\bold You put [O] into [src]")
+			user.drop_item(src)
+			usr << "\bold You put [O] into [src]"
 			myseed = O
 			health = myseed.endurance
 			lastcycle = world.time
 		else
-			usr << usr.select_lang("[src] уже зан&#255;то", "\red The [src] already has seeds in it!")
+			usr << "\red The [src] already has seeds in it!"
 	if(istype(O, /obj/item/weapon/reagent_containers/glass))
 		do_after(usr, 4)
 		if(O.reagents.total_volume)
@@ -405,7 +405,7 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 				applyChemicals(O.reagents)
 				O.reagents.clear_reagents()
 		else
-			usr << usr.select_lang("[src] пусто", "\red [src] is empty.")
+			usr << "\red [src] is empty."
 
 /obj/machinery/hydroponics/process()
 	sleep(rand(4,12))
@@ -518,7 +518,7 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 	else if(dead)
 		planted = 0
 		dead = 0
-		usr << usr.select_lang("Вы очищаете [src].", "You remove the dead plant from the [src].")
+		usr << "You remove the dead plant from the [src]."
 		del(myseed)
 	else
 		if(planted && !dead)

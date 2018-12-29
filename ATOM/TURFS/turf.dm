@@ -42,7 +42,7 @@
 				src = new usr.mycraft_atom.type(src)
 			else
 				new usr.mycraft_atom.type(src)
-			usr << usr.select_lang("\blue Вы строите [usr.mycraft_atom]", "\blue You build [usr.mycraft_atom]")
+			usr << "\blue You build [usr.mycraft_atom]"
 			usr.mycraft_atom = null
 			usr.client.images -= usr.mycraft
 			usr.mycraft = null
@@ -75,7 +75,7 @@ turf
 			A.rest()
 			A.apply_damage(rand(5, 25) - A.defense, "brute" , A.get_organ(pick("r_leg", "l_leg")), 0)
 			for(var/mob/mob_fall in range(5, A))
-				mob_fall << mob_fall.select_lang("\red [A.name] упал на пол", "\red [A.name] fall on the floor")
+				mob_fall << "\red [A.name] fall on the floor"
 				mob_fall.playsoundforme('smash.ogg')
 			return 1
 
