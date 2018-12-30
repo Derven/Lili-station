@@ -4,5 +4,6 @@
 		screen_loc = "SOUTH-1, WEST+3"
 
 		Click()
-			iam.resting()
+			var/mob/simulated/living/humanoid/H = iam
+			H.resting()
 			flick("rest_click", src)

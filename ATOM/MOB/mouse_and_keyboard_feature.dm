@@ -47,7 +47,9 @@ client/MouseUp()
 			Northeast()
 			return
 		..()
-		flick("movement_n", mob.M)
+		var/mob/simulated/living/humanoid/H = mob
+		if(istype(H, /mob/simulated/living/humanoid))
+			flick("movement_n", H.M)
 
 	South()
 		south = 1
@@ -58,7 +60,9 @@ client/MouseUp()
 			Southeast()
 			return
 		..()
-		flick("movement_s", mob.M)
+		var/mob/simulated/living/humanoid/H = mob
+		if(istype(H, /mob/simulated/living/humanoid))
+			flick("movement_s", H.M)
 
 	West()
 		west = 1
@@ -69,7 +73,9 @@ client/MouseUp()
 			Southwest()
 			return
 		..()
-		flick("movement_w", mob.M)
+		var/mob/simulated/living/humanoid/H = mob
+		if(istype(H, /mob/simulated/living/humanoid))
+			flick("movement_w", H.M)
 
 	East()
 		east = 1
@@ -80,23 +86,33 @@ client/MouseUp()
 			Southeast()
 			return
 		..()
-		flick("movement_e", mob.M)
+		var/mob/simulated/living/humanoid/H = mob
+		if(istype(H, /mob/simulated/living/humanoid))
+			flick("movement_e", H.M)
 
 	Southwest()
 		..()
-		flick("movement_sw", mob.M)
+		var/mob/simulated/living/humanoid/H = mob
+		if(istype(H, /mob/simulated/living/humanoid))
+			flick("movement_sw", H.M)
 
 	Southeast()
 		..()
-		flick("movement_se", mob.M)
+		var/mob/simulated/living/humanoid/H = mob
+		if(istype(H, /mob/simulated/living/humanoid))
+			flick("movement_se", H.M)
 
 	Northwest()
 		..()
-		flick("movement_nw", mob.M)
+		var/mob/simulated/living/humanoid/H = mob
+		if(istype(H, /mob/simulated/living/humanoid))
+			flick("movement_nw", H.M)
 
 	Northeast()
 		..()
-		flick("movement_ne", mob.M)
+		var/mob/simulated/living/humanoid/H = mob
+		if(istype(H, /mob/simulated/living/humanoid))
+			flick("movement_ne", H.M)
 
 
 client

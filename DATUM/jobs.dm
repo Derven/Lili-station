@@ -5,8 +5,7 @@ var/list/jobs = list("assitant", "engineer", "chief engineer", "captain", "head 
 "assistant", "janitor", "botanist", "research director", "chief of medical", "doctor", "chemist",
  "genetist", "scientist", "bartender", "chief", "priest", "clown")
 
-/mob
-
+/mob/simulated/living/humanoid
 	proc/wear_on_spawn(var/mytype)
 		var/obj/item/clothing/CLT = new mytype(src)
 		CLT.layer = 21

@@ -1,6 +1,180 @@
 /mob/simulated/living/humanoid
 	var/throwing_mode = 0
 	var/hand = null
+	var/image/hair
+	var/lying
+	var/handcuffed = 0
+	var/obj/item/l_hand = null//Living
+	var/obj/item/r_hand = null//Living
+	var/obj/item/weapon/storage/box/backpack/back = null//Human/Monkey
+	var/obj/item/weapon/tank/internal = null//Human/Monkey
+	var/obj/item/weapon/storage/s_active = null//Carbon
+	var/obj/item/clothing/mask/wear_mask = null//Carbon
+	var/obj/item/clothing/suit/cloth= null//Carbon
+	var/obj/item/clothing/id/id= null//Carbon
+	var/in_throw_hyuow_mode = 0
+	var //HUD
+		obj/hud/drop/DP
+		obj/hud/health/H
+		obj/hud/cloth/CL
+		obj/hud/id/ID
+		obj/hud/switcher/SW
+		obj/hud/rest/R
+		obj/hud/movement/M
+		obj/hud/back/B
+		obj/hud/swap/S
+		obj/hud/backpack/BP
+		obj/hud/throwbutton/TH
+		obj/hud/sleepbut/SB
+		obj/hud/black/BL
+
+	Move()
+
+		if(lying)
+			return
+		see_invisible = 16 * (ZLevel-1)
+		var/turf/simulated/wall_east
+
+		if(!istype(src, /mob/ghost))
+			for(var/mob/mober in range(5, src))
+				mober.playsoundforme('steps.ogg')
+
+		for(var/turf/simulated/floor/roof/RF in oview())
+			RF.hide(usr)
+
+		if(ZLevel == 2)
+			for(var/turf/simulated/floor/roof/RF in oview())
+				RF.show(usr)
+
+		if(usr && usr.client)
+			if(dir == 2)
+				wall_east = locate(usr.x + 1, usr.y - 2, usr.z)
+
+			if(dir == 1)
+				wall_east = locate(usr.x + 1, usr.y, usr.z)
+
+		for(var/turf/simulated/wall/W in range(2, src))
+			W.clear_for_all()
+
+		if(!istype(loc, /turf/simulated/floor/stairs))
+			pixel_z = (ZLevel-1) * 32
+
+		var/oldloc = src.loc
+		..()
+		wall_east = get_step(src, EAST)
+		var/turf/simulated/wall_south = get_step(src, SOUTH)
+
+		if(wall_east && istype(wall_east, /turf/simulated/wall))
+			var/turf/simulated/wall/my_wall = wall_east
+			my_wall.hide_me()
+
+		if(wall_south && istype(wall_south, /turf/simulated/wall))
+			var/turf/simulated/wall/my_wall = wall_south
+			my_wall.hide_me()
+
+		if(src.pulling)
+			if(!step_towards(src.pulling, src) && (get_dist(src.pulling, src) > 1))
+				if(!step_towards(src.pulling, oldloc))
+					update_pulling()
+
+	create_hud(var/client/C)
+		if(C)
+
+			for(var/datum/organ/external/EX in organs)
+				EX.create_hud(C)
+
+			PULL = new (src)
+			ZN_SEL = new (src)
+			DF_ZONE = new(src)
+			AC = new(src)
+			RI = new(src)
+			DP = new(src)
+			H = new(src)
+			CL = new(src)
+			ID = new(src)
+			SW = new(src)
+			R = new(src)
+			M = new(src)
+			B = new(src)
+			S = new(src)
+			BP = new(src)
+			TH = new(src)
+			SB = new(src)
+			BL = new(src)
+
+			C.screen.Add(DF_ZONE)
+			C.screen.Add(PULL)
+			C.screen.Add(ZN_SEL)
+			C.screen.Add(AC)
+			C.screen.Add(RI)
+			C.screen.Add(DP)
+			C.screen.Add(H)
+			C.screen.Add(CL)
+			C.screen.Add(ID)
+			C.screen.Add(R)
+			C.screen.Add(M)
+			C.screen.Add(B)
+			C.screen.Add(S)
+			C.screen.Add(BP)
+			C.screen.Add(TH)
+			C.screen.Add(SB)
+			C.screen.Add(BL)
+			C.screen.Add(SW)
+
+
+	proc/u_equip(obj/item/W as obj)
+		if (W == r_hand)
+			r_hand = null
+
+		else if (W == l_hand)
+			l_hand = null
+
+		else if (W == cloth)
+			cloth = null
+
+		else if (W == back)
+			back = null
+			overlays -= BP.backoverlay
+
+		else if (W == id)
+			id = null
+
+	proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
+		if(nodamage) return
+
+		if(exposed_temperature > bodytemperature)
+			var/discomfort = min( abs(exposed_temperature - 310)/2000, 1.0)
+			//adjustFireLoss(2.5*discomfort)
+			//adjustFireLoss(5.0*discomfort)
+			rand_burn_damage(20.0*discomfort, 20.0*discomfort)
+
+		else
+			var/discomfort = min( abs(exposed_temperature - 310)/2000, 1.0)
+			//adjustFireLoss(2.5*discomfort)
+			rand_burn_damage(20.0*discomfort, 20.0*discomfort)
+
+	proc/handle_temperature(var/datum/gas_mixture/environment)
+		if(cloth == null || cloth.space_suit == 0)
+			if(H)
+				H.clear_overlay()
+				H.temppixels(round(bodytemperature))
+				H.oxypixels(round(100 - oxyloss))
+				H.healthpixels(round(health))
+			if(environment)
+				var/environment_heat_capacity = environment.heat_capacity()
+				var/transfer_coefficient = 1
+				var/areatemp = environment.temperature
+				if(abs(areatemp - bodytemperature) > 50)
+					var/diff = areatemp - bodytemperature
+					diff = diff / 5
+					//world << "changed from [bodytemperature] by [diff] to [bodytemperature + diff]"
+					bodytemperature += diff
+				if(bodytemperature < 310)
+					bodytemperature += rand(1, 2)
+					if(bodytemperature < 170)
+						heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
+
+				handle_temperature_damage(chest, environment.temperature, environment_heat_capacity*transfer_coefficient)
 
 	process()
 		if(death == 0)
@@ -110,12 +284,13 @@
 
 /mob/simulated/living/humanoid/proc/swap_hand()
 	src.hand = !( src.hand )
-	if(hand)
-		LH.icon_state = "l_hand_a"
-		RH.icon_state = "r_hand"
-	else
-		RH.icon_state = "r_hand_a"
-		LH.icon_state = "l_hand"
+	if(l_hand && r_hand)
+		if(hand)
+			l_arm.HUD.icon_state = "l_hand_a"
+			r_arm.HUD.icon_state = "r_hand"
+		else
+			r_arm.HUD.icon_state = "r_hand_a"
+			l_arm.HUD.icon_state = "l_hand"
 
 /mob/simulated/living/humanoid/proc/drop_item_v()
 	if (stat == 0)
@@ -147,3 +322,35 @@
 			drop_item_v()
 			swap_hand()
 			drop_item_v()
+
+/mob/simulated/living/humanoid/proc/resting()
+	if(!lying)
+		src.transform = turn(src.transform, 90)
+		lying = 1
+		density = 0
+		return
+	else
+		if(death == 0 && reagents.has_reagent("blood", 80))
+			src.transform = turn(src.transform, -90)
+			density = 1
+			lying = 0
+			return
+
+/mob/simulated/living/humanoid/verb/rest()
+	set name = "Rest"
+	set category = "IC"
+	resting()
+
+/mob/simulated/living/humanoid/proc/sleeping()
+	sleeping = 1
+	BL.invisibility = 0
+	SB.icon_state = "sleep2"
+	if(!lying)
+		resting()
+
+/mob/simulated/living/humanoid/proc/awake()
+	sleeping = 0
+	BL.invisibility = 101
+	SB.icon_state = "sleep1"
+	if(lying)
+		resting()

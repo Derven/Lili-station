@@ -4,10 +4,11 @@
 		screen_loc = "SOUTH-1, WEST+3"
 
 		Click()
+			var/mob/simulated/living/humanoid/H = iam
 			switch(icon_state)
 				if("sleep1")
 					icon_state = "sleep2"
-					iam.sleeping()
+					H.sleeping()
 				else
 					icon_state = "sleep1"
-					iam.awake()
+					H.awake()

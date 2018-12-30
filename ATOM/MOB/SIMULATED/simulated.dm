@@ -9,9 +9,96 @@
 	var/hallucination = 0
 	var/list/atom/hallucinations = list()
 	var/health = 100
+	var/damage_bonus = 0
+	var/defense = 5
+	var/revenge = 0
+	var/nodamage = 0
+	var/atom/movable/pulling = null
+	var/list/stomach_contents = list()
+	var/nutrition = 400.0
+	var/image/overlay_cur
+
+	verb/Say(msg as text)
+		set name = "Say"
+		set category = "IC"
+		if(!findtext(msg," ",1,2) && msg)
+			overlays.Add(overlay_cur)
+			for(var/mob/M in range(5, src))
+				if(death == 0)
+					M << "[src] says, \"[fix255(msg)]\""
+			sleep(8)
+			overlays.Remove(overlay_cur)
+		for(var/obj/machinery/radio/intercom/I in range(7, src))
+			tell_me_more(name, fix255(msg))
+		return fix255(msg)
+
+	verb/Emote(msg as text)
+		set name = "Emote"
+		set category = "IC"
+		for(var/mob/M in range(5, src))
+			if(msg)
+				if(!findtext(msg," ",1,2))
+					M << "<b>[src] [fix255(msg)]</b>"
+
+	New()
+		START_PROCESSING(SSmobs, src)
+		..()
+
+	var //HUD
+		obj/hud/pulling/PULL
+		obj/hud/zone_sel/ZN_SEL
+		obj/hud/zone_sel_def/DF_ZONE
+		obj/hud/act_intent/AC
+		obj/hud/run_intent/RI
+
+	proc
+		create_hud(var/client/C)
+			if(C)
+				PULL = new (src)
+				ZN_SEL = new (src)
+				DF_ZONE = new(src)
+				AC = new(src)
+				RI = new(src)
+
+				C.screen.Add(PULL)
+				C.screen.Add(ZN_SEL)
+				C.screen.Add(AC)
+				C.screen.Add(RI)
+				C.screen.Add(DF_ZONE)
+
+	proc/death()
+		death = 1
+		src << "\red You are dead"
+		if(client)
+			client.screen.Cut()
+		STOP_PROCESSING(SSmobs, src)
+		if(istype(src, /mob/simulated/living/humanoid))
+			var/mob/simulated/living/humanoid/H = src
+			H.rest()
+		var/mob/ghost/zhmur = new()
+		zhmur.key = key
+		if(client)
+			Login()
+		zhmur.loc = loc
+		return
+
+/mob/simulated/proc/handle_stomach()
+	spawn(0)
+		for(var/mob/simulated/M in stomach_contents)
+			if(M.loc != src)
+				stomach_contents.Remove(M)
+				continue
+			if(istype(M, /mob) && stat != 2)
+				if(M.stat == 2)
+
+					M.death(1)
+					stomach_contents.Remove(M)
+					del(M)
+					continue
+				if(air_master.current_cycle%3==1)
+					nutrition += 10
 
 /mob/simulated
-
 	verb/suicide()
 		set name = "Suicide"
 		set category = "IC"
@@ -28,40 +115,3 @@
 	proc/update_pulling()
 		if((get_dist(src, pulling) > 1) || !isturf(pulling.loc))
 			stop_pulling()
-
-	proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
-		if(nodamage) return
-
-		if(exposed_temperature > bodytemperature)
-			var/discomfort = min( abs(exposed_temperature - 310)/2000, 1.0)
-			//adjustFireLoss(2.5*discomfort)
-			//adjustFireLoss(5.0*discomfort)
-			rand_burn_damage(20.0*discomfort, 20.0*discomfort)
-
-		else
-			var/discomfort = min( abs(exposed_temperature - 310)/2000, 1.0)
-			//adjustFireLoss(2.5*discomfort)
-			rand_burn_damage(20.0*discomfort, 20.0*discomfort)
-
-	proc/handle_temperature(var/datum/gas_mixture/environment)
-		if(cloth == null || cloth.space_suit == 0)
-			if(H)
-				H.clear_overlay()
-				H.temppixels(round(bodytemperature))
-				H.oxypixels(round(100 - oxyloss))
-				H.healthpixels(round(health))
-			if(environment)
-				var/environment_heat_capacity = environment.heat_capacity()
-				var/transfer_coefficient = 1
-				var/areatemp = environment.temperature
-				if(abs(areatemp - bodytemperature) > 50)
-					var/diff = areatemp - bodytemperature
-					diff = diff / 5
-					//world << "changed from [bodytemperature] by [diff] to [bodytemperature + diff]"
-					bodytemperature += diff
-				if(bodytemperature < 310)
-					bodytemperature += rand(1, 2)
-					if(bodytemperature < 170)
-						heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
-
-				handle_temperature_damage(chest, environment.temperature, environment_heat_capacity*transfer_coefficient)

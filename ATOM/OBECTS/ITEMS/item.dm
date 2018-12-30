@@ -1,7 +1,7 @@
 //some shit but ok
 
-/obj/item/proc/afterattack(var/atom/movable/M, var/mob/user)
-	if(istype(M, /mob))
+/obj/item/proc/afterattack(var/atom/movable/M, var/mob/simulated/user)
+	if(istype(M, /mob/simulated/living))
 		M:attacked_by(src, user, parse_zone(user.ZN_SEL.selecting))
 	return
 
@@ -22,7 +22,7 @@
 					clthg.wear_clothing(user)
 
 			user.l_hand = src
-			user.LH.update_slot(src)
+			user.l_arm.HUD.update_slot(src)
 		else
 			if(src == user.l_hand || src == user.r_hand || src == user.cloth  || src == user.back)
 				user.u_equip(src)
@@ -30,7 +30,7 @@
 					var/obj/item/clothing/clthg = src
 					clthg.wear_clothing(user)
 			user.r_hand = src
-			user.RH.update_slot(src)
+			user.r_arm.HUD.update_slot(src)
 
 		src.pickup(user)
 
@@ -61,7 +61,7 @@
 	var/obj/item/master = null
 	var/image/I
 
-	proc/wear_clothing(var/mob/M)
+	proc/wear_clothing(var/mob/simulated/living/humanoid/M)
 		if(src == M.cloth)
 			if(M.icon_state == "mob")
 				I = image(icon = src.icon, icon_state = "[src.icon_state]_onmob")

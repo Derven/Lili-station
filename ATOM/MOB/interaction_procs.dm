@@ -60,36 +60,6 @@
 					A_LOCK.icon_state = "close"
 				T.update_air_properties()
 
-	attack_hand()
-		if(death == 0 && !istype(src, /mob/ghost))
-			if(usr.intent == 0) //harm
-
-				var/datum/organ/external/defen_zone
-				if(client)
-					defen_zone = get_organ(ran_zone(src.DF_ZONE.selecting))
-
-				var/datum/organ/external/affecting = get_organ(ran_zone(usr.ZN_SEL.selecting))
-				if(defen_zone)
-					if(defen_zone == affecting )
-						src << "\red You block damage partially"
-						usr << "\red [src] block damage partially"
-						apply_damage(rand(6, 12) - defense, "brute" , affecting, 0)
-				else
-					apply_damage(rand(6, 12), "brute" , affecting, 0)
-				for(var/mob/M in range(5, src))
-					//M << "\red [usr] בüוע [src] ג מבכאסעü [affecting]"
-					M << "\red [usr] punch [src] to [affecting]"
-			else
-				if(src.ZLevel < usr.ZLevel)
-					for(var/mob/M in range(5, src))
-						M << "\red [usr] lift [src] to [usr.ZLevel] level"
-					src.Move(usr.loc)
-					src.ZLevel = usr.ZLevel
-					layer = 17
-					pixel_z = 32 * (ZLevel - 1)
-				return
-
-
 /atom/proc/attack_self()
 	return
 
@@ -124,26 +94,27 @@
 atom/proc/attack_hand()
 
 /atom/MouseEntered()
-	if(usr.mycraft == null)
-		usr.cur_object_i_see = src
-		usr.select_overlay.icon = icon
-		usr.select_overlay.icon_state = icon_state
-		usr.select_overlay.layer = layer
-		usr.select_overlay.loc = src
-		usr.select_overlay.overlays.Cut()
-		if(istype(src, /mob))
-			usr.select_overlay.overlays += src.overlays
-		if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof) && !(ZLevel > usr.ZLevel))
-			if(usr.usrcolor)
-				usr.select_overlay.color = usr.usrcolor
-			else
-				usr.select_overlay.color = "#c0e0ff"
-			usr << usr.select_overlay
-	else
-		if(get_dist(usr, src) < 2)
-			usr.mycraft.loc = src
-			usr.mycraft.color = "green"
-			usr << usr.mycraft
+	if(istype(usr, /mob/simulated))
+		if(usr.mycraft == null)
+			usr.cur_object_i_see = src
+			usr.select_overlay.icon = icon
+			usr.select_overlay.icon_state = icon_state
+			usr.select_overlay.layer = layer
+			usr.select_overlay.loc = src
+			usr.select_overlay.overlays.Cut()
+			if(istype(src, /mob))
+				usr.select_overlay.overlays += src.overlays
+			if(!istype(src, /obj/hud) && !istype(src, /obj/lobby) && !istype(src, /turf/simulated/floor/roof) && !(ZLevel > usr.ZLevel))
+				if(usr.usrcolor)
+					usr.select_overlay.color = usr.usrcolor
+				else
+					usr.select_overlay.color = "#c0e0ff"
+				usr << usr.select_overlay
+		else
+			if(get_dist(usr, src) < 2)
+				usr.mycraft.loc = src
+				usr.mycraft.color = "green"
+				usr << usr.mycraft
 
 /atom/MouseExited()
 	usr.client.images -= usr.select_overlay

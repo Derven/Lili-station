@@ -102,13 +102,13 @@
 
 // attack with hand, move pulled object onto conveyor
 
-/obj/machinery/conveyor/attack_hand(mob/user as mob)
+/obj/machinery/conveyor/attack_hand(mob/simulated/user as mob)
 	if (user.pulling.anchored)
 		return
 	if ((user.pulling.loc != user.loc && get_dist(user, user.pulling) > 1))
 		return
 	if (ismob(user.pulling))
-		var/mob/M = user.pulling
+		var/mob/simulated/M = user.pulling
 		M.pulling = null
 		step(user.pulling, get_dir(user.pulling.loc, src))
 		user.pulling = null

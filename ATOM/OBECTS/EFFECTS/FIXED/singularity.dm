@@ -46,7 +46,7 @@
 			if(M in range(rand(1,2),src))
 				if(M != src)
 					if(istype(M, /mob) && !istype(M, /mob/ghost))
-						var/mob/MOB = M
+						var/mob/simulated/MOB = M
 						MOB.death()
 					if(istype(M, /mob/ghost))
 						return

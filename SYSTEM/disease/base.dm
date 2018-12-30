@@ -45,7 +45,7 @@ mob/var/datum/microorganism/disease/microorganism = null
 	return 1
 
 
-/proc/infect_microorganism(var/mob/M,var/datum/microorganism/disease/disease,var/forced = 0)
+/proc/infect_microorganism(var/mob/simulated/living/M,var/datum/microorganism/disease/disease,var/forced = 0)
 	if(M.microorganism)
 		return
 	if(!disease)

@@ -26,31 +26,6 @@
 		overlays.Remove(timeicon)
 		return 1
 
-/mob/proc/resting()
-	if(!lying)
-		src.transform = turn(src.transform, 90)
-		lying = 1
-		density = 0
-		return
-	else
-		if(death == 0 && reagents.has_reagent("blood", 80))
-			src.transform = turn(src.transform, -90)
-			density = 1
-			lying = 0
-			return
-
-/mob/verb/rest()
-	set name = "Rest"
-	set category = "IC"
-	resting()
-
-/mob/verb/miracle()
-	set name = "Miracle"
-	set category = "IC"
-	death = 0
-	reagents.add_reagent("blood", 200)
-	heal_brute(80)
-
 mob/proc/dream()
 	dreaming = 1
 	var/list/dreams = list(
@@ -76,42 +51,6 @@ mob/proc/dream()
 /mob/var/weakened = 0.0
 /mob/var/sleeping = 0
 
-/mob/proc/sleeping()
-	sleeping = 1
-	BL.invisibility = 0
-	SB.icon_state = "sleep2"
-	if(!lying)
-		resting()
-
-/mob/proc/awake()
-	sleeping = 0
-	BL.invisibility = 101
-	SB.icon_state = "sleep1"
-	if(lying)
-		resting()
-
-/mob/verb/Say(msg as text)
-	set name = "Say"
-	set category = "IC"
-	if(!findtext(msg," ",1,2) && msg)
-		overlays.Add(overlay_cur)
-		for(var/mob/M in range(5, src))
-			if(death == 0)
-				M << "[src] says, \"[fix255(msg)]\""
-		sleep(8)
-		overlays.Remove(overlay_cur)
-	for(var/obj/machinery/radio/intercom/I in range(7, src))
-		tell_me_more(name, fix255(msg))
-	return fix255(msg)
-
-/mob/verb/Emote(msg as text)
-	set name = "Emote"
-	set category = "IC"
-	for(var/mob/M in range(5, src))
-		if(msg)
-			if(!findtext(msg," ",1,2))
-				M << "<b>[src] [fix255(msg)]</b>"
-
 /mob/verb/OOC(msg as text)
 	set name = "OOC"
 	set category = "OOC"
@@ -125,7 +64,7 @@ mob/proc/dream()
 
 	verb/respawn()
 		if(istype(src, /mob/ghost))
-			var/mob/M = new()
+			var/mob/new_player/M = new()
 			M.key = key
 
 	verb/who()
@@ -149,23 +88,6 @@ mob/proc/dream()
 					usr.client.view = 7
 				if("1920x1080")
 					usr.client.view = 8
-
-/mob/proc/u_equip(obj/item/W as obj)
-	if (W == r_hand)
-		r_hand = null
-
-	else if (W == l_hand)
-		l_hand = null
-
-	else if (W == cloth)
-		cloth = null
-
-	else if (W == back)
-		back = null
-		overlays -= BP.backoverlay
-
-	else if (W == id)
-		id = null
 
 /atom/movable/verb/pull()
 	set name = "Pull"

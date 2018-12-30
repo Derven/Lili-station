@@ -291,7 +291,7 @@
 		O.show_message("\red <B>[src]</B> leaps at [src.target]!", 1)
 	//////playsound(src.loc, 'sound/weapons/genhit1.ogg', 50, 1, -1)
 
-/obj/critter/proc/CritterAttack(mob/M)
+/obj/critter/proc/CritterAttack(mob/simulated/living/M)
 	src.attacking = 1
 	M = src.target
 	for(var/mob/O in viewers(src, null))
@@ -380,7 +380,7 @@
 			O.show_message("\red <B>[src]</B> slams into [M]!", 1)
 		////playsound(src.loc, 'sound/weapons/genhit1.ogg', 50, 1, -1)
 
-	CritterAttack(mob/M)
+	CritterAttack(mob/simulated/M)
 		src.attacking = 1
 		for(var/mob/O in viewers(src, null))
 			O.show_message("\red <B>[src]</B> starts trying to eat [M]!", 1)
@@ -438,12 +438,12 @@
 			else
 				continue
 
-	ChaseAttack(mob/M)
+	ChaseAttack(mob/simulated/living/M)
 		for(var/mob/O in viewers(src, null))
 			O.show_message("\red <B>[src]</B> viciously lunges at [M]!", 1)
 		M.rand_damage(5, 15)
 
-	CritterAttack(mob/M)
+	CritterAttack(mob/simulated/living/M)
 		src.attacking = 1
 		for(var/mob/O in viewers(src, null))
 			O.show_message("\red <B>[src]</B> bites [src.target]!", 1)
@@ -531,7 +531,7 @@
 				del(Proj)
 			return 0
 
-		CritterAttack(mob/M)
+		CritterAttack(mob/simulated/living/M)
 			src.attacking = 1
 			for(var/mob/O in viewers(src, null))
 				O.show_message("\red <B>[src]</B> attacks [src.target] with lightsaber!", 1)
@@ -568,7 +568,7 @@
 				del(Proj)
 			return 0
 
-		CritterAttack(mob/M)
+		CritterAttack(mob/simulated/living/M)
 			src.attacking = 1
 			for(var/mob/O in viewers(src, null))
 				O.show_message("\red <B>[src]</B> attacks [src.target] with lightsaber!", 1)

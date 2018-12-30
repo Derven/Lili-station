@@ -22,7 +22,11 @@ client
 		if(speeding <= 0)
 			speeding = 1
 			..()
-			sleep(run_intent - round(mob.heart.pumppower/100))
+			var/mob/simulated/living/M = mob
+			if(istype(M, /mob/simulated/living))
+				sleep(run_intent - round(M.heart.pumppower/100))
+			else
+				sleep(1) //placeholder
 			speeding = 0
 		else
 			return

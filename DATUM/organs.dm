@@ -1,4 +1,4 @@
-
+#define NOSLOTS 911
 
 /datum/organ/external/chest
 	name = "chest"
@@ -26,6 +26,8 @@
 	max_damage = 75
 	body_part = ARM_LEFT
 	blood_flow = 5
+	HUD = null
+	HUDTYPE = /obj/hud/l_hand
 
 /datum/organ/external/leg/l_leg
 	name = "l_leg"
@@ -40,6 +42,8 @@
 	max_damage = 75
 	body_part = ARM_RIGHT
 	blood_flow = 5
+	HUD = null
+	HUDTYPE = /obj/hud/r_hand
 
 /datum/organ/external/leg/r_leg
 	name = "r_leg"
@@ -84,6 +88,21 @@ proc/isorgan(A)
 		wound_size = 0
 		max_size = 0
 		blood_flow = 10
+	var/client/CLIENT
+	var/obj/hud/HUD = NOSLOTS
+	var/HUDTYPE = /obj/hud
+
+	proc/create_hud(var/client/C)
+		..()
+		if(C)
+			CLIENT = C
+			if(HUD != NOSLOTS)
+				HUD = new HUDTYPE(src)
+				C.screen.Add(HUD)
+			else
+				return
+		else
+			return
 
 	proc/blood_flow(var/mob/simulated/living/L)
 		if(brute_dam > 80)

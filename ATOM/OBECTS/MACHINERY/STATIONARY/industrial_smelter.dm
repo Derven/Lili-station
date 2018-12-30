@@ -10,7 +10,7 @@
 					for(var/obj/machinery/simple_apc/SA in range(4, src))
 						SA.my_smes.charge += charge
 					if(istype(A, /mob))
-						var/mob/M = A
+						var/mob/simulated/M = A
 						M.death()
 					for(var/mob/M in range(5, src))
 						M << 'ding.ogg'

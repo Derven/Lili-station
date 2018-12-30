@@ -57,7 +57,7 @@
 	return
 
 
-/obj/machinery/gibber/proc/startgibbing(mob/user as mob)
+/obj/machinery/gibber/proc/startgibbing(mob/simulated/living/user as mob)
 	if(src.operating)
 		return
 	if(!src.occupant)
@@ -69,11 +69,13 @@
 		var/obj/item/weapon/reagent_containers/food/snacks/meat/newmeat2 = new /obj/item/weapon/reagent_containers/food/snacks/meat
 		var/obj/item/weapon/reagent_containers/food/snacks/meat/newmeat3 = new /obj/item/weapon/reagent_containers/food/snacks/meat
 		if (src.occupant.client)
-			src.occupant.loc = loc
-			src.occupant.client.perspective = EDGE_PERSPECTIVE
-			src.occupant.client.eye = src.occupant.client.mob
-			src.occupant.death()
-			del(occupant)
+			var/mob/simulated/living/L = src.occupant
+			if(istype(L, /mob/simulated/living))
+				L.loc = loc
+				L.client.perspective = EDGE_PERSPECTIVE
+				L.client.eye = src.occupant.client.mob
+				L.death()
+				del(L)
 
 		spawn(src.gibtime)
 			operating = 0

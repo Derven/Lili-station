@@ -84,5 +84,6 @@
 
 			return
 		proc/upd_znsel()
+			var/mob/simulated/living/H = iam
 			if(selecting != "eyes" && selecting != "mouth" && selecting != "r_hand" && selecting != "l_hand" && selecting != "r_foot" && selecting != "l_foot")
-				myzone.color = iam.upd_status(iam.get_organ(selecting))
+				myzone.color = H.upd_status(H.get_organ(selecting))

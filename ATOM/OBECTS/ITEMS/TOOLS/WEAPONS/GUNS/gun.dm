@@ -37,6 +37,7 @@
 	afterattack(atom/target as mob|obj|turf|area, flag, params)//TODO: go over this
 		if(flag)	return //we're placing gun on a table or in backpack
 
+		var/mob/simulated/living/humanoid/H = usr
 		var/turf/curloc = usr.loc
 		var/turf/targloc = get_turf(target)
 		if (!istype(targloc) || !istype(curloc))
@@ -59,8 +60,8 @@
 		if(!in_chamber)	return
 
 		in_chamber.dest = targloc
-		in_chamber.firer = usr
-		in_chamber.def_zone = usr.ZN_SEL.selecting
+		in_chamber.firer = H
+		in_chamber.def_zone = H.ZN_SEL.selecting
 
 		usr.eyeShake()
 

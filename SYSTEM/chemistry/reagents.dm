@@ -82,7 +82,7 @@ datum
 						C.microorganism.dead = 1
 				return
 
-			proc/copy_from(mob/M)
+			proc/copy_from(mob/simulated/living/M)
 				if(istype(M,/datum/reagent/antibodies))
 					var/datum/reagent/antibodies/other = M
 					src.antibodies = other.antibodies
@@ -233,10 +233,9 @@ datum
 		caffeine
 			name = "caffeine"
 			id = "caffeine"
-			on_mob_life(mob/M)
-				if (istype(M,/mob))
-					M.heart.activate_stimulators(/datum/heart_stimulators/caffeine)
-					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+			on_mob_life(var/mob/simulated/living/M)
+				M.heart.activate_stimulators(/datum/heart_stimulators/caffeine)
+				holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 				return
 
 		tea
@@ -263,10 +262,9 @@ datum
 			name = "sleeping"
 			id = "sleeping"
 
-			on_mob_life(mob/M)
-				if (istype(M,/mob))
-					M.heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
-					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+			on_mob_life(var/mob/simulated/living/M)
+				M.heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
+				holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 				return
 
 		oxycodone
@@ -277,7 +275,7 @@ datum
 			name = "tramadol"
 			id = "tramadol"
 
-			on_mob_life(mob/M)
+			on_mob_life(var/mob/simulated/living/M)
 				if (istype(M,/mob))
 					if(M.heart.brute_dam > 1)
 						M.heart.brute_dam -= 1
@@ -434,7 +432,7 @@ datum
 	id = "epinephrine"
 	description = "Minor boost to stun resistance. Slowly heals damage if a patient is in critical condition, as well as regulating oxygen loss. Overdose causes weakness and toxin damage."
 
-	on_mob_life(mob/M)
+	on_mob_life(var/mob/simulated/living/M)
 		if (istype(M,/mob))
 			M.heart.activate_stimulators(/datum/heart_stimulators/adrenalin_ephedrine)
 			holder.remove_reagent(src.id, 2)
@@ -479,7 +477,7 @@ datum/reagent/medicine/kelotane
 	id = "kelotane"
 	description = "Restores fire damage. Overdose causes it instead."
 
-	on_mob_life(var/mob/M as mob)
+	on_mob_life(mob/simulated/living/M as mob)
 		M.heal_burn(volume)
 		holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 		..()
@@ -496,7 +494,7 @@ datum/reagent/medicine/inaprovaline
 	id = "inaprovaline"
 	description = "Stabilizes the breathing of patients. Good for those in critical condition."
 
-	on_mob_life(var/mob/M as mob)
+	on_mob_life(var/mob/simulated/living/M as mob)
 		M.heal_brute(volume)
 		holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 		..()
@@ -507,7 +505,7 @@ datum/reagent/medicine/tricordrazine
 	id = "tricordrazine"
 	description = "Has a high chance to heal all types of damage. Overdose instead causes it."
 
-	on_mob_life(var/mob/M as mob)
+	on_mob_life(var/mob/simulated/living/M as mob)
 		M.heal_brute(volume)
 		..()
 		return

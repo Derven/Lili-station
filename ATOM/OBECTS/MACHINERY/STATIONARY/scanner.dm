@@ -12,7 +12,7 @@
 		else
 			icon_state = "scanner"
 		sleep(4)
-		for(var/mob/M in contents)
+		for(var/mob/simulated/living/M in contents)
 			M.heal_brute(rand(10,60))
 			M.heal_burn(rand(10,60))
 

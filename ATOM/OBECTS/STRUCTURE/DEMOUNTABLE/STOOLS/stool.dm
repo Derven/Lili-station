@@ -27,7 +27,7 @@
 			buckle_mob(M, user)
 			return
 
-		proc/buckle_mob(mob/M as mob, mob/user as mob)
+		proc/buckle_mob(mob/simulated/living/humanoid/M as mob, mob/user as mob)
 			if ((!( istype(M, /mob) ) || get_dist(src, user) > 1 || M.loc != src.loc || usr.stat || M.buckled))
 				return
 			if (M == usr)
@@ -45,7 +45,7 @@
 
 		proc/manual_unbuckle_all(mob/user as mob)
 			var/N = 0;
-			for(var/mob/M in buckled_mobs)
+			for(var/mob/simulated/living/humanoid/M in buckled_mobs)
 				if (M.buckled == src)
 					if (M != user)
 						M << "\blue You unbuckled from [src] by [user.name]."
@@ -151,7 +151,7 @@
 			for(var/obj/machinery/simple_apc/SA in range(8, src))
 				electroforces = SA.charge
 				SA.charge = 0
-			for(var/mob/M in buckled_mobs)
+			for(var/mob/simulated/living/M in buckled_mobs)
 				var/MY_PAIN = M.get_organ("head")
 				var/MY_PAIN2 = M.get_organ("chest")
 				M.apply_damage(electroforces, "fire" , MY_PAIN, 0)
