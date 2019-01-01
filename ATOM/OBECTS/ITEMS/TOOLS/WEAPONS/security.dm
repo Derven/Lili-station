@@ -11,7 +11,7 @@
 	icon = 'tools.dmi'
 	icon_state = "stunbaton"
 	force = 5
-	stun = 5
+	stun = 18
 
 /obj/item/weapon/handcuffs
 	name = "handcuffs"

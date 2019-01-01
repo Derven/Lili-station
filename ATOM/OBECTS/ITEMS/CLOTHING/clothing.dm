@@ -1,5 +1,26 @@
 /obj/item/clothing/id
-	icon_state = "id.dmi"
+	var/datum/id/ID
+	var/idtype
+	icon = 'suit.dmi'
+	icon_state = "id"
+	var/list/myids = list()
+
+	captain
+		New()
+			..()
+			myids.Add(/datum/id/captain)
+	assistant
+		New()
+			..()
+			myids.Add(/datum/id/assistant)
+	doctor
+		New()
+			..()
+			myids.Add(/datum/id/doctor)
+	security
+		New()
+			..()
+			myids.Add(/datum/id/security)
 
 /obj/item/clothing/suit
 	icon = 'suit.dmi'

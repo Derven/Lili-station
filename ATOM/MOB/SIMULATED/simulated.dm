@@ -113,5 +113,7 @@
 		PULL.icon_state = "pull_1"
 
 	proc/update_pulling()
-		if((get_dist(src, pulling) > 1) || !isturf(pulling.loc))
+		if((get_dist(src, pulling) > 2) || !isturf(pulling.loc))
+			if(get_dist(src, pulling) == 127)
+				return
 			stop_pulling()

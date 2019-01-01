@@ -204,6 +204,7 @@
 #include "ATOM\TURFS\UNSIMULATED\FLOORS\floor.dm"
 #include "ATOM\TURFS\UNSIMULATED\FLOORS\planet.dm"
 #include "DATUM\events.dm"
+#include "DATUM\idchecker.dm"
 #include "DATUM\jobs.dm"
 #include "DATUM\organs.dm"
 #include "DATUM\powernet.dm"

@@ -13,6 +13,7 @@
 	var/obj/item/clothing/suit/cloth= null//Carbon
 	var/obj/item/clothing/id/id= null//Carbon
 	var/in_throw_hyuow_mode = 0
+	var/flavor
 	var //HUD
 		obj/hud/drop/DP
 		obj/hud/health/H
@@ -28,16 +29,23 @@
 		obj/hud/sleepbut/SB
 		obj/hud/black/BL
 
+	examine()
+		usr << "...[name] - [gender]"
+		if(cloth)
+			usr << ">>> [cloth]"
+		if(id)
+			usr << ">>> [id]"
+		if(back)
+			usr << ">>> [back]"
+		if(flavor)
+			usr << ">>> [fix255(flavor)]..."
+
 	Move()
 
 		if(lying)
 			return
 		see_invisible = 16 * (ZLevel-1)
 		var/turf/simulated/wall_east
-
-		if(!istype(src, /mob/ghost))
-			for(var/mob/mober in range(5, src))
-				mober.playsoundforme('steps.ogg')
 
 		for(var/turf/simulated/floor/roof/RF in oview())
 			RF.hide(usr)

@@ -94,11 +94,13 @@ mob/proc/dream()
 	set src in oview(1)
 	set category = "Local"
 	var/mob/simulated/S = usr
-	if(istype(S, /mob/simulated))
+	if(istype(S, /mob/simulated/))
 		if(S.pulling == src)
+			world << 2
 			S.stop_pulling()
 			return
 		if(S.pulling)
+			world << 3
 			S.stop_pulling()
 		S.pullers += usr
 		S.pulling = src

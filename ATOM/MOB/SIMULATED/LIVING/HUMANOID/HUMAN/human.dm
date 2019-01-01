@@ -1,5 +1,4 @@
 /mob/simulated/living/humanoid/human
-	var/flavor
 	var/icon/myhair
 
 	proc/create(var/mob/new_player/player)
@@ -18,19 +17,19 @@
 
 		switch(player.pregame_job)
 			if("assistant")
-				wear_on_spawn(/obj/item/clothing/suit/assistant)
+				wear_on_spawn(/obj/item/clothing/suit/assistant, /obj/item/clothing/id/assistant)
 			if("bartender")
-				wear_on_spawn(/obj/item/clothing/suit/bartender)
+				wear_on_spawn(/obj/item/clothing/suit/bartender, /obj/item/clothing/id/assistant)
 			if("doctor")
-				wear_on_spawn(/obj/item/clothing/suit/med)
+				wear_on_spawn(/obj/item/clothing/suit/med, /obj/item/clothing/id/doctor)
 			if("engineer")
-				wear_on_spawn(/obj/item/clothing/suit/eng_suit)
+				wear_on_spawn(/obj/item/clothing/suit/eng_suit, /obj/item/clothing/id/assistant)
 			if("security")
-				wear_on_spawn(/obj/item/clothing/suit/security_suit)
+				wear_on_spawn(/obj/item/clothing/suit/security_suit, /obj/item/clothing/id/security)
 			if("botanist")
-				wear_on_spawn(/obj/item/clothing/suit/hydro_suit)
+				wear_on_spawn(/obj/item/clothing/suit/hydro_suit, /obj/item/clothing/id/assistant)
 			if("captain")
-				wear_on_spawn(/obj/item/clothing/suit/captain)
+				wear_on_spawn(/obj/item/clothing/suit/captain, /obj/item/clothing/id/captain)
 
 		overlays.Add(myhair)
 		if(player.pregame_body_color == "black")
