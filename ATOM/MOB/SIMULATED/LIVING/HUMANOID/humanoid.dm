@@ -32,11 +32,11 @@
 	examine()
 		usr << "...[name] - [gender]"
 		if(cloth)
-			usr << ">>> [cloth]"
+			usr << ">>> suit: [cloth]"
 		if(id)
-			usr << ">>> [id]"
+			usr << ">>> id card: [id]"
 		if(back)
-			usr << ">>> [back]"
+			usr << ">>> backpack: [back]"
 		if(flavor)
 			usr << ">>> [fix255(flavor)]..."
 
@@ -292,7 +292,7 @@
 
 /mob/simulated/living/humanoid/proc/swap_hand()
 	src.hand = !( src.hand )
-	if(l_hand && r_hand)
+	if(l_arm && r_arm)
 		if(hand)
 			l_arm.HUD.icon_state = "l_hand_a"
 			r_arm.HUD.icon_state = "r_hand"
