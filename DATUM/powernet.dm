@@ -2,7 +2,6 @@
 	var
 		list/cables = list()	// all cables & junctions
 		list/nodes = list()		// all APCs & sources
-
 		newload = 0
 		load = 0
 		newavail = 0

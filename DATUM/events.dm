@@ -22,8 +22,6 @@ var/datum/events/fun
 					for(var/obj/machinery/simple_smes/S in world)
 						S.charge = 0
 
-
-
 	New()
 		..()
 		myevents()

@@ -47,6 +47,9 @@
 /obj/item/clothing/suit/security_suit
 	icon_state = "security_suit"
 
+/obj/item/clothing/suit/detective_suit
+	icon_state = "detective_suit"
+
 /obj/item/clothing/suit/eng_suit
 	icon_state = "eng_suit"
 

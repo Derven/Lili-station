@@ -48,6 +48,10 @@
 		sd_SetLuminosity(0)
 		..()
 
+	brainlamp
+		icon_state = "tablelamp2"
+		density = 1
+
 /obj/machinery/lamp/process()
 	if(charge <= 0)
 		nolight()
