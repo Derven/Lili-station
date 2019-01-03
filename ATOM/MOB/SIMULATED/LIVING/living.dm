@@ -202,9 +202,6 @@
 
 	usr << "\red <B>[src] attacked [user] to [hit_area] by [I.name] !</B>"
 
-	if((user != src))
-		return 0
-
 	if(istype(I, /obj/item/weapon/flasher))
 		for(var/mob/M in range(3, src))
 			M.playsoundforme('flash.ogg')
@@ -222,7 +219,6 @@
 	if(istype(I, /obj/item/weapon/fire_ext))
 		for(var/mob/M in range(3, src))
 			M.playsoundforme('smash2.ogg')
-
 	if(!I.force)	return 0
 	if(def_area)
 		if(def_area == hit_area)

@@ -105,6 +105,7 @@
 	verb/Say(msg as text)
 		set name = "Say"
 		set category = "IC"
+		sleep(rand(1,2))
 		if(!findtext(msg," ",1,2) && msg)
 			overlays.Add(overlay_cur)
 			for(var/mob/M in range(5, src))
@@ -119,6 +120,7 @@
 	verb/Emote(msg as text)
 		set name = "Emote"
 		set category = "IC"
+		sleep(rand(1,2))
 		for(var/mob/M in range(5, src))
 			if(msg)
 				if(!findtext(msg," ",1,2))

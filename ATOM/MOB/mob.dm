@@ -25,20 +25,21 @@ client
 						H.throwing_mode = 0
 						H.TH.icon_state = "throw1"
 
-				if(istype(I, /obj/item/weapon/gun))
-					I.afterattack(A)
-				if(src in range(1, usr))
-					if(!H.get_active_hand())
-						A.attack_hand(usr)
-					else
-						if(A == H.get_active_hand())
-							A.attack_self()
+				if(get_dist(src, A) < 2)
+					if(istype(I, /obj/item/weapon/gun))
+						I.afterattack(A)
+					if(src in range(1, usr))
+						if(!H.get_active_hand())
+							A.attack_hand(usr)
 						else
-							A.attackby(H.get_active_hand())
-							if(I)
-								I.afterattack(A, usr)
-				else if(A.loc in range(1, usr))
-					A.attack_hand(usr)
+							if(A == H.get_active_hand())
+								A.attack_self()
+							else
+								A.attackby(H.get_active_hand())
+								if(I)
+									I.afterattack(A, usr)
+					else if(A.loc in range(1, usr))
+						A.attack_hand(usr)
 
 mob
 	var/job = "assistant"

@@ -96,13 +96,16 @@ proc/isorgan(A)
 		..()
 		if(C)
 			CLIENT = C
-			if(HUD != NOSLOTS)
-				HUD = new HUDTYPE(src)
-				C.screen.Add(HUD)
-			else
-				return
+			update_hud(C)
 		else
 			return
+
+	proc/update_hud(var/client/C)
+		if(HUD != NOSLOTS)
+			if(!HUD)
+				HUD = new HUDTYPE(src)
+			C.screen.Add(HUD)
+		return
 
 	proc/blood_flow(var/mob/simulated/living/L)
 		if(brute_dam > 80)

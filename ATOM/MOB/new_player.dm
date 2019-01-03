@@ -168,7 +168,7 @@
 			pregame_body_color = input("Select a body color for your character.",
 			"Your color",pregame_body_color) in list("black","white")
 
-		if(href_list["name"] == "1")
+		if(href_list["myname"] == "1")
 			pregame_name = input("Choose a name for your character.",
 			"Your Name",pregame_name)
 

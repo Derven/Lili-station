@@ -56,7 +56,7 @@ mob/proc/dream()
 	set category = "OOC"
 	if(msg)
 		if(!findtext(msg," ",1,2))
-			world << "\blue OOC [usr.ckey]: [fix255(msg)]"
+			world << "<FONT COLOR=#E726E3> OOC [usr.ckey]: [fix255(msg)]"
 
 /mob
 	var

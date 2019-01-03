@@ -14,6 +14,7 @@
 
 /atom/Click()
 	var/mob/M = usr
+	sleep(rand(1,2))
 	return M.myclick(src)
 
 /mob

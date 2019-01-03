@@ -1,7 +1,7 @@
 client
 	script="<style>\
 	body { \
-		font-family: 'Open Sans', 'fantasy'; \
+		font-family: 'Courier'; \
 	} \
 	IMG.icon {width: 64px; height: 64px; float: left;};\
 	\

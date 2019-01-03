@@ -36,7 +36,7 @@
 
 /obj/hud
 	backpack
-		icon_state = "cloth"
+		icon_state = "backpack"
 		screen_loc = "SOUTH-1, WEST+4"
 		invisibility = 101
 		var/image/backoverlay
