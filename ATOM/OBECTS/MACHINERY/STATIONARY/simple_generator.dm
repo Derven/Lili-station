@@ -30,25 +30,24 @@
 		for(var/obj/machinery/simple_apc/SA in range(7, src))
 			SA.my_smes.charge += charge
 
+/obj/machinery
 	battery
 		icon = 'stationobjs.dmi'
 		icon_state = "collector"
+		var/datum/emodule/central/emergency_power_module/EPM
 		var/inner_charge = 100000
-		var/active = 0
 
 		attack_hand()
-			active = !active
-			usr << "You turn [active ? "on" : "off"]  backup batteries.[inner_charge]"
-			if(active)
-				power_generate()
+			world << inner_charge
 
+		New()
+			EPM = new(src)
+			..()
 
-
-		power_generate()
-			if(active)
-				while(inner_charge >= 500)
-					sleep(rand(2,4))
-					inner_charge -= 500
-					flick("collector_generate", src)
-					for(var/obj/machinery/simple_apc/SA in range(7, src))
-						SA.my_smes.charge += 500
+		process()
+			if(EPM && EPM.myprocess() && inner_charge >= 500)
+				sleep(rand(2,3))
+				inner_charge -= 500
+				flick("collector_generate", src)
+				for(var/obj/machinery/simple_apc/SA in range(7, src))
+					SA.my_smes.charge += 500

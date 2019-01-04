@@ -17,13 +17,14 @@
 
 		charge = charge - load
 
-		for(var/obj/machinery/simple_apc/sim_apc in SA)
-			sim_apc.charge = charge
-
 		if(charge < 0)
 			charge = 0
+
+		for(var/obj/machinery/simple_apc/sim_apc in SA)
+			sim_apc.charge = charge
 
 		load = 0
 
 	attack_hand()
 		world << "charge [charge]; load [load]; SA [SA.len]"
+

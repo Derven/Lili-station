@@ -209,6 +209,7 @@
 #include "ATOM\TURFS\UNSIMULATED\FLOORS\planet.dm"
 #include "DATUM\AI.dm"
 #include "DATUM\dna.dm"
+#include "DATUM\electronics.dm"
 #include "DATUM\events.dm"
 #include "DATUM\idchecker.dm"
 #include "DATUM\jobs.dm"

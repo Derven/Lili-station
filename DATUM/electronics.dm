@@ -1,0 +1,94 @@
+/datum/emodule
+	var/name = "module"
+	var/obj/owner
+
+	New(var/obj/machinery/M)
+		..()
+		owner = M
+
+	proc/act()
+
+	central
+		var/datum/emodule/logic/logic_socket
+		var/datum/emodule/sensor/sensor_socket
+		var/datum/emodule/other/other_socket
+
+		proc/myprocess()
+			if(logic_socket.process_signal(sensor_socket.get_signal()))
+				return other_socket.act()
+			else
+				return 0
+
+		basic_power_module
+			New(var/obj/machinery/M)
+				owner = M
+				logic_socket = new /datum/emodule/logic/basic(M)
+				sensor_socket = new /datum/emodule/sensor/power_sensor(M)
+				other_socket = new /datum/emodule/other/basic_processing_controller(M)
+				..()
+
+		emergency_power_module
+			New(var/obj/machinery/M)
+				owner = M
+				logic_socket = new /datum/emodule/logic/negative(M)
+				sensor_socket = new /datum/emodule/sensor/power_sensor(M)
+				other_socket = new /datum/emodule/other/basic_processing_controller(M)
+				..()
+
+		basic_power_controller
+			New(var/obj/machinery/M)
+				owner = M
+				logic_socket = new /datum/emodule/logic/basic(M)
+				sensor_socket = new /datum/emodule/sensor/power_sensor(M)
+				other_socket = new /datum/emodule/other/basic_power_controller(M)
+				..()
+
+	logic
+		proc/process_signal(var/signal)
+			return signal
+
+		basic
+			name = "conductor"
+
+		negative
+			name = "negative"
+			process_signal(var/signal)
+				return !signal
+
+	sensor
+		proc/get_signal()
+			var/condition = 1
+			if(condition)
+				return 1
+			else
+				return 0
+
+		power_sensor
+			name = "power sensor"
+
+			get_signal()
+				var/obj/machinery/power = owner
+				if(power.charge > 0)
+					return 1
+				else
+					if(power.charge < 0)
+						power.charge = 0
+					return 0
+
+	other
+		basic_processing_controller
+			name = "basic processing controller"
+			act()
+				return 1
+
+		basic_power_controller
+			name = "basic processing controller"
+			var/max_charge = 1000
+			act()
+				var/obj/machinery/power = owner
+				if(power.charge > max_charge)
+					power.charge = max_charge
+				return 1
+
+			powerful_power_controller
+				max_charge = 10000
