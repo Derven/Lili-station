@@ -1,0 +1,70 @@
+/obj/item/weapon/fuel
+	name = "Magnetic Storage Ring"
+	desc = "A magnetic storage ring."
+	icon = 'tools.dmi'
+	icon_state = "rcdammo"
+	opacity = 0
+	density = 0
+	anchored = 0.0
+	var/fuel = 0
+	var/s_time = 1.0
+	var/content = null
+
+/obj/item/weapon/fuel/H
+	name = "Hydrogen storage ring"
+	content = "Hydrogen"
+	icon_state = "H"
+	fuel = 1e-12		//pico-kilogram
+
+/obj/item/weapon/fuel/antiH
+	name = "Anti-Hydrogen storage ring"
+	content = "Anti-Hydrogen"
+	icon_state = "AH"
+	fuel = 1e-12		//pico-kilogram
+
+/obj/item/weapon/fuel/attackby(obj/item/weapon/fuel/F, mob/user)
+	..()
+	if(istype(src, /obj/item/weapon/fuel/antiH))
+		if(istype(F, /obj/item/weapon/fuel/antiH))
+			src.fuel += F.fuel
+			F.fuel = 0
+			user << "You have added the anti-Hydrogen to the storage ring, it now contains [src.fuel]kg"
+		if(istype(F, /obj/item/weapon/fuel/H))
+			src.fuel += F.fuel
+			del(F)
+			src:annihilation(src.fuel)
+	if(istype(src, /obj/item/weapon/fuel/H))
+		if(istype(F, /obj/item/weapon/fuel/H))
+			src.fuel += F.fuel
+			F.fuel = 0
+			user << "You have added the Hydrogen to the storage ring, it now contains [src.fuel]kg"
+		if(istype(F, /obj/item/weapon/fuel/antiH))
+			src.fuel += F.fuel
+			del(src)
+			F:annihilation(F.fuel)
+
+/obj/item/weapon/fuel/antiH/proc/annihilation(var/mass)
+
+	var/strength = convert2energy(mass)
+
+	if (strength < 773.0)
+
+		if (strength > (450+T0C))
+			boom(6, src.loc)
+		else
+			if (strength > (300+T0C))
+				boom(6, src.loc)
+
+		del(src)
+		return
+
+	boom(6, src.loc)
+
+	//SN src = null
+	del(src)
+	return
+
+/obj/item/weapon/fuel/examine()
+	set src in view(1)
+	if(usr && !usr.stat)
+		usr << "A magnetic storage ring, it contains [fuel]kg of [content ? content : "nothing"]."

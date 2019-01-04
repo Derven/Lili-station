@@ -6,7 +6,7 @@
 #define ZONE_SLEEPING 0
 
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-
+#define SPEED_OF_LIGHT_SQ 9e+16
 #define TRUE 1
 #define FALSE 0
 

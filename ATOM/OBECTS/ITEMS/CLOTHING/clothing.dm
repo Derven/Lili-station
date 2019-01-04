@@ -67,4 +67,4 @@
 
 /obj/item/clothing/suit/captain
 	icon_state = "captain_suit"
-	space_suit = 1
+	space_suit = 0

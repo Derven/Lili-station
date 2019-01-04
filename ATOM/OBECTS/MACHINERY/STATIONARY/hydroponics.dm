@@ -384,7 +384,8 @@ obj/machinery/hydroponics/proc/applyChemicals(var/datum/reagents/S)
 			overlays += overlay
 
 
-/obj/machinery/hydroponics/attackby(obj/item/O as obj, mob/simulated/living/humanoid/user as mob)
+/obj/machinery/hydroponics/attackby(obj/item/O as obj)
+	var/mob/simulated/living/humanoid/user = usr
 	if(istype(O, /obj/item/seeds))
 		O.invisibility = 101
 		if(!planted)
