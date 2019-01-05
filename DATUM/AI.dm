@@ -19,7 +19,10 @@
 				M << "[brain] * [mysay] *"
 
 		life()
-			while(brain.death == 0)
+			var/deathfactor = 0
+			while(deathfactor == 0)
+				if(istype(brain, /mob/simulated/living))
+					deathfactor = brain.death
 				sleep(rand(7,25))
 				if(prob(75))
 					mobmovement()

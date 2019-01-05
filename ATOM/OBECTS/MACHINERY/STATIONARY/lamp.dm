@@ -11,9 +11,32 @@
 	load = 5
 	var/datum/emodule/central/basic_power_controller/BPC
 
+
 	New()
 		..()
 		BPC = new(src)
+
+	emergency
+		charge = 0
+		icon_state = "emergency_lamp"
+		var/datum/emodule/central/nopower_backup_battery/EPB
+
+		attack_hand()
+			usr << charge
+
+		New()
+			..()
+			EPB = new(src)
+
+		process()
+			if(!broken)
+				if(EPB)
+					if(charge <= 0 && !EPB.myprocess())
+						nolight()
+						icon_state = "emergency_lamp"
+					else
+						icon_state = "emergency_lamp_an"
+						light_process()
 
 	dir_2
 		pixel_y = 64

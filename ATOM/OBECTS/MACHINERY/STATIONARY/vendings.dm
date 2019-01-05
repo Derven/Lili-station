@@ -46,3 +46,10 @@
 	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/cola, /obj/item/weapon/reagent_containers/glass/bottle/energy_gun)
 	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/cola, /obj/item/weapon/reagent_containers/glass/bottle/energy_gun)
 	items_num = list(3, 3)
+
+/obj/machinery/vending/modules
+	icon = 'vendomat.dmi'
+	name = "colamat"
+	my_items = list(/obj/item/module/basic_power_controller, /obj/item/module/powerfull_power_controller, /obj/item/module/small_power_controller, /obj/item/module/power_alert_module, /obj/item/module/nopower_alert_module)
+	my_types = list(/obj/item/module/basic_power_controller, /obj/item/module/powerfull_power_controller, /obj/item/module/small_power_controller, /obj/item/module/power_alert_module, /obj/item/module/nopower_alert_module)
+	items_num = list(3, 3, 3, 3, 3)

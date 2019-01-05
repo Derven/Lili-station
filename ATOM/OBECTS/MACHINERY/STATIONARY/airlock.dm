@@ -69,6 +69,32 @@
 						icon_state = "close"
 					..()
 
+	attackby(obj/item/weapon/W as obj, mob/simulated/living/humanoid/user as mob)
+		if(istype(W, /obj/item/weapon/crowbar))
+			if(charge == 0)
+				var/turf/simulated/floor/T = src.loc
+				for(var/mob/M in range(5, src))
+					M.playsoundforme('airlock.ogg')
+				if(close == 1)
+					flick("open_state",src)
+					icon_state = "open"
+					close = 0
+					density = 0
+					opacity = 0
+					sd_SetOpacity(0)
+					T.blocks_air = 0
+					update_nearby_tiles()
+				else
+					sd_SetOpacity(1)
+					close = 1
+					T.blocks_air = 1
+					update_nearby_tiles()
+					density = 1
+					opacity = 1
+					flick("close_state",src)
+					icon_state = "close"
+				..()
+
 	green
 		icon = 'airlock_green.dmi'
 
