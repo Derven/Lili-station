@@ -59,6 +59,16 @@
 		..()
 		reagents.add_reagent("mutagen", 10)
 
+/obj/item/weapon/reagent_containers/glass/bottle/water
+	name = "water"
+	desc = "space water"
+	icon = 'chemical.dmi'
+	icon_state = "drink_bottle"
+
+	New()
+		..()
+		reagents.add_reagent("water", 10)
+
 /obj/item/weapon/reagent_containers/glass/bottle/watercan
 	name = "watercan"
 	icon = 'chemical.dmi'

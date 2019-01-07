@@ -107,7 +107,7 @@
 		user.drop_item()
 		B.loc = src
 		user << "You add the beaker to the machine!"
-		src.updateUsrDialog()
+		src.updateUsrDialog(usr)
 		icon_state = "mixer1"
 
 	Topic(href, href_list)
@@ -183,7 +183,7 @@
 			reagents.trans_to(P,30)
 		else
 			usr << browse(null, "window=chem_master")
-		src.updateUsrDialog()
+		src.updateUsrDialog(usr)
 		return
 
 	attack_hand(mob/user as mob)
@@ -291,13 +291,13 @@
 			O.loc = src
 			src.verbs += /obj/machinery/reagentgrinder/verb/detach
 			update_icon()
-			src.updateUsrDialog()
+			src.updateUsrDialog(usr)
 			return 0
 	if (!(O in allowed_items))
 		user << "Cannot refine into a reagent."
 		return 1
 	O.loc = src
-	src.updateUsrDialog()
+	src.updateUsrDialog(usr)
 	return 0
 
 /obj/machinery/reagentgrinder/attack_hand(mob/user as mob)
@@ -354,7 +354,7 @@
 
 		if ("detach")
 			detach()
-	src.updateUsrDialog()
+	src.updateUsrDialog(usr)
 	return
 
 /obj/machinery/reagentgrinder/verb/detach()

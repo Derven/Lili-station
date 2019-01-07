@@ -33,8 +33,9 @@ the blender or the processor: Processor items are solid objects and Blender resu
 	on_reagent_change()			//When the reagents change, change the icon as well.
 
 /obj/machinery/blender/attackby(var/obj/item/O as obj, mob/simulated/living/humanoid/user as mob)		//Attack it with an object.
+	var/mob/simulated/living/humanoid/USR = usr
 	if(src.contents.len >= 10 || src.reagents.total_volume >= 80)		//Too full. Max 10 items or 80 units of reagent
-		user << "Too many items are already in the blending chamber."
+		USR << "Too many items are already in the blending chamber."
 	else if(istype(O, /obj/item/weapon/reagent_containers/glass) && src.container == 0) //Load jug.
 		O.reagents.trans_to(src, O.reagents.total_volume)
 		del(O)
@@ -44,13 +45,13 @@ the blender or the processor: Processor items are solid objects and Blender resu
 		src.container = 1
 		src.flags = OPENCONTAINER
 	else if(src.container == 0)											//No jug to load in to.
-		user << "There is no container to put [O] in to!"
+		USR << "There is no container to put [O] in to!"
 	else
 		if(istype(O, /obj/item/weapon/reagent_containers/food/snacks))	//Will only blend food items. Add others in this else clause.
-			user.drop_item()
+			USR.drop_item()
 			O.loc = src
 		else
-			user << "That probably won't blend."
+			USR << "That probably won't blend."
 	return 0
 
 /obj/machinery/blender/verb/blend()		//Blend shit. Note: In the actual blending loop, make sure it can't include the jug.

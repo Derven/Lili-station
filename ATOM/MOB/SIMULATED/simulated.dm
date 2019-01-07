@@ -194,6 +194,9 @@
 			src << "no"
 
 	proc/stop_pulling()
+		if(istype(pulling, /mob))
+			var/mob/M = pulling
+			M.mypool = 0
 		pulling.pullers -= src
 		pulling = null
 		PULL.icon_state = "pull_1"

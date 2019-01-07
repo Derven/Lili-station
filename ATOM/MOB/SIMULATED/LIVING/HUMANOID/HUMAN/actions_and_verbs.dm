@@ -1,4 +1,5 @@
 /mob
+	var/mypool = 0
 	var/doing_this = 0
 	verb/run_intent()
 		usr.client.switch_rintent()
@@ -96,12 +97,13 @@ mob/proc/dream()
 	var/mob/simulated/S = usr
 	if(istype(S, /mob/simulated/))
 		if(S.pulling == src)
-			world << 2
 			S.stop_pulling()
 			return
 		if(S.pulling)
-			world << 3
 			S.stop_pulling()
+		if(istype(src, /mob))
+			var/mob/M = src
+			M.mypool = 1
 		S.pullers += usr
 		S.pulling = src
 		S.PULL.icon_state = "pull_2"

@@ -205,6 +205,8 @@
 	..()
 	density = 0
 	usr << "<h1><b>Wellcome to unique isometric station based on SS13 and named 'Lili station'.</b></h2>"
+	world << 'ping.ogg'
+	world << "<FONT COLOR=#38BCFF> [ckey] connected!"
 	lobby = new(usr)
 	create_lobby(usr.client)
 	pregame_human = new('mob.dmi',icon_state = "mob")

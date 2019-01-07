@@ -42,7 +42,7 @@
 
 	Move()
 
-		if(lying)
+		if((lying && mypool == 0) || (handcuffed == 1 && mypool == 1))
 			return
 		see_invisible = 16 * (ZLevel-1)
 		var/turf/simulated/wall_east
@@ -342,12 +342,16 @@
 		src.transform = turn(src.transform, 90)
 		lying = 1
 		density = 0
+		pixel_y = -32
+		pixel_x = 22
 		return
 	else
 		if(death == 0 && reagents.has_reagent("blood", 80))
 			src.transform = turn(src.transform, -90)
 			density = 1
 			lying = 0
+			pixel_y = 0
+			pixel_x = 0
 			return
 
 /mob/simulated/living/humanoid/verb/rest()
