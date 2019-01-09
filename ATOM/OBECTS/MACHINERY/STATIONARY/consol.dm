@@ -55,8 +55,6 @@
 
 	mining_shuttle
 		attack_hand()
-			world << "
-			sleep(300)
 			send_supply_shuttle()
 
 /obj/machinery/consol/shuttle

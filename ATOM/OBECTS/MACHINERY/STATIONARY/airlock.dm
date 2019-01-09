@@ -13,6 +13,20 @@
 	switcher = 1
 	var/list/ids = list(/datum/id/captain, /datum/id/security, /datum/id/doctor, /datum/id/assistant)
 
+	proc/hack()
+		var/dat = {"
+		<html>
+		<body>
+			AIRLOCK PANEL</br></br>
+			CUT wire:
+			</br><a href=''>red</a>
+			</br><a href=''>blue</a>
+			</br><a href=''>green</a>
+		</body>
+		</html>
+		"}
+
+
 	load = 25
 	var
 		close = 1
