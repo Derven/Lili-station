@@ -28,6 +28,9 @@
 		obj/hud/throwbutton/TH
 		obj/hud/sleepbut/SB
 		obj/hud/black/BL
+		obj/hud/drive/DRV
+		obj/hud/rotate/RTT
+
 
 	examine()
 		usr << "...[name] - [gender]"
@@ -109,6 +112,8 @@
 			TH = new(src)
 			SB = new(src)
 			BL = new(src)
+			DRV = new(src)
+			RTT = new(src)
 			update_hud(C)
 
 	proc/update_hud(var/client/C)
@@ -133,6 +138,8 @@
 		C.screen.Add(SB)
 		C.screen.Add(BL)
 		C.screen.Add(SW)
+		C.screen.Add(DRV)
+		C.screen.Add(RTT)
 
 		for(var/datum/organ/external/EX in organs)
 			EX.update_hud(C)

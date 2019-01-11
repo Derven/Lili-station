@@ -50,6 +50,8 @@
 		..()
 		hide_wall = image('walls.dmi', icon_state = "[src.icon_state]_hide", layer = 10, loc = src)
 		hide_wall.override = 1
+		if(prob(5))
+			icon_state = "wall[rand(1,6)]"
 		merge()
 		//relativewall_neighbours()
 		if(!istype(src, /turf/simulated/wall/window))

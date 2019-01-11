@@ -54,15 +54,18 @@
 							A_LOCK.close = 0
 							A_LOCK.density = 0
 							A_LOCK.opacity = 0
-							T.blocks_air = 0
+							if(istype(A.loc, /turf/simulated))
+								T.blocks_air = 0
 						else
 							A_LOCK.close = 1
-							T.blocks_air = 1
+							if(istype(A.loc, /turf/simulated))
+								T.blocks_air = 1
 							A_LOCK.density = 1
 							A_LOCK.opacity = 1
 							flick("close_state",A_LOCK)
 							A_LOCK.icon_state = "close"
-						T.update_air_properties()
+						if(istype(A.loc, /turf/simulated))
+							T.update_air_properties()
 
 /atom/proc/attack_self()
 	return

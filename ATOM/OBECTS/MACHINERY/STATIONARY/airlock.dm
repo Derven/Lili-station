@@ -13,20 +13,6 @@
 	switcher = 1
 	var/list/ids = list(/datum/id/captain, /datum/id/security, /datum/id/doctor, /datum/id/assistant)
 
-	proc/hack()
-		var/dat = {"
-		<html>
-		<body>
-			AIRLOCK PANEL</br></br>
-			CUT wire:
-			</br><a href=''>red</a>
-			</br><a href=''>blue</a>
-			</br><a href=''>green</a>
-		</body>
-		</html>
-		"}
-
-
 	load = 25
 	var
 		close = 1
@@ -69,14 +55,16 @@
 						close = 0
 						density = 0
 						opacity = 0
-						sd_SetOpacity(0)
-						T.blocks_air = 0
-						update_nearby_tiles()
+						if(istype(loc, /turf/simulated))
+							sd_SetOpacity(0)
+							T.blocks_air = 0
+							update_nearby_tiles()
 					else
-						sd_SetOpacity(1)
 						close = 1
-						T.blocks_air = 1
-						update_nearby_tiles()
+						if(istype(loc, /turf/simulated))
+							sd_SetOpacity(1)
+							T.blocks_air = 1
+							update_nearby_tiles()
 						density = 1
 						opacity = 1
 						flick("close_state",src)
@@ -95,13 +83,15 @@
 					close = 0
 					density = 0
 					opacity = 0
-					sd_SetOpacity(0)
-					T.blocks_air = 0
-					update_nearby_tiles()
+					if(istype(loc, /turf/simulated))
+						sd_SetOpacity(0)
+						T.blocks_air = 0
+						update_nearby_tiles()
 				else
-					sd_SetOpacity(1)
-					close = 1
-					T.blocks_air = 1
+					if(istype(loc, /turf/simulated))
+						sd_SetOpacity(1)
+						T.blocks_air = 1
+						update_nearby_tiles()
 					update_nearby_tiles()
 					density = 1
 					opacity = 1

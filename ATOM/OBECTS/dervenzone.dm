@@ -8,10 +8,23 @@
 	var
 		id //id of transport
 		center = 0
-		curdir = "north" //west, south, east
+		curdir = "east" //west, south, east
 		list/obj/partslist = list()
 	layer = 1
 
+	Crossed(O)
+		if(center == 1)
+			if(istype(O, /mob/simulated/living/humanoid))
+				var/mob/simulated/living/humanoid/H = O
+				H.DRV.invisibility = 0
+				H.RTT.invisibility = 0
+
+	Uncrossed(O)
+		if(center == 1)
+			if(istype(O, /mob/simulated/living/humanoid))
+				var/mob/simulated/living/humanoid/H = O
+				H.DRV.invisibility = 101
+				H.RTT.invisibility = 101
 	train
 		id = TRAIN
 		curdir = "west"
@@ -27,6 +40,7 @@
 	New()
 		..()
 		spawn(5)
+			icon_state = null
 			for(var/atom/movable/O in range(2, src))
 				spawn(1)
 					partslist.Add(O)
@@ -48,6 +62,17 @@
 			curdir = "north"
 			return
 
+	proc/engine()
+		for(var/obj/machinery/ionengine/I in world)
+			if(I.id == id)
+				if(I.use_engine())
+					return 1
+				else
+					return 0
+			else
+				return 0
+		return 0
+
 	proc/rotate180()
 		if(curdir == "north")
 			curdir = "south"
@@ -61,8 +86,7 @@
 		for(var/atom/movable/M in loc)
 			M.rotate_(cx, cy)
 
-	verb/rotate_my_car()
-		set src in range(1, usr)
+	proc/rotate_my_car()
 		if(!istype(src, /dz/train))
 			var/center_x
 			var/center_y
@@ -77,8 +101,8 @@
 					DZ.rotate_me(center_x, center_y)
 					DZ.mdr()
 
-	verb/drive()
-		set src in range(1, usr)
+	//verb/drive()
+	//	set src in range(1, usr)
 		drive_my_car()
 
 
@@ -87,16 +111,17 @@
 			if(DZ.id == id)
 				if(DZ.CHECK(DZ.curdir) == 333)
 					return
-
-		for(var/dz/DZ in world)
-			if(DZ.id == id)
-				for(var/atom/movable/M in DZ.loc)
-					M.MOVETO(DZ.curdir, DZ.partslist)
-
+		if(engine())
+			for(var/dz/DZ in world)
+				if(DZ.id == id)
+					for(var/atom/movable/M in DZ.loc)
+						M.check_max()
+						M.MOVETO(DZ.curdir, DZ.partslist)
 
 /atom/movable
 	proc/rotate_(cx, cy)
 		spawn(2)
+			dir = turn(dir, 90)
 			loc = locate(cx + (x - cx) * cos(90) - (y - cy) * sin(90), cy + (y - cy) * cos(90) + (x - cx) * sin(90), z)
 
 	proc/MOVETO(var/curdir, var/list/obj/partslist)
