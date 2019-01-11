@@ -93,6 +93,7 @@
 #include "ATOM\OBECTS\ITEMS\MATERIALS\metal_ore.dm"
 #include "ATOM\OBECTS\ITEMS\MATERIALS\plasma.dm"
 #include "ATOM\OBECTS\ITEMS\MATERIALS\seeds.dm"
+#include "ATOM\OBECTS\ITEMS\MATERIALS\shipfuel.dm"
 #include "ATOM\OBECTS\ITEMS\MATERIALS\silver.dm"
 #include "ATOM\OBECTS\ITEMS\MATERIALS\stack.dm"
 #include "ATOM\OBECTS\ITEMS\MATERIALS\table_parts.dm"

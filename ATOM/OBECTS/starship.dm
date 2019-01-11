@@ -7,6 +7,12 @@
 	small_engine
 		var/obj/machinery/fuelstorage/inner
 
+		attackby(obj/item/O as obj)
+			if(istype(O, /obj/item/fuel))
+				var/mob/simulated/living/humanoid/H = usr
+				H.drop_item_v()
+				inner.fuel += 50
+				del(O)
 		New()
 			..()
 			inner = new(src)
@@ -27,6 +33,7 @@
 					for(var/obj/machinery/simple_apc/SA in range(5, src))
 						SA.charge += 1000
 						FS.fuel -= 1
+						FS.FM.myprocess()
 					flick("active_engine",src)
 					return 1
 				else
@@ -38,3 +45,15 @@
 	var/fuel = 250
 	icon = 'stationobjs.dmi'
 	icon_state = "fuel"
+	var/datum/emodule/central/fuel_module/FM
+
+	attackby(obj/item/O as obj)
+		if(istype(O, /obj/item/fuel))
+			var/mob/simulated/living/humanoid/H = usr
+			H.drop_item_v()
+			fuel += 50
+			del(O)
+
+	New()
+		FM = new(src)
+		..()

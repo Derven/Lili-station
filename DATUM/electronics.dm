@@ -111,6 +111,15 @@ var/list/electronics = list()
 				other_socket = new /datum/emodule/other/flash_module(M)
 				..()
 
+		fuel_module
+			New(var/obj/machinery/M)
+				owner = M
+				electronics += src
+				logic_socket = new /datum/emodule/logic/negative(M)
+				sensor_socket = new /datum/emodule/sensor/fuel_analyzer(M)
+				other_socket = new /datum/emodule/other/fuelalert(M)
+				..()
+
 	logic
 		proc/process_signal(var/signal)
 			return signal
@@ -169,6 +178,18 @@ var/list/electronics = list()
 					return 1
 				return 0
 
+		fuel_analyzer
+			name = "fuel sensor"
+			get_signal()
+				var/obj/machinery/fuelstorage/power = owner
+				if(power.fuel > 20)
+					return 1
+				else
+					if(power.fuel < 0)
+						power.fuel = 0
+					return 0
+
+
 	other
 		basic_processing_controller
 			name = "basic processing controller"
@@ -195,10 +216,20 @@ var/list/electronics = list()
 			var/soundpower = 5
 			act()
 				var/obj/power = owner
-				spawn(35)
+				spawn(125)
 					for(var/mob/M in range(soundpower, power))
 						M << 'alarm-buzzer.ogg'
 					return 1
+
+		fuelalert
+			name = "for ship fuel"
+			var/soundpower = 8
+			act()
+				var/obj/machinery/fuelstorage/power = owner
+				for(var/mob/M in range(soundpower, power))
+					M << "\red ship computer: Warning! Fuel level [power.fuel]"
+				return 1
+
 
 		flash_module
 			name = "flashmodule"
