@@ -71,10 +71,15 @@ proc/boom(irange, epcntr)
 						if(prob(45))
 							M.anchored = 0
 					else
+						var/i = rand(2,4)
+						while(i > 0)
+							i--
+							new /obj/effect/smoke(locate(M.x + rand(-2,2), M.y + rand(-2,2), M.z))
 						M.ex_act()
 					for(var/mob/MOB in range(5, M))
 						MOB << "<b>[M] flew away!</b>"
-					M.force_all_directions(turn(get_dir(A.loc,epcntr), 180), irange * 2)
+					if(A)
+						M.force_all_directions(turn(get_dir(A.loc,epcntr), 180), irange * 2)
 			else
 				A.ex_act()
 

@@ -218,7 +218,7 @@ var/list/electronics = list()
 				var/obj/power = owner
 				spawn(125)
 					for(var/mob/M in range(soundpower, power))
-						M << 'alarm-buzzer.ogg'
+						M << 'airraid.ogg'
 					return 1
 
 		fuelalert

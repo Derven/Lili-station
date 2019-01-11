@@ -10,3 +10,14 @@
 		pixel_y = rand(1,8)
 		sleep(rand(2,5))
 		del(src)
+
+/obj/effect/smoke
+	icon='effects.dmi'
+	icon_state = "smoke"
+	layer = 15
+	opacity = 1
+
+	New()
+		..()
+		sleep(rand(4,8))
+		del(src)
