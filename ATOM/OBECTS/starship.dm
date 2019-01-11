@@ -4,6 +4,22 @@
 	icon_state = "ionengine"
 	var/id = null
 
+	small_engine
+		var/obj/machinery/fuelstorage/inner
+
+		New()
+			..()
+			inner = new(src)
+			inner.fuel = 45
+
+		use_engine()
+			if(inner.fuel > 1)
+				inner.fuel -= 1
+				flick("active_engine",src)
+				return 1
+			else
+				return 0
+
 	proc/use_engine()
 		for(var/obj/machinery/fuelstorage/FS in world)
 			if(FS.id == id)

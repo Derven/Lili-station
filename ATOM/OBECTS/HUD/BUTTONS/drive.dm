@@ -21,4 +21,5 @@
 		Click()
 			for(var/dz/DERVENZONE in iam.loc)
 				if(DERVENZONE.center == 1)
-					DERVENZONE.rotate_my_car()
+					if(DERVENZONE.rotate_my_car() == 25)
+						iam << "maneuver is impossible"

@@ -69,8 +69,6 @@
 					return 1
 				else
 					return 0
-			else
-				return 0
 		return 0
 
 	proc/rotate180()
@@ -83,40 +81,52 @@
 			return
 
 	proc/rotate_me(cx, cy)
+		var/turf/T = loc
+		if(T.density == 1)
+			boom(rand(2,3), loc)
+			if(prob(30))
+				for(var/obj/machinery/ionengine/I in world)
+					if(I.id == id)
+						del(I)
+			del(src)
 		for(var/atom/movable/M in loc)
 			M.rotate_(cx, cy)
 
 	proc/rotate_my_car()
-		if(!istype(src, /dz/train))
-			var/center_x
-			var/center_y
+		if(engine())
+			if(!istype(src, /dz/train))
+				var/center_x
+				var/center_y
 
-			for(var/dz/DZ in world)
-				if(DZ.id == id && DZ.center == 1)
-					center_x = DZ.x
-					center_y = DZ.y
+				for(var/dz/DZ in world)
+					if(DZ.id == id && DZ.center == 1)
+						center_x = DZ.x
+						center_y = DZ.y
 
-			for(var/dz/DZ in world)
-				if(DZ.id == id)
-					DZ.rotate_me(center_x, center_y)
-					DZ.mdr()
+				for(var/dz/DZ in world)
+					if(DZ.id == id)
+						DZ.rotate_me(center_x, center_y)
+						DZ.mdr()
 
 	//verb/drive()
 	//	set src in range(1, usr)
-		drive_my_car()
+	//	drive_my_car()
 
 
 	proc/drive_my_car()
 		for(var/dz/DZ in world)
 			if(DZ.id == id)
-				if(DZ.CHECK(DZ.curdir) == 333)
+				if(DZ.CHECK(DZ.curdir, DZ.id) == 333)
 					return
 		if(engine())
 			for(var/dz/DZ in world)
 				if(DZ.id == id)
 					for(var/atom/movable/M in DZ.loc)
 						M.check_max()
-						M.MOVETO(DZ.curdir, DZ.partslist)
+						M.MOVETO(DZ.curdir, DZ.id, DZ.partslist)
+						var/turf/T = M.loc
+						if(T.density == 1)
+							boom(rand(2,3), M.loc)
 
 /atom/movable
 	proc/rotate_(cx, cy)
@@ -124,50 +134,104 @@
 			dir = turn(dir, 90)
 			loc = locate(cx + (x - cx) * cos(90) - (y - cy) * sin(90), cy + (y - cy) * cos(90) + (x - cx) * sin(90), z)
 
-	proc/MOVETO(var/curdir, var/list/obj/partslist)
+
+	proc/MOVETO(var/curdir, var/id, var/list/obj/partslist)
 		spawn(2)
 			if(curdir == "north")
 				if(!istype(locate(x, y + 1, z), /turf/simulated/wall))
 					for(var/obj/O in locate(x, y + 1, z))
+						if(istype(O, /dz))
+							var/dz/DZ1221 = O
+							if(DZ1221.id != id)
+								boom(rand(2,3), O.loc)
 						if(!(partslist.Find(O)))
 							O.deconstruct()
 					loc = locate(x, y + 1, z)
+				else
+					if(prob(25))
+						boom(rand(2,3), loc)
+
 			if(curdir == "south")
 				if(!istype(locate(x, y - 1, z), /turf/simulated/wall))
 					loc = locate(x, y - 1, z)
 					for(var/obj/O in locate(x, y - 1, z))
+						if(istype(O, /dz))
+							var/dz/DZ1221 = O
+							if(DZ1221.id != id)
+								boom(rand(2,3), O.loc)
 						if(!(partslist.Find(O)))
 							O.deconstruct()
+				else
+					if(prob(25))
+						boom(rand(2,3), loc)
 
 			if(curdir == "west")
 				if(!istype(locate(x - 1, y, z), /turf/simulated/wall))
 					loc = locate(x - 1, y, z)
 					for(var/obj/O in locate(x - 1, y, z))
+						if(istype(O, /dz))
+							var/dz/DZ1221 = O
+							if(DZ1221.id != id)
+								boom(rand(2,3), O.loc)
 						if(!(partslist.Find(O)))
 							O.deconstruct()
+				else
+					if(prob(25))
+						boom(rand(2,3), loc)
 
 			if(curdir == "east")
 				if(!istype(locate(x + 1, y, z), /turf/simulated/wall))
 					loc = locate(x + 1, y, z)
 					for(var/obj/O in locate(x + 1, y, z))
+						if(istype(O, /dz))
+							var/dz/DZ1221 = O
+							if(DZ1221.id != id)
+								boom(rand(2,3), O.loc)
 						if(!(partslist.Find(O)))
 							O.deconstruct()
+				else
+					if(prob(25))
+						boom(rand(2,3), loc)
 
-	proc/CHECK(var/curdir)
+	proc/CHECK(var/curdir, var/id)
 		if(curdir == "north")
+			for(var/dz/DZ in locate(x, y + 1, z))
+				if(DZ.id != id)
+					boom(rand(2,3), loc)
+
 			if(istype(locate(x, y + 1, z), /turf/simulated/wall))
+				if(prob(15))
+					boom(rand(2,3), loc)
 				return 333
 
 		if(curdir == "south")
+			for(var/dz/DZ in locate(x, y - 1, z))
+				if(DZ.id != id)
+					boom(rand(2,3), loc)
+
 			if(istype(locate(x, y - 1, z), /turf/simulated/wall))
+				if(prob(15))
+					boom(rand(2,3), loc)
 				return 333
 
 		if(curdir == "west")
+			for(var/dz/DZ in locate(x - 1, y, z))
+				if(DZ.id != id)
+					boom(rand(2,3), loc)
+
 			if(istype(locate(x - 1, y, z), /turf/simulated/wall))
+				if(prob(15))
+					boom(rand(2,3), loc)
 				return 333
 
 		if(curdir == "east")
+			for(var/dz/DZ in locate(x + 1, y, z))
+				if(DZ.id != id)
+					boom(rand(2,3), loc)
+
 			if(istype(locate(x + 1, y, z), /turf/simulated/wall))
+				if(prob(15))
+					boom(rand(2,3), loc)
 				return 333
 
 //X = x0 + (x - x0) * cos(a) - (y - y0) * sin(a);

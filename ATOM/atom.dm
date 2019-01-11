@@ -31,7 +31,13 @@
 	for(var/mob/M in range(2, src))
 		M.playsoundforme('Explosion2.ogg')
 		if(rand(1, 100) < 100 - robustness)
-			del(src)
+			if(!istype(src, /mob))
+				del(src)
+			else
+				if(istype(src, /mob/simulated))
+					var/mob/simulated/S = src
+					S.death()
+					del(src)
 
 /atom/movable
 	layer = 3
