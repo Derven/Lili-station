@@ -99,8 +99,6 @@ obj/item/weapon/gun/energy/laser/retro
 /obj/item/projectile/beam/practice
 	damage = 0
 
-
-
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"

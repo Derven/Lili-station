@@ -74,6 +74,8 @@
 	return
 
 /atom/proc/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(src, /obj/item/projectile))
+		del(src)
 	return 0
 
 /atom/movable/Bump(var/atom/A as mob|obj|turf)

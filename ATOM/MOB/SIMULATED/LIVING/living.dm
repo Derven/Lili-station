@@ -50,7 +50,7 @@
 			else
 				stunned += Proj.stun
 			del(Proj)
-			return 0
+		return 0
 
 	create_hud(var/client/C)
 		if(C)

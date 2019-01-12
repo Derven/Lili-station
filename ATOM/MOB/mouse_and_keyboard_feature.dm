@@ -11,6 +11,7 @@ client/MouseDown(var/atom/O, var/turf/T)
 		if(istype(I, /obj/item/weapon/gun))
 			var/obj/item/weapon/gun/G = I
 			if(G.automatic == 1)
+				sleep(1)
 				while(mdown == 1)
 					sleep(1)
 					I.afterattack(mloc)

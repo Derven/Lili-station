@@ -19,6 +19,7 @@
 	pass_flags = PASSTABLE
 	mouse_opacity = 0
 	var
+		processing = 0
 		bumped = 0		//Prevents it from hitting more than one guy at once
 		def_zone = ""	//Aiming at
 		mob/firer = null//Who shot it
@@ -57,7 +58,8 @@
 			loc = A.loc
 			return //cannot shoot yourself
 
-		if(bumped)	return
+		if(bumped)
+			return
 
 		bumped = 1
 		if(firer && istype(A, /mob))
@@ -115,7 +117,11 @@
 	process()
 		var/go_away = 0
 		var/turf/oldloc = null
+		for(var/obj/item/projectile/P in orange(4, src))
+			if(P.processing == 0)
+				del(P)
 		spawn while(src)
+			processing = 1
 			if((!( current ) || loc == current))
 				current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
 			for(var/atom/A in loc)
