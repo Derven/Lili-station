@@ -19,5 +19,5 @@
 
 	New()
 		..()
-		sleep(rand(4,8))
-		del(src)
+		spawn(rand(8,15))
+			del(src)

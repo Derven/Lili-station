@@ -368,14 +368,16 @@
 
 /mob/simulated/living/humanoid/proc/sleeping()
 	sleeping = 1
-	BL.invisibility = 0
+	if(BL)
+		BL.invisibility = 0
 	SB.icon_state = "sleep2"
 	if(!lying)
 		resting()
 
 /mob/simulated/living/humanoid/proc/awake()
 	sleeping = 0
-	BL.invisibility = 101
+	if(BL)
+		BL.invisibility = 101
 	SB.icon_state = "sleep1"
 	if(lying)
 		resting()
