@@ -52,7 +52,8 @@
 		hide_wall.override = 1
 		if(prob(5))
 			icon_state = "wall[rand(1,6)]"
-		merge()
+		spawn(1)
+			merge()
 		//relativewall_neighbours()
 		if(!istype(src, /turf/simulated/wall/window))
 			if(prob(30))

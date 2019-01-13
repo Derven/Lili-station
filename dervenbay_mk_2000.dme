@@ -208,6 +208,7 @@
 #include "ATOM\TURFS\SIMULATED\WALLS\asteroid.dm"
 #include "ATOM\TURFS\SIMULATED\WALLS\green.dm"
 #include "ATOM\TURFS\SIMULATED\WALLS\mineral.dm"
+#include "ATOM\TURFS\SIMULATED\WALLS\new_wall.dm"
 #include "ATOM\TURFS\SIMULATED\WALLS\shuttle.dm"
 #include "ATOM\TURFS\SIMULATED\WALLS\wall.dm"
 #include "ATOM\TURFS\SIMULATED\WALLS\window.dm"
