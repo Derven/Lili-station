@@ -45,25 +45,12 @@
 				if(istype(src, /mob/simulated/living/humanoid))
 					var/mob/simulated/living/humanoid/user = src
 					if(user.id && A_LOCK.ID.check_id(user.id))
-						if(istype(A_LOCK, /obj/machinery/airlock/brig/briglock)) return
-						for(var/mob/M in range(5, src))
-							M.playsoundforme('airlock.ogg')
-						if(A_LOCK.close == 1)
-							flick("open_state",A_LOCK)
-							A_LOCK.icon_state = "open"
-							A_LOCK.close = 0
-							A_LOCK.density = 0
-							A_LOCK.opacity = 0
-							if(istype(A.loc, /turf/simulated))
-								T.blocks_air = 0
+						if(istype(A_LOCK, /obj/machinery/airlock/brig/briglock))
+							return
+						if(A_LOCK.close)
+							A_LOCK.open()
 						else
-							A_LOCK.close = 1
-							if(istype(A.loc, /turf/simulated))
-								T.blocks_air = 1
-							A_LOCK.density = 1
-							A_LOCK.opacity = 1
-							flick("close_state",A_LOCK)
-							A_LOCK.icon_state = "close"
+							A_LOCK.close()
 						if(istype(A.loc, /turf/simulated))
 							T.update_air_properties()
 

@@ -94,25 +94,13 @@
 			if ((istype(M, /obj/machinery/airlock)))
 				var/obj/machinery/airlock/D = M
 				if (src.opensdoors)
-					var/turf/simulated/floor/T = src.loc
 					if(D.charge == 0)
 						return
-					for(var/mob/MB in range(5, src))
-						MB.playsoundforme('airlock.ogg')
-					if(D.close == 1)
-						flick("open_state",D)
-						D.icon_state = "open"
-						D.close = 0
-						D.density = 0
-						D.opacity = 0
-						T.blocks_air = 0
+
+					if(D.close)
+						D.open()
 					else
-						D.close = 1
-						T.blocks_air = 1
-						D.density = 1
-						D.opacity = 1
-						flick("close_state",D)
-						D.icon_state = "close"
+						D.close()
 					src.frustration = 0
 				else src.frustration ++
 			else if ((istype(M, /mob/)) && (!src.anchored))

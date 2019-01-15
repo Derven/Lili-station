@@ -47,42 +47,23 @@
 
 	attack_hand(mob/simulated/living/humanoid/user)
 		if(istype(user, /mob/simulated/living/humanoid))
-			var/turf/simulated/floor/T = src.loc
 			if(charge == 0)
 				return
 			else
 				if(user.id && ID.check_id(user.id))
-					for(var/mob/M in range(5, src))
-						M.playsoundforme('airlock.ogg')
-					if(close == 1)
-						flick("open_state",src)
-						icon_state = "open"
-						close = 0
-						density = 0
-						opacity = 0
-						if(istype(loc, /turf/simulated))
-							sd_SetOpacity(0)
-							T.blocks_air = 0
-							update_nearby_tiles()
+					if(close)
+						open()
 					else
-						close = 1
-						if(istype(loc, /turf/simulated))
-							sd_SetOpacity(1)
-							T.blocks_air = 1
-							update_nearby_tiles()
-						density = 1
-						opacity = 1
-						flick("close_state",src)
-						icon_state = "close"
+						close()
 					..()
 
 	attackby(obj/item/weapon/W as obj, mob/simulated/living/humanoid/user as mob)
 		if(istype(W, /obj/item/weapon/crowbar))
-			if(charge == 0)
+			if(!charge)
 				var/turf/simulated/floor/T = src.loc
 				for(var/mob/M in range(5, src))
 					M.playsoundforme('airlock.ogg')
-				if(close == 1)
+				if(close)
 					flick("open_state",src)
 					icon_state = "open"
 					close = 0
@@ -93,16 +74,56 @@
 						T.blocks_air = 0
 						update_nearby_tiles()
 				else
-					if(istype(loc, /turf/simulated))
-						sd_SetOpacity(1)
-						T.blocks_air = 1
-						update_nearby_tiles()
+					close = 1
+					sd_SetOpacity(1)
+					T.blocks_air = 1
+					update_nearby_tiles()
 					update_nearby_tiles()
 					density = 1
 					opacity = 1
 					flick("close_state",src)
 					icon_state = "close"
 				..()
+
+	proc/open()
+		if(!close)
+			return
+		for(var/mob/MB in range(5, src))
+			MB.playsoundforme('airlock.ogg')
+		flick("open_state",src)
+		icon_state = "open"
+		close = 0
+		density = 0
+		opacity = 0
+		if(istype(loc, /turf/simulated))
+			var/turf/simulated/floor/T = get_turf(src)
+			sd_SetOpacity(0)
+			T.blocks_air = 0
+			update_nearby_tiles()
+		spawn(150)
+			close()
+
+	proc/close()
+		if(close)
+			return
+
+		for(var/mob/simulated/living/humanoid/M in get_turf(src))
+			if(M.density && M != src)
+				spawn(60)
+					close()
+				return
+		for(var/mob/MB in range(5, src))
+			MB.playsoundforme('airlock.ogg')
+		close = 1
+		if(istype(loc, /turf/simulated))
+			var/turf/simulated/floor/T = get_turf(src)
+			sd_SetOpacity(1)
+			T.blocks_air = 1
+			update_nearby_tiles()
+		density = 1
+		opacity = 1
+		flick("close_state",src)
+		icon_state = "close"
 
 	green
 		icon = 'airlock_green.dmi'
