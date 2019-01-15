@@ -1,5 +1,7 @@
 /turf/simulated/wall/newicon
-	var/w = "w" //walltype
+	var/w = "w"
+	icon_state = "w"
+	walltype = "w"
 
 	proc/check_airlock(var/turf/iloc)
 		if(locate(/obj/machinery/airlock, iloc))
@@ -76,7 +78,7 @@
 
 	window
 		w = "window"
-		icon_state = "window"
+		icon_state = "w"
 		opacity = 0
 
 		merge()

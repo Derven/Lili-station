@@ -1,7 +1,7 @@
 /obj/machinery/airlock/brig
 	briglock
 		var/id
-		icon = 'airlock_briglockd.dmi'
+		icon = 'airlock_brig.dmi'
 
 		attack_hand(mob/user)
 			return

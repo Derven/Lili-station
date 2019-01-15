@@ -20,6 +20,7 @@
 #include "dervenbay_mk_2000.dm"
 #include "global.dm"
 #include "skin.dmf"
+#include "lili3000.dmm"
 #include "movement.dms"
 #include "ATMOS\ZAS\Airflow.dm"
 #include "ATMOS\ZAS\Connection.dm"

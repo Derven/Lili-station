@@ -91,6 +91,9 @@
 	icon_state = "chair"
 	var/list/buckled_mobs = new/list()
 
+	wood
+		color = "#633213"
+
 	attackby(obj/item/O as obj, mob/user as mob)
 		if(istype(O, /obj/item/weapon/weldingtool))
 			var/obj/item/weapon/weldingtool/W = O
