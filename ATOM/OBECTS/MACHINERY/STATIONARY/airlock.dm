@@ -94,7 +94,8 @@
 		icon_state = "open"
 		close = 0
 		density = 0
-		opacity = 0
+		if(!istype(src, /obj/machinery/airlock/glassairlock))
+			opacity = 0
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/floor/T = get_turf(src)
 			sd_SetOpacity(0)
@@ -121,7 +122,8 @@
 			T.blocks_air = 1
 			update_nearby_tiles()
 		density = 1
-		opacity = 1
+		if(!istype(src, /obj/machinery/airlock/glassairlock))
+			opacity = 1
 		flick("close_state",src)
 		icon_state = "close"
 
