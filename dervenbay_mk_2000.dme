@@ -227,7 +227,6 @@
 #include "DATUM\powernet.dm"
 #include "DATUM\recipes.dm"
 #include "DATUM\var.dm"
-#include "MAP_PORTING\TGSTATION 2.0.8.dmm"
 #include "SYSTEM\client.dm"
 #include "SYSTEM\command.dm"
 #include "SYSTEM\compile.dm"

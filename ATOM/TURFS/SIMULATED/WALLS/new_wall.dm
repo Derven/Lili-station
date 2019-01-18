@@ -103,19 +103,19 @@
 					icon_state = "[w]_w2"
 					return
 
+			if(S)
+				if(istype(S, /turf/simulated/wall/newicon/window))
+					icon_state = "[w]_s2"
+					return
+
 			if(W)
 				if(istype(W, /turf/simulated/wall/newicon/window))
 					icon_state = "[w]_e2"
 					return
 
-			if(S)
-				if(istype(S, /turf/simulated/wall/newicon/window))
-					icon_state = "[w]_n2"
-					return
-
 			if(N)
 				if(istype(N, /turf/simulated/wall/newicon/window))
-					icon_state = "[w]_s2"
+					icon_state = "[w]_n2"
 					return
 
 			if(E && W)
