@@ -2,7 +2,7 @@
 
 	asteroid
 		icon_state = "asteroid"
-		var/health = 300
+		health = 300
 		var/obj/item/my_mineral
 
 		attackby(obj/item/weapon/W as obj, mob/user as mob)

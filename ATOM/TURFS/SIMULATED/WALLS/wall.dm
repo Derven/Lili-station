@@ -6,6 +6,7 @@
 	density = 1
 	opacity = 1
 	blocks_air = 1
+	var/health = 10000
 	var/walltype = "wall"
 		//Properties for airtight tiles (/wall)
 	thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
@@ -16,7 +17,8 @@
 	nitrogen = MOLES_N2STANDARD
 
 	CanPass()
-		return 0
+		return !density
+
 
 	bullet_act(var/obj/item/projectile/Proj)
 		if(Proj.firer != src)
@@ -74,6 +76,7 @@
 /turf/simulated/wall
 	var/image/wall_overlay
 	var/image/hide_wall
+	var/newicon
 
 	attack_hand()
 		merge()
@@ -96,6 +99,8 @@
 			if(M.client && !istype(src, /turf/simulated/wall/window))
 				M << hide_wall
 				merge()
+				if(newicon)
+					icon_state = newicon
 			..()
 
 	proc/clear_images()
@@ -105,6 +110,8 @@
 		for(var/mob/M in view(5, usr))
 			if(M.client && !istype(src, /turf/simulated/wall/window))
 				M.client.images -= hide_wall
+				if(newicon)
+					icon_state = newicon
 
 	proc/merge()
 		if(!istype(src, /turf/simulated/wall/asteroid))

@@ -13,6 +13,7 @@
 	heat_capacity = 700000
 
 /turf/space/New()
+	color = pick("#2a4347", "#490000", "#003535", "#510023", "#443900")
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 
 /turf/space/moving_space

@@ -17,7 +17,7 @@
 		world << "[icon_state]"
 
 	var/image/damage
-	var/health = 100
+	health = 100
 
 	Del()
 		..()

@@ -80,6 +80,44 @@
 		w = "window"
 		icon_state = "w"
 		opacity = 0
+		health = 100
+
+		attack_hand()
+			if(newicon)
+				if(istype(usr, /mob/simulated/living))
+					var/mob/simulated/living/LVING = usr
+					LVING << "You trying to climb over the broken glass"
+					if(LVING.do_after(10))
+						if(prob(15))
+							LVING << "\red You hurt yourself on the broken glass"
+							LVING.rand_damage(2, 5)
+						LVING.x = x
+						LVING.y = y
+						LVING.z = z
+
+		attackby(obj/item/weapon/W as obj, mob/user as mob)
+			if(istype(W, /obj/item/weapon/screwdriver))
+				if(usr.do_after(25))
+					for(var/mob/M in range(5, src.loc))
+						M.playsoundforme('Screwdriver.ogg')
+					ReplaceWithPlating()
+					new /obj/item/stack/glass(src)
+			else
+				if(health > 0)
+					health -= W.force
+					for(var/mob/M in range(5, src))
+						M.playsoundforme('Glasshit.ogg')
+					usr << "\red You punch the glass with [W]"
+					update_icon()
+					if(istype(src, /turf/simulated/wall/newicon/window))
+						if(health < 1)
+							if(!newicon)
+								newicon = "[icon_state]_broken"
+							//relativewall_neighbours()
+							usr << "The glass is broken"
+							icon_state = newicon
+							density = 0
+							//del(src)
 
 		merge()
 			var/turf/N = get_step(src, NORTH)
