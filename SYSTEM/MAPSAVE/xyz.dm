@@ -34,11 +34,6 @@ proc/savemap()
 	usr << {"The file [map_name].dmm has been saved. It can be found in the same directly in which this library resides.\n\
  (Usually: C:\\Documents and Settings\\Your Name\\Application Data\\BYOND\\lib\\iainperegrine\\dmm_suite)"}
 
-
-world/Reboot()
-	savemap()
-	..()
-
 /*
 mob/verb/write()
 	/*

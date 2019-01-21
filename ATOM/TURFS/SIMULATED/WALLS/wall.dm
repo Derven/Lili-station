@@ -78,9 +78,6 @@
 	var/image/hide_wall
 	var/newicon
 
-	attack_hand()
-		merge()
-
 	//MouseEntered()
 	//	hide_me()
 

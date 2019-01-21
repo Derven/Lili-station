@@ -196,9 +196,17 @@ mob/proc/dream()
 	var/image/mycraft
 
 /mob/proc/show(var/atom/mybuild)
+	if(istype(usr, /mob/simulated/living/humanoid))
+		var/mob/simulated/living/humanoid/H = usr
+		H.CRFT.invisibility = 0
 	if(mycraft)
 		client.screen.Remove(mycraft)
 	mycraft = image(icon = mybuild.icon, icon_state = mybuild.icon_state, layer = 15)
 	mycraft_atom = mybuild
+
+/mob/verb/rotate_craft_object()
+	if(mycraft && mycraft_atom)
+		mycraft.dir = turn(mycraft.dir, 90)
+		mycraft_atom.dir = mycraft.dir
 
 ///BUILD/CRAFT SYSTEM

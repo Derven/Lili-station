@@ -41,11 +41,19 @@
 			if(istype(usr.mycraft_atom, /turf))
 				src = new usr.mycraft_atom.type(src)
 			else
-				new usr.mycraft_atom.type(src)
+				var/atom/A = new usr.mycraft_atom.type(src)
+				if(istype(A, /obj))
+					var/obj/O = A
+					START_PROCESSING(SSobj, O)
+				A.dir = usr.mycraft_atom.dir
 			usr << "\blue You build [usr.mycraft_atom]"
 			usr.mycraft_atom = null
 			usr.client.images -= usr.mycraft
 			usr.mycraft = null
+
+			if(istype(usr, /mob/simulated/living/humanoid))
+				var/mob/simulated/living/humanoid/H = usr
+				H.CRFT.invisibility = 101
 
 /turf/proc/replace_turf()
 	for(var/turf/T in locate(x,y,z+1))

@@ -8,6 +8,8 @@
 			SA.my_smes.charge += charge
 
 /obj/machinery/solar
+	icon = 'stationobjs.dmi'
+	icon_state = "solars"
 	charge = 100
 
 	process()

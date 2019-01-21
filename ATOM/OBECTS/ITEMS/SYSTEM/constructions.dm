@@ -10,6 +10,43 @@
 		H.drop_item_v()
 		del(src)
 
+/obj/item/construct/airlock
+	icon = 'airlock.dmi'
+	icon_state = "close"
+	name = "airlock frame"
+
+	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
+		var/obj/machinery/airlock/T = new()
+		H.show(T)
+		H.drop_item_v()
+		del(src)
+
+/obj/item/construct/airlock_glass
+	icon = 'glassairlock.dmi'
+	icon_state = "close"
+	name = "glassairlock frame"
+
+	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
+		var/obj/machinery/airlock/glassairlock/T = new()
+		H.show(T)
+		H.drop_item_v()
+		del(src)
+
+/obj/item/construct/lamp
+	icon = 'stationobjs.dmi'
+	icon_state = "lamp"
+	name = "lamp frame"
+
+	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
+		var/obj/machinery/lamp/T = new()
+		H.show(T)
+		H.drop_item_v()
+		del(src)
+
+
 /obj/item/construct/chair
 	icon = 'stationobjs.dmi'
 	icon_state = "chair"
@@ -33,6 +70,19 @@
 		H.show(T)
 		H.drop_item_v()
 		del(src)
+
+/obj/item/construct/solars
+	icon = 'stationobjs.dmi'
+	icon_state = "solars"
+	name = "solars frame"
+
+	attack_self()
+		var/mob/simulated/living/humanoid/H = usr
+		var/obj/machinery/solar/T = new()
+		H.show(T)
+		H.drop_item_v()
+		del(src)
+
 
 /obj/item/construct/stool
 	icon = 'stationobjs.dmi'

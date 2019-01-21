@@ -30,6 +30,7 @@
 		obj/hud/black/BL
 		obj/hud/drive/DRV
 		obj/hud/rotate/RTT
+		obj/hud/craft/CRFT
 
 
 	examine()
@@ -114,6 +115,7 @@
 			BL = new(src)
 			DRV = new(src)
 			RTT = new(src)
+			CRFT = new(src)
 			update_hud(C)
 
 	proc/update_hud(var/client/C)
@@ -140,6 +142,7 @@
 		C.screen.Add(SW)
 		C.screen.Add(DRV)
 		C.screen.Add(RTT)
+		C.screen.Add(CRFT)
 
 		for(var/datum/organ/external/EX in organs)
 			EX.update_hud(C)

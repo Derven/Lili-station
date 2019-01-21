@@ -38,11 +38,6 @@
 		..()
 		var/turf/simulated/floor/T = src.loc
 		ID = add_idchecker(src, ids)
-		var/curtypeof = loc.type
-		src.loc = new /turf/simulated/wall/newicon(src.loc)
-		for(var/turf/simulated/wall/newicon/NS in range(1, src))
-			NS.merge()
-		src.loc = new curtypeof(src.loc)
 		T.blocks_air = 1
 
 	attack_hand(mob/simulated/living/humanoid/user)

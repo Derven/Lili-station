@@ -19,11 +19,12 @@
 				my_smes.SA.Add(src)
 
 	process()
-		BPM.myprocess()
-		load = 0
-		for(var/obj/machinery/M in range(7, src))
-			if(!istype(M, /obj/machinery/simple_generator) && !istype(M, /obj/machinery/simple_smes) && !istype(M, /obj/machinery/simple_apc))
-				load += M.load
-				M.charge = charge
+		if(BPM)
+			BPM.myprocess()
+			load = 0
+			for(var/obj/machinery/M in range(7, src))
+				if(!istype(M, /obj/machinery/simple_generator) && !istype(M, /obj/machinery/simple_smes) && !istype(M, /obj/machinery/simple_apc))
+					load += M.load
+					M.charge = charge
 
 /obj/machinery/simple_apc/forship

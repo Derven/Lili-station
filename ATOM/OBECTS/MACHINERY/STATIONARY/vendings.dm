@@ -53,3 +53,10 @@
 	my_items = list(/obj/item/module/basic_power_controller, /obj/item/module/powerfull_power_controller, /obj/item/module/small_power_controller, /obj/item/module/power_alert_module, /obj/item/module/nopower_alert_module)
 	my_types = list(/obj/item/module/basic_power_controller, /obj/item/module/powerfull_power_controller, /obj/item/module/small_power_controller, /obj/item/module/power_alert_module, /obj/item/module/nopower_alert_module)
 	items_num = list(3, 3, 3, 3, 3)
+
+/obj/machinery/vending/materials
+	icon = 'vendomat.dmi'
+	name = "materials master"
+	my_items = list(/obj/item/stack/glass, /obj/item/stack/metal)
+	my_types = list(/obj/item/stack/glass, /obj/item/stack/metal)
+	items_num = list(100, 100)

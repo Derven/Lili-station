@@ -33,6 +33,9 @@ macro "hotkeymode"
 	elem 
 		name = "F2"
 		command = ".winset \"command=\"ooc\"\""
+	elem 
+		name = "F3"
+		command = ".winset \"command=\"rotate_craft_object\"\""
 
 
 menu "menu"
@@ -100,7 +103,6 @@ window "mainwindow"
 		size = 640x440
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Space Station 13"
@@ -115,7 +117,6 @@ window "mainwindow"
 		size = 54x32
 		anchor1 = 100,100
 		anchor2 = none
-		background-color = none
 		saved-params = ""
 		text = "OOC"
 		command = ".winset \"oocbutton.is-checked=true?input.command=\"!ooc \\\"\" saybutton.is-checked=false:input.command=\""
@@ -126,7 +127,6 @@ window "mainwindow"
 		size = 634x408
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = none
 		saved-params = "splitter"
 		right = "rpane"
 		is-vert = true
@@ -147,7 +147,6 @@ window "mainwindow"
 		size = 64x32
 		anchor1 = 100,100
 		anchor2 = none
-		background-color = none
 		saved-params = "is-checked"
 		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""

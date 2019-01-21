@@ -2,12 +2,12 @@
 	icon='stationobjs.dmi'
 	icon_state = "autolathe"
 	density = 1
-	anchored = 1
-	var/metal = 7
+	anchored = 0
+	var/metal = 100
 
-	var/list/one_metal_unit = list(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/weldingtool)
-	var/list/two_metal_unit = list(/obj/item/weapon/fire_ext, /obj/item/construct/chair, /obj/item/construct/grille, /obj/item/construct/stool, /obj/item/stack/tile)
-	var/list/three_metal_unit = list(/obj/item/stack/table_parts, /obj/item/construct/closet, /obj/item/construct/crate)
+	var/list/one_metal_unit = list(/obj/item/weapon/wrench, /obj/item/construct/solars, /obj/item/construct/lamp, /obj/item/weapon/wirecutters, /obj/item/weapon/weldingtool)
+	var/list/two_metal_unit = list(/obj/item/weapon/fire_ext, /obj/item/construct/apc, /obj/item/construct/chair, /obj/item/construct/grille, /obj/item/construct/stool, /obj/item/stack/tile)
+	var/list/three_metal_unit = list(/obj/item/stack/table_parts, /obj/item/construct/airlock, /obj/item/construct/airlock_glass, /obj/item/construct/closet, /obj/item/construct/crate)
 	var/list/one_metal_product = list()
 	var/list/two_metal_product = list()
 	var/list/three_metal_product = list()
@@ -23,6 +23,7 @@
 			for(var/I in three_metal_unit)
 				var/obj/O = new I(src)
 				three_metal_product.Add(O)
+			metal = 100
 
 	New()
 		..()
@@ -54,6 +55,19 @@
 			metal += 1
 			user.drop_item(src)
 			W.Move(src)
+
+
+	floortolathe
+		icon='stationobjs.dmi'
+		icon_state = "floortolathe"
+		one_metal_unit = list()
+		two_metal_unit = list(/obj/item/stack/tile/catwalk, /obj/item/stack/tile/blue, /obj/item/stack/tile/red,
+		/obj/item/stack/tile/bar, /obj/item/stack/tile/kitchen, /obj/item/stack/tile/orange)
+		three_metal_unit = list()
+		one_metal_product = list()
+		two_metal_product = list()
+		three_metal_product = list()
+
 
 /obj/machinery/autholate/Topic(href,href_list[])
 	if(href_list["product1"])
