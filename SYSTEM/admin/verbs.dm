@@ -6,7 +6,8 @@ var/list/admin_verbs = list(\
 	/client/proc/Spawn,\
 	/client/proc/small_boom,\
 	/client/proc/nuclear,\
-	/client/proc/world_reboot)
+	/client/proc/world_reboot,\
+	/client/proc/savemymap)
 
 /client/proc/pm(mob/m as mob in world, msg as text)
 	set name = "PM"
@@ -69,7 +70,7 @@ var/list/admin_verbs = list(\
 /client/proc/world_reboot()
 	set name = "Restart"
 	set category = "Admin"
-	world.Reboot()
+	world.Reboot(1)
 
 /client/proc/small_boom()
 	set name = "boom"
@@ -82,6 +83,10 @@ var/list/admin_verbs = list(\
 	for(var/obj/nucmark/N in world)
 		new /obj/machinery/nuka(N.loc)
 
+/client/proc/savemymap()
+	set name = "savemymap"
+	set category = "Admin"
+	savemap()
 
 /client/proc/Spawn()
 	set name = "spawn"
