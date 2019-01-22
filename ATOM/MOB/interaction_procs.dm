@@ -38,7 +38,7 @@
 
 		if(istype(A, /obj/machinery/airlock))
 			var/obj/machinery/airlock/A_LOCK = A
-			var/turf/simulated/floor/T = src.loc
+			var/turf/simulated/floor/T = A.loc
 			if(A_LOCK.charge == 0)
 				return
 			else

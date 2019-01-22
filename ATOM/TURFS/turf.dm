@@ -40,6 +40,8 @@
 		if(usr.mycraft_atom)
 			if(istype(usr.mycraft_atom, /turf))
 				src = new usr.mycraft_atom.type(src)
+				for(var/turf/simulated/wall/W in range(1,src))
+					W.merge()
 			else
 				var/atom/A = new usr.mycraft_atom.type(src)
 				if(istype(A, /obj))
