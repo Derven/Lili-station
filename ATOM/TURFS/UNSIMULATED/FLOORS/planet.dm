@@ -1,5 +1,7 @@
 /turf/unsimulated/floor
 
+	catwalk
+		icon_state = "catwalk"
 
 	planet
 		icon_state = "asteroid"
