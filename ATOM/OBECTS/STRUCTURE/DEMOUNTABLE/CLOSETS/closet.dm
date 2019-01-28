@@ -3,6 +3,7 @@
 	desc = "It's a closet!"
 	icon = 'closet.dmi'
 	icon_state = "closed"
+	pixelzheight = 32
 	density = 1
 	var/icon_closed = "closed"
 	var/icon_opened = "open"

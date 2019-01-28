@@ -25,6 +25,9 @@
 			var/obj/structure/S = A
 			if(S.anchored == 0 && S.density == 1)
 				step(S, dir, 64)
+			else
+				if(onstructure == 1)
+					S.move_on(src)
 
 		if(istype(A, /mob))
 			if(A.density == 1)

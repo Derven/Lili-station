@@ -4,8 +4,13 @@
 	icon_state = "0"
 	anchored = 1
 	density = 1
+	pixelzheight = 16
 	parts = /obj/item/stack/table_parts
 	var/auto_type = /obj/structure/table
+
+	attack_hand()
+		if(usr.do_after(15))
+			move_on(usr)
 
 	zlevel_2
 		ZLevel = 2
