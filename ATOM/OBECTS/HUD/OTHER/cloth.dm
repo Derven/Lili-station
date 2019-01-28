@@ -52,6 +52,7 @@
 					H.drop_item(src)
 					myback.layer = 21
 					H.back = myback
+					myback.jetpacked = iam
 					backoverlay = image('suit.dmi',icon_state = myback.icon_state)
 					backoverlay.layer = 22
 					H.overlays += backoverlay

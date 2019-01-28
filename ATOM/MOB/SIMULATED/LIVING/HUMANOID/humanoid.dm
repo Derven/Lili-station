@@ -166,6 +166,9 @@
 		else if (W == back)
 			back = null
 			overlays -= BP.backoverlay
+			var/obj/item/weapon/storage/box/backpack/jetpack/JP = W
+			JP.jetpacked = null
+			src.myjetpack = 0
 
 		else if (W == id)
 			id = null

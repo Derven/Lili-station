@@ -21,10 +21,14 @@ client
 	Move()
 		if(speeding <= 0)
 			speeding = 1
+			var/jp = 0
 			..()
 			var/mob/simulated/living/M = mob
+			for(var/obj/item/weapon/storage/box/backpack/jetpack/J in M)
+				J.jpixel()
+				jp = 2
 			if(istype(M, /mob/simulated/living))
-				sleep(run_intent - round(M.heart.pumppower/100))
+				sleep(run_intent - round(M.heart.pumppower/100) - jp)
 			else
 				sleep(1) //placeholder
 			speeding = 0

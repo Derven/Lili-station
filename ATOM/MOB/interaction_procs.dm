@@ -26,7 +26,7 @@
 			if(S.anchored == 0 && S.density == 1)
 				step(S, dir, 64)
 			else
-				if(onstructure == 1)
+				if(onstructure == 1 || myjetpack == 1)
 					S.move_on(src)
 
 		if(istype(A, /mob))
