@@ -19,6 +19,21 @@
 		name = "small power controller (for small machines)"
 		moduletype = /datum/emodule/central/small_power_controller
 
+	cubit_mining_module
+		name = "cubit mining module"
+		var/obj/item/clothing/id/modulecard
+		moduletype = /datum/emodule/central/cubit_mining
+
+		attackby(obj/item/O as obj)
+			if(istype(O, /obj/item/clothing/id))
+				var/obj/item/clothing/id/ID = O
+				usr << "//////// connecting to cubitcoin net ////////"
+				sleep(rand(2,5))
+				usr << "please wait..."
+				sleep(rand(1,3))
+				usr << "[ID.name] connected"
+				usr << 'chime.ogg'
+
 	power_alert_module
 		name = "Alert module (rings if detected power)"
 		moduletype = /datum/emodule/central/power_alert_module
@@ -34,6 +49,16 @@
 			name = L.BPC.name
 			L.BPC = new moduletype(target)
 			moduletype = moduletype2
+
+
+			//cubit mining system
+			if(istype(src, /obj/item/module/cubit_mining_module))
+				var/obj/item/module/cubit_mining_module/CMM = src
+				var/datum/emodule/central/cubit_mining/CB = L.BPC
+				if(CMM.modulecard)
+					CB.cardinit(CMM.modulecard)
+			//cubit mining system
+
 			usr << "lamp power module is replaced"
 			var/mob/simulated/living/humanoid/H = usr
 			H.drop_item_v()
@@ -44,6 +69,15 @@
 			name = L.BPM.name
 			L.BPM = new moduletype(target)
 			moduletype = moduletype2
+
+			//cubit mining system
+			if(istype(src, /obj/item/module/cubit_mining_module))
+				var/obj/item/module/cubit_mining_module/CMM = src
+				var/datum/emodule/central/cubit_mining/CB = L.BPM
+				if(CMM.modulecard)
+					CB.cardinit(CMM.modulecard)
+			//cubit mining system
+
 			usr << "APC power module is replaced"
 			var/mob/simulated/living/humanoid/H = usr
 			H.drop_item_v()
@@ -54,6 +88,15 @@
 			name = L.socket_1.name
 			L.socket_1 = new moduletype(target)
 			moduletype = moduletype2
+
+			//cubit mining system
+			if(istype(src, /obj/item/module/cubit_mining_module))
+				var/obj/item/module/cubit_mining_module/CMM = src
+				var/datum/emodule/central/cubit_mining/CB = L.socket_1
+				if(CMM.modulecard)
+					CB.cardinit(CMM.modulecard)
+			//cubit mining system
+
 			usr << "machinery module is replaced"
 			var/mob/simulated/living/humanoid/H = usr
 			H.drop_item_v()

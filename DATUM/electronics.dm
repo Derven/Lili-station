@@ -120,6 +120,21 @@ var/list/electronics = list()
 				other_socket = new /datum/emodule/other/fuelalert(M)
 				..()
 
+		cubit_mining
+
+			proc/cardinit(var/obj/item/clothing/id/mycard1)
+				var/datum/emodule/other/cubit_mining_module/CBM = other_socket
+				CBM.mycard = mycard1
+
+			New(var/obj/machinery/M)
+				owner = M
+				electronics += src
+				logic_socket = new /datum/emodule/logic/basic(M)
+				sensor_socket = new /datum/emodule/sensor/power_sensor(M)
+				other_socket = new /datum/emodule/other/cubit_mining_module(M)
+				..()
+
+
 	logic
 		proc/process_signal(var/signal)
 			return signal
@@ -194,6 +209,16 @@ var/list/electronics = list()
 		basic_processing_controller
 			name = "basic processing controller"
 			act()
+				return 1
+
+		cubit_mining_module
+			name = "cubit mining module"
+			var/obj/item/clothing/id/mycard
+			act()
+				var/obj/machinery/power = owner
+				if(power.charge && mycard)
+					power.charge -= rand(1000, 2500)
+					mycard.cubits += 5
 				return 1
 
 		basic_power_controller

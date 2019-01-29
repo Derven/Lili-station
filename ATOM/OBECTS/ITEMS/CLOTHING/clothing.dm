@@ -4,23 +4,32 @@
 	icon = 'suit.dmi'
 	icon_state = "id"
 	var/list/myids = list()
+	var/credits = 0
+	var/cubits = 0
 
 	captain
 		New()
 			..()
 			myids.Add(/datum/id/captain)
+			credits = rand(1500, 2500)
+
 	assistant
 		New()
 			..()
 			myids.Add(/datum/id/assistant)
+			credits = rand(300, 500)
+
 	doctor
 		New()
 			..()
 			myids.Add(/datum/id/doctor)
+			credits = rand(500, 850)
+
 	security
 		New()
 			..()
 			myids.Add(/datum/id/security)
+			credits = rand(700, 1200)
 
 /obj/item/clothing/suit
 	icon = 'suit.dmi'

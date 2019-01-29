@@ -147,7 +147,7 @@
 "cQ" = (/obj/item/weapon/fire_ext,/turf/simulated/floor,/area/ship/deck_1/hallway)
 "cR" = (/obj/structure/table,/turf/simulated/floor,/area/ship/deck_1/hallway)
 "cS" = (/obj/structure/table,/obj/item/weapon/screwdriver,/turf/simulated/floor,/area/ship/deck_1/hallway)
-"cT" = (/obj/structure/table,/obj/machinery/camera{tag = "icon-camera (EAST)"; icon_state = "camera"; dir = 4},/turf/simulated/floor,/area/ship/deck_1/hallway)
+"cT" = (/obj/structure/table,/obj/machinery/camera{tag = "icon-camera (EAST)"; icon_state = "camera"; dir = 4},/obj/item/module/cubit_mining_module,/turf/simulated/floor,/area/ship/deck_1/hallway)
 "cU" = (/obj/structure/table,/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area/ship/deck_1/hallway)
 "cV" = (/obj/item/stack/metal,/turf/simulated/floor,/area/ship/deck_1/hallway)
 "cW" = (/obj/structure/decor{tag = "icon-decor55"; icon_state = "decor55"},/turf/simulated/floor/plating,/area/ship/deck_1)
