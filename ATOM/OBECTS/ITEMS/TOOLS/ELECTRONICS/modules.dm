@@ -67,6 +67,10 @@
 		name = "Monkey AI module"
 		ai = /datum/AI/friends_animal/monkey
 
+	patrolbot
+		name = "patrolbot AI module"
+		ai = /datum/AI/patrol_bots
+
 	afterattack(atom/target, mob/user , flag)
 		if(istype(target, /obj/machinery/portable_machinery) && usr.do_after(15))
 			usr << "... loading program"

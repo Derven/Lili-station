@@ -18,7 +18,8 @@
 		return 0
 
 	Uncrossed(var/mob/M)
-		leave(M)
+		if(istype(M, /mob))
+			leave(M)
 
 	proc/move_on(var/mob/M)
 		M.loc = loc

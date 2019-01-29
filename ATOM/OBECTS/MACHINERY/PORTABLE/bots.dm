@@ -1,3 +1,4 @@
+var/list/obj/botsignaler/signalers = list()
 /obj/bot
 	icon = 'bots.dmi'
 
@@ -6,6 +7,11 @@
 
 	medbot
 		icon_state = "medbot"
+
+/obj/botsignaler
+	New()
+		..()
+		signalers.Add(src)
 
 // AI (i.e. game AI, not the AI player) controlled bots
 
@@ -18,7 +24,6 @@
 	var/fire_dam_coeff = 1.0
 	var/brute_dam_coeff = 1.0
 	//var/emagged = 0 //Urist: Moving that var to the general /bot tree as it's used by most bots
-
 
 /obj/machinery/bot/proc/turn_on()
 	if (stat)

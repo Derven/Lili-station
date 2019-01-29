@@ -8,6 +8,23 @@
 	var/datum/emodule/central/basic_power_controller/socket_2
 	var/datum/emodule/central/basic_power_controller/socket_3
 
+	Bump(var/atom/A)
+		if(istype(A, /obj/machinery/airlock))
+			var/obj/machinery/airlock/A_LOCK = A
+			var/turf/simulated/floor/T = A.loc
+			if(A_LOCK.charge == 0)
+				return
+			else
+				if(A_LOCK.close)
+					A_LOCK.open()
+				else
+					A_LOCK.close()
+				if(istype(A.loc, /turf/simulated))
+					T.update_air_properties()
+		else
+			return 1
+
+
 	process()
 		socket_1.myprocess()
 		socket_2.myprocess()
