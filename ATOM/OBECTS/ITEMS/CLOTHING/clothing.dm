@@ -6,30 +6,45 @@
 	var/list/myids = list()
 	var/credits = 0
 	var/cubits = 0
+	var/password = 0
+
+	New()
+		..()
+		password = rand(1000,9990)
+		credits = rand(500, 700)
+		desc = "[name];[password]"
 
 	captain
 		New()
 			..()
+			password = rand(1000,9990)
 			myids.Add(/datum/id/captain)
 			credits = rand(1500, 2500)
+			desc = "[name];[password]"
 
 	assistant
 		New()
 			..()
+			password = rand(1000,9990)
 			myids.Add(/datum/id/assistant)
 			credits = rand(300, 500)
+			desc = "[name];[password]"
 
 	doctor
 		New()
 			..()
+			password = rand(1000,9990)
 			myids.Add(/datum/id/doctor)
 			credits = rand(500, 850)
+			desc = "[name];[password]"
 
 	security
 		New()
 			..()
+			password = rand(1000,9990)
 			myids.Add(/datum/id/security)
 			credits = rand(700, 1200)
+			desc = "[name];[password]"
 
 /obj/item/clothing/suit
 	icon = 'suit.dmi'

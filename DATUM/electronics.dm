@@ -125,6 +125,7 @@ var/list/electronics = list()
 			proc/cardinit(var/obj/item/clothing/id/mycard1)
 				var/datum/emodule/other/cubit_mining_module/CBM = other_socket
 				CBM.mycard = mycard1
+				other_socket = CBM
 
 			New(var/obj/machinery/M)
 				owner = M
@@ -217,8 +218,8 @@ var/list/electronics = list()
 			act()
 				var/obj/machinery/power = owner
 				if(power.charge && mycard)
-					power.charge -= rand(1000, 2500)
-					mycard.cubits += 5
+					power.load = rand(3000, 5000)
+					mycard.cubits += rand(2,3)
 				return 1
 
 		basic_power_controller

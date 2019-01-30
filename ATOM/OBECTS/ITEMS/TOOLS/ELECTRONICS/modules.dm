@@ -33,6 +33,7 @@
 				sleep(rand(1,3))
 				usr << "[ID.name] connected"
 				usr << 'chime.ogg'
+				modulecard = ID
 
 	power_alert_module
 		name = "Alert module (rings if detected power)"
