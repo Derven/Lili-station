@@ -217,6 +217,7 @@ var/list/electronics = list()
 			var/obj/item/clothing/id/mycard
 			act()
 				var/obj/machinery/power = owner
+				power.use_power = 1
 				if(power.charge && mycard)
 					power.load = rand(3000, 5000)
 					mycard.cubits += rand(2,3)

@@ -1,5 +1,6 @@
 obj
 	step_size = 64
+	var/price = 1
 
 //empty objects //fuck this crutches rewrite pls
 /obj/computerframe

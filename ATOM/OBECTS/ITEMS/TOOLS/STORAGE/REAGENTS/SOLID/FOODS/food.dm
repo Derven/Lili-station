@@ -30,6 +30,7 @@
 	var/bitesize
 	var/slices_num
 	var/slice_path
+	price = 0.5
 	icon = 'chemical.dmi'
 
 /obj/item/weapon/reagent_containers/food/snacks/candy

@@ -3,6 +3,8 @@
 	icon = 'mineral.dmi'
 	icon_state = "glass"
 
+	price = 35
+
 	attack_self()
 		var/mob/simulated/living/humanoid/H = usr
 		var/turf/simulated/wall/window/F = locate(3, 1, 2)

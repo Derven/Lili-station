@@ -2,6 +2,7 @@
 	name = "closet"
 	desc = "It's a closet!"
 	icon = 'closet.dmi'
+	price = 25
 	icon_state = "closed"
 	pixelzheight = 32
 	density = 1

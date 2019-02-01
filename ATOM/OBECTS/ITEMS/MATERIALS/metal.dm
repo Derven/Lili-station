@@ -3,6 +3,7 @@
 		name="metal"
 		icon = 'mineral.dmi'
 		icon_state = "metal"
+		price = 50
 
 		attack_self()
 			var/mob/simulated/living/humanoid/H = usr

@@ -10,6 +10,7 @@
 	var/buckled = null
 
 /obj/structure/stool/bed
+	price = 15
 	icon_state = "bed"
 
 
