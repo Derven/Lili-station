@@ -170,6 +170,7 @@
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\simple_smes.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\smelter.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\spaceheater.dm"
+#include "ATOM\OBECTS\MACHINERY\STATIONARY\supertelepad.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\turret.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\vending.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\vendings.dm"

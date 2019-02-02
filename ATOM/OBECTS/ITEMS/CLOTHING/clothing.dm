@@ -1,3 +1,5 @@
+var/ids = 0
+
 /obj/item/clothing/id
 	var/datum/id/ID
 	var/idtype
@@ -10,6 +12,7 @@
 
 	New()
 		..()
+		ids += 1
 		password = rand(1000,9990)
 		credits = rand(500, 700)
 		desc = "[name];[password]"
@@ -17,6 +20,7 @@
 	captain
 		New()
 			..()
+			ids += 1
 			password = rand(1000,9990)
 			myids.Add(/datum/id/captain)
 			credits = rand(1500, 2500)
@@ -25,6 +29,7 @@
 	assistant
 		New()
 			..()
+			ids += 1
 			password = rand(1000,9990)
 			myids.Add(/datum/id/assistant)
 			credits = rand(300, 500)
@@ -33,6 +38,7 @@
 	doctor
 		New()
 			..()
+			ids += 1
 			password = rand(1000,9990)
 			myids.Add(/datum/id/doctor)
 			credits = rand(500, 850)
@@ -41,6 +47,7 @@
 	security
 		New()
 			..()
+			ids += 1
 			password = rand(1000,9990)
 			myids.Add(/datum/id/security)
 			credits = rand(700, 1200)
