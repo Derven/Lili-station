@@ -23,12 +23,21 @@ client
 			speeding = 1
 			var/jp = 0
 			..()
-			var/mob/simulated/living/M = mob
+			var/mob/simulated/living/humanoid/M = mob
 			for(var/obj/item/weapon/storage/box/backpack/jetpack/J in M)
 				J.jpixel()
 				jp = 2
-			if(istype(M, /mob/simulated/living))
+			if(istype(M, /mob/simulated/living/humanoid))
+				if(M.stamina < 30)
+					M << "\red You need to catch your breath!"
+					if(prob(3))
+						M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
 				sleep(run_intent - round(M.heart.pumppower/100) - jp)
+				if(run_intent < 4)
+					if(M.stamina > 1)
+						M.stamina -= 1
+						M.STAMINABAR.staminapixels()
+
 			else
 				sleep(1) //placeholder
 			speeding = 0

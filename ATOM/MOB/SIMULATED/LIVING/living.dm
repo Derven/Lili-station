@@ -43,6 +43,7 @@
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
 /mob/simulated/living
+	var/stamina = 100
 	bullet_act(var/obj/item/projectile/Proj)
 		if(Proj.firer != src)
 			if(Proj.damage > 0)
@@ -137,6 +138,13 @@
 		stat("pulse", (heart.pumppower / 100) * 60)
 
 	attack_hand()
+		var/staminamodify = 0
+		if(istype(usr, /mob/simulated/living/humanoid))
+			var/mob/simulated/living/humanoid/H = usr
+			if(H.stamina > 1)
+				H.stamina -= 1
+			if(H.stamina < 30)
+				staminamodify = rand(3,6)
 		if(death == 0 && !istype(src, /mob/ghost))
 			var/mob/simulated/living/humanoid/H = usr
 			if(usr.intent == 0) //harm
@@ -150,9 +158,9 @@
 					if(defen_zone == affecting )
 						src << "\red You block damage partially"
 						usr << "\red [src] block damage partially"
-						apply_damage(rand(6, 12) - defense, "brute" , affecting, 0)
+						apply_damage(rand(6, 12) - defense - staminamodify, "brute" , affecting, 0)
 				else
-					apply_damage(rand(6, 12), "brute" , affecting, 0)
+					apply_damage(rand(6, 12) - staminamodify, "brute" , affecting, 0)
 				for(var/mob/M in range(5, src))
 					//M << "\red [usr] בüוע [src] ג מבכאסעü [affecting]"
 					M << "\red [usr] punch [src] to [affecting]"
@@ -175,6 +183,14 @@
 /mob/simulated/living/proc/attacked_by(var/obj/item/I, var/mob/simulated/living/humanoid/user, var/def_zone)
 	user = usr
 	var/mob/simulated/living/humanoid/H = src
+
+	var/staminamodify = 0
+	if(istype(usr, /mob/simulated/living/humanoid))
+		var/mob/simulated/living/humanoid/USRH = usr
+		if(USRH.stamina > 1)
+			USRH.stamina -= 1
+		if(USRH.stamina < 30)
+			staminamodify = rand(2,3)
 
 	if((!I || !user) && istype(I, /obj/item/weapon/reagent_containers))	return 0
 
@@ -225,7 +241,7 @@
 			I.force -= defense
 			user << "\blue You block damage partially"
 			usr << "\red [src] block damage partially!"
-	apply_damage(I.force, I.damtype, affecting, 0)
+	apply_damage(I.force - staminamodify, I.damtype, affecting, 0)
 	I.force = initial(I.force)
 
 	stunned += I.stun

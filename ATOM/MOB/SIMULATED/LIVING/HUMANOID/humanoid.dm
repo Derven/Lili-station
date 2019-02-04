@@ -17,6 +17,7 @@
 	var //HUD
 		obj/hud/drop/DP
 		obj/hud/health/H
+		obj/hud/stamina/STAMINABAR
 		obj/hud/cloth/CL
 		obj/hud/id/ID
 		obj/hud/switcher/SW
@@ -95,6 +96,7 @@
 			for(var/datum/organ/external/EX in organs)
 				EX.create_hud(C)
 
+			STAMINABAR = new(src)
 			PULL = new (src)
 			ZN_SEL = new (src)
 			DF_ZONE = new(src)
@@ -119,6 +121,7 @@
 			update_hud(C)
 
 	proc/update_hud(var/client/C)
+		C.screen.Add(STAMINABAR)
 		C.screen.Add(DF_ZONE)
 		C.screen.Add(PULL)
 		C.screen.Add(ZN_SEL)
@@ -193,6 +196,7 @@
 				H.clear_overlay()
 				H.temppixels(round(bodytemperature))
 				H.oxypixels(round(100 - oxyloss))
+				STAMINABAR.staminapixels(round(stamina))
 				H.healthpixels(round(health))
 			if(environment)
 				var/environment_heat_capacity = environment.heat_capacity()
@@ -231,6 +235,10 @@
 	proc/handle_injury()
 		spawn(0)
 			blood_flow()
+			if(stamina < 100)
+				if(prob(85))
+					stamina += 1
+					STAMINABAR.staminapixels(round(stamina))
 			if(istype(src, /mob) && stat != 2)
 				for(var/datum/organ/external/O in organs)
 					if(istype(O, /datum/organ/external/leg))

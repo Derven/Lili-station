@@ -4,6 +4,84 @@
 		icon_state = "one"
 		pixel_y = 1
 
+	stamina
+		name = "stamina"
+		icon = 'screen1.dmi'
+		icon_state = "staminabar"
+		screen_loc = "WEST, NORTH-3"
+
+		var/obj/hud/number/SBHUNDREDS //healthbars
+		var/obj/hud/number/SBTENS
+		var/obj/hud/number/SBUNITS
+		var/cur_snum
+		var/list/staminanums = list()
+
+		New()
+			..()
+			clear_overlay()
+
+		proc/clear_overlay()
+			overlays.Cut()
+
+		proc/staminapixels()
+			clear_overlay()
+			var/mob/simulated/living/H = iam
+			if(H.stamina < 0 || H.stamina > 100)
+				if(H.stamina > 100)
+					H.stamina = 100
+				else
+					return
+			if(length(staminanums) == 0)
+				SBHUNDREDS = new(staminanums)
+				SBTENS = new(staminanums)
+				SBUNITS = new(staminanums)
+
+			SBTENS.pixel_x += 7
+			SBUNITS.pixel_x += 14
+
+			SBUNITS.pixel_y += 44
+			SBTENS.pixel_y += 44
+			SBHUNDREDS.pixel_y += 44
+
+			stamina_bar_update(H.stamina)
+			cur_snum = H.stamina
+
+			overlays += SBHUNDREDS
+			overlays += SBTENS
+			overlays += SBUNITS
+
+		proc/stamina_bar_update()
+			var/hundreds = round(cur_snum / 100)
+			var/tens = round((cur_snum % 100) / 10)
+			var/units = (cur_snum % 100) % 10
+			SBHUNDREDS.icon_state = select_icon_for_num(hundreds)
+			SBTENS.icon_state = select_icon_for_num(tens)
+			SBUNITS.icon_state = select_icon_for_num(units)
+
+		proc/select_icon_for_num(var/num)
+			switch(num)
+				if(1)
+					return "one"
+				if(2)
+					return "two"
+				if(3)
+					return "three"
+				if(4)
+					return "four"
+				if(5)
+					return "five"
+				if(6)
+					return "six"
+				if(7)
+					return "seven"
+				if(8)
+					return "eight"
+				if(9)
+					return "nine"
+				if(0)
+					return "zero"
+
+
 	health
 		name = "Health"
 		icon = 'screen1.dmi'
