@@ -47,8 +47,8 @@
 				if(jetpacked)
 					jpixel()
 					jetpacked.myjetpack = 1
-					for(var/mob/M in range(5, jetpacked))
-						M << 'smoke.ogg'
+					if(prob(25))
+						new /obj/effect/smoke(jetpacked.loc)
 
 	attackby(var/obj/item/I)
 		var/mob/simulated/living/humanoid/user = usr

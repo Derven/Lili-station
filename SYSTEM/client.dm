@@ -33,7 +33,7 @@ client
 					if(prob(3))
 						M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
 				sleep(run_intent - round(M.heart.pumppower/100) - jp)
-				if(run_intent < 4)
+				if(run_intent < 4 && jp == 0)
 					if(M.stamina > 1)
 						M.stamina -= 1
 						M.STAMINABAR.staminapixels()
