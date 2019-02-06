@@ -54,8 +54,16 @@
 			name = "test_deck"
 
 		shuttle_station
+			icon = 'area.dmi'
+			color = "red"
+			invisibility = 101
 
 		shuttle_mining
+			icon = 'area.dmi'
+			color = "green"
+			invisibility = 101
+
+
 
 
 /proc/send_supply_shuttle()

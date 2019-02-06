@@ -55,7 +55,15 @@
 
 	mining_shuttle
 		attack_hand()
+			for(var/mob/M in world)
+				M << "\red Engines are being prepared..."
+			sleep(3)
 			send_supply_shuttle()
+			for(var/obj/machinery/simple_apc/SA in range(8, src))
+				SA.charge = 0
+				SA.my_smes.charge = 0
+			for(var/turf/T in locate(src.loc.loc.type))
+				T.sd_LumReset()
 
 /obj/machinery/consol/shuttle
 	name = "cargo"

@@ -106,6 +106,7 @@
 	icon = 'tools.dmi'
 	icon_state = "disc"
 	var/datum/AI/ai
+	var/client/client
 
 	monkeyAI
 		name = "Monkey AI module"
@@ -120,3 +121,9 @@
 			usr << "... loading program"
 			sleep(rand(3,7))
 			addai(target, ai)
+		if(istype(target, /obj/machinery/mindmachine))
+			var/obj/machinery/mindmachine/MI = target
+			MI.AIM = src
+			var/mob/simulated/living/humanoid/H = usr
+			H.drop_item_v()
+			src.Move(target)

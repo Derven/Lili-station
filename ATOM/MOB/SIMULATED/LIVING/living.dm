@@ -134,8 +134,9 @@
 		..()
 
 	Stat()
-		statpanel("Internal")
-		stat("pulse", (heart.pumppower / 100) * 60)
+		if(heart)
+			statpanel("Internal")
+			stat("pulse", (heart.pumppower / 100) * 60)
 
 	attack_hand()
 		var/staminamodify = 0

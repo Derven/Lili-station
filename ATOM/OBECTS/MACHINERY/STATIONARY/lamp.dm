@@ -11,7 +11,6 @@
 	load = 5
 	var/datum/emodule/central/basic_power_controller/BPC
 
-
 	New()
 		..()
 		BPC = new(src)
