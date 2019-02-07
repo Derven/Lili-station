@@ -16,7 +16,7 @@
 		New()
 			..()
 			inner = new(src)
-			inner.fuel = 45
+			inner.fuel = 145
 
 		use_engine()
 			if(inner.fuel > 1)

@@ -190,8 +190,10 @@
 								var/obj/item/projectile/beam/A
 								if(prob(35))
 									A = new /obj/item/projectile/beam/explosive(src.loc)
+									A.dest = M
 								else
 									A = new /obj/item/projectile/beam(src.loc)
+									A.dest = M
 								A.firer = src
 								A.dir = dir
 								A.process()
