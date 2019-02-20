@@ -29,7 +29,8 @@ client
 				jp = 2
 			if(istype(M, /mob/simulated/living/humanoid))
 				if(M.stamina < 30)
-					M << "\red You need to catch your breath!"
+					if(prob(rand(1,5)))
+						M << "\red You need to catch your breath!"
 					if(prob(3))
 						M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
 				sleep(run_intent - round(M.heart.pumppower/100) - jp)

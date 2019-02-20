@@ -12,16 +12,18 @@
 		del(Proj)
 
 	proc/soundreturn()
-		return pick('ambispace.ogg','title2.ogg')
+		return pick('space1.ogg','space2.ogg', 'space3.ogg', 'rick.ogg')
 
 	proc/ambplay(var/mob/A)
 		sound = soundreturn()
 
 		if (prob(probality))
 			if(A && A.client && !A.client.played)
-				A << sound(sound, repeat = 0, wait = 0, volume = 35, channel = 1)
+				var/sound/S1 = sound(sound, repeat = 0, wait = 0, volume = rand(7, 10), channel = 1)
+				S1.environment = 10
+				A << S1
 				A:client:played = 1
-				spawn(600)
+				spawn(650)
 					if(A && A.client)
 						A:client:played = 0
 
@@ -40,9 +42,12 @@
 		deck_1
 			name = "test_deck"
 			probality = 45
+			icon = 'area.dmi'
+			color = "blue"
+			invisibility = 101
 
 			soundreturn()
-				return pick('ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen5.ogg','ambigen6.ogg','ambigen7.ogg','ambigen8.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
+				return pick('rick.ogg','station1.ogg','station2.ogg','station3.ogg','station4.ogg','station5.ogg','station6.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
 
 			hallway
 
@@ -51,7 +56,9 @@
 			geen
 
 		deck_2
+			icon = 'area.dmi'
 			name = "test_deck"
+			color = "blue"
 
 		shuttle_station
 			icon = 'area.dmi'

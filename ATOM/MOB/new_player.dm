@@ -213,6 +213,7 @@
 	create_lobby(usr.client)
 	pregame_human = new('mob.dmi',icon_state = "mob")
 	suit = new('suit.dmi', icon_state = "assistant_suit_onmob")
+	lobbysound = pick(sound('lobby1.ogg'), sound('lobby2.ogg'), sound('rick.ogg'))
 	usr << lobbysound
 	pregame_name = rand_name(src)
 	show_lobby()
