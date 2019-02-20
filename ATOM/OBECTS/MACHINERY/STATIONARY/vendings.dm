@@ -60,3 +60,11 @@
 	my_items = list(/obj/item/stack/glass, /obj/item/stack/metal)
 	my_types = list(/obj/item/stack/glass, /obj/item/stack/metal)
 	items_num = list(100, 100)
+
+/obj/machinery/vending/trademat
+	icon = 'vendomat_7.dmi'
+	name = "tools master"
+	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/energy_gun, /obj/item/stack/metal, /obj/item/stack/glass, /obj/item/weapon/flasher, /obj/item/fuel, /obj/item/weapon/gun/energy/laser)
+	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/energy_gun, /obj/item/stack/metal, /obj/item/stack/glass, /obj/item/weapon/flasher, /obj/item/fuel, /obj/item/weapon/gun/energy/laser)
+	items_num = list(999999999, 999999999, 999999999, 999999999, 999999999, 999999999)
+	prices = list(30, 40, 40, 450, 200, 1200)

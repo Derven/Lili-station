@@ -11,6 +11,8 @@
 	var/products
 	var/myclick = 0
 	var/my_text
+	var/obj/item/clothing/id/curid
+	var/prices
 
 	New()
 		..()
@@ -24,6 +26,11 @@
 
 		for(var/g = 1, g <= my_items.len, g++)
 			products += "<br><a href='?src=\ref[src];my_item=[my_types[g]];my_what=[g];iam=[src.type]'>[my_items[g]]</a>"
+
+	attackby(obj/item/W as obj, mob/simulated/living/humanoid/user as mob)
+		if(istype(W, /obj/item/clothing/id))
+			usr << "\blue ID data is loaded"
+			curid = W
 
 	attack_hand()
 		my_text = {"
@@ -44,9 +51,23 @@
 		if(href_list["my_item"] && href_list["my_what"])
 			var/obj/item/l = href_list["my_item"]
 			var/what = text2num(href_list["my_what"])
-			if(items_num[what] > 0)
-				items_num[what] -= 1
-				new l(loc)
+			if(istype(src, /obj/machinery/vending/trademat))
+				if(!curid)
+					return
+				else
+					if(items_num[what] > 0 && curid.credits >= prices[what])
+						items_num[what] -= 1
+						curid.credits -= prices[what]
+						var/myprc = prices[what]
+						usr << "You bought [my_items[what]] for [myprc] credits"
+						new l(loc)
+						curid = null
+					else
+						usr << "\red <b>No money</b>"
+			else
+				if(items_num[what] > 0)
+					items_num[what] -= 1
+					new l(loc)
 
 			if(items_num[what] == 0)
 				usr << "\red <b>No [my_items[what]]</b>"
