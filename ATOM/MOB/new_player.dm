@@ -102,28 +102,50 @@
 		<html>
 			<head>
 			<title> lobby </title>
+			<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 			</head>
 			<body>
-				<div class=lobby style=\"{font-size: 24px;}"> \
+				<div id="stars"></div>
+			    <div id="stars2"></div>
+			    <div id="stars3"></div>
+				<div class=lobby style=\"{font-size: 24px;z-index: -1;content: " ";position: absolute;top: 2000px;width: 1px;height: 1px;background: transparent;}"> \
 					<div class=character style=\"{margin: 1px, 15px, 15px, 1px; float: left; padding: 32px; color: #FFDE40; background-color: whitesmoke; width: 64px; height: 64px; border: 4px double #CE24CB;}\"><img src="preview"></div> \
 					name: <a href='?src=\ref[src];myname=1'>[pregame_name]</a></br>
 					gender: <a href='?src=\ref[src];gender=1'>male</a>/<a href='?src=\ref[src];gender=0'>female</a> </br>
                     haircut:<a href='?src=\ref[src];hair=1'>[hair_name]</a> </br>
                     <a href='?src=\ref[src];hcolor=1'>hair color</a> </br>
                     <a href='?src=\ref[src];bcolor=1'>body color</a> </br></br>
-                    <a href='?src=\ref[src];flavor=1'>flavor</a>:</br>
+                    <a class="pure-button pure-button-primary"  href='?src=\ref[src];flavor=1'>flavor</a></br>
                     <textarea rows="10" readonly="readonly" cols="45" name="flavor">[pregame_flavor ? fix1103(pregame_flavor) : ""]</textarea></br></br>
-                    job:
-                    <hr>
-						<span class='gray' style=\"{color: darkgray};\"><a href='?src=\ref[src];job=1'>Assistant</a></span>
-						<span class='green' style=\"{color: darkgreen};\"><a href='?src=\ref[src];job=2'>Botanist</a></span>
-						<a href='?src=\ref[src];job=3'>Bartender</a>
-						<span class='sec' style=\"{color: darkred};\"><a href='?src=\ref[src];job=4'>Security</a></span></br>
-						<span class='eng' style=\"{color: orange};\"><a href='?src=\ref[src];job=5'>Engineer</a></span>
-						<span class='doc' style=\"{color: darkblue};\"><a href='?src=\ref[src];job=6'>Doctor</a></span>
-						<span class='cap' style=\"{color: blue};\"><a href='?src=\ref[src];job=7'>Captain</a></span>
+					<table class="pure-table">
+					    <thead>
+					        <tr>
+					            <th>Subdivision</th>
+					            <th>Job</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					        <tr>
+					            <td>Civil</td>
+					            <td><span class='gray' style=\"{color: darkgray};\"><a href='?src=\ref[src];job=1'>Assistant</a></span></td>
+					            <td><span class='green' style=\"{color: darkgreen};\"><a href='?src=\ref[src];job=2'>Botanist</a></span></td>
+					            <td><a href='?src=\ref[src];job=3'>Bartender</a></td>
+					        </tr>
+
+					        <tr>
+					            <td>Sec & Heads</td>
+					            <td><span class='sec' style=\"{color: darkred};\"><a href='?src=\ref[src];job=4'>Security</a></span></td>
+					            <td><span class='cap' style=\"{color: blue};\"><a href='?src=\ref[src];job=7'>Captain</a></span></td>
+					        </tr>
+					        <tr>
+					            <td> Other </td>
+					            <td><span class='eng' style=\"{color: orange};\"><a href='?src=\ref[src];job=5'>Engineer</a></span></td>
+					            <td><span class='doc' style=\"{color: darkblue};\"><a href='?src=\ref[src];job=6'>Doctor</a></span></td>
+					        </tr>
+					    </tbody>
+					</table>
 					<hr>
-					<a href='?src=\ref[src];preview=1'>view</a> / <a href='?src=\ref[src];join=1'>join</a> / <a href='?src=\ref[src];observe=1'>observe</a>
+					<a class="pure-button pure-button-primary" href="?src=\ref[src];preview=1">view</a> <a class="pure-button pure-button-primary" href='?src=\ref[src];join=1'>join</a> <a class="pure-button pure-button-primary"  href='?src=\ref[src];observe=1'>observe</a>
 				</div>
 			</body>
 		</html>"}

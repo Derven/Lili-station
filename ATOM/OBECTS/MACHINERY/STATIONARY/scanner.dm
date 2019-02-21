@@ -41,10 +41,10 @@
 		var/dat = "<html><head><title>Super mind machine</title></head> \
 		<body> \
 		<h2>Mind amount: [occupant]</h2></br>\
-		<h1><a href='?src=\ref[src];write=[AIM];'>Write</a> [AIM]</h1></br>\
-		<h1><a href='?src=\ref[src];read=[occupant];'>Read</a> [occupant]</h1></br>\
-		<h1>Eject human <a href='?src=\ref[src];eject=[occupant];'>[occupant]</a></h1></br>\
-		<h1>Eject disk <a href='?src=\ref[src];eject=[AIM];'>[AIM]</a></h1></br>"
+		<h1><a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];write=[AIM];'>Write</a> [AIM]</h1></br>\
+		<h1><a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];read=[occupant];'>Read</a> [occupant]</h1></br>\
+		<h1>Eject human <a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];eject=[occupant];'>[occupant]</a></h1></br>\
+		<h1>Eject disk <a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];eject=[AIM];'>[AIM]</a></h1></br>"
 		dat += "</body></html>"
 		usr << browse(dat,"window=mindmachine")
 

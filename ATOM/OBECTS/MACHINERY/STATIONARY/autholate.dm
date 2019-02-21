@@ -31,21 +31,21 @@
 
 	attack_hand()
 
-		var/dat = "<html><head><title>Autholate</title></head> \
+		var/dat = "<html><head><title>Autholate</title><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head> \
 		<body> \
 		<h2>Metal amount: [metal]</h2></br>\
 		<h1>Small metal products</h1></br>"
 
 		for (var/obj/item/I in one_metal_product)
-			dat += "<a href='?src=\ref[src];product1=[I.type];'>[I]</a></br>"
+			dat += "<a class=\"pure-button pure-button-primary\" href='?src=\ref[src];product1=[I.type];'>[I]</a></br></br>"
 
 		dat += "<h1>Medium metal products</h1>"
 		for (var/obj/item/I in two_metal_product)
-			dat += "<a href='?src=\ref[src];product2=[I.type];'>[I]</a></br>"
+			dat += "<a class=\"pure-button pure-button-primary\" href='?src=\ref[src];product2=[I.type];'>[I]</a></br></br>"
 
 		dat += "<h1>Large metal products</h1>"
 		for (var/obj/item/I in three_metal_product)
-			dat += "<a href='?src=\ref[src];product3=[I.type];'>[I]</a></br>"
+			dat += "<a class=\"pure-button pure-button-primary\" href='?src=\ref[src];product3=[I.type];'>[I]</a></br></br>"
 
 		dat += "</body></html>"
 		usr << browse(dat,"window=autholate")

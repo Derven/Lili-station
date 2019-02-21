@@ -25,7 +25,7 @@
 
 
 		for(var/g = 1, g <= my_items.len, g++)
-			products += "<br><a href='?src=\ref[src];my_item=[my_types[g]];my_what=[g];iam=[src.type]'>[my_items[g]]</a>"
+			products += "<br><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];my_item=[my_types[g]];my_what=[g];iam=[src.type]'>[my_items[g]]</a></br>"
 
 	attackby(obj/item/W as obj, mob/simulated/living/humanoid/user as mob)
 		if(istype(W, /obj/item/clothing/id))
@@ -35,7 +35,10 @@
 	attack_hand()
 		my_text = {"
 		<html>
-		<head><title>Vendomat</title></head>
+		<head>
+		<title>Vendomat</title>
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+		</head>
 		<body>
 		Products:
 		[products]
