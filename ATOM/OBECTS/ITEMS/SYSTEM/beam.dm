@@ -6,6 +6,7 @@
 	var
 		obj/item/weapon/cell/power_supply //What type of power cell this uses
 		charge_cost = 100 //How much energy is needed to fire.
+		mycharge = 1000
 		cell_type = "/obj/item/weapon/cell"
 		projectile_type = "/obj/item/projectile/energy"
 
@@ -15,8 +16,12 @@
 
 
 	load_into_chamber()
-		in_chamber = new projectile_type(src)
-		return 1
+		if(charge_cost <= mycharge)
+			mycharge -= charge_cost
+			in_chamber = new projectile_type(src)
+			return 1
+		else
+			return 0
 
 /obj/item/weapon/gun/energy/laser
 	automatic = 1
@@ -51,24 +56,19 @@ obj/item/weapon/gun/energy/laser/retro
 	force = 10
 	var/charge_tick = 0
 
-
 	New()
 		..()
 		processing_objects.Add(src)
 
-
 	Del()
 		processing_objects.Remove(src)
 		..()
-
 
 	process()
 		charge_tick++
 		if(charge_tick < 4) return 0
 		charge_tick = 0
 		return 1
-
-
 
 /obj/item/weapon/gun/energy/laser/cyborg/load_into_chamber()
 	if(in_chamber)	return 1

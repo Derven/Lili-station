@@ -231,6 +231,7 @@
 			updatehealth()
 		else
 			heart.pumppower = 0
+		myspaceisperfect()
 
 	proc/handle_injury()
 		spawn(0)

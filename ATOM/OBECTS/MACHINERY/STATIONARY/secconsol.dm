@@ -8,12 +8,14 @@
 	icon = 'stationobjs.dmi'
 
 	attack_hand()
-		var/body = "<html><body>Electro chair system consol:<hr><a href='?src=\ref[src];action=echair;'>Activate!</a></html></body>"
+		var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
+		body += "<body>Electro chair system consol:<hr><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];action=echair;'>Activate!</a></html></body>"
 		usr << browse(body,"window=computer")
 
 /obj/machinery/consol/brigdoor_control/only_flash
 	attack_hand()
-		var/body = "<html><body>Brig system consol:<hr><a href='?src=\ref[src];action=flasher;'>flasher</a></html></body>"
+		var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
+		body += "<body>Brig system consol:<hr><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];action=flasher;'>flasher</a></html></body>"
 		usr << browse(body,"window=computer")
 
 /obj/machinery/consol/camera_control
@@ -53,7 +55,8 @@ var/CAMid = 0
 		usr << browse(null, "window=computercam")
 
 /obj/machinery/consol/brigdoor_control/attack_hand()
-	var/body = "<html><body>Brig system consol:<hr><a href='?src=\ref[src];action=door;'>close/open door</a><br><a href='?src=\ref[src];action=flasher;'>flasher</a></html></body>"
+	var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
+	body += "<body>Brig system consol:<hr><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];action=door;'>close/open door</a><br><br><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];action=flasher;'>flasher</a></html></body>"
 	usr << browse(body,"window=computer")
 /*
 mob/verb/debug_start()

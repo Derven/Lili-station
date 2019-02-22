@@ -47,7 +47,7 @@
 			invisibility = 101
 
 			soundreturn()
-				return pick('rick.ogg','station1.ogg','station2.ogg','station3.ogg','station4.ogg','station5.ogg','station6.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
+				return pick('rick.ogg','station1.ogg', 'station65.ogg', 'station66.ogg', 'station2.ogg','station3.ogg','station4.ogg','station5.ogg','station6.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
 
 			hallway
 

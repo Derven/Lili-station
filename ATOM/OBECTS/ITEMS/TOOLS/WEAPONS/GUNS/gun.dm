@@ -58,7 +58,6 @@
 			return
 
 		if(!in_chamber)	return
-
 		in_chamber.dest = targloc
 		in_chamber.firer = H
 		in_chamber.def_zone = H.ZN_SEL.selecting

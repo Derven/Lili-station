@@ -157,7 +157,7 @@
 		src << "\red You are dead"
 		if(client)
 			client.screen.Cut()
-		STOP_PROCESSING(SSmobs, src)
+		//STOP_PROCESSING(SSmobs, src)
 		if(istype(src, /mob/simulated/living/humanoid))
 			var/mob/simulated/living/humanoid/H = src
 			H.rest()
