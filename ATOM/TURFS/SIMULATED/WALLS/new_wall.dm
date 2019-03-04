@@ -95,6 +95,24 @@
 						LVING.y = y
 						LVING.z = z
 
+
+		proc/update_nearby_tiles()
+			if(!air_master) return 0
+
+			var/turf/simulated/source = loc
+			var/turf/simulated/north = get_step(source,NORTH)
+			var/turf/simulated/south = get_step(source,SOUTH)
+			var/turf/simulated/east = get_step(source,EAST)
+			var/turf/simulated/west = get_step(source,WEST)
+
+			if(istype(source)) air_master.tiles_to_update += source
+			if(istype(north)) air_master.tiles_to_update += north
+			if(istype(south)) air_master.tiles_to_update += south
+			if(istype(east)) air_master.tiles_to_update += east
+			if(istype(west)) air_master.tiles_to_update += west
+
+			return 1
+
 		attackby(obj/item/weapon/W as obj, mob/user as mob)
 			if(istype(W, /obj/item/weapon/screwdriver))
 				if(usr.do_after(25))
@@ -113,6 +131,12 @@
 						if(health < 1)
 							if(!newicon)
 								newicon = "[icon_state]_broken"
+								blocks_air = 0
+								for(var/direction in list(NORTH, SOUTH, EAST, WEST))
+									var/turf/simulated/tile = get_step(src,direction)
+									if(istype(tile) && !tile.blocks_air)
+										air_master.tiles_to_update.Add(tile)
+								update_air_properties()
 							//relativewall_neighbours()
 							usr << "The glass is broken"
 							icon_state = newicon
