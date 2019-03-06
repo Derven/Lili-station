@@ -91,6 +91,7 @@
 /obj/structure/stool/chair
 	icon_state = "chair"
 	var/list/buckled_mobs = new/list()
+	rotatable = 1
 
 	wood
 		color = "#633213"

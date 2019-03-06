@@ -5,6 +5,12 @@
 /obj/structure
 	var/pixelzheight = 16
 	robustness = 15
+	var/rotatable = 0
+
+	verb/rotate_me()
+		set src in range(1)
+		if(rotatable)
+			dir = (turn(dir, 90))
 
 	verb/climb_up()
 		set src in range(1)

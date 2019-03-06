@@ -4,6 +4,7 @@
 	icon = 'closet.dmi'
 	price = 25
 	icon_state = "closed"
+	rotatable = 1
 	pixelzheight = 32
 	density = 1
 	var/icon_closed = "closed"

@@ -4,6 +4,7 @@
 /obj/machinery/vending
 	var/amount = 3
 	density = 1
+	anchored = 1
 	icon = 'vendomat.dmi'
 	var/list/obj/item/my_items = list()
 	var/list/obj/item/my_types= list()

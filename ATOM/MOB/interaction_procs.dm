@@ -32,7 +32,20 @@
 		if(istype(A, /mob))
 			if(A.density == 1)
 				if(intent == 0)
-					step(A, dir, 64)
+					var/mob/simulated/living/humanoid/H = src
+					if(H.client)
+						if(H.client.run_intent < 4)
+							step(A, dir, 64)
+							if(prob(50))
+								H << "\red You trying to knock down [A]"
+								H.resting()
+							if(prob(25))
+								if(istype(A, /mob/simulated/living/humanoid))
+									var/mob/simulated/living/humanoid/A2 = A
+									A2.resting()
+									H << "\red You knock down [A]"
+					else
+						step(A, dir, 64)
 				else
 					A.density = 0
 					step(src, turn(A.dir, 180), 64)
