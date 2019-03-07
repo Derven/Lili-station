@@ -137,6 +137,7 @@
 		if(heart)
 			statpanel("Internal")
 			stat("pulse", (heart.pumppower / 100) * 60)
+			stat("hungry", nutrition / (400 / 100))
 
 	attack_hand()
 		var/staminamodify = 0
@@ -256,6 +257,9 @@
 
 /mob/simulated/living
 	proc/blood_flow()
+		if(nutrition > 0)
+			if(prob(rand(25, 45)))
+				nutrition -= rand(0,2) //hungry
 		var/mob/simulated/living/humanoid/HUM = src
 		heart.my_func()
 		switch(heart.pumppower)
@@ -289,6 +293,8 @@
 		if(prob(25))
 			if(!reagents.has_reagent("blood", 280))
 				reagents.add_reagent("blood", 20)
+				if(nutrition > 250)
+					reagents.add_reagent("blood", 20)
 
 		if(prob(25))
 			for(var/datum/organ/external/EX in organs)

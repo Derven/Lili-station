@@ -121,6 +121,12 @@ datum
 			name = "nutriments"
 			id = "nutriments"
 
+			on_mob_life(mob/M)
+				if (istype(M,/mob/simulated/living/humanoid))
+					var/mob/simulated/living/humanoid/H = M
+					H.nutrition += 1
+				return
+
 		lightgas
 			name = "lightgas"
 			id = "lightgas"
