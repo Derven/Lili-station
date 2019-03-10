@@ -326,6 +326,11 @@
 			return
 		..()
 
+	mouse
+		layer = 2
+		name = "cockmouse"
+		icon_state = "mouse"
+
 /obj/critter/maneater
 	name = "man-eating plant"
 	desc = "It looks hungry..."

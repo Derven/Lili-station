@@ -63,6 +63,8 @@
 			return
 
 	proc/engine()
+		if(istype(src, /dz/train))
+			return 1
 		for(var/obj/machinery/ionengine/I in world)
 			if(I.id == id)
 				if(I.use_engine())
