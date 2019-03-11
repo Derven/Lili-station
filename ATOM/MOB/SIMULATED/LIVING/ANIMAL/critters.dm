@@ -327,6 +327,7 @@
 		..()
 
 	mouse
+		density = 0
 		layer = 2
 		name = "cockmouse"
 		icon_state = "mouse"

@@ -818,6 +818,14 @@
 	icon_state = "vegetablepizzaslice"
 	bitesize = 2
 
+/obj/item/weapon/reagent_containers/food/snacks/pill/potassium
+	name = "potassium pill"
+
+	New()
+		..()
+		reagents.add_reagent("potassium", 30)
+		bitesize = 2
+
 /obj/item/weapon/reagent_containers/food/snacks/pill
 	icon = 'chemical.dmi'
 	icon_state = "pills"

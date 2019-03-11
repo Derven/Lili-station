@@ -160,9 +160,13 @@
 					if(defen_zone == affecting )
 						src << "\red You block damage partially"
 						usr << "\red [src] block damage partially"
-						apply_damage(rand(6, 12) - defense - staminamodify, "brute" , affecting, 0)
+						var/damage = rand(6, 12) - defense - staminamodify
+						showandhide("[damage]", 1, 5)
+						apply_damage(damage, "brute" , affecting, 0)
 				else
-					apply_damage(rand(6, 12) - staminamodify, "brute" , affecting, 0)
+					var/damage = rand(6, 12) - staminamodify
+					apply_damage(damage, "brute" , affecting, 0)
+					showandhide("[damage]", 1, 5)
 				for(var/mob/M in range(5, src))
 					//M << "\red [usr] בüוע [src] ג מבכאסעü [affecting]"
 					M << "\red [usr] punch [src] to [affecting]"
@@ -180,7 +184,9 @@
 /mob/simulated/living/proc/rand_damage(var/mind, var/maxd)
 	var/MY_PAIN
 	MY_PAIN = get_organ(pick("chest", "r_leg", "l_leg","r_arm", "l_arm"))
-	apply_damage(rand(mind, maxd) - defense, "brute" , MY_PAIN, 0)
+	var/damage = rand(mind, maxd) - defense
+	apply_damage(damage, "brute" , MY_PAIN, 0)
+	showandhide("[damage]", 1, 5)
 
 /mob/simulated/living/proc/attacked_by(var/obj/item/I, var/mob/simulated/living/humanoid/user, var/def_zone)
 	user = usr
@@ -244,6 +250,7 @@
 			user << "\blue You block damage partially"
 			usr << "\red [src] block damage partially!"
 	apply_damage(I.force - staminamodify, I.damtype, affecting, 0)
+	showandhide("[I.force]", 1, 5)
 	I.force = initial(I.force)
 
 	stunned += I.stun

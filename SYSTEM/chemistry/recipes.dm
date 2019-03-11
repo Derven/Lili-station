@@ -30,3 +30,13 @@ datum
 
 			on_reaction(var/datum/reagents/holder, var/created_volume)
 				world << "PIZDEC"
+
+		explosion
+			name = "explosion"
+			id = "explosion"
+			result = "explosion"
+			required_reagents = list("potassium" = 5, "water" = 5)
+			result_amount = 1
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				boom(rand(1,2), holder.my_atom.loc)

@@ -64,7 +64,7 @@ proc/boom(irange, epcntr)
 	new /obj/effect/expl_particles(epcntr)
 	for(var/atom/A in range(irange, epcntr))
 		if(!istype(A, /area))
-			if(istype(A, /obj))
+			if(istype(A, /obj) && !istype(A, /obj/hud))
 				var/obj/M = A
 				if(prob(65))
 					if(M.anchored == 1)
