@@ -78,7 +78,7 @@
 
 	window
 		w = "window"
-		icon_state = "w"
+		icon_state = "+w"
 		opacity = 0
 		health = 100
 

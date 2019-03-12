@@ -25,7 +25,7 @@ proc/savemap()
 	/*
 		The save() verb saves a map with name "[map_name].dmm".
 		*/
-	var/map_name = "dervenluna"
+	var/map_name = "lunamapsave"
 	var/dmm_suite/D = new()
 	var/turf/south_west_deep = locate(1,1,1)
 	var/turf/north_east_shallow = locate(world.maxx,world.maxy,world.maxz)
@@ -34,7 +34,7 @@ proc/savemap()
 	usr << {"The file [map_name].dmm has been saved. It can be found in the same directly in which this library resides.\n\
  (Usually: C:\\Documents and Settings\\Your Name\\Application Data\\BYOND\\lib\\iainperegrine\\dmm_suite)"}
 
-/*
+
 mob/verb/write()
 	/*
 		The write() verb creates a text string of the map in dmm format
@@ -46,7 +46,7 @@ mob/verb/write()
 	var/map_text = D.write_map(south_west_deep, north_east_shallow, flags = DMM_IGNORE_PLAYERS)
 	usr << browse("<pre>[map_text]</pre>")
 
-*/
+
 
 proc/loadmap()
 	/*
