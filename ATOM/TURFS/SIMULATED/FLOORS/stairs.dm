@@ -1,3 +1,5 @@
+
+
 /turf/simulated/floor/stairs
 	icon_state = "stairsnorth"
 	density = 1
@@ -43,3 +45,13 @@
 
 		else
 			return 0
+
+/turf/simulated/floor/LUNAstairs
+	icon_state = "stairsnorth"
+	density = 1
+	var/ladderid = 0
+
+	Entered(var/atom/movable/O)
+		for(var/turf/simulated/floor/LUNAstairs/F in world)
+			if(F.ladderid == ladderid && F != src && F.icon_state != icon_state)
+				O.loc = F

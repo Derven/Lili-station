@@ -92,17 +92,17 @@
 				WIN.health -= rand(15, 25)
 				WIN.update_icon()
 			if ((istype(M, /obj/machinery/airlock)))
-				var/obj/machinery/airlock/D = M
-				if (src.opensdoors)
-					if(D.charge == 0)
-						return
-
-					if(D.close)
-						D.open()
-					else
-						D.close()
-					src.frustration = 0
-				else src.frustration ++
+				if(!istype(src, /obj/critter/killertomato))
+					var/obj/machinery/airlock/D = M
+					if (src.opensdoors)
+						if(D.charge == 0)
+							return
+						if(D.close)
+							D.open()
+						else
+							D.close()
+						src.frustration = 0
+					else src.frustration ++
 			else if ((istype(M, /mob/)) && (!src.anchored))
 				src.loc = M:loc
 				src.frustration = 0
@@ -332,6 +332,10 @@
 		name = "cockmouse"
 		icon_state = "mouse"
 
+		Crossed()
+			for(var/mob/M in range(src, 5))
+				M << 'mousesqueek.ogg'
+
 /obj/critter/maneater
 	name = "man-eating plant"
 	desc = "It looks hungry..."
@@ -455,6 +459,9 @@
 		var/obj/blood/B = new(src.loc)
 		B.name = "ruined tomato"
 		del src
+
+	metroid
+		icon_state = "metroid"
 
 /obj/critter/spore
 	name = "plasma spore"
