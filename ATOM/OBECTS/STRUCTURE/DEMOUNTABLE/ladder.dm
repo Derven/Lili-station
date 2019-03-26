@@ -1,14 +1,27 @@
 /obj/structure/ladder
 	icon_state = "ladder"
 	icon = 'stationobjs.dmi'
+	var/ladderid = 0
 
 	attack_hand()
 		spawn(rand(1,5))
-			if(usr.ZLevel == src.ZLevel)
-				usr.ZLevel += 1
-				usr.Climbing = 1
-				if(usr.client)
-					usr.client.clear_MYZL()
-			else
-				usr.ZLevel -= 1
-				usr.Climbing -= 1
+			for(var/obj/structure/ladder/F in world)
+				if(F.ladderid == ladderid && F != src)
+					usr.loc = F.loc
+
+/*
+
+      ___                    ___       ___           ___           ___           ___
+     /\  \                  /\__\     /\  \         /\__\         /\  \         /\__\
+     \:\  \                /:/  /    /::\  \       /:/  /        /::\  \       /:/  /
+      \:\  \              /:/  /    /:/\:\  \     /:/  /        /:/\:\  \     /:/  /
+       \:\  \            /:/  /    /::\~\:\  \   /:/__/  ___   /::\~\:\  \   /:/  /
+ _______\:\__\          /:/__/    /:/\:\ \:\__\  |:|  | /\__\ /:/\:\ \:\__\ /:/__/
+ \::::::::/__/          \:\  \    \:\~\:\ \/__/  |:|  |/:/  / \:\~\:\ \/__/ \:\  \
+  \:\~~\~~               \:\  \    \:\ \:\__\    |:|__/:/  /   \:\ \:\__\    \:\  \
+   \:\  \                 \:\  \    \:\ \/__/     \::::/__/     \:\ \/__/     \:\  \
+    \:\__\                 \:\__\    \:\__\        ~~~~          \:\__\        \:\__\
+     \/__/                  \/__/     \/__/                       \/__/         \/__/
+
+
+*/

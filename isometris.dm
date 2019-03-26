@@ -34,6 +34,11 @@ world
 	hub = "SSting.SpaceCruiserAurora"
 	tick_lag = 0.3
 
+var/contentlist = list(/datum/content/library, /datum/content/dream, /datum/content/dream2, /datum/content/dream3, /datum/content/dream4, /datum/content/dream5, /datum/content/whatstorymark, /datum/content/forkmypork, /datum/content/racers)
+var/ingamecontent = list()
+
+
+
 /world/New()
 //	master_controller = new /datum/controller/game_controller()
 	if(!air_master)
