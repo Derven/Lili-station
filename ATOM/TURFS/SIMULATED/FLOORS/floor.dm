@@ -21,6 +21,25 @@
 			if(rand(1, 100) < rand(1,5))
 				del(src)
 
+	MouseDrop_T(mob/target, var/mob/simulated/living/humanoid/M)
+		if(target == M)
+			if(istype(M, /mob/simulated/living/humanoid))
+				if(M == usr)
+					if(get_dist(M.loc,src) == 1)
+						if(M.lying == 1)
+							for(var/atom/movable/MOV in src)
+								if(MOV.density == 1)
+									return //NO
+
+							sleep(rand(1,2))
+							usr << "\red You crawl on the floor"
+							if(prob(65))
+								for(var/datum/organ/external/EX in M.organs)
+									EX.blood_flow_trails(M, get_dir(M.loc,src))
+							//get_dir(Loc1,Loc2)
+							M.loc = src
+
+
 	verb/fall()
 		set src in range(1, usr)
 		if(Height < usr.ZLevel)
@@ -97,18 +116,21 @@
 	return W
 
 /turf/proc/ReplaceWithSpace()
-	var/old_dir = dir
-	var/turf/space/S = new /turf/space( locate(src.x, src.y, src.z) )
-	S.dir = old_dir
-	air_master.tiles_to_update |= S
+	if(z != 1)
+		new /obj/spess(src)
+	else
+		var/old_dir = dir
+		var/turf/space/S = new /turf/space( locate(src.x, src.y, src.z) )
+		S.dir = old_dir
+		air_master.tiles_to_update |= S
 
-	var/turf/simulated/north = get_step(S,NORTH)
-	var/turf/simulated/south = get_step(S,SOUTH)
-	var/turf/simulated/east = get_step(S,EAST)
-	var/turf/simulated/west = get_step(S,WEST)
+		var/turf/simulated/north = get_step(S,NORTH)
+		var/turf/simulated/south = get_step(S,SOUTH)
+		var/turf/simulated/east = get_step(S,EAST)
+		var/turf/simulated/west = get_step(S,WEST)
 
-	if(istype(north)) air_master.tiles_to_update |= north
-	if(istype(south)) air_master.tiles_to_update |= south
-	if(istype(east)) air_master.tiles_to_update |= east
-	if(istype(west)) air_master.tiles_to_update |= west
-	return S
+		if(istype(north)) air_master.tiles_to_update |= north
+		if(istype(south)) air_master.tiles_to_update |= south
+		if(istype(east)) air_master.tiles_to_update |= east
+		if(istype(west)) air_master.tiles_to_update |= west
+		return S

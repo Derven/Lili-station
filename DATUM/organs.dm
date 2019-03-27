@@ -113,6 +113,13 @@ proc/isorgan(A)
 			L << "You have the blood loss"
 			new /obj/blood(L.loc)
 
+	proc/blood_flow_trails(var/mob/simulated/living/L, var/dirplease)
+		if(brute_dam > 80)
+			L.reagents.remove_reagent("blood", blood_flow + L.heart.pumppower / 10)
+			L << "You have the blood loss"
+			var/obj/blood/trail/BLOOD = new /obj/blood/trail(L.loc)
+			BLOOD.dir = dirplease
+
 	proc/take_damage(brute, burn)
 		if((brute <= 0) && (burn <= 0))	return 0
 		if((src.brute_dam + src.burn_dam + brute + burn) < src.max_damage)

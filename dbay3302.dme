@@ -68,6 +68,7 @@
 #include "ATOM\OBECTS\EFFECTS\FIXED\jobmark.dm"
 #include "ATOM\OBECTS\EFFECTS\FIXED\landmark.dm"
 #include "ATOM\OBECTS\EFFECTS\FIXED\lobby.dm"
+#include "ATOM\OBECTS\EFFECTS\FIXED\openspess.dm"
 #include "ATOM\OBECTS\EFFECTS\FIXED\singularity.dm"
 #include "ATOM\OBECTS\EFFECTS\TEMPORARY\explosions.dm"
 #include "ATOM\OBECTS\EFFECTS\TEMPORARY\fields.dm"
