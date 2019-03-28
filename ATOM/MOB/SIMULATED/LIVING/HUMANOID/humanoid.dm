@@ -4,6 +4,8 @@
 	var/image/hair
 	var/lying
 	var/handcuffed = 0
+	var/is_dizzy = 0
+
 	var/obj/item/l_hand = null//Living
 	var/obj/item/r_hand = null//Living
 	var/obj/item/weapon/storage/box/backpack/back = null//Human/Monkey
@@ -33,6 +35,34 @@
 		obj/hud/rotate/RTT
 		obj/hud/craft/CRFT
 
+	verb/push_up(var/mynum as num)
+		var/oldnum = 0
+		var/pushup = 1
+		while(lying == 1 && mynum > 0 && stamina > 10 && pushup == 1)
+			mynum -= 1
+			oldnum += 1
+			stamina -= rand(1,5)
+			pixel_z += 3
+			sleep(3)
+			pixel_z = 0
+			for(var/mob/M in range(5, src))
+				M << "\red [src] did [oldnum] pushups"
+		pushup = 0
+
+	proc/alcotrip()
+		is_dizzy = 1
+		while(dizziness > 100)
+			if(client)
+				var/amplitude = dizziness*(sin(dizziness * 0.044 * world.time) + 1) / 70
+				client.pixel_x = amplitude * sin(0.008 * dizziness * world.time)
+				client.pixel_y = amplitude * cos(0.008 * dizziness * world.time)
+
+			sleep(1)
+		//endwhile - reset the pixel offsets to zero
+		is_dizzy = 0
+		if(client)
+			client.pixel_x = 0
+			client.pixel_y = 0
 
 	examine()
 		usr << "...[name] - [gender]"

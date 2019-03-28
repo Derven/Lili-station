@@ -262,4 +262,4 @@
 
 	New()
 		..()
-		reagents.add_reagent("beer",1000)
+		reagents.add_reagent("ethanol",1000) //OXOTA krepkaya

@@ -73,6 +73,7 @@
 	var/list/organs = list()
 	var/brain_op_stage = 0.0
 	var/eye_op_stage = 0.0
+	var/dizziness = 0
 	var/appendix_op_stage = 0.0
 	var/datum/organ/external/chest/chest
 	var/datum/organ/external/head/head
@@ -267,6 +268,11 @@
 		if(nutrition > 0)
 			if(prob(rand(25, 45)))
 				nutrition -= rand(0,2) //hungry
+		if(prob(37))
+			if(dizziness > 0)
+				dizziness -= rand(3,7)
+				if(dizziness < 0)
+					dizziness = 0
 		var/mob/simulated/living/humanoid/HUM = src
 		heart.my_func()
 		switch(heart.pumppower)

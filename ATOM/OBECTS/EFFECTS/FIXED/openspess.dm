@@ -6,6 +6,9 @@
 	Crossed(var/atom/movable/M)
 		if(z != 1)
 			M.z -= 1
+			if(istype(M, /mob/simulated/living/humanoid/human))
+				var/mob/simulated/living/humanoid/human/O = M
+				O.rand_damage(5, 15)
 
 	New()
 		..()

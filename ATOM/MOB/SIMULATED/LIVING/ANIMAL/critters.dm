@@ -461,6 +461,7 @@
 		del src
 
 	metroid
+		name = "killer metroido"
 		icon_state = "metroid"
 
 /obj/critter/spore

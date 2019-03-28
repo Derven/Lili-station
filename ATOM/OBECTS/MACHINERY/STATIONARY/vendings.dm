@@ -29,9 +29,9 @@
 /obj/machinery/vending/bar
 	icon = 'vendomat_4.dmi'
 	name = "bar master"
-	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/cola)
-	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/cola)
-	items_num = list(3)
+	my_items = list(/obj/item/weapon/reagent_containers/glass/bottle/cola, /obj/item/weapon/reagent_containers/glass)
+	my_types = list(/obj/item/weapon/reagent_containers/glass/bottle/cola, /obj/item/weapon/reagent_containers/glass)
+	items_num = list(3, 12)
 
 /obj/machinery/vending/tea
 	icon = 'vendomat_5.dmi'
