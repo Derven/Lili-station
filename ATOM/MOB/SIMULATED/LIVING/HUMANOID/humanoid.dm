@@ -34,6 +34,7 @@
 		obj/hud/drive/DRV
 		obj/hud/rotate/RTT
 		obj/hud/craft/CRFT
+		obj/hud/glitch/GLTCH
 
 	verb/push_up(var/mynum as num)
 		var/oldnum = 0
@@ -148,6 +149,7 @@
 			DRV = new(src)
 			RTT = new(src)
 			CRFT = new(src)
+			GLTCH = new(src)
 			update_hud(C)
 
 	proc/update_hud(var/client/C)
@@ -176,6 +178,7 @@
 		C.screen.Add(DRV)
 		C.screen.Add(RTT)
 		C.screen.Add(CRFT)
+		C.screen.Add(GLTCH)
 
 		for(var/datum/organ/external/EX in organs)
 			EX.update_hud(C)
