@@ -220,7 +220,7 @@ proc/addcontent(var/type, var/obj/item/weapon/paper/P)
 	var/datum/content/C = pick(contentlist)
 	var/contenfilter = 0
 	while(!contenfilter)
-		sleep(1)
+		sleep(2)
 		if(length(ingamecontent) == length(contentlist))
 			info = "debug 2"
 			contenfilter = 1

@@ -6,75 +6,59 @@
 	name = "chem dispenser"
 	density = 1
 	anchored = 1
-	icon = 'chemical.dmi'
+	icon = 'stationobjs.dmi'
 	icon_state = "dispenser"
 	var/energy = 25
 	var/max_energy = 75
 	var/amount = 30
-	var/beaker = null
+	var/obj/item/weapon/reagent_containers/glass/beaker
 	var/list/dispensable_reagents = list("hydrogen","lithium","carbon","nitrogen","oxygen","fluorine","sodium","aluminum","silicon","phosphorus","sulfur","chlorine","potassium","iron","copper","mercury","radium","water","ethanol","sugar","acid",)
-	proc
-		recharge()
-			if(charge == 0) return
 
-	New()
-		recharge()
+	attack_hand()
+		var/info = {"
+		<html>
+		<head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"><title>Chemical dispenser</title></head>
+		<body><h1>Chem Dispenser:</h1></br>"}
 
-	proc/updateWindow(mob/user as mob)
-		winset(user, "chemdispenser.energy", "text=\"Energy: [src.energy]\"")
-		winset(user, "chemdispenser.amount", "text=\"Amount: [src.amount]\"")
-		if (beaker)
-			winset(user, "chemdispenser.eject", "text=\"Eject beaker\"")
-		else
-			winset(user, "chemdispenser.eject", "text=\"\[Insert beaker\]\"")
-	proc/initWindow(mob/user as mob)
-		var/i = 0
-		var list/nameparams = params2list(winget(user, "chemdispenser_reagents.template_name", "pos;size;type;image;image-mode"))
-		var list/buttonparams = params2list(winget(user, "chemdispenser_reagents.template_dispense", "pos;size;type;image;image-mode;text;is-flat"))
-		for(var/re in dispensable_reagents)
-			for(var/da in typesof(/datum/reagent) - /datum/reagent)
-				var/datum/reagent/temp = new da()
-				if(temp.id == re)
-					var list/newparams1 = nameparams.Copy()
-					var list/newparams2 = buttonparams.Copy()
-					var/posy = 8 + 40 * i
-					newparams1["pos"] = text("8,[posy]")
-					newparams2["pos"] = text("248,[posy]")
-					newparams1["parent"] = "chemdispenser_reagents"
-					newparams2["parent"] = "chemdispenser_reagents"
-					newparams1["text"] = temp.name
-					newparams2["command"] = text("skincmd \"chemdispenser;[temp.id]\"")
-					winset(user, "chemdispenser_reagent_name[i]", list2params(newparams1))
-					winset(user, "chemdispenser_reagent_dispense[i]", list2params(newparams2))
-					i++
-		winset(user, "chemdispenser_reagents", "size=340x[8 + 40 * i]")
+		var/chemtext = ""
+		for(var/chemical in dispensable_reagents)
+			chemtext += "<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];chem=[chemical]'>[chemical]</a><br><br>"
 
-	attackby(var/obj/item/weapon/reagent_containers/glass/B as obj, var/mob/simulated/living/humanoid/user as mob)
-		user = usr
-		if(!istype(B, /obj/item/weapon/reagent_containers/glass))
-			return
+		chemtext += "<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];detach=ok'>detach</a><br><br>"
+		var/part2 = {"
+		</body>
+		</html>
+		"}
+		info += chemtext
+		info += part2
 
-		if(src.beaker)
-			user << "A beaker is already loaded into the machine."
-			return
+		usr << browse(info, "window=chem_dispenser")
 
-		src.beaker =  B
-		user.drop_item()
-		B.loc = src
-		user << "You add the beaker to the machine!"
-		for(var/mob/player)
-			if (player.machine == src && player.client)
-				updateWindow(player)
+	attackby(var/obj/item/O as obj, mob/simulated/living/humanoid/user as mob)		//Attack it with an object.
+		var/mob/simulated/living/humanoid/H = usr
+		if(istype(O, /obj/item/weapon/reagent_containers/glass) && beaker == null)
+			beaker = O
+			H.drop_item_v()
+			O.Move(src)
 
-	attack_hand(mob/user as mob)
-		if(stat & BROKEN)
-			return
-		user.machine = src
+	Topic(href, href_list)
+		if(href_list["chem"])
+			if(beaker)
+				if(beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
+					//user << "\red [target] is full."
+					usr << "\red [beaker] is full."
+					return
+				else
+					var/chem = href_list["chem"]
+					usr << "You transfered [beaker:amount_per_transfer_from_this] units of [chem]"
+					beaker.reagents.add_reagent(href_list["chem"], beaker:amount_per_transfer_from_this)
+		if(href_list["detach"] == "ok")
+			for(var/obj/O in src.contents)			//Searches through the contents for the jug.
+				if(istype(O, /obj/item/weapon/reagent_containers/glass))
+					O.loc = get_turf(src)
+			beaker = null
 
-		initWindow(user)
-		updateWindow(user)
-		winshow(user, "chemdispenser", 1)
-		return
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

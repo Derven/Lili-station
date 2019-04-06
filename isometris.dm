@@ -25,7 +25,6 @@
 *********************************************************/
 
 world
-	fps = 20		// 25 frames per second
 	icon_size = 64	// 64x64 icon size by default
 	view = 8		// show up to 8 tiles outward from center (13x13 view)
 	turf = /turf/space
@@ -36,7 +35,6 @@ world
 
 var/contentlist = list(/datum/content/library, /datum/content/dream, /datum/content/dream2, /datum/content/dream3, /datum/content/dream4, /datum/content/dream5, /datum/content/whatstorymark, /datum/content/forkmypork, /datum/content/racers)
 var/ingamecontent = list()
-
 
 
 /world/New()
