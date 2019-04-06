@@ -40,3 +40,14 @@ datum
 
 			on_reaction(var/datum/reagents/holder, var/created_volume)
 				boom(rand(1,2), holder.my_atom.loc)
+
+		smoke
+			name = "smoke"
+			id = "smoke"
+			result = "smoke"
+			required_reagents = list("potassium" = 5, "sugar" = 5, "phosphorus" = 5)
+			result_amount = 1
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				for(var/turf/simulated/floor/F in range(3, holder.my_atom.loc))
+					new /obj/effect/smoke(F)
