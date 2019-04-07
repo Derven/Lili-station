@@ -82,6 +82,13 @@ datum
 				for(var/turf/simulated/floor/F in range(3, holder.my_atom.loc))
 					new /obj/effect/smoke(F)
 
+		lexorin
+			name = "lexorin"
+			id = "lexorin"
+			result = "lexorin"
+			required_reagents = list("plasma" = 5, "hydrogen" = 5, "nitrogen" = 5)
+			result_amount = 1
+
 		cheese
 			name = "Cheese"
 			id = "cheese"

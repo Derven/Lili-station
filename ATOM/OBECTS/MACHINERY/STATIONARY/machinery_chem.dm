@@ -12,7 +12,7 @@
 	var/max_energy = 75
 	var/amount = 30
 	var/obj/item/weapon/reagent_containers/glass/beaker
-	var/list/dispensable_reagents = list("hydrogen","lithium","blood", "plasma", "vomit", "milk", "carbon","nitrogen","oxygen","fluorine","sodium","aluminium","silicon","phosphorus","sulfur","chlorine","potassium","iron","copper","mercury","radium","water","ethanol","sugar","acid",)
+	var/list/dispensable_reagents = list("hydrogen","lithium","blood", "plasma", "vomit", "milk", "carbon", "nitrogen","oxygen","fluorine","sodium","aluminium","silicon","phosphorus","sulfur","chlorine","potassium","iron","copper","mercury","radium","water","ethanol","sugar","acid",)
 
 	attack_hand()
 		var/info = {"

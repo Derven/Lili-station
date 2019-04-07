@@ -98,6 +98,11 @@ datum
 				..()
 				return
 
+		plasma
+			name = "plasma"
+			id = "plasma"
+			reagent_state = LIQUID
+
 		blood
 			name = "blood"
 			id = "blood"
@@ -329,7 +334,18 @@ datum
 			name = "aluminium"
 			id = "aluminium"
 
+		lexorin
+			name = "lexorin"
+			id = "lexorin"
+
+			on_mob_life(mob/M)
+				if (istype(M,/mob/simulated/living/humanoid))
+					var/mob/simulated/living/humanoid/H = M
+					H.oxyloss += rand(2,6)
+					return
+
 //TG REAGENTS
+
 
 /datum/reagent/medicine/synaptizine
 	name = "Synaptizine"
