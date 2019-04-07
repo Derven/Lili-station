@@ -215,6 +215,10 @@ datum
 			name = "radium"
 			id = "radium"
 
+		sulfur
+			name = "sulfur"
+			id = "sulfur"
+
 		uranium
 			name = "uranium"
 			id = "uranium"
@@ -222,6 +226,10 @@ datum
 		silver
 			name = "silver"
 			id = "silver"
+
+ 		vomit
+			name = "vomit"
+			id = "vomit"
 
 		silicon
 			name = "silicon"
@@ -316,6 +324,10 @@ datum
 		metamphetamine
 			name = "metamphetamine"
 			id = "metamphetamine"
+
+		aluminium
+			name = "aluminium"
+			id = "aluminium"
 
 //TG REAGENTS
 

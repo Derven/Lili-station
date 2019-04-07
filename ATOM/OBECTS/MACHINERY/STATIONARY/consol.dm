@@ -1,4 +1,5 @@
 var/consolid = 0
+var/messages = ""
 
 /obj/machinery/consol
 	name = "consol"
@@ -19,6 +20,20 @@ var/consolid = 0
 
 	process()
 		sd_SetLuminosity(2)
+
+	message
+		icon_state = "shuttle"
+
+		attack_hand()
+			usr << browse(messages, "window=computermessage")
+			var/msg = input("Your message?",
+				"Message")
+			if(msg != "")
+				sleep(rand(5,8))
+				messages += fix1103("<h2>[usr]:[msg]</h2><br><br>")
+			usr << browse(null, "window=computermessage")
+			usr << browse(messages, "window=computermessage")
+
 
 /obj/machinery/serverbox
 	icon = 'stationobjs.dmi'
