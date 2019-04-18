@@ -37,6 +37,19 @@
 		socket_3 = new /datum/emodule/central/basic_power_controller(src)
 		..()
 
+	cleanbot
+		icon = 'bots.dmi'
+		icon_state = "cleanbot"
+
+		New()
+			..()
+			addai(src, /datum/AI/patrol_bots)
+
+		Move()
+			..()
+			for(var/obj/blood/B in view(2, src))
+				del(B)
+
 	cratebot
 		icon_state = "cratebot"
 		var/opened = 0
