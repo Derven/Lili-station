@@ -47,6 +47,38 @@ var/messages = ""
 		for(var/mob/M in range(2, src))
 			M.playsoundforme('signal.ogg')
 
+/obj/machinery/blood_injector
+	icon = 'stationobjs.dmi'
+	name = "blood_machine"
+	icon_state = "inoperationbed"
+	density = 0
+	anchored = 1
+
+/obj/machinery/blood_rec
+	icon = 'stationobjs.dmi'
+	name = "blood_machine"
+	icon_state = "operationbed"
+	density = 0
+	anchored = 1
+
+/obj/machinery/blood_machine
+	icon = 'stationobjs.dmi'
+	name = "blood_machine"
+	icon_state = "blood_machine"
+	density = 1
+	anchored = 1
+	var/pump_power = 5
+
+	process()
+		for(var/obj/machinery/blood_injector/b1 in range(1,src))
+			for(var/mob/simulated/living/humanoid/H in b1.loc)
+				if(H.reagents.has_reagent("blood", pump_power))
+					for(var/obj/machinery/blood_rec/b2 in range(1,src))
+						for(var/mob/simulated/living/humanoid/H1 in b2.loc)
+							if(H.lying == 1 && H1.lying == 1)
+								H.reagents.remove_reagent("blood", pump_power)
+								H1.reagents.add_reagent("blood", pump_power)
+
 
 /obj/machinery/consol/arcade
 	name = "arcade machine"
