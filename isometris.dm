@@ -58,5 +58,6 @@ var/ingamecontent = list()
 	//spawn(-1) master_controller.setup()
 
 	load_admins()
+	game_mode_begin()
 
 	return
