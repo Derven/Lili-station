@@ -146,15 +146,20 @@ var/messages = ""
 
 	mining_shuttle
 		attack_hand()
-			for(var/mob/M in world)
-				M << "\red Engines are being prepared..."
-			sleep(3)
-			send_supply_shuttle()
-			for(var/obj/machinery/simple_apc/SA in range(8, src))
-				SA.charge = 0
-				SA.my_smes.charge = 0
-			for(var/turf/T in locate(src.loc.loc.type))
-				T.sd_LumReset()
+			for(var/obj/item/clothing/id/captain/CPID in usr)
+				for(var/mob/M in world)
+					M << "\red Engines are being prepared..."
+				sleep(3)
+				send_supply_shuttle()
+				for(var/obj/machinery/simple_apc/SA in range(8, src))
+					SA.charge = 0
+					SA.my_smes.charge = 0
+				for(var/turf/T in locate(src.loc.loc.type))
+					T.sd_LumReset()
+				world << "\red Restarting in 5 seconds..."
+				sleep(50)
+				world.Reboot(1)
+
 
 /obj/machinery/consol/shuttle
 	name = "cargo"
