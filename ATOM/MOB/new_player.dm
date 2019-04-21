@@ -34,6 +34,10 @@
 				pregame_hair = new('mob.dmi',icon_state = "hair_5")
 			if("mohawk")
 				pregame_hair = new('mob.dmi',icon_state = "hair_6")
+			if("very long")
+				pregame_hair = new('mob.dmi',icon_state = "hair_7")
+			if("stylish")
+				pregame_hair = new('mob.dmi',icon_state = "hair_8")
 
 		switch(pregame_hair_color)
 			if("black")
@@ -94,6 +98,16 @@
 					suit = new('suit.dmi', icon_state = "captain_suit_onmob")
 				if(gender == "female")
 					suit = new('suit.dmi', icon_state = "captain_suit_onfem")
+			if("clown")
+				if(gender == "male")
+					suit = new('suit.dmi', icon_state = "clown_suit_onmob")
+				if(gender == "female")
+					suit = new('suit.dmi', icon_state = "clown_suit_onfem")
+			if("detective")
+				if(gender == "male")
+					suit = new('suit.dmi', icon_state = "detective_suit_onmob")
+				if(gender == "female")
+					suit = new('suit.dmi', icon_state = "detective_suit_onfem")
 
 		pregame_human.Blend(suit, ICON_OVERLAY)
 		pregame_human.Blend(pregame_hair, ICON_OVERLAY)
@@ -136,11 +150,13 @@
 					            <td>Sec & Heads</td>
 					            <td><span class='sec' style=\"{color: darkred};\"><a href='?src=\ref[src];job=4'>Security</a></span></td>
 					            <td><span class='cap' style=\"{color: blue};\"><a href='?src=\ref[src];job=7'>Captain</a></span></td>
+					            <td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=9'>Detective</a></span></td>
 					        </tr>
 					        <tr>
 					            <td> Other </td>
 					            <td><span class='eng' style=\"{color: orange};\"><a href='?src=\ref[src];job=5'>Engineer</a></span></td>
 					            <td><span class='doc' style=\"{color: darkblue};\"><a href='?src=\ref[src];job=6'>Doctor</a></span></td>
+					            <td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=8'>Clown</a></span></td>
 					        </tr>
 					    </tbody>
 					</table>
@@ -164,7 +180,7 @@
 		if(href_list["hair"] == "1")
 			hair_name = input("Select a hair style for your character.",
                       "Your hair",
-                      hair_name) in list("bald","afro","mohawk", "helipad", "short", "long")
+                      hair_name) in list("bald","afro","mohawk", "helipad", "short", "long", "very long", "stylish")
 
 		switch(href_list["job"])
 			if("1")
@@ -181,6 +197,10 @@
 				pregame_job = "doctor"
 			if("7")
 				pregame_job = "captain"
+			if("8")
+				pregame_job = "clown"
+			if("9")
+				pregame_job = "detective"
 
 		if(href_list["hcolor"] == "1")
 			pregame_hair_color = input("Select a hair color for your character.",

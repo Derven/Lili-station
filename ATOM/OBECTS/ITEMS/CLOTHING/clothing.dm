@@ -72,6 +72,14 @@ var/ids = 0
 	icon_state = "syndi_spacesuit"
 	space_suit = 1
 
+/obj/item/clothing/suit/clown
+	icon_state = "clown_suit"
+	space_suit = 0
+
+/obj/item/clothing/suit/detective
+	icon_state = "detective_suit"
+	space_suit = 0
+
 /obj/item/clothing/suit/bartender
 	icon_state = "bartender_suit"
 

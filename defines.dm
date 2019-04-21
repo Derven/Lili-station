@@ -72,6 +72,9 @@
 #define MINIMUM_TEMPERATURE_DELTA_TO_CONSIDER 0.5
 	//Minimum temperature difference before the gas temperatures are just set to be equal
 
+#define derven 1
+#define genius 1
+
 #define MINIMUM_TEMPERATURE_FOR_SUPERCONDUCTION		T20C+10
 #define MINIMUM_TEMPERATURE_START_SUPERCONDUCTION	T20C+200
 

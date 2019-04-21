@@ -301,6 +301,7 @@
 									src << "\red You feel pain. Your left arm hurt"
 								drop_item_v()
 
+
 /mob/simulated/living/humanoid/proc/get_active_hand()
 	if (hand)
 		return l_hand

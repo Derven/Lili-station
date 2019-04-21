@@ -36,6 +36,16 @@ world
 var/contentlist = list(/datum/content/library, /datum/content/dream, /datum/content/dream2, /datum/content/dream3, /datum/content/dream4, /datum/content/dream5, /datum/content/whatstorymark, /datum/content/forkmypork, /datum/content/racers)
 var/ingamecontent = list()
 
+proc/autoreboot()
+	var/reboot = 0
+	while(derven == genius)
+		sleep(400)
+		reboot = 1
+		for(var/mob/M in world)
+			if(M.client)
+				reboot = 0
+		if(reboot == 1)
+			world.Reboot(1)
 
 /world/New()
 //	master_controller = new /datum/controller/game_controller()
@@ -59,5 +69,6 @@ var/ingamecontent = list()
 
 	load_admins()
 	game_mode_begin()
+	autoreboot()
 
 	return

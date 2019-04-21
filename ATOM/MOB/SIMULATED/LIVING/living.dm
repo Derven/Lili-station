@@ -263,11 +263,28 @@
 	MY_PAIN = get_organ(pick("chest", "r_leg", "l_leg","r_arm", "l_arm"))
 	apply_damage(rand(mind, maxd), "fire" , MY_PAIN, 0)
 
+
+
 /mob/simulated/living
+
+	proc/gib()
+		death()
+		for(var/turf/F in range(3, src))
+			if(istype(F, /turf/simulated/floor/)) // Make it so the blood that flies out only appears on the freezer floor
+				new /obj/blood(F)
+				if(prob(15))
+					var/obj/item/weapon/reagent_containers/food/snacks/meat/newmeat1 = new /obj/item/weapon/reagent_containers/food/snacks/meat
+					newmeat1.loc = get_turf(F)
+		for(var/mob/M in range(5, src))
+			M << "\red <h1>[src] GIBBED!!!</h1>"
+		del(src)
+
 	proc/blood_flow()
 		if(nutrition > 0)
 			if(prob(rand(25, 45)))
 				nutrition -= rand(0,2) //hungry
+		if((nutrition / (400 / 100)) > 120)
+			gib()
 		if(prob(37))
 			if(dizziness > 0)
 				dizziness -= rand(3,7)
@@ -310,8 +327,12 @@
 					reagents.add_reagent("blood", 20)
 
 		if(prob(25))
+			var/sum_damage = 0
 			for(var/datum/organ/external/EX in organs)
 				EX.blood_flow(src)
+				sum_damage += EX.brute_dam + EX.burn_dam
+			if(sum_damage > 90)
+				gib()
 
 		if(!reagents.has_reagent("blood", 50))
 			death()
