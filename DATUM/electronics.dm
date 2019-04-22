@@ -1,12 +1,108 @@
 var/list/electronics = list()
 
+/obj/machinery/electronic_creator
+	icon = 'stationobjs.dmi'
+	icon_state = "electronic_machine"
+
+	var/logic
+	var/sensor
+	var/other
+
+	proc/initme()
+		var/body = {"
+		<html>
+		<head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"><title>Electronic builder</title></head>
+		<body>
+		<h1>Logic sockets</h1>
+		<hr>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];logsoc=basic'>Basic(1 = 1, 1 != 0, 0 = 0)</a><br><br>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];logsoc=reverse'>Invert(1 = 0, 1 != 1, 0 = 1)</a><br><br>
+		<br>
+		<h1>Sensor sockets</h1>
+		<hr>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];sensoc=power'>Power</a><br><br>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];sensoc=temperature'>Temperature(< 180, > 360)</a><br><br>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];sensoc=human'>Human(2 tiles)</a><br><br>
+		<br>
+		<h1>Other sockets</h1>
+		<hr>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];othsoc=powercontrol'>Power controller(1000v)</a><br><br>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];othsoc=alert'>Alert module</a><br><br>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];othsoc=flash'>Flash module</a><br><br>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];othsoc=battery'>Backup battery</a><br><br>
+		<br>
+		<h1>Control panel</h1>
+		<hr>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];exit=yes'>exit</a><br><br>
+		<br>
+		<br>
+		logic socket: [logic]
+		<br>
+		sensor socket: [sensor]
+		<br>
+		other socket: [other]
+		</body></html>
+		"}
+		return body
+
+	attack_hand()
+		usr << browse(initme(), "window=electronic")
+
+	Topic(href, href_list)
+
+
+		if(href_list["logsoc"] == "basic")
+			logic = /datum/emodule/logic/basic
+		if(href_list["logsoc"] == "reverse")
+			logic = /datum/emodule/logic/negative
+
+
+		if(href_list["sensoc"] == "power")
+			sensor = /datum/emodule/sensor/power_sensor
+		if(href_list["sensoc"] == "temperature")
+			sensor = /datum/emodule/sensor/temperature_sensor
+		if(href_list["sensoc"] == "human")
+			sensor = /datum/emodule/sensor/human_sensor
+
+
+		if(href_list["othsoc"] == "powercontrol")
+			other = /datum/emodule/other/basic_power_controller
+		if(href_list["othsoc"] == "alert")
+			other = /datum/emodule/other/alertmodule
+		if(href_list["othsoc"] == "flash")
+			other = /datum/emodule/other/flash_module
+		if(href_list["othsoc"] == "battery")
+			other = /datum/emodule/other/backup_battery
+		if(logic != null && sensor != null && other != null)
+			var/datum/emodule/LOGIC = new logic()
+			var/datum/emodule/SENSOR = new sensor()
+			var/datum/emodule/OTHER = new other()
+			var/datum/emodule/central/CRAFTCURCUIT = new /datum/emodule/central()
+			CRAFTCURCUIT.logic_socket = LOGIC
+			CRAFTCURCUIT.sensor_socket = SENSOR
+			CRAFTCURCUIT.other_socket = OTHER
+			var/obj/item/module/MDLE = new /obj/item/module(src.loc)
+			MDLE.craftmodule = CRAFTCURCUIT
+			MDLE.craftmodule.name = "craftmodule"
+			attack_hand(usr)
+			logic = null
+			sensor = null
+			other = null
+		else
+			attack_hand(usr)
+
+
+
 /datum/emodule
 	var/name = "module"
 	var/obj/owner
 
 	New(var/obj/machinery/M)
 		..()
-		owner = M
+		if(istype(M, /obj/machinery))
+			owner = M
+		else
+			return
 
 	proc/act()
 
@@ -16,10 +112,18 @@ var/list/electronics = list()
 		var/datum/emodule/other/other_socket
 
 		proc/myprocess()
-			if(logic_socket.process_signal(sensor_socket.get_signal()))
-				return other_socket.act()
-			else
-				return 0
+			if(src in electronics)
+				if(logic_socket.process_signal(sensor_socket.get_signal()))
+					return other_socket.act()
+				else
+					return 0
+
+		proc/owneractivate(var/obj/machinery/M)
+			owner = M
+			electronics += src
+			logic_socket.owner = M
+			sensor_socket.owner = M
+			other_socket.owner = M
 
 		basic_power_module
 			New(var/obj/machinery/M)
@@ -257,18 +361,19 @@ var/list/electronics = list()
 					M << "\red ship computer: Warning! Fuel level [power.fuel]"
 				return 1
 
-
 		flash_module
 			name = "flashmodule"
 			var/obj/machinery/flasher/FL
 
 			New(var/obj/machinery/M)
 				..()
-				owner = M
-				FL = new(owner)
+				if(M)
+					owner = M
+					FL = new(owner)
 
 			act()
-				spawn(65)
+				if(owner && FL == null)
+					FL = new(owner)
 				FL.flash_me_please()
 				return 1
 

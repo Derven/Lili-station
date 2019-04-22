@@ -19,6 +19,13 @@
 			CNT = new /datum/emodule/central/temperature_alert_module(src)
 			..()
 
+	consol
+		icon_state = "electronicmachinery"
+
+		New()
+			CNT = new /datum/emodule/central/temperature_alert_module(src)
+			..()
+
 /obj/machinery/simpleonwall
 	recharger
 		icon = 'stationobjs.dmi'

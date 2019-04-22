@@ -1,5 +1,6 @@
 /obj/item/module
 	var/moduletype
+	var/datum/emodule/central/craftmodule
 	icon = 'module.dmi'
 	icon_state = "central"
 
@@ -45,62 +46,96 @@
 
 	afterattack(atom/target, mob/user , flag)
 		if(istype(target, /obj/machinery/lamp) && usr.do_after(15))
-			var/obj/machinery/lamp/L = target
-			var/moduletype2 = L.BPC.type
-			name = L.BPC.name
-			L.BPC = new moduletype(target)
-			moduletype = moduletype2
+			if(!craftmodule)
+				var/obj/machinery/lamp/L = target
+				var/moduletype2 = L.BPC.type
+				name = L.BPC.name
+				L.BPC = new moduletype(target)
+				moduletype = moduletype2
 
 
-			//cubit mining system
-			if(istype(src, /obj/item/module/cubit_mining_module))
-				var/obj/item/module/cubit_mining_module/CMM = src
-				var/datum/emodule/central/cubit_mining/CB = L.BPC
-				if(CMM.modulecard)
-					CB.cardinit(CMM.modulecard)
-			//cubit mining system
+				//cubit mining system
+				if(istype(src, /obj/item/module/cubit_mining_module))
+					var/obj/item/module/cubit_mining_module/CMM = src
+					var/datum/emodule/central/cubit_mining/CB = L.BPC
+					if(CMM.modulecard)
+						CB.cardinit(CMM.modulecard)
+				//cubit mining system
+			else
+				var/obj/machinery/lamp/L = target
+				var/moduletype2 = L.BPC.type
+				name = L.BPC.name
+				L.BPC = craftmodule
+				L.BPC.owneractivate(target)
+				moduletype = moduletype2
 
 			usr << "lamp power module is replaced"
 			var/mob/simulated/living/humanoid/H = usr
 			H.drop_item_v()
+			craftmodule = null
 
 		if(istype(target, /obj/machinery/simple_apc) && usr.do_after(25))
-			var/obj/machinery/simple_apc/L = target
-			var/moduletype2 = L.BPM.type
-			name = L.BPM.name
-			L.BPM = new moduletype(target)
-			moduletype = moduletype2
+			if(!craftmodule)
+				var/obj/machinery/simple_apc/L = target
+				var/moduletype2 = L.BPM.type
+				name = L.BPM.name
+				L.BPM = new moduletype(target)
+				moduletype = moduletype2
 
-			//cubit mining system
-			if(istype(src, /obj/item/module/cubit_mining_module))
-				var/obj/item/module/cubit_mining_module/CMM = src
-				var/datum/emodule/central/cubit_mining/CB = L.BPM
-				if(CMM.modulecard)
-					CB.cardinit(CMM.modulecard)
-			//cubit mining system
+				//cubit mining system
+				if(istype(src, /obj/item/module/cubit_mining_module))
+					var/obj/item/module/cubit_mining_module/CMM = src
+					var/datum/emodule/central/cubit_mining/CB = L.BPM
+					if(CMM.modulecard)
+						CB.cardinit(CMM.modulecard)
+				//cubit mining system
 
-			usr << "APC power module is replaced"
-			var/mob/simulated/living/humanoid/H = usr
-			H.drop_item_v()
+				usr << "APC power module is replaced"
+				var/mob/simulated/living/humanoid/H = usr
+				H.drop_item_v()
+			else
+				var/obj/machinery/simple_apc/L = target
+				var/moduletype2 = L.BPM.type
+				name = L.BPM.name
+				L.BPM = craftmodule
+				L.BPM.owneractivate(target)
+				moduletype = moduletype2
+				usr << "APC power module is replaced"
+				var/mob/simulated/living/humanoid/H = usr
+				H.drop_item_v()
+			craftmodule = null
 
 		if(istype(target, /obj/machinery/portable_machinery) && usr.do_after(25))
-			var/obj/machinery/portable_machinery/L = target
-			var/moduletype2 = L.socket_1.type
-			name = L.socket_1.name
-			L.socket_1 = new moduletype(target)
-			moduletype = moduletype2
+			if(!craftmodule)
+				var/obj/machinery/portable_machinery/L = target
+				var/moduletype2 = L.socket_1.type
+				name = L.socket_1.name
+				L.socket_1 = new moduletype(target)
+				moduletype = moduletype2
 
-			//cubit mining system
-			if(istype(src, /obj/item/module/cubit_mining_module))
-				var/obj/item/module/cubit_mining_module/CMM = src
-				var/datum/emodule/central/cubit_mining/CB = L.socket_1
-				if(CMM.modulecard)
-					CB.cardinit(CMM.modulecard)
-			//cubit mining system
+				//cubit mining system
+				if(istype(src, /obj/item/module/cubit_mining_module))
+					var/obj/item/module/cubit_mining_module/CMM = src
+					var/datum/emodule/central/cubit_mining/CB = L.socket_1
+					if(CMM.modulecard)
+						CB.cardinit(CMM.modulecard)
+				//cubit mining system
 
-			usr << "machinery module is replaced"
-			var/mob/simulated/living/humanoid/H = usr
-			H.drop_item_v()
+				usr << "machinery module is replaced"
+				var/mob/simulated/living/humanoid/H = usr
+				H.drop_item_v()
+			else
+				var/obj/machinery/portable_machinery/L = target
+				var/moduletype2 = L.socket_1.type
+				name = L.socket_1.name
+				L.socket_1 = craftmodule
+				L.socket_1.owneractivate(target)
+				moduletype = moduletype2
+
+				usr << "machinery module is replaced"
+				var/mob/simulated/living/humanoid/H = usr
+				H.drop_item_v()
+			craftmodule = null
 
 /obj/item/ai_module
 	icon = 'tools.dmi'
