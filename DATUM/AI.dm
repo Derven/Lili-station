@@ -84,6 +84,33 @@
 			dist_calculate()
 			life()
 			..()
+	hunter
+		var/list/distances = list()
+
+		mobmovement()
+			for(var/mob/M in range(5, brain))
+				if(prob(10))
+					talking()
+				walk_to(brain, M, 0, 3, 64)
+
+		talking()
+			for(var/mob/M in range(5, brain))
+				M << pick('buzz-sigh.ogg', 'chime.ogg')
+
+		life()
+			var/deathfactor = 0
+			while(deathfactor == 0)
+				if(istype(brain, /mob/simulated/living))
+					deathfactor = brain.death
+				sleep(rand(7,25))
+				if(prob(75))
+					mobmovement()
+
+		New(var/mob/simulated/SM)
+			if(!brain)
+				brain = SM
+			life()
+			..()
 
 proc/addai(var/mob/simulated/M, var/datum/AI/ai)
 	new ai(M)

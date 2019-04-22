@@ -3,6 +3,8 @@ var/list/electronics = list()
 /obj/machinery/electronic_creator
 	icon = 'stationobjs.dmi'
 	icon_state = "electronic_machine"
+	density = 1
+	anchored = 1
 
 	var/logic
 	var/sensor
@@ -30,17 +32,18 @@ var/list/electronics = list()
 		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];othsoc=alert'>Alert module</a><br><br>
 		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];othsoc=flash'>Flash module</a><br><br>
 		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];othsoc=battery'>Backup battery</a><br><br>
+		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];othsoc=shocker'>Shocker</a><br><br>
 		<br>
 		<h1>Control panel</h1>
 		<hr>
 		<a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];exit=yes'>exit</a><br><br>
 		<br>
 		<br>
-		logic socket: [logic]
+		logic socket: [logic ? "Full" : "Empty"]
 		<br>
-		sensor socket: [sensor]
+		sensor socket: [sensor ? "Full" : "Empty"]
 		<br>
-		other socket: [other]
+		other socket: [other ? "Full" : "Empty"]
 		</body></html>
 		"}
 		return body
@@ -73,6 +76,9 @@ var/list/electronics = list()
 			other = /datum/emodule/other/flash_module
 		if(href_list["othsoc"] == "battery")
 			other = /datum/emodule/other/backup_battery
+		if(href_list["othsoc"] == "shocker")
+			other = /datum/emodule/other/shockwave
+
 		if(logic != null && sensor != null && other != null)
 			var/datum/emodule/LOGIC = new logic()
 			var/datum/emodule/SENSOR = new sensor()
@@ -351,6 +357,16 @@ var/list/electronics = list()
 					for(var/mob/M in range(soundpower, power))
 						M << 'airraid.ogg'
 					return 1
+
+		shockwave
+			name = "shockersuper"
+			act()
+				for(var/mob/simulated/living/humanoid/M in range(2, owner))
+					M.rand_damage(8, 12)
+					M << 'sparks.ogg'
+				new /obj/effect/sparks(owner.loc)
+
+				return 1
 
 		fuelalert
 			name = "for ship fuel"
