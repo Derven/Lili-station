@@ -35,6 +35,7 @@ world
 
 var/contentlist = list(/datum/content/library, /datum/content/dream, /datum/content/dream2, /datum/content/dream3, /datum/content/dream4, /datum/content/dream5, /datum/content/whatstorymark, /datum/content/forkmypork, /datum/content/racers)
 var/ingamecontent = list()
+var/datum/eventmaster/arcadiy
 
 proc/autoreboot()
 	var/reboot = 0
@@ -53,7 +54,7 @@ proc/autoreboot()
 		air_master = new /datum/controller/air_system()
 		air_master.setup()
 	..()
-
+	arcadiy = new /datum/eventmaster()
 	goodbay()
 	init_z_pixel()
 

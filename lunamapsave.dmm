@@ -870,454 +870,461 @@
 "qL" = (/obj/machinery/airlock{isprocessing = 1},/turf/simulated/floor/blue,/area/ship/deck_1)
 "qM" = (/obj/structure/table{icon_state = "ne"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area/ship/deck_1)
 "qN" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/screwdriver,/turf/simulated/floor,/area/ship/deck_1)
-"qO" = (/obj/item/ai_module/patrolbot,/turf/simulated/floor/plating,/area/ship/deck_1)
-"qP" = (/obj/structure/table{icon_state = "sw"},/obj/item/weapon/radar,/turf/simulated/floor,/area/ship/deck_1)
-"qQ" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/storage/box/toolbox{tag = "icon-red"; icon_state = "red"},/turf/simulated/floor,/area/ship/deck_1)
-"qR" = (/obj/jobmark,/turf/simulated/floor,/area/ship/deck_1)
-"qS" = (/obj/botsignaler,/turf/simulated/floor,/area/ship/deck_1)
-"qT" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area/ship/deck_1)
-"qU" = (/obj/item/weapon/screwdriver,/turf/simulated/floor,/area/ship/deck_1)
-"qV" = (/obj/structure/washing{tag = "icon-washing (EAST)"; icon_state = "washing"; dir = 4},/turf/simulated/floor,/area/ship/deck_1)
-"qW" = (/obj/structure/table{icon_state = "we"},/obj/item/seeds/chiliseed,/turf/simulated/floor,/area/ship/deck_1)
-"qX" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/wrench,/turf/simulated/floor,/area/ship/deck_1)
-"qY" = (/obj/structure/sink{tag = "icon-sink (WEST)"; icon_state = "sink"; dir = 8},/turf/simulated/floor,/area/ship/deck_1)
-"qZ" = (/obj/item/weapon/mop,/turf/simulated/floor,/area/ship/deck_1)
-"ra" = (/obj/machinery/airlock/green,/turf/simulated/floor,/area/ship/deck_1)
-"rb" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_nsw"},/area/ship/deck_1)
-"rc" = (/obj/structure/closet{tag = "icon-closed (EAST)"; dir = 4; color = "#f2f2ef"},/turf/simulated/floor,/area/ship/deck_1)
-"rd" = (/obj/item/weapon/weldingtool,/turf/simulated/floor,/area/ship/deck_1)
-"re" = (/mob/simulated/living/humanoid/human,/turf/simulated/floor,/area/ship/deck_1)
-"rf" = (/obj/item/weapon/reagent_containers/glass/bottle/bucket,/turf/simulated/floor,/area/ship/deck_1)
-"rg" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_nsw"; color = "#777776"},/area/ship/deck_1)
-"rh" = (/obj/machinery/portable_machinery,/turf/simulated/floor,/area/ship/deck_1)
-"ri" = (/obj/structure/closet/materials,/turf/simulated/floor,/area/ship/deck_1)
-"rj" = (/obj/machinery/vending/modules{tag = "icon-default (WEST)"; icon_state = ""; dir = 8},/turf/simulated/floor,/area/ship/deck_1)
-"rk" = (/obj/structure/sign{tag = "icon-sign112"; icon_state = "sign112"},/turf/simulated/wall/newicon{icon_state = "w_wn"},/area/ship/deck_1)
-"rl" = (/obj/machinery/simple_apc{charge = 218882; load = 195; isprocessing = 1; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area/ship/deck_1)
-"rm" = (/obj/machinery/seed_extractor,/turf/simulated/floor,/area/ship/deck_1)
-"rn" = (/obj/machinery/vending/hydroponics,/turf/simulated/floor,/area/ship/deck_1)
-"ro" = (/obj/structure/closet/hydcrate,/turf/simulated/floor,/area/ship/deck_1)
-"rp" = (/turf/simulated/wall/newicon{icon_state = "w_wn"; maptext_width = 32; maptext_height = 32; color = "#cccccc"},/area/ship/deck_1)
-"rq" = (/obj/structure/table{icon_state = "n"},/obj/item/weapon/soap,/turf/simulated/floor,/area/ship/deck_1)
-"rr" = (/obj/structure/table,/obj/structure/table,/turf/simulated/floor,/area/ship/deck_1)
-"rs" = (/obj/item/weapon/reagent_containers/glass/bottle/watercan,/turf/simulated/floor,/area/ship/deck_1)
-"rt" = (/obj/jobmark{job = "botanist"; invisibility = 101; color = "#777776"},/turf/simulated/floor,/area/ship/deck_1)
-"ru" = (/obj/machinery/hydroponics,/turf/simulated/floor,/area/ship/deck_1)
-"rv" = (/obj/structure/table,/obj/machinery/blender,/turf/simulated/floor,/area/ship/deck_1)
-"rw" = (/obj/structure/stool/bed/roller_bed,/turf/simulated/floor/blue,/area/ship/deck_1)
-"rx" = (/obj/structure/reagent_dispensers/watertank,/obj/machinery/camera,/turf/simulated/floor,/area/ship/deck_1)
-"ry" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#c6c6c4"},/area/ship/deck_1)
-"rz" = (/obj/structure/table{icon_state = "se"},/obj/item/seeds/potatoseed,/turf/simulated/floor,/area/ship/deck_1)
-"rA" = (/obj/structure/table{icon_state = "sw"},/obj/item/seeds/potatoseed,/turf/simulated/floor,/area/ship/deck_1)
-"rB" = (/obj/structure/table,/obj/item/device/health_analyzer,/turf/simulated/floor,/area/ship/deck_1)
-"rC" = (/obj/item/weapon/fire_ext,/turf/simulated/floor/blue,/area/ship/deck_1)
-"rD" = (/obj/machinery/hydroponics,/obj/machinery/camera,/turf/simulated/floor,/area/ship/deck_1)
-"rE" = (/obj/structure/table{icon_state = "w"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"rF" = (/obj/structure/stool/bed,/turf/simulated/floor,/area/ship/deck_1)
-"rG" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor/blue,/area/ship/deck_1)
-"rH" = (/obj/structure/sign{tag = "icon-symb2"; icon_state = "symb2"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area/ship/deck_1)
-"rI" = (/obj/machinery/airlock{tag = "icon-close (WEST)"; icon_state = "close"; dir = 8},/turf/simulated/floor/blue,/area/ship/deck_1)
-"rJ" = (/obj/machinery/lamp{charge = 211901; isprocessing = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area/ship/deck_1)
-"rK" = (/obj/machinery/airlock/glassairlock,/turf/simulated/floor{blocks_air = 1},/area/ship/deck_1)
-"rL" = (/obj/structure/sign{tag = "icon-hydro"; icon_state = "hydro"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area/ship/deck_1)
-"rM" = (/obj/machinery/simple_apc{tag = "icon-apc (NORTH)"; icon_state = "apc"; dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = null},/area/ship/deck_1)
-"rN" = (/obj/machinery/airlock{tag = "icon-close (WEST)"; icon_state = "close"; dir = 8},/turf/simulated/floor/plating{blocks_air = 1},/area/ship/deck_1)
-"rO" = (/obj/structure/closet/oxygen,/turf/simulated/floor/blue,/area/ship/deck_1)
-"rP" = (/obj/structure/closet,/turf/simulated/floor/blue,/area/ship/deck_1)
-"rQ" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#f2f2ef"},/area/ship/deck_1)
-"rR" = (/obj/structure/table,/turf/simulated/floor/plating,/area/ship/deck_1)
-"rS" = (/obj/machinery/simple_apc{tag = "icon-apc (NORTH)"; icon_state = "apc"; dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#777776"},/area/ship/deck_1)
-"rT" = (/obj/machinery/lamp{charge = 622900; isprocessing = 1; luminosity = 5; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ewn"; color = "#f2f2ef"},/area/ship/deck_1)
-"rU" = (/obj/jobmark{job = "doctor"; invisibility = 101; color = "#777776"},/turf/simulated/floor/blue,/area/ship/deck_1)
-"rV" = (/obj/item/weapon/crowbar,/turf/simulated/floor/blue,/area/ship/deck_1)
-"rW" = (/obj/structure/closet/oldcloset{tag = "icon-oldcloset (EAST)"; icon_state = "oldcloset"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
-"rX" = (/obj/structure/stool/chair,/turf/simulated/floor/blue,/area/ship/deck_1)
-"rY" = (/obj/machinery/blood_rec{tag = "icon-operationbed (EAST)"; icon_state = "operationbed"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
-"rZ" = (/obj/machinery/airlock/glassairlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor/wood,/area/ship/deck_1)
-"sa" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
-"sb" = (/obj/structure/table,/obj/item/device/health_analyzer,/turf/simulated/floor/blue,/area/ship/deck_1)
-"sc" = (/obj/structure/table,/obj/item/weapon/storage/box/medbox,/turf/simulated/floor/blue,/area/ship/deck_1)
-"sd" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor/blue,/area/ship/deck_1)
-"se" = (/obj/machinery/blood_machine,/turf/simulated/floor/blue,/area/ship/deck_1)
-"sf" = (/obj/structure/table{icon_state = "se"},/turf/simulated/floor/blue,/area/ship/deck_1)
-"sg" = (/obj/structure/table{icon_state = "we2"},/turf/simulated/floor/blue,/area/ship/deck_1)
-"sh" = (/obj/structure/table{icon_state = "sw"},/turf/simulated/floor/blue,/area/ship/deck_1)
-"si" = (/obj/structure/closet/books,/turf/simulated/floor/wood,/area/ship/deck_1)
-"sj" = (/obj/structure/stool/chair,/turf/simulated/floor/wood,/area/ship/deck_1)
-"sk" = (/obj/machinery/sleeper{tag = "icon-scanner (EAST)"; icon_state = "scanner"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
-"sl" = (/obj/structure/table,/obj/machinery/consol/message,/turf/simulated/floor/blue,/area/ship/deck_1)
-"sm" = (/obj/structure/table,/obj/structure/decor{tag = "icon-decor55"; icon_state = "decor55"},/turf/simulated/floor/blue,/area/ship/deck_1)
-"sn" = (/obj/machinery/blood_injector{tag = "icon-inoperationbed (EAST)"; icon_state = "inoperationbed"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
-"so" = (/obj/structure/table{icon_state = "ne"},/obj/item/device/health_analyzer,/turf/simulated/floor/blue,/area/ship/deck_1)
-"sp" = (/obj/structure/table{icon_state = "we1"},/obj/item/weapon/storage/box/medbox,/turf/simulated/floor/blue,/area/ship/deck_1)
-"sq" = (/obj/structure/table{icon_state = "nw"},/obj/item/device/defib,/turf/simulated/floor/blue,/area/ship/deck_1)
-"sr" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor/wood,/area/ship/deck_1)
-"ss" = (/obj/structure/table{icon_state = "s"},/turf/simulated/floor/wood,/area/ship/deck_1)
-"st" = (/obj/machinery/sleeper{tag = "icon-scanner (EAST)"; icon_state = "scanner"; dir = 4},/obj/machinery/camera,/turf/simulated/floor/blue,/area/ship/deck_1)
-"su" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/simulated/floor/blue,/area/ship/deck_1)
-"sv" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; dir = 1; color = "#f2f2ef"},/obj/machinery/camera,/turf/simulated/floor/wood,/area/ship/deck_1)
-"sw" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#a3a3a1"},/area/ship/deck_1)
-"sx" = (/obj/structure/table{icon_state = "e"},/turf/simulated/floor/blue,/area/ship/deck_1)
-"sy" = (/obj/structure/table{icon_state = "w"},/turf/simulated/floor/blue,/area/ship/deck_1)
-"sz" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor,/area/ship/deck_1)
-"sA" = (/obj/structure/sign{icon_state = "monkey22"; pixel_x = -16; pixel_y = 0; pixel_z = 11; tag = "icon-monkey22"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area/ship/deck_1)
-"sB" = (/obj/item/weapon/soap,/turf/simulated/floor,/area/ship/deck_1)
-"sC" = (/obj/machinery/airlock{isprocessing = 1; tag = "icon-close (EAST)"; dir = 4; color = "#777776"},/turf/simulated/floor{blocks_air = 1},/area/ship/deck_1)
-"sD" = (/obj/machinery/simple_apc{dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area/ship/deck_1)
-"sE" = (/obj/machinery/vending/modules,/turf/simulated/floor,/area/ship/deck_1)
-"sF" = (/obj/structure/closet,/turf/simulated/floor/plating,/area/ship/deck_1)
-"sG" = (/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area/ship/deck_1)
-"sH" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor,/area/ship/deck_1)
-"sI" = (/obj/structure/sign{tag = "icon-sign113"; icon_state = "sign113"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area/ship/deck_1)
-"sJ" = (/obj/machinery/vending/trademat,/turf/unsimulated/floor,/area/ship/deck_1)
-"sK" = (/turf/unsimulated/floor,/area/ship/deck_1)
-"sL" = (/obj/structure/ladder{ladderid = 3},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area/ship/deck_1)
-"sM" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#777776"},/area/ship/deck_1)
-"sN" = (/obj/structure/table{icon_state = "se"},/obj/item/weapon/teleporter,/turf/simulated/floor,/area/ship/deck_1)
-"sO" = (/obj/structure/table{icon_state = "sw"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"sP" = (/obj/structure/table{icon_state = "s"},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"sQ" = (/obj/structure/table{icon_state = "nw"},/obj/item/seeds/poisonedappleseed,/turf/simulated/floor/plating,/area/ship/deck_1)
-"sR" = (/obj/structure/table{icon_state = "we"},/obj/item/weapon/wrench,/turf/simulated/floor,/area/ship/deck_1)
-"sS" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"sT" = (/obj/machinery/portable_machinery/cratebot,/turf/simulated/floor,/area/ship/deck_1)
-"sU" = (/obj/structure/table,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"sV" = (/obj/machinery/airlock{isprocessing = 1; tag = "icon-close (EAST)"; dir = 4; color = "#777776"},/turf/simulated/floor,/area/ship/deck_1)
-"sW" = (/obj/machinery/simple_apc{charge = 218882; load = 195; isprocessing = 1; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"sX" = (/obj/structure/table{icon_state = "n"},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"sY" = (/turf/simulated/wall/newicon/window{icon_state = "window_fullns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"sZ" = (/obj/spess,/obj/structure/border{tag = "icon-border (EAST)"; icon_state = "border"; dir = 4},/obj/structure/border{tag = "icon-border (NORTH)"; icon_state = "border"; dir = 1},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ta" = (/obj/spess,/obj/structure/border{tag = "icon-border (NORTH)"; icon_state = "border"; dir = 1},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"tb" = (/obj/structure/border{tag = "icon-border (NORTH)"; icon_state = "border"; dir = 1},/obj/structure/border{tag = "icon-border (WEST)"; icon_state = "border"; dir = 8},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"tc" = (/obj/spess,/obj/structure/border{tag = "icon-border (EAST)"; icon_state = "border"; dir = 4},/turf/simulated/floor/plating,/area/ship/deck_1)
-"td" = (/obj/spess,/turf/simulated/floor/plating,/area/ship/deck_1)
-"te" = (/obj/structure/border{tag = "icon-border (WEST)"; icon_state = "border"; dir = 8},/turf/simulated/floor/plating,/area/ship/deck_1)
-"tf" = (/obj/structure/decor{tag = "icon-decor5"; icon_state = "decor5"},/turf/simulated/floor/blue,/area/ship/deck_1)
-"tg" = (/obj/structure/table,/obj/machinery/consol/message,/turf/simulated/floor/orange,/area/ship/deck_1)
-"th" = (/obj/structure/table,/obj/machinery/tablelamp,/turf/simulated/floor/blue,/area/ship/deck_1)
-"ti" = (/obj/structure/table,/obj/machinery/chem_dispenser,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tj" = (/obj/machinery/chem_master,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tk" = (/obj/structure/sign{tag = "icon-sci"; icon_state = "sci"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area/ship/deck_1)
-"tl" = (/obj/machinery/lamp{charge = 622900; isprocessing = 1; luminosity = 5; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area/ship/deck_1)
-"tm" = (/obj/spess,/obj/structure/border,/obj/structure/border{tag = "icon-border (EAST)"; icon_state = "border"; dir = 4},/turf/simulated/floor/plating,/area/ship/deck_1)
-"tn" = (/obj/spess,/obj/structure/border,/turf/simulated/floor/plating,/area/ship/deck_1)
-"to" = (/obj/structure/border,/obj/structure/border{tag = "icon-border (WEST)"; icon_state = "border"; dir = 8},/turf/simulated/floor/plating,/area/ship/deck_1)
-"tp" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; dir = 1; color = "#f2f2ef"},/turf/simulated/floor/orange,/area/ship/deck_1)
-"tq" = (/obj/structure/table{icon_state = "s"},/obj/machinery/blender,/turf/simulated/floor/blue,/area/ship/deck_1)
-"tr" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (NORTH)"; icon_state = "comfychair_2"; dir = 1},/turf/simulated/floor,/area/ship/deck_1)
-"ts" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (WEST)"; icon_state = "comfychair_2"; dir = 8},/turf/simulated/floor,/area/ship/deck_1)
-"tt" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (NORTHWEST)"; icon_state = "comfychair_2"; dir = 9},/turf/simulated/floor,/area/ship/deck_1)
-"tu" = (/obj/structure/table{icon_state = "ns"},/obj/machinery/processor,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tv" = (/obj/machinery/tablelamp/lamp3,/turf/simulated/floor,/area/ship/deck_1)
-"tw" = (/obj/structure/table{icon_state = "s"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"tx" = (/obj/machinery/camera,/turf/simulated/floor/orange,/area/ship/deck_1)
-"ty" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/storage/box,/turf/simulated/floor/blue,/area/ship/deck_1)
-"tz" = (/obj/structure/closet{tag = "icon-closed (EAST)"; icon_state = "closed"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
-"tA" = (/obj/structure/stool/chair,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tB" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/reagent_containers/glass,/obj/item/weapon/reagent_containers/glass,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tC" = (/obj/structure/table{icon_state = "n"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"tD" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#777776"},/area/ship/deck_1)
-"tE" = (/obj/machinery/vending/bar,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tF" = (/obj/structure/table{icon_state = "se"},/obj/item/weapon/storage/box/medbox,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tG" = (/obj/structure/table{icon_state = "we"},/obj/item/weapon/wrench,/turf/simulated/floor/blue,/area/ship/deck_1)
-"tH" = (/obj/structure/table{icon_state = "w"},/obj/item/device/health_analyzer,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tI" = (/obj/structure/table{icon_state = "ne"},/obj/item/weapon/flasher,/turf/simulated/floor/plating,/area/ship/deck_1)
-"tJ" = (/obj/structure/table{icon_state = "n"},/obj/machinery/camera,/turf/simulated/floor{blocks_air = 1},/area/ship/deck_1)
-"tK" = (/obj/structure/reagent_dispensers/watertank,/obj/machinery/radio/intercom{tag = "icon-intercom (EAST)"; icon_state = "intercom"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
-"tL" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tM" = (/obj/structure/table{icon_state = "n"},/obj/machinery/microwave,/turf/simulated/floor/blue,/area/ship/deck_1)
-"tN" = (/obj/structure/table{icon_state = "n"},/obj/item/weapon/reagent_containers/glass,/obj/item/weapon/reagent_containers/glass,/turf/simulated/floor/orange,/area/ship/deck_1)
-"tO" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"tP" = (/obj/structure/sign{tag = "icon-space"; icon_state = "space"},/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#cccccc"},/area/ship/deck_1)
-"tQ" = (/obj/machinery/simple_apc{dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#cccccc"},/area/ship/deck_1)
-"tR" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor/orange,/area/ship/deck_1)
-"tS" = (/obj/machinery/simple_apc{charge = 218882; load = 195; isprocessing = 1; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_nsw"},/area/ship/deck_1)
-"tT" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (SOUTHWEST)"; icon_state = "comfychair_2"; dir = 10},/turf/simulated/floor{tag = "icon-15"; icon_state = "15"},/area/ship/deck_1)
-"tU" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (WEST)"; icon_state = "comfychair_2"; dir = 8},/turf/simulated/floor{tag = "icon-13"; icon_state = "13"},/area/ship/deck_1)
-"tV" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (WEST)"; icon_state = "comfychair_2"; dir = 8},/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
-"tW" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (NORTHWEST)"; icon_state = "comfychair_2"; dir = 9},/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
-"tX" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (NORTHEAST)"; icon_state = "comfychair_2"; dir = 5},/turf/simulated/floor{tag = "icon-5"; icon_state = "5"},/area/ship/deck_1)
-"tY" = (/turf/simulated/floor{tag = "icon-15"; icon_state = "15"},/area/ship/deck_1)
-"tZ" = (/turf/simulated/floor{tag = "icon-10"; icon_state = "10"},/area/ship/deck_1)
-"ua" = (/turf/simulated/floor{tag = "icon-13"; icon_state = "13"},/area/ship/deck_1)
-"ub" = (/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
-"uc" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#cccccc"},/area/ship/deck_1)
-"ud" = (/turf/simulated/floor{tag = "icon-14"; icon_state = "14"},/area/ship/deck_1)
-"ue" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#777776"},/area/ship/deck_1)
-"uf" = (/obj/structure/table,/turf/simulated/floor{tag = "icon-14"; icon_state = "14"},/area/ship/deck_1)
-"ug" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor{tag = "icon-17"; icon_state = "17"},/area/ship/deck_1)
-"uh" = (/turf/simulated/floor{tag = "icon-5"; icon_state = "5"},/area/ship/deck_1)
-"ui" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor,/area/ship/deck_1)
-"uj" = (/obj/structure/table,/turf/simulated/floor{tag = "icon-15"; icon_state = "15"},/area/ship/deck_1)
-"uk" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor{tag = "icon-5"; icon_state = "5"},/area/ship/deck_1)
-"ul" = (/obj/critter/mouse,/turf/simulated/floor/plating,/area/ship/deck_1)
-"um" = (/turf/simulated/floor{tag = "icon-17"; icon_state = "17"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"un" = (/obj/structure/table,/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
-"uo" = (/obj/structure/table{icon_state = "nw"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"up" = (/turf/simulated/floor{tag = "icon-15"; icon_state = "15"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uq" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; dir = 1; color = "#f2f2ef"},/turf/simulated/floor{tag = "icon-14"; icon_state = "14"},/area/ship/deck_1)
-"ur" = (/turf/simulated/floor{tag = "icon-2"; icon_state = "2"},/area/ship/deck_1)
-"us" = (/turf/simulated/floor{tag = "icon-3"; icon_state = "3"},/area/ship/deck_1)
-"ut" = (/turf/simulated/wall/newicon{icon_state = "w_ne"; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uu" = (/turf/simulated/wall/newicon{icon_state = "w_sw"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uv" = (/obj/structure/decor{tag = "icon-decor5"; icon_state = "decor5"},/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
-"uw" = (/obj/item/weapon/fire_ext,/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
-"ux" = (/turf/simulated/wall/newicon{icon_state = "w_se"; maptext_width = 32; maptext_height = 32; color = "#d8d8d6"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uy" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uz" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#cccccc"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uA" = (/turf/simulated/wall/newicon{icon_state = "w_ews"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uB" = (/turf/simulated/wall/newicon{icon_state = "w_wn"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uC" = (/obj/structure/table{icon_state = "e"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"uD" = (/obj/machinery/vending/cola,/turf/simulated/floor,/area/ship/deck_1)
-"uE" = (/obj/structure/table{icon_state = "se"},/obj/item/weapon/storage/box/medbox,/turf/simulated/floor,/area/ship/deck_1)
-"uF" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/storage/box/medbox,/turf/simulated/floor,/area/ship/deck_1)
-"uG" = (/obj/structure/table{icon_state = "se"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"uH" = (/obj/structure/table{icon_state = "we2"},/turf/simulated/floor/plating,/area/ship/deck_1)
-"uI" = (/obj/machinery/vending/trademat,/turf/simulated/floor,/area/ship/deck_1)
-"uJ" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor{blocks_air = 1},/area/ship/deck_1)
-"uK" = (/obj/structure/table,/obj/item/weapon/soap,/turf/simulated/floor,/area/ship/deck_1)
-"uL" = (/obj/machinery/consol/arcade,/turf/simulated/floor,/area/ship/deck_1)
-"uM" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor/plating{blocks_air = 1},/area/ship/deck_1)
-"uN" = (/obj/machinery/simple_apc{charge = 623073; load = 155; isprocessing = 1; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area/ship/deck_1)
-"uO" = (/obj/machinery/lamp{charge = 622900; isprocessing = 1; luminosity = 5; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#777776"},/area/ship/deck_1)
-"uP" = (/obj/botsignaler,/turf/simulated/floor/LUNAstairs{icon_state = "downstairs1"; ladderid = 2; tag = "icon-downstairs1"},/area/ship/deck_1)
-"uQ" = (/obj/botsignaler,/turf/simulated/floor/LUNAstairs{ladderid = 4},/area/ship/deck_1)
-"uR" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area/ship/deck_1)
-"uS" = (/obj/item/seeds/chiliseed,/turf/simulated/floor/plating,/area/ship/deck_1)
-"uT" = (/turf/simulated/wall/newicon{icon_state = "w_wn"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uU" = (/obj/structure/table{icon_state = "e"},/obj/item/weapon/wrench,/turf/simulated/floor,/area/ship/deck_1)
-"uV" = (/obj/structure/table{icon_state = "we"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area/ship/deck_1)
-"uW" = (/obj/structure/table{icon_state = "w"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area/ship/deck_1)
-"uX" = (/obj/structure/closet/crate,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uY" = (/turf/simulated/wall/newicon/window{icon_state = "window_w2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"uZ" = (/turf/simulated/wall/newicon/window{icon_state = "window_fullwe"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"va" = (/turf/simulated/wall/newicon/window{icon_state = "window_e2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vb" = (/obj/item/bomb/smokebomb,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vc" = (/obj/critter/mouse,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vd" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ve" = (/obj/machinery/airlock{isprocessing = 1},/turf/simulated/floor/plating{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vf" = (/obj/structure/reagent_dispensers/dieseltank,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vg" = (/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vh" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor/plating{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vi" = (/obj/machinery/simple_apc{tag = "icon-apc (NORTH)"; icon_state = "apc"; dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vj" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out (WEST)"; icon_state = "shuttle_out"; dir = 8},/area/ship/shuttle_station)
-"vk" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out (NORTHEAST)"; icon_state = "shuttle_out"; dir = 5},/area/ship/shuttle_station)
-"vl" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle"; icon_state = "shuttle"},/area/ship/shuttle_station)
-"vm" = (/obj/machinery/simple_smes,/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vn" = (/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vo" = (/obj/machinery/lamp,/turf/simulated/wall/shuttle{tag = "icon-shuttle"; icon_state = "shuttle"},/area/ship/shuttle_station)
-"vp" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out (EAST)"; icon_state = "shuttle_out"; dir = 4},/area/ship/shuttle_station)
-"vq" = (/obj/machinery/solar,/turf/unsimulated/floor/catwalk{tag = "icon-engine"; icon_state = "engine"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vr" = (/obj/structure/decor{tag = "icon-generator"; icon_state = "generator"},/turf/simulated/floor,/area/ship/shuttle_station)
-"vs" = (/obj/structure/closet/crate,/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vt" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vu" = (/obj/structure/grille{tag = "icon-grille (NORTHWEST)"; icon_state = "grille"; dir = 9},/turf/simulated/wall/window/shuttle{tag = "icon-sh1w1 (EAST)"; icon_state = "sh1w1"; dir = 4},/area/ship/shuttle_station)
-"vv" = (/obj/machinery/simple_apc,/turf/simulated/wall/shuttle{tag = "icon-shuttle"; icon_state = "shuttle"},/area/ship/shuttle_station)
-"vw" = (/obj/structure/stool/chair,/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vx" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vy" = (/obj/structure/table,/obj/machinery/consol/cargo/mining_shuttle,/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vz" = (/obj/structure/grille{tag = "icon-grille (EAST)"; icon_state = "grille"; dir = 4},/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vA" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out"; icon_state = "shuttle_out"},/area/ship/shuttle_station)
-"vB" = (/turf/simulated/wall/window/shuttle{tag = "icon-sh1w1"; icon_state = "sh1w1"},/area/ship/shuttle_station)
-"vC" = (/obj/structure/decor{anchored = 1; icon_state = "shuttle_decor1"; tag = "icon-shuttle_decor1"},/turf/simulated/wall/shuttle{tag = "icon-shuttle_out"; icon_state = "shuttle_out"},/area/ship/shuttle_station)
-"vD" = (/obj/machinery/airlock{charge = 211901; isprocessing = 1; tag = "icon-close (EAST)"; dir = 4; color = "#c6c6c4"},/turf/simulated/floor/plating,/area/ship/shuttle_station)
-"vE" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out (NORTH)"; icon_state = "shuttle_out"; dir = 1},/area/ship/shuttle_station)
-"vF" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vG" = (/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#f2f2ef"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vH" = (/turf/simulated/wall/newicon{icon_state = "w_sw"; maptext_width = 32; maptext_height = 32; color = "#f2f2ef"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vI" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = "#d8d8d6"},/area)
-"vJ" = (/obj/machinery/airlock{charge = 211901; isprocessing = 1; tag = "icon-close (EAST)"; dir = 4; color = "#c6c6c4"},/turf/simulated/floor,/area)
-"vK" = (/turf/simulated/floor/plating{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vL" = (/obj/machinery/lamp,/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vM" = (/turf/simulated/wall/newicon/window{icon_state = "window_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vN" = (/obj/machinery/minicontrolleronwall/air_alarm,/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vO" = (/obj/structure/sign{tag = "icon-nosmoke"; icon_state = "nosmoke"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vP" = (/obj/structure/sign{tag = "icon-space"; icon_state = "space"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vQ" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vR" = (/obj/structure/decor{tag = "icon-decor5"; icon_state = "decor5"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vS" = (/obj/structure/closet/oxygen,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vT" = (/obj/machinery/ind_smelter{tag = "icon-ind_smelt (NORTH)"; icon_state = "ind_smelt"; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vU" = (/obj/structure/table,/obj/machinery/consol/message,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vV" = (/obj/structure/table,/obj/structure/decor{tag = "icon-cigarettes"; icon_state = "cigarettes"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vW" = (/obj/machinery/conveyor,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vX" = (/obj/structure/closet/crate,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vY" = (/obj/structure/closet/crate/antimatter,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"vZ" = (/obj/machinery/simple_apc{charge = 218882; load = 125; isprocessing = 1; tag = "icon-apc (NORTH)"; dir = 1; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wa" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor/blue,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wb" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wc" = (/obj/structure/decor/cryo_spawn{tag = "icon-cryo (EAST)"; icon_state = "cryo"; dir = 4},/turf/simulated/floor/blue,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wd" = (/turf/simulated/floor/blue,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"we" = (/obj/machinery/vending/tea{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wf" = (/obj/structure/table,/obj/item/credits/c50,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wg" = (/obj/machinery/vending/snacks{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wh" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wi" = (/obj/structure/table{icon_state = "s"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wj" = (/obj/structure/table{icon_state = "we"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wk" = (/obj/structure/closet,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wl" = (/obj/machinery/vending/cola{tag = "icon-default (EAST)"; icon_state = ""; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wm" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wn" = (/obj/structure/table,/obj/item/weapon/radar,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wo" = (/obj/structure/closet/crate/shaft,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wp" = (/obj/structure/closet/oxycrate,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wq" = (/obj/item/weapon/fire_ext,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wr" = (/obj/structure/table,/obj/structure/table,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ws" = (/obj/machinery/airlock/glassairlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wt" = (/obj/structure/table,/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wu" = (/obj/structure/closet,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wv" = (/obj/structure/closet/oxygen,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ww" = (/obj/structure/closet/materials,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wx" = (/obj/structure/table,/obj/machinery/tablelamp,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wy" = (/obj/machinery/airlock/glassairlock{tag = "icon-close (NORTH)"; icon_state = "close"; dir = 1},/turf/simulated/floor{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wz" = (/obj/structure/table{icon_state = "n"},/obj/item/weapon/storage/box/backpack,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wA" = (/obj/machinery/conveyor_switch,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wB" = (/obj/machinery/portable_machinery/cratebot,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wC" = (/turf/simulated/wall/newicon{icon_state = "w_se"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wD" = (/obj/machinery/vending/cola,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wE" = (/obj/structure/sign{tag = "icon-sign112"; icon_state = "sign112"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wF" = (/obj/structure/sign{tag = "icon-sign11"; icon_state = "sign11"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wG" = (/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wH" = (/obj/machinery/supertelepad,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wI" = (/obj/item/weapon/fire_ext,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wJ" = (/obj/machinery/airlock/glassairlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wK" = (/obj/structure/decor{icon_state = "shatters"; pixel_y = 32; pixel_z = -2; tag = "icon-shatters"},/turf/simulated/wall/newicon/window{icon_state = "window_w2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wL" = (/obj/structure/decor{icon_state = "shatters"; pixel_y = 32; pixel_z = -2; tag = "icon-shatters"},/turf/simulated/wall/newicon/window{icon_state = "window_e2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wM" = (/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wN" = (/turf/simulated/floor{tag = "icon-floor_eng1"; icon_state = "floor_eng1"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wO" = (/obj/machinery/airlock,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wP" = (/obj/structure/closet,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wQ" = (/turf/simulated/wall/newicon{icon_state = "w_ewn"; color = "#f2f2ef"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wR" = (/obj/machinery/simple_apc{dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wS" = (/obj/structure/table{icon_state = "s"},/obj/machinery/consol/message{tag = "icon-shuttle (WEST)"; icon_state = "shuttle"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wT" = (/obj/machinery/autholate,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wU" = (/obj/machinery/ATM,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wV" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor{tag = "icon-floor_eng1"; icon_state = "floor_eng1"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wW" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wX" = (/obj/machinery/autholate/floortolathe,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wY" = (/obj/botsignaler,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"wZ" = (/obj/structure/table{icon_state = "ne"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xa" = (/obj/structure/table{icon_state = "we"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xb" = (/obj/structure/table{icon_state = "w"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xc" = (/obj/structure/closet/books{tag = "icon-books1 (EAST)"; icon_state = "books1"; dir = 4},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xd" = (/obj/structure/sign{dir = 8; icon_state = "metroid"; pixel_y = 0; pixel_z = 15; tag = "icon-metroid (WEST)"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xe" = (/obj/structure/closet/oxycrate,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xf" = (/obj/structure/closet/materials,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xg" = (/obj/structure/table{icon_state = "se"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xh" = (/obj/structure/table{icon_state = "w"},/obj/structure/decor{tag = "icon-decor55"; icon_state = "decor55"; color = "#d8d8d6"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xi" = (/obj/structure/decor{icon_state = "shatters"; pixel_y = 32; pixel_z = -2; tag = "icon-shatters"},/turf/simulated/wall/newicon/window{icon_state = "window_fullwe"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xj" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area)
-"xk" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/paper,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xl" = (/turf/simulated/floor{tag = "icon-carpet_8"; icon_state = "carpet_8"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xm" = (/turf/simulated/floor{tag = "icon-carpet_6"; icon_state = "carpet_6"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xn" = (/obj/machinery/simpleonwall/recharger,/turf/simulated/floor{tag = "icon-carpet_2"; icon_state = "carpet_2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xo" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xp" = (/obj/structure/sign{icon_state = "monkey22"; pixel_x = -16; pixel_y = 0; pixel_z = 11; tag = "icon-monkey22"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area)
-"xq" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/pen,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xr" = (/turf/simulated/floor{tag = "icon-carpet_3"; icon_state = "carpet_3"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xs" = (/turf/simulated/floor{tag = "icon-carpet_221"; icon_state = "carpet_221"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xt" = (/obj/structure/table,/obj/machinery/consol/camera_control{tag = "icon-sec_consol (WEST)"; icon_state = "sec_consol"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xu" = (/obj/item/module/power_alert_module,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xv" = (/obj/structure/stool/chair,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xw" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor{tag = "icon-carpet_221"; icon_state = "carpet_221"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xx" = (/obj/structure/table,/obj/machinery/consol/command{tag = "icon-command (WEST)"; icon_state = "command"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xy" = (/obj/machinery/lamp,/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xz" = (/obj/structure/table{icon_state = "n"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xA" = (/obj/structure/table,/obj/machinery/consol{tag = "icon-consol (WEST)"; icon_state = "consol"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xB" = (/obj/item/credits/c50,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xC" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xD" = (/obj/machinery/minicontrolleronwall/air_alarm,/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xE" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#f2f2ef"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xF" = (/obj/structure/table,/obj/machinery/printer,/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xG" = (/obj/structure/sign{tag = "icon-alert"; icon_state = "alert"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xH" = (/obj/item/weapon/storage/box/backpack/jetpack,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xI" = (/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xJ" = (/obj/machinery/airlock{isprocessing = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xK" = (/turf/simulated/floor{tag = "icon-carpet_11"; icon_state = "carpet_11"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xL" = (/turf/simulated/floor{tag = "icon-carpet_5"; icon_state = "carpet_5"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xM" = (/turf/simulated/floor{tag = "icon-carpet_7"; icon_state = "carpet_7"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xN" = (/turf/simulated/wall/newicon{icon_state = "w_ewn"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xO" = (/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#cccccc"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xP" = (/obj/structure/closet/oxygen,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xQ" = (/obj/structure/decor{tag = "icon-decor_2"; icon_state = "decor_2"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xR" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xS" = (/turf/simulated/floor,/area)
-"xT" = (/obj/structure/decor{tag = "icon-decor_3"; icon_state = "decor_3"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xU" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xV" = (/turf/simulated/wall/newicon{icon_state = "w_ne"; maptext_width = 32; maptext_height = 32; color = "#a3a3a1"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xW" = (/obj/item/credits/c50,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xX" = (/obj/structure/stool,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xY" = (/turf/simulated/wall/newicon{icon_state = "w_ne"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"xZ" = (/turf/simulated/wall/newicon{icon_state = "w_nse"; maptext_width = 32; maptext_height = 32; color = "#c6c6c4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ya" = (/turf/simulated/wall/newicon{icon_state = "w_wn"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yb" = (/obj/structure/table,/obj/machinery/consol{tag = "icon-consol (EAST)"; icon_state = "consol"; dir = 4},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yc" = (/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yd" = (/obj/structure/table,/obj/item/device/health_analyzer,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ye" = (/obj/structure/table,/obj/machinery/consol,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yf" = (/turf/simulated/floor{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yg" = (/obj/structure/table,/obj/machinery/consol/message{tag = "icon-shuttle (EAST)"; icon_state = "shuttle"; dir = 4},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yh" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yi" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yj" = (/obj/structure/table,/obj/machinery/consol/camera_control{tag = "icon-sec_consol (EAST)"; icon_state = "sec_consol"; dir = 4},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yk" = (/obj/structure/table,/obj/item/module/cubit_mining_module,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yl" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ym" = (/obj/structure/table,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yn" = (/obj/structure/stool,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yo" = (/obj/structure/decor{tag = "icon-decor5"; icon_state = "decor5"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yp" = (/obj/item/module/cubit_mining_module,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yq" = (/obj/item/module/small_power_controller,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yr" = (/turf/simulated/wall/newicon{icon_state = "w_nse"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ys" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yt" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yu" = (/turf/simulated/wall/newicon{icon_state = "w_nsw"; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yv" = (/obj/structure/sign{tag = "icon-retrowave"; icon_state = "retrowave"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yw" = (/turf/simulated/floor{tag = "icon-engine"; icon_state = "engine"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yx" = (/turf/simulated/wall/newicon{icon_state = "w_sw"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yy" = (/obj/structure/closet/oxygen{tag = "icon-oxygen (EAST)"; icon_state = "oxygen"; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yz" = (/obj/structure/sign{tag = "icon-fire"; icon_state = "fire"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yA" = (/obj/machinery/lamp{charge = 211901; isprocessing = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yB" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yC" = (/obj/structure/ladder{ladderid = 3},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yD" = (/turf/simulated/wall/newicon{icon_state = "w_wn"; maptext_width = 32; maptext_height = 32; color = "#d8d8d6"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yE" = (/obj/item/credits/c10,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yF" = (/obj/item/weapon/paper/randomcontent,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yG" = (/obj/structure/sign{tag = "icon-sign113"; icon_state = "sign113"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yH" = (/obj/item/module/flasher,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yI" = (/obj/machinery/tablelamp/lamp3,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yJ" = (/obj/item/module/cubit_mining_module,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yK" = (/obj/structure/sign{icon_state = "monkey22"; pixel_x = -16; pixel_y = 0; pixel_z = 11; tag = "icon-monkey22"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yL" = (/obj/item/seeds/carrotseed,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yM" = (/obj/item/seeds/libertymycelium,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yN" = (/obj/structure/closet{tag = "icon-closed (EAST)"; icon_state = "closed"; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yO" = (/obj/structure/table{icon_state = "s"},/obj/item/weapon/storage/box/toolbox{tag = "icon-red"; icon_state = "red"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yP" = (/obj/structure/table{icon_state = "sw"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yQ" = (/obj/item/weapon/saw,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yR" = (/obj/structure/table{icon_state = "ne"},/obj/item/weapon/screwdriver,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yS" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/storage/box/toolbox{tag = "icon-red"; icon_state = "red"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yT" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/radar,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yU" = (/obj/structure/table{icon_state = "s"},/obj/item/seeds/appleseed,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yV" = (/obj/item/clothing/suit/NTspace,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yW" = (/turf/simulated/wall/newicon{icon_state = "w_ews"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yX" = (/obj/machinery/vending/tools{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yY" = (/obj/item/weapon/sign,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"yZ" = (/obj/item/clothing/suit/soviet,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"za" = (/obj/structure/table{icon_state = "we2"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zb" = (/obj/machinery/vending/materials{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zc" = (/obj/item/weapon/weldingtool,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zd" = (/obj/structure/table{icon_state = "ns"},/obj/item/device/analyzer,/obj/item/device/analyzer,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"ze" = (/obj/item/clothing/suit/syndispace,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zf" = (/obj/structure/table{icon_state = "ne"},/obj/item/device/health_analyzer,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zg" = (/obj/structure/table{icon_state = "we1"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zh" = (/obj/structure/table{icon_state = "nw"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zi" = (/obj/machinery/autholate,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zj" = (/obj/structure/table{icon_state = "sw"},/obj/item/weapon/storage/box/toolbox{tag = "icon-yellow"; icon_state = "yellow"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zk" = (/obj/machinery/autholate/floortolathe,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zl" = (/obj/structure/table{icon_state = "ne"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zm" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/wrench,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zn" = (/obj/machinery/lamp{charge = 211901; isprocessing = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zo" = (/obj/machinery/airlock/glassairlock,/turf/simulated/floor{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zp" = (/turf/simulated/wall/newicon{icon_state = "w_ews"; maptext_width = 32; maptext_height = 32; color = "#a3a3a1"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zq" = (/obj/botsignaler,/turf/simulated/floor/LUNAstairs{icon_state = "downstairs2"; ladderid = 4; tag = "icon-downstairs2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zr" = (/turf/simulated/floor/catwalk,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zs" = (/obj/structure/table{icon_state = "e"},/obj/structure/table{icon_state = "e"},/obj/item/seeds/amanitamycelium,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
-"zt" = (/obj/structure/table{icon_state = "w"},/obj/structure/table{icon_state = "w"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"qO" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor/wood,/area/ship/deck_1)
+"qP" = (/turf/simulated/floor/floorwall,/area/ship/deck_1)
+"qQ" = (/obj/structure/grille,/obj/structure/table/zlevel_2,/turf/simulated/floor/floorwall,/area/ship/deck_1)
+"qR" = (/obj/structure/grille,/turf/simulated/floor/floorwall,/area/ship/deck_1)
+"qS" = (/obj/structure/table{icon_state = "sw"},/obj/item/weapon/radar,/turf/simulated/floor,/area/ship/deck_1)
+"qT" = (/obj/machinery/camera,/turf/simulated/floor/wood,/area/ship/deck_1)
+"qU" = (/turf/simulated/floor/stairs,/area/ship/deck_1)
+"qV" = (/obj/structure/grille{tag = "icon-grille (EAST)"; icon_state = "grille"; dir = 4},/turf/simulated/floor/floorwall,/area/ship/deck_1)
+"qW" = (/obj/structure/grille{tag = "icon-grille (EAST)"; icon_state = "grille"; dir = 4},/obj/structure/grille,/turf/simulated/floor/floorwall,/area/ship/deck_1)
+"qX" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/storage/box/toolbox{tag = "icon-red"; icon_state = "red"},/turf/simulated/floor,/area/ship/deck_1)
+"qY" = (/obj/jobmark,/turf/simulated/floor,/area/ship/deck_1)
+"qZ" = (/obj/botsignaler,/turf/simulated/floor,/area/ship/deck_1)
+"ra" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area/ship/deck_1)
+"rb" = (/obj/item/weapon/screwdriver,/turf/simulated/floor,/area/ship/deck_1)
+"rc" = (/obj/structure/washing{tag = "icon-washing (EAST)"; icon_state = "washing"; dir = 4},/turf/simulated/floor,/area/ship/deck_1)
+"rd" = (/obj/structure/table{icon_state = "we"},/obj/item/seeds/chiliseed,/turf/simulated/floor,/area/ship/deck_1)
+"re" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/wrench,/turf/simulated/floor,/area/ship/deck_1)
+"rf" = (/obj/structure/sink{tag = "icon-sink (WEST)"; icon_state = "sink"; dir = 8},/turf/simulated/floor,/area/ship/deck_1)
+"rg" = (/obj/item/weapon/mop,/turf/simulated/floor,/area/ship/deck_1)
+"rh" = (/obj/machinery/airlock/green,/turf/simulated/floor,/area/ship/deck_1)
+"ri" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_nsw"},/area/ship/deck_1)
+"rj" = (/obj/structure/closet{tag = "icon-closed (EAST)"; dir = 4; color = "#f2f2ef"},/turf/simulated/floor,/area/ship/deck_1)
+"rk" = (/obj/item/weapon/weldingtool,/turf/simulated/floor,/area/ship/deck_1)
+"rl" = (/mob/simulated/living/humanoid/human,/turf/simulated/floor,/area/ship/deck_1)
+"rm" = (/obj/item/weapon/reagent_containers/glass/bottle/bucket,/turf/simulated/floor,/area/ship/deck_1)
+"rn" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_nsw"; color = "#777776"},/area/ship/deck_1)
+"ro" = (/obj/machinery/portable_machinery,/turf/simulated/floor,/area/ship/deck_1)
+"rp" = (/obj/structure/closet/materials,/turf/simulated/floor,/area/ship/deck_1)
+"rq" = (/obj/machinery/vending/modules{tag = "icon-default (WEST)"; icon_state = ""; dir = 8},/turf/simulated/floor,/area/ship/deck_1)
+"rr" = (/obj/structure/sign{tag = "icon-sign112"; icon_state = "sign112"},/turf/simulated/wall/newicon{icon_state = "w_wn"},/area/ship/deck_1)
+"rs" = (/obj/machinery/simple_apc{charge = 218882; load = 195; isprocessing = 1; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area/ship/deck_1)
+"rt" = (/obj/machinery/seed_extractor,/turf/simulated/floor,/area/ship/deck_1)
+"ru" = (/obj/machinery/vending/hydroponics,/turf/simulated/floor,/area/ship/deck_1)
+"rv" = (/obj/structure/closet/hydcrate,/turf/simulated/floor,/area/ship/deck_1)
+"rw" = (/turf/simulated/wall/newicon{icon_state = "w_wn"; maptext_width = 32; maptext_height = 32; color = "#cccccc"},/area/ship/deck_1)
+"rx" = (/obj/structure/table{icon_state = "n"},/obj/item/weapon/soap,/turf/simulated/floor,/area/ship/deck_1)
+"ry" = (/obj/structure/table,/obj/structure/table,/turf/simulated/floor,/area/ship/deck_1)
+"rz" = (/obj/item/weapon/reagent_containers/glass/bottle/watercan,/turf/simulated/floor,/area/ship/deck_1)
+"rA" = (/obj/jobmark{job = "botanist"; invisibility = 101; color = "#777776"},/turf/simulated/floor,/area/ship/deck_1)
+"rB" = (/obj/machinery/hydroponics,/turf/simulated/floor,/area/ship/deck_1)
+"rC" = (/obj/structure/table,/obj/machinery/blender,/turf/simulated/floor,/area/ship/deck_1)
+"rD" = (/obj/structure/stool/bed/roller_bed,/turf/simulated/floor/blue,/area/ship/deck_1)
+"rE" = (/obj/structure/reagent_dispensers/watertank,/obj/machinery/camera,/turf/simulated/floor,/area/ship/deck_1)
+"rF" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#c6c6c4"},/area/ship/deck_1)
+"rG" = (/obj/structure/table{icon_state = "se"},/obj/item/seeds/potatoseed,/turf/simulated/floor,/area/ship/deck_1)
+"rH" = (/obj/structure/table{icon_state = "sw"},/obj/item/seeds/potatoseed,/turf/simulated/floor,/area/ship/deck_1)
+"rI" = (/obj/structure/table,/obj/item/device/health_analyzer,/turf/simulated/floor,/area/ship/deck_1)
+"rJ" = (/obj/item/weapon/fire_ext,/turf/simulated/floor/blue,/area/ship/deck_1)
+"rK" = (/obj/machinery/hydroponics,/obj/machinery/camera,/turf/simulated/floor,/area/ship/deck_1)
+"rL" = (/obj/structure/table{icon_state = "w"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"rM" = (/obj/structure/stool/bed,/turf/simulated/floor,/area/ship/deck_1)
+"rN" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor/blue,/area/ship/deck_1)
+"rO" = (/obj/structure/sign{tag = "icon-symb2"; icon_state = "symb2"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area/ship/deck_1)
+"rP" = (/obj/machinery/airlock{tag = "icon-close (WEST)"; icon_state = "close"; dir = 8},/turf/simulated/floor/blue,/area/ship/deck_1)
+"rQ" = (/obj/machinery/lamp{charge = 211901; isprocessing = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area/ship/deck_1)
+"rR" = (/obj/machinery/airlock/glassairlock,/turf/simulated/floor{blocks_air = 1},/area/ship/deck_1)
+"rS" = (/obj/structure/sign{tag = "icon-hydro"; icon_state = "hydro"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area/ship/deck_1)
+"rT" = (/obj/machinery/simple_apc{tag = "icon-apc (NORTH)"; icon_state = "apc"; dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = null},/area/ship/deck_1)
+"rU" = (/obj/machinery/airlock{tag = "icon-close (WEST)"; icon_state = "close"; dir = 8},/turf/simulated/floor/plating{blocks_air = 1},/area/ship/deck_1)
+"rV" = (/obj/structure/closet/oxygen,/turf/simulated/floor/blue,/area/ship/deck_1)
+"rW" = (/obj/structure/closet,/turf/simulated/floor/blue,/area/ship/deck_1)
+"rX" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#f2f2ef"},/area/ship/deck_1)
+"rY" = (/obj/structure/table,/turf/simulated/floor/plating,/area/ship/deck_1)
+"rZ" = (/obj/machinery/simple_apc{tag = "icon-apc (NORTH)"; icon_state = "apc"; dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#777776"},/area/ship/deck_1)
+"sa" = (/obj/machinery/lamp{charge = 622900; isprocessing = 1; luminosity = 5; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ewn"; color = "#f2f2ef"},/area/ship/deck_1)
+"sb" = (/obj/jobmark{job = "doctor"; invisibility = 101; color = "#777776"},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sc" = (/obj/item/weapon/crowbar,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sd" = (/obj/structure/closet/oldcloset{tag = "icon-oldcloset (EAST)"; icon_state = "oldcloset"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
+"se" = (/obj/structure/stool/chair,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sf" = (/obj/machinery/blood_rec{tag = "icon-operationbed (EAST)"; icon_state = "operationbed"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sg" = (/obj/machinery/airlock/glassairlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor/wood,/area/ship/deck_1)
+"sh" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
+"si" = (/obj/structure/table,/obj/item/device/health_analyzer,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sj" = (/obj/structure/table,/obj/item/weapon/storage/box/medbox,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sk" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sl" = (/obj/machinery/blood_machine,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sm" = (/obj/structure/table{icon_state = "se"},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sn" = (/obj/structure/table{icon_state = "we2"},/turf/simulated/floor/blue,/area/ship/deck_1)
+"so" = (/obj/structure/table{icon_state = "sw"},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sp" = (/obj/structure/closet/books,/turf/simulated/floor/wood,/area/ship/deck_1)
+"sq" = (/obj/structure/stool/chair,/turf/simulated/floor/wood,/area/ship/deck_1)
+"sr" = (/obj/machinery/sleeper{tag = "icon-scanner (EAST)"; icon_state = "scanner"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
+"ss" = (/obj/structure/table,/obj/machinery/consol/message,/turf/simulated/floor/blue,/area/ship/deck_1)
+"st" = (/obj/structure/table,/obj/structure/decor{tag = "icon-decor55"; icon_state = "decor55"},/turf/simulated/floor/blue,/area/ship/deck_1)
+"su" = (/obj/machinery/blood_injector{tag = "icon-inoperationbed (EAST)"; icon_state = "inoperationbed"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sv" = (/obj/structure/table{icon_state = "ne"},/obj/item/device/health_analyzer,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sw" = (/obj/structure/table{icon_state = "we1"},/obj/item/weapon/storage/box/medbox,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sx" = (/obj/structure/table{icon_state = "nw"},/obj/item/device/defib,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sy" = (/obj/structure/table{icon_state = "s"},/turf/simulated/floor/wood,/area/ship/deck_1)
+"sz" = (/obj/machinery/sleeper{tag = "icon-scanner (EAST)"; icon_state = "scanner"; dir = 4},/obj/machinery/camera,/turf/simulated/floor/blue,/area/ship/deck_1)
+"sA" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sB" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; dir = 1; color = "#f2f2ef"},/obj/machinery/camera,/turf/simulated/floor/wood,/area/ship/deck_1)
+"sC" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#a3a3a1"},/area/ship/deck_1)
+"sD" = (/obj/structure/table{icon_state = "e"},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sE" = (/obj/structure/table{icon_state = "w"},/turf/simulated/floor/blue,/area/ship/deck_1)
+"sF" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor,/area/ship/deck_1)
+"sG" = (/obj/structure/sign{icon_state = "monkey22"; pixel_x = -16; pixel_y = 0; pixel_z = 11; tag = "icon-monkey22"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area/ship/deck_1)
+"sH" = (/obj/item/weapon/soap,/turf/simulated/floor,/area/ship/deck_1)
+"sI" = (/obj/machinery/airlock{isprocessing = 1; tag = "icon-close (EAST)"; dir = 4; color = "#777776"},/turf/simulated/floor{blocks_air = 1},/area/ship/deck_1)
+"sJ" = (/obj/machinery/simple_apc{dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area/ship/deck_1)
+"sK" = (/obj/machinery/vending/modules,/turf/simulated/floor,/area/ship/deck_1)
+"sL" = (/obj/structure/closet,/turf/simulated/floor/plating,/area/ship/deck_1)
+"sM" = (/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area/ship/deck_1)
+"sN" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor,/area/ship/deck_1)
+"sO" = (/obj/structure/sign{tag = "icon-sign113"; icon_state = "sign113"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area/ship/deck_1)
+"sP" = (/obj/machinery/vending/trademat,/turf/unsimulated/floor,/area/ship/deck_1)
+"sQ" = (/turf/unsimulated/floor,/area/ship/deck_1)
+"sR" = (/obj/structure/ladder{ladderid = 3},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area/ship/deck_1)
+"sS" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#777776"},/area/ship/deck_1)
+"sT" = (/obj/structure/table{icon_state = "se"},/obj/item/weapon/teleporter,/turf/simulated/floor,/area/ship/deck_1)
+"sU" = (/obj/structure/table{icon_state = "sw"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"sV" = (/obj/structure/table{icon_state = "s"},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"sW" = (/obj/structure/table{icon_state = "nw"},/obj/item/seeds/poisonedappleseed,/turf/simulated/floor/plating,/area/ship/deck_1)
+"sX" = (/obj/structure/table{icon_state = "we"},/obj/item/weapon/wrench,/turf/simulated/floor,/area/ship/deck_1)
+"sY" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"sZ" = (/obj/machinery/portable_machinery/cratebot,/turf/simulated/floor,/area/ship/deck_1)
+"ta" = (/obj/structure/table,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"tb" = (/obj/machinery/airlock{isprocessing = 1; tag = "icon-close (EAST)"; dir = 4; color = "#777776"},/turf/simulated/floor,/area/ship/deck_1)
+"tc" = (/obj/machinery/simple_apc{charge = 218882; load = 195; isprocessing = 1; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"td" = (/obj/structure/table{icon_state = "n"},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"te" = (/turf/simulated/wall/newicon/window{icon_state = "window_fullns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"tf" = (/obj/spess,/obj/structure/border{tag = "icon-border (EAST)"; icon_state = "border"; dir = 4},/obj/structure/border{tag = "icon-border (NORTH)"; icon_state = "border"; dir = 1},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"tg" = (/obj/spess,/obj/structure/border{tag = "icon-border (NORTH)"; icon_state = "border"; dir = 1},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"th" = (/obj/structure/border{tag = "icon-border (NORTH)"; icon_state = "border"; dir = 1},/obj/structure/border{tag = "icon-border (WEST)"; icon_state = "border"; dir = 8},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"ti" = (/obj/spess,/obj/structure/border{tag = "icon-border (EAST)"; icon_state = "border"; dir = 4},/turf/simulated/floor/plating,/area/ship/deck_1)
+"tj" = (/obj/spess,/turf/simulated/floor/plating,/area/ship/deck_1)
+"tk" = (/obj/structure/border{tag = "icon-border (WEST)"; icon_state = "border"; dir = 8},/turf/simulated/floor/plating,/area/ship/deck_1)
+"tl" = (/obj/structure/decor{tag = "icon-decor5"; icon_state = "decor5"},/turf/simulated/floor/blue,/area/ship/deck_1)
+"tm" = (/obj/structure/table,/obj/machinery/consol/message,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tn" = (/obj/structure/table,/obj/machinery/tablelamp,/turf/simulated/floor/blue,/area/ship/deck_1)
+"to" = (/obj/structure/table,/obj/machinery/chem_dispenser,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tp" = (/obj/machinery/chem_master,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tq" = (/obj/structure/sign{tag = "icon-sci"; icon_state = "sci"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area/ship/deck_1)
+"tr" = (/obj/machinery/lamp{charge = 622900; isprocessing = 1; luminosity = 5; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area/ship/deck_1)
+"ts" = (/obj/spess,/obj/structure/border,/obj/structure/border{tag = "icon-border (EAST)"; icon_state = "border"; dir = 4},/turf/simulated/floor/plating,/area/ship/deck_1)
+"tt" = (/obj/spess,/obj/structure/border,/turf/simulated/floor/plating,/area/ship/deck_1)
+"tu" = (/obj/structure/border,/obj/structure/border{tag = "icon-border (WEST)"; icon_state = "border"; dir = 8},/turf/simulated/floor/plating,/area/ship/deck_1)
+"tv" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; dir = 1; color = "#f2f2ef"},/turf/simulated/floor/orange,/area/ship/deck_1)
+"tw" = (/obj/structure/table{icon_state = "s"},/obj/machinery/blender,/turf/simulated/floor/blue,/area/ship/deck_1)
+"tx" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (NORTH)"; icon_state = "comfychair_2"; dir = 1},/turf/simulated/floor,/area/ship/deck_1)
+"ty" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (WEST)"; icon_state = "comfychair_2"; dir = 8},/turf/simulated/floor,/area/ship/deck_1)
+"tz" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (NORTHWEST)"; icon_state = "comfychair_2"; dir = 9},/turf/simulated/floor,/area/ship/deck_1)
+"tA" = (/obj/structure/table{icon_state = "ns"},/obj/machinery/processor,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tB" = (/obj/machinery/tablelamp/lamp3,/turf/simulated/floor,/area/ship/deck_1)
+"tC" = (/obj/structure/table{icon_state = "s"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"tD" = (/obj/machinery/camera,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tE" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/storage/box,/turf/simulated/floor/blue,/area/ship/deck_1)
+"tF" = (/obj/structure/closet{tag = "icon-closed (EAST)"; icon_state = "closed"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
+"tG" = (/obj/structure/stool/chair,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tH" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/reagent_containers/glass,/obj/item/weapon/reagent_containers/glass,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tI" = (/obj/structure/table{icon_state = "n"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"tJ" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#777776"},/area/ship/deck_1)
+"tK" = (/obj/machinery/vending/bar,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tL" = (/obj/structure/table{icon_state = "se"},/obj/item/weapon/storage/box/medbox,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tM" = (/obj/structure/table{icon_state = "we"},/obj/item/weapon/wrench,/turf/simulated/floor/blue,/area/ship/deck_1)
+"tN" = (/obj/structure/table{icon_state = "w"},/obj/item/device/health_analyzer,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tO" = (/obj/structure/table{icon_state = "ne"},/obj/item/weapon/flasher,/turf/simulated/floor/plating,/area/ship/deck_1)
+"tP" = (/obj/structure/table{icon_state = "n"},/obj/machinery/camera,/turf/simulated/floor{blocks_air = 1},/area/ship/deck_1)
+"tQ" = (/obj/structure/reagent_dispensers/watertank,/obj/machinery/radio/intercom{tag = "icon-intercom (EAST)"; icon_state = "intercom"; dir = 4},/turf/simulated/floor/blue,/area/ship/deck_1)
+"tR" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tS" = (/obj/structure/table{icon_state = "n"},/obj/machinery/microwave,/turf/simulated/floor/blue,/area/ship/deck_1)
+"tT" = (/obj/structure/table{icon_state = "n"},/obj/item/weapon/reagent_containers/glass,/obj/item/weapon/reagent_containers/glass,/turf/simulated/floor/orange,/area/ship/deck_1)
+"tU" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"tV" = (/obj/structure/sign{tag = "icon-space"; icon_state = "space"},/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#cccccc"},/area/ship/deck_1)
+"tW" = (/obj/machinery/simple_apc{dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#cccccc"},/area/ship/deck_1)
+"tX" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor/orange,/area/ship/deck_1)
+"tY" = (/obj/machinery/simple_apc{charge = 218882; load = 195; isprocessing = 1; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_nsw"},/area/ship/deck_1)
+"tZ" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (SOUTHWEST)"; icon_state = "comfychair_2"; dir = 10},/turf/simulated/floor{tag = "icon-15"; icon_state = "15"},/area/ship/deck_1)
+"ua" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (WEST)"; icon_state = "comfychair_2"; dir = 8},/turf/simulated/floor{tag = "icon-13"; icon_state = "13"},/area/ship/deck_1)
+"ub" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (WEST)"; icon_state = "comfychair_2"; dir = 8},/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
+"uc" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (NORTHWEST)"; icon_state = "comfychair_2"; dir = 9},/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
+"ud" = (/obj/structure/stool/comfychair{tag = "icon-comfychair_2 (NORTHEAST)"; icon_state = "comfychair_2"; dir = 5},/turf/simulated/floor{tag = "icon-5"; icon_state = "5"},/area/ship/deck_1)
+"ue" = (/turf/simulated/floor{tag = "icon-15"; icon_state = "15"},/area/ship/deck_1)
+"uf" = (/turf/simulated/floor{tag = "icon-10"; icon_state = "10"},/area/ship/deck_1)
+"ug" = (/turf/simulated/floor{tag = "icon-13"; icon_state = "13"},/area/ship/deck_1)
+"uh" = (/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
+"ui" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#cccccc"},/area/ship/deck_1)
+"uj" = (/turf/simulated/floor{tag = "icon-14"; icon_state = "14"},/area/ship/deck_1)
+"uk" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#777776"},/area/ship/deck_1)
+"ul" = (/obj/structure/table,/turf/simulated/floor{tag = "icon-14"; icon_state = "14"},/area/ship/deck_1)
+"um" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor{tag = "icon-17"; icon_state = "17"},/area/ship/deck_1)
+"un" = (/turf/simulated/floor{tag = "icon-5"; icon_state = "5"},/area/ship/deck_1)
+"uo" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor,/area/ship/deck_1)
+"up" = (/obj/structure/table,/turf/simulated/floor{tag = "icon-15"; icon_state = "15"},/area/ship/deck_1)
+"uq" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor{tag = "icon-5"; icon_state = "5"},/area/ship/deck_1)
+"ur" = (/obj/critter/mouse,/turf/simulated/floor/plating,/area/ship/deck_1)
+"us" = (/turf/simulated/floor{tag = "icon-17"; icon_state = "17"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"ut" = (/obj/structure/table,/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
+"uu" = (/obj/structure/table{icon_state = "nw"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"uv" = (/turf/simulated/floor{tag = "icon-15"; icon_state = "15"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"uw" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; dir = 1; color = "#f2f2ef"},/turf/simulated/floor{tag = "icon-14"; icon_state = "14"},/area/ship/deck_1)
+"ux" = (/turf/simulated/floor{tag = "icon-2"; icon_state = "2"},/area/ship/deck_1)
+"uy" = (/turf/simulated/floor{tag = "icon-3"; icon_state = "3"},/area/ship/deck_1)
+"uz" = (/turf/simulated/wall/newicon{icon_state = "w_ne"; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"uA" = (/turf/simulated/wall/newicon{icon_state = "w_sw"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"uB" = (/obj/structure/decor{tag = "icon-decor5"; icon_state = "decor5"},/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
+"uC" = (/obj/item/weapon/fire_ext,/turf/simulated/floor{tag = "icon-0"; icon_state = "0"},/area/ship/deck_1)
+"uD" = (/turf/simulated/wall/newicon{icon_state = "w_se"; maptext_width = 32; maptext_height = 32; color = "#d8d8d6"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"uE" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"uF" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#cccccc"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"uG" = (/turf/simulated/wall/newicon{icon_state = "w_ews"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"uH" = (/turf/simulated/wall/newicon{icon_state = "w_wn"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"uI" = (/obj/structure/table{icon_state = "e"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"uJ" = (/obj/machinery/vending/cola,/turf/simulated/floor,/area/ship/deck_1)
+"uK" = (/obj/structure/table{icon_state = "se"},/obj/item/weapon/storage/box/medbox,/turf/simulated/floor,/area/ship/deck_1)
+"uL" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/storage/box/medbox,/turf/simulated/floor,/area/ship/deck_1)
+"uM" = (/obj/structure/table{icon_state = "se"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"uN" = (/obj/structure/table{icon_state = "we2"},/turf/simulated/floor/plating,/area/ship/deck_1)
+"uO" = (/obj/machinery/vending/trademat,/turf/simulated/floor,/area/ship/deck_1)
+"uP" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor{blocks_air = 1},/area/ship/deck_1)
+"uQ" = (/obj/structure/table,/obj/item/weapon/soap,/turf/simulated/floor,/area/ship/deck_1)
+"uR" = (/obj/machinery/consol/arcade,/turf/simulated/floor,/area/ship/deck_1)
+"uS" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor/plating{blocks_air = 1},/area/ship/deck_1)
+"uT" = (/obj/machinery/simple_apc{charge = 623073; load = 155; isprocessing = 1; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area/ship/deck_1)
+"uU" = (/obj/item/ai_module/patrolbot,/turf/simulated/floor/plating,/area/ship/deck_1)
+"uV" = (/obj/machinery/lamp{charge = 622900; isprocessing = 1; luminosity = 5; color = "#cccccc"},/turf/simulated/wall/newicon{icon_state = "w_ew"; color = "#777776"},/area/ship/deck_1)
+"uW" = (/obj/botsignaler,/turf/simulated/floor/LUNAstairs{icon_state = "downstairs1"; ladderid = 2; tag = "icon-downstairs1"},/area/ship/deck_1)
+"uX" = (/obj/botsignaler,/turf/simulated/floor/LUNAstairs{ladderid = 4},/area/ship/deck_1)
+"uY" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area/ship/deck_1)
+"uZ" = (/obj/item/seeds/chiliseed,/turf/simulated/floor/plating,/area/ship/deck_1)
+"va" = (/turf/simulated/wall/newicon{icon_state = "w_wn"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vb" = (/obj/structure/table{icon_state = "e"},/obj/item/weapon/wrench,/turf/simulated/floor,/area/ship/deck_1)
+"vc" = (/obj/structure/table{icon_state = "we"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area/ship/deck_1)
+"vd" = (/obj/structure/table{icon_state = "w"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area/ship/deck_1)
+"ve" = (/obj/structure/closet/crate,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vf" = (/turf/simulated/wall/newicon/window{icon_state = "window_w2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vg" = (/turf/simulated/wall/newicon/window{icon_state = "window_fullwe"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vh" = (/turf/simulated/wall/newicon/window{icon_state = "window_e2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vi" = (/obj/item/bomb/smokebomb,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vj" = (/obj/critter/mouse,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vk" = (/obj/structure/reagent_dispensers/watertank,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vl" = (/obj/machinery/airlock{isprocessing = 1},/turf/simulated/floor/plating{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vm" = (/obj/structure/reagent_dispensers/dieseltank,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vn" = (/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vo" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor/plating{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vp" = (/obj/machinery/simple_apc{tag = "icon-apc (NORTH)"; icon_state = "apc"; dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vq" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out (WEST)"; icon_state = "shuttle_out"; dir = 8},/area/ship/shuttle_station)
+"vr" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out (NORTHEAST)"; icon_state = "shuttle_out"; dir = 5},/area/ship/shuttle_station)
+"vs" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle"; icon_state = "shuttle"},/area/ship/shuttle_station)
+"vt" = (/obj/machinery/simple_smes,/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vu" = (/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vv" = (/obj/machinery/lamp,/turf/simulated/wall/shuttle{tag = "icon-shuttle"; icon_state = "shuttle"},/area/ship/shuttle_station)
+"vw" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out (EAST)"; icon_state = "shuttle_out"; dir = 4},/area/ship/shuttle_station)
+"vx" = (/obj/machinery/solar,/turf/unsimulated/floor/catwalk{tag = "icon-engine"; icon_state = "engine"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vy" = (/obj/structure/decor{tag = "icon-generator"; icon_state = "generator"},/turf/simulated/floor,/area/ship/shuttle_station)
+"vz" = (/obj/structure/closet/crate,/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vA" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vB" = (/obj/structure/grille{tag = "icon-grille (NORTHWEST)"; icon_state = "grille"; dir = 9},/turf/simulated/wall/window/shuttle{tag = "icon-sh1w1 (EAST)"; icon_state = "sh1w1"; dir = 4},/area/ship/shuttle_station)
+"vC" = (/obj/machinery/simple_apc,/turf/simulated/wall/shuttle{tag = "icon-shuttle"; icon_state = "shuttle"},/area/ship/shuttle_station)
+"vD" = (/obj/structure/stool/chair,/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vE" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vF" = (/obj/structure/table,/obj/machinery/consol/cargo/mining_shuttle,/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vG" = (/obj/structure/grille{tag = "icon-grille (EAST)"; icon_state = "grille"; dir = 4},/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vH" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out"; icon_state = "shuttle_out"},/area/ship/shuttle_station)
+"vI" = (/turf/simulated/wall/window/shuttle{tag = "icon-sh1w1"; icon_state = "sh1w1"},/area/ship/shuttle_station)
+"vJ" = (/obj/structure/decor{anchored = 1; icon_state = "shuttle_decor1"; tag = "icon-shuttle_decor1"},/turf/simulated/wall/shuttle{tag = "icon-shuttle_out"; icon_state = "shuttle_out"},/area/ship/shuttle_station)
+"vK" = (/obj/machinery/airlock{charge = 211901; isprocessing = 1; tag = "icon-close (EAST)"; dir = 4; color = "#c6c6c4"},/turf/simulated/floor/plating,/area/ship/shuttle_station)
+"vL" = (/turf/simulated/wall/shuttle{tag = "icon-shuttle_out (NORTH)"; icon_state = "shuttle_out"; dir = 1},/area/ship/shuttle_station)
+"vM" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vN" = (/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#f2f2ef"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vO" = (/turf/simulated/wall/newicon{icon_state = "w_sw"; maptext_width = 32; maptext_height = 32; color = "#f2f2ef"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vP" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = "#d8d8d6"},/area)
+"vQ" = (/obj/machinery/airlock{charge = 211901; isprocessing = 1; tag = "icon-close (EAST)"; dir = 4; color = "#c6c6c4"},/turf/simulated/floor,/area)
+"vR" = (/turf/simulated/floor/plating{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vS" = (/obj/machinery/lamp,/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vT" = (/turf/simulated/wall/newicon/window{icon_state = "window_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vU" = (/obj/machinery/minicontrolleronwall/air_alarm,/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vV" = (/obj/structure/sign{tag = "icon-nosmoke"; icon_state = "nosmoke"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vW" = (/obj/structure/sign{tag = "icon-space"; icon_state = "space"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vX" = (/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vY" = (/obj/structure/decor{tag = "icon-decor5"; icon_state = "decor5"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"vZ" = (/obj/structure/closet/oxygen,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wa" = (/obj/machinery/ind_smelter{tag = "icon-ind_smelt (NORTH)"; icon_state = "ind_smelt"; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wb" = (/obj/structure/table,/obj/machinery/consol/message,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wc" = (/obj/structure/table,/obj/structure/decor{tag = "icon-cigarettes"; icon_state = "cigarettes"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wd" = (/obj/machinery/conveyor,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"we" = (/obj/structure/closet/crate,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wf" = (/obj/structure/closet/crate/antimatter,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wg" = (/obj/machinery/simple_apc{charge = 218882; load = 125; isprocessing = 1; tag = "icon-apc (NORTH)"; dir = 1; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wh" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor/blue,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wi" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wj" = (/obj/structure/decor/cryo_spawn{tag = "icon-cryo (EAST)"; icon_state = "cryo"; dir = 4},/turf/simulated/floor/blue,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wk" = (/turf/simulated/floor/blue,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wl" = (/obj/machinery/vending/tea{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wm" = (/obj/structure/table,/obj/item/credits/c50,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wn" = (/obj/machinery/vending/snacks{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wo" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wp" = (/obj/structure/table{icon_state = "s"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wq" = (/obj/structure/table{icon_state = "we"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wr" = (/obj/structure/closet,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"ws" = (/obj/machinery/vending/cola{tag = "icon-default (EAST)"; icon_state = ""; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wt" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wu" = (/obj/structure/table,/obj/item/weapon/radar,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wv" = (/obj/structure/closet/crate/shaft,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"ww" = (/obj/structure/closet/oxycrate,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wx" = (/obj/item/weapon/fire_ext,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wy" = (/obj/structure/table,/obj/structure/table,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wz" = (/obj/machinery/airlock/glassairlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wA" = (/obj/structure/table,/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wB" = (/obj/structure/closet,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wC" = (/obj/structure/closet/oxygen,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wD" = (/obj/structure/closet/materials,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wE" = (/obj/structure/table,/obj/machinery/tablelamp,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wF" = (/obj/machinery/airlock/glassairlock{tag = "icon-close (NORTH)"; icon_state = "close"; dir = 1},/turf/simulated/floor{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wG" = (/obj/structure/table{icon_state = "n"},/obj/item/weapon/storage/box/backpack,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wH" = (/obj/machinery/conveyor_switch,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wI" = (/obj/machinery/portable_machinery/cratebot,/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wJ" = (/turf/simulated/wall/newicon{icon_state = "w_se"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wK" = (/obj/machinery/vending/cola,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wL" = (/obj/structure/sign{tag = "icon-sign112"; icon_state = "sign112"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wM" = (/obj/structure/sign{tag = "icon-sign11"; icon_state = "sign11"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wN" = (/turf/simulated/floor{tag = "icon-floorA"; icon_state = "floorA"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wO" = (/obj/machinery/supertelepad,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wP" = (/obj/item/weapon/fire_ext,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wQ" = (/obj/machinery/airlock/glassairlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wR" = (/obj/structure/decor{icon_state = "shatters"; pixel_y = 32; pixel_z = -2; tag = "icon-shatters"},/turf/simulated/wall/newicon/window{icon_state = "window_w2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wS" = (/obj/structure/decor{icon_state = "shatters"; pixel_y = 32; pixel_z = -2; tag = "icon-shatters"},/turf/simulated/wall/newicon/window{icon_state = "window_e2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wT" = (/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wU" = (/turf/simulated/floor{tag = "icon-floor_eng1"; icon_state = "floor_eng1"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wV" = (/obj/machinery/airlock,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wW" = (/obj/structure/closet,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wX" = (/turf/simulated/wall/newicon{icon_state = "w_ewn"; color = "#f2f2ef"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wY" = (/obj/machinery/simple_apc{dir = 1},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"wZ" = (/obj/structure/table{icon_state = "s"},/obj/machinery/consol/message{tag = "icon-shuttle (WEST)"; icon_state = "shuttle"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xa" = (/obj/machinery/autholate,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xb" = (/obj/machinery/ATM,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xc" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor{tag = "icon-floor_eng1"; icon_state = "floor_eng1"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xd" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xe" = (/obj/machinery/autholate/floortolathe,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xf" = (/obj/botsignaler,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xg" = (/obj/structure/table{icon_state = "ne"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xh" = (/obj/structure/table{icon_state = "we"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xi" = (/obj/structure/table{icon_state = "w"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xj" = (/obj/structure/closet/books{tag = "icon-books1 (EAST)"; icon_state = "books1"; dir = 4},/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xk" = (/obj/structure/sign{dir = 8; icon_state = "metroid"; pixel_y = 0; pixel_z = 15; tag = "icon-metroid (WEST)"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xl" = (/obj/structure/closet/oxycrate,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xm" = (/obj/structure/closet/materials,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xn" = (/obj/structure/table{icon_state = "se"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xo" = (/obj/structure/table{icon_state = "w"},/obj/structure/decor{tag = "icon-decor55"; icon_state = "decor55"; color = "#d8d8d6"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xp" = (/obj/structure/decor{icon_state = "shatters"; pixel_y = 32; pixel_z = -2; tag = "icon-shatters"},/turf/simulated/wall/newicon/window{icon_state = "window_fullwe"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xq" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area)
+"xr" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/paper,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xs" = (/turf/simulated/floor{tag = "icon-carpet_8"; icon_state = "carpet_8"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xt" = (/turf/simulated/floor{tag = "icon-carpet_6"; icon_state = "carpet_6"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xu" = (/obj/machinery/simpleonwall/recharger,/turf/simulated/floor{tag = "icon-carpet_2"; icon_state = "carpet_2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xv" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xw" = (/obj/structure/sign{icon_state = "monkey22"; pixel_x = -16; pixel_y = 0; pixel_z = 11; tag = "icon-monkey22"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area)
+"xx" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/pen,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xy" = (/turf/simulated/floor{tag = "icon-carpet_3"; icon_state = "carpet_3"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xz" = (/turf/simulated/floor{tag = "icon-carpet_221"; icon_state = "carpet_221"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xA" = (/obj/structure/table,/obj/machinery/consol/camera_control{tag = "icon-sec_consol (WEST)"; icon_state = "sec_consol"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xB" = (/obj/item/module/power_alert_module,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xC" = (/obj/structure/stool/chair,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xD" = (/obj/structure/stool/chair{tag = "icon-chair (EAST)"; icon_state = "chair"; dir = 4},/turf/simulated/floor{tag = "icon-carpet_221"; icon_state = "carpet_221"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xE" = (/obj/structure/table,/obj/machinery/consol/command{tag = "icon-command (WEST)"; icon_state = "command"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xF" = (/obj/machinery/lamp,/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xG" = (/obj/structure/table{icon_state = "n"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xH" = (/obj/structure/table,/obj/machinery/consol{tag = "icon-consol (WEST)"; icon_state = "consol"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xI" = (/obj/item/credits/c50,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xJ" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xK" = (/obj/machinery/minicontrolleronwall/air_alarm,/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xL" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#f2f2ef"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xM" = (/obj/structure/table,/obj/machinery/printer,/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xN" = (/obj/structure/sign{tag = "icon-alert"; icon_state = "alert"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xO" = (/obj/item/weapon/storage/box/backpack/jetpack,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xP" = (/turf/simulated/floor{tag = "icon-carpet_4"; icon_state = "carpet_4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xQ" = (/obj/machinery/airlock{isprocessing = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xR" = (/turf/simulated/floor{tag = "icon-carpet_11"; icon_state = "carpet_11"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xS" = (/turf/simulated/floor{tag = "icon-carpet_5"; icon_state = "carpet_5"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xT" = (/turf/simulated/floor{tag = "icon-carpet_7"; icon_state = "carpet_7"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xU" = (/turf/simulated/wall/newicon{icon_state = "w_ewn"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xV" = (/turf/simulated/wall/newicon{icon_state = "w_nsw"; maptext_width = 32; maptext_height = 32; color = "#cccccc"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xW" = (/obj/structure/closet/oxygen,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xX" = (/obj/structure/decor{tag = "icon-decor_2"; icon_state = "decor_2"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xY" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"xZ" = (/turf/simulated/floor,/area)
+"ya" = (/obj/structure/decor{tag = "icon-decor_3"; icon_state = "decor_3"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yb" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yc" = (/turf/simulated/wall/newicon{icon_state = "w_ne"; maptext_width = 32; maptext_height = 32; color = "#a3a3a1"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yd" = (/obj/item/credits/c50,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"ye" = (/obj/structure/stool,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yf" = (/turf/simulated/wall/newicon{icon_state = "w_ne"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yg" = (/turf/simulated/wall/newicon{icon_state = "w_nse"; maptext_width = 32; maptext_height = 32; color = "#c6c6c4"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yh" = (/turf/simulated/wall/newicon{icon_state = "w_wn"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yi" = (/obj/structure/table,/obj/machinery/consol{tag = "icon-consol (EAST)"; icon_state = "consol"; dir = 4},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yj" = (/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yk" = (/obj/structure/table,/obj/item/device/health_analyzer,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yl" = (/obj/structure/table,/obj/machinery/consol,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"ym" = (/turf/simulated/floor{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yn" = (/obj/structure/table,/obj/machinery/consol/message{tag = "icon-shuttle (EAST)"; icon_state = "shuttle"; dir = 4},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yo" = (/obj/structure/stool/chair{tag = "icon-chair (NORTH)"; icon_state = "chair"; dir = 1},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yp" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yq" = (/obj/structure/table,/obj/machinery/consol/camera_control{tag = "icon-sec_consol (EAST)"; icon_state = "sec_consol"; dir = 4},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yr" = (/obj/structure/table,/obj/item/module/cubit_mining_module,/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"ys" = (/obj/structure/stool/chair{tag = "icon-chair (WEST)"; icon_state = "chair"; dir = 8},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yt" = (/obj/structure/table,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yu" = (/obj/structure/stool,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yv" = (/obj/structure/decor{tag = "icon-decor5"; icon_state = "decor5"},/turf/simulated/floor{tag = "icon-carpet_893"; icon_state = "carpet_893"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yw" = (/obj/item/module/cubit_mining_module,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yx" = (/obj/item/module/small_power_controller,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yy" = (/turf/simulated/wall/newicon{icon_state = "w_nse"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yz" = (/obj/machinery/airlock{tag = "icon-close (EAST)"; icon_state = "close"; dir = 4; isprocessing = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yA" = (/obj/machinery/lamp{charge = 1000; isprocessing = 1; tag = "icon-lamp (NORTH)"; dir = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ns"; maptext_width = 32; maptext_height = 32; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yB" = (/turf/simulated/wall/newicon{icon_state = "w_nsw"; color = "#777776"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yC" = (/obj/structure/sign{tag = "icon-retrowave"; icon_state = "retrowave"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yD" = (/turf/simulated/floor{tag = "icon-engine"; icon_state = "engine"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yE" = (/turf/simulated/wall/newicon{icon_state = "w_sw"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yF" = (/obj/structure/closet/oxygen{tag = "icon-oxygen (EAST)"; icon_state = "oxygen"; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yG" = (/obj/structure/sign{tag = "icon-fire"; icon_state = "fire"},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yH" = (/obj/machinery/lamp{charge = 211901; isprocessing = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yI" = (/obj/machinery/simple_apc,/turf/simulated/wall/newicon{icon_state = "w_ew"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yJ" = (/obj/structure/ladder{ladderid = 3},/turf/simulated/wall/newicon{icon_state = "w_ew"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yK" = (/turf/simulated/wall/newicon{icon_state = "w_wn"; maptext_width = 32; maptext_height = 32; color = "#d8d8d6"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yL" = (/obj/item/credits/c10,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yM" = (/obj/item/weapon/paper/randomcontent,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yN" = (/obj/structure/sign{tag = "icon-sign113"; icon_state = "sign113"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yO" = (/obj/item/module/flasher,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yP" = (/obj/machinery/tablelamp/lamp3,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yQ" = (/obj/item/module/cubit_mining_module,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yR" = (/obj/structure/sign{icon_state = "monkey22"; pixel_x = -16; pixel_y = 0; pixel_z = 11; tag = "icon-monkey22"},/turf/simulated/wall/newicon{icon_state = "w_ns"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yS" = (/obj/item/seeds/carrotseed,/turf/simulated/floor/plating,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yT" = (/obj/item/seeds/libertymycelium,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yU" = (/obj/structure/closet{tag = "icon-closed (EAST)"; icon_state = "closed"; dir = 4},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yV" = (/obj/structure/table{icon_state = "s"},/obj/item/weapon/storage/box/toolbox{tag = "icon-red"; icon_state = "red"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yW" = (/obj/structure/table{icon_state = "sw"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yX" = (/obj/item/weapon/saw,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yY" = (/obj/structure/table{icon_state = "ne"},/obj/item/weapon/screwdriver,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"yZ" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/storage/box/toolbox{tag = "icon-red"; icon_state = "red"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"za" = (/obj/structure/table{icon_state = "ns"},/obj/item/weapon/radar,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zb" = (/obj/structure/table{icon_state = "s"},/obj/item/seeds/appleseed,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zc" = (/obj/item/clothing/suit/NTspace,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zd" = (/turf/simulated/wall/newicon{icon_state = "w_ews"; maptext_width = 32; maptext_height = 32; color = null},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"ze" = (/obj/machinery/vending/tools{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zf" = (/obj/item/weapon/sign,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zg" = (/obj/item/clothing/suit/soviet,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zh" = (/obj/structure/table{icon_state = "we2"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zi" = (/obj/machinery/vending/materials{tag = "icon-default (NORTH)"; icon_state = ""; dir = 1},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zj" = (/obj/item/weapon/weldingtool,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zk" = (/obj/structure/table{icon_state = "ns"},/obj/item/device/analyzer,/obj/item/device/analyzer,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zl" = (/obj/item/clothing/suit/syndispace,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zm" = (/obj/structure/table{icon_state = "ne"},/obj/item/device/health_analyzer,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zn" = (/obj/structure/table{icon_state = "we1"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zo" = (/obj/structure/table{icon_state = "nw"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zp" = (/obj/machinery/autholate,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zq" = (/obj/structure/table{icon_state = "sw"},/obj/item/weapon/storage/box/toolbox{tag = "icon-yellow"; icon_state = "yellow"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zr" = (/obj/machinery/autholate/floortolathe,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zs" = (/obj/structure/table{icon_state = "ne"},/obj/item/weapon/storage/box/toolbox{tag = "icon-blue"; icon_state = "blue"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zt" = (/obj/structure/table{icon_state = "nw"},/obj/item/weapon/wrench,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zu" = (/obj/machinery/lamp{charge = 211901; isprocessing = 1; luminosity = 5; color = "#f2f2ef"},/turf/simulated/wall/newicon{icon_state = "w_ewn"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zv" = (/obj/machinery/airlock/glassairlock,/turf/simulated/floor{blocks_air = 1},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zw" = (/turf/simulated/wall/newicon{icon_state = "w_ews"; maptext_width = 32; maptext_height = 32; color = "#a3a3a1"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zx" = (/obj/botsignaler,/turf/simulated/floor/LUNAstairs{icon_state = "downstairs2"; ladderid = 4; tag = "icon-downstairs2"},/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zy" = (/turf/simulated/floor/catwalk,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zz" = (/obj/structure/table{icon_state = "e"},/obj/structure/table{icon_state = "e"},/obj/item/seeds/amanitamycelium,/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
+"zA" = (/obj/structure/table{icon_state = "w"},/obj/structure/table{icon_state = "w"},/turf/simulated/floor,/area{sound = 'space1.ogg'; tag = "/area"; luminosity = 0})
 
 (1,1,1) = {"
 aaabacadaeafagahaiajakaealamanaoapahamaeaqarakaqasamababanatafauacavatawaeaxabaoayatafavaxazapaAaBabaeaqafaaaxamaCazaDaEaladalaFaraqagajamalaoaAadadanamadaAatamaeaGaAafavaHanaCavaA
@@ -1663,94 +1670,94 @@ eQelfXeVepfKereEfpewfifMfxfWeAegdYfFeGedeDeaetpQqipFqjqkqlpFqmiBbvbvqnbCcVcVbvgn
 fgdHfrfkeeeiegdOeLfDfzfiegemfafbeGffepfiffdXfihzgkpFgegfiXqrgfhhgXbvhHbvbvcVbvgnqsgwpVqtqugwgwhzgfgfgggfgfhOhhbvbvgncVbvcVqvgnqwcVgnfRfCeXeodHfOeFdOfvfpehehfbeTdPdReheIeHeifpfoeidW
 eQeTeZfTeTeqdJfcfQfzfFftfzeVeQfefgfveOeYedfFfMhzgoqxiWqyqzhpqAjZqBbvqncVbvbvbvgngwgwgwqsgwgwqCgnqDbvbvbvqElciwbvbvigbvcVcVcVbEgfcViwfNdNeUdVeqeLdOfLfOfDeneKfddJfierdWekfJeteeezfafO
 fgeceDdQdYeteeejeRehdQeWffdZfefieDflfbfYfmdXehjZcVcVhaqFhpqGhphabvbvqHgfgfqIhYhQgfqIgfhmgfgfgfhhbvizqJbvqKbviBlflfjZcVcVcVbvgQcVcViEdSepfQeSfrfQeoekfMereZfvfbeqeNfufZfeeGeBdPeWecfy
-fdfXfmeNfAfQeTejeHfMeNffekfyeWeieaeldUebeUeieygncVcVqLhphphphpgnbvbvhHbvbvbvbvbvcVbvbvcVbvbvbvjZbvqMqNqDbvbvhHbvbvgncVbvcVcVjZcVcViBfnfudJdOeFfKedeldPfcehfueveSftdPekfoeeeGeXeLevff
-eOeMeLfLfteVePeMfifWfGfsfbfZfxekfOdWfHfSfBfteNgWgkcViRgtgfgfgtgubvbvjZbvcVcVcVcVcVcVcVqOcVcVbvgnbvbvjcjcjcjeigbvbvgncVcVbvppigcVgeguftfbfCeyftfHeTfnftfZerezefevdZeKeLfmfDfdeffLdSdU
-eOdKePfDflezfAeMfFereteqeedUeAfdegePdLeVfneQdYetjZcVcVgnhGhGgnbvbvbvgncVcVcVcVbvcVcVcVcVbvcVbvjLbvizqPbvbvhWqhbvbvjRhPgfgfgfgucVgnfCfBeqeKdYdJeteWeKdWfcdPekeUeidRdHexdSezefeeenfSdV
-dYeHfyeWeweXeofofSesfSfMexdYeKexeKfKfGfkfZfgfqeugnkfcVhabvbvhabvbvbvgngXcVcVcVcVcVcVcVbvcVcVbvgnbviFqQqRiOjZbvbvbvgQcVcVcVcVcVcVgngafrfQesehfcfWfidLfRfddMfzeUekfSdQejegfgeSfjeqfZfl
-dKeofPfueLfKdQeSeoeIfNeeecfbeVfPfQdGdWfifoeFgeiXhQgkcVjZbvbvjZqSbvbvgnbvcVcVcVbvcVcVbvcVcVcVbvgngXqRbviObviEbvbvbvqTcVcVcVcVcVcVgndJeIfbfffQfueffvegepfodMdWdReHeLdZeIfDeWeifCerfydG
-ekfxfYeVdKfYezemeCeleseNfZfueQeeeffNeqgaepfgiwcVcVhacVgQbvbvhHbvbvbvhzhYgfgfgfgfqIgfgfgkbvcVbvgnqUiziAjHbviEbvbvgegogfhPgfgfjMcVgneXeRfEfHfKebegehdQfHfAeddKeDdNfzeIdPdWeOewfjfNdYdT
-ewfPfpeqfQeEdVejdGefeNesfgeldPehfPfUfSejfWftiEcVcVcVcVgnbvbvhHbvbvbvhHbvhGqVqViLiMqWiNgnbvcVbvhabviFqXbvbviEbvbvjZqYqZbvbvbvracVgWgkemfefGfzfYdJeafKfNfReXetfdfaezemdKdJeVeDeyfReaft
-ekekeufLecedfUdWfdfEfcfkfBeofSewdQdSdWfvfCeJiBcVcVcVgehQhYgfrbbvbvbvgnrcbvbvbvbvbvbvbvgncVcVbvjZbvqRrdrebviBbvbvgnbvbvrfiOgfrgcVcVgneGfJdOdXeTdWfOfEfbeoeSecdVfKfneLeoeweGebdIfNeqeL
-eOfyeffyfffffTeVejeNemfiesfufReOerfLeCfOeYekgWgkcVbigurhrhriiwbvbvbvgnrcbvbvbvbvbvbvbvgnbvbvbvgQbvbvbvbvbvhHbvbvpObvkBiOiOiOgncVcVgWgkeQftdUePfVewexeIdTdYegdGeJfGdPeedGfXeUeefxfxfR
-fdfCeRdYeDfRezdJfHfKfCeletejfnfAeFfzfVeGdNeSewgncVgQbvbvbvbviEbvbvgehQgfgfqIgfgfhOgfgfgtgfgfiliWrjbvbvjsjshabvbvgniLiMiNiOiOhzgkcVkyiwegdIfRdJeJeZdRfmfKfQfrfAfPfJfQfHexdQeQeHeDgaeB
-fJfwfufmdWfffIfBeOeFekemepekfpfudVeUdHfSejewgerkcVrliobvbvbviEbvbvgnrmrnbvbvkBkibvrorojZcVcVcVhzghgigigigirpbvbvhzhDhPgfgfgfhQhhcVkyiBeZeufheYemekfjeOfqeEeOfGfSeSebdUfueMftfxfdfgfY
-fJflemeafwexeAeaeCdZeOeYfKeBfxevfxemeidVfMeWiwcVcVharqbvbvrriBbvbvjXbvbvbvrsrtbvbvbvbvgQcVcVcVgnbvbvbvbvbvbvbvbviwbCbCbCbCkBkBjZcVcVhzhYhPgfgfgfgkeddVdGdJdGfGdLenfheBfSfheUfUeaflfI
-fmeHegdNeMftdXebdHeUfjeTegfVfbeqdVfRfHfqfReEiEcVcVgWgkhbbvbvhHbvbvjZrubvrubvbvbvrsbvrvgYgfgfcVhabvbvbvbvbvbvbvbviEbCbvbvbvbvbvgQcVgegurwrwrwrwrwgnfKfSfneEdYdIdTfFdLdYfxeHfLdJfHdPeI
-fRejgaezfzfcfZepevdMfAdTdXfZdZfOeneifmemeleMiBcVcVcVgnrxbvbvrybvbvharubvrubvrzrArtbvbvgncVcVcVgnbvbvgehOqIgfgkbviBrBbvbvbvbvbvgncVgnrChphphphphpgneHfxdIfBfmfleUeLdLfifGgafgeJeMeVfs
-fmfLeFeSfYfgekfGecdNfrfQffetedfKeYfjeBfsfmdVmkgkcVgfhQgqhOqIbTbvbvgnrDbvrubviFiGbvbvbvgncVcVcVgnbvbvgniLrErFjRrGlirHhDgfgfqIhYbTcVhzgthBrIghgigjrJgkfpfDeNfWeieXfQecfmdKeHfBdPfeeXeN
-fmdIeXeUeafXdRdNeAfneueTewebfdfRebeWewdIeNdGeChMcVcVcVgQbvbvrKbvbvgWgfgghYiqrLhBpyrMbFgoggrNhYgopypybTbvcVbvqLhpqLhphprOrOhphpgQcVhzmShphphprPrPrPgneUedfgeIfMepesfMfpdMfHesfbeVfeeh
-eWfreidYfbeqfKepewfGfueneKfifMezemfXdOfBeMgadLgWghgigjrQbvbvrKbvbvbvbvbvbvbvbvbvqSbvbvbvbvbvbvbvbvbvgnbvrRbvbErSrThprUrVhphphpgncVhzguhphprVhphphpgndSfQdZeSfffAfXgafNdNdUfLeXesecdZ
-eWeFedfUeQeMdVeHfdfQeredfXeTdQeHfJfjeIfYfqeQfhfYeWfNeziwqSbvrKbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvgnbvbvbvqnrWhphphprXrXrXhpgncVgnrYhphphphphphpgnfOfmeOflfKeMecfNeAfgfwfIeefffteh
-dYeVeIeagaeLfwdHfmfGfjfnehehdJdUePetepfCdJfjfSfofzdUdTiBbvbvgYhOgfgfgtgfhYgggfhBosrZgfgthOgpgnbvbvgehQgfqIgfhQgtqIhpsasbscscsdgncVhasehpsfsgsgshhpgnfrflewfjdOfRfJfjexekfyfrfgdTekeu
-eWfzfGfOecfzfkfXdTfBebeDeseUfkeQfnfffXfCebfbfeeafWfigegubvbvgncVcVcVgnsisisisisicvcvsjgncVcVgnbvbvgnbvbvcVcVbvgnskhpsaslscsmsdgncVgnsnhpsospspsqhpgWgkeQeSeKdRfQesfQfbfheDeKdIeFeSen
-dKewfhfYeNdQevdKfGdHdQfifBeAfUePfGeqezeleEeZfVeWfqhWgubvbvbvrlcVcVcVrlsjgwgwgwgwgwsrsshzggcVgnbvbvgncVbvcVcVbvgnsthprUsususuhpgncVhzgkhphphphphphphpgnffeYdGeZegeteZeLeKfefAdUdZdGeF
-eDeyeEerfufEelfseKeCfLdZdRekeddQejdOevfheAfVfifuhWgubvbvbvbvgQcVcVcVhacCgwgwgwgwgwsrmFgncVcVgnqSbvgncVcVcVcVbvqLhphphphphphphpgncVhzhQgfgkhphphphphpgnfReSdZfTewdSeeeMevfRffftfZdHee
-fvdHfpfbfEftdOdSfudWeMemeEecebeXeJfigafEeeeaeNhWgubvbvbvgehAjDgfgkcVgnsvgwgwgwgwgwcvmEgncVcVgnbvbvhacVcVbvbvbvhzgfgfgfqIkzgfgfgoilswsxsyighpjPhFszhFbTehdUfwfAexfGeQfaeSeXeIdVfWehex
-ekfPeGdSfAfDekfWepemezetfkfAeKdMdTfffRfMeJeJdTrlbvbvbvgepUcVcVcVsAhlgWgkcvgwgwgegfqIgfhQgfcVgnbvbvgnbvcVcVcVbvgnhthphphphphphphphpqLhphpqLhpgnbvbvbvgneofHgaeJffdXefejfDeGfqeSfMemdU
-dYfZflebfWeNdHevfOdZeRfDeYeweQeneKdQdJfueCeefOiwbvbvgepUcVcVcVcVcVcWcVgWgkcvcvgncVcVcVcVgQcVgnbvbvgnbvcVbvcVbvqLhphphphpgegggfilgfbThphpgnhpgnsBgnbvgnfadOeveEeOfOecevfDexdOfqdPfffA
-fddMdUfxdWehgafCepfufadOeZfQeNejfsgaeqfkeKdLfViEbvbvhIcVcVcVcVgegfcVcVbvgncvcvgncVcVgegfgfgfhhbvbvgnbvbvbvbvbvjRgfgggfsCgncVcVcVcVhzgfgfhQgfhQgfhhbvgndRfXenfvfWeifofMfudLdZeGepfCfG
-fJfjeidReOfoeYeveIemehfudXebdKfXeifkeeeHedfvdIiBbvbvhzgfsDgpljgucVcVcVgfimgpgggucVcVgnlcsEiogYhFhFdwgfgggfhFgfiWbvcVbvbvhzgggfilgfgubvbvsFkibviogWgfhhfVeldGeleIdWdVemdLezeBdTfFevfP
-dYebfOfefDfwfyfjeKemegdSdWeOdQdQdQekexflfffCfQhagXbvbKcVcVcVgnbvcVcVcVcVcVcVcVcVcVcVjZsGbvsHgncVqSbvkibvkibvbvhHbvcVcVbvhHcVbvbvbvbvcVcVcVcVcViFiUiNgWgkeAevfofgdPfOejecfMeefteofudN
-eAfterdZfceLfmdReueBfYeUeugaeGeUfrejfdeofXdUfhiwbvbvsIcVcVcVhzgggfgtgfqIgfgqlhpTrNqIgusGbvsHgnbvbvbvjnbvbvbviognbCbvbvbvjZbvbvjpjsjpcVcVcVcVcVbvbvbviognffeLdPeteXfCfRfMeSdOegfgeveZ
-fNdYfaeXePfGeceFfDfrfderfAefeueCdMdPfnfzfTdPfyiEbvbvgncVgggfhhsJsKrlkibvkUgnqErlbviziNbvbvsHhabvbvcVjncVbvcViuhzsLsCsMgfhhbvcVjsjpjpcVbvsNsOcVcVcVbviugnfYfHfefkfCepezdSeifmfBfndQeC
-fqeUdMfGfIfteIeieVfadHfjfJeBehfFdLfOdHfpdIfSfQiBbvbvrlcVcWcVrlbvbvgngXbvbvgnbvbvbvsHbvbvbvsHgngXcVcVsPcVjsbvbvjZcVcVkibChabvcVbvbvbvbvbviFsQcVcVcVbvbvgneteoeyewfGeteQeMfKfJfpexewep
-fNeBeIfvfsfGelebdIfAeidTehfAerfDedfaeofOdUfMeWhabvbvhIcVcVcVhhbvbvgniziAbvhHbvbvbviFsRiNbviugnbCbvcVsSjnjojnjchMjcjcjnjchMjcjcjnjcjcbvbvbvbvbvbvbvbvbvgneveHfneufkfufFeldKdMesfAfTeJ
-eWeXeFfueofafyfKfMgafbfSfneQezdGebeefHeNfGeleHiwbvbvgWkVgpsDhCpypyiWiFiGbvgnsTsTbvbvbvbvbvbvpjjcjcjnsSjnjejcjcjvjnjnjcjchMjcjcjcsUhShAsVqghAhAljhFhFsziWejdXfYdUfHdNeYeefaeNeifzeTev
-eWehevdTdZdWeCfCeHevfEfOfoeAfXdIfSfnfPeFdGdPefiEbvbvbvbvbvbvbvbvbvrlbvbvbvrliziNbvbvbvbvbvbvsWjcbvjcsXjcjcjcjcjdjcjcjcjchMjejejcjcsYbvcVcVbvbviwbvbvbviwfsftevfzdMfffNeieaejfKeoeSdG
-fdeueleSebeFfNfWfxfpfYfofVepfZgadUfZezebelfreniBbvbvbvbvbvbvbvbvbvgnbvbvbvgniubvbvgnrhbvrdbvjvjcjcjcbvsZtatatatbsUjcjnjchMjejejcjcpQbvcVcVbvbviEbvbvbviEfWeOeqebfPedfFfVePeofxflfRex
-eWedeadSfrfXdZfjfFePdUeUfQeBeveceCeVfwdUfdeTdTgWghgigjgfgkqSbvgegfhQgfgfgfhhgXbvbvgnrhbvbvbvhHbvcVcVbvtctdtdtdtebvcVcVbvjRgfgfgfgpbTbvbvcVbvbviBbvbvbviBeBfCfUeMeidTeBeTewfAehePfnfm
-fvfVfpetfEfxfXfjdNeseafgdZeveIfcewfaeZfmehfjeNdYfsfVflethagXbvgntftgthtitjgWrHtkgttlgfgfgtgfbTbvcVbvbvtmtntntntobvcVbvbvgQcVcVcVcVhzhBsVghgigjrbbvbvgeguffeifofSdMdSdMfEfOeHdGeUftfK
-fvebfLeofrdNfNfifbeuezfqfWdJdRfnfxfcfbfQfXdUfIfZflfWeWfciwbvbvhahjhptphphjhphjtqgntrtsttgnbCgWgkbvbvcVbvbvcVbvbvjsjpbvbvgncVcVcVcVgniocVbCbvioiwbvbviwfyepdYfmfZfgeIdJfHdSeddTeNeBdY
-eDeidQdKebdSfhfWdLfWfEdTdWeYfUfyeefhfXfLeoeffNeUfAenfzePiEbvbvrlrChjhphjhphjhptugnbvbvbvgnbvbvigbvbvbvtvbvtwbvcVbvcVbvbvhzgfgpgfgggusHcVbvbvsHiEbvbviEdRgaeieafeeRfafXfxeLdVfNfSfaen
-ewfXfDetdZdJfZezfodSeSftedeSfkfifCfkeOfYftfOfefyeXeierfdiBbvbvgntxhphjhphjhphjtyhabvbvbvgnbvbvhKhFjEbvcVbvsHcVbvbvcVbviohabvbvkibviLiGbvcVbviuiBbvbviBdXdGfeetesdIerdJfMexeDfUeafBeX
-eOeJfuefeqesegfkfUejfkerezeffYeVdIfsdVdRfddYgegfgfgfgfgfhhbvbvgntzhjrXtAhphjhptBjZbvbvbvgnbvbCbvbvgnbvbvbvtCcVbviziAbvsHjZbvcVcVcVcVcVbvcVbvbvhabvbvgnfifNfceQepewfSfnfjfMfheQehfceX
-fdeKfTeudPfxfNehfLfkegedfvfvfQfLejfDfLfkeUfFtDiohGhGhGhGjZbvbvgntEhptFtGtHhphjtBhabvbvbvgnbvbvbvbvgnbvbvcVcVcVbvtIiGbviugnbvcVcViobvizjzsOcVbvhIbvbviweBdUemfWeTeufRfgeCfFeneieQeCdY
-eWejeKfpeNdYeBeJfBfIfNfjfpgaeteOfGfHdLfsevfShUtJbvbvbvbvgnbvbvgntKtLtMhjhphjhptNgnbvbvbvgniLiMiNbvgnbvbvbvbvcVbvbvbvbvbvbCbvbvbvtOcViFjYiGcVbvhHbvbviEeIfXfufsdOfWezfYejeHfydIfFfSfG
-dYfLfNdPfmfddQfoeFeffFfqemdUdTfffmeOeMeHhWtPcStQhApThFhDlipypyhQgfiXgftRgfqIiqgfgubvbvbvgWhYgfqIgftSbvbvbvbvbvbvbvbCbvbvhHbviLiMiGbvbvbvbvbvbvhIbvbviBgafpereXfVfYeSdQfyfKeDemfHfpfR
+fdfXfmeNfAfQeTejeHfMeNffekfyeWeieaeldUebeUeieygncVcVqLhphphphpgnbvbvpccvcvcvcvcvcvcvcvcvcvcvcvjZbvqMqNqDbvbvhHbvbvgncVbvcVcVjZcVcViBfnfudJdOeFfKedeldPfcehfueveSftdPekfoeeeGeXeLevff
+eOeMeLfLfteVePeMfifWfGfsfbfZfxekfOdWfHfSfBfteNgWgkcViRgtgfgfgtgubvbvjZcvqOqOqOqOqOcvcvqPqPqQcvgnbvbvjcjcjcjeigbvbvgncVcVbvppigcVgeguftfbfCeyftfHeTfnftfZerezefevdZeKeLfmfDfdeffLdSdU
+eOdKePfDflezfAeMfFereteqeedUeAfdegePdLeVfneQdYetjZcVcVgnhGhGgnbvbvbvgncvqOqOqOqOqOcvcvqPqPqRcvjLbvizqSbvbvhWqhbvbvjRhPgfgfgfgucVgnfCfBeqeKdYdJeteWeKdWfcdPekeUeidRdHexdSezefeeenfSdV
+dYeHfyeWeweXeofofSesfSfMexdYeKexeKfKfGfkfZfgfqeugnkfcVhabvbvhabvbvbvgnqTqOqOqOqOqOcvcvqUqVqWcvgnbviFqXqYiOjZbvbvbvgQcVcVcVcVcVcVgngafrfQesehfcfWfidLfRfddMfzeUekfSdQejegfgeSfjeqfZfl
+dKeofPfueLfKdQeSeoeIfNeeecfbeVfPfQdGdWfifoeFgeiXhQgkcVjZbvbvjZqZbvbvgncvcvcvcvcvcvcvcvcvcvcvcvgngXqYbviObviEbvbvbvracVcVcVcVcVcVgndJeIfbfffQfueffvegepfodMdWdReHeLdZeIfDeWeifCerfydG
+ekfxfYeVdKfYezemeCeleseNfZfueQeeeffNeqgaepfgiwcVcVhacVgQbvbvhHbvbvbvhzhYgfgfgfgfqIgfgfgkcvcvcvgnrbiziAjHbviEbvbvgegogfhPgfgfjMcVgneXeRfEfHfKebegehdQfHfAeddKeDdNfzeIdPdWeOewfjfNdYdT
+ewfPfpeqfQeEdVejdGefeNesfgeldPehfPfUfSejfWftiEcVcVcVcVgnbvbvhHbvbvbvhHbvhGrcrciLiMrdiNgncvcvcvhabviFrebvbviEbvbvjZrfrgbvbvbvrhcVgWgkemfefGfzfYdJeafKfNfReXetfdfaezemdKdJeVeDeyfReaft
+ekekeufLecedfUdWfdfEfcfkfBeofSewdQdSdWfvfCeJiBcVcVcVgehQhYgfribvbvbvgnrjbvbvbvbvbvbvbvgncvcvcvjZbvqYrkrlbviBbvbvgnbvbvrmiOgfrncVcVgneGfJdOdXeTdWfOfEfbeoeSecdVfKfneLeoeweGebdIfNeqeL
+eOfyeffyfffffTeVejeNemfiesfufReOerfLeCfOeYekgWgkcVbigurororpiwbvbvbvgnrjbvbvbvbvbvbvbvgncvcvcvgQbvbvbvbvbvhHbvbvpObvkBiOiOiOgncVcVgWgkeQftdUePfVewexeIdTdYegdGeJfGdPeedGfXeUeefxfxfR
+fdfCeRdYeDfRezdJfHfKfCeletejfnfAeFfzfVeGdNeSewgncVgQbvbvbvbviEbvbvgehQgfgfqIgfgfhOgfgfgtgfgfiliWrqbvbvjsjshabvbvgniLiMiNiOiOhzgkcVkyiwegdIfRdJeJeZdRfmfKfQfrfAfPfJfQfHexdQeQeHeDgaeB
+fJfwfufmdWfffIfBeOeFekemepekfpfudVeUdHfSejewgerrcVrsiobvbvbviEbvbvgnrtrubvbvkBkibvrvrvjZcVcVcVhzghgigigigirwbvbvhzhDhPgfgfgfhQhhcVkyiBeZeufheYemekfjeOfqeEeOfGfSeSebdUfueMftfxfdfgfY
+fJflemeafwexeAeaeCdZeOeYfKeBfxevfxemeidVfMeWiwcVcVharxbvbvryiBbvbvjXbvbvbvrzrAbvbvbvbvgQcVcVcVgnbvbvbvbvbvbvbvbviwbCbCbCbCkBkBjZcVcVhzhYhPgfgfgfgkeddVdGdJdGfGdLenfheBfSfheUfUeaflfI
+fmeHegdNeMftdXebdHeUfjeTegfVfbeqdVfRfHfqfReEiEcVcVgWgkhbbvbvhHbvbvjZrBbvrBbvbvbvrzbvrCgYgfgfcVhabvbvbvbvbvbvbvbviEbCbvbvbvbvbvgQcVgegurDrDrDrDrDgnfKfSfneEdYdIdTfFdLdYfxeHfLdJfHdPeI
+fRejgaezfzfcfZepevdMfAdTdXfZdZfOeneifmemeleMiBcVcVcVgnrEbvbvrFbvbvharBbvrBbvrGrHrAbvbvgncVcVcVgnbvbvgehOqIgfgkbviBrIbvbvbvbvbvgncVgnrJhphphphphpgneHfxdIfBfmfleUeLdLfifGgafgeJeMeVfs
+fmfLeFeSfYfgekfGecdNfrfQffetedfKeYfjeBfsfmdVmkgkcVgfhQgqhOqIbTbvbvgnrKbvrBbviFiGbvbvbvgncVcVcVgnbvbvgniLrLrMjRrNlirOhDgfgfqIhYbTcVhzgthBrPghgigjrQgkfpfDeNfWeieXfQecfmdKeHfBdPfeeXeN
+fmdIeXeUeafXdRdNeAfneueTewebfdfRebeWewdIeNdGeChMcVcVcVgQbvbvrRbvbvgWgfgghYiqrShBpyrTbFgoggrUhYgopypybTbvcVbvqLhpqLhphprVrVhphpgQcVhzmShphphprWrWrWgneUedfgeIfMepesfMfpdMfHesfbeVfeeh
+eWfreidYfbeqfKepewfGfueneKfifMezemfXdOfBeMgadLgWghgigjrXbvbvrRbvbvbvbvbvbvbvbvbvqZbvbvbvbvbvbvbvbvbvgnbvrYbvbErZsahpsbschphphpgncVhzguhphpschphphpgndSfQdZeSfffAfXgafNdNdUfLeXesecdZ
+eWeFedfUeQeMdVeHfdfQeredfXeTdQeHfJfjeIfYfqeQfhfYeWfNeziwqZbvrRbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvgnbvbvbvqnsdhphphpsesesehpgncVgnsfhphphphphphpgnfOfmeOflfKeMecfNeAfgfwfIeefffteh
+dYeVeIeagaeLfwdHfmfGfjfnehehdJdUePetepfCdJfjfSfofzdUdTiBbvbvgYhYgfgfgtgfhYgggfhBossggfgthOgpgnbvbvgehQgfqIgfhQgtqIhpshsisjsjskgncVhaslhpsmsnsnsohpgnfrflewfjdOfRfJfjexekfyfrfgdTekeu
+eWfzfGfOecfzfkfXdTfBebeDeseUfkeQfnfffXfCebfbfeeafWfigegubvbvgncVcVcVgnspspspspspcvcvsqgncVcVgnbvbvgnbvbvcVcVbvgnsrhpshsssjstskgncVgnsuhpsvswswsxhpgWgkeQeSeKdRfQesfQfbfheDeKdIeFeSen
+dKewfhfYeNdQevdKfGdHdQfifBeAfUePfGeqezeleEeZfVeWfqhWgubvbvbvrscVcVcVrssqgwgwgwgwgwqOsyhzggcVgnbvbvgncVbvcVcVbvgnszhpsbsAsAsAhpgncVhzgkhphphphphphphpgnffeYdGeZegeteZeLeKfefAdUdZdGeF
+eDeyeEerfufEelfseKeCfLdZdRekeddQejdOevfheAfVfifuhWgubvbvbvbvgQcVcVcVhacCgwgwgwgwgwqOmFgncVcVgnqZbvgncVcVcVcVbvqLhphphphphphphpgncVhzhQgfgkhphphphphpgnfReSdZfTewdSeeeMevfRffftfZdHee
+fvdHfpfbfEftdOdSfudWeMemeEecebeXeJfigafEeeeaeNhWgubvbvbvgehAjDgfgkcVgnsBgwgwgwgwgwcvmEgncVcVgnbvbvhacVcVbvbvbvhzgfgfgfqIkzgfgfgoilsCsDsEighpjPhFsFhFbTehdUfwfAexfGeQfaeSeXeIdVfWehex
+ekfPeGdSfAfDekfWepemezetfkfAeKdMdTfffRfMeJeJdTrsbvbvbvgepUcVcVcVsGhlgWgkcvgwgwgegfqIgfhQgfcVgnbvbvgnbvcVcVcVbvgnhthphphphphphphphpqLhphpqLhpgnbvbvbvgneofHgaeJffdXefejfDeGfqeSfMemdU
+dYfZflebfWeNdHevfOdZeRfDeYeweQeneKdQdJfueCeefOiwbvbvgepUcVcVcVcVcVcWcVgWgkcvcvgncVcVcVcVgQcVgnbvbvgnbvcVbvcVbvqLhphphphpgegggfilgfbThphpgnhpgnsHgnbvgnfadOeveEeOfOecevfDexdOfqdPfffA
+fddMdUfxdWehgafCepfufadOeZfQeNejfsgaeqfkeKdLfViEbvbvhIcVcVcVcVgegfcVcVbvgncvcvgncVcVgegfgfgfhhbvbvgnbvbvbvbvbvjRgfgggfsIgncVcVcVcVhzgfgfhQgfhQgfhhbvgndRfXenfvfWeifofMfudLdZeGepfCfG
+fJfjeidReOfoeYeveIemehfudXebdKfXeifkeeeHedfvdIiBbvbvhzgfsJgpljgucVcVcVgfimgpgggucVcVgnlcsKiogYhFhFdwgfgggfhFgfiWbvcVbvbvhzgggfilgfgubvbvsLkibviogWgfhhfVeldGeleIdWdVemdLezeBdTfFevfP
+dYebfOfefDfwfyfjeKemegdSdWeOdQdQdQekexflfffCfQhagXbvbKcVcVcVgnbvcVcVcVcVcVcVcVcVcVcVjZsMbvsNgncVqZbvkibvkibvbvhHbvcVcVbvhHcVbvbvbvbvcVcVcVcVcViFiUiNgWgkeAevfofgdPfOejecfMeefteofudN
+eAfterdZfceLfmdReueBfYeUeugaeGeUfrejfdeofXdUfhiwbvbvsOcVcVcVhzgggfgtgfqIgfgqlhpTrUqIgusMbvsNgnbvbvbvjnbvbvbviognbCbvbvbvjZbvbvjpjsjpcVcVcVcVcVbvbvbviognffeLdPeteXfCfRfMeSdOegfgeveZ
+fNdYfaeXePfGeceFfDfrfderfAefeueCdMdPfnfzfTdPfyiEbvbvgncVgggfhhsPsQrskibvkUgnqErsbviziNbvbvsNhabvbvcVjncVbvcViuhzsRsIsSgfhhbvcVjsjpjpcVbvsTsUcVcVcVbviugnfYfHfefkfCepezdSeifmfBfndQeC
+fqeUdMfGfIfteIeieVfadHfjfJeBehfFdLfOdHfpdIfSfQiBbvbvrscVcWcVrsbvbvgngXbvbvgnbvbvbvsNbvbvbvsNgngXcVcVsVcVjsbvbvjZcVcVkibChabvcVbvbvbvbvbviFsWcVcVcVbvbvgneteoeyewfGeteQeMfKfJfpexewep
+fNeBeIfvfsfGelebdIfAeidTehfAerfDedfaeofOdUfMeWhabvbvhIcVcVcVhhbvbvgniziAbvhHbvbvbviFsXiNbviugnbCbvcVsYjnjojnjchMjcjcjnjchMjcjcjnjcjcbvbvbvbvbvbvbvbvbvgneveHfneufkfufFeldKdMesfAfTeJ
+eWeXeFfueofafyfKfMgafbfSfneQezdGebeefHeNfGeleHiwbvbvgWkVgpsJhCpypyiWiFiGbvgnsZsZbvbvbvbvbvbvpjjcjcjnsYjnjejcjcjvjnjnjcjchMjcjcjctahShAtbqghAhAljhFhFsFiWejdXfYdUfHdNeYeefaeNeifzeTev
+eWehevdTdZdWeCfCeHevfEfOfoeAfXdIfSfnfPeFdGdPefiEbvbvbvbvbvbvbvbvbvrsbvbvbvrsiziNbvbvbvbvbvbvtcjcbvjctdjcjcjcjcjdjcjcjcjchMjejejcjctebvcVcVbvbviwbvbvbviwfsftevfzdMfffNeieaejfKeoeSdG
+fdeueleSebeFfNfWfxfpfYfofVepfZgadUfZezebelfreniBbvbvbvbvbvbvbvbvbvgnbvbvbvgniubvbvgnrobvrkbvjvjcjcjcbvtftgtgtgthtajcjnjchMjejejcjcpQbvcVcVbvbviEbvbvbviEfWeOeqebfPedfFfVePeofxflfRex
+eWedeadSfrfXdZfjfFePdUeUfQeBeveceCeVfwdUfdeTdTgWghgigjgfgkqZbvgegfhQgfgfgfhhgXbvbvgnrobvbvbvhHbvcVcVbvtitjtjtjtkbvcVcVbvjRgfgfgfgpbTbvbvcVbvbviBbvbvbviBeBfCfUeMeidTeBeTewfAehePfnfm
+fvfVfpetfEfxfXfjdNeseafgdZeveIfcewfaeZfmehfjeNdYfsfVflethagXbvgntltmtntotpgWrOtqgttrgfgfgtgfbTbvcVbvbvtstttttttubvcVbvbvgQcVcVcVcVhzhBtbghgigjribvbvgeguffeifofSdMdSdMfEfOeHdGeUftfK
+fvebfLeofrdNfNfifbeuezfqfWdJdRfnfxfcfbfQfXdUfIfZflfWeWfciwbvbvhahjhptvhphjhphjtwgntxtytzgnbCgWgkbvbvcVbvbvcVbvbvjsjpbvbvgncVcVcVcVgniocVbCbvioiwbvbviwfyepdYfmfZfgeIdJfHdSeddTeNeBdY
+eDeidQdKebdSfhfWdLfWfEdTdWeYfUfyeefhfXfLeoeffNeUfAenfzePiEbvbvrsrJhjhphjhphjhptAgnbvbvbvgnbvbvigbvbvbvtBbvtCbvcVbvcVbvbvhzgfgpgfgggusNcVbvbvsNiEbvbviEdRgaeieafeeRfafXfxeLdVfNfSfaen
+ewfXfDetdZdJfZezfodSeSftedeSfkfifCfkeOfYftfOfefyeXeierfdiBbvbvgntDhphjhphjhphjtEhabvbvbvgnbvbvhKhFjEbvcVbvsNcVbvbvcVbviohabvbvkibviLiGbvcVbviuiBbvbviBdXdGfeetesdIerdJfMexeDfUeafBeX
+eOeJfuefeqesegfkfUejfkerezeffYeVdIfsdVdRfddYgegfgfgfgfgfhhbvbvgntFhjsetGhphjhptHjZbvbvbvgnbvbCbvbvgnbvbvbvtIcVbviziAbvsNjZbvcVcVcVcVcVbvcVbvbvhabvbvgnfifNfceQepewfSfnfjfMfheQehfceX
+fdeKfTeudPfxfNehfLfkegedfvfvfQfLejfDfLfkeUfFtJiohGhGhGhGjZbvbvgntKhptLtMtNhphjtHhabvbvbvgnbvbvbvbvgnbvbvcVcVcVbvtOiGbviugnbvcVcViobvizjzsUcVbvhIbvbviweBdUemfWeTeufRfgeCfFeneieQeCdY
+eWejeKfpeNdYeBeJfBfIfNfjfpgaeteOfGfHdLfsevfShUtPbvbvbvbvgnbvbvgntQtRtShjhphjhptTgnbvbvbvgniLiMiNbvgnbvbvbvbvcVbvbvbvbvbvbCbvbvbvtUcViFjYiGcVbvhHbvbviEeIfXfufsdOfWezfYejeHfydIfFfSfG
+dYfLfNdPfmfddQfoeFeffFfqemdUdTfffmeOeMeHhWtVcStWhApThFhDlipypyhQgfiXgftXgfqIiqgfgubvbvbvgWhYgfqIgftYbvbvbvbvbvbvbvbCbvbvhHbviLiMiGbvbvbvbvbvbvhIbvbviBgafpereXfVfYeSdQfyfKeDemfHfpfR
 eRfUezdVeSgafydWfQdQejezfPeudXeAfyeyfodOhHbvbvbvbvhHbvbvhHbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvcehFhFhFgggfpTgfhYgfgggfgfgfgqghgjgfghgigigjgubvbvgnereBeFedfOfKeUeqeBfwfueiekfMfn
-dLfRfbelfOdTfKeteiflfXfkdHfxdLerfDeafBfchHbvbvbvbvhHbvbvhHbvqSbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvqSbvbvbvhHbvbvbvbvbvbvbvhHbvbvbvbvbvbvbvbvbvbviwfmdIfbegdJfcekdNdHeYfXedfyeadS
+dLfRfbelfOdTfKeteiflfXfkdHfxdLerfDeafBfchHbvbvbvbvhHbvbvhHbvqZbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvqZbvbvbvhHbvbvbvbvbvbvbvhHbvbvbvbvbvbvbvbvbvbviwfmdIfbegdJfcekdNdHeYfXedfyeadS
 dLfEdYfCegeEdXekeAfAdSdUeveyfmehfbebdKeshHlfbvbvbvhHbvbvhHbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvbvhHbvbvbvbvbvbvbvhHbvbvbvbvbvbvbvbvbvbviBfVeHeFfafMfrfufQffeufyeJfDfHet
 eldWfLfeeNdXfHdPfeejfCfSeKePeKdGdVfTedfOcegfgtgghYimkVlhiWbvbvbvhWlhlhlhkVlhlhlhgtgfgkbvbvbvgegfhYgfgpgegkbvbvgYghgigjgfghgigjbTbvbvgeghgigjgfghgjgtgufZeUeXfwfcfzdXdIfqeufderegdZes
-fJfTebdQesezfYeBdOejffdKfIfzeQdJdQdWfUdPeGfOgntTtUtVtVtWlggXbvbvhIkicKcKcKcKcKcKgncVgWgfgfgfgucVcVcVcVhzhhbvbvgniLiMiMiMiMiMiNgnbvbvgnbvbvbvbvbvbvhIeFedfceKfRexfuekeWeGecfxeNdOeOeF
-dYfUeGegfxfKfhfZekfeeRfofCfPfEfKfAfbfydIebhSqhtXtYtZuaubucbvbvbvrybvbvbvbvbvbvbvgncVcVcVcVcVcVcVcVgegtgthhbvbvjZbvbvbvbvbvbvbvhabvbvhHbvcVbvbvbvbvhzgfgkfgeUffeKfOfUfLeneKeBfafQdMeR
-dYfpfhfcfRdOfbezfJfBfsecfTdSdOeMfMeqfndTdNsYubtZudududubuebvbvbvhabvbvcKcKcKbvbvgWgghYgpgncVgfkqcVgWhQgthhbvbvhHbvbvbvbvbvbvbvhHbvbvgncVbvbvbvbvkignbvgnfyeHeZfieifseJexeIfNekeWfWfi
-eOfNeGdUeSfeeddXfKepfdfHeKeygafSfiezfYfzfFsYuaufuguaubuauhbvbvbvbvbvuiizjziApPbvbvbvbvbvgncVcVcVcVcVcVhzhhbvbvgnbvbvbvbvbvbvbvhabvbvgnbvbvbvbviLiNgnbvgneOfqfPeCeGfjdNeQfjdQfIeMdJfl
-dKdRdZfXfwfBfZeleNfheieedGeHeVdQeifPdGePensYtYujuktZtYubtYbvbvbvbvbvuiiFjYiGpPbvbvbvbvbvgncVcVulcVcVcVhzhhbvbvgnbvbvbvbvbvbvbvgnbvbviwbvizsObvbvbvhHbvgneIfOdQeIeQfveAfgeHfIdVehexdM
-eDdPfcecfPfxfmfzeGeAdUfceffCfHdUdQfLdMeMdRsYumunugudubuhiwbvbvbvbvbvbvbVbVbVbvbvbvbvbvbvgncVcVcVcVcVcVgWguqSbvgYgfpTgfhYgfpTgfiWbvbviEbviFuobvbvbvgegfguflfIeYecfSfweBeZdWfkeseZdXeJ
-eDeDdWdZfHfKfPeIfnfMeTeOfBfjdOebemeVeIereHsYupuqurustYubiEbvbvbvgnbvbvbvbvbvbvbvgnbvbvbvgncVcVcVcVcVcVcVgQbvbvhHcVhHcVcVcVhHcVhHbvbviBbvbvcVbvbvbvhIeXfHepfZfVeqeDevfifAfbfpdRekfreP
-eDfTfDeXffeAdOeGfNfOfyfUdTfcevfmdYfxdKegfqutuuubustYuduhiEbvbvbvgngXbvgebFgpgfgfhhbvbvbvgYbFbFgpbFbFbFbFlnbvbvgYgfbTcVcVcVbEgfkdszhBgubvbvcVbvbCbvgnhJfodNfJdQfIfwecfYfEfveLfYfxfJeL
-eWdXereofdfFeefqegefeffkfmfjehdOeYeqffepfBfnpQuvubububuwiBbvbvbvhzjBjBhhcVcVcVbvgnbvbvbvgnbvcVcVcVcVcVcVgnbvbvgncVcegggpgggukikibvkicVbvcVcVbvbvbvhIesfBeYereNdKeTdOfLfYfSfoeffGeMfw
+fJfTebdQesezfYeBdOejffdKfIfzeQdJdQdWfUdPeGfOgntZuaububuclggXbvbvhIkicKcKcKcKcKcKgncVgWgfgfgfgucVcVcVcVhzhhbvbvgniLiMiMiMiMiMiNgnbvbvgnbvbvbvbvbvbvhIeFedfceKfRexfuekeWeGecfxeNdOeOeF
+dYfUeGegfxfKfhfZekfeeRfofCfPfEfKfAfbfydIebhSqhudueufuguhuibvbvbvrFbvbvbvbvbvbvbvgncVcVcVcVcVcVcVcVgegtgthhbvbvjZbvbvbvbvbvbvbvhabvbvhHbvcVbvbvbvbvhzgfgkfgeUffeKfOfUfLeneKeBfafQdMeR
+dYfpfhfcfRdOfbezfJfBfsecfTdSdOeMfMeqfndTdNteuhufujujujuhukbvbvbvhabvbvcKcKcKbvbvgWgghYgpgncVgfkqcVgWhQgthhbvbvhHbvbvbvbvbvbvbvhHbvbvgncVbvbvbvbvkignbvgnfyeHeZfieifseJexeIfNekeWfWfi
+eOfNeGdUeSfeeddXfKepfdfHeKeygafSfiezfYfzfFteugulumuguhugunbvbvbvbvbvuoizjziApPbvbvbvbvbvgncVcVcVcVcVcVhzhhbvbvgnbvbvbvbvbvbvbvhabvbvgnbvbvbvbviLiNgnbvgneOfqfPeCeGfjdNeQfjdQfIeMdJfl
+dKdRdZfXfwfBfZeleNfheieedGeHeVdQeifPdGePenteueupuqufueuhuebvbvbvbvbvuoiFjYiGpPbvbvbvbvbvgncVcVurcVcVcVhzhhbvbvgnbvbvbvbvbvbvbvgnbvbviwbvizsUbvbvbvhHbvgneIfOdQeIeQfveAfgeHfIdVehexdM
+eDdPfcecfPfxfmfzeGeAdUfceffCfHdUdQfLdMeMdRteusutumujuhuniwbvbvbvbvbvbvbVbVbVbvbvbvbvbvbvgncVcVcVcVcVcVgWguqZbvgYgfpTgfhYgfpTgfiWbvbviEbviFuubvbvbvgegfguflfIeYecfSfweBeZdWfkeseZdXeJ
+eDeDdWdZfHfKfPeIfnfMeTeOfBfjdOebemeVeIereHteuvuwuxuyueuhiEbvbvbvgnbvbvbvbvbvbvbvgnbvbvbvgncVcVcVcVcVcVcVgQbvbvhHcVhHcVcVcVhHcVhHbvbviBbvbvcVbvbvbvhIeXfHepfZfVeqeDevfifAfbfpdRekfreP
+eDfTfDeXffeAdOeGfNfOfyfUdTfcevfmdYfxdKegfquzuAuhuyueujuniEbvbvbvgngXbvgebFgpgfgfhhbvbvbvgYbFbFgpbFbFbFbFlnbvbvgYgfbTcVcVcVbEgfkdsFhBgubvbvcVbvbCbvgnhJfodNfJdQfIfwecfYfEfveLfYfxfJeL
+eWdXereofdfFeefqegefeffkfmfjehdOeYeqffepfBfnpQuBuhuhuhuCiBbvbvbvhzjBjBhhcVcVcVbvgnbvbvbvgnbvcVcVcVcVcVcVgnbvbvgncVcegggpgggukikibvkicVbvcVcVbvbvbvhIesfBeYereNdKeTdOfLfYfSfoeffGeMfw
 eWeveneUfZeSfTdWdPfCereZfSfUeVeffadWfTfgePfZhzgfgfgghOgfhhbvbvbvjZbvbvgQcVcVcVbvgnbvbvbvgnbvcVcVcVcVcVcVgnbvbvjZcVcVbvbvbvbvcVcVcVbvbvcVcVbvbvgegfqhhJfVfSfofldYfaeLerdPevflfSfrfedL
-eOdWeifteDfHeCfPfPfHeJeFfnetfrenejecefeZeUfvgniLiMiMiMiNgWgkbvbvgnbvbvjZcVcVgegfgubvbFcpjDgfuujnuxuyuzgpbTbvbvgncVcVcVcVbvcVcVcVcVcVcVcVbviobvgnhEhEhEhEhEePfufodMeSeHeVdRfbfndNeofe
-fdfkfCeWfVeQeydGdZdYeAfogaebfHfNeWfbfKdQeRfHgngXbvbvbvbvbvhHbvbvgnbvbvgncVcVgnbvbvbvbvbvbvbvjjuAuBjnjncVgnbvbvgnbvbvcVcVbviLiNbvbvuCiMrEbvsHbvgnhEhEhEhEhEfHebeTfCfmfWdSfWfDesfZdYfd
-fqfCfleZfhfcfJenfwfkfAeGebfyfTeCeeeHeneSfddZhabvbvbvbvbvkigmbvbvgWgfgghQgkcVhabvbvbvbvbvpPpPjjhRjnjniHgthhqSbvhzghgigigigigigjlfcVcVcVgkbvsHbvhIhEhEhEhEhEdZeifVerdYeAdVdKfnfReGfxfB
-fqeLenfXfWeffaeufHfsfMfNevfOdIeueKfvebehfAdJhzhPhYgfhPiqhYhhgXbvbvbvbvbvjZcVgnbvbvbvbvbvpPpPhzhhcVcVcVhzhhbvbvgnizsObvcVcVbvbvcVcVbvbvgnbvsHbvgnhEhEhEhEhEfifKeGfAezeEfXfAeEfYetfAfY
-eQfyeHfveheleQfffJewfZfEfAfffdfsegdLelfAfGeEgnuDbvbCcKcKcKgnbvbvbvbvqSbvgQcVjZbvcKbvcKbvpPpPhzhhgphYgfhQhhbvbvgnuEbvbvbvbvcVcVcVcVcVcVgnbviubvgnhEhEhEhEhEfGewdPeDfzfdfIeGfsfMeheFeL
-fNfBfuetejeHesedeDdMdIedfJdJeHdHfRfqeRdTeReEiwuDbvbvbvbvbvgWpypygfgkbvbvgncVgnbvbCbvbCbvpPpPhzhhbvbvkikignbvbvhauFbvcVbvbvcVcVbvbvbvbvhzghgigjrphEhEhEhEhEeMfueuegfNeRdLesdXeBdSfQfo
-fJdGfTfOeLeZeheqeAfUfvdIflfsdWendOdUfoeLfKdLiEiobvcVcVcVcVbvbvbvbvgmbvbvgncVgQbvbvbvbvbvbvbvgWhhbvbvbvbvgnbvbvgnsHcVcVbvcVbvbvbvbvbvbvgnfwepgadTfkeBfAepfHeIeheaeQflfneheUeVfQfYfxeU
-fJecevfqfkeDfjfedOfPeJfXfkezdIdRdNfAfwfReWemiEiubvcVcVcVcVbvbvbvbvgnbvbvhzgfiWbviLiMiAbvbvbvbvjZbvbvbvbvgnqSbvgnsHcVcVcVuGbvbvbvuHjziAgneYfqfudGfyeLfvfOeNeAezfWfDeLfdfcfAfheaeefseD
-fddVelfTfTfGdNfneuekejdJekfifbfQgafneafEeIeAiEuIbvcVcViCcVbvbvbvbvhabvbvgnbvgnbvbvbViubvbvbvbvhHbvbvbvbvgnbvbvgniubvbvbviFjYjYjYjYjYiGgneIfZeCfEgafAeqemeKezewfKegflfWfVdNevdVfjeGdN
-fdepeefueAfFdGdNfneoeYfleFfUfWewfYdGfufteneSiEbvbvcVcVcVcVbvbvbvbvgnbvbvgnbvhzuJhOgfgfgfgfgfgfhQgfbvbigfhhbvbvhzhBbvghgjgtgfgfgfgfgfgfgueGfIeJeleifDfHeOemfzdPfpdXesfUfnevfUdQdYexdV
-eDexfGfxdLegdLeLeReefReXdRdZfGeOfxfAdXfQfSfOiEuKbvcVcVcVcVbvbvbvbvjZbvbvgnbvgnbvbvbvbvbvbvbvbvbvbvbvgQcVgnbvbvgncVcVbvbvgnfpeZeLengafOfZdVdZeXeUfcfiezfpfdeifOfFfwerdQfYdHewfqdVfdeQ
-eDexeMdMfqdOfpdHfLdOdZegfSeldYfAdTdMdOeYeZfFiEuLbvbvbvbvbvbvbvbvbvgnbvjchMjcbvbvbvbvbvbvbvbvbvbvbvbvgncVgYpypylncVcVbvbvgnfXeMeadHfEdHdZfQeLfmfOfneeeCdUdSezfrePeDfqeYeEfFfZfneFdHeD
-dKeAeadReUejfxeadMdHeHeofRfaeVfBfjdPesegetfsiEuLbvbviLiMiMiNbvbvbvhzpypylihYgfgfgfuMgfgfgtgfgfgtgfgfhhcVuNbvbvgnbvcVbvbvgnfTfbfgfegadMfsfNfQeCdIfyebeneVdPfzfFePfreeeofpdPfIekfxeQdR
-dKfSfwfgfneBeCeUeneIdQfbfCfJgadRezfPfNeZeYeiiBuLbvbvbvbvbvbvbvgehYguqSbvhacVcVcVcVcVcVcVgnbvbvgnqOcVgncVgnbvbvhzgfgfgfgfgueneafIeGdSfSfmfHdKdOfxgafleEeKecfyeMeDereRfzeTewezfPeWeHfN
-dYeddOfleaeefSeIeNeOeveAfUgaeneufrfidWfXexfjhabCbvbvbvbvbvbvbvgnbvbvbvbvgQcVcVcVcVgncVcVhabvbvgncVcVcVcVgQqSbvgneKedejdQdSfxdYfoexdJfEeDdMfLfXevfMfIeffVfYecfmewetfqegeDfVfkeXeseOem
+eOdWeifteDfHeCfPfPfHeJeFfnetfrenejecefeZeUfvgniLiMiMiMiNgWgkbvbvgnbvbvjZcVcVgegfgubvbFcpjDgfuAjnuDuEuFgpbTbvbvgncVcVcVcVbvcVcVcVcVcVcVcVbviobvgnhEhEhEhEhEePfufodMeSeHeVdRfbfndNeofe
+fdfkfCeWfVeQeydGdZdYeAfogaebfHfNeWfbfKdQeRfHgngXbvbvbvbvbvhHbvbvgnbvbvgncVcVgnbvbvbvbvbvbvbvjjuGuHjnjncVgnbvbvgnbvbvcVcVbviLiNbvbvuIiMrLbvsNbvgnhEhEhEhEhEfHebeTfCfmfWdSfWfDesfZdYfd
+fqfCfleZfhfcfJenfwfkfAeGebfyfTeCeeeHeneSfddZhabvbvbvbvbvkigmbvbvgWgfgghQgkcVhabvbvbvbvbvpPpPjjhRjnjniHgthhqZbvhzghgigigigigigjlfcVcVcVgkbvsNbvhIhEhEhEhEhEdZeifVerdYeAdVdKfnfReGfxfB
+fqeLenfXfWeffaeufHfsfMfNevfOdIeueKfvebehfAdJhzhPhYgfhPiqhYhhgXbvbvbvbvbvjZcVgnbvbvbvbvbvpPpPhzhhcVcVcVhzhhbvbvgnizsUbvcVcVbvbvcVcVbvbvgnbvsNbvgnhEhEhEhEhEfifKeGfAezeEfXfAeEfYetfAfY
+eQfyeHfveheleQfffJewfZfEfAfffdfsegdLelfAfGeEgnuJbvbCcKcKcKgnbvbvbvbvqZbvgQcVjZbvcKbvcKbvpPpPhzhhgphYgfhQhhbvbvgnuKbvbvbvbvcVcVcVcVcVcVgnbviubvgnhEhEhEhEhEfGewdPeDfzfdfIeGfsfMeheFeL
+fNfBfuetejeHesedeDdMdIedfJdJeHdHfRfqeRdTeReEiwuJbvbvbvbvbvgWpypygfgkbvbvgncVgnbvbCbvbCbvpPpPhzhhbvbvkikignbvbvhauLbvcVbvbvcVcVbvbvbvbvhzghgigjrwhEhEhEhEhEeMfueuegfNeRdLesdXeBdSfQfo
+fJdGfTfOeLeZeheqeAfUfvdIflfsdWendOdUfoeLfKdLiEiobvcVcVcVcVbvbvbvbvgmbvbvgncVgQbvbvbvbvbvbvbvgWhhbvbvbvbvgnbvbvgnsNcVcVbvcVbvbvbvbvbvbvgnfwepgadTfkeBfAepfHeIeheaeQflfneheUeVfQfYfxeU
+fJecevfqfkeDfjfedOfPeJfXfkezdIdRdNfAfwfReWemiEiubvcVcVcVcVbvbvbvbvgnbvbvhzgfiWbviLiMiAbvbvbvbvjZbvbvbvbvgnqZbvgnsNcVcVcVuMbvbvbvuNjziAgneYfqfudGfyeLfvfOeNeAezfWfDeLfdfcfAfheaeefseD
+fddVelfTfTfGdNfneuekejdJekfifbfQgafneafEeIeAiEuObvcVcViCcVbvbvbvbvhabvbvgnbvgnbvbvbViubvbvbvbvhHbvbvbvbvgnbvbvgniubvbvbviFjYjYjYjYjYiGgneIfZeCfEgafAeqemeKezewfKegflfWfVdNevdVfjeGdN
+fdepeefueAfFdGdNfneoeYfleFfUfWewfYdGfufteneSiEbvbvcVcVcVcVbvbvbvbvgnbvbvgnbvhzuPhYgfgfgfgfgfgfhQgfbvbigfhhbvbvhzhBbvghgjgtgfgfgfgfgfgfgueGfIeJeleifDfHeOemfzdPfpdXesfUfnevfUdQdYexdV
+eDexfGfxdLegdLeLeReefReXdRdZfGeOfxfAdXfQfSfOiEuQbvcVcVcVcVbvbvbvbvjZbvbvgnbvgnbvbvbvbvbvbvbvbvbvbvbvgQcVgnbvbvgncVcVbvbvgnfpeZeLengafOfZdVdZeXeUfcfiezfpfdeifOfFfwerdQfYdHewfqdVfdeQ
+eDexeMdMfqdOfpdHfLdOdZegfSeldYfAdTdMdOeYeZfFiEuRbvbvbvbvbvbvbvbvbvgnbvjchMjcbvbvbvbvbvbvbvbvbvbvbvbvgncVgYpypylncVcVbvbvgnfXeMeadHfEdHdZfQeLfmfOfneeeCdUdSezfrePeDfqeYeEfFfZfneFdHeD
+dKeAeadReUejfxeadMdHeHeofRfaeVfBfjdPesegetfsiEuRbvbviLiMiMiNbvbvbvhzpypylihYgfgfgfuSgfgfgtgfgfgtgfgfhhcVuTbvbvgnbvcVbvbvgnfTfbfgfegadMfsfNfQeCdIfyebeneVdPfzfFePfreeeofpdPfIekfxeQdR
+dKfSfwfgfneBeCeUeneIdQfbfCfJgadRezfPfNeZeYeiiBuRbvbvbvbvbvbvbvgehYguqZbvhacVcVcVcVcVcVcVgnbvbvgnuUcVgncVgnbvbvhzgfgfgfgfgueneafIeGdSfSfmfHdKdOfxgafleEeKecfyeMeDereRfzeTewezfPeWeHfN
+dYeddOfleaeefSeIeNeOeveAfUgaeneufrfidWfXexfjhabCbvbvbvbvbvbvbvgnbvbvbvbvgQcVcVcVcVgncVcVhabvbvgncVcVcVcVgQqZbvgneKedejdQdSfxdYfoexdJfEeDdMfLfXevfMfIeffVfYecfmewetfqegeDfVfkeXeseOem
 eOebeJdPfBeEeTfafBejejfPfrfOdJfbevedeyfgfgeIgWgfgfgfgfgfgfgfgfhhbvbvbvbvgncVcZcVcVgWgfcVgnbvbvhziqhYgggfpUbvbvgnfLdVepfcftfPfgeKdNfgffetfRedeOfjeCdReifKeRfxeaeoeDeffSfmfTetdWedfeeT
-eWgaeQdMdReYfCeeenfBfIfzeveNfdfKfHfZemfTfvdJejfYfFfSdUfQeWeZdZhabvbvgesMhhcVcVcVcVcVcVcVhabvbvhHbvbvbvbvbvbvbvgnfYebemfGeCetezfseqeoeZdSejdOfffLfdfWdMfodOftfUdUfGfueCdHfDdSfweeeleh
-dYePeodLfTeNeheZepeRfedVeTecesfreDeUdHdYdMfOeKeGdTdZdKfFdVfmeugnbvbvgncVbEgfhQgtuOsMgfcVgnbvbvhHqSbvbvbvbvbvbvgneEdLfNdWffemebejdGfFesexdQeIejeueBeAdJeifdelfXeZehfGdVeYeGfaesfMfFep
-fOeXejfEeQdZeyejfOdXffeJdSfadSeMdLfUeGeIfDfWfjfleIftfreFexfqfxjZbvbvgncVqnuPuQhIcVcVcVcVgWsMsMhhbvbvgegfgfgfgfgueWfddPfEemeDfFdYexfwfbfgeZdKdXfCffeZewdWfcepemdLeneIeMgaendNdNdXfHeF
-eVfqdIeofTfNfddZeZfagaejeteMeffUfYfyeNeXeGdJeheDeYfsfkfTdZfHdXgngXbvgncVuRbvbvhIkfcVcVcVcVuScVgnbvbvgnfaeZdZeJeTdYfeetdOeRfoeqeHdWepeaeDeNdYdGfcfZeHfpesfnfCdRemfEewdXeRfrerfAfOfNeP
-eVdXeXfaezdGexfwdNeWgaeweUeQdVfyfFePdHfmeNfsebezfJeTejeLeAeleahabvbvgncVqTbvqShIcVcVcVcVcVcVcVgnbvbvgndRfkfVeRegfmdOfceTezeufIgaeqdIfOfSebfheMfIdOfQdNfKeadJfbfteJfxdXeufPfweefjflek
-fOefejdMfzfVdJfOehfTfsfHfXfnevfffIfEfbfDdZeLdRdHfqfXfzdSfBeYfVgnqSbvgWuOhQhFhFhQjCqIgfgphYqIgfgubvbvgndKfWfHeffTdLeFdKfjePepeIeJeeebeseCdWflfEdSfydReieydUfBfgfSfAdNdGdZdOeQdZejfceo
-dYexfjfvefdLeMfqdZeFfZeVdLfUfDgadIeQeJdJepePehfzfifAfLfteSfTevgnbvbvbvbvbvbvbvqSbvbvbvbvbvbvqSbvbvbvgnfbfbfZeaeNetfBepfvfvfVeyePfweMeleZfmdQeEfuezehfIfleLfofGeeeReweBfWfbfeexeyfweg
-eWdMfQevfIfkfyfrfPewfsdIdVeEfvevfDeBfbgaecdPeMfYfYfqecezfheSfBgnbvbvbvbvbvbvbvbvbvbvqSbvbvbvbvbvbvbvgndXeBdQfXfkedePeNeveidGerfEebfbfyfpfxfgfFdKfudYdIeteJfbdYffdHeadLeyeHeOefeFfOdV
-fdesfNdRdIfReggaejeUfgfidOfoeGeXfpdZeRerfTdLfYdXdTfxfCfVezecdQgWgqbFbxhFgegfgfgfgtgfghgigjhFhYqIiqgtuTeLeUeCfjezeudUeldLeXemeqedeVeieSevdLehfdePdVeteIfRfMfvfffbeAeQevfIfRePfVeDdNfA
-fJfKeNeJendMePebdKdTdXdWdHfffYdJdPdKenerfZfzexfXfmdYfGfRdOdVfwemgncbkibvgndSewfrgnriuUuVuWbvbCbvbvqnhEdPegezeFeDejfxfTeKeCdWezereseVeqfOeQfdfleCeWerftexenfAfJfJefeOeSeYeveYfhdNeidI
+eWgaeQdMdReYfCeeenfBfIfzeveNfdfKfHfZemfTfvdJejfYfFfSdUfQeWeZdZhabvbvgesShhcVcVcVcVcVcVcVhabvbvhHbvbvbvbvbvbvbvgnfYebemfGeCetezfseqeoeZdSejdOfffLfdfWdMfodOftfUdUfGfueCdHfDdSfweeeleh
+dYePeodLfTeNeheZepeRfedVeTecesfreDeUdHdYdMfOeKeGdTdZdKfFdVfmeugnbvbvgncVbEgfhQgtuVsSgfcVgnbvbvhHqZbvbvbvbvbvbvgneEdLfNdWffemebejdGfFesexdQeIejeueBeAdJeifdelfXeZehfGdVeYeGfaesfMfFep
+fOeXejfEeQdZeyejfOdXffeJdSfadSeMdLfUeGeIfDfWfjfleIftfreFexfqfxjZbvbvgncVqnuWuXhIcVcVcVcVgWsSsShhbvbvgegfgfgfgfgueWfddPfEemeDfFdYexfwfbfgeZdKdXfCffeZewdWfcepemdLeneIeMgaendNdNdXfHeF
+eVfqdIeofTfNfddZeZfagaejeteMeffUfYfyeNeXeGdJeheDeYfsfkfTdZfHdXgngXbvgncVuYbvbvhIkfcVcVcVcVuZcVgnbvbvgnfaeZdZeJeTdYfeetdOeRfoeqeHdWepeaeDeNdYdGfcfZeHfpesfnfCdRemfEewdXeRfrerfAfOfNeP
+eVdXeXfaezdGexfwdNeWgaeweUeQdVfyfFePdHfmeNfsebezfJeTejeLeAeleahabvbvgncVrabvqZhIcVcVcVcVcVcVcVgnbvbvgndRfkfVeRegfmdOfceTezeufIgaeqdIfOfSebfheMfIdOfQdNfKeadJfbfteJfxdXeufPfweefjflek
+fOefejdMfzfVdJfOehfTfsfHfXfnevfffIfEfbfDdZeLdRdHfqfXfzdSfBeYfVgnqZbvgWuVhQhFhFhQjCqIgfgphYqIgfgubvbvgndKfWfHeffTdLeFdKfjePepeIeJeeebeseCdWflfEdSfydReieydUfBfgfSfAdNdGdZdOeQdZejfceo
+dYexfjfvefdLeMfqdZeFfZeVdLfUfDgadIeQeJdJepePehfzfifAfLfteSfTevgnbvbvbvbvbvbvbvqZbvbvbvbvbvbvqZbvbvbvgnfbfbfZeaeNetfBepfvfvfVeyePfweMeleZfmdQeEfuezehfIfleLfofGeeeReweBfWfbfeexeyfweg
+eWdMfQevfIfkfyfrfPewfsdIdVeEfvevfDeBfbgaecdPeMfYfYfqecezfheSfBgnbvbvbvbvbvbvbvbvbvbvqZbvbvbvbvbvbvbvgndXeBdQfXfkedePeNeveidGerfEebfbfyfpfxfgfFdKfudYdIeteJfbdYffdHeadLeyeHeOefeFfOdV
+fdesfNdRdIfReggaejeUfgfidOfoeGeXfpdZeRerfTdLfYdXdTfxfCfVezecdQgWgqbFbxhFgegfgfgfgtgfghgigjhFhYqIiqgtvaeLeUeCfjezeudUeldLeXemeqedeVeieSevdLehfdePdVeteIfRfMfvfffbeAeQevfIfRePfVeDdNfA
+fJfKeNeJendMePebdKdTdXdWdHfffYdJdPdKenerfZfzexfXfmdYfGfRdOdVfwemgncbkibvgndSewfrgnrpvbvcvdbvbCbvbvqnhEdPegezeFeDejfxfTeKeCdWezereseVeqfOeQfdfleCeWerftexenfAfJfJefeOeSeYeveYfhdNeidI
 eDecfkfMfKfCfKfxfHeJeZeTfRfHegenekeMdYevfOfVfCfifhfkfJenfqfhfXeThagXbvbvgnfVfHfNhabvbvbvbvbvbvbvbvqnhEfQebfWeRfOfgfndYfqfFfqeufpeHfLfyfLfHfweRfafHfWfWfNeVfHdYfhdMfufJdQfweRfCeFemdU
 ekdReIgafpfYdJfqdTfvdNeJeSevfMejebdYfpepfLeRdLeDeOfAfOdTfYfbfgfJgnbCjGbvgndWdQeFgngXbvjHbvbvbviziAqnhEfIeYfAeKfQexdLfqdOfXfNeVfyfLfwfSfzenfseXeKflegeadYdOfXekeSfTeEeodMfufCfOfseZfq
 fveeeGdMfJfIfneFeyfbeaetfIeteqfleafZeueqedfUedexeDfTeyfBdJfEfIfugWgfgfgfgudHeqfHgnqDiLiMiNkikiiFiGqnhEeGeLfUfGfafueJeyfBdYfRdQdOfveeehdKepedfyfiehdYeafzfIfmfXeteGehfZeyeueqfUfffueW
-fveTetfQdWeOfNemfyeuehfBeseUeseefqdPdNeUfRgaeGfIeifCdZdJeIehePfVereseKftegdNfTfzgWgfgfgfgfgfgfgfgfrphEexeofqeMeWdXeAfdeNelfSejfxfteLeidReuekfyfgdHdGeBeoefdJeOflfyfAeheZfWfCePdGfieb
+fveTetfQdWeOfNemfyeuehfBeseUeseefqdPdNeUfRgaeGfIeifCdZdJeIehePfVereseKftegdNfTfzgWgfgfgfgfgfgfgfgfrwhEexeofqeMeWdXeAfdeNelfSejfxfteLeidReuekfyfgdHdGeBeoefdJeOflfyfAeheZfWfCePdGfieb
 dYeifEdYekfieCfJdOgadXejfvfDeOfJeHeKfweHeNfkgadHeifVetdLfueBeLeXdMfKfReEezdIeleffoeVfFfqdOdLdJdJeHexhEewfZfydLeNebeseReiezfCevfMeXebeVfceSfJfmepdUfjfffrdPeRfSfcdPdUfCdKdLevdIeuebfj
 fJfcfefIgaebdMeIfadNfVfZeTeSeMfReRfydOfAeDeNfmeqdVfCfZfidOepexeveafDeEeDeQfpdGfzesdVendPfdfHeRfyfAfdeleFePfofqdMdRfxfFeLfVeyeOeIeIeQfleYfTfJdOfaeyereOgaeYfeenesfbeafpfIfrfEeJeNeAdJ
 fJfsfHfmdOfkfHfdfUeGfceNfzfkereSedfMdZfVeKeHfbfUepeNflfZeieEfDeVeffueWeFeAeafjepeNeremeCfCeLeBfheheSdWfjfgefeXfQdPdRfwePfjezfCesdVejdJfsfGeBdJfcfZfmdUfWeFdGfmeTfEfxerfYfGeMdVfzfPeR
@@ -1805,99 +1812,99 @@ eefzfHenfteoecfFemfFemfSdYeoftfYfJdXftfxeceoftdLfzeifwfcfJdUejfafZeYfbfFexdXdZew
 fkeZfpeFfxfTeDeNdRfqeTepdJgafdfoeGejefdRerfZfHeofMfefWfueJenfTeodJeAfJfAegfAfCeHffetfLfedTfceheNfBeyeNdXdOejdZdIfIfSejfKeKfseSfvffeXeodMeTeZfMereteofeeDfreteSemfHfufgfQeJeefcfqezfI
 fEdMfJfCemfpfdfWfHfrfHeYeYeJfweneYeXeofafPfreMemdNfZeXeqfrfPfffFfCeZfseteAeKezetepeIeJdRdReHfCexehekdZfpftdWdKfefeeUfjdTdPedfhfqfidMfMeVenfpfPebdPfrfvdWfHfKeOfrfHfddGfrfPeYezdWdQdY
 dJeRdQfwegfCebdKeEdTfseTfNeEdHedfleZfWfifiedeVfwfyeVdJeXfPfcfjfSeYecfSdPdSfGfeeBeyfoeNdYfTeNewdKfBerfFeYfrftdZfgfseTeyeYfVdRfIetecfRfweifFfWfcepejeUfoeYdQemePdTfVemfRezfKeieReHexfv
-fzdZeDeheQeHdTfgevecdHdYdXfHdVfGfPfqdPekdIdYeVfzfqfvdTdUfdfwfqeIePeLegfClEiHiHuufweAdGeXfNdIemeafffyfreMdJegfbfHfkdOeVfeeXfOexfhfRflezeFfpfoeRedgadUerfMdZfYfAfDeLeudZeAeIejeXeFeqeS
-fneqdNeGfweRfmfHejeIfOelfhekeXdReReMfaeReYeddOfvePeAgadZeNegdRfufjfLeHfFpjuXuXhMfmeidGeSdKeBflfhfafmfYexemekfOdTfufLfoecftfZfPfCeugafZfVfVfsfuepehfhdXeFetfrfBeFeWfaeadYetdIfqdSfCdL
+fzdZeDeheQeHdTfgevecdHdYdXfHdVfGfPfqdPekdIdYeVfzfqfvdTdUfdfwfqeIePeLegfClEiHiHuAfweAdGeXfNdIemeafffyfreMdJegfbfHfkdOeVfeeXfOexfhfRflezeFfpfoeRedgadUerfMdZfYfAfDeLeudZeAeIejeXeFeqeS
+fneqdNeGfweRfmfHejeIfOelfhekeXdReReMfaeReYeddOfvePeAgadZeNegdRfufjfLeHfFpjvevehMfmeidGeSdKeBflfhfafmfYexemekfOdTfufLfoecftfZfPfCeugafZfVfVfsfuepehfhdXeFetfrfBeFeWfaeadYetdIfqdSfCdL
 eeeGecdGfGffeZfgfrfMfcfGegevfCeVfDfYfNeafvfTekfHfdecdTeEeWfVdOeXeefzfoeVpJjnjnhMdSdKeTdZdOdLfdeJeVfLfqfbeDejfsfceZenfWdPdKdYeAegdIeCdNeieieufqeadRemdWdSecfveOfPfHfUfffJeIeKezdXepdU
-fiemereTdZeYegfReBeEfGfdflfGeGfjfEdZeLdVeVfaeQfoeqeqfPfnfgfnfweZdZeUeoeOsYjnjnhMfIerfreYfrekeDelfFdOfYeJfqejeWfbfceEdVdYdVeZdNfnfFdZfYeYelfsfNdXfJfGfRfpdLfifDfafKeifbeqeMfwgafaeJeN
+fiemereTdZeYegfReBeEfGfdflfGeGfjfEdZeLdVeVfaeQfoeqeqfPfnfgfnfweZdZeUeoeOtejnjnhMfIerfreYfrekeDelfFdOfYeJfqejeWfbfceEdVdYdVeZdNfnfFdZfYeYelfsfNdXfJfGfRfpdLfifDfafKeifbeqeMfwgafaeJeN
 eefHfgfkfXfjegfheLelezfZdTdZfeeXecfCfdfGfweNekdMekdJeNeUdGezfaerfCeUeGeLpQjnjnpJfVdIejfYfwetfGeTfBdPdYelfwerfeeEeTeEeWeZeWeMeBdMfHfFeGfKfOfpfagafWfoeGfsdKfCfWdUdSfLeKeReXeHdHeTfIff
-eBeXeredeOeBfufTdHfBfVfGeCfmejeKeGgaefexfoereOeneAlEuYuZvaiHiHuYuZvaiHiHuBjnjnsYeMfddZeMfhdRfwfLeKedeidIeDemfWeZeIfSfPegdVdMeudWfJfIdIesdHefdRfBeHdSfhfEeDeMfUeFebdUfqeieNdMeAfEeZfi
+eBeXeredeOeBfufTdHfBfVfGeCfmejeKeGgaefexfoereOeneAlEvfvgvhiHiHvfvgvhiHiHuHjnjnteeMfddZeMfhdRfwfLeKedeidIeDemfWeZeIfSfPegdVdMeudWfJfIdIesdHefdRfBeHdSfhfEeDeMfUeFebdUfqeieNdMeAfEeZfi
 fdfMdOezdTdOfAenepfndNeddMejfddZeeeNdOebeCesfafceHpjjnjnjnjnjnjnjnjnjnjnjnjnjnpQfcePdGeifLfndOeYeVfmeYfjdKfdeefadOgafteFeRdRdGdLfyfedTdHfBevfVeleofjfHdYfqelftfdebdPfKeIeofBeZdUeyfC
-fBfMeHekdWfpfpfKfnfNeceLeOebfEdNedegeKdQeQeUdXfxeIjujnjnvbjnvcjnvdjnjnjnjnjnjnjjiHiHuYuZvauufIfhendGegfPeDeNdYfMeJfkfDfXdTfbeVezdLeqdNfGeOdMfVfGeVfWeyeXeufAfoepdKfNeFfmeJffgafTeBez
-eOgafXfFeXfWfQeqfheweUeyenezeOfCdYfeeYeOfSdGdLlEiHuBjnjnjnjnjnjnjnjnjnjnjnjnjnvejnjnjnjnjnmkiHuYuZuZuZuZuZuZvaiHiHiHuufpfieHedfzdUfNdYfidNfIfLfifHfUfGeXeHfZeYeneLeHezfkeNewfodNfYeI
-eBfKdMfuemeodWfHdVeKfGeeeFegdUdSfGfAfOflegfbeuhMvfvfjnjnlEiHiHiHiHiHiHiHuYuZvavguujnjnjnjnjnjnjnjnjnjnjnjnjnjnjnjnjnhMdTeffVfxfBfSfyfedRfbfTecfhfEfweffheTetfOfSfdfmeaeDfOfNfveeeueD
-dGesfyeWeZeHepeyehdHeSgaetfCeYdVemfSdJdOdQfcftmkuYuZuZvauBdGfcfgeifAflftfgfPenfwjjvhuAiHviiHiHuYuZuZvaiHiHviiHiHuujnhMfmdPeJffdHfFeTeDdQfQeaeLftfMfLfmedfhdWfoeefVdNfzevfodIdReUeSei
-eFfOfTgafMfGfjeVfmedfOdTfOfrfWfEeCeIejgaezfHebeweReQezfzemvjvjvjvjvjvjvjvjvkeieqhMjnhMgcgcgcgcgcgcgcgcgcgcgcgcgcpjjnhMdNfteUeYfieafNeueLeCejfkfUeQeDeGfreyfmeLfFfqeJfTfneeeYfPelfyfY
-dGfkeAfsfrdNdIeLeUdJenebfofEdYeAeBfsfpdPdKePdGeDfLeReqdPeivlvlvmvnvnvnvovlvpfceZpjjnjugcvqvqvqvqvqvqvqvqvqvqvqgchMjnhMfgfPfSfYfndPeMeFfWeZeQfZeweYfQezedfOfydWfSeAebefeUfReTfFfweldH
-fGereodGfnePfheFfKeGegeRdLeYdOegeifUeneDdJdYfoecfteefGebeGvrvlvsvnvnvtvnvnvufYfmhMjnhMgcvqvqvqvqvqvqvqvqvqvqvqgcjujnhMdNfGeWfidYeXexdOfrfheKefeddWeTfzevenfxfCetdGdPfSfDePfTfWfceUfP
-etfzeZdSeIecfudGdJdSfddYfWfofneheKdYeIeSfbfofTenfSfqfZfuekvrvvvnvwvnvnvxvyvuexephMjnhMgcvqvqvqvqvqvqvqvqvqvqvqgchMjnhMeLfqexfjemdNeoeVfofsfYeVfpeCdZfDeYeheFeAfxezeRfRepeefcfefYfvfd
-fYeHeqfGdMerdNfKehdZfOdXeafOdTfBfdfJeWfffJeOfafaefeqeNeaeavrvlvnvnvnvnvnvnvuederpjjnjugcvqvqvqvqvqvqvqvqvqvqvqgcjujnhMdGfPeYfLdGfHfDfFfxeidHejdReafueheZfpetfGeMflfRfQezeUfzfAeWfifg
-fwfQeXfWfrfagaeueSeTfFfAdYfcfOeEfjebdLeGdHeafIfxfpeleOfieSvlvlvzvnvnvnvzvnvpfoeshMjnhMgcvqvqvqvqvqvqvqvqvqvqvqgchMjnhMhJehfzfseMfkdSfVfRewekfQenecdOeOeMeBekevfEfCeyfzenfnfeftdPftey
-fyfwedgaeQfSeTdPeAenegeDdHeEegfEfieIfGfEeKeyfKdVdLfqfsfGeXvAvAvBvAvCvDvBvAvEdZefjjvFvGgcgcgcgcgcgcgcgcgcgcgcgcgcpjjnmkvHhJfXdIfDejflfIeNfofTfgfueMdUfRdJedebepedfCeMfhfEeXfIfHfJfKfu
-eYfmeBfOefdLeLdPfHeWfHdXeueLfeeQfheqfxeIfBfnftlEuYuZuZuZuZuZuZvavivIvJuYuZuZuZvavGvKjjvLvMvNvMvOuYvavPuYuZuZvavLhRjnjnmkvQuufJeJeGeYfwePfVfEeAemfEdLfCefeefffofAekdWdXdYdOfBfoeteEfu
-eFfGfLeeeEfydVfQelfUeIeTfQfKfDeZfReoemftfnfbeuhMvRjcjcjcjcjcjcjcjcjcjcvSvSvSjcjcvejnhMvTjcvUvVjcjcjcjcjcjcjcjcjcvejnjnjnjnhMeIeQeUfPfsdTfKfGeceafVfqdPdHeudIeLeZeFfPdOepfndYfUfweBfg
-eNfvfRfueMelfLeNdGdXfzeudTfyefeLeRdXfLfIfVfneWhMjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjchMjnjuvWjcjcjcjcjcvXvXjcvYvXjcjchMjnhMjnjnhMeQfTeqdVdLfPdOfZfBeaetfreYdTfZfNewedfbfteEdNfCeadJfqfdfa
-ezfrfcftfvfsfFecftfsfTfodOfNfPeSekfHePeidHeNeQjjiHiHvZiHwavOiHiHuujcjcsUsUsUwbjcpjjnhMvWjcjcjcjcjcvXvXjcvYvXjcjcjujnjujnjnhMdOfpekenfAfteIfdfFfxfMdVeXfofafFdUfffveZdGdLfldSdZdOdVdV
-fGfadTfTfCeyfiemfceSeGeRdRftdSfKeRezeqdTfGenfDsYwcwcwcwdwdwdwdwdhMwejcsUwfsUjcjchMjnhMvWuYuZvaiZiZuYuZuZuZuZuZvahRjnpjjnjnhMfFfQeueAfbeseieBdIdZfBecdLfCfQeQeaeffTfSeefEerfUfQemeVdQ
-eCfKeOfOereldMePdNflgafNfufAelfyfhexdSfVdRfReXsYwcwcwcwdwdwdwdwdpjwgjcjcwhwhjcjcjujnpjvWwijcjcjcjcjcjfwjjgjcjcwkhMjnhMjnjnhMfnegeFeDeffsflesfodLeBfZfHfXeMfyeEdWfkeTeedKePfdfreVfwfD
-fkeqdQeNflfDfzfmfHeFeJdJeXewfMejeSfAfgeTfGeqdSpjwcwcwcwdwdwdwdwdjuwljcjcjcjcjcjcpjjnhMvWwmjcjcjcjcjcjcjcjcjcjcsUhMjnhMjnjnhMfQdGdHgaerfZfKfReEfYfbdPfseffBdOfffpfrfXfyfyfleefRfmdTfJ
-fueyfdeLfmeceveMeBeDfUeXfvedfbfGfteveHeaebeSfljjiHiHiHiHwaiHvNiHuBjcjcjcjcjcjcjchMjnjuvWwmjcwnwowovYvYvXwpwpjcjcjujnjnjnjnhMeLfceSfzfAevfsdSeiexelfBfmdVeQfOegeBeKdLfgerewfXfOfyfCeK
-dGfZeTeAdWfWfUeTeCeVfmeCeseSgadNfHesfKevfmfMeTjuwqjcjcjcjcjcjcjcjcjcjcjcjcjcjcjchMjnhMvWwmjcjcjcjcwrjcjcjcjcjcjchMjnjnjnjnhMeyenfifVeReYerftdTdQfYdJfudJeXeYefehdOfLfJeUdJfIeBeKfKel
-fidWebfcfBfmdUfQfTfreEfSfUeXdWfZfTeGdQfldXfJdWjjuYuZuZvaiZuYuZuZuZuZvauAwswswsvihRjnpjvWwmjcwtwuwuwvwvwwwwwxjcjcpjjnjnjnjnmkuudLftesfvfeffefdLfCdOdReIfGeFfPfHeVdVfdfDeOerfcebegfMeK
-eNdPfRdIfpeFfxfHfGfCfXeVfrdJeheCfgeDdRezerfreipJjcjcjcjcjcjcjcjcjcjcjcwyjcjcjcjchMjnsWvWwzwAjcjcjcjcjcjcjcjcjcjchMjnjnjnjnjnhMfqeVeYekdVeleIfmecetfBdIeHfzfhebeMeYfPeffnekfZdYegeCeJ
-fefaenfeeudUenecdIeUeRfwfrdNdUeOdIegfUfnemdSfajjiHiHvZiHwavOiHiHuujcjcwyjcjcjcjchMjnhMjcjcjcjcwBwBjcjcjcjcjcjcjchMjnwCvQuujnhMfHdTdRebeBfdfKeveeffecdPeOeNeZdGfAdZfAfCfjfGeJfWeLfJeH
-etfneJenfFfifFfyeDfVeIfoeFdRfSefekfHeVfcfQfhdHsYwcwcwcwdwdwdwdwdhMjcjcjuwDjcjcjcwEjnmkiHwFuujcwGwGjcjcwHwHjcjcjcvejnhMeShMjnhMekezfmfeeVeYfpfDeteeejfeeieSeWeGdZeofPeMfZewerfYeRfofF
-fYecedfPewenfLeBejfxfaegeYfzfWdPfLfWewfjfBfUfBsYwcwcwcwdwdwdwdwdpjjcjcpjwgjcjcjcjujnjnjnwImkvhiHuAwJwJwKwLwMwMvMvGjnhMeqhMjnhMfIeqeifielehdLdGdMeNfHdTfGeIfseSetfefBfZeSetegfXfreTfB
-fwfVfsfodUeGfWeFfmeFeVfXfQeaedexeGdXdZfvdXfjfBpjwcwcwcwdwdwdwdwdjujcjcjujtjcjcjcvejnjnjnjnjnjnjnvewNjcwOwMwMwMwPjujnhMeQjujnhMepekfnfUeveOfYejdHdXfofqfYdJeDeZdLeDdTeEevePdNelftfhei
-fGeZeqeMelfqeEedffebfveneBeJftereXeffEgafTeuevjjiHiHiHviwaiHiHvNuBjcjcwyjcjcjclEwQvLiHwRvhiHiHiHhRwNjcwSwMwMwMwTpjjnhMfEhMjnhMeufKdZfLeGdXfddZfJfsdXeueEewexfKefeNfDdVfgdSdYeMeReaeE
-evdJeKecedfdfLeOfygafffseSfeeOfwfjfierdWdUeWfysYwqjcjcjcjcjcjcjcjcjcjcwyjcjcjcwyjcjcwUwUjcjcvSvSpjwVjcwWwMwMwMwXhMjnmkiIuBjnhMfOftdQfEfmdMehfwfUfLeneJfzfKeWfQeAfneGfBeXfsfXdYdWegeh
-eFehfzdMfnfAeSfedYeVfzfKebfPfHebeOeTfKeDemexfRpQjcjcjcjcjcjclEvhviuAiHvguujcjcwyjcjcjcjcjcjcjcjcjuwVwYwZxaxblEuAuBjnjnjnjnjnhMdOdQfadOereIgaeUdPfyfyfyeAfIfYfNfIePfTeqeVeBfseLdReCeD
-eNfAexfsevevfFeOfRfXfreLfTftfEeJfffOfFfafLfkeyjjuYuZuZuZuZuZhRjnjnhMxcjnhMwqjcwyjcjcjcjcjcjcjcjcjcjcjcjcjcjcjjuBjnjnlEiHuujnhMeRfcefeDeueofPdLetdHdKefftffdYexdWeMfIfKfSfmeXfqeefBeh
-fDdHfzeweffxdUeueRfKeOezfidGfydPeFfwfNeKeRfkfXhMjnjnjnjnjnjnxdjnjnmkiHjnmkiHiHhRjcjcjcjcjcjcjcjcjcjcjcwhwhjcvejnjnjnhMeuhMjnhMfAeSfMfGereBeweZdOdHereNeFeBeSeIfdfkfGfcfKfIfFfLeEfleM
-eWeaeKeReleFfGepftefeheSdOfLemfoeZeGeYeCemeCfjmkiHiHuuxejnjnjnjnjnjnjnjnjnjnxfjujcjclEiHuuwYxgxhvOiHuAiHiHiHwQuujnjnhMdZjujnhMdSfzfofbdNfndHeKfzfCfifgfVepfifOfvfDeIfkedfbeGfDfDeSfh
-fFeefvdTevfveydQeYdIfyeKemdReJdUdIfOfOfxfRfmfRecfmermkwKxiwLiHuujnjnjnjnjnjnjnhMjcjcxjjcjcjcxkxlxmxnjuvfvfjnvdhMjnlEvgiIuBjnmkuufsfIeteqfIfEfAdZeSereSeJfjdHfmeDetePfeezfDfneeekfndU
-fJfoehfmdVeafCfcfeetfSfAdGepeKeeexeMfMdLeGedfPeweFeheedXeXeWeljjiHjnlEiHiHjnjnvejcjcpJxoxpjcxqxrxsxtpjjnjnjnjnhMjnhMuXuXxujnjnpJereMdHeuegdZeafReKeqfRemeofwdOfGewdKfJeLdHfgefelfEff
-eBfNeDeteKewdTeqfrfjdTfgeSeJeufqfHeEfhfyevdLeUecfGeefbegfdeDfBhMxejnhMxvxvjnjnhMjcjcpQxopJjcwmxrxwxxhMjnjnvdjnhMjnpjjnjnjnjnjnpQeTfLdYePdKfdflecezeUexfSdVfQfxftfmfmfufpfgflfWeZfFeG
-eYexeLdWdMfEeDejelfcdNeqdKfDfCdYdHeOfUfdewfcehfuemftesfneLeNfixyjnjnhMjnjnjnjnhMjcjcpjxopQjcxzxrxsxAhMjnjnjnjnhMjnvejnjnxBjnjnhMdNfoeKdWebfUdKfMeedVfGfNfWeYfZfwfUfifBfJdJfddZekfseO
-eUfPeOfgeQfudYfneZdXeDfeeIdYfueafsekereLeLfReKdVfcfyeteifHdPfajjxCvhxDvZvhiHiHxEjcjcmkiHuBjcjuxrxsxFjjxCvhxGiHuBjnjujnjnxHjnjnpJfWeAelemfAdYfHeTfJeXegfUeWfVfMeodIfsePeTedfWekfYeMeS
-eYeJffevfUdXfJftdJgafZeYdHdZfrfcdJeHeVftfpfZfYekeedRegezendMejpJjcjcjcjcjcjcjcjvjcjcjcjcjcjcpjxrxsxIhMxejnjnjnjnjnhMjnjnjnjnjnpQfGeEexdSfNfBfbefeweldHeBfIeAfcejeJfWeUemfNeCeEfYfeei
-fyfcfIeMeremfqeudMfNfPeLeEfNdSfWdOfyfleHfqfseeftfOfIdVfCeKdVdRpQjcjcjcjcjcjcjcxJjcwYjcjcjcjcjvxKxLxMvejnjnjnjnjnjnjjuAiIiHvhiHhReQewdQeKdNdPfkfGeWenffdHfsfnexfmfFfgeNegfyfjfXeQfDfG
-fEemepeDenfwecfhdPfrdOdRfsfJfOeqfEeCeueMfrfPfofNdRemfrfvevfYeQxyjcjclEiHiHiHiHvguujcjcjclEuyxNiHiHiHxNxGvhjavQuujnmkxOjnjnjnjnhMfOecfJeSfketfaeodPdOfaeReffLeFeqfleFfldKfeenfBfFfHdO
-dMedeNfYemeMeBdNfCejesdYeRehfsewfAeienfPfIdMfWfreGfUdOeldKfmfmpJjcjchMwPxPxPwMxQhMjcjcjcxRjcxSxSxSxSxSxSjcxSxSjujnjnvejnjnjnjnhMfcfDeaegfqdUfleheHfufdfveWeedPfreSfRfUeqfyfMeffodGeN
-fwdVezfyfUeUfjdOdZecfaefeIeOfLeVeSehftfIdJfffdfFdIfEdUegfEdWdPsYjcjcxywMwMwMwMwMhMxTjcjcxUjcxSxSxSxSxSxSjcxSxSpjjnjnxVuujnjnjnhMfwfafqdQeqfLewfAerenfeefdZfSemfmfffweceteIeqdYeddMet
-fedOeYdUfpeheGeVeeeIfuebfzfieodWfueweUfQdRfGeofvffeTeudGedererpQjcjchMxWwMxXwMuxvgiHiHiHuBxSxSxSxSxSxSxSjcxSxShMjnjnjnjnjnjnjnxYuufqfCehfeeidLdKflfafGeFfHfvfZfXeKfPeJelfieCeTeceefD
-dGfrfRexfMeKdRfOdVeyewdJfmdZfldPeGfpeiegeNeAfwebfDeDeYdJfJfifPjujcjcxywMwMwMwMjujcjcjcjcxSxSxSjcjcjcjcjcjcjcjcxZvhvQuAvQvQvQvQvQyafkfTetenfkeRfLeneCeMfoeWdHdYdZetfUekeKeRfQdYdMgaeT
-eFesdXemfveHfqeKefeDexfMfYfEeFdLfMfqedeDfOeUegfDfrfUdTdZfPfneipJjcjchMybwMwMwMhMjcjcjnjnjnjcjcjcjnjnjnjcjcjcjcpjjnjnychJhJhJhJhJhJhJhJhJhJhJhJedfgfedWeAfrfKdKfsfUfeePeoezdMfofdfQeY
-eYeyfjgafBeQfNfPfbfKeOfhegfSenfgdKejfpeTfFfIfqfkenedfefdepeKfasYjcjcsWydyewMwMxyjcjcjnjnjnjclEiHjcjnyfjcjcjcjcxYuujnychJhJhJhJhJhJhJhJhJhJhJhJeLeffFfAdQejdNfDeGeddQfQfXehfReydGdLfR
-fcdLdXfCfueNfyfifxdReIfdeudMeeegdQeedKfleEfedTeKeedKexeFfCeTebpQjcjchMygyhwMwMhMjcjcjnjnjnjnhMjcjnjnjcjcjcjcjcjcyijnychJhJhJhJhJhJhJhJhJhJhJhJfqeGfJdQexgafhdYdHfweUfkekdOfEfLeqfify
-fffWfmfUfTdVewfTfAfTfVeLeZfjfifDfveJfifXdYejdPfdfxedfyfMdWdShJxyjcjchMyjwMwMwMjvjcjnjcjcjcjnjnjnjcjcjcjcjcjcjcwCuBjnychJhJhJhJhJhJhJhJhJhJhJhJeodRecdKfYeAdXfSezfUfBfMegfadWfffneRfR
-fDfnfsdZetfNfteodRfAepfvffeEfLeKevdOfJeiekfDfXfEepfQfpfneldUdYpJjcjchMykylwMwMhMjcjcjcjcjcjnjnjnjnjcjcjnjnjcjcpjjnjnychJhJhJhJhJhJhJhJhJhJhJhJfwfSfmfgfyebdNeTehefetfBfSdNecfVewedfu
-fpeweYeMeBdUfbfyeOfQdPfEfodIfeeHdNemfEfrfCdHdMeaeDeifrfWfxeffXsYwYjcsWwMwMwMwMjujcjnjnymjnjnjnjnynjcjnjnjcjcjchMjnjnychJhJhJhJhJhJhJhJhJhJhJhJeJdUdYfwejflfFeEdHfjdWfPdLdOfmeyfsfIeD
-fMeMfsfvfHfigaeVfCfVfzgafPeQdOfFdHeLeTfkecfofLfudPejekfLfuejeDpQjcjchMwMwMwMyopjjcjnjnjnjnpjjcypjnjcjcjcjnjcjchMyqjnychJhJhJhJhJhJhJhJhJhJhJhJfqfpejfufheFdRfZdLekfifHfdeVeNeudTeiea
-eNfoedfifXdNerepfHeGepfnfMeDeOeofueFfMdQecdPeleIfdfDdPfXfoejePjujcjcyrysiHuAiHuBjcjnjnjnjnjcjcjcjcjcjcjcjnjnjcxYuujnychJhJhJhJhJhJhJhJhJhJhJhJfkfIdVdQebeiehfkelfCfedGesfVfzfBfXdGfB
-eUfMeJdReKdHdWeKeHewfSeFeCdIeCeqeceLfCeueifCeEevfUeFewfDdTeClEuBjcjcwyjcjcwyjcjcjcjcjnjcjcjcjcjcjcjcjnjcjnjnjcjcytjnychJhJhJhJhJhJhJhJhJhJhJhJfwdWdRfOeAeSdNexdIetdVfUeEemeQeefAesdZ
-eNgaeJedfyeGdNdNeeeNdTeudSeUfKdWeifKfvepdPfcfoevfWePfjfceSfyxyjtjcjcwyjcjcwyjcjnjcjnynjnjchMjnjnjnjcjnjcjcjnjcjcyijnychJhJhJhJhJhJhJhJhJhJhJhJezeIfveTdOekdUeGfFexfpfXeieVfDeCeAfUfF
-fyfJfUeHdGdKexfiekeBfTfUfZemdTdLdUfRdIeoeYfpfifteHeNfReTfJePjujrjcjcyrviiHyujcjcjnjcjnjnjnjcjcjcjcjcjcjcjnjcjcwCuBjnychJhJhJhJhJhJhJhJhJhJhJhJeufKecfUeMeAfJftenfsfXfkeWfAeIeTfmeYfP
-etefefeZfxeYfhfLeSfZexfddXfxfkeUeTfQfBeffYeKeOfAfffOfYfEfgeYjjyvjcjchMywywsYjcjnjcjcjcjcjcjcjcjcjcjcjcjnjcjnjchMjnjnmkyxhJhJhJhJhJhJhJhJhJhJhJeBepdUdVeefReIdPdQeWfkdYdRerfVgadMegfx
-dMeVevfWecfYeMendHfJeYelfdfkeceEfneldHfmevdHevfRfqeWegejfpdUxyjcjcjchMywywsYjcjnjnjcjnjcjcjcjnjcjcjcjcjcjcjcjchMjnjnjnychJhJhJhJhJhJhJhJhJhJhJdYeDfZfaeNeGdVdYfVegenezeGfGewfheuezeG
-etfneMeRdHfteZdQekeqfseQfbfAfWecfWdPfOeEereOeNeCfhfueCeLekeWjuyyjcjchMywywpQjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcvejnjnjnychJhJhJhJhJhJhJhJhJhJhJdZeUejdTemeBdMedfVfweOdNfZdNgafNfedIep
-fydNdGdReFfJfcejdRfGenfLeJeldNfGeQeHdMeBffeTewdKereTfmeyfCemhMwgjcjchMywywjjvQuYuZuZvavhyzvOuyyAyBiHvQvQuAiIuAwQyCjnjnychJhJhJhJhJhJhJhJhJhJhJefdSeoeffieievfnfLewfHfjeodKeIeZeHfgez
-eYeefhfzeveNeSfDfDexdRfOfyfPfheueSfVeffpfbfmfJfHeJecfReDeIdMmkuujcjcjjvQvQyDyEjnjnjnjnjnjnjnjnjnjnjnjnjnhMjnjujnjnjnjnychJhJhJhJhJhJhJhJhJhJhJfIeyeneGeYfBdJfofyegeygafaeReNdRfmeVfv
-fTdXfwdWeyfTeneMdKfedMeyeffLeXeBfhdPeSeWeYfhfhfueLeddZdSeNdWewpJjcjchMjnjnjnjnjnjnhMjnjnjnjnjnyFjnvcjnjnvejnjnjnjnlEiHuBhJhJhJhJhJhJhJhJhJhJhJeDfjfadIedeXfifTdGfAeIdMfmeLfhfheZendZ
-dGeFeTfXeCemdUfQfjemeGfoewdKeJfwfWeydTfAdQfyfseZfLeHeVfifTfBfwsYjcjcyGyHjnjnjnjnjnjjvhiIiHuujnjnjnjnjnjnxYuAiHiHiHuBfrhJhJhJhJhJhJhJhJhJhJhJhJdSeUdKfyeXfSegfmeefZeverezeQfBfveUeHfO
-fDfvfEeYejdYfIeSeUevfBfifSeqeieWemdWgafudVeddIeKfndSgafqePfIfupQjcjcjujnjnyIjnjnjnhMjcjcyJmkiIiHvHjnjnjnjnhMeHecfpfUdThJhJhJhJhJhJhJhJhJhJhJhJeSfCdNfFfCepdHeRefegfkgaeMdOfqfHfAfndG
-fdeMfrfPeZfIevfweoeVfjeZdHfCdWdKfofxeEevevgaexfdfSfIdOeCfwehdRhMjcjcvejnjnjnjnjnjnyKjcjcjcjcjcjchMyLjnjnjnhMfVeGdWfsevhJhJhJhJhJhJhJhJhJhJhJhJeBfNfKfTdYfndLffftfAeQdYdHfzfOfyeJeHeN
-eSfueweceiePeCecdLdTdGfdeLfnfAecdOfzewfrecerfrftfretekfseWdZfPpJwYjcmkuAiHiIxCvhiHhRjcjcjcjcjcwijjvQjaiZiHvgiIiHiHuufuhJhJhJhJhJhJhJhJhJhJhJhJfrebdRdReWdSeLemejecfmfoecftereneoejfl
-eWfRfQfGfhfcfdeieNfyfrdKeZeieYdZfDfLfffldKeofCfseAdLeffPfEeHfysYjcjcjchMyMjnjcjnjnhMyNjcyOyPyQwmhMwqwqjcjcjfwjwjjghMeyhJhJhJhJfBeHesfDdHdZeIekfTfQeueAfLegfRfzdQetewevfVejexeleHdNfi
-fDeUdKenfnehebfcfkfQfWfLfyehfjfSeIfdePfqdJereodPeZfEfkeweLfFfipQjcjcjcjujcjnjnjnjchMyNjcyRySjcyThMyUjcyVjcjcjcyVjchMdHfcdWfrdIeBfKeWfoeLeLeVeseceveCdMfheLeVfvejeTeOdRfpfufievdPeHfT
-eveOdNeMeMfAeKfHeOebfwfAfAexfufEfHfEeFfiedfLdJfueVdVdWeLeXeRdZmkyWwswsyujnjnjcjnjnhMyXjcjcyYjcwmhMwmyZjcxgzayPjcjchMdMdPfzfPefeMfzdPerfhfxexdZegdKfseJffdHdNfPfjdYfYfvdJeLeIfhfxeHdX
-eFebeWeOenfzdPeDfLesfrecfxfmexfgfkdIekfefTfVehfvfzfpfAeVdZfaeHfapJjcjcxyjnjcjnjnjchMzbjczcyYjczdhMwmjczezfzgzhjcjchMfkfmdQdHdMfUdVdMejejeLfdeTfBeoeMfkfkdQfJfZedeefufgeldOesfmfBfdet
-eNfUeTeSdSfmezfOecfyfVeofwdXdSeEfpfCdOewfmePdHdKfveRdGfBepeEfbeQsYjcjchMjnjnjcjnjchMzijcwizjjcwmhMwmyVzeyZjcjcyVjcjjvPuueBfleqfJfCeleefefRdMdUeDdZfQfSfXfjeLfzdOeBdJdHdOezeWeRfrecfb
-fneBeLfOfDfTeLfueSeHeLfAfFfMelfweqeSewebfwfbfMecfodGeGfKfHeMeAfqpQjcjchMjcjnjnjnjnhMzkjczlzmjcwmhMxzjcjcjcjcyZjcjcjvyfjvesfpfndZgafjgafMeJfMfWexfIeAeReeeGfaewefeCeydZeDfdfMfGeYfZga
-fzeReDfzexdZexfiffeWfyeTeQeldKeAdJflfifYdLdPgafhezeQfWeMdVezfHdVpjjcjchMjcjnjcjcjchMjcjcjcjcjcxzjjuAiZvZuuzezejcjcjjiHuBfTeifXfbeEfcfGdMeielePdXeifBfOeRevfLfGdGeodMfufxfSfneOdHdGdT
-eHeXflereSfKelfSfsfVecePefdZeQeJeYfleBeSfVfieQeKeIdZfRfReveHfeeHpJjcwYmkvZvNiZiIxCvguYuZvaiZuYvaznhRjcjcjjiHiHiHiHuBeEfbebejdQejfffxfdegfXeIeMfyendXdGeHfGfOfZfqeEfdeDeheIfPfOdQexeC
-etfDdOepdQeudJesfZfVfQfEfyfzfyeYeydSeaexfaffeoejdWfDesfcfrdSfHfJsYjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjczojcjcpJfLfseZfFfaflfmfddXdNePeDfMfldZeOdMfafPewecdMeMeVekeUegeZfddJeifCfHfzfEeOeg
-fydLeheOfUfgeheLfEfCfneLegevePfNdSfjfFfXekexfmfLeFfUdMdRfudReKfdpQjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjczojcjcpQeNepeKefeBfqfVeodMeqfLesezegfydYfzfcfYdVfPesdIfyekewfEdMeTfZfseueVejeYeofd
-eeebfKdJftfJeidWfBfNfoePfMfLfYeZeJfBeIfjeffPeIfHdPejezfseLepfCeRmkiHiHiHzpwswszpiHiZyWiHiIvZiHiHiHuAuYvauBeEebfldIfWebeFezetevevepeoeofGfQfIftfdgafKfDftereufnfGeoePePfyfUfOeBeKeYeu
-fTeqeKfOdPfQfneEezebeudIemfGfBdWdSfSdIdYeSfOeLfQfCdHdXedfmfQffflezfCedeXxywYjcjujcjcpJjnjnjnjcjnjchMecdPdHfvebfVeXdLeTeRdVeseudIfeeWdLenfzfMesfXfZeAdVfIePdJeVdJfYdReqfyfCeoeHdVenfs
-evfcfJeofgeOfyeOfYdGfSdKfBeOeYdOfUeHfHfFfzeofVeneUdHdJdJdGfrfsevfgeOelfLiYwswsvGjnjcpQjnjnjcjciHiHhReGdKdSfceGejfQejfKfmfxekfmfffcfEfXfiebfXefeqeNejeheYfHeufcetdKdNdUfKfgfieofddZdM
-dPeQfhdZfFfoeyeudQffdUeldLfWebeJeVdSeTeYfafGftfteMefdJfbedfneqevdQeNdGelxyjcjcpjjnjchMjcjnjcjnjnjchMdLfKehelfydHeddZfBezgaebeifVeVeFfHeXfifOdVftezfJeJeTeQeTedfXeneDegfoeJeEebeRfweB
-fedZfWekeWdLeceufkeYfsfhdPeCezdQfffVejdNfqeceGdMfmeGdIfoegfDeHfffNejeNdYhMzqzrhMjcjnjcjcjnjnjclEjnhReDeofMeOfkfVeefqfRfvebfeeFfNfseDdQdTeyfyfbfuepfPeCfbdLfpfWdVdMdNfRfcfYeUezeveqfo
-eCeOfSfYfRfJfqegebdMeSfWerfOdZfLeseDeQdRfUerdMeteLdTeseLfqfUeYfreXfqeLeAhMzrzrjujcjnjnjnjcjnjchMjchMevfYfVeffheffbfvftfKePeFfKehfGdTgaeCeLeefdgaeafQeUeyeofkfsfWfZfzdYeTejfhflfGfBeQ
-fGeNePfwfCdYepekezfNeTfedQdRgafmfTfsfcezfBexfUdQeeelfHfifddVemfofhdZeeeemkiHiHhRjnjczsztjnjnjchMjnhMfsfsekdOeTdZfkeueidLfCeJdVfcfcfrfnfIfUflfmfHfVdJfuftftfadQfXeufzeFeJesfvdXfhfPfn
-ezdRfSflfJfIfjfGfYdSeOeqfXfvdQepfKenfRfgfQdPdGfLePemflfufmfBeiftdGfYfIeXdZfCeKmkiHiHiHiHiHvMiHhRjchMezfzfvfIeWdQfMdNfYfXftfDdKfXdYedfVfaeleKfldPfOeAePejfxfTfFdLehfudNeffnfJeAebdHfY
+fBfMeHekdWfpfpfKfnfNeceLeOebfEdNedegeKdQeQeUdXfxeIjujnjnvijnvjjnvkjnjnjnjnjnjnjjiHiHvfvgvhuAfIfhendGegfPeDeNdYfMeJfkfDfXdTfbeVezdLeqdNfGeOdMfVfGeVfWeyeXeufAfoepdKfNeFfmeJffgafTeBez
+eOgafXfFeXfWfQeqfheweUeyenezeOfCdYfeeYeOfSdGdLlEiHuHjnjnjnjnjnjnjnjnjnjnjnjnjnvljnjnjnjnjnmkiHvfvgvgvgvgvgvgvhiHiHiHuAfpfieHedfzdUfNdYfidNfIfLfifHfUfGeXeHfZeYeneLeHezfkeNewfodNfYeI
+eBfKdMfuemeodWfHdVeKfGeeeFegdUdSfGfAfOflegfbeuhMvmvmjnjnlEiHiHiHiHiHiHiHvfvgvhvnuAjnjnjnjnjnjnjnjnjnjnjnjnjnjnjnjnjnhMdTeffVfxfBfSfyfedRfbfTecfhfEfweffheTetfOfSfdfmeaeDfOfNfveeeueD
+dGesfyeWeZeHepeyehdHeSgaetfCeYdVemfSdJdOdQfcftmkvfvgvgvhuHdGfcfgeifAflftfgfPenfwjjvouGiHvpiHiHvfvgvgvhiHiHvpiHiHuAjnhMfmdPeJffdHfFeTeDdQfQeaeLftfMfLfmedfhdWfoeefVdNfzevfodIdReUeSei
+eFfOfTgafMfGfjeVfmedfOdTfOfrfWfEeCeIejgaezfHebeweReQezfzemvqvqvqvqvqvqvqvqvreieqhMjnhMgcgcgcgcgcgcgcgcgcgcgcgcgcpjjnhMdNfteUeYfieafNeueLeCejfkfUeQeDeGfreyfmeLfFfqeJfTfneeeYfPelfyfY
+dGfkeAfsfrdNdIeLeUdJenebfofEdYeAeBfsfpdPdKePdGeDfLeReqdPeivsvsvtvuvuvuvvvsvwfceZpjjnjugcvxvxvxvxvxvxvxvxvxvxvxgchMjnhMfgfPfSfYfndPeMeFfWeZeQfZeweYfQezedfOfydWfSeAebefeUfReTfFfweldH
+fGereodGfnePfheFfKeGegeRdLeYdOegeifUeneDdJdYfoecfteefGebeGvyvsvzvuvuvAvuvuvBfYfmhMjnhMgcvxvxvxvxvxvxvxvxvxvxvxgcjujnhMdNfGeWfidYeXexdOfrfheKefeddWeTfzevenfxfCetdGdPfSfDePfTfWfceUfP
+etfzeZdSeIecfudGdJdSfddYfWfofneheKdYeIeSfbfofTenfSfqfZfuekvyvCvuvDvuvuvEvFvBexephMjnhMgcvxvxvxvxvxvxvxvxvxvxvxgchMjnhMeLfqexfjemdNeoeVfofsfYeVfpeCdZfDeYeheFeAfxezeRfRepeefcfefYfvfd
+fYeHeqfGdMerdNfKehdZfOdXeafOdTfBfdfJeWfffJeOfafaefeqeNeaeavyvsvuvuvuvuvuvuvBederpjjnjugcvxvxvxvxvxvxvxvxvxvxvxgcjujnhMdGfPeYfLdGfHfDfFfxeidHejdReafueheZfpetfGeMflfRfQezeUfzfAeWfifg
+fwfQeXfWfrfagaeueSeTfFfAdYfcfOeEfjebdLeGdHeafIfxfpeleOfieSvsvsvGvuvuvuvGvuvwfoeshMjnhMgcvxvxvxvxvxvxvxvxvxvxvxgchMjnhMhJehfzfseMfkdSfVfRewekfQenecdOeOeMeBekevfEfCeyfzenfnfeftdPftey
+fyfwedgaeQfSeTdPeAenegeDdHeEegfEfieIfGfEeKeyfKdVdLfqfsfGeXvHvHvIvHvJvKvIvHvLdZefjjvMvNgcgcgcgcgcgcgcgcgcgcgcgcgcpjjnmkvOhJfXdIfDejflfIeNfofTfgfueMdUfRdJedebepedfCeMfhfEeXfIfHfJfKfu
+eYfmeBfOefdLeLdPfHeWfHdXeueLfeeQfheqfxeIfBfnftlEvfvgvgvgvgvgvgvhvpvPvQvfvgvgvgvhvNvRjjvSvTvUvTvVvfvhvWvfvgvgvhvShRjnjnmkvXuAfJeJeGeYfwePfVfEeAemfEdLfCefeefffofAekdWdXdYdOfBfoeteEfu
+eFfGfLeeeEfydVfQelfUeIeTfQfKfDeZfReoemftfnfbeuhMvYjcjcjcjcjcjcjcjcjcjcvZvZvZjcjcvljnhMwajcwbwcjcjcjcjcjcjcjcjcjcvljnjnjnjnhMeIeQeUfPfsdTfKfGeceafVfqdPdHeudIeLeZeFfPdOepfndYfUfweBfg
+eNfvfRfueMelfLeNdGdXfzeudTfyefeLeRdXfLfIfVfneWhMjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjchMjnjuwdjcjcjcjcjcwewejcwfwejcjchMjnhMjnjnhMeQfTeqdVdLfPdOfZfBeaetfreYdTfZfNewedfbfteEdNfCeadJfqfdfa
+ezfrfcftfvfsfFecftfsfTfodOfNfPeSekfHePeidHeNeQjjiHiHwgiHwhvViHiHuAjcjctatatawijcpjjnhMwdjcjcjcjcjcwewejcwfwejcjcjujnjujnjnhMdOfpekenfAfteIfdfFfxfMdVeXfofafFdUfffveZdGdLfldSdZdOdVdV
+fGfadTfTfCeyfiemfceSeGeRdRftdSfKeRezeqdTfGenfDtewjwjwjwkwkwkwkwkhMwljctawmtajcjchMjnhMwdvfvgvhiZiZvfvgvgvgvgvgvhhRjnpjjnjnhMfFfQeueAfbeseieBdIdZfBecdLfCfQeQeaeffTfSeefEerfUfQemeVdQ
+eCfKeOfOereldMePdNflgafNfufAelfyfhexdSfVdRfReXtewjwjwjwkwkwkwkwkpjwnjcjcwowojcjcjujnpjwdwpjcjcjcjcjcjfwqjgjcjcwrhMjnhMjnjnhMfnegeFeDeffsflesfodLeBfZfHfXeMfyeEdWfkeTeedKePfdfreVfwfD
+fkeqdQeNflfDfzfmfHeFeJdJeXewfMejeSfAfgeTfGeqdSpjwjwjwjwkwkwkwkwkjuwsjcjcjcjcjcjcpjjnhMwdwtjcjcjcjcjcjcjcjcjcjctahMjnhMjnjnhMfQdGdHgaerfZfKfReEfYfbdPfseffBdOfffpfrfXfyfyfleefRfmdTfJ
+fueyfdeLfmeceveMeBeDfUeXfvedfbfGfteveHeaebeSfljjiHiHiHiHwhiHvUiHuHjcjcjcjcjcjcjchMjnjuwdwtjcwuwvwvwfwfwewwwwjcjcjujnjnjnjnhMeLfceSfzfAevfsdSeiexelfBfmdVeQfOegeBeKdLfgerewfXfOfyfCeK
+dGfZeTeAdWfWfUeTeCeVfmeCeseSgadNfHesfKevfmfMeTjuwxjcjcjcjcjcjcjcjcjcjcjcjcjcjcjchMjnhMwdwtjcjcjcjcwyjcjcjcjcjcjchMjnjnjnjnhMeyenfifVeReYerftdTdQfYdJfudJeXeYefehdOfLfJeUdJfIeBeKfKel
+fidWebfcfBfmdUfQfTfreEfSfUeXdWfZfTeGdQfldXfJdWjjvfvgvgvhiZvfvgvgvgvgvhuGwzwzwzvphRjnpjwdwtjcwAwBwBwCwCwDwDwEjcjcpjjnjnjnjnmkuAdLftesfvfeffefdLfCdOdReIfGeFfPfHeVdVfdfDeOerfcebegfMeK
+eNdPfRdIfpeFfxfHfGfCfXeVfrdJeheCfgeDdRezerfreipJjcjcjcjcjcjcjcjcjcjcjcwFjcjcjcjchMjntcwdwGwHjcjcjcjcjcjcjcjcjcjchMjnjnjnjnjnhMfqeVeYekdVeleIfmecetfBdIeHfzfhebeMeYfPeffnekfZdYegeCeJ
+fefaenfeeudUenecdIeUeRfwfrdNdUeOdIegfUfnemdSfajjiHiHwgiHwhvViHiHuAjcjcwFjcjcjcjchMjnhMjcjcjcjcwIwIjcjcjcjcjcjcjchMjnwJvXuAjnhMfHdTdRebeBfdfKeveeffecdPeOeNeZdGfAdZfAfCfjfGeJfWeLfJeH
+etfneJenfFfifFfyeDfVeIfoeFdRfSefekfHeVfcfQfhdHtewjwjwjwkwkwkwkwkhMjcjcjuwKjcjcjcwLjnmkiHwMuAjcwNwNjcjcwOwOjcjcjcvljnhMeShMjnhMekezfmfeeVeYfpfDeteeejfeeieSeWeGdZeofPeMfZewerfYeRfofF
+fYecedfPewenfLeBejfxfaegeYfzfWdPfLfWewfjfBfUfBtewjwjwjwkwkwkwkwkpjjcjcpjwnjcjcjcjujnjnjnwPmkvoiHuGwQwQwRwSwTwTvTvNjnhMeqhMjnhMfIeqeifielehdLdGdMeNfHdTfGeIfseSetfefBfZeSetegfXfreTfB
+fwfVfsfodUeGfWeFfmeFeVfXfQeaedexeGdXdZfvdXfjfBpjwjwjwjwkwkwkwkwkjujcjcjujtjcjcjcvljnjnjnjnjnjnjnvlwUjcwVwTwTwTwWjujnhMeQjujnhMepekfnfUeveOfYejdHdXfofqfYdJeDeZdLeDdTeEevePdNelftfhei
+fGeZeqeMelfqeEedffebfveneBeJftereXeffEgafTeuevjjiHiHiHvpwhiHiHvUuHjcjcwFjcjcjclEwXvSiHwYvoiHiHiHhRwUjcwZwTwTwTxapjjnhMfEhMjnhMeufKdZfLeGdXfddZfJfsdXeueEewexfKefeNfDdVfgdSdYeMeReaeE
+evdJeKecedfdfLeOfygafffseSfeeOfwfjfierdWdUeWfytewxjcjcjcjcjcjcjcjcjcjcwFjcjcjcwFjcjcxbxbjcjcvZvZpjxcjcxdwTwTwTxehMjnmkiIuHjnhMfOftdQfEfmdMehfwfUfLeneJfzfKeWfQeAfneGfBeXfsfXdYdWegeh
+eFehfzdMfnfAeSfedYeVfzfKebfPfHebeOeTfKeDemexfRpQjcjcjcjcjcjclEvovpuGiHvnuAjcjcwFjcjcjcjcjcjcjcjcjuxcxfxgxhxilEuGuHjnjnjnjnjnhMdOdQfadOereIgaeUdPfyfyfyeAfIfYfNfIePfTeqeVeBfseLdReCeD
+eNfAexfsevevfFeOfRfXfreLfTftfEeJfffOfFfafLfkeyjjvfvgvgvgvgvghRjnjnhMxjjnhMwxjcwFjcjcjcjcjcjcjcjcjcjcjcjcjcjcjjuHjnjnlEiHuAjnhMeRfcefeDeueofPdLetdHdKefftffdYexdWeMfIfKfSfmeXfqeefBeh
+fDdHfzeweffxdUeueRfKeOezfidGfydPeFfwfNeKeRfkfXhMjnjnjnjnjnjnxkjnjnmkiHjnmkiHiHhRjcjcjcjcjcjcjcjcjcjcjcwowojcvljnjnjnhMeuhMjnhMfAeSfMfGereBeweZdOdHereNeFeBeSeIfdfkfGfcfKfIfFfLeEfleM
+eWeaeKeReleFfGepftefeheSdOfLemfoeZeGeYeCemeCfjmkiHiHuAxljnjnjnjnjnjnjnjnjnjnxmjujcjclEiHuAxfxnxovViHuGiHiHiHwXuAjnjnhMdZjujnhMdSfzfofbdNfndHeKfzfCfifgfVepfifOfvfDeIfkedfbeGfDfDeSfh
+fFeefvdTevfveydQeYdIfyeKemdReJdUdIfOfOfxfRfmfRecfmermkwRxpwSiHuAjnjnjnjnjnjnjnhMjcjcxqjcjcjcxrxsxtxujuvmvmjnvkhMjnlEvniIuHjnmkuAfsfIeteqfIfEfAdZeSereSeJfjdHfmeDetePfeezfDfneeekfndU
+fJfoehfmdVeafCfcfeetfSfAdGepeKeeexeMfMdLeGedfPeweFeheedXeXeWeljjiHjnlEiHiHjnjnvljcjcpJxvxwjcxxxyxzxApjjnjnjnjnhMjnhMvevexBjnjnpJereMdHeuegdZeafReKeqfRemeofwdOfGewdKfJeLdHfgefelfEff
+eBfNeDeteKewdTeqfrfjdTfgeSeJeufqfHeEfhfyevdLeUecfGeefbegfdeDfBhMxljnhMxCxCjnjnhMjcjcpQxvpJjcwtxyxDxEhMjnjnvkjnhMjnpjjnjnjnjnjnpQeTfLdYePdKfdflecezeUexfSdVfQfxftfmfmfufpfgflfWeZfFeG
+eYexeLdWdMfEeDejelfcdNeqdKfDfCdYdHeOfUfdewfcehfuemftesfneLeNfixFjnjnhMjnjnjnjnhMjcjcpjxvpQjcxGxyxzxHhMjnjnjnjnhMjnvljnjnxIjnjnhMdNfoeKdWebfUdKfMeedVfGfNfWeYfZfwfUfifBfJdJfddZekfseO
+eUfPeOfgeQfudYfneZdXeDfeeIdYfueafsekereLeLfReKdVfcfyeteifHdPfajjxJvoxKwgvoiHiHxLjcjcmkiHuHjcjuxyxzxMjjxJvoxNiHuHjnjujnjnxOjnjnpJfWeAelemfAdYfHeTfJeXegfUeWfVfMeodIfsePeTedfWekfYeMeS
+eYeJffevfUdXfJftdJgafZeYdHdZfrfcdJeHeVftfpfZfYekeedRegezendMejpJjcjcjcjcjcjcjcjvjcjcjcjcjcjcpjxyxzxPhMxljnjnjnjnjnhMjnjnjnjnjnpQfGeEexdSfNfBfbefeweldHeBfIeAfcejeJfWeUemfNeCeEfYfeei
+fyfcfIeMeremfqeudMfNfPeLeEfNdSfWdOfyfleHfqfseeftfOfIdVfCeKdVdRpQjcjcjcjcjcjcjcxQjcxfjcjcjcjcjvxRxSxTvljnjnjnjnjnjnjjuGiIiHvoiHhReQewdQeKdNdPfkfGeWenffdHfsfnexfmfFfgeNegfyfjfXeQfDfG
+fEemepeDenfwecfhdPfrdOdRfsfJfOeqfEeCeueMfrfPfofNdRemfrfvevfYeQxFjcjclEiHiHiHiHvnuAjcjcjclEuExUiHiHiHxUxNvojavXuAjnmkxVjnjnjnjnhMfOecfJeSfketfaeodPdOfaeReffLeFeqfleFfldKfeenfBfFfHdO
+dMedeNfYemeMeBdNfCejesdYeRehfsewfAeienfPfIdMfWfreGfUdOeldKfmfmpJjcjchMwWxWxWwTxXhMjcjcjcxYjcxZxZxZxZxZxZjcxZxZjujnjnvljnjnjnjnhMfcfDeaegfqdUfleheHfufdfveWeedPfreSfRfUeqfyfMeffodGeN
+fwdVezfyfUeUfjdOdZecfaefeIeOfLeVeSehftfIdJfffdfFdIfEdUegfEdWdPtejcjcxFwTwTwTwTwThMyajcjcybjcxZxZxZxZxZxZjcxZxZpjjnjnycuAjnjnjnhMfwfafqdQeqfLewfAerenfeefdZfSemfmfffweceteIeqdYeddMet
+fedOeYdUfpeheGeVeeeIfuebfzfieodWfueweUfQdRfGeofvffeTeudGedererpQjcjchMydwTyewTuDvniHiHiHuHxZxZxZxZxZxZxZjcxZxZhMjnjnjnjnjnjnjnyfuAfqfCehfeeidLdKflfafGeFfHfvfZfXeKfPeJelfieCeTeceefD
+dGfrfRexfMeKdRfOdVeyewdJfmdZfldPeGfpeiegeNeAfwebfDeDeYdJfJfifPjujcjcxFwTwTwTwTjujcjcjcjcxZxZxZjcjcjcjcjcjcjcjcygvovXuGvXvXvXvXvXyhfkfTetenfkeRfLeneCeMfoeWdHdYdZetfUekeKeRfQdYdMgaeT
+eFesdXemfveHfqeKefeDexfMfYfEeFdLfMfqedeDfOeUegfDfrfUdTdZfPfneipJjcjchMyiwTwTwThMjcjcjnjnjnjcjcjcjnjnjnjcjcjcjcpjjnjnyjhJhJhJhJhJhJhJhJhJhJhJhJedfgfedWeAfrfKdKfsfUfeePeoezdMfofdfQeY
+eYeyfjgafBeQfNfPfbfKeOfhegfSenfgdKejfpeTfFfIfqfkenedfefdepeKfatejcjctcykylwTwTxFjcjcjnjnjnjclEiHjcjnymjcjcjcjcyfuAjnyjhJhJhJhJhJhJhJhJhJhJhJhJeLeffFfAdQejdNfDeGeddQfQfXehfReydGdLfR
+fcdLdXfCfueNfyfifxdReIfdeudMeeegdQeedKfleEfedTeKeedKexeFfCeTebpQjcjchMynyowTwThMjcjcjnjnjnjnhMjcjnjnjcjcjcjcjcjcypjnyjhJhJhJhJhJhJhJhJhJhJhJhJfqeGfJdQexgafhdYdHfweUfkekdOfEfLeqfify
+fffWfmfUfTdVewfTfAfTfVeLeZfjfifDfveJfifXdYejdPfdfxedfyfMdWdShJxFjcjchMyqwTwTwTjvjcjnjcjcjcjnjnjnjcjcjcjcjcjcjcwJuHjnyjhJhJhJhJhJhJhJhJhJhJhJhJeodRecdKfYeAdXfSezfUfBfMegfadWfffneRfR
+fDfnfsdZetfNfteodRfAepfvffeEfLeKevdOfJeiekfDfXfEepfQfpfneldUdYpJjcjchMyryswTwThMjcjcjcjcjcjnjnjnjnjcjcjnjnjcjcpjjnjnyjhJhJhJhJhJhJhJhJhJhJhJhJfwfSfmfgfyebdNeTehefetfBfSdNecfVewedfu
+fpeweYeMeBdUfbfyeOfQdPfEfodIfeeHdNemfEfrfCdHdMeaeDeifrfWfxeffXtexfjctcwTwTwTwTjujcjnjnytjnjnjnjnyujcjnjnjcjcjchMjnjnyjhJhJhJhJhJhJhJhJhJhJhJhJeJdUdYfwejflfFeEdHfjdWfPdLdOfmeyfsfIeD
+fMeMfsfvfHfigaeVfCfVfzgafPeQdOfFdHeLeTfkecfofLfudPejekfLfuejeDpQjcjchMwTwTwTyvpjjcjnjnjnjnpjjcywjnjcjcjcjnjcjchMyxjnyjhJhJhJhJhJhJhJhJhJhJhJhJfqfpejfufheFdRfZdLekfifHfdeVeNeudTeiea
+eNfoedfifXdNerepfHeGepfnfMeDeOeofueFfMdQecdPeleIfdfDdPfXfoejePjujcjcyyyziHuGiHuHjcjnjnjnjnjcjcjcjcjcjcjcjnjnjcyfuAjnyjhJhJhJhJhJhJhJhJhJhJhJhJfkfIdVdQebeiehfkelfCfedGesfVfzfBfXdGfB
+eUfMeJdReKdHdWeKeHewfSeFeCdIeCeqeceLfCeueifCeEevfUeFewfDdTeClEuHjcjcwFjcjcwFjcjcjcjcjnjcjcjcjcjcjcjcjnjcjnjnjcjcyAjnyjhJhJhJhJhJhJhJhJhJhJhJhJfwdWdRfOeAeSdNexdIetdVfUeEemeQeefAesdZ
+eNgaeJedfyeGdNdNeeeNdTeudSeUfKdWeifKfvepdPfcfoevfWePfjfceSfyxFjtjcjcwFjcjcwFjcjnjcjnyujnjchMjnjnjnjcjnjcjcjnjcjcypjnyjhJhJhJhJhJhJhJhJhJhJhJhJezeIfveTdOekdUeGfFexfpfXeieVfDeCeAfUfF
+fyfJfUeHdGdKexfiekeBfTfUfZemdTdLdUfRdIeoeYfpfifteHeNfReTfJePjujrjcjcyyvpiHyBjcjcjnjcjnjnjnjcjcjcjcjcjcjcjnjcjcwJuHjnyjhJhJhJhJhJhJhJhJhJhJhJhJeufKecfUeMeAfJftenfsfXfkeWfAeIeTfmeYfP
+etefefeZfxeYfhfLeSfZexfddXfxfkeUeTfQfBeffYeKeOfAfffOfYfEfgeYjjyCjcjchMyDyDtejcjnjcjcjcjcjcjcjcjcjcjcjcjnjcjnjchMjnjnmkyEhJhJhJhJhJhJhJhJhJhJhJeBepdUdVeefReIdPdQeWfkdYdRerfVgadMegfx
+dMeVevfWecfYeMendHfJeYelfdfkeceEfneldHfmevdHevfRfqeWegejfpdUxFjcjcjchMyDyDtejcjnjnjcjnjcjcjcjnjcjcjcjcjcjcjcjchMjnjnjnyjhJhJhJhJhJhJhJhJhJhJhJdYeDfZfaeNeGdVdYfVegenezeGfGewfheuezeG
+etfneMeRdHfteZdQekeqfseQfbfAfWecfWdPfOeEereOeNeCfhfueCeLekeWjuyFjcjchMyDyDpQjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcvljnjnjnyjhJhJhJhJhJhJhJhJhJhJhJdZeUejdTemeBdMedfVfweOdNfZdNgafNfedIep
+fydNdGdReFfJfcejdRfGenfLeJeldNfGeQeHdMeBffeTewdKereTfmeyfCemhMwnjcjchMyDyDjjvXvfvgvgvhvoyGvVuEyHyIiHvXvXuGiIuGwXyJjnjnyjhJhJhJhJhJhJhJhJhJhJhJefdSeoeffieievfnfLewfHfjeodKeIeZeHfgez
+eYeefhfzeveNeSfDfDexdRfOfyfPfheueSfVeffpfbfmfJfHeJecfReDeIdMmkuAjcjcjjvXvXyKyLjnjnjnjnjnjnjnjnjnjnjnjnjnhMjnjujnjnjnjnyjhJhJhJhJhJhJhJhJhJhJhJfIeyeneGeYfBdJfofyegeygafaeReNdRfmeVfv
+fTdXfwdWeyfTeneMdKfedMeyeffLeXeBfhdPeSeWeYfhfhfueLeddZdSeNdWewpJjcjchMjnjnjnjnjnjnhMjnjnjnjnjnyMjnvjjnjnvljnjnjnjnlEiHuHhJhJhJhJhJhJhJhJhJhJhJeDfjfadIedeXfifTdGfAeIdMfmeLfhfheZendZ
+dGeFeTfXeCemdUfQfjemeGfoewdKeJfwfWeydTfAdQfyfseZfLeHeVfifTfBfwtejcjcyNyOjnjnjnjnjnjjvoiIiHuAjnjnjnjnjnjnyfuGiHiHiHuHfrhJhJhJhJhJhJhJhJhJhJhJhJdSeUdKfyeXfSegfmeefZeverezeQfBfveUeHfO
+fDfvfEeYejdYfIeSeUevfBfifSeqeieWemdWgafudVeddIeKfndSgafqePfIfupQjcjcjujnjnyPjnjnjnhMjcjcyQmkiIiHvOjnjnjnjnhMeHecfpfUdThJhJhJhJhJhJhJhJhJhJhJhJeSfCdNfFfCepdHeRefegfkgaeMdOfqfHfAfndG
+fdeMfrfPeZfIevfweoeVfjeZdHfCdWdKfofxeEevevgaexfdfSfIdOeCfwehdRhMjcjcvljnjnjnjnjnjnyRjcjcjcjcjcjchMySjnjnjnhMfVeGdWfsevhJhJhJhJhJhJhJhJhJhJhJhJeBfNfKfTdYfndLffftfAeQdYdHfzfOfyeJeHeN
+eSfueweceiePeCecdLdTdGfdeLfnfAecdOfzewfrecerfrftfretekfseWdZfPpJxfjcmkuGiHiIxJvoiHhRjcjcjcjcjcwpjjvXjaiZiHvniIiHiHuAfuhJhJhJhJhJhJhJhJhJhJhJhJfrebdRdReWdSeLemejecfmfoecftereneoejfl
+eWfRfQfGfhfcfdeieNfyfrdKeZeieYdZfDfLfffldKeofCfseAdLeffPfEeHfytejcjcjchMyTjnjcjnjnhMyUjcyVyWyXwthMwxwxjcjcjfwqwqjghMeyhJhJhJhJfBeHesfDdHdZeIekfTfQeueAfLegfRfzdQetewevfVejexeleHdNfi
+fDeUdKenfnehebfcfkfQfWfLfyehfjfSeIfdePfqdJereodPeZfEfkeweLfFfipQjcjcjcjujcjnjnjnjchMyUjcyYyZjczahMzbjczcjcjcjczcjchMdHfcdWfrdIeBfKeWfoeLeLeVeseceveCdMfheLeVfvejeTeOdRfpfufievdPeHfT
+eveOdNeMeMfAeKfHeOebfwfAfAexfufEfHfEeFfiedfLdJfueVdVdWeLeXeRdZmkzdwzwzyBjnjnjcjnjnhMzejcjczfjcwthMwtzgjcxnzhyWjcjchMdMdPfzfPefeMfzdPerfhfxexdZegdKfseJffdHdNfPfjdYfYfvdJeLeIfhfxeHdX
+eFebeWeOenfzdPeDfLesfrecfxfmexfgfkdIekfefTfVehfvfzfpfAeVdZfaeHfapJjcjcxFjnjcjnjnjchMzijczjzfjczkhMwtjczlzmznzojcjchMfkfmdQdHdMfUdVdMejejeLfdeTfBeoeMfkfkdQfJfZedeefufgeldOesfmfBfdet
+eNfUeTeSdSfmezfOecfyfVeofwdXdSeEfpfCdOewfmePdHdKfveRdGfBepeEfbeQtejcjchMjnjnjcjnjchMzpjcwpzqjcwthMwtzczlzgjcjczcjcjjvWuAeBfleqfJfCeleefefRdMdUeDdZfQfSfXfjeLfzdOeBdJdHdOezeWeRfrecfb
+fneBeLfOfDfTeLfueSeHeLfAfFfMelfweqeSewebfwfbfMecfodGeGfKfHeMeAfqpQjcjchMjcjnjnjnjnhMzrjczsztjcwthMxGjcjcjcjczgjcjcjvymjvesfpfndZgafjgafMeJfMfWexfIeAeReeeGfaewefeCeydZeDfdfMfGeYfZga
+fzeReDfzexdZexfiffeWfyeTeQeldKeAdJflfifYdLdPgafhezeQfWeMdVezfHdVpjjcjchMjcjnjcjcjchMjcjcjcjcjcxGjjuGiZwguAzlzljcjcjjiHuHfTeifXfbeEfcfGdMeielePdXeifBfOeRevfLfGdGeodMfufxfSfneOdHdGdT
+eHeXflereSfKelfSfsfVecePefdZeQeJeYfleBeSfVfieQeKeIdZfRfReveHfeeHpJjcxfmkwgvUiZiIxJvnvfvgvhiZvfvhzuhRjcjcjjiHiHiHiHuHeEfbebejdQejfffxfdegfXeIeMfyendXdGeHfGfOfZfqeEfdeDeheIfPfOdQexeC
+etfDdOepdQeudJesfZfVfQfEfyfzfyeYeydSeaexfaffeoejdWfDesfcfrdSfHfJtejcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjczvjcjcpJfLfseZfFfaflfmfddXdNePeDfMfldZeOdMfafPewecdMeMeVekeUegeZfddJeifCfHfzfEeOeg
+fydLeheOfUfgeheLfEfCfneLegevePfNdSfjfFfXekexfmfLeFfUdMdRfudReKfdpQjcjcjcjcjcjcjcjcjcjcjcjcjcjcjcjczvjcjcpQeNepeKefeBfqfVeodMeqfLesezegfydYfzfcfYdVfPesdIfyekewfEdMeTfZfseueVejeYeofd
+eeebfKdJftfJeidWfBfNfoePfMfLfYeZeJfBeIfjeffPeIfHdPejezfseLepfCeRmkiHiHiHzwwzwzzwiHiZzdiHiIwgiHiHiHuGvfvhuHeEebfldIfWebeFezetevevepeoeofGfQfIftfdgafKfDftereufnfGeoePePfyfUfOeBeKeYeu
+fTeqeKfOdPfQfneEezebeudIemfGfBdWdSfSdIdYeSfOeLfQfCdHdXedfmfQffflezfCedeXxFxfjcjujcjcpJjnjnjnjcjnjchMecdPdHfvebfVeXdLeTeRdVeseudIfeeWdLenfzfMesfXfZeAdVfIePdJeVdJfYdReqfyfCeoeHdVenfs
+evfcfJeofgeOfyeOfYdGfSdKfBeOeYdOfUeHfHfFfzeofVeneUdHdJdJdGfrfsevfgeOelfLiYwzwzvNjnjcpQjnjnjcjciHiHhReGdKdSfceGejfQejfKfmfxekfmfffcfEfXfiebfXefeqeNejeheYfHeufcetdKdNdUfKfgfieofddZdM
+dPeQfhdZfFfoeyeudQffdUeldLfWebeJeVdSeTeYfafGftfteMefdJfbedfneqevdQeNdGelxFjcjcpjjnjchMjcjnjcjnjnjchMdLfKehelfydHeddZfBezgaebeifVeVeFfHeXfifOdVftezfJeJeTeQeTedfXeneDegfoeJeEebeRfweB
+fedZfWekeWdLeceufkeYfsfhdPeCezdQfffVejdNfqeceGdMfmeGdIfoegfDeHfffNejeNdYhMzxzyhMjcjnjcjcjnjnjclEjnhReDeofMeOfkfVeefqfRfvebfeeFfNfseDdQdTeyfyfbfuepfPeCfbdLfpfWdVdMdNfRfcfYeUezeveqfo
+eCeOfSfYfRfJfqegebdMeSfWerfOdZfLeseDeQdRfUerdMeteLdTeseLfqfUeYfreXfqeLeAhMzyzyjujcjnjnjnjcjnjchMjchMevfYfVeffheffbfvftfKePeFfKehfGdTgaeCeLeefdgaeafQeUeyeofkfsfWfZfzdYeTejfhflfGfBeQ
+fGeNePfwfCdYepekezfNeTfedQdRgafmfTfsfcezfBexfUdQeeelfHfifddVemfofhdZeeeemkiHiHhRjnjczzzAjnjnjchMjnhMfsfsekdOeTdZfkeueidLfCeJdVfcfcfrfnfIfUflfmfHfVdJfuftftfadQfXeufzeFeJesfvdXfhfPfn
+ezdRfSflfJfIfjfGfYdSeOeqfXfvdQepfKenfRfgfQdPdGfLePemflfufmfBeiftdGfYfIeXdZfCeKmkiHiHiHiHiHvTiHhRjchMezfzfvfIeWdQfMdNfYfXftfDdKfXdYedfVfaeleKfldPfOeAePejfxfTfFdLehfudNeffnfJeAebdHfY
 evgafXfefDfLeVePegeSfPezexfKeAfLeydReadUePegfhekdWfleReGfbfofBfLfUdTfkfherfsdRdNeHfueIdMeneReShMjnhMdHfFdSdJemeWdUeedTfGfEemftefeodNexfAfGfberdQfCdMfcfYeIdGeDdYexfkeQemdNeVeXeJfaff
 fieheEdXeTewdResemfwfpeuefeheDfFeNfNdXexfSfRfpeheZeOeGfmdOeUfOfdeQepfIeveVeLeMfreNfMfHepfpegdQhMjchMePfTeNfufRekfffNeWfodTeSfudUgadSfOfsfrdYdHetfvdGfPfxfHdNdYepdZecdVeceJeYfAdSeCeR
-eNeKfdepeGfuePfSebfoeOeSfKevftffeXeldZdMdSfcfZeYfgfwfeftfCeyezeUdWfofTeEfUegfDfcfmeIfVfFeVdSeDmkiHuBeQeFdNekeudWftfwfffMeBeufLfHfkfSeUeOexdMevegdLekfReMgafeeffBeOfDfFfVfyfsedfGezfZ
+eNeKfdepeGfuePfSebfoeOeSfKevftffeXeldZdMdSfcfZeYfgfwfeftfCeyezeUdWfofTeEfUegfDfcfmeIfVfFeVdSeDmkiHuHeQeFdNekeudWftfwfffMeBeufLfHfkfSeUeOexdMevegdLekfReMgafeeffBeOfDfFfVfyfsedfGezfZ
 feeqdQfXeCfleedHfqeQezeMebeXdIerfletfhfhdJeofqejdNevfxfyeGeRfQfKeseZfYeEfoeIeEdIfRfKeuevfhdWfkeffvejelfRdZfRfRfzefdMfRfjdKeIeweKfffGdZfeePeefXfaecfPdVepeteZfbeedQdGdPdXeWfBemfufUea
 fzfXfvfIedeIeqfwfUeKeudLfGfteBfEfzeLeedYfGemfkfBfjfCdGfEdYerejelfDeyegdHdHemdHfDeTfqeNeRffdVfEeifzfUdNeHdHejfffueOfCevdTfbfDejgaflfIeDfIfUdKffetdHejeqePfndOeefQfQeLeveFenfSfkdXfVfE
 eHeQfleTeAfQfadYeNfEeieyeIdXfUfVgaeNeFeBepfpfLeCfidIdNeQeZdNePeNeLfOdPfbeVezfbdNezezdXeDetfCdIeAeKfMfGdVdWdIehfheQfpfYfHfIfJfufvefdUeNenfrdReTfjeudTfReNdVemfefTfOflfHehekfGeIeBfWfd
