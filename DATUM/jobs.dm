@@ -20,7 +20,10 @@ var/list/jobs = list("assitant", "engineer", "chief engineer", "captain", "head 
 		BPI.invisibility = 101
 		back = BPI
 		BP.update_slot(BPI)
-		BP.backoverlay = image('suit.dmi',icon_state = BPI.icon_state)
+		if(gender == "male")
+			BP.backoverlay = image('suit.dmi',icon_state = BPI.icon_state)
+		else
+			BP.backoverlay = image('suit.dmi',icon_state = "[BPI.icon_state]_fem")
 		BP.backoverlay.layer = 22
 		CL.update_slot(CLT)
 		CLT.wear_clothing(src)

@@ -53,7 +53,10 @@
 					myback.layer = 21
 					H.back = myback
 					myback.jetpacked = iam
-					backoverlay = image('suit.dmi',icon_state = myback.icon_state)
+					if(H.gender == "male")
+						backoverlay = image('suit.dmi',icon_state = myback.icon_state)
+					else
+						backoverlay = image('suit.dmi',icon_state = "[myback.icon_state]_fem")
 					backoverlay.layer = 22
 					H.overlays += backoverlay
 					update_slot(myback)

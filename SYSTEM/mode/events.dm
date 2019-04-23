@@ -11,7 +11,7 @@
 		activate()
 			for(var/mob/simulated/living/humanoid/M in world)
 				if(M.client)
-					M.dizziness = 200
+					M.dizziness = 300
 					M.is_dizzy = 1
 					M << announce
 					M.alcotrip()

@@ -3,9 +3,9 @@
 
 	proc/create(var/mob/new_player/player)
 		key = player.key
+		gender = player.gender
 		create_hud(client)
 		job = player.pregame_job
-		gender = player.gender
 		name = player.pregame_name
 		flavor = player.pregame_flavor
 		myhair = player.pregame_hair

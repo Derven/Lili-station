@@ -1,4 +1,5 @@
 /obj/structure/decor
+	pixelzheight = 0
 	cryo_spawn
 		density = 1
 		anchored = 1
