@@ -69,7 +69,7 @@
 			var/obj/hud/box/B = new(user)
 			B.screen_loc = "SOUTH+[1 + i], WEST+1"
 			I.screen_loc = B.screen_loc
-			I.layer = 21
+			I.layer = 22
 			B.myitem = I
 			user.client.screen.Add(B)
 			user.client.screen.Add(I)

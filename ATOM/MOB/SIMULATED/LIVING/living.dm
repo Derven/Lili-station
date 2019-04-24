@@ -333,6 +333,9 @@
 				sum_damage += EX.brute_dam + EX.burn_dam
 			if(sum_damage > 90)
 				gib()
+			if(istype(src, /mob/simulated/living/humanoid/human))
+				var/mob/simulated/living/humanoid/human/H = src
+				H.update_mydamage(sum_damage)
 
 		if(!reagents.has_reagent("blood", 50))
 			death()

@@ -12,7 +12,7 @@
 				var/obj/item/clothing/suit/mysuit = I
 				if(I && H.cloth == null)
 					H.drop_item(src)
-					I.layer = 21
+					I.layer = 22
 					H.cloth = I
 					update_slot(I)
 					mysuit.wear_clothing(iam)
@@ -30,7 +30,7 @@
 			if(myid && istype(myid,/obj/item/clothing/id))
 				if(myid && H.id == null)
 					H.drop_item(src)
-					myid.layer = 21
+					myid.layer = 22
 					H.id = myid
 					update_slot(myid)
 
@@ -50,14 +50,14 @@
 					if(backoverlay)
 						backoverlay.layer = initial(backoverlay.layer)
 					H.drop_item(src)
-					myback.layer = 21
+					myback.layer = 22
 					H.back = myback
 					myback.jetpacked = iam
 					if(H.gender == "male")
 						backoverlay = image('suit.dmi',icon_state = myback.icon_state)
 					else
 						backoverlay = image('suit.dmi',icon_state = "[myback.icon_state]_fem")
-					backoverlay.layer = 22
+					backoverlay.layer = 23
 					H.overlays += backoverlay
 					update_slot(myback)
 

@@ -9,7 +9,7 @@
 	var/killing = 0.0
 	var/allow_upgrade = 1.0
 	var/last_suffocate = 1.0
-	layer = 21
+	layer = 22
 
 /obj/item/weapon/soap
 	icon = 'tools.dmi'

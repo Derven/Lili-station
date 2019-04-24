@@ -9,14 +9,14 @@ var/list/jobs = list("assitant", "engineer", "chief engineer", "captain", "head 
 	proc/wear_on_spawn(var/mytype, var/myid)
 		var/obj/item/clothing/CLT = new mytype(src)
 		var/obj/item/clothing/id/USID = new myid(src)
-		USID.layer = 21
+		USID.layer = 22
 		USID.invisibility = 101
 		USID.name = "[name] ([job])"
 		id = USID
-		CLT.layer = 21
+		CLT.layer = 22
 		cloth = CLT
 		var/obj/item/weapon/storage/box/backpack/BPI = new /obj/item/weapon/storage/box/backpack(src)
-		BPI.layer = 21
+		BPI.layer = 22
 		BPI.invisibility = 101
 		back = BPI
 		BP.update_slot(BPI)
@@ -24,7 +24,7 @@ var/list/jobs = list("assitant", "engineer", "chief engineer", "captain", "head 
 			BP.backoverlay = image('suit.dmi',icon_state = BPI.icon_state)
 		else
 			BP.backoverlay = image('suit.dmi',icon_state = "[BPI.icon_state]_fem")
-		BP.backoverlay.layer = 22
+		BP.backoverlay.layer = 23
 		CL.update_slot(CLT)
 		CLT.wear_clothing(src)
 		ID.update_slot(USID)
