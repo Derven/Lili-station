@@ -1,3 +1,4 @@
+var/injectors = 0
 /obj/machinery/atmospherics/unary/outlet_injector
 	icon = 'outlet_injector.dmi'
 	icon_state = "off"
@@ -9,12 +10,14 @@
 	var/injecting = 0
 
 	var/volume_rate = 50
-
-	var/frequency = 0
 	var/id = null
-	var/datum/radio_frequency/radio_connection
 
 	level = 1
+
+	New()
+		injectors += 1
+		id = injectors
+		..()
 
 	update_icon()
 		if(node)
@@ -64,76 +67,3 @@
 				network.update = 1
 
 		flick("inject", src)
-
-	proc
-		set_frequency(new_frequency)
-			radio_controller.remove_object(src, frequency)
-			frequency = new_frequency
-			if(frequency)
-				radio_connection = radio_controller.add_object(src, frequency)
-
-		broadcast_status()
-			if(!radio_connection)
-				return 0
-
-			var/datum/signal/signal = new
-			signal.transmission_method = 1 //radio signal
-			signal.source = src
-
-			signal.data = list(
-				"tag" = id,
-				"device" = "AO",
-				"power" = on,
-				"volume_rate" = volume_rate,
-				//"timestamp" = world.time,
-				"sigtype" = "status"
-			 )
-
-			radio_connection.post_signal(src, signal)
-
-			return 1
-
-	initialize()
-		..()
-
-		set_frequency(frequency)
-
-	receive_signal(datum/signal/signal)
-		if(!signal.data["tag"] || (signal.data["tag"] != id) || (signal.data["sigtype"]!="command"))
-			return 0
-
-		if("power" in signal.data)
-			on = text2num(signal.data["power"])
-
-		if("power_toggle" in signal.data)
-			on = !on
-
-		if("inject" in signal.data)
-			spawn inject()
-			return
-
-		if("set_volume_rate" in signal.data)
-			var/number = text2num(signal.data["set_volume_rate"])
-			volume_rate = between(0, number, air_contents.volume)
-
-		if("status" in signal.data)
-			spawn(2)
-				broadcast_status()
-			return //do not update_icon
-
-			//log_admin("DEBUG \[[world.timeofday]\]: outlet_injector/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-			//return
-		spawn(2)
-			broadcast_status()
-		update_icon()
-
-	hide(var/i) //to make the little pipe section invisible, the icon changes.
-		if(node)
-			if(on)
-				icon_state = "[i == 1 && istype(loc, /turf/simulated) ? "h" : "" ]on"
-			else
-				icon_state = "[i == 1 && istype(loc, /turf/simulated) ? "h" : "" ]off"
-		else
-			icon_state = "[i == 1 && istype(loc, /turf/simulated) ? "h" : "" ]exposed"
-			on = 0
-		return

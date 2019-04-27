@@ -113,14 +113,7 @@ obj/machinery/atmospherics/valve
 		else if(dir==12)
 			dir = 4
 
-	attack_ai(mob/user as mob)
-		return
-
-	attack_paw(mob/user as mob)
-		return attack_hand(user)
-
 	attack_hand(mob/user as mob)
-		src.add_fingerprint(usr)
 		update_icon(1)
 		sleep(10)
 		if (src.open)
@@ -247,63 +240,9 @@ obj/machinery/atmospherics/valve
 
 		return null
 
-	digital		// can be controlled by AI
-		name = "digital valve"
-		desc = "A digitally controlled valve."
-		icon = 'digital_valve.dmi'
-
-		attack_ai(mob/user as mob)
-			return src.attack_hand(user)
-
-		attack_hand(mob/user as mob)
-			if(!src.allowed(user))
-				user << "\red Access denied."
-				return
-			..()
-
-		//Radio remote control
-
-		proc
-			set_frequency(new_frequency)
-				radio_controller.remove_object(src, frequency)
-				frequency = new_frequency
-				if(frequency)
-					radio_connection = radio_controller.add_object(src, frequency, RADIO_ATMOSIA)
-
-		var/frequency = 0
-		var/id = null
-		var/datum/radio_frequency/radio_connection
-
-		initialize()
-			..()
-			if(frequency)
-				set_frequency(frequency)
-
-		receive_signal(datum/signal/signal)
-			if(!signal.data["tag"] || (signal.data["tag"] != id))
-				return 0
-
-			switch(signal.data["command"])
-				if("valve_open")
-					if(!open)
-						open()
-
-				if("valve_close")
-					if(open)
-						close()
-
-				if("valve_toggle")
-					if(open)
-						close()
-					else
-						open()
-
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 		if (!istype(W, /obj/item/weapon/wrench))
 			return ..()
-		if (istype(src, /obj/machinery/atmospherics/valve/digital))
-			user << "\red You cannot unwrench this [src], it's too complicated."
-			return 1
 		var/turf/T = src.loc
 		if (level==1 && isturf(T) && T.intact)
 			user << "\red You must remove the plating first."
@@ -312,14 +251,9 @@ obj/machinery/atmospherics/valve
 		var/datum/gas_mixture/env_air = loc.return_air()
 		if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
 			user << "\red You cannot unwrench this [src], it too exerted due to internal pressure."
-			add_fingerprint(user)
 			return 1
-		playsound(src.loc, 'Ratchet.ogg', 50, 1)
 		user << "\blue You begin to unfasten \the [src]..."
-		if (do_after(user, 40))
-			user.visible_message( \
-				"[user] unfastens \the [src].", \
-				"\blue You have unfastened \the [src].", \
-				"You hear ratchet.")
+		if (usr.do_after(40))
+			usr << "[user] unfastens \the [src]."
 			new /obj/item/pipe(loc, make_from=src)
 			del(src)
