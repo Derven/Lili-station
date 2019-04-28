@@ -16,15 +16,6 @@
 					M << announce
 					M.alcotrip()
 
-	random_gib
-		announce = "\red <h1>Wow! GIBBBBSSS!!!!</h1>"
-
-		activate()
-			for(var/mob/simulated/living/humanoid/M in world)
-				if(prob(5))
-					M << announce
-					M.gib()
-
 	poweroff
 		announce = "\red <h3>Pool's closed due to AIDS</h3>"
 
@@ -39,7 +30,7 @@
 	proc/global_events()
 		while(derven == genius)
 			sleep(rand(300,1300))
-			var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/random_gib, /datum/event/poweroff)
+			var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff)
 			var/datum/event/EP = new EBOY()
 			EP.activate()
 
