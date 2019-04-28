@@ -241,6 +241,7 @@
 #include "DATUM\var.dm"
 #include "HELPERS\helper.dm"
 #include "SYSTEM\client.dm"
+#include "SYSTEM\command.dm"
 #include "SYSTEM\compile.dm"
 #include "SYSTEM\crutches.dm"
 #include "SYSTEM\maptext.dm"
