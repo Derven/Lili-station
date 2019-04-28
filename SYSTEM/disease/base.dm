@@ -180,7 +180,7 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 		antigen |= text2num(pick(ANTIGENS))
 		antigen |= text2num(pick(ANTIGENS))
 		spreadtype = "Airborne"
-
+/*
 	proc/makealien()
 		var/datum/microorganism/effectholder/holder = new /datum/microorganism/effectholder
 		holder.stage = 1
@@ -209,7 +209,7 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 		uniqueID = 896 // all alien diseases have the same ID
 		infectionchance = 0
 		spreadtype = "Airborne"
-
+*/
 	proc/minormutate()
 		var/datum/microorganism/effectholder/holder = pick(effects)
 		holder.minormutate()
@@ -317,7 +317,7 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 	var/maxm = 1
 	proc/activate(var/mob/simulated/living/mob,var/multiplier)
 	proc/deactivate(var/mob/simulated/living/mob)
-
+/*
 /datum/microorganism/effect/alien
 	name = "Unidentified Foreign Body"
 	stage = 4
@@ -332,6 +332,7 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 			var/datum/microorganism/disease/D = mob:microorganism
 			mob.death()
 			del D
+*/
 
 /datum/microorganism/effect/greater/gibbingtons
 	name = "Gibbingtons Syndrome"

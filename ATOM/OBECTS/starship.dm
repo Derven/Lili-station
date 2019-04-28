@@ -39,7 +39,6 @@
 				else
 					return 0
 
-
 /obj/machinery/fuelstorage
 	var/id = null
 	var/fuel = 250

@@ -3,15 +3,13 @@
 	Climbing
 	massweight = 0 //some physics
 
-/proc/convert2energy(var/M)
-	var/E = M*(SPEED_OF_LIGHT_SQ)
-	return E
-
-/proc/modulus(var/M)
-	if(M >= 0)
-		return M
-	if(M < 0)
-		return -M
+/atom/MouseDrop(atom/over_object as mob|obj|turf|area)
+	spawn( 0 )
+		if (istype(over_object, /atom))
+			over_object.MouseDrop_T(src, usr)
+		return
+	..()
+	return
 
 /atom/proc/assume_air(datum/gas_mixture/giver)
 	del(giver)

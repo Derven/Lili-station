@@ -1,7 +1,6 @@
 /mob
 	var/onstructure = 0
 
-
 /obj/structure
 	var/pixelzheight = 16
 	robustness = 15

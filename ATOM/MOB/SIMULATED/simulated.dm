@@ -1,3 +1,15 @@
+/mob/simulated/proc/getOxyLoss()
+	return oxyloss
+
+/mob/simulated/proc/adjustOxyLoss(var/amount)
+	oxyloss = max(oxyloss + amount, 0)
+
+/mob/simulated/proc/getToxLoss()
+	return toxloss
+
+/mob/simulated/proc/adjustToxLoss(var/amount)
+	toxloss = max(toxloss + amount, 0)
+
 /mob/simulated
 	var/bodytemperature = 310.055
 	var/oxyloss = 0.0

@@ -684,3 +684,115 @@ var/list/global_mutations = list() // list of hidden mutation things
 #define SEC_LEVEL_BLUE 1
 #define SEC_LEVEL_RED 2
 #define SEC_LEVEL_DELTA 3
+
+// This is eventually for wjohn to add more color standardization stuff like I keep asking him >:(
+
+#define COLOR_INPUT_DISABLED "#F0F0F0"
+#define COLOR_INPUT_ENABLED "#D3B5B5"
+
+//#define COLOR_WHITE            "#EEEEEE"
+//#define COLOR_SILVER           "#C0C0C0"
+//#define COLOR_GRAY             "#808080"
+#define COLOR_FLOORTILE_GRAY   "#8D8B8B"
+#define COLOR_ALMOST_BLACK	   "#333333"
+//#define COLOR_BLACK            "#000000"
+#define COLOR_RED              "#FF0000"
+//#define COLOR_RED_LIGHT        "#FF3333"
+//#define COLOR_MAROON           "#800000"
+#define COLOR_YELLOW           "#FFFF00"
+//#define COLOR_OLIVE            "#808000"
+//#define COLOR_LIME             "#32CD32"
+#define COLOR_GREEN            "#008000"
+#define COLOR_CYAN             "#00FFFF"
+//#define COLOR_TEAL             "#008080"
+#define COLOR_BLUE             "#0000FF"
+//#define COLOR_BLUE_LIGHT       "#33CCFF"
+//#define COLOR_NAVY             "#000080"
+#define COLOR_PINK             "#FFC0CB"
+//#define COLOR_MAGENTA          "#FF00FF"
+#define COLOR_PURPLE           "#800080"
+#define COLOR_ORANGE           "#FF9900"
+#define COLOR_BEIGE            "#CEB689"
+#define COLOR_BLUE_GRAY        "#75A2BB"
+#define COLOR_BROWN            "#BA9F6D"
+#define COLOR_DARK_BROWN       "#997C4F"
+#define COLOR_DARK_ORANGE      "#C3630C"
+#define COLOR_GREEN_GRAY       "#99BB76"
+#define COLOR_RED_GRAY         "#B4696A"
+#define COLOR_PALE_BLUE_GRAY   "#98C5DF"
+#define COLOR_PALE_GREEN_GRAY  "#B7D993"
+#define COLOR_PALE_RED_GRAY    "#D59998"
+#define COLOR_PALE_PURPLE_GRAY "#CBB1CA"
+#define COLOR_PURPLE_GRAY      "#AE8CA8"
+
+//Color defines used by the assembly detailer.
+#define COLOR_ASSEMBLY_BLACK   "#545454"
+#define COLOR_ASSEMBLY_BGRAY   "#9497AB"
+#define COLOR_ASSEMBLY_WHITE   "#E2E2E2"
+#define COLOR_ASSEMBLY_RED     "#CC4242"
+#define COLOR_ASSEMBLY_ORANGE  "#E39751"
+#define COLOR_ASSEMBLY_BEIGE   "#AF9366"
+#define COLOR_ASSEMBLY_BROWN   "#97670E"
+#define COLOR_ASSEMBLY_GOLD    "#AA9100"
+#define COLOR_ASSEMBLY_YELLOW  "#CECA2B"
+#define COLOR_ASSEMBLY_GURKHA  "#999875"
+#define COLOR_ASSEMBLY_LGREEN  "#789876"
+#define COLOR_ASSEMBLY_GREEN   "#44843C"
+#define COLOR_ASSEMBLY_LBLUE   "#5D99BE"
+#define COLOR_ASSEMBLY_BLUE    "#38559E"
+#define COLOR_ASSEMBLY_PURPLE  "#6F6192"
+
+//See also controllers/globals.dm
+
+//Creates a global initializer with a given InitValue expression, do not use
+#define GLOBAL_MANAGED(X, InitValue)\
+/datum/controller/global_vars/proc/InitGlobal##X(){\
+    ##X = ##InitValue;\
+    gvars_datum_init_order += #X;\
+}
+//Creates an empty global initializer, do not use
+#define GLOBAL_UNMANAGED(X) /datum/controller/global_vars/proc/InitGlobal##X() { return; }
+
+//Prevents a given global from being VV'd
+#ifndef TESTING
+#define GLOBAL_PROTECT(X)\
+/datum/controller/global_vars/InitGlobal##X(){\
+    ..();\
+    gvars_datum_protected_varlist[#X] = TRUE;\
+}
+#else
+#define GLOBAL_PROTECT(X)
+#endif
+
+//Standard BYOND global, do not use
+#define GLOBAL_REAL_VAR(X) var/global/##X
+
+//Standard typed BYOND global, do not use
+#define GLOBAL_REAL(X, Typepath) var/global##Typepath/##X
+
+//Defines a global var on the controller, do not use
+#define GLOBAL_RAW(X) /datum/controller/global_vars/var/global##X
+
+//Create an untyped global with an initializer expression
+#define GLOBAL_VAR_INIT(X, InitValue) GLOBAL_RAW(/##X); GLOBAL_MANAGED(X, InitValue)
+
+//Create a global const var, do not use
+#define GLOBAL_VAR_CONST(X, InitValue) GLOBAL_RAW(/const/##X) = InitValue; GLOBAL_UNMANAGED(X)
+
+//Create a list global with an initializer expression
+#define GLOBAL_LIST_INIT(X, InitValue) GLOBAL_RAW(/list/##X); GLOBAL_MANAGED(X, InitValue)
+
+//Create a list global that is initialized as an empty list
+#define GLOBAL_LIST_EMPTY(X) GLOBAL_LIST_INIT(X, list())
+
+//Create a typed global with an initializer expression
+#define GLOBAL_DATUM_INIT(X, Typepath, InitValue) GLOBAL_RAW(Typepath/##X); GLOBAL_MANAGED(X, InitValue)
+
+//Create an untyped null global
+#define GLOBAL_VAR(X) GLOBAL_RAW(/##X); GLOBAL_UNMANAGED(X)
+
+//Create a null global list
+#define GLOBAL_LIST(X) GLOBAL_RAW(/list/##X); GLOBAL_UNMANAGED(X)
+
+//Create an typed null global
+#define GLOBAL_DATUM(X, Typepath) GLOBAL_RAW(Typepath/##X); GLOBAL_UNMANAGED(X)

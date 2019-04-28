@@ -1,10 +1,3 @@
-/atom/MouseDrop(atom/over_object as mob|obj|turf|area)
-	spawn( 0 )
-		if (istype(over_object, /atom))
-			over_object.MouseDrop_T(src, usr)
-		return
-	..()
-	return
 
 /mob
 	var/buckled = null

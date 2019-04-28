@@ -27,16 +27,6 @@
 		icon_closed = "crate"
 		icon_opened = "crate_open"
 
-		antimatter
-			New()
-				..()
-				new /obj/item/weapon/fuel/H(src)
-				new /obj/item/weapon/fuel/H(src)
-				new /obj/item/weapon/fuel/H(src)
-				new /obj/item/weapon/fuel/antiH(src)
-				new /obj/item/weapon/fuel/antiH(src)
-				new /obj/item/weapon/fuel/antiH(src)
-
 		shaft
 			New()
 				..()

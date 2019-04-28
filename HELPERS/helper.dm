@@ -1,3 +1,43 @@
+/proc/convert2energy(var/M)
+	var/E = M*(SPEED_OF_LIGHT_SQ)
+	return E
+
+/proc/modulus(var/M)
+	if(M >= 0)
+		return M
+	if(M < 0)
+		return -M
+
+/proc/cmp_numeric_dsc(a,b)
+	return b - a
+
+/proc/cmp_numeric_asc(a,b)
+	return a - b
+
+/proc/cmp_text_asc(a,b)
+	return sorttext(b,a)
+
+/proc/cmp_text_dsc(a,b)
+	return sorttext(a,b)
+
+/proc/cmp_name_asc(atom/a, atom/b)
+	return sorttext(b.name, a.name)
+
+/proc/cmp_name_dsc(atom/a, atom/b)
+	return sorttext(a.name, b.name)
+
+/proc/cmp_ckey_asc(client/a, client/b)
+	return sorttext(b.ckey, a.ckey)
+
+/proc/cmp_ckey_dsc(client/a, client/b)
+	return sorttext(a.ckey, b.ckey)
+
+/proc/cmp_subsystem_display(datum/controller/subsystem/a, datum/controller/subsystem/b)
+	return sorttext(b.name, a.name)
+
+/proc/cmp_subsystem_priority(datum/controller/subsystem/a, datum/controller/subsystem/b)
+	return a.priority - b.priority
+
 //Returns the world time in english
 var/timezoneOffset = 0 // The difference betwen midnight (of the host computer) and 0 world.ticks.
 

@@ -5,7 +5,6 @@ var/list/admin_verbs = list(\
 	/client/proc/player_panel,\
 	/client/proc/Spawn,\
 	/client/proc/small_boom,\
-	/client/proc/nuclear,\
 	/client/proc/world_reboot,\
 	/client/proc/savemymap)
 
@@ -76,12 +75,6 @@ var/list/admin_verbs = list(\
 	set name = "boom"
 	set category = "Admin"
 	boom(6, mob.loc)
-
-/client/proc/nuclear()
-	set name = "nuclear"
-	set category = "Admin"
-	for(var/obj/nucmark/N in world)
-		new /obj/machinery/nuka(N.loc)
 
 /client/proc/savemymap()
 	set name = "savemymap"

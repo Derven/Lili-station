@@ -1,17 +1,3 @@
-/mob/simulated/proc/getOxyLoss()
-	return oxyloss
-
-/mob/simulated/proc/adjustOxyLoss(var/amount)
-	oxyloss = max(oxyloss + amount, 0)
-
-/mob/simulated/proc/getToxLoss()
-	return toxloss
-
-/mob/simulated/proc/adjustToxLoss(var/amount)
-	toxloss = max(toxloss + amount, 0)
-
-// ++++ROCKDTBEN++++ MOB PROCS -- Ask me before touching
-
 /mob/simulated/living/proc/getBruteLoss()
 	bruteloss = 0
 	for(var/datum/organ/external/E in organs)

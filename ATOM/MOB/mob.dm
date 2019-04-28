@@ -1,9 +1,5 @@
 /mob/var/usrcolor
 
-client
-	var/STFU_ghosts		//80+ people rounds are fun to admin when text flies faster than airport security
-	var/STFU_radio		//80+ people rounds are fun to admin when text flies faster than airport security
-
 /mob
 	proc/myclick(var/atom/A)
 		var/mob/simulated/living/humanoid/H = usr
