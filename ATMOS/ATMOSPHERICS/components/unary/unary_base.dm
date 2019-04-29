@@ -1,9 +1,11 @@
+var/injectors = 0
 /obj/machinery/atmospherics/unary
 	dir = SOUTH
 	initialize_directions = SOUTH
 	layer = TURF_LAYER+0.1
-
+	var/id = 0
 	var/datum/gas_mixture/air_contents
+	var/on = 0
 
 	var/obj/machinery/atmospherics/node
 
@@ -13,7 +15,8 @@
 		..()
 		initialize_directions = dir
 		air_contents = new
-
+		injectors += 1
+		id = injectors
 		air_contents.volume = 200
 
 // Housekeeping and pipe network stuff below
@@ -74,7 +77,6 @@
 
 	return_network_air(datum/pipe_network/reference)
 		var/list/results = list()
-
 		if(network == reference)
 			results += air_contents
 

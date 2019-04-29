@@ -28,7 +28,6 @@ datum/pipe_network
 	proc/build_network(obj/machinery/atmospherics/start_normal, obj/machinery/atmospherics/reference)
 		//Purpose: Generate membership roster
 		//Notes: Assuming that members will add themselves to appropriate roster in network_expand()
-
 		if(!start_normal)
 			del(src)
 
@@ -63,7 +62,6 @@ datum/pipe_network
 		//Go through membership roster and make sure gases is up to date
 
 		gases = list()
-
 		for(var/obj/machinery/atmospherics/normal_member in normal_members)
 			var/result = normal_member.return_network_air(src)
 			if(result) gases += result
@@ -84,7 +82,6 @@ datum/pipe_network
 		air_transient.nitrogen = 0
 		air_transient.toxins = 0
 		air_transient.carbon_dioxide = 0
-
 
 		air_transient.trace_gases = list()
 

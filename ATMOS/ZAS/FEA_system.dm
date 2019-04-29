@@ -227,6 +227,9 @@ datum
 						. = 0
 						////message_admins("ZASALERT: Unable run obj/fire/process()")
 
+				for(var/datum/pipe_network/network in pipe_networks)
+					network.process()
+
 				tick_progress = "success"
 
 			proc/AddToConsiderRebuild(var/turf/simulated/T, var/turf/NT)

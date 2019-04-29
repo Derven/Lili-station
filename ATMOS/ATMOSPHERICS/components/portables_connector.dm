@@ -14,13 +14,14 @@
 
 	var/datum/pipe_network/network
 
-	var/on = 0
+	var/on = 1
 
 	level = 0
 
 
 	New()
 		initialize_directions = dir
+		initialize()
 		..()
 
 	update_icon()
@@ -41,6 +42,8 @@
 
 	process()
 		..()
+		if(connected_device)
+			on = 1
 		if(!on)
 			return
 		if(!connected_device)
@@ -127,6 +130,12 @@
 
 		return null
 
+
+	attack_hand()
+		if(node)
+			world << "debug"
+		if(on)
+			world << "debug1"
 
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 		if (!istype(W, /obj/item/weapon/wrench))

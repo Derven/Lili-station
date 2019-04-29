@@ -1,4 +1,4 @@
-var/injectors = 0
+
 /obj/machinery/atmospherics/unary/outlet_injector
 	icon = 'outlet_injector.dmi'
 	icon_state = "off"
@@ -6,11 +6,11 @@ var/injectors = 0
 	name = "Air Injector"
 	desc = "Has a valve and pump attached to it"
 
-	var/on = 0
+	on = 0
 	var/injecting = 0
 
 	var/volume_rate = 50
-	var/id = null
+	id = null
 
 	level = 1
 

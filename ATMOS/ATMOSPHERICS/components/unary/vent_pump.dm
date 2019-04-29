@@ -10,7 +10,7 @@
 	var/id_tag
 	power_channel = ENVIRON
 
-	var/on = 0
+	on = 0
 	var/pump_direction = 1 //0 = siphoning, 1 = releasing
 	var/pump_speed = 1 //Used to adjust speed for siphons
 
@@ -30,12 +30,6 @@
 	var/radio_filter_out
 	var/radio_filter_in
 
-	New()
-		if (!id_tag)
-			id_tag = num2text(uid)
-			initialize()
-		..()
-
 	high_volume
 		name = "Large Air Vent"
 		power_channel = EQUIP
@@ -43,6 +37,14 @@
 		New()
 			..()
 			air_contents.volume = 1000
+
+	attack_hand()
+		if(!on || on == 0)
+			on = 1
+			usr << "You turn on the vent"
+		else
+			on = 0
+			usr << "You turn off the vent"
 
 
 	update_icon()
@@ -62,8 +64,7 @@
 	process()
 		..()
 //		broadcast_status()
-		if(stat & (NOPOWER|BROKEN))
-			return
+		update_icon()
 		if (!node)
 			on = 0
 
@@ -124,6 +125,16 @@
 
 
 	initialize()
+		if(node) return
+
+		var/node_connect = dir
+
+		for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
+			if(target.initialize_directions & get_dir(target,src))
+				node = target
+				break
+
+		update_icon()
 		..()
 
 		//some vents work his own spesial way

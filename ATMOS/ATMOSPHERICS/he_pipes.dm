@@ -12,6 +12,7 @@ obj/machinery/atmospherics/pipe/simple/heat_exchanging
 	New()
 		..()
 		initialize_directions_he = initialize_directions	// The auto-detection from /pipe is good enough for a simple HE pipe
+		initialize()
 	// BubbleWrap END
 
 	initialize()

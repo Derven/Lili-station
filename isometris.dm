@@ -70,6 +70,10 @@ proc/autoreboot()
 
 	load_admins()
 	game_mode_begin()
+	for(var/obj/machinery/atmospherics/machine in world)
+		machine.initialize()
+	for(var/obj/machinery/atmospherics/machine in world)
+		machine.build_network()
 	autoreboot()
 
 	return

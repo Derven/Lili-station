@@ -89,6 +89,7 @@
 			if(possible_port)
 				if(connect(possible_port))
 					user << "\blue You connect [name] to the port."
+					possible_port.on = 1
 					update_icon()
 					return
 				else

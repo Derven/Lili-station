@@ -9,7 +9,7 @@
 
 	var/id_tag = null
 
-	var/on = 0
+	on = 0
 	var/scrubbing = 1 //0 = siphoning, 1 = scrubbing
 	var/scrub_CO2 = 1
 	var/scrub_Toxins = 0
@@ -26,86 +26,58 @@
 	var/radio_filter_out
 	var/radio_filter_in
 
-	New()
-		if (!id_tag)
-			id_tag = num2text(uid)
-		initialize()
-		..()
-
 	update_icon()
-		if(node && on && !(stat & (NOPOWER|BROKEN)))
+		if(node && on)
 			if(scrubbing)
-				icon_state = "[level == 1 && istype(loc, /turf/simulated) ? "h" : "" ]on"
+				icon_state = "on"
 			else
-				icon_state = "[level == 1 && istype(loc, /turf/simulated) ? "h" : "" ]in"
+				icon_state = "in"
 		else
-			icon_state = "[level == 1 && istype(loc, /turf/simulated) ? "h" : "" ]off"
+			icon_state = "off"
 		return
 
 	initialize()
-		..()
+		if(node) return
+
+		var/node_connect = dir
+
+		for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
+			if(target.initialize_directions & get_dir(target,src))
+				node = target
+				break
+
+		update_icon()
+
+	attack_hand()
+		if(!on || on == 0)
+			on = 1
+			usr << "You turn on the scrubber"
+		else
+			on = 0
+			usr << "You turn off the scrubber"
 
 	process()
-		..()
 //		broadcast_status()
-		if(stat & (NOPOWER|BROKEN))
-			return
+		update_icon()
 		if (!node)
-			on = 0
+			initialize()
 
 		if(!on)
 			return 0
 
 		var/datum/gas_mixture/environment = loc.return_air()
 
-		if(scrubbing)
-			if((environment.toxins>0) || (environment.carbon_dioxide>0) || (environment.trace_gases.len>0))
-				var/transfer_moles = min(1, volume_rate*scrub_rate/environment.volume)*environment.total_moles
+		if (air_contents.return_pressure()>=50*ONE_ATMOSPHERE)
+			return
 
-				//Take a gas sample
-				var/datum/gas_mixture/removed = loc.remove_air(transfer_moles)
-				if (isnull(removed)) //in space
-					return
+		var/transfer_moles = environment.total_moles*(volume_rate*scrub_rate/environment.volume)
 
-				//Filter it
-				var/datum/gas_mixture/filtered_out = new
-				filtered_out.temperature = removed.temperature
-				if(scrub_Toxins)
-					filtered_out.toxins = removed.toxins
-					removed.toxins = 0
-				if(scrub_CO2)
-					filtered_out.carbon_dioxide = removed.carbon_dioxide
-					removed.carbon_dioxide = 0
+		var/datum/gas_mixture/removed = loc.remove_air(transfer_moles)
 
-				if(removed.trace_gases.len>0)
-					for(var/datum/gas/trace_gas in removed.trace_gases)
-						if(istype(trace_gas, /datum/gas/sleeping_agent) && scrub_N2O)
-							removed.trace_gases -= trace_gas
-							filtered_out.trace_gases += trace_gas
+		air_contents.merge(removed)
 
-
-				//Remix the resulting gases
-				filtered_out.update_values()
-				removed.update_values()
-				air_contents.merge(filtered_out)
-
-				loc.assume_air(removed)
-
-				if(network)
-					network.update = 1
-
-		else //Just siphoning all air
-			if (air_contents.return_pressure()>=50*ONE_ATMOSPHERE)
-				return
-
-			var/transfer_moles = environment.total_moles*(volume_rate*scrub_rate/environment.volume)
-
-			var/datum/gas_mixture/removed = loc.remove_air(transfer_moles)
-
-			air_contents.merge(removed)
-
-			if(network)
-				network.update = 1
+		if(network)
+			network.update = 1
 
 		return 1
 /* //unused piece of code

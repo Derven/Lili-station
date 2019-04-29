@@ -1,7 +1,12 @@
+obj/effect/overlay/pl
+	icon = 'effects.dmi'
+	icon_state = "pl"
+obj/effect/overlay/sl
+	icon_state = "sl"
 var/global
 	obj/datacore/data_core = null
-	obj/effect/overlay/plmaster = null
-	obj/effect/overlay/slmaster = null
+	obj/effect/overlay/pl/plmaster = null
+	obj/effect/overlay/sl/slmaster = null
 	list/obj/machinery/simple_smes/smes_powernet = list()
 
 	//obj/hud/main_hud1 = null
