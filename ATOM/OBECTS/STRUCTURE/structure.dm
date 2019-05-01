@@ -5,6 +5,7 @@
 	var/pixelzheight = 16
 	robustness = 15
 	var/rotatable = 0
+	var/climbcan = 0
 
 	verb/rotate_me()
 		set src in range(1)
@@ -13,8 +14,9 @@
 
 	verb/climb_up()
 		set src in range(1)
-		if(usr.do_after(pixelzheight))
-			move_on(usr)
+		if(climbcan == 1)
+			if(usr.do_after(pixelzheight))
+				move_on(usr)
 
 	CanPass(var/atom/A)
 		if(istype(A, /mob))

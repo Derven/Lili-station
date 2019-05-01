@@ -2,6 +2,7 @@
 	name = "table"
 	icon = 'table.dmi'
 	icon_state = "0"
+	climbcan = 1
 	anchored = 1
 	density = 1
 	pixelzheight = 16

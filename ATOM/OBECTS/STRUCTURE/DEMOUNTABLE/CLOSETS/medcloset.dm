@@ -20,6 +20,7 @@
 			new /obj/item/clothing/suit/NTspace(src)
 
 	crate
+		climbcan = 1
 		name = "crate"
 		desc = "It's a crate!"
 		icon = 'closet.dmi'

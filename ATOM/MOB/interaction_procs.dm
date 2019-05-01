@@ -124,9 +124,11 @@ atom/proc/attack_hand()
 				usr << usr.select_overlay
 		else
 			if(get_dist(usr, src) < 2)
+
 				usr.mycraft.loc = src
-				usr.mycraft.color = "green"
-				usr << usr.mycraft
+				if(!istype(usr.mycraft.loc, /obj/hud))
+					usr.mycraft.color = "green"
+					usr << usr.mycraft
 
 /atom/MouseExited()
 	usr.client.images -= usr.select_overlay
