@@ -169,8 +169,7 @@ Release Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?sr
 <A href='?src=\ref[user];mach_close=canister'>Close</A><BR>
 "}
 
-	user << browse("<html><head><title>[src]</title></head><body>[output_text]</body></html>", "window=canister;size=600x300")
-	onclose(user, "canister")
+	usr << browse("<html><head><title>[src]</title></head><body>[output_text]</body></html>", "window=canister;size=600x300")
 	return
 
 /obj/machinery/portable_atmospherics/canister/Topic(href, href_list)
@@ -208,7 +207,7 @@ Release Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?sr
 					src.colors = colors[label]
 					src.icon_state = colors[label]
 					src.name = "Canister: [label]"
-		src.updateUsrDialog()
+		src.updateUsrDialog(usr)
 		update_icon()
 	else
 		usr << browse(null, "window=canister")

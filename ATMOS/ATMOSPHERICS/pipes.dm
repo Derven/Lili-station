@@ -294,6 +294,74 @@ obj/machinery/atmospherics/pipe
 		level = 2
 		icon_state = "intact"
 
+		z_up
+			icon_state = "intactz+"
+
+			proc/in_up_get_step(var/atom/A, var/updir)
+				var/turf/step = get_step(A,updir)
+				step = locate(step.x, step.y, step.z + 1)
+				return step
+
+			initialize()
+				normalize_dir()
+				var/node1_dir
+				var/node2_dir
+
+				for(var/direction in cardinal)
+					if(direction&initialize_directions)
+						if (!node1_dir)
+							node1_dir = direction
+						else if (!node2_dir)
+							node2_dir = direction
+
+				for(var/obj/machinery/atmospherics/target in in_up_get_step(src, node1_dir))
+					if(target.initialize_directions & get_dir(target,src))
+						node1 = target
+						break
+				for(var/obj/machinery/atmospherics/target in in_up_get_step(src, node2_dir))
+					if(target.initialize_directions & get_dir(target,src))
+						node2 = target
+						break
+
+
+				var/turf/T = src.loc			// hide if turf is not intact
+				hide(T.intact)
+				update_icon()
+
+		z_down
+			icon_state = "intactz-"
+			proc/in_down_get_step(var/atom/A, var/downdir)
+				var/turf/step = get_step(A,downdir)
+				step = locate(step.x, step.y, step.z - 1)
+				return step
+
+			initialize()
+				normalize_dir()
+				var/node1_dir
+				var/node2_dir
+
+				for(var/direction in cardinal)
+					if(direction&initialize_directions)
+						if (!node1_dir)
+							node1_dir = direction
+						else if (!node2_dir)
+							node2_dir = direction
+
+				for(var/obj/machinery/atmospherics/target in in_down_get_step(src, node1_dir))
+					if(target.initialize_directions & get_dir(target,src))
+						node1 = target
+						break
+				for(var/obj/machinery/atmospherics/target in in_down_get_step(src, node2_dir))
+					if(target.initialize_directions & get_dir(target,src))
+						node2 = target
+						break
+
+
+				var/turf/T = src.loc			// hide if turf is not intact
+				hide(T.intact)
+				update_icon()
+
+
 	simple/general/hidden
 		level = 1
 		icon_state = "intact-f"

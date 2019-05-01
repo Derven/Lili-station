@@ -34,7 +34,7 @@ obj
 
 /obj/proc/updateUsrDialog(var/mob/M)
 	if ((M.client && M.machine == src))
-		src.attack_hand(M)
+		src.attack_hand(usr)
 
 /obj/proc/updateDialog()
 	var/list/nearby = viewers(1, src)
