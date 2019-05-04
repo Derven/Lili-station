@@ -43,16 +43,17 @@ var/CAMid = 0
 	usr << browse(body,"window=computercam;can_close=0")
 
 /obj/machinery/consol/camera_control/Topic(href,href_list[])
-	if(href_list["cid"])
-		var/cam_id = text2num(href_list["cid"])
-		for(var/obj/machinery/camera/C in world)
-			if(C.id == cam_id)
-				usr.client.perspective = EYE_PERSPECTIVE
-				usr.client.eye = locate(C.x, C.y, C.z)
-	if(href_list["closemepls"] == "1")
-		usr.client.perspective = EDGE_PERSPECTIVE
-		usr.client.eye = usr.client.mob
-		usr << browse(null, "window=computercam")
+	if(usr.check_topic(src))
+		if(href_list["cid"])
+			var/cam_id = text2num(href_list["cid"])
+			for(var/obj/machinery/camera/C in world)
+				if(C.id == cam_id)
+					usr.client.perspective = EYE_PERSPECTIVE
+					usr.client.eye = locate(C.x, C.y, C.z)
+		if(href_list["closemepls"] == "1")
+			usr.client.perspective = EDGE_PERSPECTIVE
+			usr.client.eye = usr.client.mob
+			usr << browse(null, "window=computercam")
 
 /obj/machinery/consol/brigdoor_control/attack_hand()
 	var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"

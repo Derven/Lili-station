@@ -24,7 +24,6 @@
 	else
 		return null
 
-
 /atom/proc/ex_act()
 	for(var/mob/M in range(2, src))
 		M.playsoundforme('Explosion2.ogg')

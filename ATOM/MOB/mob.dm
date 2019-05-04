@@ -98,6 +98,12 @@ mob
 	var/intent = 1 //1 - help, 0 - harm
 	//pain
 
+	proc/check_topic(var/atom/ATOM)
+		if(get_dist(src,ATOM) > 1)
+			return 0
+		else
+			return 1
+
 /atom/proc/relaymove()
 	return
 

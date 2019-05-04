@@ -155,38 +155,39 @@
 	// handle machine interaction
 
 	Topic(href, href_list)
-		..()
-		if(stat & BROKEN)
-			return
-		if(usr.stat || src.flushing)
-			return
-
-		if(istype(src.loc, /turf))
-			usr.machine = src
-
-			if(href_list["close"])
-				usr.machine = null
-				usr << browse(null, "window=disposal")
+		if(usr.check_topic(src))
+			..()
+			if(stat & BROKEN)
+				return
+			if(usr.stat || src.flushing)
 				return
 
-			if(href_list["pump"])
-				if(text2num(href_list["pump"]))
-					mode = 1
-				else
-					mode = 0
-				update()
+			if(istype(src.loc, /turf))
+				usr.machine = src
 
-			if(href_list["handle"])
-				flush = text2num(href_list["handle"])
-				update()
+				if(href_list["close"])
+					usr.machine = null
+					usr << browse(null, "window=disposal")
+					return
 
-			if(href_list["eject"])
-				eject()
-		else
-			usr << browse(null, "window=disposal")
-			usr.machine = null
+				if(href_list["pump"])
+					if(text2num(href_list["pump"]))
+						mode = 1
+					else
+						mode = 0
+					update()
+
+				if(href_list["handle"])
+					flush = text2num(href_list["handle"])
+					update()
+
+				if(href_list["eject"])
+					eject()
+			else
+				usr << browse(null, "window=disposal")
+				usr.machine = null
+				return
 			return
-		return
 
 	// eject the contents of the disposal unit
 	proc/eject()

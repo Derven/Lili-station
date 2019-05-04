@@ -98,13 +98,14 @@
 	return
 
 /obj/machinery/microwave/Topic(href, href_list)
-	switch(href_list["action"])
-		if ("cook")
-			cook()
+	if(usr.check_topic(src))
+		switch(href_list["action"])
+			if ("cook")
+				cook()
 
-		if ("dispose")
-			dispose()
-	return
+			if ("dispose")
+				dispose()
+		return
 
 /obj/machinery/microwave/proc/cook()
 	start()

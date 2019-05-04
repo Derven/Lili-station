@@ -42,21 +42,22 @@
 			O.Move(src)
 
 	Topic(href, href_list)
-		if(href_list["chem"])
-			if(beaker)
-				if(beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
-					//user << "\red [target] is full."
-					usr << "\red [beaker] is full."
-					return
-				else
-					var/chem = href_list["chem"]
-					usr << "You transfered [beaker:amount_per_transfer_from_this] units of [chem]"
-					beaker.reagents.add_reagent(href_list["chem"], beaker:amount_per_transfer_from_this)
-		if(href_list["detach"] == "ok")
-			for(var/obj/O in src.contents)			//Searches through the contents for the jug.
-				if(istype(O, /obj/item/weapon/reagent_containers/glass))
-					O.loc = get_turf(src)
-			beaker = null
+		if(usr.check_topic(src))
+			if(href_list["chem"])
+				if(beaker)
+					if(beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
+						//user << "\red [target] is full."
+						usr << "\red [beaker] is full."
+						return
+					else
+						var/chem = href_list["chem"]
+						usr << "You transfered [beaker:amount_per_transfer_from_this] units of [chem]"
+						beaker.reagents.add_reagent(href_list["chem"], beaker:amount_per_transfer_from_this)
+			if(href_list["detach"] == "ok")
+				for(var/obj/O in src.contents)			//Searches through the contents for the jug.
+					if(istype(O, /obj/item/weapon/reagent_containers/glass))
+						O.loc = get_turf(src)
+				beaker = null
 
 
 
@@ -95,80 +96,81 @@
 		icon_state = "mixer1"
 
 	Topic(href, href_list)
-		if(stat & BROKEN) return
+		if(usr.check_topic(src))
+			if(stat & BROKEN) return
 
-		usr.machine = src
-		if(!beaker) return
-		var/datum/reagents/R = beaker:reagents
+			usr.machine = src
+			if(!beaker) return
+			var/datum/reagents/R = beaker:reagents
 
-		if (href_list["analyze"])
-			var/dat = ""
-			if(!condi)
-				dat += "<TITLE>Chemmaster 3000</TITLE>Chemical infos:<BR><BR>Name:<BR>[href_list["name"]]<BR><BR>Description:<BR>[href_list["desc"]]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
+			if (href_list["analyze"])
+				var/dat = ""
+				if(!condi)
+					dat += "<TITLE>Chemmaster 3000</TITLE>Chemical infos:<BR><BR>Name:<BR>[href_list["name"]]<BR><BR>Description:<BR>[href_list["desc"]]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
+				else
+					dat += "<TITLE>Condimaster 3000</TITLE>Condiment infos:<BR><BR>Name:<BR>[href_list["name"]]<BR><BR>Description:<BR>[href_list["desc"]]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
+				usr << browse(dat, "window=chem_master;size=575x400")
+				return
+			else if (href_list["add1"])
+				R.remove_reagent(href_list["add1"], 1) //Remove/add used instead of trans_to since we're moving a specific reagent.
+				reagents.add_reagent(href_list["add1"], 1)
+			else if (href_list["add5"])
+				R.remove_reagent(href_list["add5"], 5)
+				reagents.add_reagent(href_list["add5"], 5)
+			else if (href_list["add10"])
+				R.remove_reagent(href_list["add10"], 10)
+				reagents.add_reagent(href_list["add10"], 10)
+			else if (href_list["addall"])
+				var/temp_amt = R.get_reagent_amount(href_list["addall"])
+				reagents.add_reagent(href_list["addall"], temp_amt)
+				R.del_reagent(href_list["addall"])
+			else if (href_list["remove1"])
+				reagents.remove_reagent(href_list["remove1"], 1)
+				if(mode) R.add_reagent(href_list["remove1"], 1)
+			else if (href_list["remove5"])
+				reagents.remove_reagent(href_list["remove5"], 5)
+				if(mode) R.add_reagent(href_list["remove5"], 5)
+			else if (href_list["remove10"])
+				reagents.remove_reagent(href_list["remove10"], 10)
+				if(mode) R.add_reagent(href_list["remove10"], 10)
+			else if (href_list["removeall"])
+				if(mode)
+					var/temp_amt = reagents.get_reagent_amount(href_list["removeall"])
+					R.add_reagent(href_list["removeall"], temp_amt)
+				reagents.del_reagent(href_list["removeall"])
+			else if (href_list["toggle"])
+				if(mode)
+					mode = 0
+				else
+					mode = 1
+			else if (href_list["main"])
+				attack_hand(usr)
+				return
+			else if (href_list["eject"])
+				beaker:loc = src.loc
+				beaker = null
+				reagents.clear_reagents()
+				icon_state = "mixer0"
+			else if (href_list["createpill"])
+				var/name = input(usr,"Name:","Name your pill!",reagents.get_master_reagent_name())
+				var/obj/item/weapon/reagent_containers/food/snacks/pill/P = new/obj/item/weapon/reagent_containers/food/snacks/pill(src.loc)
+				if(!name || name == " ") name = reagents.get_master_reagent_name()
+				P.name = "[name] pill"
+				P.pixel_x = rand(-7, 7) //random position
+				P.pixel_y = rand(-7, 7)
+				reagents.trans_to(P,50)
+			else if (href_list["createbottle"])
+				var/name = input(usr,"Name:","Name your bottle!",reagents.get_master_reagent_name())
+				var/obj/item/weapon/reagent_containers/glass/bottle/P = new/obj/item/weapon/reagent_containers/glass/bottle(src.loc)
+				if(!name || name == " ") name = reagents.get_master_reagent_name()
+				P.name = "[name] bottle"
+				P.pixel_x = rand(-7, 7) //random position
+				P.pixel_y = rand(-7, 7)
+				reagents.trans_to(P,30)
 			else
-				dat += "<TITLE>Condimaster 3000</TITLE>Condiment infos:<BR><BR>Name:<BR>[href_list["name"]]<BR><BR>Description:<BR>[href_list["desc"]]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
-			usr << browse(dat, "window=chem_master;size=575x400")
+				usr << browse(null, "window=chem_master")
+			src.updateUsrDialog(usr)
 			return
-		else if (href_list["add1"])
-			R.remove_reagent(href_list["add1"], 1) //Remove/add used instead of trans_to since we're moving a specific reagent.
-			reagents.add_reagent(href_list["add1"], 1)
-		else if (href_list["add5"])
-			R.remove_reagent(href_list["add5"], 5)
-			reagents.add_reagent(href_list["add5"], 5)
-		else if (href_list["add10"])
-			R.remove_reagent(href_list["add10"], 10)
-			reagents.add_reagent(href_list["add10"], 10)
-		else if (href_list["addall"])
-			var/temp_amt = R.get_reagent_amount(href_list["addall"])
-			reagents.add_reagent(href_list["addall"], temp_amt)
-			R.del_reagent(href_list["addall"])
-		else if (href_list["remove1"])
-			reagents.remove_reagent(href_list["remove1"], 1)
-			if(mode) R.add_reagent(href_list["remove1"], 1)
-		else if (href_list["remove5"])
-			reagents.remove_reagent(href_list["remove5"], 5)
-			if(mode) R.add_reagent(href_list["remove5"], 5)
-		else if (href_list["remove10"])
-			reagents.remove_reagent(href_list["remove10"], 10)
-			if(mode) R.add_reagent(href_list["remove10"], 10)
-		else if (href_list["removeall"])
-			if(mode)
-				var/temp_amt = reagents.get_reagent_amount(href_list["removeall"])
-				R.add_reagent(href_list["removeall"], temp_amt)
-			reagents.del_reagent(href_list["removeall"])
-		else if (href_list["toggle"])
-			if(mode)
-				mode = 0
-			else
-				mode = 1
-		else if (href_list["main"])
-			attack_hand(usr)
-			return
-		else if (href_list["eject"])
-			beaker:loc = src.loc
-			beaker = null
-			reagents.clear_reagents()
-			icon_state = "mixer0"
-		else if (href_list["createpill"])
-			var/name = input(usr,"Name:","Name your pill!",reagents.get_master_reagent_name())
-			var/obj/item/weapon/reagent_containers/food/snacks/pill/P = new/obj/item/weapon/reagent_containers/food/snacks/pill(src.loc)
-			if(!name || name == " ") name = reagents.get_master_reagent_name()
-			P.name = "[name] pill"
-			P.pixel_x = rand(-7, 7) //random position
-			P.pixel_y = rand(-7, 7)
-			reagents.trans_to(P,50)
-		else if (href_list["createbottle"])
-			var/name = input(usr,"Name:","Name your bottle!",reagents.get_master_reagent_name())
-			var/obj/item/weapon/reagent_containers/glass/bottle/P = new/obj/item/weapon/reagent_containers/glass/bottle(src.loc)
-			if(!name || name == " ") name = reagents.get_master_reagent_name()
-			P.name = "[name] bottle"
-			P.pixel_x = rand(-7, 7) //random position
-			P.pixel_y = rand(-7, 7)
-			reagents.trans_to(P,30)
-		else
-			usr << browse(null, "window=chem_master")
-		src.updateUsrDialog(usr)
-		return
 
 	attack_hand(mob/user as mob)
 		if(stat & BROKEN)
@@ -331,15 +333,16 @@
 /obj/machinery/reagentgrinder/Topic(href, href_list)
 	if(..())
 		return
-	usr.machine = src
-	switch(href_list["action"])
-		if ("grind")
-			grind()
+	if(usr.check_topic(src))
+		usr.machine = src
+		switch(href_list["action"])
+			if ("grind")
+				grind()
 
-		if ("detach")
-			detach()
-	src.updateUsrDialog(usr)
-	return
+			if ("detach")
+				detach()
+		src.updateUsrDialog(usr)
+		return
 
 /obj/machinery/reagentgrinder/verb/detach()
 	set category = "Object"

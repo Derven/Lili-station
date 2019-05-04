@@ -174,45 +174,46 @@ Release Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?sr
 
 /obj/machinery/portable_atmospherics/canister/Topic(href, href_list)
 	..()
-	if (((get_dist(src, usr) <= 1) && istype(src.loc, /turf)))
-		usr.machine = src
+	if(usr.check_topic(src))
+		if (((get_dist(src, usr) <= 1) && istype(src.loc, /turf)))
+			usr.machine = src
 
-		if(href_list["toggle"])
-			if (valve_open)
-				release_log += "Valve was <b>closed</b> by [usr], stopping the transfer into the <font color='red'><b>air</b></font><br>"
-			else
-				release_log += "Valve was <b>opened</b> by [usr], starting the transfer into the <font color='red'><b>air</b></font><br>"
-			valve_open = !valve_open
+			if(href_list["toggle"])
+				if (valve_open)
+					release_log += "Valve was <b>closed</b> by [usr], stopping the transfer into the <font color='red'><b>air</b></font><br>"
+				else
+					release_log += "Valve was <b>opened</b> by [usr], starting the transfer into the <font color='red'><b>air</b></font><br>"
+				valve_open = !valve_open
 
-		if (href_list["pressure_adj"])
-			var/diff = text2num(href_list["pressure_adj"])
-			if(diff > 0)
-				release_pressure = min(10*ONE_ATMOSPHERE, release_pressure+diff)
-			else
-				release_pressure = max(ONE_ATMOSPHERE/10, release_pressure+diff)
+			if (href_list["pressure_adj"])
+				var/diff = text2num(href_list["pressure_adj"])
+				if(diff > 0)
+					release_pressure = min(10*ONE_ATMOSPHERE, release_pressure+diff)
+				else
+					release_pressure = max(ONE_ATMOSPHERE/10, release_pressure+diff)
 
-		if (href_list["relabel"])
-			if (can_label)
-				var/list/colors = list(\
-					"\[N2O\]" = "redws", \
-					"\[N2\]" = "red", \
-					"\[O2\]" = "blue", \
-					"\[Toxin (Bio)\]" = "orange", \
-					"\[CO2\]" = "black", \
-					"\[Air\]" = "grey", \
-					"\[CAUTION\]" = "yellow", \
-				)
-				var/label = input("Choose canister label", "Gas canister") as null|anything in colors
-				if (label)
-					src.colors = colors[label]
-					src.icon_state = colors[label]
-					src.name = "Canister: [label]"
-		src.updateUsrDialog(usr)
-		update_icon()
-	else
-		usr << browse(null, "window=canister")
+			if (href_list["relabel"])
+				if (can_label)
+					var/list/colors = list(\
+						"\[N2O\]" = "redws", \
+						"\[N2\]" = "red", \
+						"\[O2\]" = "blue", \
+						"\[Toxin (Bio)\]" = "orange", \
+						"\[CO2\]" = "black", \
+						"\[Air\]" = "grey", \
+						"\[CAUTION\]" = "yellow", \
+					)
+					var/label = input("Choose canister label", "Gas canister") as null|anything in colors
+					if (label)
+						src.colors = colors[label]
+						src.icon_state = colors[label]
+						src.name = "Canister: [label]"
+			src.updateUsrDialog(usr)
+			update_icon()
+		else
+			usr << browse(null, "window=canister")
+			return
 		return
-	return
 
 /obj/machinery/portable_atmospherics/canister/bullet_act(var/obj/item/projectile/Proj)
 	health -= Proj.damage

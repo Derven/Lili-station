@@ -52,27 +52,28 @@
 		usr << browse(my_text,"window=my_text")
 
 	Topic(href,href_list[])
-		if(href_list["my_item"] && href_list["my_what"])
-			var/obj/item/l = href_list["my_item"]
-			var/what = text2num(href_list["my_what"])
-			if(istype(src, /obj/machinery/vending/trademat))
-				if(!curid)
-					return
-				else
-					if(items_num[what] > 0 && curid.credits >= prices[what])
-						items_num[what] -= 1
-						curid.credits -= prices[what]
-						var/myprc = prices[what]
-						usr << "You bought [my_items[what]] for [myprc] credits"
-						new l(loc)
-						curid = null
+		if(usr.check_topic(src))
+			if(href_list["my_item"] && href_list["my_what"])
+				var/obj/item/l = href_list["my_item"]
+				var/what = text2num(href_list["my_what"])
+				if(istype(src, /obj/machinery/vending/trademat))
+					if(!curid)
+						return
 					else
-						usr << "\red <b>No money</b>"
-			else
-				if(items_num[what] > 0)
-					items_num[what] -= 1
-					new l(loc)
+						if(items_num[what] > 0 && curid.credits >= prices[what])
+							items_num[what] -= 1
+							curid.credits -= prices[what]
+							var/myprc = prices[what]
+							usr << "You bought [my_items[what]] for [myprc] credits"
+							new l(loc)
+							curid = null
+						else
+							usr << "\red <b>No money</b>"
+				else
+					if(items_num[what] > 0)
+						items_num[what] -= 1
+						new l(loc)
 
-			if(items_num[what] == 0)
-				usr << "\red <b>No [my_items[what]]</b>"
-			attack_hand()
+				if(items_num[what] == 0)
+					usr << "\red <b>No [my_items[what]]</b>"
+				attack_hand()

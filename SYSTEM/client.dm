@@ -28,17 +28,17 @@ client
 				J.jpixel()
 				jp = 2
 			if(istype(M, /mob/simulated/living/humanoid))
-				if(M.stamina < 30)
+				if(M && M.stamina < 30)
 					if(prob(rand(1,5)))
 						M << "\red You need to catch your breath!"
 					if(prob(3))
 						M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
 				var/hungryeffect = 0
-				if(M.nutrition < 150)
+				if(M && M.nutrition < 150)
 					hungryeffect = 1
 				sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect)
 				if(run_intent < 4 && jp == 0)
-					if(M.stamina > 1)
+					if(M && M.stamina > 1)
 						M.stamina -= 1
 						M.STAMINABAR.staminapixels()
 						if(prob(5))

@@ -58,46 +58,47 @@
 
 
 	Topic(href,href_list[])
-		if(href_list["action"] == "refresh")
-			usr << browse(null,"window=ATM")
-			attack_hand()
-		if(href_list["action"] == "ctoc")
-			var/passw1 = input("Type your password.","Your password","1111")
-			if(check_password(passw1))
-				usr << "please wait..."
-				swipeid.credits += swipeid.cubits * 0.01
-				swipeid.cubits = 0
-				usr << "transaction completed"
-		if(href_list["action"] == "g100")
-			var/passw1 = input("Type your password.","Your password","1111")
-			if(check_password(passw1))
-				usr << "please wait..."
-				if(swipeid.credits >= 100)
-					swipeid.credits -= 100
+		if(usr.check_topic(src))
+			if(href_list["action"] == "refresh")
+				usr << browse(null,"window=ATM")
+				attack_hand()
+			if(href_list["action"] == "ctoc")
+				var/passw1 = input("Type your password.","Your password","1111")
+				if(check_password(passw1))
+					usr << "please wait..."
+					swipeid.credits += swipeid.cubits * 0.01
+					swipeid.cubits = 0
 					usr << "transaction completed"
-					var/obj/item/credits/CR = new /obj/item/credits(src.loc)
-					CR.nominal = 100
-				else
-					usr << "erorr x[rand(1000,9999)]"
-		if(href_list["action"] == "g50")
-			var/passw1 = input("Type your password.","Your password","1111")
-			if(check_password(passw1))
-				usr << "please wait..."
-				if(swipeid.credits >= 50)
-					swipeid.credits -= 50
-					var/obj/item/credits/CR = new /obj/item/credits(src.loc)
-					CR.nominal = 50
-					usr << "transaction completed"
-				else
-					usr << "erorr x[rand(1000,9999)]"
-		if(href_list["action"] == "g10")
-			var/passw1 = input("Type your password.","Your password","1111")
-			if(check_password(passw1))
-				usr << "please wait..."
-				if(swipeid.credits >= 10)
-					swipeid.credits -= 10
-					usr << "transaction completed"
-					var/obj/item/credits/CR = new /obj/item/credits(src.loc)
-					CR.nominal = 10
-				else
-					usr << "erorr x[rand(1000,9999)]"
+			if(href_list["action"] == "g100")
+				var/passw1 = input("Type your password.","Your password","1111")
+				if(check_password(passw1))
+					usr << "please wait..."
+					if(swipeid.credits >= 100)
+						swipeid.credits -= 100
+						usr << "transaction completed"
+						var/obj/item/credits/CR = new /obj/item/credits(src.loc)
+						CR.nominal = 100
+					else
+						usr << "erorr x[rand(1000,9999)]"
+			if(href_list["action"] == "g50")
+				var/passw1 = input("Type your password.","Your password","1111")
+				if(check_password(passw1))
+					usr << "please wait..."
+					if(swipeid.credits >= 50)
+						swipeid.credits -= 50
+						var/obj/item/credits/CR = new /obj/item/credits(src.loc)
+						CR.nominal = 50
+						usr << "transaction completed"
+					else
+						usr << "erorr x[rand(1000,9999)]"
+			if(href_list["action"] == "g10")
+				var/passw1 = input("Type your password.","Your password","1111")
+				if(check_password(passw1))
+					usr << "please wait..."
+					if(swipeid.credits >= 10)
+						swipeid.credits -= 10
+						usr << "transaction completed"
+						var/obj/item/credits/CR = new /obj/item/credits(src.loc)
+						CR.nominal = 10
+					else
+						usr << "erorr x[rand(1000,9999)]"

@@ -54,65 +54,66 @@
 				user << browse(text,"window=inventory;size=450x250;can_resize=0;can_close=1")
 
 	Topic(href,href_list[])
-		if(href_list["clothing"])
-			var/mob/simulated/living/humanoid/H = my_last_looting
-			if(do_after(10))
-				//
-				var/obj/item/clothing/clthg = H.cloth
-				clthg.invisibility = 0
-				if(H.client)
-					H.client.screen.Remove(clthg)
-				clthg.loc = H.loc
-				H.u_equip(H.cloth)
-				clthg.wear_clothing(H)
-			return
+		if(usr.check_topic(src))
+			if(href_list["clothing"])
+				var/mob/simulated/living/humanoid/H = my_last_looting
+				if(do_after(10))
+					//
+					var/obj/item/clothing/clthg = H.cloth
+					clthg.invisibility = 0
+					if(H.client)
+						H.client.screen.Remove(clthg)
+					clthg.loc = H.loc
+					H.u_equip(H.cloth)
+					clthg.wear_clothing(H)
+				return
 
-		if(href_list["r_hand"])
-			var/mob/simulated/living/humanoid/H = my_last_looting
-			if(do_after(10))
-				var/obj/item/clthg = H.r_hand
-				clthg.invisibility = 0
-				if(H.client)
-					H.client.screen.Remove(H.r_hand)
-				clthg.loc = H.loc
-				H.u_equip(H.r_hand)
-				clthg.wear_clothing(H)
-			return
+			if(href_list["r_hand"])
+				var/mob/simulated/living/humanoid/H = my_last_looting
+				if(do_after(10))
+					var/obj/item/clthg = H.r_hand
+					clthg.invisibility = 0
+					if(H.client)
+						H.client.screen.Remove(H.r_hand)
+					clthg.loc = H.loc
+					H.u_equip(H.r_hand)
+					clthg.wear_clothing(H)
+				return
 
-		if(href_list["l_hand"])
-			var/mob/simulated/living/humanoid/H = my_last_looting
-			if(do_after(10))
-				var/obj/item/clthg = H.l_hand
-				clthg.invisibility = 0
-				if(H.client)
-					H.client.screen.Remove(H.l_hand)
-				H.l_hand.loc = H.loc
-				H.u_equip(H.l_hand)
-				clthg.wear_clothing(H)
-			return
+			if(href_list["l_hand"])
+				var/mob/simulated/living/humanoid/H = my_last_looting
+				if(do_after(10))
+					var/obj/item/clthg = H.l_hand
+					clthg.invisibility = 0
+					if(H.client)
+						H.client.screen.Remove(H.l_hand)
+					H.l_hand.loc = H.loc
+					H.u_equip(H.l_hand)
+					clthg.wear_clothing(H)
+				return
 
-		if(href_list["idcard"])
-			var/mob/simulated/living/humanoid/H = my_last_looting
-			if(do_after(10))
-				var/obj/item/clthg = H.id
-				clthg.invisibility = 0
-				clthg.loc = H.loc
-				if(H.client)
-					H.client.screen.Remove(H.id)
-				H.u_equip(H.id)
-			return
+			if(href_list["idcard"])
+				var/mob/simulated/living/humanoid/H = my_last_looting
+				if(do_after(10))
+					var/obj/item/clthg = H.id
+					clthg.invisibility = 0
+					clthg.loc = H.loc
+					if(H.client)
+						H.client.screen.Remove(H.id)
+					H.u_equip(H.id)
+				return
 
-		if(href_list["backpack"])
-			var/mob/simulated/living/humanoid/H = my_last_looting
-			if(do_after(10))
-				var/obj/item/clthg = H.back
-				clthg.invisibility = 0
-				if(H.client)
-					H.client.screen.Remove(H.back)
-				H.u_equip(clthg)
-				clthg.loc = H.loc
-				clthg.wear_clothing(H)
-			return
+			if(href_list["backpack"])
+				var/mob/simulated/living/humanoid/H = my_last_looting
+				if(do_after(10))
+					var/obj/item/clthg = H.back
+					clthg.invisibility = 0
+					if(H.client)
+						H.client.screen.Remove(H.back)
+					H.u_equip(clthg)
+					clthg.loc = H.loc
+					clthg.wear_clothing(H)
+				return
 
 	verb/Say(msg as text)
 		set name = "Say"

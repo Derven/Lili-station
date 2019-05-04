@@ -131,13 +131,14 @@ var/messages = ""
 		usr << browse(body,"window=computercon;can_close=0")
 
 /obj/machinery/consol/superterminal/Topic(href,href_list[])
-	if(href_list["cid"])
-		var/con_id = text2num(href_list["cid"])
-		for(var/obj/machinery/consol/C in world)
-			if(C.conid == con_id)
-				C.attack_hand(usr)
-	if(href_list["closemepls"] == "1")
-		usr << browse(null, "window=computercon")
+	if(usr.check_topic(src))
+		if(href_list["cid"])
+			var/con_id = text2num(href_list["cid"])
+			for(var/obj/machinery/consol/C in world)
+				if(C.conid == con_id)
+					C.attack_hand(usr)
+		if(href_list["closemepls"] == "1")
+			usr << browse(null, "window=computercon")
 
 /obj/machinery/consol/cargo
 	name = "cargo"

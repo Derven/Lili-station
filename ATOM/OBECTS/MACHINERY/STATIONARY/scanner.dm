@@ -49,55 +49,56 @@
 		usr << browse(dat,"window=mindmachine")
 
 	Topic(href,href_list[])
-		if(href_list["write"])
-			sleep(2)
-			if(AIM)
-				if(AIM.client && occupant)
-					occupant.client = AIM.client
-					if (src.occupant.client)
-						src.occupant.client.eye = src.occupant.client.mob
-						src.occupant.client.perspective = MOB_PERSPECTIVE
-					src.occupant.loc = src.loc
-					src.occupant = null
-					new /obj/effect/sparks(src.loc)
-					sleep(rand(1,3))
-					for(var/mob/M in range(5, src))
-						M << 'sparks.ogg'
-					occupant << "\blue program loading complete"
-				else
-					if(occupant && AIM)
-						world << "debug"
+		if(usr.check_topic(src))
+			if(href_list["write"])
+				sleep(2)
+				if(AIM)
+					if(AIM.client && occupant)
+						occupant.client = AIM.client
 						if (src.occupant.client)
 							src.occupant.client.eye = src.occupant.client.mob
 							src.occupant.client.perspective = MOB_PERSPECTIVE
 						src.occupant.loc = src.loc
-						addai(occupant, AIM.ai)
 						src.occupant = null
 						new /obj/effect/sparks(src.loc)
 						sleep(rand(1,3))
 						for(var/mob/M in range(5, src))
 							M << 'sparks.ogg'
 						occupant << "\blue program loading complete"
-		if(href_list["read"])
-			if(occupant)
-				var/obj/item/ai_module/A = new(src.loc)
-				A.client = occupant.client
-				A.name = "[occupant] mind module"
-				if (src.occupant.client)
-					src.occupant.client.eye = src.occupant.client.mob
-					src.occupant.client.perspective = MOB_PERSPECTIVE
-				src.occupant.loc = src.loc
-				src.occupant = null
-		if(href_list["eject"])
-			if(href_list["eject"] == "[occupant]")
-				if (src.occupant.client)
-					src.occupant.client.eye = src.occupant.client.mob
-					src.occupant.client.perspective = MOB_PERSPECTIVE
-				src.occupant.loc = src.loc
-				src.occupant = null
-			if(href_list["eject"] == "[AIM]")
-				AIM.loc = src.loc
-				AIM = null
+					else
+						if(occupant && AIM)
+							world << "debug"
+							if (src.occupant.client)
+								src.occupant.client.eye = src.occupant.client.mob
+								src.occupant.client.perspective = MOB_PERSPECTIVE
+							src.occupant.loc = src.loc
+							addai(occupant, AIM.ai)
+							src.occupant = null
+							new /obj/effect/sparks(src.loc)
+							sleep(rand(1,3))
+							for(var/mob/M in range(5, src))
+								M << 'sparks.ogg'
+							occupant << "\blue program loading complete"
+			if(href_list["read"])
+				if(occupant)
+					var/obj/item/ai_module/A = new(src.loc)
+					A.client = occupant.client
+					A.name = "[occupant] mind module"
+					if (src.occupant.client)
+						src.occupant.client.eye = src.occupant.client.mob
+						src.occupant.client.perspective = MOB_PERSPECTIVE
+					src.occupant.loc = src.loc
+					src.occupant = null
+			if(href_list["eject"])
+				if(href_list["eject"] == "[occupant]")
+					if (src.occupant.client)
+						src.occupant.client.eye = src.occupant.client.mob
+						src.occupant.client.perspective = MOB_PERSPECTIVE
+					src.occupant.loc = src.loc
+					src.occupant = null
+				if(href_list["eject"] == "[AIM]")
+					AIM.loc = src.loc
+					AIM = null
 
 	MouseDrop_T(mob/target, mob/user)
 		if(src.occupant)

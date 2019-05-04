@@ -62,33 +62,34 @@
 		icon_state = "copier_o"
 
 /obj/machinery/copier/Topic(href, href_list)
-	if(..())
-		return
-	usr.machine = src
-
-	if(href_list["num"])
-		num_copies += text2num(href_list["num"])
-		if(num_copies < 1)
-			num_copies = 1
-		else if(num_copies > max_copies)
-			num_copies = max_copies
-		updateDialog()
-	if(href_list["open"])
-		if(copying)
+	if(usr.check_topic(src))
+		if(..())
 			return
-		template.loc = src.loc
-		template = null
-		updateDialog()
-		update()
-	if(href_list["copy"])
-		if(copying)
-			return
-		job_num_copies = num_copies
-		spawn(0)
-			do_copy(usr)
+		usr.machine = src
 
-	if(href_list["cancel"])
-		job_num_copies = 0
+		if(href_list["num"])
+			num_copies += text2num(href_list["num"])
+			if(num_copies < 1)
+				num_copies = 1
+			else if(num_copies > max_copies)
+				num_copies = max_copies
+			updateDialog()
+		if(href_list["open"])
+			if(copying)
+				return
+			template.loc = src.loc
+			template = null
+			updateDialog()
+			update()
+		if(href_list["copy"])
+			if(copying)
+				return
+			job_num_copies = num_copies
+			spawn(0)
+				do_copy(usr)
+
+		if(href_list["cancel"])
+			job_num_copies = 0
 
 /obj/machinery/copier/proc/do_copy(mob/user)
 	if(!copying && job_num_copies > 0)

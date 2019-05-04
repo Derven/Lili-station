@@ -256,7 +256,7 @@
 	proc/gib()
 		death()
 		for(var/turf/F in range(3, src))
-			if(istype(F, /turf/simulated/floor/)) // Make it so the blood that flies out only appears on the freezer floor
+			if(istype(F, /turf/simulated)) // Make it so the blood that flies out only appears on the freezer floor
 				new /obj/blood(F)
 				if(prob(15))
 					var/obj/item/weapon/reagent_containers/food/snacks/meat/newmeat1 = new /obj/item/weapon/reagent_containers/food/snacks/meat

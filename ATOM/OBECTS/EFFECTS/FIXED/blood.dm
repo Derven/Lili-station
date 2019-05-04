@@ -12,8 +12,17 @@
 
 	New()
 		..()
-		if(!istype(src, /obj/blood/trail))
-			icon_state = pick("1","2","3")
+		if(istype(src.loc, /turf/simulated/wall))
+			var/turf/simulated/wall/newicon/NI = src.loc
+			if(findtext(NI.icon_state,"ns")==0)
+				icon_state = pick("blood2_ns","blood1_ns","blood3_ns")
+				pixel_z = rand(-3,3)
+			if(findtext(NI.icon_state,"we")==0)
+				icon_state = pick("blood1_we","blood2_we","blood3_we")
+				pixel_z = rand(-3,3)
+		else
+			if(!istype(src, /obj/blood/trail))
+				icon_state = pick("1","2","3")
 
 /obj/wet
 	icon = 'blood.dmi'

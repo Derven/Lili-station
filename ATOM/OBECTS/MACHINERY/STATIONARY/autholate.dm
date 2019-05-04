@@ -70,23 +70,24 @@
 
 
 /obj/machinery/autholate/Topic(href,href_list[])
-	if(href_list["product1"])
-		if(metal > 0)
-			var/obj/item/I = href_list["product1"]
-			new I(src.loc)
-			metal -= 1
-			attack_hand()
+	if(usr.check_topic(src))
+		if(href_list["product1"])
+			if(metal > 0)
+				var/obj/item/I = href_list["product1"]
+				new I(src.loc)
+				metal -= 1
+				attack_hand()
 
-	if(href_list["product2"])
-		if(metal > 1)
-			var/obj/item/I = href_list["product2"]
-			new I(src.loc)
-			metal -= 2
-			attack_hand()
+		if(href_list["product2"])
+			if(metal > 1)
+				var/obj/item/I = href_list["product2"]
+				new I(src.loc)
+				metal -= 2
+				attack_hand()
 
-	if(href_list["product3"])
-		if(metal > 2)
-			var/obj/item/I = href_list["product3"]
-			new I(src.loc)
-			metal -= 3
-			attack_hand()
+		if(href_list["product3"])
+			if(metal > 2)
+				var/obj/item/I = href_list["product3"]
+				new I(src.loc)
+				metal -= 3
+				attack_hand()

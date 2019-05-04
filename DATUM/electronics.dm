@@ -52,50 +52,49 @@ var/list/electronics = list()
 		usr << browse(initme(), "window=electronic")
 
 	Topic(href, href_list)
+		if(usr.check_topic(src))
+			if(href_list["logsoc"] == "basic")
+				logic = /datum/emodule/logic/basic
+			if(href_list["logsoc"] == "reverse")
+				logic = /datum/emodule/logic/negative
 
 
-		if(href_list["logsoc"] == "basic")
-			logic = /datum/emodule/logic/basic
-		if(href_list["logsoc"] == "reverse")
-			logic = /datum/emodule/logic/negative
+			if(href_list["sensoc"] == "power")
+				sensor = /datum/emodule/sensor/power_sensor
+			if(href_list["sensoc"] == "temperature")
+				sensor = /datum/emodule/sensor/temperature_sensor
+			if(href_list["sensoc"] == "human")
+				sensor = /datum/emodule/sensor/human_sensor
 
 
-		if(href_list["sensoc"] == "power")
-			sensor = /datum/emodule/sensor/power_sensor
-		if(href_list["sensoc"] == "temperature")
-			sensor = /datum/emodule/sensor/temperature_sensor
-		if(href_list["sensoc"] == "human")
-			sensor = /datum/emodule/sensor/human_sensor
+			if(href_list["othsoc"] == "powercontrol")
+				other = /datum/emodule/other/basic_power_controller
+			if(href_list["othsoc"] == "alert")
+				other = /datum/emodule/other/alertmodule
+			if(href_list["othsoc"] == "flash")
+				other = /datum/emodule/other/flash_module
+			if(href_list["othsoc"] == "battery")
+				other = /datum/emodule/other/backup_battery
+			if(href_list["othsoc"] == "shocker")
+				other = /datum/emodule/other/shockwave
 
-
-		if(href_list["othsoc"] == "powercontrol")
-			other = /datum/emodule/other/basic_power_controller
-		if(href_list["othsoc"] == "alert")
-			other = /datum/emodule/other/alertmodule
-		if(href_list["othsoc"] == "flash")
-			other = /datum/emodule/other/flash_module
-		if(href_list["othsoc"] == "battery")
-			other = /datum/emodule/other/backup_battery
-		if(href_list["othsoc"] == "shocker")
-			other = /datum/emodule/other/shockwave
-
-		if(logic != null && sensor != null && other != null)
-			var/datum/emodule/LOGIC = new logic()
-			var/datum/emodule/SENSOR = new sensor()
-			var/datum/emodule/OTHER = new other()
-			var/datum/emodule/central/CRAFTCURCUIT = new /datum/emodule/central()
-			CRAFTCURCUIT.logic_socket = LOGIC
-			CRAFTCURCUIT.sensor_socket = SENSOR
-			CRAFTCURCUIT.other_socket = OTHER
-			var/obj/item/module/MDLE = new /obj/item/module(src.loc)
-			MDLE.craftmodule = CRAFTCURCUIT
-			MDLE.craftmodule.name = "craftmodule"
-			attack_hand(usr)
-			logic = null
-			sensor = null
-			other = null
-		else
-			attack_hand(usr)
+			if(logic != null && sensor != null && other != null)
+				var/datum/emodule/LOGIC = new logic()
+				var/datum/emodule/SENSOR = new sensor()
+				var/datum/emodule/OTHER = new other()
+				var/datum/emodule/central/CRAFTCURCUIT = new /datum/emodule/central()
+				CRAFTCURCUIT.logic_socket = LOGIC
+				CRAFTCURCUIT.sensor_socket = SENSOR
+				CRAFTCURCUIT.other_socket = OTHER
+				var/obj/item/module/MDLE = new /obj/item/module(src.loc)
+				MDLE.craftmodule = CRAFTCURCUIT
+				MDLE.craftmodule.name = "craftmodule"
+				attack_hand(usr)
+				logic = null
+				sensor = null
+				other = null
+			else
+				attack_hand(usr)
 
 
 
