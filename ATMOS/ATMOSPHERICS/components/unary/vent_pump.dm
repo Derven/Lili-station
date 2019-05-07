@@ -1,3 +1,4 @@
+var/list/atmosnames = list()
 /obj/machinery/atmospherics/unary/vent_pump
 	icon = 'vent_pump.dmi'
 	icon_state = "off"
@@ -36,6 +37,10 @@
 
 		New()
 			..()
+			name = "Large Air Vent [pick("h","c","x")][rand(1,1000)]"
+			if(name in atmosnames)
+				while(name in atmosnames)
+					name = "Large Air Vent [pick("h","c","x")][rand(1,1000)]"
 			air_contents.volume = 1000
 
 	attack_hand()

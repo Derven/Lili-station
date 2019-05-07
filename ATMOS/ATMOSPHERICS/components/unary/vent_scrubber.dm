@@ -37,6 +37,11 @@
 		return
 
 	initialize()
+
+		name = "Scrubber [pick("h","c","x")][rand(1,1000)]"
+		if(name in atmosnames)
+			while(name in atmosnames)
+				name = "Scrubber [pick("h","c","x")][rand(1,1000)]"
 		if(node) return
 
 		var/node_connect = dir

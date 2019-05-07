@@ -13,6 +13,13 @@
 	New()
 		..()
 		spawn(3)
+			charge = 0
+			load = 0
+			var/turf/simulated/wall/W = src.loc
+			if(findtext(W.icon_state,"ew"))
+				dir = 1
+			if(findtext(W.icon_state,"ns"))
+				dir = 2
 			BPM = new(src)
 			if(!my_smes)
 				my_smes = smes_powernet[1]

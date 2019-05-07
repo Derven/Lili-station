@@ -1,5 +1,6 @@
 obj/machinery/atmospherics/pipe
 
+	alpha = 25
 	var/datum/gas_mixture/air_temporary //used when reconstructing a pipeline that broke
 	var/datum/pipeline/parent
 
@@ -294,6 +295,9 @@ obj/machinery/atmospherics/pipe
 		level = 2
 		icon_state = "intact"
 
+		blueair
+			icon_state = "bl_intact"
+
 		z_up
 			icon_state = "intactz+"
 
@@ -382,6 +386,7 @@ obj/machinery/atmospherics/pipe
 
 
 	tank
+		alpha = 255
 		icon = 'pipe_tank.dmi'
 		icon_state = "intact"
 
@@ -948,6 +953,9 @@ obj/machinery/atmospherics/pipe
 	manifold/general/visible
 		level = 2
 		icon_state = "manifold"
+
+		blueair
+			icon_state = "blueair_manifold"
 
 	manifold/general/hidden
 		level = 1
