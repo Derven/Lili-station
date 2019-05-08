@@ -1,3 +1,13 @@
+mob/proc/camera_refresh()
+	if(dir == NORTH)
+		client.eye = locate(x, y + 3, z)
+	if(dir == SOUTH)
+		client.eye = locate(x, y - 3, z)
+	if(dir == WEST)
+		client.eye = locate(x - 3, y, z)
+	if(dir == EAST)
+		client.eye = locate(x + 3, y, z)
+
 client
 	script="<style>\
 	body { \
@@ -20,6 +30,7 @@ client
 
 	Move()
 		if(speeding <= 0)
+			mob.process_fov()
 			speeding = 1
 			var/jp = 0
 			..()

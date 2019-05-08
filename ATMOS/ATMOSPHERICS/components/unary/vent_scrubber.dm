@@ -16,7 +16,7 @@
 	var/scrub_N2O = 0
 	var/scrub_rate = 1
 
-	var/volume_rate = 120
+	var/volume_rate = 250
 	var/panic = 0 //is this scrubber panicked?
 
 	var/area_uid

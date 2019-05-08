@@ -4,6 +4,7 @@
 
 	New()
 		addai(src, /datum/AI/friends_animal/monkey)
+		mobs_for_fov += src
 		START_PROCESSING(SSmobs, src)
 		select_overlay = image(usr)
 		overlay_cur = image('sign.dmi', icon_state = "say", layer = 10)

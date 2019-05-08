@@ -173,6 +173,8 @@
 						B << S
 
 
+
+
 /obj/structure/stool/comfychair
 	icon_state = "comfychair"
 	anchored = 1
