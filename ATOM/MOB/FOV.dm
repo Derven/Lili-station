@@ -4,6 +4,7 @@ var/list/mobs_for_fov = list()
 	var/list/image/fov_images = list()
 
 /mob/proc/calculate_fov()
+	..()
 	for(var/mob/M in mobs_for_fov)
 		if(M)
 			if(check_fov_dir(M) == 1)
@@ -11,6 +12,8 @@ var/list/mobs_for_fov = list()
 				I.alpha = round(255/100 * (100 / get_dist(M, src)) )
 				I.override = 1
 				fov_images.Add(I)
+		if(M.client && M in oview())
+			M.process_fov()
 
 mob/proc/check_fov_dir(var/mob/M)
 	if(dir == SOUTH)
@@ -38,10 +41,12 @@ mob/proc/check_fov_dir(var/mob/M)
 			return 0
 
 mob/proc/del_fov()
+	..()
 	for(var/image/I in fov_images)
 		del(I)
 
 mob/proc/see_you()
+	..()
 	for(var/image/I in fov_images)
 		usr << I
 
