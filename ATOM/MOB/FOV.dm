@@ -12,9 +12,6 @@ var/list/mobs_for_fov = list()
 				I.alpha = round(255/100 * (100 / get_dist(M, src)) )
 				I.override = 1
 				fov_images.Add(I)
-		if(M.client && M in oview())
-			spawn(4)
-				M.process_fov()
 
 mob/proc/check_fov_dir(var/mob/M)
 	if(dir == SOUTH)

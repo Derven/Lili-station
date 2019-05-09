@@ -31,6 +31,9 @@ client
 	Move()
 		if(speeding <= 0)
 			mob.process_fov()
+			for(var/mob/M in mobs_for_fov)
+				if(M.client && get_dist(M, mob) > 25)
+					M.process_fov()
 			speeding = 1
 			var/jp = 0
 			..()
