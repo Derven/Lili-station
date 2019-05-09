@@ -27,6 +27,10 @@
 		icon_state = "backpack"
 		var/mob/jetpacked = null
 
+		New()
+			..()
+			new /obj/item/device/radio(src)
+
 		jetpack
 			icon_state = "jetpack"
 			attackby(var/obj/item/I)
