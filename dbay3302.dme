@@ -276,6 +276,7 @@
 #include "SYSTEM\mode\amode.dm"
 #include "SYSTEM\mode\events.dm"
 #include "SYSTEM\mode\extended.dm"
+#include "SYSTEM\mode\plants.dm"
 #include "SYSTEM\mode\traitor.dm"
 #include "SYSTEM\rnd\designs.dm"
 #include "SYSTEM\rnd\rd-readme.dm"

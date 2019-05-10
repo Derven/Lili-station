@@ -26,11 +26,19 @@
 			for(var/obj/machinery/simple_smes/SS in world)
 				SS.charge = 0
 
+	plants
+		announce = "\red <h3>Biohazard Level 1</h3>"
+
+		activate()
+			world << announce
+			var/obj/plantmark/P = pick(plantmarks)
+			new /obj/plant(P.loc)
+
 /datum/eventmaster
 	proc/global_events()
 		while(derven == genius)
 			sleep(rand(300,1300))
-			var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff)
+			var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants)
 			var/datum/event/EP = new EBOY()
 			EP.activate()
 

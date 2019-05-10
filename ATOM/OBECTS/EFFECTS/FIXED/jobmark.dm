@@ -1,5 +1,6 @@
 //ok
 var/list/meteormarks = list()
+var/list/plantmarks = list()
 
 /obj/jobmark
 	icon = 'landmarks.dmi'
@@ -46,3 +47,11 @@ var/list/meteormarks = list()
 		..()
 		invisibility = 101
 		meteormarks.Add(src)
+
+/obj/plantmark
+	icon = 'landmarks.dmi'
+
+	New()
+		..()
+		invisibility = 101
+		plantmarks.Add(src)
