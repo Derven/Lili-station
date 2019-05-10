@@ -102,6 +102,80 @@ var/messages = ""
 	anchored = 2
 	icon_state = "command"
 
+	id_replace
+		var/obj/item/clothing/id/MYID
+
+		proc/replace_id(var/mob/M, var/datum/id/IDC)
+			if(MYID)
+				MYID.ID = IDC
+				M << "[MYID] access level is [IDC.accessname]"
+
+		attackby(var/obj/item/clothing/id/O as obj, var/mob/user as mob)
+			if (istype(O, /obj/item/clothing/id))
+				if(!MYID)
+					var/mob/simulated/living/humanoid/H = usr
+					H.drop_item_v()
+					O.Move(src)
+					MYID = O
+
+		proc/consol_interface()
+			var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
+			body += "<body>ID access system control:<hr><table class=\"pure-table\"><thead><tr><th>#Num</th><th>Access</th></tr></thead><tbody>"
+			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=1;'>Basic</a></td></tr>"
+			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=2;'>Assistant</a></td></tr>"
+			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=3;'>Captain</a></td></tr>"
+			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=4;'>Security</a></td></tr>"
+			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=5;'>Doctor</a></td></tr>"
+			body += "<br>State: [MYID ? "[MYID.ID.accessname];[MYID.name]" : "no"]"
+			body += "</tbody></table><hr><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];eject=1;'>eject</a></html></body>"
+			usr << browse(body,"window=idcontrol")
+
+		attack_hand()
+			consol_interface()
+
+		Topic(href,href_list[])
+			if(usr.check_topic(src))
+				if(href_list["access"] == "1")
+					if(MYID)
+						MYID.ID = null
+						MYID.ID = new /datum/id/(MYID)
+						MYID.idtype = /datum/id
+
+				if(href_list["access"] == "2")
+					if(MYID)
+						MYID.ID = null
+						MYID.ID = new /datum/id/assistant(MYID)
+						MYID.idtype = /datum/id/assistant
+
+				if(href_list["access"] == "3")
+					if(MYID)
+						MYID.ID = null
+						MYID.ID = new /datum/id/captain(MYID)
+						MYID.idtype = /datum/id/captain
+
+				if(href_list["access"] == "4")
+					if(MYID)
+						MYID.ID = null
+						MYID.ID = new /datum/id/security(MYID)
+						MYID.idtype = /datum/id/security
+
+				if(href_list["access"] == "5")
+					if(MYID)
+						MYID.ID = null
+						MYID.ID = new /datum/id/doctor(MYID)
+						MYID.idtype = /datum/id/doctor
+
+				if(href_list["eject"] == "1")
+					if(MYID)
+						var/obj/item/clothing/id/jid //job id
+						jid = new /obj/item/clothing/id(src.loc)
+						jid.name = MYID.name
+						jid.idtype = MYID.idtype
+						jid.ID = MYID.ID
+						jid.myids += MYID.idtype
+						MYID = null
+						//MYID = null
+
 /obj/machinery/consol/announcement
 	name = "announcement"
 	anchored = 2

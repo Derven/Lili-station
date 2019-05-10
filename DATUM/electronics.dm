@@ -429,7 +429,12 @@ proc/add_idchecker(var/obj/myloc, var/ids)
 	return IDCHECK
 
 /datum/id
+	var/accessname = "basic"
 	assistant
+		accessname = "assistant"
 	security
+		accessname = "security"
 	captain
+		accessname = "captain"
 	doctor
+		accessname = "doctor"
