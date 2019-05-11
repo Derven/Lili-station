@@ -98,6 +98,17 @@ datum
 				..()
 				return
 
+		mushrooms_spores
+			name = "mush"
+			id = "mush"
+			reagent_state = LIQUID
+
+			reaction_mob(var/mob/M)
+				if(istype(M, /mob/simulated/living/humanoid))
+					M:mush_infect()
+				..()
+				return
+
 		plasma
 			name = "plasma"
 			id = "plasma"

@@ -19,6 +19,7 @@ client
 	}</style>"
 	var/run_intent = 4
 	var/speeding = 0
+	var/other_effects = 0
 
 	proc/switch_rintent()
 		if(run_intent == 4)
@@ -47,7 +48,7 @@ client
 				var/hungryeffect = 0
 				if(M && M.nutrition < 150)
 					hungryeffect = 1
-				sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect)
+				sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects)
 				if(run_intent < 4 && jp == 0)
 					if(M && M.stamina > 1)
 						M.stamina -= 1

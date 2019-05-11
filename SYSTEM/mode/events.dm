@@ -34,11 +34,28 @@
 			var/obj/plantmark/P = pick(plantmarks)
 			new /obj/plant(P.loc)
 
+	mushroom
+		announce = "\red <h3>Biohazard Level 2</h3>"
+
+		activate()
+			world << announce
+			var/obj/plantmark/P = pick(plantmarks)
+			new /obj/plant/mushroom(P.loc)
+
+
+	communications_blackout
+		announce = "\red <h3>Communi*cations Bla#ckout!</h3>"
+
+		activate()
+			world << announce
+			for(var/obj/machinery/radio/mainmachine/M in world)
+				M.on = 0
+
 /datum/eventmaster
 	proc/global_events()
 		while(derven == genius)
 			sleep(rand(300,1300))
-			var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants)
+			var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/mushroom, /datum/event/communications_blackout)
 			var/datum/event/EP = new EBOY()
 			EP.activate()
 
