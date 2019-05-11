@@ -73,7 +73,12 @@
 		proc/infect()
 			if(prob(10))
 				for(var/mob/simulated/living/humanoid/H in range(5,src))
-					H.mush_infect()
+					if(H.cloth)
+						if(!H.cloth.space_suit == 1)
+							H.mush_infect()
+					else
+						H.mush_infect()
+
 				var/location = get_turf(src)
 				var/datum/effect/effect/system/chem_smoke_spread/S = new /datum/effect/effect/system/chem_smoke_spread
 				S.attach(location)

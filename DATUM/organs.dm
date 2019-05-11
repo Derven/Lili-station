@@ -299,8 +299,8 @@ proc/isorgan(A)
 
 	light_sedative
 		time_in_steps = 1
-		volume = -35
+		volume = -25
 
 	hard_sedative
 		time_in_steps = 1
-		volume = -60
+		volume = -45
