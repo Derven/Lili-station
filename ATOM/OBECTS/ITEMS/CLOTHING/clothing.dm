@@ -54,7 +54,6 @@ var/ids = 0
 	security
 		New()
 			..()
-			new ID(src)
 			ids += 1
 			password = rand(1000,9990)
 			myids.Add(/datum/id/security)

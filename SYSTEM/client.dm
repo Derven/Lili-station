@@ -41,9 +41,9 @@ client
 				jp = 2
 			if(istype(M, /mob/simulated/living/humanoid))
 				if(M && M.stamina < 30)
-					if(prob(rand(1,5)))
+					if(prob(rand(1,3)))
 						M << "\red You need to catch your breath!"
-					if(prob(3))
+					if(prob(2))
 						M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
 				var/hungryeffect = 0
 				if(M && M.nutrition < 150)

@@ -268,6 +268,8 @@
 	usr << "<h1><b>Wellcome to unique isometric station based on SS13 and named 'Lili station'.</b></h2>"
 	usr << "<FONT COLOR=violet>DISCORD: <a href='https://discord.gg/KqeSTaR'>HERE</a>"
 	usr << "<FONT COLOR=blue>GITHUB: <a href='https://github.com/Derven/Lili-station'>HERE</a>"
+	usr << "<FONT COLOR=red>To align the HUD, pull the output window to the right."
+	usr << "<FONT COLOR=red>Change screen size by clicking \"screen_resolution\" on the titlebar of the game"
 	world << 'ping.ogg'
 	world << "<FONT COLOR=#38BCFF>[ckey] connected!"
 	lobby = new(usr)
