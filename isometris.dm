@@ -31,7 +31,7 @@ world
 	map_format = ISOMETRIC_MAP
 	mob = /mob/new_player
 	hub = "Exadv1.spacestation13"
-	hub_password = "SORRYNOPASSWORD"
+	hub_password = "kMZy3U5jJHSiBQjr"
 	name = "Isometric Space Station 13"
 
 	tick_lag = 0.3
