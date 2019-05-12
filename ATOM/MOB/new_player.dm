@@ -39,6 +39,8 @@
 					pregame_hair = new('mob.dmi',icon_state = "hair_7")
 				if("stylish")
 					pregame_hair = new('mob.dmi',icon_state = "hair_8")
+				if("something weird")
+					pregame_hair = new('mob.dmi',icon_state = "hair_9")
 		else
 			switch(hair_name)
 				if("afro")
@@ -57,6 +59,8 @@
 					pregame_hair = new('mob.dmi',icon_state = "hair_7_f")
 				if("stylish")
 					pregame_hair = new('mob.dmi',icon_state = "hair_8_f")
+				if("something weird")
+					pregame_hair = new('mob.dmi',icon_state = "hair_9_f")
 
 		switch(pregame_hair_color)
 			if("black")
@@ -271,6 +275,7 @@
 	usr << "<FONT COLOR=red>To align the HUD, pull the output window to the right."
 	usr << "<FONT COLOR=red>Change screen size by clicking \"screen_resolution\" on the titlebar of the game"
 	usr << "<FONT COLOR=red>If you can't move press TAB and then UP"
+	usr << "<FONT COLOR=blue>Write about problems on github -> issues  (https://github.com/Derven/Lili-station)!!!"
 	world << 'ping.ogg'
 	world << "<FONT COLOR=#38BCFF>[ckey] connected!"
 	lobby = new(usr)

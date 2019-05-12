@@ -37,6 +37,35 @@
 		name = "taser gun"
 		projectile_type = "/obj/item/projectile/beam/stun"
 
+/obj/item/riflebullets
+	icon = 'gun.dmi'
+	icon_state = "bullets"
+
+/obj/item/weapon/gun/energy/superoldrifle
+	automatic = 1
+	name = "rifle"
+	desc = "a basic weapon designed kill with concentrated salt bullets"
+	icon_state = "rifle"
+	projectile_type = "/obj/item/projectile/beam"
+	charge_cost = 1
+	mycharge = 1
+	pixel_z = 4
+
+	load_into_chamber()
+		if(charge_cost <= mycharge)
+			mycharge -= charge_cost
+			in_chamber = new projectile_type(src)
+			return 1
+		else
+			return 0
+
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/riflebullets) && mycharge < 1)
+			usr:drop_item_v()
+			del(W)
+			mycharge = 1
+
+
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser gun"
 	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice."

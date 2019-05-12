@@ -34,7 +34,7 @@
 		anchored = 1
 
 		attackby(obj/item/O as obj)
-			if(istype(O, /obj/item/weapon/gun/energy))
+			if(istype(O, /obj/item/weapon/gun/energy) && !istype(O, /obj/item/weapon/gun/energy/superoldrifle))
 				if(length(contents) == 0)
 					var/mob/simulated/living/humanoid/H = usr
 					H.drop_item_v()

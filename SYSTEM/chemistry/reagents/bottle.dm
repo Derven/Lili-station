@@ -69,6 +69,39 @@
 		..()
 		reagents.add_reagent("water", 10)
 
+/obj/item/weapon/reagent_containers/glass/bottle/whiskey
+	name = "whiskey \"ACDC\""
+	desc = "Super hard whiskey"
+	icon = 'chemical.dmi'
+	icon_state = "whiskey"
+
+	New()
+		..()
+		reagents.add_reagent("ethanol", 40)
+		reagents.add_reagent("sleeping", 10)
+
+/obj/item/weapon/reagent_containers/glass/bottle/rum
+	name = "rum"
+	desc = "just a rum"
+	icon = 'chemical.dmi'
+	icon_state = "rum"
+
+	New()
+		..()
+		reagents.add_reagent("ethanol", 40)
+		reagents.add_reagent("water", 10)
+
+/obj/item/weapon/reagent_containers/glass/bottle/beer
+	name = "beer"
+	desc = "light beer"
+	icon = 'chemical.dmi'
+	icon_state = "beer"
+
+	New()
+		..()
+		reagents.add_reagent("ethanol", 20)
+		reagents.add_reagent("water", 20)
+
 /obj/item/weapon/reagent_containers/glass/bottle/pwater
 	name = "water"
 	desc = "space water"
