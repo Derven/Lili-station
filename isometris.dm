@@ -26,11 +26,14 @@
 
 world
 	icon_size = 64	// 64x64 icon size by default
-	view = 8		// show up to 8 tiles outward from center (13x13 view)
+	view = 8// show up to 8 tiles outward from center (13x13 view)
 	turf = /turf/space
 	map_format = ISOMETRIC_MAP
 	mob = /mob/new_player
-	hub = "SSting.SpaceCruiserAurora"
+	hub = "Exadv1.spacestation13"
+	hub_password = "SORRYNOPASSWORD"
+	name = "Isometric Space Station 13"
+
 	tick_lag = 0.3
 
 var/contentlist = list(/datum/content/library, /datum/content/dream, /datum/content/dream2, /datum/content/dream3, /datum/content/dream4, /datum/content/dream5, /datum/content/whatstorymark, /datum/content/forkmypork, /datum/content/racers)
