@@ -39,6 +39,8 @@
 		var/turf/simulated/floor/T = src.loc
 		ID = add_idchecker(src, ids)
 		T.blocks_air = 1
+		if(istype(src, /obj/machinery/airlock/glassairlock))
+			opacity = 0
 
 	attack_hand(mob/simulated/living/humanoid/user)
 		if(istype(user, /mob/simulated/living/humanoid))
