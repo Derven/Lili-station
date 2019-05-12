@@ -45,4 +45,3 @@
 		reagents.add_reagent("blood",300)
 
 		..()
-		mobs_for_fov += src

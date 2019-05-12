@@ -64,7 +64,6 @@ mob
 
 	New()
 		..()
-		mobs_for_fov += src
 		select_overlay = image(usr)
 		usr.select_overlay.override = 1
 

@@ -31,7 +31,6 @@ client
 
 	Move()
 		if(speeding <= 0)
-			mob.process_fov()
 			speeding = 1
 			var/jp = 0
 			..()

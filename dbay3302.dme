@@ -47,7 +47,6 @@
 #include "ATOM\atom.dm"
 #include "ATOM\macros.dm"
 #include "ATOM\AREAS\area.dm"
-#include "ATOM\MOB\FOV.dm"
 #include "ATOM\MOB\interaction_procs.dm"
 #include "ATOM\MOB\mob.dm"
 #include "ATOM\MOB\mouse_and_keyboard_feature.dm"

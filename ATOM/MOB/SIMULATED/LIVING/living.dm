@@ -79,7 +79,6 @@
 
 	New()
 		START_PROCESSING(SSmobs, src)
-		mobs_for_fov += src
 		select_overlay = image(usr)
 		overlay_cur = image('sign.dmi', icon_state = "say", layer = 10)
 		overlay_cur.layer = 16

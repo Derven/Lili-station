@@ -143,7 +143,6 @@
 
 	New()
 		START_PROCESSING(SSmobs, src)
-		mobs_for_fov += src
 		..()
 
 	var //HUD
