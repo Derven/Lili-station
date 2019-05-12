@@ -33,6 +33,7 @@ world
 	hub = "Exadv1.spacestation13"
 	hub_password = "kMZy3U5jJHSiBQjr"
 	name = "Isometric Space Station 13"
+	status = "ISOMETRIC STATION 13"
 
 	tick_lag = 0.3
 
