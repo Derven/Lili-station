@@ -55,9 +55,10 @@
 	proc/global_events()
 		while(derven == genius)
 			sleep(rand(400,1300))
-			var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/mushroom, /datum/event/communications_blackout)
-			var/datum/event/EP = new EBOY()
-			EP.activate()
+			if(prob(30))
+				var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/mushroom, /datum/event/communications_blackout)
+				var/datum/event/EP = new EBOY()
+				EP.activate()
 
 	New()
 		spawn(25)

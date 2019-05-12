@@ -43,6 +43,8 @@
 		if(player.pregame_body_color == "black")
 			icon -= rgb(100,100,100)
 		density = 1
+		if(id)
+			src << "Your card password is [id.password]"
 
 	proc/update_mydamage(var/sumdam)
 		overlays -= mydamage

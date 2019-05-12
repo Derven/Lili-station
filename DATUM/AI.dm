@@ -39,6 +39,29 @@
 			mysay = "whimpers"
 
 	patrol_bots
+
+		clean_bot
+			mobmovement()
+				var/mindist = min(distances)
+				dist_calculate()
+				for(var/obj/botsignaler/BS in signalers)
+					for(var/obj/blood/BL in view(5,src))
+						walk_to(brain, BL, 0, 3, 64)
+						if(prob(45))
+							talking()
+					if(get_dist(BS,brain) == mindist && !myway.Find(BS))
+						if(prob(10))
+							talking()
+						walk_to(brain, BS, 0, 3, 64)
+						myway.Add(BS)
+						dist_calculate()
+						if(length(myway) == length(signalers) - 1 || length(myway) == length(signalers))
+							for(var/mob/M in range(5, brain))
+								M << 'buzz-two.ogg'
+							myway.Cut()
+							dist_calculate()
+
+
 		var/list/distances = list()
 		var/list/obj/botsignaler/myway = list()
 

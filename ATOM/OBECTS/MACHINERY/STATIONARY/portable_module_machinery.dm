@@ -43,7 +43,7 @@
 
 		New()
 			..()
-			addai(src, /datum/AI/patrol_bots)
+			addai(src, /datum/AI/patrol_bots/clean_bot)
 
 		Move()
 			..()

@@ -127,6 +127,7 @@
 			stat("hungry", nutrition / (400 / 100))
 
 	attack_hand()
+		sleep(1)
 		var/staminamodify = 0
 		if(istype(usr, /mob/simulated/living/humanoid))
 			var/mob/simulated/living/humanoid/H = usr
@@ -165,6 +166,20 @@
 					src.ZLevel = usr.ZLevel
 					layer = 17
 					pixel_z = 32 * (ZLevel - 1)
+				else
+					if(istype(src, /mob/simulated/living/humanoid))
+						var/mob/simulated/living/humanoid/H2 = src
+						if(H2.lying == 1)
+							if(H2.death == 0)
+								H2.resting()
+								src << "\blue [usr] helped get you up"
+						else
+							var/image/LOVE = image(icon = 'sign.dmi', icon_state = "love_hug")
+							usr.overlays.Add(LOVE)
+							src << "\blue [usr] hugged you"
+							usr << "\blue You hugged [src]"
+							sleep(4)
+							usr.overlays.Remove(LOVE)
 				return
 
 
@@ -269,8 +284,6 @@
 		if(nutrition > 0)
 			if(prob(rand(25, 45)))
 				nutrition -= rand(0,2) //hungry
-		if((nutrition / (400 / 100)) > 120)
-			gib()
 		if(prob(37))
 			if(dizziness > 0)
 				dizziness -= rand(3,7)
@@ -317,7 +330,7 @@
 			for(var/datum/organ/external/EX in organs)
 				EX.blood_flow(src)
 				sum_damage += EX.brute_dam + EX.burn_dam
-			if(sum_damage > 90)
+			if(sum_damage > 140)
 				gib()
 			if(istype(src, /mob/simulated/living/humanoid/human))
 				var/mob/simulated/living/humanoid/human/H = src

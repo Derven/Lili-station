@@ -270,6 +270,7 @@
 	usr << "<FONT COLOR=blue>GITHUB: <a href='https://github.com/Derven/Lili-station'>HERE</a>"
 	usr << "<FONT COLOR=red>To align the HUD, pull the output window to the right."
 	usr << "<FONT COLOR=red>Change screen size by clicking \"screen_resolution\" on the titlebar of the game"
+	usr << "<FONT COLOR=red>If you can't move press TAB and then UP"
 	world << 'ping.ogg'
 	world << "<FONT COLOR=#38BCFF>[ckey] connected!"
 	lobby = new(usr)

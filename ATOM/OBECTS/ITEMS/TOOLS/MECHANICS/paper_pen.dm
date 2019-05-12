@@ -3,9 +3,35 @@
 	name = "Paper"
 	icon = 'paper.dmi'
 	icon_state = "paper"
+	layer = 8
 
 	attack_self()
 		usr << browse(info,"window=paper")
+
+	instructions
+		kitchen_recipes
+			info = {"burger = meat + flour
+			<br>
+			waffles = flour + flour + egg + egg
+			<br>
+			donut = flour + egg"}
+
+		chemical_recipes
+			info = {"
+				flash = aluminium + potassium + sulfur + chlorine
+				<br>
+				explosion = potassium + water(Don't do it please)
+				<br>
+				chemsmoke = potassium + sugar + phosphorus + any shit
+				<br>
+				lexorin = plasma + hydrogen + nitrogen
+				<br>
+				cheese = milk + vomit
+				<br>
+				synthflesh = blood + carbon
+				<br>
+				thermite = aluminium + iron + oxygen
+			"}
 
 /obj/item/weapon/pen
 	var
