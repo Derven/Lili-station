@@ -18,6 +18,7 @@
 			<br>
 			dough = egg + flour(no microwave, raw)
 			(for select dough type click on dough)
+			<br>
 			dough + any shit = new recipe(in microwave)
 			"}
 
