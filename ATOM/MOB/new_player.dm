@@ -131,6 +131,11 @@
 					suit = new('suit.dmi', icon_state = "detective_suit_onmob")
 				if(gender == "female")
 					suit = new('suit.dmi', icon_state = "detective_suit_onfem")
+			if("chef")
+				if(gender == "male")
+					suit = new('suit.dmi', icon_state = "chef_suit_onmob")
+				if(gender == "female")
+					suit = new('suit.dmi', icon_state = "chef_suit_onfem")
 
 		pregame_human.Blend(suit, ICON_OVERLAY)
 		pregame_human.Blend(pregame_hair, ICON_OVERLAY)
@@ -181,6 +186,10 @@
 					            <td><span class='doc' style=\"{color: darkblue};\"><a href='?src=\ref[src];job=6'>Doctor</a></span></td>
 					            <td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=8'>Clown</a></span></td>
 					        </tr>
+					        	<td></td>
+					        	<td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=10'>Chef</a></span></td>
+					        <tr>
+					        </tr>
 					    </tbody>
 					</table>
 					<hr>
@@ -189,7 +198,7 @@
 			</body>
 		</html>"}
 		usr << browse_rsc(pregame_human,"preview")
-		usr << browse(lobby_text,"window=setup;size=450x650;can_resize=0;can_close=0")
+		usr << browse(lobby_text,"window=setup;size=450x700;can_resize=0;can_close=0")
 
 
 	Topic(href,href_list[])
@@ -203,7 +212,7 @@
 		if(href_list["hair"] == "1")
 			hair_name = input("Select a hair style for your character.",
                       "Your hair",
-                      hair_name) in list("bald","afro","mohawk", "helipad", "short", "long", "very long", "stylish")
+                      hair_name) in list("bald","afro","mohawk", "helipad", "short", "long", "very long", "stylish", "something weird")
 
 		switch(href_list["job"])
 			if("1")
@@ -224,6 +233,8 @@
 				pregame_job = "clown"
 			if("9")
 				pregame_job = "detective"
+			if("10")
+				pregame_job = "chef"
 
 		if(href_list["hcolor"] == "1")
 			pregame_hair_color = input("Select a hair color for your character.",

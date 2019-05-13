@@ -27,6 +27,8 @@
 				wear_on_spawn(/obj/item/clothing/suit/bartender, /obj/item/clothing/id/assistant)
 			if("doctor")
 				wear_on_spawn(/obj/item/clothing/suit/med, /obj/item/clothing/id/doctor)
+			if("chef")
+				wear_on_spawn(/obj/item/clothing/suit/chef, /obj/item/clothing/id/assistant)
 			if("engineer")
 				wear_on_spawn(/obj/item/clothing/suit/eng_suit, /obj/item/clothing/id/assistant)
 			if("security")

@@ -107,54 +107,6 @@
 				dispose()
 		return
 
-/obj/machinery/microwave/proc/cook()
-	start()
-	if (reagents.total_volume==0 && !(locate(/obj) in contents)) //dry run
-		if (!wzhzhzh(10))
-			abort()
-			return
-		stop()
-		return
-
-	var/datum/recipe/recipe = select_recipe(available_recipes,src)
-	if (!recipe)
-		dirty += 1
-		if (prob(max(10,dirty*5)))
-			if (!wzhzhzh(4))
-				abort()
-				return
-			muck_start()
-			wzhzhzh(4)
-			muck_finish()
-			fail()
-			return
-		else if (has_extra_item())
-			if (!wzhzhzh(4))
-				abort()
-				return
-			broke()
-			fail()
-			return
-		else
-			if (!wzhzhzh(10))
-				abort()
-				return
-			stop()
-			fail()
-			return
-	else
-		var/halftime = round(recipe.time/10/2)
-		if (!wzhzhzh(halftime))
-			abort()
-			return
-		if (!wzhzhzh(halftime))
-			abort()
-			fail()
-			return
-		recipe.make_food(src, src)
-		stop()
-		return
-
 /obj/machinery/microwave/proc/wzhzhzh(var/seconds as num)
 	for (var/i=1 to seconds)
 		sleep(10)

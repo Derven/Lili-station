@@ -248,6 +248,7 @@
 #include "SYSTEM\command.dm"
 #include "SYSTEM\compile.dm"
 #include "SYSTEM\crutches.dm"
+#include "SYSTEM\kitchen.dm"
 #include "SYSTEM\maptext.dm"
 #include "SYSTEM\proc.dm"
 #include "SYSTEM\SD_dynamic_area_lighting.dm"

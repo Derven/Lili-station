@@ -90,6 +90,12 @@
 		..()
 		reagents.add_reagent("nutriments", 1)
 
+	attackby(obj/item/weapon/W as obj, mob/user as mob)
+		if(istype(W, /obj/item/weapon/reagent_containers/food/snacks/egg))
+			new /obj/item/weapon/reagent_containers/food/dough(src.loc)
+			del(W)
+			del(src)
+
 /obj/item/weapon/reagent_containers/food/snacks/meat
 	name = "meat"
 	desc = "A slab of meat"

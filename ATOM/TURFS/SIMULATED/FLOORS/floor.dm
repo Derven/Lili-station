@@ -22,6 +22,7 @@
 				del(src)
 
 	MouseDrop_T(mob/target, var/mob/simulated/living/humanoid/M)
+		..()
 		if(target == M)
 			if(istype(M, /mob/simulated/living/humanoid))
 				if(M == usr)

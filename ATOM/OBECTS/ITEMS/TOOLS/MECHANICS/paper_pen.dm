@@ -14,7 +14,12 @@
 			<br>
 			waffles = flour + flour + egg + egg
 			<br>
-			donut = flour + egg"}
+			donut = flour + egg
+			<br>
+			dough = egg + flour(no microwave, raw)
+			(for select dough type click on dough)
+			dough + any shit = new recipe(in microwave)
+			"}
 
 		chemical_recipes
 			info = {"
