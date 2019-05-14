@@ -1,8 +1,8 @@
 /obj/structure/closet
 	closet_3
 		anchored = 1
-		name = "closet_3"
-		desc = "It's a closet!"
+		name = "shelving"
+		desc = "It's a sturdy metal shelf."
 		icon = 'closet.dmi'
 		icon_state = "polka_0"
 
@@ -24,8 +24,8 @@
 /obj/structure/closet
 	books
 		anchored = 1
-		name = "books"
-		desc = "It's a closet!"
+		name = "bookshelf"
+		desc = "It's a wooden bookshelf."
 		icon = 'closet.dmi'
 		icon_state = "books1"
 

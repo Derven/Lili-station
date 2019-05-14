@@ -2,6 +2,7 @@
 
 	fridge
 		icon = 'fridge.dmi'
+		name = "refridgerator"
 
 		New()
 			..()
@@ -18,6 +19,7 @@
 
 		morgue
 			icon = 'closet.dmi'
+			name = "morgue"
 			icon_state = "morgue"
 			icon_opened = "morgue_open"
 			icon_closed = "morgue"

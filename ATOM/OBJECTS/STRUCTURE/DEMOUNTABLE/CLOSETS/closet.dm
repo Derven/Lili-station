@@ -42,6 +42,7 @@
 			new /obj/item/stack/table_parts(src)
 
 	mining
+		name = "ore crate"
 		icon_state = "mining"
 		icon_closed = "mining"
 		icon_opened = "mining_open"
@@ -119,6 +120,7 @@
 	return 1
 
 /obj/structure/closet/oldcloset
+	name = "wooden cabinet"
 	icon_state = "oldcloset"
 	density = 1
 	icon_closed = "oldcloset"
