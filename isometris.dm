@@ -83,3 +83,22 @@ proc/autoreboot()
 	autoreboot()
 
 	return
+
+/*
+	World Topics Handler
+*/
+
+/world/Topic(T)
+	var/list/input = params2list(T) //splitting strings like a=0&b=1&c=hello into list
+	if ("status" in input)
+		var/list/s = list()
+		var/p = 0
+		for(var/mob/M in world)
+			if(M.client)
+				p++ //counting mobs with client inside and adding it
+		s["players"] = p //current players
+		s["duration"] = round((world.time-round_start_time)/10) //time in seconds after roundstart
+		//s["map_name"] = GLOB.map_name
+		s["host"] = world.host ? world.host : null //returning host ckey if windows host. On linux returns null
+		return list2params(s) //returning achieved variables
+	return "try status" //if input is incorrect display this
