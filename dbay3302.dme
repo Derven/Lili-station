@@ -9,6 +9,7 @@
 #define FILE_DIR .
 #define FILE_DIR "ICONS"
 #define FILE_DIR "SOUNDS"
+#define FILE_DIR "SOUNDS/piano"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
@@ -165,6 +166,7 @@
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\main.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\microwave.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\on_wall.dm"
+#include "ATOM\OBECTS\MACHINERY\STATIONARY\piano.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\portable_module_machinery.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\portal.dm"
 #include "ATOM\OBECTS\MACHINERY\STATIONARY\processor.dm"

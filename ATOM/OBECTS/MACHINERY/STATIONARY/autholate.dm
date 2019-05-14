@@ -5,7 +5,7 @@
 	anchored = 0
 	var/metal = 100
 
-	var/list/one_metal_unit = list(/obj/item/weapon/wrench, /obj/item/construct/solars, /obj/item/construct/lamp, /obj/item/weapon/wirecutters, /obj/item/weapon/weldingtool)
+	var/list/one_metal_unit = list(/obj/item/weapon/wrench, /obj/item/riflebullets/holobullet, /obj/item/construct/solars, /obj/item/construct/lamp, /obj/item/weapon/wirecutters, /obj/item/weapon/weldingtool)
 	var/list/two_metal_unit = list(/obj/item/weapon/fire_ext, /obj/item/construct/apc, /obj/item/construct/chair, /obj/item/construct/grille, /obj/item/construct/stool, /obj/item/stack/tile)
 	var/list/three_metal_unit = list(/obj/item/stack/table_parts, /obj/item/construct/airlock, /obj/item/construct/airlock_glass, /obj/item/construct/closet, /obj/item/construct/crate)
 	var/list/one_metal_product = list()
