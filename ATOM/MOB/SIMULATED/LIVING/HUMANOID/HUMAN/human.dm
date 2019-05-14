@@ -41,6 +41,9 @@
 				wear_on_spawn(/obj/item/clothing/suit/clown, /obj/item/clothing/id/assistant)
 			if("detective")
 				wear_on_spawn(/obj/item/clothing/suit/detective, /obj/item/clothing/id/security)
+				var/obj/item/weapon/gun/energy/superoldrifle/revolver/DETREV = new()
+				back.contents.Add(DETREV)
+
 		overlays.Add(myhair)
 		if(player.pregame_body_color == "black")
 			icon -= rgb(100,100,100)

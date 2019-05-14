@@ -5,7 +5,7 @@
 		icon = 'closet.dmi'
 		icon_state = "medclosed"
 		icon_closed = "medclosed"
-		icon_opened = "open"
+		icon_opened = "medclosed_open"
 
 	oxygen
 		name = "Closet"

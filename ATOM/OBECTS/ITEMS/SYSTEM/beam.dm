@@ -41,6 +41,25 @@
 	icon = 'gun.dmi'
 	icon_state = "bullets"
 
+	holobullet
+		icon_state = "hbullet"
+
+	energyrevolver
+		icon_state = "energybullets"
+		var/base_state = "energybullets"
+		var/bullets = 6
+		var/beamtype = "/obj/item/projectile/beam/stun/detective"
+
+		attackby(obj/item/weapon/W as obj, mob/user as mob)
+			if(istype(W, /obj/item/riflebullets/holobullet) && bullets < 6)
+				usr:drop_item_v()
+				del(W)
+				bullets += 1
+				update_icon()
+
+		update_icon()
+			icon_state = "[base_state][bullets]"
+
 /obj/item/weapon/gun/energy/superoldrifle
 	automatic = 1
 	name = "rifle"
@@ -49,7 +68,48 @@
 	projectile_type = "/obj/item/projectile/beam"
 	charge_cost = 1
 	mycharge = 1
+	automatic = 0
 	pixel_z = 4
+	var/obj/item/riflebullets/energyrevolver/speedloader
+
+	revolver
+		icon_state = "detective"
+		desc = "a super noir weapon designed kill and stun with concentrated energy .38"
+
+		New()
+			..()
+			random_name()
+
+		attackby(obj/item/weapon/W as obj, mob/user as mob)
+			if(speedloader == null)
+				if(istype(W, /obj/item/riflebullets/energyrevolver))
+					usr:drop_item_v()
+					speedloader = W
+					W.Move(src)
+
+		verb/unload_speed_loader()
+			set src = usr.contents
+			if(speedloader)
+				for(var/obj/item/riflebullets/hololoader in src)
+					hololoader.loc = usr.loc
+					speedloader = null
+
+		verb/gun_rename()
+			set src = usr.contents
+			name = input("Choose a name for your gun.",
+			"Gun Name",name)
+
+		proc/random_name()
+			name = pick("Sex Pistol", "AR-15", "Hol Horse") //hoho haha
+
+		load_into_chamber()
+			if(speedloader && speedloader.bullets > 0)
+				speedloader.bullets -= charge_cost
+				speedloader.update_icon()
+				in_chamber = new speedloader.beamtype(src)
+				return 1
+			else
+				return 0
 
 	load_into_chamber()
 		if(charge_cost <= mycharge)
@@ -124,6 +184,10 @@ obj/item/weapon/gun/energy/laser/retro
 /obj/item/projectile/beam/stun
 	damage = 0
 	stun = 5
+
+	detective
+		damage = 35
+		stun = 5
 
 /obj/item/projectile/beam/practice
 	damage = 0
