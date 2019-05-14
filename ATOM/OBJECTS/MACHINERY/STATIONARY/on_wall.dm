@@ -9,17 +9,20 @@
 		CNT.myprocess()
 
 	air_alarm
+		name = "atmospherics alarm"
 		New()
 			CNT = new /datum/emodule/central/temperature_alert_module(src)
 			..()
 
 	fire_alarm
+		name = "fire alarm"
 		icon_state = "firealarm"
 		New()
 			CNT = new /datum/emodule/central/temperature_alert_module(src)
 			..()
 
 	consol
+		name = "atmospherics alarm console"
 		icon_state = "electronicmachinery"
 
 		New()

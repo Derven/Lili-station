@@ -1,6 +1,7 @@
 var/list/electronics = list()
 
 /obj/machinery/electronic_creator
+	name = "electronics fabricator"
 	icon = 'stationobjs.dmi'
 	icon_state = "electronic_machine"
 	density = 1

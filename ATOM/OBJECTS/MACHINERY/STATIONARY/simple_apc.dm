@@ -1,4 +1,5 @@
 /obj/machinery/simple_apc
+	name = "APC"
 	var/obj/machinery/simple_smes/my_smes
 	icon = 'power.dmi'
 	icon_state = "apc"

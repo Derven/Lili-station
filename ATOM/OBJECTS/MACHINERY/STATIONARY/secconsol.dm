@@ -1,10 +1,12 @@
 /obj/machinery/consol/brigdoor_control
+	name = "secure airlock control console"
 	var/id
 	icon = 'stationobjs.dmi'
 	icon_state = "sec_consol"
 	var/list/control = new/list()
 
 /obj/machinery/consol/brigdoor_control/echair
+	name = "execution console"
 	icon = 'stationobjs.dmi'
 
 	attack_hand()
@@ -19,6 +21,7 @@
 		usr << browse(body,"window=computer")
 
 /obj/machinery/consol/camera_control
+	name = "security camera monitor"
 	var/list/camera_list = new/list()
 	icon_state = "sec_consol"
 
@@ -103,5 +106,6 @@ mob/verb/debug_start()
 				control += F
 
 /obj/machinery/printer
+	name = "printer"
 	icon = 'stationobjs.dmi'
 	icon_state = "printer"

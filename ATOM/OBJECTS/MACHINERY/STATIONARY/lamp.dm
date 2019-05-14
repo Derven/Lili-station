@@ -1,4 +1,5 @@
 /obj/machinery/lamp
+	name = "light"
 	power_channel = LIGHT
 	idle_power_usage = 100
 	icon_state = "lamp"
@@ -16,6 +17,7 @@
 		BPC = new(src)
 
 	emergency
+		name = "emergency light"
 		charge = 0
 		icon_state = "emergency_lamp"
 		var/datum/emodule/central/nopower_backup_battery/EPB
@@ -78,6 +80,7 @@
 		BPC = null
 
 /obj/machinery/tablelamp
+	name = "desk lamp"
 	power_channel = LIGHT
 	idle_power_usage = 100
 	icon_state = "tablelamp"
@@ -92,10 +95,13 @@
 		..()
 
 	brainlamp
+		name = "lamp?"
+		desc = "You're not sure what exactly you're looking at..."
 		icon_state = "tablelamp2"
 		density = 1
 
 	lamp3
+		name = "burning barrel"
 		icon_state = "tablelamp3"
 		density = 1
 

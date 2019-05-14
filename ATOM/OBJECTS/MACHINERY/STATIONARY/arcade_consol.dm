@@ -1,4 +1,5 @@
 /obj/machinery/consol/arcade
+	name = "arcade machine"
 	var/turtle = 0
 	var/dat
 	density = 1

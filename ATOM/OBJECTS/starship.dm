@@ -1,5 +1,5 @@
 /obj/machinery/ionengine
-	name = "ionengine"
+	name = "ion engine"
 	icon = 'stationobjs.dmi'
 	icon_state = "ionengine"
 	var/id = null

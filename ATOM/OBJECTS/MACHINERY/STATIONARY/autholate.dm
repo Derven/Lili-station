@@ -1,4 +1,5 @@
 /obj/machinery/autholate
+	name = "autolathe"
 	icon='stationobjs.dmi'
 	icon_state = "autolathe"
 	density = 1
@@ -58,6 +59,7 @@
 
 
 	floortolathe
+		name = "tilelathe"
 		icon='stationobjs.dmi'
 		icon_state = "floortolathe"
 		one_metal_unit = list()

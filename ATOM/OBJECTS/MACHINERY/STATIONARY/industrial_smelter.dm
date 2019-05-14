@@ -1,4 +1,5 @@
 /obj/machinery/ind_smelter
+	name = "industrial smelter"
 	icon = 'stationobjs.dmi'
 	icon_state = "ind_smelt"
 

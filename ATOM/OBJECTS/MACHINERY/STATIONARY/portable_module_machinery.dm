@@ -38,6 +38,7 @@
 		..()
 
 	cleanbot
+		name = "clean-bot"
 		icon = 'bots.dmi'
 		icon_state = "cleanbot"
 
@@ -51,6 +52,7 @@
 				del(B)
 
 	cratebot
+		name = "crate-bot"
 		icon_state = "cratebot"
 		var/opened = 0
 

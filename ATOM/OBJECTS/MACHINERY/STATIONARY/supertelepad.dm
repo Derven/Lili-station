@@ -1,6 +1,7 @@
 
 
 /obj/machinery/supertelepad
+	name = "advanced teleporter pad"
 	icon = 'stationobjs.dmi'
 	icon_state = "supertelepad"
 

@@ -16,6 +16,7 @@ var/list/obj/botsignaler/signalers = list()
 // AI (i.e. game AI, not the AI player) controlled bots
 
 /obj/machinery/bot
+	name = "robot"
 	icon = 'bots.dmi'
 	layer = MOB_LAYER
 	var/on = 1

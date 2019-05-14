@@ -78,6 +78,7 @@ proc/geom_prg(var/i, var/g, var/counter, var/mxcnt)
 	return i
 
 /obj/machinery/consol/singularity
+	name = "particle accelerator console"
 	proc/check_all_connect()
 		for(var/obj/machinery/pa/segment1/s1 in world)
 			if(s1.connect() == 0)
@@ -104,6 +105,7 @@ proc/geom_prg(var/i, var/g, var/counter, var/mxcnt)
 		pewpew()
 
 /obj/machinery/pa
+	name = "particle accelerator"
 	icon = 'stationobjs.dmi'
 	density = 1
 	anchored = 1

@@ -1,4 +1,5 @@
 /obj/machinery/simple_generator
+	name = "generator"
 	icon = 'power.dmi'
 	icon_state = "generator"
 	charge = 10000
@@ -8,6 +9,7 @@
 			SA.my_smes.charge += charge
 
 /obj/machinery/solar
+	name = "solar panel"
 	icon = 'stationobjs.dmi'
 	icon_state = "solars"
 	charge = 100
@@ -21,6 +23,7 @@
 				SA.my_smes.charge += charge
 
 /obj/machinery/collector
+	name = "collector"
 	icon = 'stationobjs.dmi'
 	icon_state = "collector"
 	anchored = 1
@@ -34,6 +37,7 @@
 
 /obj/machinery
 	battery
+		name = "battery"
 		icon = 'stationobjs.dmi'
 		icon_state = "collector"
 		var/datum/emodule/central/emergency_power_module/EPM

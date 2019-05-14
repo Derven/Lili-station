@@ -1,4 +1,5 @@
 /obj/machinery/simple_smes
+	name = "SMES unit"
 	icon = 'power.dmi'
 	icon_state = "smes"
 	var/list/obj/machinery/simple_apc/SA = list()

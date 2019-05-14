@@ -1,4 +1,5 @@
 /obj/machinery/flasher
+	name = "flashbulb unit"
 	icon='stationobjs.dmi'
 	icon_state = "flasher"
 	var/id

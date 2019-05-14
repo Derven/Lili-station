@@ -1,4 +1,5 @@
 /obj/machinery/power/am_engine
+	name = "anti-matter engine"
 	icon = 'stationobjs.dmi'
 	density = 1
 	anchored = 1.0

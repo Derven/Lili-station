@@ -22,6 +22,7 @@ var/messages = ""
 		sd_SetLuminosity(2)
 
 	message
+		name = "messaging console"
 		icon_state = "shuttle"
 
 		attack_hand()
@@ -48,6 +49,7 @@ var/messages = ""
 			M.playsoundforme('signal.ogg')
 
 /obj/machinery/blood_injector
+	name = "blood-donor bench"
 	icon = 'stationobjs.dmi'
 	name = "blood_machine"
 	icon_state = "inoperationbed"
@@ -55,6 +57,7 @@ var/messages = ""
 	anchored = 1
 
 /obj/machinery/blood_rec
+	name = "blood-recipient bench"
 	icon = 'stationobjs.dmi'
 	name = "blood_machine"
 	icon_state = "operationbed"
@@ -62,6 +65,7 @@ var/messages = ""
 	anchored = 1
 
 /obj/machinery/blood_machine
+	name = "blood pump"
 	icon = 'stationobjs.dmi'
 	name = "blood_machine"
 	icon_state = "blood_machine"
@@ -98,11 +102,12 @@ var/messages = ""
 		new /datum/computer/file/computer_program/arcade(src)
 
 /obj/machinery/consol/command
-	name = "command"
+	name = "command console"
 	anchored = 2
 	icon_state = "command"
 
 	id_replace
+		name = "ID-access console"
 		var/obj/item/clothing/id/MYID
 
 		proc/replace_id(var/mob/M, var/datum/id/IDC)
@@ -177,7 +182,7 @@ var/messages = ""
 						//MYID = null
 
 /obj/machinery/consol/announcement
-	name = "announcement"
+	name = "announcement console"
 	anchored = 2
 	icon_state = "shuttle"
 
@@ -215,11 +220,12 @@ var/messages = ""
 			usr << browse(null, "window=computercon")
 
 /obj/machinery/consol/cargo
-	name = "cargo"
+	name = "cargo console"
 	anchored = 2
 	icon_state = "cargo"
 
 	mining_shuttle
+		name = "mining shuttle console"
 		attack_hand()
 			for(var/obj/item/clothing/id/captain/CPID in usr)
 				for(var/mob/M in world)
@@ -237,6 +243,6 @@ var/messages = ""
 
 
 /obj/machinery/consol/shuttle
-	name = "cargo"
+	name = "cargo shuttle console"
 	anchored = 2
 	icon_state = "shuttle"

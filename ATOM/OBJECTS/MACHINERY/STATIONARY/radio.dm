@@ -5,6 +5,7 @@
 	var/channel = 1
 
 	intercom
+		name = "intercom"
 		icon_state = "intercom"
 
 	attack_hand()

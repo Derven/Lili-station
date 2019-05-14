@@ -20,6 +20,7 @@
 	return 1
 
 /obj/machinery/sparker_button
+	name = "ignition button"
 	icon = 'stationobjs.dmi'
 	icon_state = "igniter_button"
 

@@ -1,4 +1,5 @@
 /obj/machinery/turret
+	name = "turret"
 	icon = 'stationobjs.dmi'
 	icon_state = "gun1"
 	density = 1

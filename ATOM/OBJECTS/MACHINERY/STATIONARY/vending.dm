@@ -1,7 +1,9 @@
 /obj/item/other/coin
+	name = "coin"
 	icon_state = "coin"
 
 /obj/machinery/vending
+	name = "vending machine"
 	var/amount = 3
 	density = 1
 	anchored = 1

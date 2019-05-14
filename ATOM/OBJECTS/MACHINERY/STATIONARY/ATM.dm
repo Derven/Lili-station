@@ -1,5 +1,6 @@
 /obj/item/credits
 	var/nominal = 100
+	name = "credits"
 	icon = 'tools.dmi'
 	icon_state = "100credit"
 
@@ -12,6 +13,7 @@
 		nominal = 10
 
 /obj/machinery/ATM
+	name = "ATM"
 	icon = 'stationobjs.dmi'
 	icon_state = "ATM"
 	density = 1

@@ -1,4 +1,5 @@
 /obj/machinery/portal
+	name = "portal pad"
 	icon = 'stationobjs.dmi'
 	icon_state = "portal"
 	var/id = 0
