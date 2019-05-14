@@ -1,8 +1,9 @@
 /obj/structure/closet
-	closet_2
+	wall_closet
 		anchored = 1
-
-		name = "Closet"
+		name = "Wall closet"
 		desc = "It's a closet!"
 		icon = 'closet.dmi'
-		icon_state = "closed1"
+		icon_state = "wall_cabinet"
+		icon_closed = "wall_cabinet"
+		icon_opened = "wall_cabinet_open"

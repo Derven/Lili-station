@@ -406,7 +406,7 @@
 					else
 						sleep(song.tempo)
 			playing = 0
-			updateUsrDialog()
+
 
 	attack_hand(var/mob/user as mob)
 		if(!anchored)
@@ -531,6 +531,5 @@
 					song = new()
 					song.lines = lines
 					song.tempo = tempo
-					updateUsrDialog()
-		updateUsrDialog()
+
 		return

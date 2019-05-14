@@ -1,3 +1,41 @@
+/obj/machinery/gibber/crematorium
+	name = "crematorium"
+	desc = "The name isn't descriptive enough?"
+	icon = 'stationobjs.dmi'
+	var/close = 1
+	operating = 0
+	icon_state = "crema"
+
+	proc/wzhwzh(var/time)
+		if(occupant)
+			operating = 1
+			update_icon()
+			del(occupant)
+			sleep(10)
+			operating = 0
+			update_icon()
+
+	update_icon()
+		if(operating)
+			icon_state = "crema_proccess"
+			return
+		if(close == 0)
+			icon_state = "crema_open"
+		else
+			icon_state = "crema"
+
+	attack_hand(mob/user as mob)
+		if(operating)
+			usr << "\red It's locked and running"
+		return
+		if(close == 0)
+			usr << "\blue You open the crematorium door"
+			close = 1
+			update_icon()
+			return
+		if(occupant && close == 1)
+			wzhwzh(10)
+
 /obj/machinery/gibber
 	name = "Gibber"
 	desc = "The name isn't descriptive enough?"

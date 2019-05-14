@@ -1,3 +1,10 @@
+var/captain_in_game = 0 //max 1
+var/detective_in_game = 0 //max 1
+var/bartender_in_game = 0 //max 1
+var/chef_in_game = 0 //max 1
+var/clown_in_game = 0 //max 2
+var/botanist_in_game = 0 //max 2
+
 /mob/new_player
 	var/pregame_name
 	icon_state = ""
@@ -219,22 +226,63 @@
 				pregame_job = "assistant"
 			if("2")
 				pregame_job = "botanist"
+				if(botanist_in_game < 2)
+					pregame_job = "botanist"
+					botanist_in_game += 1
+				else
+					usr << "\red This job is already taken"
+					pregame_job = "assistant"
+
 			if("3")
 				pregame_job = "bartender"
+				if(bartender_in_game < 1)
+					pregame_job = "bartender"
+					bartender_in_game += 1
+				else
+					usr << "\red This job is already taken"
+					pregame_job = "assistant"
+
 			if("4")
 				pregame_job = "security"
 			if("5")
 				pregame_job = "engineer"
 			if("6")
 				pregame_job = "doctor"
+
 			if("7")
-				pregame_job = "captain"
+				if(captain_in_game < 1)
+					pregame_job = "captain"
+					captain_in_game += 1
+				else
+					usr << "\red This job is already taken"
+					pregame_job = "assistant"
+
 			if("8")
 				pregame_job = "clown"
+				if(clown_in_game < 2)
+					pregame_job = "clown"
+					clown_in_game += 1
+				else
+					usr << "\red This job is already taken"
+					pregame_job = "assistant"
 			if("9")
 				pregame_job = "detective"
+				if(detective_in_game < 1)
+					pregame_job = "detective"
+					detective_in_game += 1
+				else
+					usr << "\red This job is already taken"
+					pregame_job = "assistant"
+
 			if("10")
 				pregame_job = "chef"
+				pregame_job = "chef"
+				if(chef_in_game < 1)
+					pregame_job = "chef"
+					chef_in_game += 1
+				else
+					usr << "\red This job is already taken"
+					pregame_job = "assistant"
 
 		if(href_list["hcolor"] == "1")
 			pregame_hair_color = input("Select a hair color for your character.",
