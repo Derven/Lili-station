@@ -8,6 +8,9 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "ICONS"
+#define FILE_DIR "SOUNDS"
+#define FILE_DIR "SOUNDS/piano"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
