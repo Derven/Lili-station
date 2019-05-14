@@ -85,6 +85,11 @@ var/ids = 0
 	icon_state = "clown_suit"
 	space_suit = 0
 
+/obj/item/clothing/suit/chaplain
+	icon_state = "chaplain_suit"
+	space_suit = 0
+
+
 /obj/item/clothing/suit/chef
 	icon_state = "chef_suit"
 	space_suit = 0

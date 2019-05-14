@@ -4,6 +4,7 @@ var/bartender_in_game = 0 //max 1
 var/chef_in_game = 0 //max 1
 var/clown_in_game = 0 //max 2
 var/botanist_in_game = 0 //max 2
+var/chaplain_in_game = 0 //max 1
 
 /mob/new_player
 	var/pregame_name
@@ -143,6 +144,11 @@ var/botanist_in_game = 0 //max 2
 					suit = new('suit.dmi', icon_state = "chef_suit_onmob")
 				if(gender == "female")
 					suit = new('suit.dmi', icon_state = "chef_suit_onfem")
+			if("chaplain")
+				if(gender == "male")
+					suit = new('suit.dmi', icon_state = "chaplain_suit_onmob")
+				if(gender == "female")
+					suit = new('suit.dmi', icon_state = "chaplain_suit_onfem")
 
 		pregame_human.Blend(suit, ICON_OVERLAY)
 		pregame_human.Blend(pregame_hair, ICON_OVERLAY)
@@ -195,6 +201,7 @@ var/botanist_in_game = 0 //max 2
 					        </tr>
 					        	<td></td>
 					        	<td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=10'>Chef</a></span></td>
+					        	<td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=11'>Chaplain</a></span></td>
 					        <tr>
 					        </tr>
 					    </tbody>
@@ -280,6 +287,16 @@ var/botanist_in_game = 0 //max 2
 				if(chef_in_game < 1)
 					pregame_job = "chef"
 					chef_in_game += 1
+				else
+					usr << "\red This job is already taken"
+					pregame_job = "assistant"
+
+			if("11")
+				pregame_job = "chaplain"
+				pregame_job = "chaplain"
+				if(chaplain_in_game < 1)
+					pregame_job = "chaplain"
+					chaplain_in_game += 1
 				else
 					usr << "\red This job is already taken"
 					pregame_job = "assistant"

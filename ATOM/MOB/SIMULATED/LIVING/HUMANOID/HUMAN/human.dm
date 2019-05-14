@@ -43,6 +43,8 @@
 				wear_on_spawn(/obj/item/clothing/suit/detective, /obj/item/clothing/id/security)
 				var/obj/item/weapon/gun/energy/superoldrifle/revolver/DETREV = new()
 				back.contents.Add(DETREV)
+			if("chaplain")
+				wear_on_spawn(/obj/item/clothing/suit/chaplain, /obj/item/clothing/id/assistant)
 
 		overlays.Add(myhair)
 		if(player.pregame_body_color == "black")

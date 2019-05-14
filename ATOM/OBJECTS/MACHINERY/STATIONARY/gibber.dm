@@ -6,11 +6,29 @@
 	operating = 0
 	icon_state = "crema"
 
+	MouseDrop_T(mob/target, mob/user)
+		if(src.occupant || close == 1)
+			user << "\red The crematorium is full/closed, empty it first!"
+			return
+
+		sleep(30)
+		target.client.perspective = EYE_PERSPECTIVE
+		target.client.eye = src
+		target.loc = src
+		src.occupant = target
+
 	proc/wzhwzh(var/time)
 		if(occupant)
 			operating = 1
 			update_icon()
-			del(occupant)
+			if (src.occupant.client)
+				var/mob/simulated/living/L = src.occupant
+				if(istype(L, /mob/simulated/living))
+					L.loc = loc
+					L.client.perspective = EDGE_PERSPECTIVE
+					L.client.eye = src.occupant.client.mob
+					L.death()
+					del(L)
 			sleep(10)
 			operating = 0
 			update_icon()
@@ -25,16 +43,20 @@
 			icon_state = "crema"
 
 	attack_hand(mob/user as mob)
-		if(operating)
-			usr << "\red It's locked and running"
-		return
-		if(close == 0)
-			usr << "\blue You open the crematorium door"
-			close = 1
-			update_icon()
-			return
 		if(occupant && close == 1)
 			wzhwzh(10)
+		if(operating)
+			usr << "\red It's locked and running"
+			return
+		if(close == 1)
+			usr << "\blue You open the crematorium door"
+			close = 0
+			update_icon()
+		else
+			usr << "\blue You close the crematorium door"
+			close = 1
+			update_icon()
+
 
 /obj/machinery/gibber
 	name = "Gibber"
