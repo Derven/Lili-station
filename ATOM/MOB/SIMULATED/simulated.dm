@@ -115,23 +115,6 @@
 					clthg.wear_clothing(H)
 				return
 
-	verb/Say(msg as text)
-		set name = "Say"
-		set category = "IC"
-		sleep(rand(1,2))
-		if(!findtext(msg," ",1,2) && msg)
-			overlays.Add(overlay_cur)
-			for(var/mob/M in range(5, src))
-				if(death == 0)
-					M << "[src] says, \"[fix255(msg)]\""
-				for(var/obj/item/device/radio/hr in M.contents)
-					tell_me_more(name, hr.RADIOCURCUIT, fix255(msg))
-			sleep(8)
-			overlays.Remove(overlay_cur)
-		for(var/obj/machinery/radio/intercom/I in range(7, src))
-			tell_me_more(name, I, fix255(msg))
-		return fix255(msg)
-
 	verb/Emote(msg as text)
 		set name = "Emote"
 		set category = "IC"

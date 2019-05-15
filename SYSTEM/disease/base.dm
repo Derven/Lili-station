@@ -355,8 +355,6 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 /datum/microorganism/effect/greater/scream
 	name = "Random screaming syndrome"
 	stage = 2
-	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*scream")
 
 /datum/microorganism/effect/greater/shakey
 	name = "World Shaking syndrome"
@@ -394,8 +392,6 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 /datum/microorganism/effect/greater/sneeze
 	name = "Coldingtons Effect"
 	stage = 1
-	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*sneeze")
 
 /datum/microorganism/effect/greater/gunck
 	name = "Flemmingtons"
@@ -418,8 +414,6 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 /datum/microorganism/effect/greater/sleepy
 	name = "Resting syndrome"
 	stage = 2
-	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*collapse")
 
 /datum/microorganism/effect/greater/mind
 	name = "Lazy mind syndrome"
@@ -457,13 +451,10 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 	name = "Coldingtons Effect"
 	stage = 1
 	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*sneeze")
 
 /datum/microorganism/effect/lesser/cough
 	name = "Anima Syndrome"
 	stage = 2
-	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*cough")
 
 /datum/microorganism/effect/lesser/hallucinations
 	name = "Hallucinational Syndrome"
@@ -489,31 +480,26 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 	name = "Groaning Syndrome"
 	stage = 3
 	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*groan")
 
 /datum/microorganism/effect/lesser/scream
 	name = "Loudness Syndrome"
 	stage = 4
 	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*scream")
 
 /datum/microorganism/effect/lesser/drool
 	name = "Saliva Effect"
 	stage = 1
 	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*drool")
 
 /datum/microorganism/effect/lesser/fridge
 	name = "Refridgerator Syndrome"
 	stage = 2
 	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*shiver")
 
 /datum/microorganism/effect/lesser/twitch
 	name = "Twitcher"
 	stage = 1
 	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*twitch")
 
 /*Removed on request by Spaceman, due to it being detrimental to RP. -CN
 /datum/microorganism/effect/lesser/deathgasp
@@ -526,7 +512,6 @@ var/global/list/ANTIGENS = list("[ANTIGEN_A]" = "A", "[ANTIGEN_B]" = "B", "[ANTI
 	name = "Uncontrolled Laughter Effect"
 	stage = 3
 	activate(var/mob/simulated/living/mob,var/multiplier)
-		mob.Say("*giggle")
 
 
 /datum/microorganism/effect/lesser

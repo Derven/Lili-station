@@ -48,6 +48,15 @@ var/list/plantmarks = list()
 		invisibility = 101
 		meteormarks.Add(src)
 
+/obj/parasitemark
+	icon = 'landmarks.dmi'
+
+	New()
+		..()
+		invisibility = 101
+		plantmarks.Add(src)
+
+
 /obj/plantmark
 	icon = 'landmarks.dmi'
 

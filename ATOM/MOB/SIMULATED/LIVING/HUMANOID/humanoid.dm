@@ -36,6 +36,23 @@
 		obj/hud/craft/CRFT
 		obj/hud/glitch/GLTCH
 
+	verb/Say(msg as text)
+		set name = "Say"
+		set category = "IC"
+		sleep(rand(1,2))
+		if(!findtext(msg," ",1,2) && msg)
+			overlays.Add(overlay_cur)
+			for(var/mob/M in range(5, src))
+				if(death == 0)
+					M << "[src] says, \"[fix255(msg)]\""
+				for(var/obj/item/device/radio/hr in M.contents)
+					tell_me_more(name, hr.RADIOCURCUIT, fix255(msg))
+			sleep(8)
+			overlays.Remove(overlay_cur)
+		for(var/obj/machinery/radio/intercom/I in range(7, src))
+			tell_me_more(name, I, fix255(msg))
+		return fix255(msg)
+
 	verb/push_up(var/mynum as num)
 		var/oldnum = 0
 		var/pushup = 1
@@ -123,7 +140,6 @@
 
 	create_hud(var/client/C)
 		if(C)
-
 			for(var/datum/organ/external/EX in organs)
 				EX.create_hud(C)
 
@@ -153,35 +169,38 @@
 			update_hud(C)
 
 	proc/update_hud(var/client/C)
-		C.screen.Add(STAMINABAR)
-		C.screen.Add(DF_ZONE)
-		C.screen.Add(PULL)
-		C.screen.Add(ZN_SEL)
-		C.screen.Add(AC)
-		C.screen.Add(RI)
-		C.screen.Add(DP)
-		C.screen.Add(H)
-		C.screen.Add(CL)
-		CL.update_slot(cloth)
-		C.screen.Add(ID)
-		ID.update_slot(id)
-		C.screen.Add(R)
-		C.screen.Add(M)
-		C.screen.Add(B)
-		C.screen.Add(S)
-		C.screen.Add(BP)
-		BP.update_slot(back)
-		C.screen.Add(TH)
-		C.screen.Add(SB)
-		C.screen.Add(BL)
-		C.screen.Add(SW)
-		C.screen.Add(DRV)
-		C.screen.Add(RTT)
-		C.screen.Add(CRFT)
-		C.screen.Add(GLTCH)
+		if(C && C.screen && STAMINABAR)
+			C.screen.Add(STAMINABAR)
+			C.screen.Add(DF_ZONE)
+			C.screen.Add(PULL)
+			C.screen.Add(ZN_SEL)
+			C.screen.Add(AC)
+			C.screen.Add(RI)
+			C.screen.Add(DP)
+			C.screen.Add(H)
+			C.screen.Add(CL)
+			CL.update_slot(cloth)
+			C.screen.Add(ID)
+			ID.update_slot(id)
+			C.screen.Add(R)
+			C.screen.Add(M)
+			C.screen.Add(B)
+			C.screen.Add(S)
+			C.screen.Add(BP)
+			BP.update_slot(back)
+			C.screen.Add(TH)
+			C.screen.Add(SB)
+			C.screen.Add(BL)
+			C.screen.Add(SW)
+			C.screen.Add(DRV)
+			C.screen.Add(RTT)
+			C.screen.Add(CRFT)
+			C.screen.Add(GLTCH)
 
-		for(var/datum/organ/external/EX in organs)
-			EX.update_hud(C)
+			for(var/datum/organ/external/EX in organs)
+				EX.update_hud(C)
+		else
+			create_hud(client)
 
 
 	Login()
@@ -379,17 +398,20 @@
 		if (stunned > 0)
 			stunned--
 			if(heart.pumppower < 145 && !lying)
-				resting()
+				if(parasite_control < 100)
+					resting()
 		if (stunned <= 0 && lying)
 			resting()
 		if (weakened > 0)
 			weakened--
 			if(!lying)
-				resting()
+				if(parasite_control < 100)
+					resting()
 		if (sleeping == 1)
 			if(!lying)
-				resting()
-				lying = 1
+				if(parasite_control < 100)
+					resting()
+					lying = 1
 			if(prob(2) && !dreaming)
 				dream()
 
@@ -421,7 +443,9 @@
 		BL.invisibility = 0
 	SB.icon_state = "sleep2"
 	if(!lying)
-		resting()
+		if(parasite_control < 100)
+			resting()
+
 
 /mob/simulated/living/humanoid/proc/awake()
 	sleeping = 0

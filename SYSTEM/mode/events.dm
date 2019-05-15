@@ -34,6 +34,16 @@
 			var/obj/plantmark/P = pick(plantmarks)
 			new /obj/plant(P.loc)
 
+	parasite
+		announce = "\red <h3>Biohazard Level 3</h3>"
+
+		activate()
+			world << announce
+			for(var/mob/ghost/G in world)
+				G << "\red <h1>If you want to become a parasite, find a green egg at the station and stand on it</h1>"
+			var/obj/parasitemark/P = pick(plantmarks)
+			new /obj/item/parasite_egg(P.loc)
+
 	mushroom
 		announce = "\red <h3>Biohazard Level 2</h3>"
 
@@ -56,7 +66,7 @@
 		while(derven == genius)
 			sleep(rand(400,1300))
 			if(prob(30))
-				var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/mushroom, /datum/event/communications_blackout)
+				var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/mushroom, /datum/event/parasite, /datum/event/communications_blackout)
 				var/datum/event/EP = new EBOY()
 				EP.activate()
 
