@@ -3,17 +3,17 @@
 		name = "medical closet"
 		desc = "It's a closet for medical supplies."
 		icon = 'closet.dmi'
-		icon_state = "medclosed"
-		icon_closed = "medclosed"
+		icon_state = "med_closed"
+		icon_closed = "med_closed"
 		icon_opened = "medclosed_open"
 
 	sec
 		name = "security closet"
 		desc = "It's a closet for the storage of security equipment."
 		icon = 'closet.dmi'
-		icon_state = "sec"
-		icon_closed = "sec"
-		icon_opened = "open"
+		icon_state = "sec_closed"
+		icon_closed = "sec_closed"
+		icon_opened = "sec_closed"
 
 	oxygen
 		name = "closet"

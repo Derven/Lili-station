@@ -69,9 +69,13 @@
 		var/mob/simulated/living/humanoid/user = usr
 		//usr.client.screen
 		var/i = 0
+		var/y = 0
 		for(var/obj/item/I in contents)
+			if(i > 3)
+				y += 1
+				i = 0
 			var/obj/hud/box/B = new(user)
-			B.screen_loc = "SOUTH+[1 + i], WEST+1"
+			B.screen_loc = "SOUTH+[1 + i], WEST+[y]"
 			I.screen_loc = B.screen_loc
 			I.layer = 22
 			B.myitem = I
@@ -79,7 +83,8 @@
 			user.client.screen.Add(I)
 			user.boxes.Add(B)
 			i += 1
+
 		var/obj/hud/box_close/X = new(user)
-		X.screen_loc = "SOUTH+[1 + i], WEST+1"
+		X.screen_loc = "SOUTH+[1 + i], WEST+[1 + y]"
 		user.client.screen.Add(X)
 
