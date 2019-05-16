@@ -10,6 +10,14 @@
 	var/stage = 0
 	var/atom/movable/TODEL
 
+	verb/tweet()
+		set category = "Parasite"
+		set src = usr
+		if(istype(src.loc, /turf))
+			sleep(5)
+			for(var/mob/M in range(8,src))
+				M << 'nymphchirp.ogg'
+
 	death()
 		death = 1
 		src << "\red You are dead"
@@ -35,6 +43,13 @@
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		death()
+
+	verb/crawl_through_the_door()
+		set category = "Parasite"
+		set src = usr
+		if(istype(src.loc, /turf))
+			for(var/obj/machinery/airlock/A in range(1,src))
+				loc = A.loc
 
 	verb/penetrate()
 		set category = "Parasite"
@@ -99,6 +114,7 @@
 									H.gib()
 								else
 									P.loc = loc
+									P.gender = "male"
 									del(src)
 							if("queen")
 								var/mob/simulated/living/parasite/queen_larva/P = new /mob/simulated/living/parasite/queen_larva()
@@ -156,6 +172,7 @@ mob/simulated/living/humanoid/parasite
 
 	New(var/turf/T)
 		..()
+		gender = "male"
 		sleep(2)
 		START_PROCESSING(SSmobs, src)
 		select_overlay = image(usr)
@@ -198,7 +215,9 @@ mob/simulated/living/humanoid/parasite
 		reagents.add_reagent("blood",300)
 
 /mob/simulated/living/parasite/queen_larva
+
 	verb/egg_plant()
+		set category = "Parasite"
 		set src = usr
 		if(istype(src.loc, /turf))
 			if(power > 10)
@@ -214,7 +233,7 @@ mob/simulated/living/humanoid/parasite
 		if(istype(O, /mob/ghost))
 			success = input("Want to become a parasite?.",
 			"Yes/No",success) in list("yes","no")
-			if(success && src)
+			if(success == "yes" && src)
 				var/mob/simulated/living/parasite/P = new /mob/simulated/living/parasite()
 				P.key = O:key
 				if(O:client)

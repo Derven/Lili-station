@@ -63,7 +63,7 @@
 
 	proc/wear_clothing(var/mob/simulated/living/humanoid/M)
 		if(src == M.cloth)
-			if(M.icon_state == "mob")
+			if(M.gender == "male")
 				I = image(icon = src.icon, icon_state = "[src.icon_state]_onmob")
 				M.overlays += I
 				return
