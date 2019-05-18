@@ -16,4 +16,4 @@
 			M << 'sparks.ogg'
 			M << 'sparks.ogg'
 
-		usr.loc = locate(usr.x + rand(-25,25), usr.y + rand(-25,25), rand(1,4) )
+		usr.loc = locate(usr.x + rand(-25,25), usr.y + rand(-25,25), 1)

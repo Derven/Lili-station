@@ -62,6 +62,22 @@ mob
 //Generic list for proc holders. Only way I can see to enable certain verbs/procs. Should be modified if needed.
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
+	verb/moveplus45degree()
+		if(client)
+			client.north = 0
+			client.west = 0
+			client.east = 0
+			client.south = 0
+			client.southwest = 0
+			client.northwest = 0
+			client.northeast = 0
+			client.southeast = 0
+			if(client.moving45 == 0)
+				client.moving45 = 1
+				return
+			else
+				client.moving45 = 0
+				return
 	New()
 		..()
 		select_overlay = image(usr)

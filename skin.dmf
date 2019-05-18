@@ -2,12 +2,22 @@ macro "macro"
 	elem 
 		name = "Tab"
 		command = ".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#F0F0F0\""
+	elem 
+		name = "Northeast+REP"
+		command = ".northeast"
+	elem 
+		name = "Southeast"
 	elem "se"
 		name = "Southeast+REP"
+		command = ".southeast"
 	elem "sw"
 		name = "Southwest+REP"
+		command = ".southwest"
+	elem 
+		name = "Northwest"
 	elem "nw"
 		name = "Northwest+REP"
+		command = ".northwest"
 	elem "w"
 		name = "West+REP"
 		command = ".west"
@@ -20,6 +30,14 @@ macro "macro"
 	elem "s"
 		name = "South+REP"
 		command = ".south"
+	elem 
+		name = "A+REP"
+	elem 
+		name = "D+REP"
+	elem 
+		name = "S+REP"
+	elem 
+		name = "W+REP"
 	elem 
 		name = "F2"
 		command = ".winset \"command=\"ooc\"\""
