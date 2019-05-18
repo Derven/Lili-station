@@ -50,7 +50,7 @@
 				return
 	New()
 		..()
-		hide_wall = image('walls.dmi', icon_state = "[src.icon_state]_hide", layer = 10, loc = src)
+		hide_wall = image('walls.dmi', icon_state = "[src.icon_state]_alpha", layer = 10, loc = src)
 		hide_wall.override = 1
 		merge()
 		//relativewall_neighbours()

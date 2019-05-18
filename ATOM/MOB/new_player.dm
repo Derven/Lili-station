@@ -356,7 +356,7 @@ var/chaplain_in_game = 0 //max 1
 	usr << "<FONT COLOR=red>To align the HUD, pull the output window to the right."
 	usr << "<FONT COLOR=red>Change screen size by clicking \"screen_resolution\" on the titlebar of the game"
 	usr << "<FONT COLOR=red>If you can't move press TAB and then UP"
-	usr << "<FONT COLOR=blue> <h3> To change the movement pattern command - > moveplus45degree() </h3>"
+	usr << "<FONT COLOR=blue> <h3> To change the movement pattern commands - > moveplus45degree() </h3>"
 	usr << "<FONT COLOR=violet><a href='https://github.com/Derven/Lili-station/wiki'> WIKI </a>"
 	usr << "<FONT COLOR=blue><h1>Write about problems on github -> issues  (https://github.com/Derven/Lili-station)!!!</h1>"
 	world << 'ping.ogg'

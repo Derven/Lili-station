@@ -83,6 +83,8 @@
 				..()
 
 	proc/open()
+		for(var/obj/tape/POOLISCLOSED in src.loc)
+			return
 		if(!close)
 			return
 		for(var/mob/MB in range(5, src))
@@ -102,6 +104,8 @@
 			close()
 
 	proc/close()
+		for(var/obj/tape/POOLISCLOSED in src.loc)
+			return
 		if(close)
 			return
 

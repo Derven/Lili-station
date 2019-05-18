@@ -5,7 +5,7 @@
 		icon = 'closet.dmi'
 		icon_state = "med_closed"
 		icon_closed = "med_closed"
-		icon_opened = "medclosed_open"
+		icon_opened = "med_open"
 
 	sec
 		name = "security closet"

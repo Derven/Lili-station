@@ -2,6 +2,10 @@ obj
 	step_size = 64
 	var/price = 1
 
+/obj/tape
+	icon = 'airlock.dmi'
+	icon_state = "pool_closed"
+
 //empty objects //fuck this crutches rewrite pls
 /obj/computerframe
 /obj/item/weapon/shard
