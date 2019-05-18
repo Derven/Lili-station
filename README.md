@@ -7,7 +7,6 @@ SUGGESTIONS: https://docs.google.com/spreadsheets/d/1QNn9I_q8Zlnl2o6kW4n1KvvJPMD
 DISCORD: https://discordapp.com/invite/KqeSTaR
 
 <h1><b>Добро пожаловать на уникальную изометрическую станцию, основанную на SS13, под названием 'Lili station'.</b></h2><br>
-DISCORD: 
 ЗАМЕТКА ДЛЯ МАППЕРОВ: не забудь очистить TAG<br>
 ВИДЕО ГЕЙМПЛЕЯ: https://www.youtube.com/watch?v=P9X2NbBkOcY<br>
 ПОСТ НА REDDIT: https://www.reddit.com/r/SS13/comments/af9nw6/isometris_ss13_comeback/<br>
