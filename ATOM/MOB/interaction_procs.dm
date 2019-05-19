@@ -12,9 +12,10 @@
 						O <<  "\red <B>[] has been attacked by [] with the []</B>"
 	return
 
-/atom/Click()
+/atom/Click(location,control,params)
 	var/mob/M = usr
 	sleep(rand(1,2))
+	usr.ClickOn(src, params)
 	return M.myclick(src)
 
 /mob
@@ -88,6 +89,13 @@
 		return
 	..()
 	return
+
+/atom/proc/examine_me(var/mob/M)
+	if (!( M ))
+		return
+
+	M << "This is \an [name]."
+	M << desc
 
 /atom/verb/examine()
 	set name = "Examine"

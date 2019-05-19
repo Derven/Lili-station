@@ -36,6 +36,20 @@
 									I.afterattack(A, usr)
 					else if(A.loc in range(1, usr))
 						A.attack_hand(usr)
+/mob/var/next_click= 0
+/mob/proc/ClickOn(var/atom/A, var/params)
+	if(world.time <= next_click)
+		return
+	next_click = world.time + 1
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"])
+		A.ShiftClickOn()
+		return
+
+/atom/proc/ShiftClickOn()
+	if(usr.client && usr.client.eye == usr)
+		examine_me(usr)
+	return
 
 mob
 	var/job = "assistant"
