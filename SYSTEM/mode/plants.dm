@@ -174,10 +174,11 @@
 								H.client.other_effects = 4
 							H.heal_brute(rand(7,15))
 							H.heal_burn(rand(10,20))
-							if(H.heart.brute_dam > 1)
-								H.heart.brute_dam -= 1
-							if(H.heart.burn_dam > 1)
-								H.heart.burn_dam -= 1
+							if(H.heart)
+								if(H.heart.brute_dam > 1)
+									H.heart.brute_dam -= 1
+								if(H.heart.burn_dam > 1)
+									H.heart.burn_dam -= 1
 							if(H.lungs.brute_dam > 1)
 								H.lungs.brute_dam -= 1
 							if(H.lungs.burn_dam > 1)
@@ -243,13 +244,13 @@
 		new /obj/plant(T)
 
 	proc/check_power()
-		if(power > 35 && stage == 0)
+		if(power > 15 && stage == 0)
 			stage = 1
 			for(var/turf/simulated/S in range(1,src))
 				if(prob(25))
 					plant_me(S)
 			power = 0
-		if(power > 65 && stage == 1)
+		if(power > 15 && stage == 1)
 			stage = 2
 			for(var/turf/simulated/S in range(2,src))
 				if(prob(45))
@@ -269,7 +270,7 @@
 		power += 1
 		check_power()
 		if(icon_state == "jungle_ns" || icon_state == "jungle_we")
-			if(power > 25)
+			if(power > 15)
 				for(var/turf/simulated/S in range(1,src))
 					if(prob(15))
 						plant_me(S)

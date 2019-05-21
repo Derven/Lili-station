@@ -43,17 +43,19 @@ client
 					if(prob(rand(1,3)))
 						M << "\red You need to catch your breath!"
 					if(prob(2))
-						M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
+						if(M.heart)
+							M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
 				var/hungryeffect = 0
 				if(M && M.nutrition < 150)
 					hungryeffect = 1
-				sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects)
-				if(run_intent < 4 && jp == 0)
-					if(M && M.stamina > 1)
-						M.stamina -= 1
-						M.STAMINABAR.staminapixels()
-						if(prob(5))
-							M.nutrition -= 1
+				if(M.heart)
+					sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects)
+					if(run_intent < 4 && jp == 0)
+						if(M && M.stamina > 1)
+							M.stamina -= 1
+							M.STAMINABAR.staminapixels()
+							if(prob(5))
+								M.nutrition -= 1
 
 			else
 				sleep(1) //placeholder

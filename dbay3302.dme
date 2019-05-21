@@ -242,6 +242,7 @@
 #include "DATUM\AI.dm"
 #include "DATUM\electronics.dm"
 #include "DATUM\jobs.dm"
+#include "DATUM\operations.dm"
 #include "DATUM\organs.dm"
 #include "DATUM\powernet.dm"
 #include "DATUM\recipes.dm"

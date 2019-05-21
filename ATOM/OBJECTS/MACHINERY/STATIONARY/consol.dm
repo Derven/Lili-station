@@ -55,6 +55,50 @@ var/messages = ""
 	icon_state = "inoperationbed"
 	density = 0
 	anchored = 1
+	var/list/buckled_mobs = new/list()
+
+	proc/buckle_mob(mob/simulated/living/humanoid/M as mob, mob/user as mob)
+		if ((!( istype(M, /mob) ) || get_dist(src, user) > 1 || M.loc != src.loc || usr.stat || M.buckled))
+			return
+		if (M == usr)
+			usr << "\blue You buckle yourself"
+		else
+			usr << "\blue [M] buckled by [usr]"
+		usr.playsoundforme('handcuffs.ogg')
+		M.anchored = 1
+		M.buckled = src
+		M.loc = src.loc
+		M.dir = src.dir
+		if(!M.lying)
+			M.rest()
+		buckled_mobs += M
+
+
+	proc/manual_unbuckle_all(mob/user as mob)
+		var/N = 0;
+		for(var/mob/simulated/living/humanoid/M in buckled_mobs)
+			if (M.buckled == src)
+				if (M != user)
+					M << "\blue You unbuckled from [src] by [user.name]."
+				else
+					user << "\blue You unbuckle yourself from [src]."
+	//			world << "[M] is no longer buckled to [src]"
+				usr.playsoundforme('handcuffs.ogg')
+				M.anchored = 0
+				M.buckled = null
+				buckled_mobs -= M
+				if(M.lying)
+					M.rest()
+				N++
+		return N
+
+	MouseDrop_T(mob/M as mob, mob/user as mob)
+		if (!istype(M)) return
+		buckle_mob(M, user)
+		return
+
+	attack_hand()
+		manual_unbuckle_all(usr)
 
 /obj/machinery/blood_rec
 	name = "blood-recipient bench"
@@ -63,6 +107,50 @@ var/messages = ""
 	icon_state = "operationbed"
 	density = 0
 	anchored = 1
+	var/list/buckled_mobs = new/list()
+
+	proc/manual_unbuckle_all(mob/user as mob)
+		var/N = 0;
+		for(var/mob/simulated/living/humanoid/M in buckled_mobs)
+			if (M.buckled == src)
+				if (M != user)
+					M << "\blue You unbuckled from [src] by [user.name]."
+				else
+					user << "\blue You unbuckle yourself from [src]."
+	//			world << "[M] is no longer buckled to [src]"
+				usr.playsoundforme('handcuffs.ogg')
+				M.anchored = 0
+				M.buckled = null
+				buckled_mobs -= M
+				if(M.lying)
+					M.rest()
+				N++
+		return N
+
+	MouseDrop_T(mob/M as mob, mob/user as mob)
+		if (!istype(M)) return
+		buckle_mob(M, user)
+		return
+
+	attack_hand()
+		manual_unbuckle_all(usr)
+
+	proc/buckle_mob(mob/simulated/living/humanoid/M as mob, mob/user as mob)
+		if ((!( istype(M, /mob) ) || get_dist(src, user) > 1 || M.loc != src.loc || usr.stat || M.buckled))
+			return
+		if (M == usr)
+			usr << "\blue You buckle yourself"
+		else
+			usr << "\blue [M] buckled by [usr]"
+		usr.playsoundforme('handcuffs.ogg')
+		M.anchored = 1
+		M.buckled = src
+		M.loc = src.loc
+		M.dir = src.dir
+		if(!M.lying)
+			M.rest()
+		buckled_mobs += M
+
 
 /obj/machinery/blood_machine
 	name = "blood pump"
@@ -73,11 +161,37 @@ var/messages = ""
 	anchored = 1
 	var/pump_power = 5
 
+	operation
+		pump_power = 10
+		icon_state = "bloodmachine_off"
+
+		update_icon()
+			for(var/obj/machinery/blood_rec/b2 in range(1,src))
+				for(var/mob/simulated/living/humanoid/H1 in b2.loc)
+					if(H1.heart && H1.lying == 1 )
+						if((H1.heart.pumppower / 100) * 60 < 50)
+							icon_state = "bloodmachine_sleepy"
+							return
+						if((H1.heart.pumppower / 100) * 60 > 50 && (H1.heart.pumppower / 100) * 60 < 80)
+							icon_state = "bloodmachine_normal"
+							return
+						if((H1.heart.pumppower / 100) * 60 > 80)
+							icon_state = "bloodmachine_hard"
+							return
+			icon_state = "bloodmachine_off"
+
+		process()
+			update_icon()
+			for(var/obj/machinery/blood_rec/b2 in range(1,src))
+				for(var/mob/simulated/living/humanoid/H1 in b2.loc)
+					if(H1.lying == 1 && !H1.reagents.has_reagent("blood", 100))
+						H1.reagents.add_reagent("blood", pump_power)
+
 	process()
-		for(var/obj/machinery/blood_injector/b1 in range(1,src))
+		for(var/obj/machinery/blood_rec/b1 in range(1,src))
 			for(var/mob/simulated/living/humanoid/H in b1.loc)
 				if(H.reagents.has_reagent("blood", pump_power))
-					for(var/obj/machinery/blood_rec/b2 in range(1,src))
+					for(var/obj/machinery/blood_injector/b2 in range(1,src))
 						for(var/mob/simulated/living/humanoid/H1 in b2.loc)
 							if(H.lying == 1 && H1.lying == 1)
 								H.reagents.remove_reagent("blood", pump_power)

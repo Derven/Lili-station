@@ -271,8 +271,9 @@ datum
 			name = "caffeine"
 			id = "caffeine"
 			on_mob_life(var/mob/simulated/living/M)
-				M.heart.activate_stimulators(/datum/heart_stimulators/caffeine)
-				holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+				if(M.heart)
+					M.heart.activate_stimulators(/datum/heart_stimulators/caffeine)
+					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 				return
 
 		tea
@@ -300,8 +301,9 @@ datum
 			id = "sleeping"
 
 			on_mob_life(var/mob/simulated/living/M)
-				M.heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
-				holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+				if(M.heart)
+					M.heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
+					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 				return
 
 		oxycodone
@@ -314,15 +316,16 @@ datum
 
 			on_mob_life(var/mob/simulated/living/M)
 				if (istype(M,/mob))
-					if(M.heart.brute_dam > 1)
-						M.heart.brute_dam -= 1
-					if(M.heart.burn_dam > 1)
-						M.heart.burn_dam -= 1
-					if(M.lungs.brute_dam > 1)
-						M.lungs.brute_dam -= 1
-					if(M.lungs.burn_dam > 1)
-						M.lungs.burn_dam -= 1
-					holder.remove_reagent(src.id, REAGENTS_METABOLISM)
+					if(M.heart)
+						if(M.heart.brute_dam > 1)
+							M.heart.brute_dam -= 1
+						if(M.heart.burn_dam > 1)
+							M.heart.burn_dam -= 1
+						if(M.lungs.brute_dam > 1)
+							M.lungs.brute_dam -= 1
+						if(M.lungs.burn_dam > 1)
+							M.lungs.burn_dam -= 1
+						holder.remove_reagent(src.id, REAGENTS_METABOLISM)
 				return
 
 		xanax
@@ -486,8 +489,9 @@ datum
 
 	on_mob_life(var/mob/simulated/living/M)
 		if (istype(M,/mob))
-			M.heart.activate_stimulators(/datum/heart_stimulators/adrenalin_ephedrine)
-			holder.remove_reagent(src.id, 2)
+			if(M.heart)
+				M.heart.activate_stimulators(/datum/heart_stimulators/adrenalin_ephedrine)
+				holder.remove_reagent(src.id, 2)
 
 /datum/reagent/medicine/mannitol
 	name = "Mannitol"

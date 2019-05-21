@@ -109,16 +109,23 @@ proc/isorgan(A)
 
 	proc/blood_flow(var/mob/simulated/living/L)
 		if(brute_dam > 80)
-			L.reagents.remove_reagent("blood", blood_flow + L.heart.pumppower / 10)
-			L << "You have the blood loss"
-			new /obj/blood(L.loc)
+			if(L.heart)
+				L.reagents.remove_reagent("blood", blood_flow + L.heart.pumppower / 10)
+				L << "You have the blood loss"
+				new /obj/blood(L.loc)
+		if(L.opened_chest == 1 && L.heart)
+			if(prob(45))
+				L.reagents.remove_reagent("blood", blood_flow + L.heart.pumppower / 10)
+				L << "You have the blood loss"
+				new /obj/blood(L.loc)
 
 	proc/blood_flow_trails(var/mob/simulated/living/L, var/dirplease)
-		if(brute_dam > 80)
-			L.reagents.remove_reagent("blood", blood_flow + L.heart.pumppower / 10)
-			L << "You have the blood loss"
-			var/obj/blood/trail/BLOOD = new /obj/blood/trail(L.loc)
-			BLOOD.dir = dirplease
+		if(L.heart)
+			if(brute_dam > 80)
+				L.reagents.remove_reagent("blood", blood_flow + L.heart.pumppower / 10)
+				L << "You have the blood loss"
+				var/obj/blood/trail/BLOOD = new /obj/blood/trail(L.loc)
+				BLOOD.dir = dirplease
 
 	proc/take_damage(brute, burn)
 		if((brute <= 0) && (burn <= 0))	return 0

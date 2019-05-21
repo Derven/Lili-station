@@ -142,7 +142,8 @@
 				var/mob/simulated/living/humanoid/human/HUMAN = src.loc
 				HUMAN.bodytemperature += rand(1, 2)
 				if(prob(40))
-					HUMAN.heart.brute_dam += 1
+					if(HUMAN.heart)
+						HUMAN.heart.brute_dam += 1
 					HUMAN.parasite_control += 1
 				if(HUMAN.parasite_control > 100)
 					src.loc = HUMAN.loc

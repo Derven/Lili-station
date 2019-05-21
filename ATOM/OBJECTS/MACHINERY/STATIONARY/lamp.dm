@@ -105,6 +105,13 @@
 		icon_state = "tablelamp3"
 		density = 1
 
+	lamp4
+		name = "surgery lamp"
+		icon_state = "lamp4"
+		density = 0
+		ignore_ZLEVEL = 1
+		pixel_z = 26
+
 /obj/machinery/lamp/process()
 	if(!broken)
 		if(BPC)

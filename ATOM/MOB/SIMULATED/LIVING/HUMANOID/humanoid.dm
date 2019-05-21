@@ -53,6 +53,11 @@
 			tell_me_more(name, I, fix255(msg))
 		return fix255(msg)
 
+	verb/check_pulse()
+		set src = range(1)
+		if(heart)
+			usr << "[src] pulse is [(heart.pumppower / 100) * 60] per minute"
+
 	verb/push_up(var/mynum as num)
 		var/oldnum = 0
 		var/pushup = 1
@@ -262,8 +267,8 @@
 				if(bodytemperature < 310)
 					bodytemperature += rand(1, 2)
 					if(bodytemperature < 170)
-						heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
-
+						if(heart)
+							heart.activate_stimulators(/datum/heart_stimulators/hard_sedative)
 				handle_temperature_damage(chest, environment.temperature, environment_heat_capacity*transfer_coefficient)
 
 	process()
@@ -282,7 +287,8 @@
 				client.MYZL()
 			updatehealth()
 		else
-			heart.pumppower = 0
+			if(heart)
+				heart.pumppower = 0
 		myspaceisperfect()
 
 	proc/handle_injury()
@@ -397,9 +403,12 @@
 	if (sleeping || stunned || weakened) //Stunned etc.
 		if (stunned > 0)
 			stunned--
-			if(heart.pumppower < 145 && !lying)
-				if(parasite_control < 100)
-					resting()
+			if(heart)
+				if(heart.pumppower < 145 && !lying)
+					if(parasite_control < 100)
+						resting()
+			else
+				resting()
 		if (stunned <= 0 && lying)
 			resting()
 		if (weakened > 0)

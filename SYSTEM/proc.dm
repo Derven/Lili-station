@@ -211,9 +211,13 @@
 	else
 		return 0
 
+/atom
+	var/ignore_ZLEVEL = 0
+
 proc/init_z_pixel()
 	for(var/atom/movable/All as mob | obj in world) //This sets the initial height of the atoms in the world
-		All.pixel_z = (All.ZLevel - 1) * 32
+		if(All.ignore_ZLEVEL == 0)
+			All.pixel_z = (All.ZLevel - 1) * 32
 
 ///roof///
 proc/generate_roof()

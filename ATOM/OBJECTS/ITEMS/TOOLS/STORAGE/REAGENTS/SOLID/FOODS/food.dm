@@ -847,11 +847,17 @@
 	sleeping
 		name = "sleeping pill"
 		icon_state = "pills"
+		pixel_z = 5
+		pixel_x = -13
+		ignore_ZLEVEL = 1
 
 		New()
 			..()
 			reagents.add_reagent("sleeping", 30)
 			bitesize = 2
+			pixel_z = 5
+			pixel_x = -13
+			layer = 15
 
 	epinephrine
 		name = "epinephrine pill"
