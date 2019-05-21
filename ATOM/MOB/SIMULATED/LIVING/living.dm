@@ -158,6 +158,7 @@
 				for(var/mob/M in range(5, src))
 					//M << "\red [usr] בüוע [src] ג מבכאסעü [affecting]"
 					M << "\red [usr] punch [src] to [affecting]"
+					M << pick('punch1.ogg', 'punch2.ogg', 'punch3.ogg')
 			else
 				if(src.ZLevel < usr.ZLevel)
 					for(var/mob/M in range(5, src))
@@ -356,6 +357,9 @@
 			if(lungs && heart)
 				if(G.oxygen - (lungs.my_func()/5 + rand(1,10)) < HUMAN_NEEDED_OXYGEN + heart.pumppower/1000)
 					Emote(pick("gasps", "cough"))
+					for(var/mob/M in range(5, src))
+						if(prob(35))
+							M << 'gasp.ogg'
 					oxyloss += 1
 				else
 					if(oxyloss > 1)
@@ -370,6 +374,9 @@
 			if(lungs)
 				if(G.oxygen - (lungs.my_func()/5 + rand(1,10)) < HUMAN_NEEDED_OXYGEN + heart.pumppower/1000)
 					Emote(pick("gasps", "cough"))
+					for(var/mob/M in range(5, src))
+						if(prob(35))
+							M << 'gasp.ogg'
 					oxyloss += 1
 				else
 					if(oxyloss > 1)
@@ -379,6 +386,9 @@
 
 		else
 			Emote(pick("gasps", "cough"))
+			for(var/mob/M in range(5, src))
+				if(prob(35))
+					M << 'gasp.ogg'
 			oxyloss += 1
 	if(oxyloss > 75)
 		if(istype(H, /mob/simulated/living/humanoid))

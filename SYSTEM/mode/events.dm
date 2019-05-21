@@ -21,6 +21,7 @@
 
 		activate()
 			world << announce
+			world << 'lightoff.ogg'
 			for(var/obj/machinery/simple_apc/SA in world)
 				SA.charge = 0
 			for(var/obj/machinery/simple_smes/SS in world)
