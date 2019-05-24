@@ -51,7 +51,10 @@
 	var/moved_recently = 0
 
 	proc/myspaceisperfect()
-		if(istype(src.loc, /turf/space))
+		var/area/A
+		if(istype(src.loc, /turf))
+			A = src.loc.loc
+		if(istype(src.loc, /turf/space) || A.has_gravity == 0)
 			var/pixel_j_min = 0
 			var/pixel_j_max = 6
 			var/oldpixel_j = 0

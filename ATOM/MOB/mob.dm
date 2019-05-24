@@ -11,13 +11,13 @@
 					if(H.hand && H.l_hand)
 						var/obj/item/I2 = H.l_hand
 						H.drop_item()
-						I2.throw_hyuow_at(A, rand(4,9), 1)
+						I2.throw_hyuow_at(src, A, rand(4,9), 1)
 						H.throwing_mode = 0
 						H.TH.icon_state = "throw1"
 					if(!H.hand && H.r_hand)
 						var/obj/item/I2 = H.r_hand
 						H.drop_item()
-						I2.throw_hyuow_at(A, rand(4,9), 1)
+						I2.throw_hyuow_at(src, A, rand(4,9), 1)
 						H.throwing_mode = 0
 						H.TH.icon_state = "throw1"
 
@@ -124,6 +124,7 @@ mob
 	icon = 'mob.dmi'
 	icon_state = "mob"
 	layer = 15
+	var/inertia_dir = 0
 	var/death = 0
 	var/intent = 1 //1 - help, 0 - harm
 	//pain

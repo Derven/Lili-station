@@ -109,7 +109,7 @@ mob/proc/dream()
 		S.PULL.icon_state = "pull_2"
 		S.update_pulling()
 
-/atom/movable/proc/throw_hyuow_at(atom/target, range, speed)
+/atom/movable/proc/throw_hyuow_at(var/mob/M, atom/target, range, speed)
 	if(!target)	return 0
 	//use a modified version of Bresenham's algorithm to get from the atom's current position to that of the target
 	src.throw_hyuowing = 1
@@ -186,6 +186,12 @@ mob/proc/dream()
 				if(dist_since_sleep >= speed)
 					dist_since_sleep = 0
 					sleep(1)
+	var/area/A
+	if(istype(M.loc, /turf))
+		A = M.loc.loc
+	if((istype(src.loc, /turf/space)) || (A.has_gravity == 0))
+		M.inertia_dir = get_dir(target, M)
+		step(M, M.inertia_dir)
 
 	//done throw_hyuowing, either because it hit something or it finished moving
 	src.throw_hyuowing = 0

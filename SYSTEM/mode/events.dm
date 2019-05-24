@@ -27,6 +27,18 @@
 			for(var/obj/machinery/simple_smes/SS in world)
 				SS.charge = 0
 
+	gravity_anomaly
+		announce = "\red <h3>Gravity anomaly!</h3>"
+
+		activate()
+			for(var/obj/machinery/gravity_generator/GG in world)
+				if(GG.on == 1)
+					GG.on_off()
+				spawn(300)
+					if(GG.on == 0)
+						world << "Gravity generator has stabilized"
+						GG.on_off()
+
 	plants
 		announce = "\red <h3>Biohazard Level 1</h3>"
 
@@ -67,7 +79,7 @@
 		while(derven == genius)
 			sleep(rand(400,1300))
 			if(prob(30))
-				var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/mushroom, /datum/event/parasite, /datum/event/communications_blackout)
+				var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/gravity_anomaly, /datum/event/mushroom, /datum/event/parasite, /datum/event/communications_blackout)
 				var/datum/event/EP = new EBOY()
 				EP.activate()
 

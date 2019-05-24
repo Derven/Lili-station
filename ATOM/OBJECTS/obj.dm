@@ -5,6 +5,7 @@ obj
 /obj/tape
 	icon = 'airlock.dmi'
 	icon_state = "pool_closed"
+	anchored = 1
 
 //empty objects //fuck this crutches rewrite pls
 /obj/computerframe

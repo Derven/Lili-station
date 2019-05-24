@@ -99,9 +99,11 @@
 			usr << ">>> [fix255(flavor)]..."
 
 	Move()
-
 		if((lying && mypool == 0) || (handcuffed == 1 && mypool == 1))
 			return
+
+		var/atom/A = src.loc
+
 		see_invisible = 16 * (ZLevel-1)
 		var/turf/simulated/wall_east
 
@@ -127,6 +129,10 @@
 
 		var/oldloc = src.loc
 		..()
+
+		if ((A != src.loc && A && A.z == src.z))
+			src.last_move = get_dir(A, src.loc)
+
 		wall_east = get_step(src, EAST)
 		var/turf/simulated/wall_south = get_step(src, SOUTH)
 

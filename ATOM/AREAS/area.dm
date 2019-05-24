@@ -7,6 +7,7 @@
 	name = "Space"
 	var/sound = null
 	var/probality = 85
+	var/has_gravity = 0
 
 	bullet_act(var/obj/item/projectile/Proj)
 		del(Proj)
@@ -38,6 +39,7 @@
 	ship
 		luminosity = 0
 		var/atmos = 1
+		has_gravity = 1
 
 		deck_1
 			name = "test_deck"

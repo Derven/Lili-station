@@ -20,6 +20,7 @@ client
 	var/run_intent = 4
 	var/speeding = 0
 	var/other_effects = 0
+	var/gravity = 0
 
 	proc/switch_rintent()
 		if(run_intent == 4)
@@ -34,6 +35,10 @@ client
 			speeding = 1
 			var/jp = 0
 			..()
+			var/area/A = mob.loc.loc
+			gravity = A.gravitypower
+			if((istype(mob.loc, /turf/space)) || (A.has_gravity == 0))
+				mob.Process_Spacemove(0)
 			var/mob/simulated/living/humanoid/M = mob
 			for(var/obj/item/weapon/storage/box/backpack/jetpack/J in M)
 				J.jpixel()
@@ -49,7 +54,7 @@ client
 				if(M && M.nutrition < 150)
 					hungryeffect = 1
 				if(M.heart)
-					sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects)
+					sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects + gravity)
 					if(run_intent < 4 && jp == 0)
 						if(M && M.stamina > 1)
 							M.stamina -= 1
