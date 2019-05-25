@@ -20,7 +20,7 @@
 		desc = "It's a closet!"
 		icon_state = "oxygen"
 		icon_closed = "oxygen"
-		icon_opened = "open"
+		icon_opened = "oxygen_open"
 
 		New()
 			..()

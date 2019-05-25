@@ -31,42 +31,43 @@ client
 			return
 
 	Move()
-		if(speeding <= 0)
-			speeding = 1
-			var/jp = 0
-			..()
-			var/area/A = mob.loc.loc
-			gravity = A.gravitypower
-			if((istype(mob.loc, /turf/space)) || (A.has_gravity == 0))
-				mob.Process_Spacemove(0)
-			var/mob/simulated/living/humanoid/M = mob
-			for(var/obj/item/weapon/storage/box/backpack/jetpack/J in M)
-				J.jpixel()
-				jp = 2
-			if(istype(M, /mob/simulated/living/humanoid))
-				if(M && M.stamina < 30)
-					if(prob(rand(1,3)))
-						M << "\red You need to catch your breath!"
-					if(prob(2))
-						if(M.heart)
-							M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
-				var/hungryeffect = 0
-				if(M && M.nutrition < 150)
-					hungryeffect = 1
-				if(M.heart)
-					sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects + gravity)
-					if(run_intent < 4 && jp == 0)
-						if(M && M.stamina > 1)
-							M.stamina -= 1
-							M.STAMINABAR.staminapixels()
-							if(prob(5))
-								M.nutrition -= 1
+		if(istype(mob.loc, /turf))
+			if(speeding <= 0)
+				speeding = 1
+				var/jp = 0
+				..()
+				var/area/A = mob.loc.loc
+				gravity = A.gravitypower
+				if((istype(mob.loc, /turf/space)) || (A.has_gravity == 0))
+					mob.Process_Spacemove(0)
+				var/mob/simulated/living/humanoid/M = mob
+				for(var/obj/item/weapon/storage/box/backpack/jetpack/J in M)
+					J.jpixel()
+					jp = 2
+				if(istype(M, /mob/simulated/living/humanoid))
+					if(M && M.stamina < 30)
+						if(prob(rand(1,3)))
+							M << "\red You need to catch your breath!"
+						if(prob(2))
+							if(M.heart)
+								M.heart.activate_stimulators(/datum/heart_stimulators/light_sedative)
+					var/hungryeffect = 0
+					if(M && M.nutrition < 150)
+						hungryeffect = 1
+					if(M.heart)
+						sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects + gravity)
+						if(run_intent < 4 && jp == 0)
+							if(M && M.stamina > 1)
+								M.stamina -= 1
+								M.STAMINABAR.staminapixels()
+								if(prob(5))
+									M.nutrition -= 1
 
+				else
+					sleep(1) //placeholder
+				speeding = 0
 			else
-				sleep(1) //placeholder
-			speeding = 0
-		else
-			return
+				return
 
 	New()
 		if(src.ckey in admins)

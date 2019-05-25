@@ -54,17 +54,17 @@
 		var/area/A
 		if(istype(src.loc, /turf))
 			A = src.loc.loc
-		if(istype(src.loc, /turf/space) || A.has_gravity == 0)
-			var/pixel_j_min = 0
-			var/pixel_j_max = 6
-			var/oldpixel_j = 0
-			if(oldpixel_j == 0)
-				pixel_z = rand(pixel_j_min, pixel_j_max)
-				var/newpixel_j = rand(pixel_j_min, pixel_j_max)
-				if(abs(oldpixel_j - newpixel_j) <= 2 && abs(oldpixel_j - newpixel_j) > 0)
-					pixel_z = newpixel_j
-		else
-			pixel_z = initial(pixel_z)
+			if(istype(src.loc, /turf/space) || A.has_gravity == 0)
+				var/pixel_j_min = 0
+				var/pixel_j_max = 6
+				var/oldpixel_j = 0
+				if(oldpixel_j == 0)
+					pixel_z = rand(pixel_j_min, pixel_j_max)
+					var/newpixel_j = rand(pixel_j_min, pixel_j_max)
+					if(abs(oldpixel_j - newpixel_j) <= 2 && abs(oldpixel_j - newpixel_j) > 0)
+						pixel_z = newpixel_j
+			else
+				pixel_z = initial(pixel_z)
 
 
 /atom/movable/var/list/pullers = list()
