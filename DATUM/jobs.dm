@@ -10,14 +10,12 @@ var/list/jobs = list("assitant", "engineer", "chief engineer", "captain", "head 
 		var/obj/item/clothing/CLT = new mytype(src)
 		var/obj/item/clothing/id/USID = new myid(src)
 		USID.layer = 22
-		USID.invisibility = 101
 		USID.name = "[name] ([job])"
 		id = USID
 		CLT.layer = 22
 		cloth = CLT
 		var/obj/item/weapon/storage/box/backpack/BPI = new /obj/item/weapon/storage/box/backpack(src)
 		BPI.layer = 22
-		BPI.invisibility = 101
 		back = BPI
 		BP.update_slot(BPI)
 		if(gender == "male")
@@ -28,6 +26,10 @@ var/list/jobs = list("assitant", "engineer", "chief engineer", "captain", "head 
 		CL.update_slot(CLT)
 		CLT.wear_clothing(src)
 		ID.update_slot(USID)
+		var/obj/item/clothing/PDA/MPDA = new /obj/item/clothing/PDA(src)
+		MPDA.layer = 22
+		PDA = MPDA
+		PPDDAA.update_slot(MPDA)
 		overlays += BP.backoverlay
 
 	proc/about_job(var/job)

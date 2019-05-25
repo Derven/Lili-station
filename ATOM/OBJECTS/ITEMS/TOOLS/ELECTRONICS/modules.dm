@@ -166,3 +166,9 @@
 			var/mob/simulated/living/humanoid/H = usr
 			H.drop_item_v()
 			src.Move(target)
+
+/obj/item/floppy
+	name = "PDA floppy disk"
+	icon = 'tools.dmi'
+	icon_state = "PDAdisc"
+	var/floopyinfo = ""

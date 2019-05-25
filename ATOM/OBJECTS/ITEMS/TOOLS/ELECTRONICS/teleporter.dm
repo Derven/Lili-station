@@ -2,6 +2,7 @@
 	name = "teleporter"
 	icon = 'tools.dmi'
 	icon_state = "teleporter"
+	pdaslot = 1
 
 	attack_self()
 		usr << "\blue Wow. You teleported away!"

@@ -9,6 +9,7 @@
 	m_amt = 30
 	g_amt = 20
 	origin_tech = "magnets=1;engineering=1"
+	pdaslot = 1
 
 /obj/item/device/analyzer/attack_self()
 

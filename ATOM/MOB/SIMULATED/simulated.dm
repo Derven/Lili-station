@@ -48,6 +48,7 @@
 							...left hand <a href='?src=\ref[src];l_hand=[target]'>[target.l_hand]</a><br>
 							...id card <a href='?src=\ref[src];idcard=[target]'>[target.id]</a><br>
 							...backpack <a href='?src=\ref[src];backpack=[target]'>[target.back]</a>
+							...PDA <a href='?src=\ref[src];pda=[target]'>[target.PDA]</a>
 						</div>
 					</body>
 				</html>"}
@@ -77,6 +78,18 @@
 						H.client.screen.Remove(H.r_hand)
 					clthg.loc = H.loc
 					H.u_equip(H.r_hand)
+					clthg.wear_clothing(H)
+				return
+
+			if(href_list["pda"])
+				var/mob/simulated/living/humanoid/H = my_last_looting
+				if(do_after(10))
+					var/obj/item/clthg = H.PDA
+					clthg.invisibility = 0
+					if(H.client)
+						H.client.screen.Remove(H.r_hand)
+					clthg.loc = H.loc
+					H.u_equip(H.PDA)
 					clthg.wear_clothing(H)
 				return
 

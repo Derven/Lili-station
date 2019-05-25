@@ -13,6 +13,7 @@
 	var/obj/item/weapon/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 	var/obj/item/clothing/suit/cloth= null//Carbon
+	var/obj/item/clothing/PDA/PDA = null
 	var/obj/item/clothing/id/id= null//Carbon
 	var/in_throw_hyuow_mode = 0
 	var/flavor
@@ -35,6 +36,7 @@
 		obj/hud/rotate/RTT
 		obj/hud/craft/CRFT
 		obj/hud/glitch/GLTCH
+		obj/hud/PDA/PPDDAA
 
 	verb/Say(msg as text)
 		set name = "Say"
@@ -177,6 +179,7 @@
 			RTT = new(src)
 			CRFT = new(src)
 			GLTCH = new(src)
+			PPDDAA = new(src)
 			update_hud(C)
 
 	proc/update_hud(var/client/C)
@@ -207,6 +210,7 @@
 			C.screen.Add(RTT)
 			C.screen.Add(CRFT)
 			C.screen.Add(GLTCH)
+			C.screen.Add(PPDDAA)
 
 			for(var/datum/organ/external/EX in organs)
 				EX.update_hud(C)
@@ -228,6 +232,9 @@
 
 		else if (W == cloth)
 			cloth = null
+
+		else if (W == PDA)
+			PDA = null
 
 		else if (W == back)
 			back = null

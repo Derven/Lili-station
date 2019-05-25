@@ -5,6 +5,7 @@
 	icon = 'tools.dmi'
 	icon_state = "analyser"
 	var/mob/seeker
+	pdaslot = 0
 	var/on = 0
 
 	New()

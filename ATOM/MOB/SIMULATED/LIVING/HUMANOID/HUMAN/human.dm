@@ -46,6 +46,10 @@
 			if("chaplain")
 				wear_on_spawn(/obj/item/clothing/suit/chaplain, /obj/item/clothing/id/assistant)
 
+		var/obj/item/floppy/flds = new()
+		back.contents.Add(flds)
+
+
 		overlays.Add(myhair)
 		if(player.pregame_body_color == "black")
 			icon -= rgb(100,100,100)

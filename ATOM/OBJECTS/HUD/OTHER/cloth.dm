@@ -20,8 +20,7 @@
 /obj/hud
 	id
 		icon_state = "id"
-		screen_loc = "SOUTH-1, WEST+4"
-		invisibility = 101
+		screen_loc = "SOUTH-1, WEST+5"
 
 		Click()
 			var/mob/simulated/living/humanoid/H = iam
@@ -35,10 +34,25 @@
 					update_slot(myid)
 
 /obj/hud
+	PDA
+		icon_state = "pda"
+		screen_loc = "SOUTH-1, WEST+7"
+
+		Click()
+			var/mob/simulated/living/humanoid/H = iam
+			var/obj/item/I = H.get_active_hand()
+			var/obj/item/clothing/PDA/MYPDA = I
+			if(MYPDA && istype(MYPDA,/obj/item/clothing/PDA))
+				if(MYPDA && H.PDA == null)
+					H.drop_item(src)
+					MYPDA.layer = 22
+					H.PDA = MYPDA
+					update_slot(MYPDA)
+
+/obj/hud
 	backpack
 		icon_state = "backpack"
-		screen_loc = "SOUTH-1, WEST+4"
-		invisibility = 101
+		screen_loc = "SOUTH-1, WEST+6"
 		var/image/backoverlay
 
 		Click()
@@ -65,6 +79,7 @@
 	switcher
 		icon_state = "switcher"
 		screen_loc = "SOUTH-1, WEST+5"
+		invisibility = 101
 
 		Click()
 			var/mob/simulated/living/humanoid/H = iam
