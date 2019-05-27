@@ -1,31 +1,38 @@
 /obj/item/device/flashlight
 	name = "flashlight"
+	desc = "A hand-held emergency light."
 	icon = 'tools.dmi'
-	icon_state = "flashlight_off"
+	icon_state = "flashlight"
 	var/on = 0
-	var/power = 3
+	var/brightness_on = 9 //luminosity when on
 
-	Move()
-		..()
-		if(on == 1)
-			sd_SetLuminosity(power)
+/obj/item/device/flashlight/initialize()
+	..()
+	if(on)
+		icon_state = "[initial(icon_state)]-on"
+		sd_SetLuminosity(brightness_on)
+	else
+		icon_state = initial(icon_state)
+		sd_SetLuminosity(0)
 
-	attack_self()
-		if(on == 1)
-			on = 0
-			icon_state = "flashlight_off"
-		else
-			on = 1
-			icon_state = "flashlight_on"
+/obj/item/device/flashlight/proc/update_brightness(var/mob/user = null)
+	if(on)
+		icon_state = "[initial(icon_state)]-on"
+		if(loc == usr)
+			usr.sd_SetLuminosity(brightness_on)
+		else if(isturf(loc))
+			sd_SetLuminosity(brightness_on)
+	else
+		icon_state = initial(icon_state)
+		if(loc == user)
+			usr.sd_SetLuminosity(0)
+		else if(isturf(loc))
+			sd_SetLuminosity(0)
 
-	process()
-		if(istype(src.loc, /mob))
-			if(on == 1)
-				src.loc:FLASHLIGHT = src
-				src.loc:glowing_level = power
-				src.loc:glow_mob()
-			else
-				src.loc:glowing_level = 0
-				src.loc:FLASHLIGHT = null
-
-
+/obj/item/device/flashlight/attack_self(mob/user)
+	if(!isturf(usr.loc))
+		user << "You cannot turn the light on while in this [user.loc]." //To prevent some lighting anomalities.
+		return 0
+	on = !on
+	update_brightness(usr)
+	return 1

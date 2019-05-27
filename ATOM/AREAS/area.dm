@@ -8,6 +8,15 @@
 	var/sound = null
 	var/probality = 85
 	var/has_gravity = 0
+	var/list/related			// the other areas of the same type as this
+
+	New()
+		..()
+		var/sd_created = 0
+		sd_New(sd_created)
+		if(sd_created)
+			related += src
+			return
 
 	bullet_act(var/obj/item/projectile/Proj)
 		del(Proj)

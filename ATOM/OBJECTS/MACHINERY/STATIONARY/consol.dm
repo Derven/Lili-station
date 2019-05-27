@@ -14,6 +14,9 @@ var/messages = ""
 		..()
 		consolid += 1
 		conid = consolid
+		if(!isarea(src)&&(luminosity>0))
+			spawn(1)			// delay to allow map load
+				sd_ApplyLum()
 
 	var
 		mystate = "off"

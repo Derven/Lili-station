@@ -7,14 +7,21 @@
 	use_power = 1
 	anchored = 1
 	var/broken = 0
-	luminosity = 0
+	luminosity = 5
 	var/max_charge = 1000
 	load = 5
 	var/datum/emodule/central/basic_power_controller/BPC
 
 	New()
 		..()
-		BPC = new(src)
+		charge = 0
+		// if this is not an area and is luminous
+		if(!isarea(src)&&(luminosity>0))
+			spawn(1)			// delay to allow map load
+				sd_ApplyLum()
+
+	attack_hand()
+		usr << charge
 
 	emergency
 		name = "emergency light"
@@ -28,16 +35,21 @@
 		New()
 			..()
 			EPB = new(src)
+			// if this is not an area and is luminous
+			if(!isarea(src)&&(luminosity>0))
+				spawn(1)			// delay to allow map load
+					sd_ApplyLum()
 
 		process()
 			if(!broken)
 				if(EPB)
 					if(charge <= 0 && !EPB.myprocess())
-						nolight()
+						//nolight()
 						icon_state = "emergency_lamp"
 					else
+
 						icon_state = "emergency_lamp_an"
-						light_process()
+						//light_process()
 
 	dir_2
 		pixel_y = 64
@@ -67,6 +79,10 @@
 	ex_act()
 		..()
 		sd_SetLuminosity(0)
+		// if this is not an area and is luminous
+		if(!isarea(src)&&(luminosity>0))
+			sd_StripLum()
+		..()
 		sleep(1)
 		del(src)
 
@@ -90,8 +106,17 @@
 	luminosity = 6
 	load = 5
 
+	New()
+		..()
+		if(!isarea(src)&&(luminosity>0))
+			spawn(1)			// delay to allow map load
+				sd_ApplyLum()
+
 	Del()
 		sd_SetLuminosity(0)
+		// if this is not an area and is luminous
+		if(!isarea(src)&&(luminosity>0))
+			sd_StripLum()
 		..()
 
 	brainlamp
@@ -113,17 +138,7 @@
 		pixel_z = 26
 
 /obj/machinery/lamp/process()
-	if(!broken)
-		if(BPC)
-			BPC.myprocess()
-		if(charge <= 0 || charge > max_charge)
-			nolight()
-			if(charge > max_charge)
-				new /obj/effect/sparks(src.loc)
-				sleep(rand(1,3))
-				for(var/mob/B in range(6, src))
-					B << ('sparks.ogg')
-				broken = 1
-				icon_state = "broken_lamp"
-		else
-			light_process()
+	if(charge <= 0)
+		sd_SetLuminosity(0)
+	else
+		sd_SetLuminosity(5)
