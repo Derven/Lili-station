@@ -375,27 +375,28 @@ atom
 				T.sd_lumcount += (luminosity-get_dist(center,T))
 				//T.color = "red"
 				//var/area/AREA = T.loc
-				switch(T.sd_lumcount)
-					if(7)
-						T.color = "#f2f2ef"
-					if(6)
-						T.color = "#f2f2ef"
-					if(5)
-						T.color = "#f2f2ef"
-					if(4)
-						T.color = "#d8d8d6"
-					if(3)
-						T.color = "#cccccc"
-					if(2)
-						T.color = "#afafae"
-					if(1)
-						T.color = "#a3a3a1"
-					if(0)
-						T.color = "#494949"
-					else
-						T.color = "#494949"
-				if(T.sd_lumcount > 7)
-					T.color = null
+				if(!istype(T, /turf/space))
+					switch(T.sd_lumcount)
+						if(7)
+							T.color = "#f2f2ef"
+						if(6)
+							T.color = "#f2f2ef"
+						if(5)
+							T.color = "#f2f2ef"
+						if(4)
+							T.color = "#d8d8d6"
+						if(3)
+							T.color = "#cccccc"
+						if(2)
+							T.color = "#afafae"
+						if(1)
+							T.color = "#a3a3a1"
+						if(0)
+							T.color = "#494949"
+						else
+							T.color = "#494949"
+					if(T.sd_lumcount > 7)
+						T.color = null
 				for(var/obj/A in T)
 					A.color = T.color
 				//	update the turf's area
