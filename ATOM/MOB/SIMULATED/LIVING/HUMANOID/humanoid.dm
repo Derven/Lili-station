@@ -395,6 +395,10 @@
 		var/turf/T = get_turf(loc)
 		if (istype(T))
 			T.Entered(W)
+		if(istype(W, /obj/item/device/flashlight))
+			if(W:on == 1)
+				usr.sd_SetLuminosity(0)
+				W:sd_SetLuminosity(5)
 	return
 
 /mob/simulated/living/humanoid/proc/swap_hand()

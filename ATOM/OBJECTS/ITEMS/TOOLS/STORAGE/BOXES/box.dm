@@ -25,6 +25,7 @@
 				contents += new type()
 	backpack
 		icon_state = "backpack"
+		name = "backpack"
 		var/mob/jetpacked = null
 
 		New()
@@ -59,7 +60,7 @@
 		if(!istype(I, /obj/item/weapon/storage))
 			user.drop_item(src)
 			I.Move(src)
-			usr << "You put [I] into box!"
+			usr << "You put [I] in [src.name]!"
 
 /mob
 	var/list/boxes = list()

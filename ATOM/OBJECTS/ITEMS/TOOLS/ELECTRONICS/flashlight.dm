@@ -6,6 +6,10 @@
 	var/on = 0
 	var/brightness_on = 5 //luminosity when on
 
+	attack_hand()
+		..()
+		update_brightness(usr)
+
 /obj/item/device/flashlight/initialize()
 	..()
 	if(on)
