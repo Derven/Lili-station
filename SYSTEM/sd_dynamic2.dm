@@ -374,7 +374,7 @@ atom
 					brightness and distance of the lightsource */
 				T.sd_lumcount += (luminosity-get_dist(center,T))
 				//T.color = "red"
-				var/area/AREA = T.loc
+				//var/area/AREA = T.loc
 				switch(T.sd_lumcount)
 					if(7)
 						T.color = "#f2f2ef"

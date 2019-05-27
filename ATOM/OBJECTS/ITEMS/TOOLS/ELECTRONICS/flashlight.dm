@@ -4,7 +4,7 @@
 	icon = 'tools.dmi'
 	icon_state = "flashlight"
 	var/on = 0
-	var/brightness_on = 9 //luminosity when on
+	var/brightness_on = 5 //luminosity when on
 
 /obj/item/device/flashlight/initialize()
 	..()
