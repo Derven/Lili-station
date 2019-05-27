@@ -21,7 +21,7 @@
 				sd_ApplyLum()
 
 	attack_hand()
-		usr << charge
+		switcher = 0
 
 	emergency
 		name = "emergency light"
@@ -138,7 +138,8 @@
 		pixel_z = 26
 
 /obj/machinery/lamp/process()
-	if(charge <= 0)
-		sd_SetLuminosity(0)
-	else
-		sd_SetLuminosity(5)
+	if(!broken)
+		if(charge <= 0 || switcher == 0)
+			sd_SetLuminosity(0)
+		else
+			sd_SetLuminosity(5)

@@ -81,7 +81,7 @@ turf
 			return 1
 		if(A.ZLevel > src.Height)
 			A.ZLevel = Height
-			A.pixel_z = 32 * (A.ZLevel - 1)
+			//A.pixel_z = 32 * (A.ZLevel - 1)
 			for(var/mob/mob_fall in range(5, A))
 				mob_fall << "\red [A.name] fall on the floor"
 				mob_fall.playsoundforme('smash.ogg')

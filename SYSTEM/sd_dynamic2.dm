@@ -387,13 +387,15 @@ atom
 					if(3)
 						T.color = "#cccccc"
 					if(2)
-						T.color = "#c6c6c4"
+						T.color = "#afafae"
 					if(1)
 						T.color = "#a3a3a1"
 					if(0)
 						T.color = "#494949"
 					else
-						T.color = null
+						T.color = "#494949"
+				if(T.sd_lumcount > 7)
+					T.color = null
 				for(var/obj/A in T)
 					A.color = T.color
 				//	update the turf's area

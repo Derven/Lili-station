@@ -126,8 +126,8 @@
 		for(var/turf/simulated/wall/W in range(2, src))
 			W.clear_for_all()
 
-		if(!istype(loc, /turf/simulated/floor/stairs))
-			pixel_z = (ZLevel-1) * 32
+		//if(!istype(loc, /turf/simulated/floor/stairs))
+		//	pixel_z = (ZLevel-1) * 32
 
 		var/oldloc = src.loc
 		..()

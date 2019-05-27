@@ -64,7 +64,9 @@
 					if(abs(oldpixel_j - newpixel_j) <= 2 && abs(oldpixel_j - newpixel_j) > 0)
 						pixel_z = newpixel_j
 			else
-				pixel_z = initial(pixel_z)
+				if(istype(src, /mob/simulated/living/humanoid))
+					if(src:onstructure == 0)
+						pixel_z = initial(pixel_z)
 
 
 /atom/movable/var/list/pullers = list()

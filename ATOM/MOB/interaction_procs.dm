@@ -28,6 +28,7 @@
 				step(S, dir, 64)
 			else
 				if(onstructure == 1 || myjetpack == 1)
+					pixel_z = S.pixelzheight
 					S.move_on(src)
 
 		if(istype(A, /mob))

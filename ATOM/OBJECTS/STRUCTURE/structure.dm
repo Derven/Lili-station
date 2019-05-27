@@ -26,12 +26,16 @@
 
 	Uncrossed(var/mob/M)
 		if(istype(M, /mob))
+			for(var/obj/structure/S in M.loc)
+				return
 			leave(M)
 
 	proc/move_on(var/mob/M)
 		M.loc = loc
 		M.pixel_z = pixelzheight
 		M.onstructure = 1
+		..()
+		M.pixel_z = pixelzheight
 
 	proc/leave(var/mob/M)
 		M.onstructure = 0
