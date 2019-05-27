@@ -66,6 +66,11 @@
 	var/stage = 0
 	var/health = 100
 
+	Crossed(var/atom/movable/O)
+		if(istype(O, /mob/simulated/living/humanoid/))
+			if(prob(15 * stage))
+				O:resting()
+
 	mushroom
 		icon = 'mushrooms.dmi'
 		health = 300
@@ -232,10 +237,8 @@
 				icon_state = "jungle_small_floor"
 			if(1)
 				icon_state = "jungle_medium_floor"
-				density = 1
 			if(2)
 				icon_state = "jungle_hard_floor"
-				density = 1
 				opacity = 1
 
 	proc/plant_me(var/turf/T)
