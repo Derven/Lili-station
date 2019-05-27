@@ -3,18 +3,27 @@ client
 	var/mloc
 
 client/MouseDown(var/atom/O, var/turf/T)
-	mdown = 1
-	mloc = T
+	for(var/obj/structure/table/TABLE in T)
+		if(get_dist(T, mob) < 2)
+			return
+	if(mob:throwing_mode == 1)
+		return
 	if(!istype(mob, /mob/ghost) && istype(mob, /mob/simulated/living))
 		var/mob/simulated/living/humanoid/H = mob
 		var/obj/item/I = H.get_active_hand()
 		if(istype(I, /obj/item/weapon/gun))
+			if(!I:load_into_chamber())
+				return
+			mdown = 1
+			mloc = T
 			var/obj/item/weapon/gun/G = I
 			if(G.automatic == 1)
 				sleep(1)
 				while(mdown == 1)
 					sleep(1)
 					I.afterattack(mloc)
+					if(!I:load_into_chamber())
+						return
 			else
 				I.afterattack(mloc)
 	..()

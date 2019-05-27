@@ -14,6 +14,7 @@
 	icon = 'gun.dmi'
 	icon_state = "detective"
 	var/automatic = 0
+	var/blocked = 0
 	flags =  FPRINT | TABLEPASS | CONDUCT | ONBELT | USEDELAY
 
 	var
@@ -35,8 +36,10 @@
 		return 1
 
 	afterattack(atom/target as mob|obj|turf|area, flag, params)//TODO: go over this
-		if(flag)	return //we're placing gun on a table or in backpack
+		if(blocked == 1)	return //we're placing gun on a table or in backpack
 
+		if(istype(target, /obj/structure/table) && get_dist(usr, target) < 2)
+			return
 		var/mob/simulated/living/humanoid/H = usr
 		var/turf/curloc = usr.loc
 		var/turf/targloc = get_turf(target)
