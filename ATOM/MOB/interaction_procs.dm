@@ -9,7 +9,7 @@
 				if (O.client)
 					if(O.intent == 0)
 						//O << text("\red <B>[] גû בüועו [] ס ןמלמשü‏ []</B>", src, user, W)
-						O <<  "\red <B>[] has been attacked by [] with the []</B>"
+						O <<  "\red <B>[src] has been attacked by [usr] with the [W]</B>"
 	return
 
 /atom/Click(location,control,params)
