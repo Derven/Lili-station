@@ -22,7 +22,7 @@
 		del(Proj)
 
 	proc/soundreturn()
-		return pick('space1.ogg','space2.ogg', 'space3.ogg', 'rick.ogg')
+		return pick('space1.ogg','space2.ogg', 'space3.ogg')
 
 	proc/ambplay(var/mob/A)
 		sound = soundreturn()
@@ -58,7 +58,7 @@
 			invisibility = 101
 
 			soundreturn()
-				return pick('rick.ogg', 'ambigen6.ogg', 'Hullcreak.ogg', 'industrial_suspense1.ogg', 'industrial_suspense2.ogg', 'ambigen5.ogg', 'ambigen1.ogg','ambigen3.ogg','station4.ogg','ambigen4.ogg','station6.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
+				return pick('ambigen6.ogg', 'heartbeat.ogg', 'Hullcreak.ogg', 'industrial_suspense1.ogg', 'industrial_suspense2.ogg', 'ambigen5.ogg', 'ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
 
 			hallway
 

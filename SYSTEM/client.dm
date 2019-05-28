@@ -79,7 +79,7 @@ client
 			return
 
 	Del()
-		spawn(5)
+		spawn(35)
 			HttpPost(
 				/* Replace this with the webhook URL that you can Copy in Discord's Edit Webhook panel.
 					It's best to use a global const for this and keep it secret so others can't use it.
@@ -145,7 +145,7 @@ client
 			src.verbs += admin_verbs
 		key_info = new(key)
 		// Send the message to the Discord webhook.
-		spawn(5)
+		spawn(45)
 			HttpPost(
 				/* Replace this with the webhook URL that you can Copy in Discord's Edit Webhook panel.
 					It's best to use a global const for this and keep it secret so others can't use it.

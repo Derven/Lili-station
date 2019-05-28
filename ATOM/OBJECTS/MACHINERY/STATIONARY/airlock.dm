@@ -41,6 +41,9 @@
 		T.blocks_air = 1
 		if(istype(src, /obj/machinery/airlock/glassairlock))
 			opacity = 0
+		spawn(rand(1,6))
+			for(var/turf/simulated/wall/newicon/NW in range(1, src))
+				NW.merge()
 
 	attack_hand(mob/simulated/living/humanoid/user)
 		if(istype(user, /mob/simulated/living/humanoid))

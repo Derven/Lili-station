@@ -7,7 +7,7 @@
 	use_power = 1
 	anchored = 1
 	var/broken = 0
-	luminosity = 5
+	luminosity = 4
 	var/max_charge = 1000
 	load = 5
 	var/datum/emodule/central/basic_power_controller/BPC
@@ -142,4 +142,4 @@
 		if(charge <= 0 || switcher == 0)
 			sd_SetLuminosity(0)
 		else
-			sd_SetLuminosity(5)
+			sd_SetLuminosity(4)
