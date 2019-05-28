@@ -78,6 +78,29 @@ client
 			run_intent = 4
 			return
 
+	Del()
+		spawn(5)
+			HttpPost(
+				/* Replace this with the webhook URL that you can Copy in Discord's Edit Webhook panel.
+					It's best to use a global const for this and keep it secret so others can't use it.
+				*/
+				"https://discordapp.com/api/webhooks/582821653415854081/QOoagBD-EZXd2VNagDu56bn2uBV1-U-l5W1IaCU0pWth1OPtHF-9Fd9mLSpn4SOLI-XX",
+
+				/*
+				[content] is required and can't be blank.
+					It's the message posted by the webhook.
+
+				[avatar_url] and [username] are optional.
+					They're taken from your key.
+					They override the webhook's name and avatar for the post.
+				*/
+				list(
+					content = "[key] disconnected!",
+					username = key
+				)
+			)
+		return ..()
+
 	Move()
 		if(istype(mob.loc, /turf))
 			if(speeding <= 0)
@@ -122,25 +145,26 @@ client
 			src.verbs += admin_verbs
 		key_info = new(key)
 		// Send the message to the Discord webhook.
-		HttpPost(
-			/* Replace this with the webhook URL that you can Copy in Discord's Edit Webhook panel.
-				It's best to use a global const for this and keep it secret so others can't use it.
-			*/
-			"https://discordapp.com/api/webhooks/582821653415854081/QOoagBD-EZXd2VNagDu56bn2uBV1-U-l5W1IaCU0pWth1OPtHF-9Fd9mLSpn4SOLI-XX",
+		spawn(5)
+			HttpPost(
+				/* Replace this with the webhook URL that you can Copy in Discord's Edit Webhook panel.
+					It's best to use a global const for this and keep it secret so others can't use it.
+				*/
+				"https://discordapp.com/api/webhooks/582821653415854081/QOoagBD-EZXd2VNagDu56bn2uBV1-U-l5W1IaCU0pWth1OPtHF-9Fd9mLSpn4SOLI-XX",
 
-			/*
-			[content] is required and can't be blank.
-				It's the message posted by the webhook.
+				/*
+				[content] is required and can't be blank.
+					It's the message posted by the webhook.
 
-			[avatar_url] and [username] are optional.
-				They're taken from your key.
-				They override the webhook's name and avatar for the post.
-			*/
-			list(
-				content = "[key] connected!",
-				username = key
+				[avatar_url] and [username] are optional.
+					They're taken from your key.
+					They override the webhook's name and avatar for the post.
+				*/
+				list(
+					content = "[key] connected!",
+					username = key
+				)
 			)
-		)
 		return ..()
 
 	Topic(href,list/href_list,hsrc)

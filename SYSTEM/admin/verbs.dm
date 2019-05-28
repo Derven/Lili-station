@@ -6,6 +6,7 @@ var/list/admin_verbs = list(\
 	/client/proc/Spawn,\
 	/client/proc/small_boom,\
 	/client/proc/world_reboot,\
+	/client/proc/read_players,\
 	/client/proc/savemymap)
 
 /client/proc/pm(mob/m as mob in world, msg as text)
@@ -47,6 +48,12 @@ var/list/admin_verbs = list(\
 			p << "[m.key] has been banned by [src]"
 	bans += m.ckey
 	del m.client
+
+/client/proc/read_players()
+	set name = "read players log"
+	set category = "Admin"
+	var/F = file("players.txt")
+	src << browse(F,"window=players")
 
 /client/proc/player_panel()
 	set name = "Player Panel"
