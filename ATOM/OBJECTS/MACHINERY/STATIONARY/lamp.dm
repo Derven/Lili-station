@@ -1,3 +1,20 @@
+/obj/machinery/light_switcher
+	name = "light_switcher"
+	var/mystate = 1
+	icon_state = "switcher_on"
+
+	attack_hand()
+		mystate = !mystate
+		switch(mystate)
+			if(1)
+				for(var/obj/machinery/lamp/LAMP in range(8, src))
+					LAMP.switcher = 1
+				icon_state = "switcher_on"
+			else
+				for(var/obj/machinery/lamp/LAMP in range(8, src))
+					LAMP.switcher = 0
+				icon_state = "switcher_off"
+
 /obj/machinery/lamp
 	name = "light"
 	power_channel = LIGHT
@@ -20,8 +37,8 @@
 			spawn(1)			// delay to allow map load
 				sd_ApplyLum()
 
-	attack_hand()
-		switcher = 0
+	//attack_hand()
+	//	switcher = 0
 
 	emergency
 		name = "emergency light"
