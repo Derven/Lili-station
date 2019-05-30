@@ -73,6 +73,10 @@ turf
 	Enter(var/mob/A)
 		if(istype(A, /mob/ghost))
 			return 1
+		if(istype(A, /mob/simulated/living/humanoid) && istype(src, /turf/simulated/floor))
+			if(prob(35))
+				for(var/mob/M in range(3, src))
+					M << pick('tile1.wav', 'tile2.wav', 'tile3.wav', 'tile4.wav')
 
 		if(A.ZLevel == src.Height) //If the player is not on the same Z plane as the turf, you can't enter it
 			for(var/atom/movable/AM in src)

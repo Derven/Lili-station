@@ -58,7 +58,7 @@
 			invisibility = 101
 
 			soundreturn()
-				return pick('ambigen6.ogg', 'heartbeat.ogg', 'Hullcreak.ogg', 'industrial_suspense1.ogg', 'industrial_suspense2.ogg', 'ambigen5.ogg', 'ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
+				return pick('ambigen6.ogg', 'heartbeat.ogg', 'Hullcreak.ogg', 'industrial_suspense1.ogg','ambimo2.ogg', 'industrial_suspense2.ogg', 'ambigen5.ogg', 'ambigen1.ogg','ambigen3.ogg','ambigen4.ogg','ambigen9.ogg','ambigen10.ogg','ambigen11.ogg','ambigen12.ogg')
 
 			hallway
 

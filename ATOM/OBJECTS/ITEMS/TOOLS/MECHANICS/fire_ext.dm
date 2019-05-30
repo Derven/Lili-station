@@ -16,6 +16,8 @@
 					del(F)
 			else
 				..()
+		else
+			..()
 
 	attack_self()
 		on = !on

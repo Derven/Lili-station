@@ -7,7 +7,7 @@
 	use_power = 1
 	anchored = 1
 	var/broken = 0
-	luminosity = 4
+	luminosity = 5
 	var/max_charge = 1000
 	load = 5
 	var/datum/emodule/central/basic_power_controller/BPC
