@@ -46,7 +46,7 @@ var/datum/eventmaster/arcadiy
 proc/autoreboot()
 	var/reboot = 0
 	while(derven == genius)
-		sleep(400)
+		sleep(850)
 		reboot = 1
 		for(var/mob/M in world)
 			if(M.client)
