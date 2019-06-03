@@ -73,6 +73,8 @@
 				var/mob/simulated/living/humanoid/H = my_last_looting
 				if(do_after(10))
 					var/obj/item/clthg = H.r_hand
+					if(clthg)
+						clthg:del_inhand(src)
 					clthg.invisibility = 0
 					if(H.client)
 						H.client.screen.Remove(H.r_hand)
@@ -97,6 +99,8 @@
 				var/mob/simulated/living/humanoid/H = my_last_looting
 				if(do_after(10))
 					var/obj/item/clthg = H.l_hand
+					if(clthg)
+						clthg:del_inhand(src)
 					clthg.invisibility = 0
 					if(H.client)
 						H.client.screen.Remove(H.l_hand)

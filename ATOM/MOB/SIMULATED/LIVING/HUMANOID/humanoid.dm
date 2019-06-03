@@ -226,9 +226,11 @@
 	proc/u_equip(obj/item/W as obj)
 		if (W == r_hand)
 			r_hand = null
+			W.del_inhand(usr)
 
 		else if (W == l_hand)
 			l_hand = null
+			W.del_inhand(usr)
 
 		else if (W == cloth)
 			cloth = null
@@ -379,6 +381,7 @@
 
 /mob/simulated/living/humanoid/proc/drop_item(var/atom/target)
 	var/obj/item/W = equipped()
+	W.del_inhand(src)
 	if (W)
 		if (client)
 			client.screen -= W

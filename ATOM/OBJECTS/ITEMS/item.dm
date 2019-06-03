@@ -6,6 +6,8 @@
 	return
 
 /obj/item/proc/pickup(mob/user)
+	if(src == usr:r_hand || src == usr:l_hand)
+		add_inhand(usr)
 	pixel_z = 0
 	return
 

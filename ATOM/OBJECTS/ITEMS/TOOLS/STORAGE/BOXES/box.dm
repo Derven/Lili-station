@@ -16,6 +16,7 @@
 				contents += new /obj/item/weapon/reagent_containers/food/snacks/pill/kelotane()
 
 	toolbox
+		inhandstate = "blue_toolbox"
 		New()
 			..()
 			var/i = rand(2,4)

@@ -2,6 +2,7 @@
 	name = "fire_ext"
 	icon = 'tools.dmi'
 	icon_state = "fire_ext"
+	inhandstate = "extinguisher"
 	force = 35
 	var/on = 0
 
