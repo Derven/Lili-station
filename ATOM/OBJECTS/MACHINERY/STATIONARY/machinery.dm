@@ -4,7 +4,7 @@
 	robustness = 25
 	var
 		charge = 0
-		load = 0
+		load = 35
 		switcher = 1
 		stat = 0
 		emagged = 0

@@ -9,7 +9,7 @@
 	var/datum/emodule/central/basic_power_module/BPM
 
 	attack_hand()
-		usr << charge
+		usr << "Power level: [charge]"
 
 	New()
 		..()
