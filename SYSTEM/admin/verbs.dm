@@ -86,7 +86,7 @@ var/list/admin_verbs = list(\
 /client/proc/savemymap()
 	set name = "savemymap"
 	set category = "Admin"
-	//savemap()
+	savemap()
 
 /client/proc/Spawn()
 	set name = "spawn"
