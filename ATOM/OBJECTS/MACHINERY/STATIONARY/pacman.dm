@@ -20,7 +20,7 @@
 		if(FUEL)
 			if(iter < 20)
 				for(var/obj/machinery/simple_apc/SA in range(7, src))
-					SA.charge += rand(10000, 70000)
+					SA.my_smes.charge += rand(10000, 70000)
 					iter += 1
 			else
 				FUEL = null
