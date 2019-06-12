@@ -41,7 +41,7 @@ var/messages = ""
 				"Message")
 			if(msg != "")
 				sleep(rand(5,8))
-				messages += fix1103("<h2>[usr]:[msg]</h2><br><br>")
+				messages += fix1103("[usr]:[msg]<br><br>")
 			usr << browse(null, "window=computermessage")
 			usr << browse(messages, "window=computermessage")
 

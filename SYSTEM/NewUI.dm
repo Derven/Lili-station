@@ -20,7 +20,6 @@
 					<!DOCTYPE html>
 					<html>
 					<head>
-					<meta charset="utf-8">
 					<title>[DEVICE.name]</title>
 					<style>
 					 body {
@@ -105,7 +104,6 @@
 					<!DOCTYPE html>
 					<html>
 					<head>
-					<meta charset="utf-8">
 					<title>[DEVICE.name]</title>
 					<style>
 					 body {
@@ -186,7 +184,6 @@
 					<!DOCTYPE html>
 					<html>
 					<head>
-					<meta charset="utf-8">
 					<title>[DEVICE.name]</title>
 					<style>
 					 body {
@@ -280,4 +277,4 @@
 			M << browse_rsc('interface2.png',"interface2.png")
 			M << browse_rsc('interface3.png',"interface3.png")
 			M << browse_rsc('button.png',"button.png")
-			M << browse(style, "window=[DEVICE.name];size=520x360")
+			M << browse(style, "window=[DEVICE.name];size=515x350")

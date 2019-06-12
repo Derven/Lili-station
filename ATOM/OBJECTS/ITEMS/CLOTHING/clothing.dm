@@ -11,9 +11,20 @@ var/ids = 0
 	var/obj/item/floppy/FL
 	var/maininfo
 	var/mymessages
+	var/datum/UI/COMPUTER
+
+	proc/initUI(var/list/bnames, var/list/bhrefs)
+		COMPUTER = new /datum/UI()
+		COMPUTER.initUI(bnames, bhrefs, src, "PDA")
+
+	New()
+		..()
+		initUI(list("floopy","devices","messages"), list("updatefloppy=1","updatedevices=1","updatemessages=1"))
 
 	proc/interface()
-		maininfo = {"
+		COMPUTER.browseme(usr, "Wellcome to PDA user interface!")
+
+	/*	maininfo = {"
 		<html>
 		<head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>
 		<body>
@@ -44,6 +55,7 @@ var/ids = 0
 		</body>
 		</html>
 		"}
+	*/
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item))
@@ -64,6 +76,24 @@ var/ids = 0
 
 	Topic(href,href_list[])
 		if(usr.check_topic(src))
+
+			if(href_list["updatefloppy"] == "1")
+				COMPUTER.browseme(usr, "PDA FLOPPY IN/OUT SYSTEM!<br><br><a href='?src=\ref[src];floppyeject=1;'>eject floppy</a>\
+				<br><a href='?src=\ref[src];floppyr=1;'>read floppy</a><br>\
+				<a href='?src=\ref[src];floppywr=1;'>rewrite floppy</a><br><br>\
+				FLOPPY SLOT: [FL ? "Full" : "Empty"]")
+
+			if(href_list["updatedevices"] == "1")
+				COMPUTER.browseme(usr, "PDA EXTENSIONS SYSTEM!<br><br><a href='?src=\ref[src];ejectd=1;'>eject Device</a>\
+				<br><a href='?src=\ref[src];device=1;'>Use device</a><br><br>\
+				DEVICE: [mydevice]")
+
+			if(href_list["updatemessages"] == "1")
+				COMPUTER.browseme(usr, "PDA MESSAGES SYSTEM!<br><br>\
+				<a href='?src=\ref[src];sendmsg=1;'>Send Messages</a><br>\
+				<a href='?src=\ref[src];refresh=1;'>Refresh</a><br><br>\
+				[messages]")
+
 			if(href_list["ejectd"] == "1")
 				if(mydevice)
 					mydevice.loc = usr.loc
@@ -78,7 +108,7 @@ var/ids = 0
 					"Message")
 				if(msg != "")
 					sleep(rand(5,8))
-					messages += fix1103("<h2>[usr]:[msg]</h2><br><br>")
+					messages += fix1103("[usr]:[msg]<br><br>")
 					interface()
 					usr << browse(null, "window=pdamsg")
 					usr << browse(mymessages, "window=pdamsg")
