@@ -11,6 +11,7 @@
 #define FILE_DIR "ICONS"
 #define FILE_DIR "SOUNDS"
 #define FILE_DIR "SOUNDS/piano"
+#define FILE_DIR "SYSTEM"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
@@ -260,6 +261,7 @@
 #include "SYSTEM\httppost.dm"
 #include "SYSTEM\kitchen.dm"
 #include "SYSTEM\maptext.dm"
+#include "SYSTEM\NewUI.dm"
 #include "SYSTEM\proc.dm"
 #include "SYSTEM\sd_dynamic2.dm"
 #include "SYSTEM\admin\adminhelp.dm"

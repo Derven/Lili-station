@@ -194,7 +194,6 @@ window "mapwindow"
 		font-size = 7
 		text-color = none
 		is-default = true
-		drop-zone = true
 		saved-params = "icon-size"
 		icon-size = 64
 		zoom = 1
@@ -223,7 +222,6 @@ window "outputwindow"
 		anchor2 = 100,100
 		font-size = 16
 		text-color = #282828
-		background-color = #ffffff
 		is-default = true
 		saved-params = "max-lines"
 		link-color = #0080c0
@@ -281,16 +279,6 @@ window "rpane"
 		group = "rpanemode"
 		button-type = pushbox
 
-window "computer"
-	elem "devicecomputer"
-		type = MAIN
-		size = 480x320
-        titlebar = false
-        statusbar = false
-        can-close = false
-        can-minimize = false
-        can-resize = false	
-
 window "browserwindow"
 	elem "browserwindow"
 		type = MAIN
@@ -334,12 +322,51 @@ window "infowindow"
 		size = 0x0
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = #ffffff
 		is-default = true
-		drop-zone = true
 		saved-params = ""
 		highlight-color = #00aa00
 		allow-html = false
 		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
 		on-hide = ".winset\"rpane.infob.is-visible=false;rpane.browseb.is-visible=true?rpane.browseb.is-checked=true rpane.rpanewindow.left=browserwindow:rpane.textb.is-visible=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=\""
+
+window "computer"
+	elem "computer"
+		type = MAIN
+		pos = 281,0
+		size = 480x320
+		anchor1 = none
+		anchor2 = none
+		background-color = #ff80ff
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		image = 'SYSTEM\\interface.png'
+		image-mode = tile
+		transparent-color = #ff80ff
+	elem "button1"
+		type = BUTTON
+		pos = 416,48
+		size = 32x32
+		anchor1 = none
+		anchor2 = none
+		text-color = #ffffff
+		background-color = #ffffff
+		saved-params = "is-checked"
+		text = ""
+		image = 'button.png'
+		command = ""
+		is-flat = true
+		button-type = pushbox
+	elem "screen_browser"
+		type = BROWSER
+		pos = 32,32
+		size = 358x253
+		anchor1 = none
+		anchor2 = none
+		background-color = #000000
+		saved-params = ""
 
