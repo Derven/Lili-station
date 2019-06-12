@@ -4,6 +4,7 @@
 		screen_loc = "SOUTH-1, WEST+2"
 
 		Click()
+			iam << 'button.ogg'
 			iam.switch_intent()
 			if(iam.intent == 0)
 				icon_state = "harm"

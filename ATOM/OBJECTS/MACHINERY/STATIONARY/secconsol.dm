@@ -5,6 +5,10 @@
 	icon_state = "sec_consol"
 	var/list/control = new/list()
 
+	New()
+		..()
+		initUI(list("doors", "flasher"), list("action=door", "action=flasher"))
+
 /obj/machinery/consol/brigdoor_control/echair
 	name = "execution console"
 	icon = 'stationobjs.dmi'
@@ -25,6 +29,10 @@
 	var/list/camera_list = new/list()
 	icon_state = "sec_consol"
 
+	New()
+		..()
+		initUI(list("off"), list("closemepls=1"))
+
 var/CAMid = 0
 
 /obj/machinery/camera
@@ -36,14 +44,13 @@ var/CAMid = 0
 		id = CAMid
 
 /obj/machinery/consol/camera_control/attack_hand()
-	var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
-	body += "<body>Camera system consol:<hr><table class=\"pure-table\"><thead><tr><th>Camera</th><th>Coordinates</th></tr></thead><tbody>"
+	var/body = "Camera | Coordinates<br>"
 	var/i = 0
 	for(var/obj/machinery/camera/C in world)
 		i += 1
-		body += "<tr><td>camera #<a href='?src=\ref[src];cid=[C.id];'>[i]</a></td><td>[C.x];[C.y]</td></tr>"
-	body += "</tbody></table><hr><a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];closemepls=1;'>exit</a></html></body>"
-	usr << browse(body,"window=computercam;can_close=0")
+		body += "camera #<a href='?src=\ref[src];cid=[C.id];'>[i]</a>|[C.x];[C.y]<br>"
+	COMPUTER.browseme(usr, body)
+	//usr << browse(body,"window=computercam;can_close=0")
 
 /obj/machinery/consol/camera_control/Topic(href,href_list[])
 	if(usr.check_topic(src))
@@ -59,9 +66,8 @@ var/CAMid = 0
 			usr << browse(null, "window=computercam")
 
 /obj/machinery/consol/brigdoor_control/attack_hand()
-	var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
-	body += "<body>Brig system consol:<hr><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];action=door;'>close/open door</a><br><br><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];action=flasher;'>flasher</a></html></body>"
-	usr << browse(body,"window=computer")
+	COMPUTER.browseme(usr, "Brig system control")
+
 /*
 mob/verb/debug_start()
 	Move(pick(jobmarks))

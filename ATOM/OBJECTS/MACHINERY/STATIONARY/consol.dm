@@ -1,6 +1,13 @@
 var/consolid = 0
 var/messages = ""
 
+/obj/machinery
+	var/datum/UI/COMPUTER
+
+	proc/initUI(var/list/bnames, var/list/bhrefs)
+		COMPUTER = new /datum/UI()
+		COMPUTER.initUI(bnames, bhrefs, src, "computer")
+
 /obj/machinery/consol
 	name = "consol"
 	anchored = 1
@@ -38,6 +45,20 @@ var/messages = ""
 			usr << browse(null, "window=computermessage")
 			usr << browse(messages, "window=computermessage")
 
+	newUI
+
+
+		New()
+			..()
+			initUI(list("hello", "world"), list("hello=1", "world=2"))
+
+		attack_hand()
+			COMPUTER.updateUI("helloworld")
+			COMPUTER.browseme(usr, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,\
+			sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?\
+			Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,\
+			vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?")
 
 /obj/machinery/serverbox
 	icon = 'stationobjs.dmi'
@@ -227,6 +248,10 @@ var/messages = ""
 		name = "ID-access console"
 		var/obj/item/clothing/id/MYID
 
+		New()
+			..()
+			initUI(list("eject"), list("eject=1"))
+
 		proc/replace_id(var/mob/M, var/datum/id/IDC)
 			if(MYID)
 				MYID.ID = IDC
@@ -241,16 +266,15 @@ var/messages = ""
 					MYID = O
 
 		proc/consol_interface()
-			var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
-			body += "<body>ID access system control:<hr><table class=\"pure-table\"><thead><tr><th>#Num</th><th>Access</th></tr></thead><tbody>"
-			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=1;'>Basic</a></td></tr>"
-			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=2;'>Assistant</a></td></tr>"
-			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=3;'>Captain</a></td></tr>"
-			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=4;'>Security</a></td></tr>"
-			body += "<tr><td>1#</td><td><a href='?src=\ref[src];access=5;'>Doctor</a></td></tr>"
+			var/body = ""
+			body += "ID access system control<br>"
+			body += "<a href='?src=\ref[src];access=1;'>Basic</a><br>"
+			body += "<a href='?src=\ref[src];access=2;'>Assistant</a><br>"
+			body += "<a href='?src=\ref[src];access=3;'>Captain</a><br>"
+			body += "<a href='?src=\ref[src];access=4;'>Security</a><br>"
+			body += "<a href='?src=\ref[src];access=5;'>Doctor</a><br>"
 			body += "<br>State: [MYID ? "[MYID.ID.accessname];[MYID.name]" : "no"]"
-			body += "</tbody></table><hr><a class=\"pure-button pure-button-primary\" href='?src=\ref[src];eject=1;'>eject</a></html></body>"
-			usr << browse(body,"window=idcontrol")
+			COMPUTER.browseme(usr, body)
 
 		attack_hand()
 			consol_interface()
@@ -316,15 +340,20 @@ var/messages = ""
 	anchored = 2
 	icon_state = "command"
 
+	New()
+		..()
+		initUI(list("off"), list("closemepls=1"))
+
+
 	attack_hand()
-		var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
-		body += "<body>Superterminal:<hr><table class=\"pure-table\"><thead><tr><th>Consol</th><th>Coordinates</th></tr></thead><tbody>"
+		//var/body = "<html><head><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"></head>"
+		var/body = "Consol|Coordinates <br>"
 		var/i = 0
 		for(var/obj/machinery/consol/C in world)
 			i += 1
-			body += "<tr><td>consol #<a href='?src=\ref[src];cid=[C.conid];'>[i]</a></td><td>[C.x];[C.y]</td></tr>"
-		body += "</tbody></table><hr><a class=\"pure-button pure-button-primary\"  href='?src=\ref[src];closemepls=1;'>exit</a></html></body>"
+			body += "consol #<a href='?src=\ref[src];cid=[C.conid];'>[i]</a>|[C.x];[C.y]<br>"
 		usr << browse(body,"window=computercon;can_close=0")
+		COMPUTER.browseme(usr, body)
 
 /obj/machinery/consol/superterminal/Topic(href,href_list[])
 	if(usr.check_topic(src))

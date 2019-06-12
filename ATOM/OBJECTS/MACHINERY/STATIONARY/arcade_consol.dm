@@ -23,21 +23,16 @@
 	if(..())
 		return
 	dat = "<a href='byond://?src=\ref[src];close=1'>Close</a>"
-	dat += "<center><h4>[src.enemy_name]</h4></center>"
+	dat += "<br>[src.enemy_name]"
 
-	dat += "<br><center><h3>[src.temp]</h3></center>"
-	dat += "<br><center>Health: [src.player_hp] | Magic: [src.player_mp] | Enemy Health: [src.enemy_hp]</center>"
+	dat += "<br>[src.temp]"
+	dat += "<br>Health: [src.player_hp] | Magic: [src.player_mp] | Enemy Health: [src.enemy_hp]"
 
 	if (src.gameover)
-		dat += "<center><b><a href='byond://?src=\ref[src];newgame=1'>New Game</a>"
-	else
-		dat += "<center><b><a href='byond://?src=\ref[src];attack=1'>Attack</a> | "
-		dat += "<a href='byond://?src=\ref[src];heal=1'>Heal</a> | "
-		dat += "<a href='byond://?src=\ref[src];charge=1'>Recharge Power</a>"
-
-	dat += "</b></center>"
-
-	user << browse(dat, "window=arcade")
+		dat += "<a href='byond://?src=\ref[src];newgame=1'>New Game</a>"
+	initUI(list("Attack", "Heal", "Power"), list("attack=1", "heal=1", "charge=1"))
+	COMPUTER.updateUI(dat)
+	COMPUTER.browseme(usr, dat)
 	onclose(user, "arcade")
 	return
 

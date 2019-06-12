@@ -4,6 +4,7 @@
 		screen_loc = "SOUTH-1, WEST+3"
 
 		Click()
+			iam << 'button.ogg'
 			var/mob/simulated/living/humanoid/H = iam
 			if(H.hand && H.l_hand)
 				icon_state = "throw2"

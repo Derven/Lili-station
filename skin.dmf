@@ -281,6 +281,16 @@ window "rpane"
 		group = "rpanemode"
 		button-type = pushbox
 
+window "computer"
+	elem "devicecomputer"
+		type = MAIN
+		size = 480x320
+        titlebar = false
+        statusbar = false
+        can-close = false
+        can-minimize = false
+        can-resize = false	
+
 window "browserwindow"
 	elem "browserwindow"
 		type = MAIN
