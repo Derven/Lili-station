@@ -25,7 +25,7 @@
 		usr << browse(body,"window=computer")
 
 /obj/machinery/consol/camera_control
-	name = "security camera monitor"
+	name = "computercam"
 	var/list/camera_list = new/list()
 	icon_state = "sec_consol"
 

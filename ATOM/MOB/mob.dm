@@ -1,5 +1,6 @@
 var/list/restartY = list()
 var/list/restartN = list()
+var/restarted = 0
 
 /mob/var/usrcolor
 /datum/restarter
@@ -16,18 +17,22 @@ var/datum/restarter/reSTARter = new /datum/restarter()
 /mob
 	verb/vote_restart()
 		set category = "OOC"
-		restartY.Cut()
-		restartN.Cut()
-		for(var/mob/M in world)
-			if(M.client)
-				M << "\red <h3>Vote for restart</h3>"
-				M << "<a href='?src=\ref[reSTARter];yesorno=y'>Y</a>;<a href='?src=\ref[reSTARter];yesorno=n'>N</a>"
-		spawn(500)
-			if(length(restartY) > length(restartN))
-				world << "\blue <h1>THE WORLD reSTARded***</h1>"
-				world.Reboot(1)
-			else
-				world << "No restart"
+		if(restarted == 0)
+			restarted = 1
+			restartY.Cut()
+			restartN.Cut()
+			for(var/mob/M in world)
+				if(M.client)
+					M << "\red <h3>Vote for restart</h3>"
+					M << "<a href='?src=\ref[reSTARter];yesorno=y'>Y</a>;<a href='?src=\ref[reSTARter];yesorno=n'>N</a>"
+			spawn(500)
+				if(length(restartY) > length(restartN))
+					world << "\blue <h1>THE WORLD reSTARded***</h1>"
+					world.Reboot(1)
+					restarted = 0
+				else
+					world << "No restart"
+					restarted = 0
 
 	proc/myclick(var/atom/A)
 		var/mob/simulated/living/humanoid/H = usr

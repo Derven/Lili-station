@@ -151,6 +151,11 @@
 				if(!step_towards(src.pulling, oldloc))
 					update_pulling()
 
+		if(client)
+			client.perspective = EDGE_PERSPECTIVE
+			client.eye = client.mob
+			src << browse(null, "window=computercam")
+
 	create_hud(var/client/C)
 		if(C)
 			for(var/datum/organ/external/EX in organs)
