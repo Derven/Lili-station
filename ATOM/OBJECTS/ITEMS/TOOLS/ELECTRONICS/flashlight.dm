@@ -3,6 +3,7 @@
 	desc = "A hand-held emergency light."
 	icon = 'tools.dmi'
 	icon_state = "flashlight"
+	inhandstate = "flashlight"
 	var/on = 0
 	var/brightness_on = 5 //luminosity when on
 

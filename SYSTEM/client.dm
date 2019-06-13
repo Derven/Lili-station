@@ -137,8 +137,6 @@ client
 				else
 					sleep(1) //placeholder
 				speeding = 0
-			else
-				return
 
 	New()
 		if(src.ckey in admins)
