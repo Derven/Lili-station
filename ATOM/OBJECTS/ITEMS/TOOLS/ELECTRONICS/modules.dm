@@ -140,6 +140,7 @@
 /obj/item/ai_module
 	icon = 'tools.dmi'
 	icon_state = "disc"
+	name = "AI module"
 	var/datum/AI/ai
 	var/client/client
 

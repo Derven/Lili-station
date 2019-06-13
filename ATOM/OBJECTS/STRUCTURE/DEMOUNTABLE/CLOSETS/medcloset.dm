@@ -41,6 +41,13 @@
 				new /obj/item/clothing/suit/soviet(src)
 				new /obj/item/clothing/suit/soviet(src)
 
+		coffin
+			name = "coffin"
+			desc = "It's a coffin!"
+			icon_state = "coffin"
+			icon_closed = "coffin"
+			icon_opened = "coffin_open"
+
 	oxycrate
 		name = "blue crate"
 		icon_state = "crate_oxygen"

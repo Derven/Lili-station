@@ -27,6 +27,7 @@
 			del(HeArT)
 
 /obj/item/weapon/scalpel
+	name = "scalpel"
 	icon = 'surgery.dmi'
 	icon_state = "scalpel1"
 	force = 10
@@ -46,6 +47,7 @@
 
 /obj/item/weapon/bandage
 	icon = 'surgery.dmi'
+	name = "bandage"
 	icon_state = "bandage-item-3"
 
 	afterattack(atom/target, mob/user , flag)

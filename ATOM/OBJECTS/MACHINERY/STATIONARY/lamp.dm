@@ -29,6 +29,10 @@
 	load = 5
 	var/datum/emodule/central/basic_power_controller/BPC
 
+	attack_hand()
+		usr << "\red You burned your hand, paw the lamp was stupid ideas."
+		usr:rand_damage(7, 12)
+
 	New()
 		..()
 		charge = 0

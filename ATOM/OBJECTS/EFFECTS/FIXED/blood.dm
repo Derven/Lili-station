@@ -1,5 +1,7 @@
 //ok
 /obj/blood
+	name = "blood"
+	desc = "red luqid mess"
 	icon = 'blood.dmi'
 	anchored = 1
 

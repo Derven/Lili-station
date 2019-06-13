@@ -14,6 +14,7 @@
 /obj/item/weapon/soap
 	icon = 'tools.dmi'
 	icon_state = "soap"
+	name = "soap"
 
 	afterattack(atom/target, mob/user , flag)
 		if(istype(target, /turf/simulated/floor))

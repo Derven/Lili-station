@@ -58,6 +58,7 @@
 		if(usr.check_topic(src))
 			if(href_list["clothing"])
 				var/mob/simulated/living/humanoid/H = my_last_looting
+				usr << "\blue You trying to take off [H.cloth]"
 				if(do_after(10))
 					//
 					var/obj/item/clothing/clthg = H.cloth
@@ -71,6 +72,7 @@
 
 			if(href_list["r_hand"])
 				var/mob/simulated/living/humanoid/H = my_last_looting
+				usr << "\blue You trying to take off [H.r_hand]"
 				if(do_after(10))
 					var/obj/item/clthg = H.r_hand
 					if(clthg)
@@ -85,6 +87,7 @@
 
 			if(href_list["pda"])
 				var/mob/simulated/living/humanoid/H = my_last_looting
+				usr << "\blue You trying to take off [H.PDA]"
 				if(do_after(10))
 					var/obj/item/clthg = H.PDA
 					clthg.invisibility = 0
@@ -97,6 +100,7 @@
 
 			if(href_list["l_hand"])
 				var/mob/simulated/living/humanoid/H = my_last_looting
+				usr << "\blue You trying to take off [H.l_hand]"
 				if(do_after(10))
 					var/obj/item/clthg = H.l_hand
 					if(clthg)
@@ -111,6 +115,7 @@
 
 			if(href_list["idcard"])
 				var/mob/simulated/living/humanoid/H = my_last_looting
+				usr << "\blue You trying to take off [H.id]"
 				if(do_after(10))
 					var/obj/item/clthg = H.id
 					clthg.invisibility = 0
@@ -122,6 +127,7 @@
 
 			if(href_list["backpack"])
 				var/mob/simulated/living/humanoid/H = my_last_looting
+				usr << "\blue You trying to take off [H.back]"
 				if(do_after(10))
 					var/obj/item/clthg = H.back
 					clthg.invisibility = 0

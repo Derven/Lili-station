@@ -38,6 +38,7 @@
 		projectile_type = "/obj/item/projectile/beam/stun"
 
 /obj/item/riflebullets
+	name = "holobullets"
 	icon = 'gun.dmi'
 	icon_state = "bullets"
 

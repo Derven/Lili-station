@@ -22,6 +22,7 @@
 
 /obj/item/cigpacket
 	icon = 'chemical.dmi'
+	name = "cigarettes"
 	icon_state = "cigs"
 	var/amount = 20
 

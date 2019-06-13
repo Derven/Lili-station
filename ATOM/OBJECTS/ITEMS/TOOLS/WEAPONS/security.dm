@@ -55,6 +55,7 @@
 /obj/item/bomb
 	var/bombtime = 25
 	var/power = 3
+	name = "bomb"
 	icon = 'tools.dmi'
 	icon_state = "bomb"
 

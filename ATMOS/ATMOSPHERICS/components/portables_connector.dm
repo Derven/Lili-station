@@ -130,13 +130,6 @@
 
 		return null
 
-
-	attack_hand()
-		if(node)
-			world << "debug"
-		if(on)
-			world << "debug1"
-
 	attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 		if (!istype(W, /obj/item/weapon/wrench))
 			return ..()

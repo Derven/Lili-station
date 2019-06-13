@@ -212,6 +212,7 @@ var/ids = 0
 
 /obj/item/clothing/suit
 	icon = 'suit.dmi'
+	name = "suit"
 	var/space_suit = 0
 
 /obj/item/clothing/suit/soviet

@@ -286,33 +286,39 @@ var/messages = ""
 						MYID.ID = null
 						MYID.ID = new /datum/id/(MYID)
 						MYID.idtype = /datum/id
+						usr << "You change [MYID] access"
 
 				if(href_list["access"] == "2")
 					if(MYID)
 						MYID.ID = null
 						MYID.ID = new /datum/id/assistant(MYID)
 						MYID.idtype = /datum/id/assistant
+						usr << "You change [MYID] access"
 
 				if(href_list["access"] == "3")
 					if(MYID)
 						MYID.ID = null
 						MYID.ID = new /datum/id/captain(MYID)
 						MYID.idtype = /datum/id/captain
+						usr << "You change [MYID] access"
 
 				if(href_list["access"] == "4")
 					if(MYID)
 						MYID.ID = null
 						MYID.ID = new /datum/id/security(MYID)
 						MYID.idtype = /datum/id/security
+						usr << "You change [MYID] access"
 
 				if(href_list["access"] == "5")
 					if(MYID)
 						MYID.ID = null
 						MYID.ID = new /datum/id/doctor(MYID)
 						MYID.idtype = /datum/id/doctor
+						usr << "You change [MYID] access"
 
 				if(href_list["eject"] == "1")
 					if(MYID)
+						usr << "You eject [MYID]"
 						var/obj/item/clothing/id/jid //job id
 						jid = new /obj/item/clothing/id(src.loc)
 						jid.name = MYID.name
@@ -339,6 +345,7 @@ var/messages = ""
 	name = "superterminal"
 	anchored = 2
 	icon_state = "command"
+	desc = "What do you see? Power..."
 
 	New()
 		..()

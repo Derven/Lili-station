@@ -226,6 +226,7 @@ mob/simulated/living/humanoid/parasite
 				new /obj/item/parasite_egg(src.loc)
 
 /obj/item/parasite_egg
+	name = "parasite egg"
 	icon = 'parasite.dmi'
 	icon_state = "p_egg"
 
