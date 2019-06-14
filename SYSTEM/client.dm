@@ -33,13 +33,13 @@ client
 		say_to_discord(text as message)
 			set category = "OOC"
 			world << "<b>[src]</b>: [html_encode(text)]"
-
+			var/F = file("discord.txt")
 			// Send the message to the Discord webhook.
 			HttpPost(
 				/* Replace this with the webhook URL that you can Copy in Discord's Edit Webhook panel.
 					It's best to use a global const for this and keep it secret so others can't use it.
 				*/
-				"https://discordapp.com/api/webhooks/582821653415854081/QOoagBD-EZXd2VNagDu56bn2uBV1-U-l5W1IaCU0pWth1OPtHF-9Fd9mLSpn4SOLI-XX",
+				"[file2text(F)]",
 
 				/*
 				[content] is required and can't be blank.
@@ -51,6 +51,33 @@ client
 				*/
 				list(
 					content = text,
+					username = key
+				)
+			)
+
+	proc/what_do_you_want()
+		var/whatwant = ""
+		whatwant = input("What do you want to see in release?",
+		"Release",whatwant)
+		var/F = file("discord.txt")
+
+		// Send the message to the Discord webhook.
+		if(whatwant != "" || whatwant != " ")
+			HttpPost(
+				/* Replace this with the webhook URL that you can Copy in Discord's Edit Webhook panel.
+					It's best to use a global const for this and keep it secret so others can't use it.
+				*/
+				"[file2text(F)]",
+
+				/*
+				[content] is required and can't be blank.
+				It's the message posted by the webhook.
+				[avatar_url] and [username] are optional.
+				They're taken from your key.
+				They override the webhook's name and avatar for the post.
+				*/
+				list(
+					content = whatwant,
 					username = key
 				)
 			)

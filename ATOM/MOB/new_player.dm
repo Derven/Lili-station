@@ -29,6 +29,7 @@ var/chaplain_in_game = 0 //max 1
 			C.screen += lobby
 			var/F = file("players.txt")
 			F << "[client.ckey];[time2text(world.timeofday,"YYYY:MM:DD:hh:mm:ss")]"
+			C.what_do_you_want()
 
 	proc/show_lobby()
 		usr << browse(null,"window=setup")
