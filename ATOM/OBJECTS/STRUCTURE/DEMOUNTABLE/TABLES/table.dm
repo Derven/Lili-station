@@ -13,6 +13,13 @@
 		//if(usr.do_after(15))
 		//	move_on(usr)
 
+	glass
+		icon = 'tableglass.dmi'
+
+	wood
+		icon = 'tablewood.dmi'
+		color = null
+
 	zlevel_2
 		ZLevel = 2
 		pixel_z = 32

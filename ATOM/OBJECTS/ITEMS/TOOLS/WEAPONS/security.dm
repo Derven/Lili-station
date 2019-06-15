@@ -51,6 +51,8 @@
 	icon = 'tools.dmi'
 	icon_state = "handcuffs"
 	force = 2
+	layer = 15
+	pixel_z = 10
 
 /obj/item/bomb
 	var/bombtime = 25

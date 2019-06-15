@@ -25,7 +25,7 @@ proc/savemap()
 	/*
 		The save() verb saves a map with name "[map_name].dmm".
 		*/
-	var/map_name = "shaftpost"
+	var/map_name = "metatest"
 	var/dmm_suite/D = new()
 	var/turf/south_west_deep = locate(1,1,1)
 	var/turf/north_east_shallow = locate(world.maxx,world.maxy,world.maxz)

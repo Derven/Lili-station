@@ -39,3 +39,8 @@
 		if(istype(O, /mob))
 			var/mob/M = O
 			M.stunned += rand(3,7)
+
+/obj/dirt
+	icon = 'blood.dmi'
+	icon_state = "dirt"
+	layer = 2
