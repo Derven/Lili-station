@@ -13,7 +13,15 @@
 		icon = 'closet.dmi'
 		icon_state = "sec_closed"
 		icon_closed = "sec_closed"
-		icon_opened = "sec_closed"
+		icon_opened = "sec_open"
+
+	eng
+		name = "engineering closet"
+		desc = "It's a closet for the storage of engenireeng equipment."
+		icon = 'closet.dmi'
+		icon_state = "eng_closed"
+		icon_closed = "eng_closed"
+		icon_opened = "eng_open"
 
 	oxygen
 		name = "closet"
