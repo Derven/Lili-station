@@ -21,7 +21,6 @@
 #include "defines.dm"
 #include "isometris.dm"
 #include "skin.dmf"
-#include "metatest.dmm"
 #include "movement.dms"
 #include "ATMOS\ATMOSPHERICS\atmospherics.dm"
 #include "ATMOS\ATMOSPHERICS\datum_pipe_network.dm"
