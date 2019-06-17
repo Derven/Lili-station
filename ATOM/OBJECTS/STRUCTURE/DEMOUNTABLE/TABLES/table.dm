@@ -20,6 +20,9 @@
 		icon = 'tablewood.dmi'
 		color = null
 
+	casino
+		icon = 'tablecasino.dmi'
+
 	zlevel_2
 		ZLevel = 2
 		pixel_z = 32

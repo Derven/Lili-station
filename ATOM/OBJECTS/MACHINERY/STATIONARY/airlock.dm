@@ -134,6 +134,9 @@
 	green
 		icon = 'airlock_green.dmi'
 
+	science
+		icon = 'airlock_science.dmi'
+
 /obj/machinery/airlock/firedor
 	name = "firedoor"
 	icon = 'firedoor.dmi'
