@@ -124,7 +124,7 @@ CIRCULAR SAW
 	if(!istype(M))
 		return
 
-	if(!(locate(/obj/structure/table/, M.loc) && (M.lying || M.weakened || M.stunned || M.paralysis || M.sleeping || M.stat) && prob(50)))
+	if(!(locate(/obj/machinery/blood_rec, M.loc) && (M.lying || M.weakened || M.stunned || M.paralysis || M.sleeping || M.stat) && prob(50)))
 		return ..()
 
 	if (user.ZN_SEL.selecting == "eyes")
@@ -164,7 +164,7 @@ CIRCULAR SAW
 	if(!istype(M))
 		return
 
-	if((locate(/obj/structure/table/, M.loc) && M.lying && prob(50)))
+	if((locate(/obj/machinery/blood_rec, M.loc) && M.lying && prob(50)))
 		return ..()
 
 	if (user.ZN_SEL.selecting == "eyes")
@@ -203,7 +203,7 @@ CIRCULAR SAW
 	if(!istype(M))
 		return
 
-	if((locate(/obj/structure/table/, M.loc) && M.lying && prob(50)))
+	if((locate(/obj/machinery/blood_rec, M.loc) && M.lying && prob(50)))
 		return ..()
 
 	if (user.ZN_SEL.selecting == "eyes")
@@ -250,7 +250,7 @@ CIRCULAR SAW
 		M = user
 		return eyestab(M,user)
 
-	if((locate(/obj/structure/table/, M.loc) && M.lying && prob(50)))
+	if((locate(/obj/machinery/blood_rec, M.loc) && M.lying && prob(50)))
 		return ..()
 
 	if(user.ZN_SEL.selecting == "head")
@@ -360,7 +360,7 @@ CIRCULAR SAW
 		M = user
 		return eyestab(M,user)
 
-	if((locate(/obj/structure/table/, M.loc) && M.lying && prob(50)))
+	if((locate(/obj/machinery/blood_rec, M.loc) && M.lying && prob(50)))
 		return ..()
 
 	if(user.ZN_SEL.selecting == "head")
