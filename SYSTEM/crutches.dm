@@ -29,6 +29,10 @@ client/proc/clear_MYZL()
 	var/textList = dd_text2list(text, search_string)
 	return dd_list2text(textList, replacement_string)
 
+/atom/proc/visible_message(var/message, var/blind_message)
+	for(var/mob/M in viewers(src))
+		M.show_message( message, 1, blind_message, 2)
+
 /proc/dd_text2List(text, separator, var/list/withinList)
 	var/textlength = length(text)
 	var/separatorlength = length(separator)

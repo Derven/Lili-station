@@ -263,6 +263,7 @@
 #include "SYSTEM\NewUI.dm"
 #include "SYSTEM\proc.dm"
 #include "SYSTEM\sd_dynamic2.dm"
+#include "SYSTEM\surgery_tools.dm"
 #include "SYSTEM\admin\adminhelp.dm"
 #include "SYSTEM\admin\admins.dm"
 #include "SYSTEM\admin\bans.dm"

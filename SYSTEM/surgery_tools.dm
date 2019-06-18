@@ -1,3 +1,103 @@
+// damage ONE external organ, organ gets randomly selected from damaged ones.
+/mob/simulated/living/humanoid/proc/take_organ_damage(var/brute, var/burn)
+	bruteloss += brute
+	fireloss += burn
+	src.updatehealth()
+
+/obj/item/proc/eyestab(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user as mob)
+
+	//if((user.mutations & 16) && prob(50))
+	//	M = user
+		/*
+		M << "\red You stab yourself in the eye."
+		M.sdisabilities |= 1
+		M.weakened += 4
+		M.bruteloss += 10
+		*/
+
+	if(M != usr)
+		for(var/mob/O in (viewers(M) - usr - M))
+			O.show_message("\red [M] has been stabbed in the eye with [src] by [usr].", 1)
+		M << "\red [usr] stabs you in the eye with [src]!"
+		usr << "\red You stab [M] in the eye with [src]!"
+	else
+		user.visible_message( \
+			"\red [usr] has stabbed themself with [src]!", \
+			"\red You stab yourself in the eyes with [src]!" \
+		)
+	if(istype(M, /mob/simulated/living/humanoid))
+		var/datum/organ/external/affecting = M:organs["head"]
+		affecting.take_damage(7)
+	else
+		M.take_organ_damage(7)
+	M.eye_blurry += rand(3,4)
+	M.eye_stat += rand(2,4)
+	if (M.eye_stat >= 10)
+		M.eye_blurry += 15+(0.1*M.eye_blurry)
+		M.disabilities |= 1
+		if(M.stat != 2)
+			M << "\red Your eyes start to bleed profusely!"
+		if(prob(50))
+			if(M.stat != 2)
+				M << "\red You drop what you're holding and clutch at your eyes!"
+				M.drop_item()
+			M.eye_blurry += 10
+			M.paralysis += 1
+			M.weakened += 4
+		if (prob(M.eye_stat - 10 + 1))
+			if(M.stat != 2)
+				M << "\red You go blind!"
+			M.sdisabilities |= 1
+	return
+
+/obj/item/brain
+	icon = 'surgery.dmi'
+	icon_state = "brain"
+
+/obj/item/weapon/scalpel
+	name = "scalpel"
+	icon = 'surgery.dmi'
+	icon_state = "scalpel"
+	flags = FPRINT | TABLEPASS | CONDUCT
+	force = 10.0
+	w_class = 1.0
+	m_amt = 10000
+	g_amt = 5000
+	origin_tech = "materials=1;biotech=1"
+
+/obj/item/weapon/retractor
+	name = "retractor"
+	icon = 'surgery.dmi'
+	icon_state = "retractor"
+	flags = FPRINT | TABLEPASS | CONDUCT
+	w_class = 1.0
+	origin_tech = "materials=1;biotech=1"
+
+/obj/item/weapon/hemostat
+	name = "hemostat"
+	icon = 'surgery.dmi'
+	icon_state = "hemostat"
+	flags = FPRINT | TABLEPASS | CONDUCT
+	w_class = 1.0
+	origin_tech = "materials=1;biotech=1"
+
+/obj/item/weapon/cautery
+	name = "cautery"
+	icon = 'surgery.dmi'
+	icon_state = "cautery"
+	flags = FPRINT | TABLEPASS | CONDUCT
+	w_class = 1.0
+	origin_tech = "materials=1;biotech=1"
+
+/obj/item/weapon/surgicaldrill
+	name = "surgical drill"
+	icon = 'surgery.dmi'
+	icon_state = "drill"
+	flags = FPRINT | TABLEPASS | CONDUCT
+	w_class = 1.0
+	origin_tech = "materials=1;biotech=1"
+
+
 /*
 CONTAINS:
 RETRACTOR
@@ -12,35 +112,14 @@ CIRCULAR SAW
 /////////////
 //RETRACTOR//
 /////////////
-/obj/item/weapon/retractor/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/retractor/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user)
 	if(!istype(M))
 		return
 
-	if(!((locate(/obj/machinery/optable, M.loc) && M.resting) || (locate(/obj/table/, M.loc) && (M.lying || M.weakened || M.stunned || M.paralysis || M.sleeping || M.stat) && prob(50))))
+	if(!(locate(/obj/structure/table/, M.loc) && (M.lying || M.weakened || M.stunned || M.paralysis || M.sleeping || M.stat) && prob(50)))
 		return ..()
 
-	if (user.zone_sel.selecting == "eyes")
-
-		var/mob/living/carbon/human/H = M
-		if(istype(H) && ( \
-				(H.head && H.head.flags & HEADCOVERSEYES) || \
-				(H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || \
-				(H.glasses && H.glasses.flags & GLASSESCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		var/mob/living/carbon/monkey/Mo = M
-		if(istype(Mo) && ( \
-				(Mo.wear_mask && Mo.wear_mask.flags & MASKCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		if(istype(M, /mob/living/carbon/alien))//Aliens don't have eyes./N
-			user << "\red You cannot locate any eyes on this creature!"
-			return
-
+	if (user.ZN_SEL.selecting == "eyes")
 		switch(M.eye_op_stage)
 			if(1.0)
 				if(M != user)
@@ -55,7 +134,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/living/carbon/human))
+					if(istype(M, /mob/simulated/living/humanoid))
 						var/datum/organ/external/affecting = M:organs["head"]
 						affecting.take_damage(15)
 						M.updatehealth()
@@ -64,7 +143,7 @@ CIRCULAR SAW
 
 				M:eye_op_stage = 2.0
 
-	else if((!(user.zone_sel.selecting == "head")) || (!(user.zone_sel.selecting == "groin")) || (!(istype(M, /mob/living/carbon/human))))
+	else if((!(user.ZN_SEL.selecting == "head")) || (!(user.ZN_SEL.selecting == "groin")) || (!(istype(M, /mob/simulated/living/humanoid))))
 		return ..()
 
 	return
@@ -73,35 +152,14 @@ CIRCULAR SAW
 //Hemostat//
 ////////////
 
-/obj/item/weapon/hemostat/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/hemostat/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user)
 	if(!istype(M))
 		return
 
-	if(!((locate(/obj/machinery/optable, M.loc) && M.resting) || (locate(/obj/table/, M.loc) && M.lying && prob(50))))
+	if((locate(/obj/structure/table/, M.loc) && M.lying && prob(50)))
 		return ..()
 
-	if (user.zone_sel.selecting == "eyes")
-
-		var/mob/living/carbon/human/H = M
-		if(istype(H) && ( \
-				(H.head && H.head.flags & HEADCOVERSEYES) || \
-				(H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || \
-				(H.glasses && H.glasses.flags & GLASSESCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		var/mob/living/carbon/monkey/Mo = M
-		if(istype(Mo) && ( \
-				(Mo.wear_mask && Mo.wear_mask.flags & MASKCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		if(istype(M, /mob/living/carbon/alien))//Aliens don't have eyes./N
-			user << "\red You cannot locate any eyes on this creature!"
-			return
-
+	if (user.ZN_SEL.selecting == "eyes")
 		switch(M.eye_op_stage)
 			if(2.0)
 				if(M != user)
@@ -116,7 +174,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/living/carbon/human))
+					if(istype(M, /mob/simulated/living/humanoid))
 						var/datum/organ/external/affecting = M:organs["head"]
 						affecting.take_damage(15)
 						M.updatehealth()
@@ -124,7 +182,7 @@ CIRCULAR SAW
 						M.take_organ_damage(15)
 				M:eye_op_stage = 3.0
 
-	else if((!(user.zone_sel.selecting == "head")) || (!(user.zone_sel.selecting == "groin")) || (!(istype(M, /mob/living/carbon/human))))
+	else if((!(user.ZN_SEL.selecting == "head")) || (!(user.ZN_SEL.selecting == "groin")) || (!(istype(M, /mob/simulated/living/humanoid))))
 		return ..()
 
 	return
@@ -133,35 +191,14 @@ CIRCULAR SAW
 //Cautery//
 ///////////
 
-/obj/item/weapon/cautery/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/cautery/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user as mob)
 	if(!istype(M))
 		return
 
-	if(!((locate(/obj/machinery/optable, M.loc) && M.resting) || (locate(/obj/table/, M.loc) && M.lying && prob(50))))
+	if((locate(/obj/structure/table/, M.loc) && M.lying && prob(50)))
 		return ..()
 
-	if (user.zone_sel.selecting == "eyes")
-
-		var/mob/living/carbon/human/H = M
-		if(istype(H) && ( \
-				(H.head && H.head.flags & HEADCOVERSEYES) || \
-				(H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || \
-				(H.glasses && H.glasses.flags & GLASSESCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		var/mob/living/carbon/monkey/Mo = M
-		if(istype(Mo) && ( \
-				(Mo.wear_mask && Mo.wear_mask.flags & MASKCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		if(istype(M, /mob/living/carbon/alien))//Aliens don't have eyes./N
-			user << "\red You cannot locate any eyes on this creature!"
-			return
-
+	if (user.ZN_SEL.selecting == "eyes")
 		switch(M.eye_op_stage)
 			if(3.0)
 				if(M != user)
@@ -176,7 +213,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/living/carbon/human))
+					if(istype(M, /mob/simulated/living/humanoid))
 						var/datum/organ/external/affecting = M:organs["head"]
 						affecting.take_damage(15)
 						M.updatehealth()
@@ -185,7 +222,7 @@ CIRCULAR SAW
 				M.sdisabilities &= ~1
 				M:eye_op_stage = 0.0
 
-	else if((!(user.zone_sel.selecting == "head")) || (!(user.zone_sel.selecting == "groin")) || (!(istype(M, /mob/living/carbon/human))))
+	else if((!(user.ZN_SEL.selecting == "head")) || (!(user.ZN_SEL.selecting == "groin")) || (!(istype(M, /mob/simulated/living/humanoid))))
 		return ..()
 
 	return
@@ -197,37 +234,18 @@ CIRCULAR SAW
 ///////////
 //SCALPEL//
 ///////////
-/obj/item/weapon/scalpel/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/scalpel/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user)
 	if(!istype(M))
 		return ..()
 
-	if((user.mutations & 16) && prob(50))
+	if(prob(50))
 		M = user
 		return eyestab(M,user)
 
-	if(!((locate(/obj/machinery/optable, M.loc) && M.resting) || (locate(/obj/table/, M.loc) && M.lying && prob(50))))
+	if((locate(/obj/structure/table/, M.loc) && M.lying && prob(50)))
 		return ..()
 
-	src.add_fingerprint(user)
-
-	if(user.zone_sel.selecting == "head")
-
-		var/mob/living/carbon/human/H = M
-		if(istype(H) && ( \
-				(H.head && H.head.flags & HEADCOVERSEYES) || \
-				(H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || \
-				(H.glasses && H.glasses.flags & GLASSESCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		var/mob/living/carbon/monkey/Mo = M
-		if(istype(Mo) && ( \
-				(Mo.wear_mask && Mo.wear_mask.flags & MASKCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
+	if(user.ZN_SEL.selecting == "head")
 		switch(M:brain_op_stage)
 			if(0.0)
 				if(M != user)
@@ -243,13 +261,13 @@ CIRCULAR SAW
 
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/living/carbon/human))
+					if(istype(M, /mob/simulated/living/humanoid))
 						var/datum/organ/external/affecting = M:organs["head"]
 						affecting.take_damage(15)
 					else
 						M.take_organ_damage(15)
 
-				if(istype(M, /mob/living/carbon/human))
+				if(istype(M, /mob/simulated/living/humanoid))
 					var/datum/organ/external/affecting = M:organs["head"]
 					affecting.take_damage(7)
 				else
@@ -270,13 +288,13 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You nick an artery!"
-					if(istype(M, /mob/living/carbon/human))
+					if(istype(M, /mob/simulated/living/humanoid))
 						var/datum/organ/external/affecting = M:organs["head"]
 						affecting.take_damage(75)
 					else
 						M.take_organ_damage(75)
 
-				if(istype(M, /mob/living/carbon/human))
+				if(istype(M, /mob/simulated/living/humanoid))
 					var/datum/organ/external/affecting = M:organs["head"]
 					affecting.take_damage(7)
 				else
@@ -288,29 +306,8 @@ CIRCULAR SAW
 				..()
 		return
 
-	else if(user.zone_sel.selecting == "eyes")
+	else if(user.ZN_SEL.selecting == "eyes")
 		user << "\blue So far so good."
-
-		var/mob/living/carbon/human/H = M
-		if(istype(H) && ( \
-				(H.head && H.head.flags & HEADCOVERSEYES) || \
-				(H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || \
-				(H.glasses && H.glasses.flags & GLASSESCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		var/mob/living/carbon/monkey/Mo = M
-		if(istype(Mo) && ( \
-				(Mo.wear_mask && Mo.wear_mask.flags & MASKCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		if(istype(M, /mob/living/carbon/alien))//Aliens don't have eyes./N
-			user << "\red You cannot locate any eyes on this creature!"
-			return
-
 		switch(M:eye_op_stage)
 			if(0.0)
 				if(M != user)
@@ -325,7 +322,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/living/carbon/human))
+					if(istype(M, /mob/simulated/living/humanoid))
 						var/datum/organ/external/affecting = M:organs["head"]
 						affecting.take_damage(15)
 					else
@@ -338,7 +335,7 @@ CIRCULAR SAW
 	else
 		return ..()
 /* wat
-	else if((!(user.zone_sel.selecting == "head")) || (!(user.zone_sel.selecting == "groin")) || (!(istype(M, /mob/living/carbon/human))))
+	else if((!(user.ZN_SEL.selecting == "head")) || (!(user.ZN_SEL.selecting == "groin")) || (!(istype(M, /mob/simulated/living/humanoid))))
 		return ..()
 */
 	return
@@ -347,37 +344,18 @@ CIRCULAR SAW
 ////////////////
 //CIRCULAR SAW//
 ////////////////
-/obj/item/weapon/circular_saw/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/weapon/circular_saw/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user)
 	if(!istype(M))
 		return ..()
 
-	if((user.mutations & 16) && prob(50))
+	if(prob(50))
 		M = user
 		return eyestab(M,user)
 
-	if(!((locate(/obj/machinery/optable, M.loc) && M.resting) || (locate(/obj/table/, M.loc) && M.lying && prob(50))))
+	if((locate(/obj/structure/table/, M.loc) && M.lying && prob(50)))
 		return ..()
 
-	src.add_fingerprint(user)
-
-	if(user.zone_sel.selecting == "head")
-
-		var/mob/living/carbon/human/H = M
-		if(istype(H) && ( \
-				(H.head && H.head.flags & HEADCOVERSEYES) || \
-				(H.wear_mask && H.wear_mask.flags & MASKCOVERSEYES) || \
-				(H.glasses && H.glasses.flags & GLASSESCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
-		var/mob/living/carbon/monkey/Mo = M
-		if(istype(Mo) && ( \
-				(Mo.wear_mask && Mo.wear_mask.flags & MASKCOVERSEYES) \
-			))
-			user << "\red You're going to need to remove that mask/helmet/glasses first."
-			return
-
+	if(user.ZN_SEL.selecting == "head")
 		switch(M:brain_op_stage)
 			if(1.0)
 				if(M != user)
@@ -392,14 +370,14 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/living/carbon/human))
+					if(istype(M, /mob/simulated/living/humanoid))
 						var/datum/organ/external/affecting = M:organs["head"]
 						affecting.take_damage(40)
 						M.updatehealth()
 					else
 						M.take_organ_damage(40)
 
-				if(istype(M, /mob/living/carbon/human))
+				if(istype(M, /mob/simulated/living/humanoid))
 					var/datum/organ/external/affecting = M:organs["head"]
 					affecting.take_damage(7)
 				else
@@ -423,8 +401,7 @@ CIRCULAR SAW
 				M:brain_op_stage = 4.0
 				M.death()
 
-				var/obj/item/brain/B = new (M.loc)
-				B.owner = M
+				new /obj/item/brain(M.loc)
 			else
 				..()
 		return
@@ -432,7 +409,7 @@ CIRCULAR SAW
 	else
 		return ..()
 /*
-	else if((!(user.zone_sel.selecting == "head")) || (!(user.zone_sel.selecting == "groin")) || (!(istype(M, /mob/living/carbon/human))))
+	else if((!(user.ZN_SEL.selecting == "head")) || (!(user.ZN_SEL.selecting == "groin")) || (!(istype(M, /mob/simulated/living/humanoid))))
 		return ..()
 */
 	return
