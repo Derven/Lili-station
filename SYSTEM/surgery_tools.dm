@@ -25,10 +25,6 @@
 			"\red [usr] has stabbed themself with [src]!", \
 			"\red You stab yourself in the eyes with [src]!" \
 		)
-	if(istype(M, /mob/simulated/living/humanoid))
-		var/datum/organ/external/affecting = M:organs["head"]
-		affecting.take_damage(7)
-	else
 		M.take_organ_damage(7)
 	M.eye_blurry += rand(3,4)
 	M.eye_stat += rand(2,4)
@@ -74,6 +70,7 @@
 	origin_tech = "materials=1;biotech=1"
 	pixel_z = 24
 	layer = 3
+	ignore_ZLEVEL = 1
 
 /obj/item/weapon/hemostat
 	name = "hemostat"
@@ -84,6 +81,7 @@
 	origin_tech = "materials=1;biotech=1"
 	pixel_z = 25
 	layer = 3
+	ignore_ZLEVEL = 1
 
 /obj/item/weapon/cautery
 	name = "cautery"
@@ -94,6 +92,7 @@
 	origin_tech = "materials=1;biotech=1"
 	pixel_z = 30
 	layer = 3
+	ignore_ZLEVEL = 1
 
 /obj/item/weapon/surgicaldrill
 	name = "surgical drill"
@@ -104,7 +103,18 @@
 	origin_tech = "materials=1;biotech=1"
 	pixel_z = 30
 	layer = 3
+	ignore_ZLEVEL = 1
 
+/obj/item/weapon/circular_saw
+	name = "circular_saw"
+	icon = 'surgery.dmi'
+	icon_state = "saw"
+	flags = FPRINT | TABLEPASS | CONDUCT
+	w_class = 1.0
+	origin_tech = "materials=1;biotech=1"
+	pixel_z = 6
+	layer = 3
+	ignore_ZLEVEL = 1
 
 /*
 CONTAINS:
@@ -120,12 +130,10 @@ CIRCULAR SAW
 /////////////
 //RETRACTOR//
 /////////////
-/obj/item/weapon/retractor/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user)
+/obj/item/weapon/retractor/afterattack(var/mob/simulated/living/humanoid/M)
+	var/mob/simulated/living/humanoid/user = usr
 	if(!istype(M))
 		return
-
-	if(!(locate(/obj/machinery/blood_rec, M.loc) && (M.lying || M.weakened || M.stunned || M.paralysis || M.sleeping || M.stat) && prob(50)))
-		return ..()
 
 	if (user.ZN_SEL.selecting == "eyes")
 		switch(M.eye_op_stage)
@@ -142,12 +150,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/simulated/living/humanoid))
-						var/datum/organ/external/affecting = M:organs["head"]
-						affecting.take_damage(15)
-						M.updatehealth()
-					else
-						M.take_organ_damage(15)
+					M.take_organ_damage(15)
 
 				M:eye_op_stage = 2.0
 
@@ -160,12 +163,10 @@ CIRCULAR SAW
 //Hemostat//
 ////////////
 
-/obj/item/weapon/hemostat/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user)
+/obj/item/weapon/hemostat/afterattack(var/mob/simulated/living/humanoid/M)
+	var/mob/simulated/living/humanoid/user = usr
 	if(!istype(M))
 		return
-
-	if((locate(/obj/machinery/blood_rec, M.loc) && M.lying && prob(50)))
-		return ..()
 
 	if (user.ZN_SEL.selecting == "eyes")
 		switch(M.eye_op_stage)
@@ -182,12 +183,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/simulated/living/humanoid))
-						var/datum/organ/external/affecting = M:organs["head"]
-						affecting.take_damage(15)
-						M.updatehealth()
-					else
-						M.take_organ_damage(15)
+					M.take_organ_damage(15)
 				M:eye_op_stage = 3.0
 
 	else if((!(user.ZN_SEL.selecting == "head")) || (!(user.ZN_SEL.selecting == "groin")) || (!(istype(M, /mob/simulated/living/humanoid))))
@@ -199,12 +195,10 @@ CIRCULAR SAW
 //Cautery//
 ///////////
 
-/obj/item/weapon/cautery/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user as mob)
+/obj/item/weapon/cautery/afterattack(var/mob/simulated/living/humanoid/M)
+	var/mob/simulated/living/humanoid/user = usr
 	if(!istype(M))
 		return
-
-	if((locate(/obj/machinery/blood_rec, M.loc) && M.lying && prob(50)))
-		return ..()
 
 	if (user.ZN_SEL.selecting == "eyes")
 		switch(M.eye_op_stage)
@@ -242,15 +236,10 @@ CIRCULAR SAW
 ///////////
 //SCALPEL//
 ///////////
-/obj/item/weapon/scalpel/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user)
+/obj/item/weapon/scalpel/afterattack(var/mob/simulated/living/humanoid/M)
+	var/mob/simulated/living/humanoid/user = usr
+
 	if(!istype(M))
-		return ..()
-
-	if(prob(50))
-		M = user
-		return eyestab(M,user)
-
-	if((locate(/obj/machinery/blood_rec, M.loc) && M.lying && prob(50)))
 		return ..()
 
 	if(user.ZN_SEL.selecting == "head")
@@ -269,20 +258,10 @@ CIRCULAR SAW
 
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/simulated/living/humanoid))
-						var/datum/organ/external/affecting = M:organs["head"]
-						affecting.take_damage(15)
-					else
-						M.take_organ_damage(15)
+					M.take_organ_damage(15)
 
-				if(istype(M, /mob/simulated/living/humanoid))
-					var/datum/organ/external/affecting = M:organs["head"]
-					affecting.take_damage(7)
-				else
-					M.take_organ_damage(7)
-
-				M.updatehealth()
-				M:brain_op_stage = 1.0
+				//M.updatehealth()
+				M.brain_op_stage = 1.0
 			if(2.0)
 				if(M != user)
 					for(var/mob/O in (viewers(M) - user - M))
@@ -296,17 +275,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You nick an artery!"
-					if(istype(M, /mob/simulated/living/humanoid))
-						var/datum/organ/external/affecting = M:organs["head"]
-						affecting.take_damage(75)
-					else
-						M.take_organ_damage(75)
-
-				if(istype(M, /mob/simulated/living/humanoid))
-					var/datum/organ/external/affecting = M:organs["head"]
-					affecting.take_damage(7)
-				else
-					M.take_organ_damage(7)
+					M.take_organ_damage(75)
 
 				M.updatehealth()
 				M:brain_op_stage = 3.0
@@ -330,11 +299,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/simulated/living/humanoid))
-						var/datum/organ/external/affecting = M:organs["head"]
-						affecting.take_damage(15)
-					else
-						M.take_organ_damage(15)
+					M.take_organ_damage(15)
 
 				user << "\blue So far so good before."
 				M.updatehealth()
@@ -352,15 +317,9 @@ CIRCULAR SAW
 ////////////////
 //CIRCULAR SAW//
 ////////////////
-/obj/item/weapon/circular_saw/afterattack(var/mob/simulated/living/humanoid/M, var/mob/simulated/living/humanoid/user)
+/obj/item/weapon/circular_saw/afterattack(var/mob/simulated/living/humanoid/M)
+	var/mob/simulated/living/humanoid/user = usr
 	if(!istype(M))
-		return ..()
-
-	if(prob(50))
-		M = user
-		return eyestab(M,user)
-
-	if((locate(/obj/machinery/blood_rec, M.loc) && M.lying && prob(50)))
 		return ..()
 
 	if(user.ZN_SEL.selecting == "head")
@@ -378,18 +337,7 @@ CIRCULAR SAW
 					)
 				if(M == user && prob(25))
 					user << "\red You mess up!"
-					if(istype(M, /mob/simulated/living/humanoid))
-						var/datum/organ/external/affecting = M:organs["head"]
-						affecting.take_damage(40)
-						M.updatehealth()
-					else
-						M.take_organ_damage(40)
-
-				if(istype(M, /mob/simulated/living/humanoid))
-					var/datum/organ/external/affecting = M:organs["head"]
-					affecting.take_damage(7)
-				else
-					M.take_organ_damage(7)
+					M.take_organ_damage(40)
 
 				M.updatehealth()
 				M:brain_op_stage = 2.0
