@@ -21,26 +21,6 @@
 			if(rand(1, 100) < rand(1,5))
 				del(src)
 
-	MouseDrop_T(mob/target, var/mob/simulated/living/humanoid/M)
-		..()
-		if(target == M)
-			if(istype(M, /mob/simulated/living/humanoid))
-				if(M == usr)
-					if(get_dist(M.loc,src) == 1)
-						if(M.lying == 1)
-							for(var/atom/movable/MOV in src)
-								if(MOV.density == 1)
-									return //NO
-
-							sleep(rand(1,2))
-							usr << "\red You crawl on the floor"
-							if(prob(65))
-								for(var/datum/organ/external/EX in M.organs)
-									EX.blood_flow_trails(M, get_dir(M.loc,src))
-							//get_dir(Loc1,Loc2)
-							M.loc = src
-
-
 	verb/fall()
 		set src in range(1, usr)
 		if(Height < usr.ZLevel)

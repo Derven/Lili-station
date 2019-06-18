@@ -161,12 +161,6 @@
 			usr << "... loading program"
 			sleep(rand(3,7))
 			addai(target, ai)
-		if(istype(target, /obj/machinery/mindmachine))
-			var/obj/machinery/mindmachine/MI = target
-			MI.AIM = src
-			var/mob/simulated/living/humanoid/H = usr
-			H.drop_item_v()
-			src.Move(target)
 
 /obj/item/floppy
 	name = "PDA floppy disk"

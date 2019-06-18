@@ -17,6 +17,45 @@ var/restarted = 0
 var/datum/restarter/reSTARter = new /datum/restarter()
 
 /mob
+	var/emote_allowed = 1
+	var/computer_id = null
+	var/lastattacker = null
+	var/lastattacked = null
+	var/attack_log = list( )
+	var/already_placed = 0.0
+	var/other_mobs = null
+	var/poll_answer = 0.0
+	var/sdisabilities = 0
+	var/disabilities = 0
+	var/prev_move = null
+	var/monkeyizing = null
+	var/other = 0.0
+	var/eye_blind = null
+	var/eye_blurry = null
+	var/ear_damage = null
+	var/stuttering = null
+	var/real_name = null
+	var/blinded = null
+	var/bhunger = 0
+	var/ajourn = 0
+	var/rejuv = null
+	var/druggy = 0
+	var/confused = 0
+	var/antitoxs = null
+	var/plasma = null
+	var/resting = 0.0
+	var/canmove = 1.0
+	var/eye_stat = null
+	var/timeofdeath = 0.0
+	var/cpr_time = 1.0
+	var/drowsyness = 0.0
+	var/is_jittery = 0
+	var/jitteriness = 0
+	var/charges = 0.0
+	var/overeatduration = 0		// How long this guy is overeating
+	var/losebreath = 0.0
+	var/metabslow = 0	// Metabolism slowed
+
 	verb/vote_restart()
 		set category = "OOC"
 		if(restarted == 0)

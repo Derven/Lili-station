@@ -25,7 +25,8 @@
 		if(istype(A, /obj/structure))
 			var/obj/structure/S = A
 			if(S.anchored == 0 && S.density == 1)
-				step(S, dir, 64)
+				if(!istype(A, /obj/structure/closet))
+					step(S, dir, 64)
 			else
 				if(onstructure == 1 || myjetpack == 1)
 					pixel_z = S.pixelzheight

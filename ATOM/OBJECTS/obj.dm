@@ -27,7 +27,7 @@ obj
 
 
 /obj/Bumped(atom/movable/MV)
-	if(density == 1)
+	if(density == 1 && istype(MV, /mob) && !istype(src, /obj/structure/closet))
 		if(!anchored)
 			step(src, MV.dir)
 
