@@ -72,6 +72,8 @@
 	flags = FPRINT | TABLEPASS | CONDUCT
 	w_class = 1.0
 	origin_tech = "materials=1;biotech=1"
+	pixel_z = 24
+	layer = 3
 
 /obj/item/weapon/hemostat
 	name = "hemostat"
@@ -80,6 +82,8 @@
 	flags = FPRINT | TABLEPASS | CONDUCT
 	w_class = 1.0
 	origin_tech = "materials=1;biotech=1"
+	pixel_z = 25
+	layer = 3
 
 /obj/item/weapon/cautery
 	name = "cautery"
@@ -88,6 +92,8 @@
 	flags = FPRINT | TABLEPASS | CONDUCT
 	w_class = 1.0
 	origin_tech = "materials=1;biotech=1"
+	pixel_z = 30
+	layer = 3
 
 /obj/item/weapon/surgicaldrill
 	name = "surgical drill"
@@ -96,6 +102,8 @@
 	flags = FPRINT | TABLEPASS | CONDUCT
 	w_class = 1.0
 	origin_tech = "materials=1;biotech=1"
+	pixel_z = 30
+	layer = 3
 
 
 /*
