@@ -127,7 +127,6 @@
 	if(S)
 		processing = 1
 		update_icon()
-		updateUsrDialog()
 		for(var/mob/M in range(5, src))
 			M << 'blender.ogg'
 		sleep(S+15)
