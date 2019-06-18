@@ -1244,7 +1244,7 @@
 "xV" = (/obj/structure/table/wood{icon_state = "s"},/obj/item/weapon/paper,/obj/item/weapon/paper,/obj/item/weapon/paper,/turf/simulated/floor/wood,/area/ship/deck_1)
 "xW" = (/obj/structure/table{icon_state = "ns"},/turf/simulated/floor/plating,/area/ship/deck_1)
 "xX" = (/obj/structure/table/wood{icon_state = "n"},/obj/machinery/printer,/turf/simulated/floor/wood,/area/ship/deck_1)
-"xY" = (/obj/structure/table/wood,/obj/machinery/lamp{name = "lamp"; pixel_y = 64},/turf/simulated/floor/wood,/area/ship/deck_1)
+"xY" = (/obj/structure/table/wood,/obj/machinery/lamp{name = "lamp"; pixel_y = 64},/obj/item/cigpacket,/turf/simulated/floor/wood,/area/ship/deck_1)
 "xZ" = (/obj/structure/table{icon_state = "n"},/obj/machinery/microwave,/turf/simulated/floor/kitchen,/area/ship/deck_1)
 "ya" = (/obj/jobmark{job = "chef"},/turf/simulated/floor/kitchen,/area/ship/deck_1)
 "yb" = (/obj/machinery/chem_master/condimaster,/turf/simulated/floor/blue,/area/ship/deck_1)
