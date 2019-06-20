@@ -335,8 +335,6 @@ var/chaplain_in_game = 0 //max 1
                 haircut:<a href='?src=\ref[src];hair=1'>[hair_name]</a> </br>
                 <a href='?src=\ref[src];hcolor=1'>hair color</a> </br>
                 <a href='?src=\ref[src];bcolor=1'>body color</a> </br></br>
-                <a class="pure-button pure-button-primary"  href='?src=\ref[src];flavor=1'>flavor</a></br>
-                <textarea rows="10" readonly="readonly" cols="45" name="flavor">[pregame_flavor ? fix1103(pregame_flavor) : ""]</textarea></br></br>
 				<table class="pure-table">
 				    <thead>
 				        <tr>
@@ -377,4 +375,4 @@ var/chaplain_in_game = 0 //max 1
 		</body>
 	</html>"}
 	usr << browse_rsc(pregame_human,"preview")
-	usr << browse(lobby_text,"window=setup;size=450x700;can_resize=0;can_close=0")
+	usr << browse(lobby_text,"window=setup;size=700x500;can_resize=0;can_close=0")
