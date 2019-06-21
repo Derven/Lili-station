@@ -14,6 +14,8 @@
 				i -= 1
 				contents += new /obj/item/weapon/reagent_containers/food/snacks/pill/tric_pill()
 				contents += new /obj/item/weapon/reagent_containers/food/snacks/pill/kelotane()
+		emergency_medbox
+			icon_state = "emergencymedbox"
 
 	toolbox
 		inhandstate = "blue_toolbox"

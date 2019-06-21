@@ -1,3 +1,4 @@
+/obj/item/device/assembly
 /obj/item/device/transfer_valve
 	icon = 'assemblies.dmi'
 	name = "tank transfer valve"
@@ -12,7 +13,7 @@
 
 /obj/item/device/transfer_valve/proc/process_activation(var/obj/item/device/D)
 
-/obj/item/device/transfer_valve/IsAssemblyHolder()
+/obj/item/device/transfer_valve/proc/IsAssemblyHolder()
 	return 1
 
 /obj/item/device/transfer_valve/attackby(obj/item/item, mob/user)
@@ -20,17 +21,16 @@
 		if(tank_one && tank_two)
 			user << "<span class='warning'>There are already two tanks attached, remove one first.</span>"
 			return
-
 		if(!tank_one)
 			tank_one = item
-			user.drop_item()
+			usr:drop_item_v()
 			item.loc = src
-			user << "<span class='notice'>You attach the tank to the transfer valve.</span>"
+			usr << "<span class='notice'>You attach the tank to the transfer valve.</span>"
 		else if(!tank_two)
 			tank_two = item
-			user.drop_item()
+			usr:drop_item_v()
 			item.loc = src
-			user << "<span class='notice'>You attach the tank to the transfer valve.</span>"
+			usr << "<span class='notice'>You attach the tank to the transfer valve.</span>"
 
 		update_icon()
 //TODO: Have this take an assemblyholder
@@ -42,24 +42,12 @@
 		if(attached_device)
 			user << "<span class='warning'>There is already an device attached to the valve, remove it first.</span>"
 			return
-		user.remove_from_mob(item)
 		attached_device = A
 		A.loc = src
 		user << "<span class='notice'>You attach the [item] to the valve controls and secure it.</span>"
 		A.holder = src
 		A.toggle_secure()
-
-		bombers += "[key_name(user)] attached a [item] to a transfer valve."
-		message_admins("[key_name_admin(user)] attached a [item] to a transfer valve.")
-		log_game("[key_name_admin(user)] attached a [item] to a transfer valve.")
-		attacher = key_name(user)
 	return
-
-/obj/item/device/transfer_valve/HasProximity(atom/movable/AM as mob|obj)
-	if(!attached_device)	return
-	attached_device.HasProximity(AM)
-	return
-
 
 /obj/item/device/transfer_valve/attack_self(mob/user as mob)
 	user.machine = src
@@ -75,8 +63,6 @@
 
 /obj/item/device/transfer_valve/Topic(href, href_list)
 	..()
-	if ( usr.stat || usr.restrained() )
-		return
 	if (src.loc == usr)
 		if(tank_one && href_list["tankone"])
 			split_gases()
@@ -102,7 +88,6 @@
 				attached_device.attack_self(usr)
 
 		src.attack_self(usr)
-		src.add_fingerprint(usr)
 		return
 	return
 
@@ -157,9 +142,8 @@
 /obj/item/device/transfer_valve/proc/toggle_valve()
 	if(valve_open==0 && (tank_one && tank_two))
 		valve_open = 1
-		var/turf/bombturf = get_turf(src)
-		var/bombarea = bombturf.loc.name
-		var/log_str = "Bomb valve opened in [bombarea] with device attacher: [attacher]. Last touched by: [src.fingerprintslast]"
+		//var/turf/bombturf = get_turf(src)
+		//var/bombarea = bombturf.loc.name
 		merge_gases()
 		spawn(20) // In case one tank bursts
 			for (var/i=0,i<5,i++)
@@ -176,3 +160,8 @@
 // eventually maybe have it update icon to show state (timer, prox etc.) like old bombs
 /obj/item/device/transfer_valve/proc/c_state()
 	return
+
+/proc/isassembly(O)
+	if(istype(O, /obj/item/device/assembly))
+		return 1
+	return 0

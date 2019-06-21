@@ -1,13 +1,13 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1561043621
-DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\binary_devices CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\ATMOS\ZAS CODE\DATUM CODE\porting CODE\SYSTEM CODE\SYSTEM\tg_controller CODE\SYSTEM\tg_controller\subsysten CODE\types MAPS 
-AUTO_FILE_DIR: ON
+LAST_COMPILE_TIME: 1561147968
+DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\ATMOS\ZAS CODE\MACHINERY_rework CODE\porting CODE\SYSTEM\tg_controller CODE\SYSTEM\tg_controller\subsysten CODE\types ICONS MAPS 
 NUDGE_AS_PIXELS: OFF
+AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 512.1470
-WINDOW: CODE\porting\boxes.dm;CODE\SYSTEM\maptext.dm;CODE\SYSTEM\proc.dm;CODE\SYSTEM\surgery_tools.dm;CODE\SYSTEM\tg_controller\subsysten\air.dm;CODE\SYSTEM\tg_controller\subsysten\light.dm;CODE\SYSTEM\tg_controller\subsysten\objects.dm;CODE\types\CLOSETS.dm
-FILE: CODE\types\CLOSETS.dm
+WINDOW: CODE\ATOM_MOVABLE.dm;CODE\ATMOS\ATMOSPHERICS\components\tanks.dm;MAPS\metatest.dmm;ICONS\tank.dmi;ICONS\tools.dmi;CODE\ATMOS\ATMOSPHERICS\components\transfer_valve.dm;ICONS\airlock_med.dmi;ICONS\assemblies.dmi;CODE\ATMOS\ATMOSPHERICS\components\tvalve.dm;CODE\porting\paper.dm;CODE\porting\assembly.dm;CODE\porting\igniter.dm;CODE\porting\holder.dm;CODE\MOB.dm
+FILE: CODE\ATMOS\ATMOSPHERICS\components\tanks.dm
 */
 // END_INTERNALS

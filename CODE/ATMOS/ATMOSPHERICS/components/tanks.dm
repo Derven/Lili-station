@@ -1,4 +1,3 @@
-
 /obj/item/weapon/tank
 	name = "tank"
 	icon = 'tank.dmi'
@@ -11,6 +10,7 @@
 
 	force = 5.0
 	var/volume = 70
+	var/strength = 1
 
 
 /obj/item/weapon/tank/anesthetic
@@ -90,7 +90,7 @@
 
 			var/range = (pressure-TANK_FRAGMENT_PRESSURE)/TANK_FRAGMENT_SCALE
 			range = min(range, MAX_EXPLOSION_RANGE)		// was 8 - - - Changed to a configurable define -- TLE
-			var/turf/epicenter = get_turf(loc)
+			//var/turf/epicenter = get_turf(loc)
 
 			//world << "\blue Exploding Pressure: [pressure] kPa, intensity: [range]"
 
@@ -149,7 +149,6 @@
 			user << "\blue Temperature: [round(air_contents.temperature-T0C)]&deg;C"
 		else
 			user << "\blue Tank is empty!"
-		src.add_fingerprint(user)
 	return
 
 /obj/item/weapon/tank/New()
@@ -234,7 +233,6 @@
 
 /obj/item/weapon/tank/plasma/proc/ignite()
 	var/fuel_moles = air_contents.toxins + air_contents.oxygen/6
-	var/strength = 1
 
 	var/turf/ground_zero = get_turf(loc)
 	loc = null

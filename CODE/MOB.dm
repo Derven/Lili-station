@@ -233,6 +233,14 @@ mob/var/inlobby = 1
 			if("1920x1080")
 				usr.client.view = 8
 
+/mob/proc/remove_from_mob(var/obj/O)
+	src:u_equip(O)
+	if (client)
+		client.screen -= O
+	O.layer = initial(O.layer)
+	O.screen_loc = null
+	return 1
+
 /mob/proc/dream()
 	dreaming = 1
 	var/list/dreams = list(
