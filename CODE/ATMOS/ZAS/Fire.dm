@@ -63,7 +63,7 @@ obj
 		anchored = 1
 		mouse_opacity = 0
 
-		//luminosity = 3
+		luminosity = 2
 
 		icon = 'fire.dmi'
 		icon_state = "1"
@@ -165,6 +165,9 @@ obj
 			//ul_SetLuminosity(3,2,0)
 			firelevel = fl
 			air_master.active_hotspots.Add(src)
+			if(!isarea(src)&&(luminosity>0))
+				spawn(1)			// delay to allow map load
+					sd_ApplyLum()
 
 		Del()
 			if (istype(loc, /turf/simulated))

@@ -52,6 +52,8 @@
 
 	var/obj/item/floppy/flds = new()
 	back.contents.Add(flds)
+	var/obj/item/device/flashlight/FLLGHT = new()
+	back.contents.Add(FLLGHT)
 
 	overlays.Add(myhair)
 	if(player.pregame_body_color == "black")

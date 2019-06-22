@@ -26,6 +26,7 @@
 				i -= 1
 				var/type = pick(/obj/item/weapon/wrench, /obj/item/weapon/wirecutters, /obj/item/weapon/weldingtool)
 				contents += new type()
+			contents += new /obj/item/weapon/crowbar()
 	backpack
 		icon_state = "backpack"
 		name = "backpack"

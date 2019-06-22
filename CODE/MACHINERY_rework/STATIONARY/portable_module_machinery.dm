@@ -50,6 +50,8 @@
 			..()
 			for(var/obj/blood/B in view(2, src))
 				del(B)
+			for(var/obj/dirt/D in view(2, src))
+				del(D)
 
 	cratebot
 		name = "crate-bot"

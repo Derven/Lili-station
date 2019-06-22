@@ -47,4 +47,5 @@
 	icon = 'blood.dmi'
 	icon_state = "dirt"
 	layer = 2
+	anchored = 1
 

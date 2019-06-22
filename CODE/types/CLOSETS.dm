@@ -17,6 +17,10 @@
 	var/lastbang
 	parts = /obj/item/wood
 
+	New()
+		..()
+		contents += new /obj/item/weapon/crowbar()
+
 	materials
 		New()
 			..()

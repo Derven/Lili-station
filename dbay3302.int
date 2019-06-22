@@ -1,13 +1,13 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1561208828
+LAST_COMPILE_TIME: 1561218881
 DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\ATMOS\ZAS CODE\effects_and_decor CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\PORTABLE CODE\MACHINERY_rework\STATIONARY CODE\porting CODE\SYSTEM CODE\SYSTEM\admin CODE\SYSTEM\tg_controller CODE\types ICONS MAPS 
 AUTO_FILE_DIR: ON
 NUDGE_AS_PIXELS: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 512.1470
-WINDOW: CODE\ATOM_MOVABLE.dm;CODE\ATMOS\ATMOSPHERICS\components\tanks.dm;MAPS\metatest.dmm;ICONS\tank.dmi;ICONS\tools.dmi;CODE\ATMOS\ATMOSPHERICS\components\transfer_valve.dm;ICONS\airlock_med.dmi;ICONS\assemblies.dmi;CODE\ATMOS\ATMOSPHERICS\components\tvalve.dm;CODE\ATMOS\ATMOSPHERICS\components\valve.dm;CODE\SYSTEM\admin\verbs.dm;CODE\MACHINERY_rework\STATIONARY\igniter.dm;CODE\porting\igniter.dm;CODE\MACHINERY_rework\STATIONARY\portable_module_machinery.dm;CODE\MACHINERY_rework\PORTABLE\pumps.dm;CODE\ATMOS\ATMOSPHERICS\components\portables_connector.dm;CODE\ATMOS\ATMOSPHERICS\components\portable_atmos.dm;CODE\ATMOS\ATMOSPHERICS\components\canisters.dm;CODE\porting\holder.dm;CODE\porting\devices.dm;CODE\porting\assembly.dm;CODE\ATMOS\ATMOSPHERICS\components\assembly.dm;CODE\inwork\fire_ext.dm;CODE\inwork\security.dm;CODE\OBJ_ITEMS.dm;CODE\effects_and_decor\decor.dm;CODE\ATOM.dm;CODE\OBJ.dm;isometris.dm;CODE\SYSTEM\proc.dm
-FILE: CODE\ATMOS\ATMOSPHERICS\components\tanks.dm
+WINDOW: CODE\MACHINERY_rework\PORTABLE\pumps.dm;CODE\ATMOS\ATMOSPHERICS\components\portables_connector.dm;CODE\ATMOS\ATMOSPHERICS\components\portable_atmos.dm;CODE\ATMOS\ATMOSPHERICS\components\canisters.dm;CODE\porting\holder.dm;CODE\porting\devices.dm;CODE\porting\assembly.dm;CODE\ATMOS\ATMOSPHERICS\components\assembly.dm;CODE\inwork\fire_ext.dm;CODE\inwork\security.dm;CODE\OBJ_ITEMS.dm;CODE\effects_and_decor\decor.dm;CODE\ATOM.dm;CODE\OBJ.dm;isometris.dm;CODE\SYSTEM\proc.dm;CODE\types\OBJTYPES.dm;CODE\porting\boxes.dm;CODE\types\CLOSETS.dm;CODE\MOB_NEW_PLAYER.dm;CODE\MOB_SIMULATED_LIVING_HUMANOID.dm;CODE\MOB_SLH_HUMAN.dm;MAPS\metatest.dmm;CODE\ATMOS\ATMOSPHERICS\components\tanks.dm;CODE\ATMOS\ATMOSPHERICS\components\transfer_valve.dm;defines.dm;dbay3302.dme;CODE\effects_and_decor\BLOOD_AND_DIRT.DM;CODE\ATMOS\ZAS\Fire.dm;CODE\MACHINERY_rework\STATIONARY\lamp.dm
+FILE: CODE\ATMOS\ZAS\Fire.dm
 */
 // END_INTERNALS
