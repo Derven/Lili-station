@@ -1,13 +1,13 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1561147968
-DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\ATMOS\ZAS CODE\MACHINERY_rework CODE\porting CODE\SYSTEM\tg_controller CODE\SYSTEM\tg_controller\subsysten CODE\types ICONS MAPS 
-NUDGE_AS_PIXELS: OFF
+LAST_COMPILE_TIME: 1561208828
+DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\ATMOS\ZAS CODE\effects_and_decor CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\PORTABLE CODE\MACHINERY_rework\STATIONARY CODE\porting CODE\SYSTEM CODE\SYSTEM\admin CODE\SYSTEM\tg_controller CODE\types ICONS MAPS 
 AUTO_FILE_DIR: ON
+NUDGE_AS_PIXELS: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 512.1470
-WINDOW: CODE\ATOM_MOVABLE.dm;CODE\ATMOS\ATMOSPHERICS\components\tanks.dm;MAPS\metatest.dmm;ICONS\tank.dmi;ICONS\tools.dmi;CODE\ATMOS\ATMOSPHERICS\components\transfer_valve.dm;ICONS\airlock_med.dmi;ICONS\assemblies.dmi;CODE\ATMOS\ATMOSPHERICS\components\tvalve.dm;CODE\porting\paper.dm;CODE\porting\assembly.dm;CODE\porting\igniter.dm;CODE\porting\holder.dm;CODE\MOB.dm
+WINDOW: CODE\ATOM_MOVABLE.dm;CODE\ATMOS\ATMOSPHERICS\components\tanks.dm;MAPS\metatest.dmm;ICONS\tank.dmi;ICONS\tools.dmi;CODE\ATMOS\ATMOSPHERICS\components\transfer_valve.dm;ICONS\airlock_med.dmi;ICONS\assemblies.dmi;CODE\ATMOS\ATMOSPHERICS\components\tvalve.dm;CODE\ATMOS\ATMOSPHERICS\components\valve.dm;CODE\SYSTEM\admin\verbs.dm;CODE\MACHINERY_rework\STATIONARY\igniter.dm;CODE\porting\igniter.dm;CODE\MACHINERY_rework\STATIONARY\portable_module_machinery.dm;CODE\MACHINERY_rework\PORTABLE\pumps.dm;CODE\ATMOS\ATMOSPHERICS\components\portables_connector.dm;CODE\ATMOS\ATMOSPHERICS\components\portable_atmos.dm;CODE\ATMOS\ATMOSPHERICS\components\canisters.dm;CODE\porting\holder.dm;CODE\porting\devices.dm;CODE\porting\assembly.dm;CODE\ATMOS\ATMOSPHERICS\components\assembly.dm;CODE\inwork\fire_ext.dm;CODE\inwork\security.dm;CODE\OBJ_ITEMS.dm;CODE\effects_and_decor\decor.dm;CODE\ATOM.dm;CODE\OBJ.dm;isometris.dm;CODE\SYSTEM\proc.dm
 FILE: CODE\ATMOS\ATMOSPHERICS\components\tanks.dm
 */
 // END_INTERNALS

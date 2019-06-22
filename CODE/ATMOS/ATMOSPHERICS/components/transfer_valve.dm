@@ -19,7 +19,7 @@
 /obj/item/device/transfer_valve/attackby(obj/item/item, mob/user)
 	if(istype(item, /obj/item/weapon/tank))
 		if(tank_one && tank_two)
-			user << "<span class='warning'>There are already two tanks attached, remove one first.</span>"
+			usr << "<span class='warning'>There are already two tanks attached, remove one first.</span>"
 			return
 		if(!tank_one)
 			tank_one = item
@@ -37,28 +37,28 @@
 	else if(isassembly(item))
 		var/obj/item/device/assembly/A = item
 		if(A.secured)
-			user << "<span class='notice'>The device is secured.</span>"
+			usr << "<span class='notice'>The device is secured.</span>"
 			return
 		if(attached_device)
-			user << "<span class='warning'>There is already an device attached to the valve, remove it first.</span>"
+			usr << "<span class='warning'>There is already an device attached to the valve, remove it first.</span>"
 			return
 		attached_device = A
+		usr:drop_item_v()
 		A.loc = src
-		user << "<span class='notice'>You attach the [item] to the valve controls and secure it.</span>"
+		usr << "<span class='notice'>You attach the [item] to the valve controls and secure it.</span>"
 		A.holder = src
 		A.toggle_secure()
 	return
 
 /obj/item/device/transfer_valve/attack_self(mob/user as mob)
-	user.machine = src
 	var/dat = {"<B> Valve properties: </B>
 	<BR> <B> Attachment one:</B> [tank_one] [tank_one ? "<A href='?src=\ref[src];tankone=1'>Remove</A>" : ""]
 	<BR> <B> Attachment two:</B> [tank_two] [tank_two ? "<A href='?src=\ref[src];tanktwo=1'>Remove</A>" : ""]
 	<BR> <B> Valve attachment:</B> [attached_device ? "<A href='?src=\ref[src];device=1'>[attached_device]</A>" : "None"] [attached_device ? "<A href='?src=\ref[src];rem_device=1'>Remove</A>" : ""]
 	<BR> <B> Valve status: </B> [ valve_open ? "<A href='?src=\ref[src];open=1'>Closed</A> <B>Open</B>" : "<B>Closed</B> <A href='?src=\ref[src];open=1'>Open</A>"]"}
 
-	user << browse(dat, "window=trans_valve;size=600x300")
-	onclose(user, "trans_valve")
+	usr << browse(dat, "window=trans_valve;size=600x300")
+	onclose(usr, "trans_valve")
 	return
 
 /obj/item/device/transfer_valve/Topic(href, href_list)
@@ -114,7 +114,7 @@
 		overlays += "[tank_one.icon_state]"
 	if(tank_two)
 		var/icon/J = new(icon, icon_state = "[tank_two.icon_state]")
-		J.Shift(WEST, 13)
+		J.Shift(WEST, 20)
 		underlays += J
 	if(attached_device)
 		overlays += "device"

@@ -109,15 +109,15 @@
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(isscrewdriver(W))
 			if(!a_left || !a_right)
-				user.show_message("\red BUG:Assembly part missing, please report this!")
+				usr.show_message("\red BUG:Assembly part missing, please report this!")
 				return
 			a_left.toggle_secure()
 			a_right.toggle_secure()
 			secured = !secured
 			if(secured)
-				user.show_message("\blue The [src.name] is ready!")
+				usr.show_message("\blue The [src.name] is ready!")
 			else
-				user.show_message("\blue The [src.name] can now be taken apart!")
+				usr.show_message("\blue The [src.name] can now be taken apart!")
 			update_icon()
 			return
 		else if(W.IsSpecialAssembly())
@@ -130,7 +130,7 @@
 	attack_self(mob/user as mob)
 		if(src.secured)
 			if(!a_left || !a_right)
-				user.show_message("\red Assembly part missing!")
+				usr.show_message("\red Assembly part missing!")
 				return
 			if(istype(a_left,a_right.type))//If they are the same type it causes issues due to window code
 				switch(alert("Which side would you like to use?",,"Left","Right"))

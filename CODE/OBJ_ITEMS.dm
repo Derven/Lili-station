@@ -4,7 +4,7 @@
 /obj/item/flags = FPRINT | TABLEPASS
 /obj/item/pass_flags = PASSTABLE
 /obj/item/pressure_resistance = 50
-
+/obj/item/ignore_ZLEVEL = 1
 /obj/item/var/icon_old = null//For when weapons get bloodied this saves their old icon.
 /obj/item/var/abstract = 0
 /obj/item/var/item_state = null

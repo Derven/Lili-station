@@ -1,18 +1,41 @@
 //This file was auto-corrected by findeclaration.exe on 29/05/2012 15:03:05
+
+
+/proc/isassembly(O)
+	if(istype(O, /obj/item/device/assembly))
+		return 1
+	return 0
+
 /proc/isigniter(O)
 	if(istype(O, /obj/item/device/assembly/igniter))
 		return 1
 	return 0
 
-/proc/isscrewdriver(O)
-	if(istype(O, /obj/item/weapon/screwdriver))
+/proc/isinfared(O)
+	if(istype(O, /obj/item/device/assembly/infra))
 		return 1
 	return 0
+
+/proc/isprox(O)
+	if(istype(O, /obj/item/device/assembly/prox_sensor))
+		return 1
+	return 0
+
+/proc/issignaler(O)
+	if(istype(O, /obj/item/device/assembly/signaler))
+		return 1
+	return 0
+
+/proc/istimer(O)
+	if(istype(O, /obj/item/device/assembly/timer))
+		return 1
+	return 0
+
 
 /obj/item/device/assembly
 	name = "assembly"
 	desc = "A small electronic device that should never exist."
-	icon = 'assemblies.dmi'
+	icon = 'new_assemblies.dmi'
 	icon_state = ""
 	flags = FPRINT | TABLEPASS| CONDUCT
 	item_state = "electronic"
@@ -20,6 +43,9 @@
 	m_amt = 100
 	g_amt = 0
 	w_amt = 0
+	throw2force = 2
+	throw2_speed = 3
+	throw2_range = 10
 	origin_tech = "magnets=1"
 
 	var/secured = 1
@@ -82,10 +108,11 @@
 			holder.process_activation(src, 1, 0)
 		if(holder && (wires & WIRE_PULSE_SPECIAL))
 			holder.process_activation(src, 0, 1)
+		if(master && (wires & WIRE_PULSE))
+			master.receive_signal("activate")
 //		if(radio && (wires & WIRE_RADIO_PULSE))
 			//Not sure what goes here quite yet send signal?
 		return 1
-
 
 	activate()
 		if(!secured || (cooldown > 0))	return 0
@@ -94,12 +121,10 @@
 			process_cooldown()
 		return 1
 
-
 	toggle_secure()
 		secured = !secured
 		update_icon()
 		return secured
-
 
 	attach_assembly(var/obj/item/device/assembly/A, var/mob/user)
 		holder = new/obj/item/device/assembly_holder(get_turf(src))
@@ -107,7 +132,6 @@
 			usr.show_message("\blue You attach the [A.name] to the [name]!")
 			return 1
 		return 0
-
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(isassembly(W))
@@ -155,6 +179,8 @@
 Name:	IsAssemblyHolder
 Desc:	If true is an object that can hold an assemblyholder object
 */
+/obj/proc/IsAssemblyHolder()
+	return 0
 /*
 	proc
 		Process_Activation(var/obj/D, var/normal = 1, var/special = 1)

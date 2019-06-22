@@ -6,6 +6,8 @@
 	g_amt = 50
 	w_amt = 10
 	origin_tech = "magnets=1"
+	pixel_z = 18
+	layer = 3
 
 	secured = 1
 	small_icon_state_left = "igniter_left"
@@ -16,6 +18,7 @@
 		if(!..())	return 0//Cooldown check
 		var/turf/location = get_turf(loc)
 		if(location)	location.hotspot_expose(1000,1000)
+		pulse(0)
 		return 1
 
 

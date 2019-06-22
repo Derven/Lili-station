@@ -12,20 +12,16 @@
 	var/volume = 70
 	var/strength = 1
 
-
 /obj/item/weapon/tank/anesthetic
 	name = "Gas Tank (Sleeping Agent)"
 	desc = "A N2O/O2 gas mix"
 	icon_state = "anesthetic"
 	item_state = "an_tank"
 
-
-
 /obj/item/weapon/tank/air
 	name = "Gas Tank (Air Mix)"
 	desc = "Mixed anyone?"
 	icon_state = "oxygen"
-
 
 	examine()
 		set src in usr
@@ -40,6 +36,13 @@
 	desc = "Contains dangerous plasma. Do not inhale."
 	icon_state = "plasma"
 	flags = FPRINT | TABLEPASS | CONDUCT
+
+	bomb
+		New()
+			..()
+			src.air_contents.toxins = (4*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C)
+			air_contents.temperature =  T20C + 1220
+			air_contents.update_values()
 
 /obj/item/weapon/tank
 	remove_air(amount)
@@ -90,11 +93,12 @@
 
 			var/range = (pressure-TANK_FRAGMENT_PRESSURE)/TANK_FRAGMENT_SCALE
 			range = min(range, MAX_EXPLOSION_RANGE)		// was 8 - - - Changed to a configurable define -- TLE
-			//var/turf/epicenter = get_turf(loc)
+			var/turf/epicenter = get_turf(loc)
 
 			//world << "\blue Exploding Pressure: [pressure] kPa, intensity: [range]"
 
 			//explosion(epicenter, round(range*0.25), round(range*0.5), round(range), round(range*1.5))
+			boom(round(range*0.5), epicenter)
 			del(src)
 
 		else if(pressure > TANK_RUPTURE_PRESSURE)
@@ -241,14 +245,17 @@
 		strength = fuel_moles/15
 
 		//explosion(ground_zero, strength, strength*2, strength*3, strength*4)
+		boom(strength * 3, ground_zero)
 
 	else if(air_contents.temperature > (T0C + 250))
 		strength = fuel_moles/20
 
+		boom(strength * 2, ground_zero)
 		//explosion(ground_zero, 0, strength, strength*2, strength*3)
 
 	else if(air_contents.temperature > (T0C + 100))
 		strength = fuel_moles/25
+		boom(strength, ground_zero)
 
 		//explosion(ground_zero, 0, 0, strength, strength*3)
 

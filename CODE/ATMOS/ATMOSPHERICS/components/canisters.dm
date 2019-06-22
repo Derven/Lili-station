@@ -57,6 +57,8 @@
 
 	else
 		icon_state = "[colors]"
+		if(holding)
+			overlays += "can-open"
 		if(connected_port)
 			overlays += "can-connector"
 
@@ -89,6 +91,10 @@
 		src.density = 0
 		update_icon()
 
+		if (src.holding)
+			src.holding.loc = src.loc
+			src.holding = null
+
 		return 1
 	else
 		return 1
@@ -101,7 +107,10 @@
 
 	if(valve_open)
 		var/datum/gas_mixture/environment
-		environment = loc.return_air()
+		if(holding)
+			environment = holding.air_contents
+		else
+			environment = loc.return_air()
 
 		var/env_pressure = environment.return_pressure()
 		var/pressure_delta = min(release_pressure - env_pressure, (air_contents.return_pressure() - env_pressure)/2)
@@ -114,7 +123,10 @@
 			//Actually transfer the gas
 			var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
 
-			loc.assume_air(removed)
+			if(holding)
+				environment.merge(removed)
+			else
+				loc.assume_air(removed)
 			src.update_icon()
 
 	if(air_contents.return_pressure() < 1)
@@ -146,6 +158,16 @@
 		if (new_name) name = "Canister: \[[new_name]\]"
 		return
 
+	if ((istype(W, /obj/item/weapon/tank) && !( src.destroyed )))
+		if (src.holding)
+			return
+		var/obj/item/weapon/tank/T = W
+		usr:drop_item_v()
+		T.loc = src
+		src.holding = T
+		update_icon()
+		return
+
 	if(!istype(W, /obj/item/weapon/wrench) && !istype(W, /obj/item/device/analyzer))
 		src.health -= W.force
 		healthcheck()
@@ -158,6 +180,10 @@
 
 	user.machine = src
 	var/holding_text
+	if(holding)
+		holding_text = {"<BR><B>Tank Pressure</B>: [holding.air_contents.return_pressure()] KPa<BR>
+<A href='?src=\ref[src];remove_tank=1'>Remove Tank</A><BR>
+"}
 	var/output_text = {"<TT><B>[name]</B>[can_label?" <A href='?src=\ref[src];relabel=1'><small>relabel</small></a>":""]<BR>
 Pressure: [air_contents.return_pressure()] KPa<BR>
 Port Status: [(connected_port)?("Connected"):("Disconnected")]
@@ -180,10 +206,21 @@ Release Pressure: <A href='?src=\ref[src];pressure_adj=-1000'>-</A> <A href='?sr
 
 			if(href_list["toggle"])
 				if (valve_open)
-					release_log += "Valve was <b>closed</b> by [usr], stopping the transfer into the <font color='red'><b>air</b></font><br>"
+					if (holding)
+						release_log += "Valve was <b>closed</b> by [usr], stopping the transfer into the [holding]<br>"
+					else
+						release_log += "Valve was <b>closed</b> by [usr], stopping the transfer into the <font color='red'><b>air</b></font><br>"
 				else
-					release_log += "Valve was <b>opened</b> by [usr], starting the transfer into the <font color='red'><b>air</b></font><br>"
+					if (holding)
+						release_log += "Valve was <b>opened</b> by [usr], starting the transfer into the [holding]<br>"
+					else
+						release_log += "Valve was <b>opened</b> by [usr], starting the transfer into the <font color='red'><b>air</b></font><br>"
 				valve_open = !valve_open
+
+			if (href_list["remove_tank"])
+				if(holding)
+					holding.loc = loc
+					holding = null
 
 			if (href_list["pressure_adj"])
 				var/diff = text2num(href_list["pressure_adj"])
