@@ -10,6 +10,7 @@
 /client/var/southeast = 0
 /client/var/pgdn = 0
 /client/var/moving45 = 0
+/client/preload_rsc = 0
 /client/var/north
 /client/var/east
 /client/var/south

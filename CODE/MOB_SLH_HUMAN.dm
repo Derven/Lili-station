@@ -54,6 +54,8 @@
 	back.contents.Add(flds)
 	var/obj/item/device/flashlight/FLLGHT = new()
 	back.contents.Add(FLLGHT)
+	var/obj/item/weapon/storage/box/emergency_medbox/EMB = new()
+	back.contents.Add(EMB)
 
 	overlays.Add(myhair)
 	if(player.pregame_body_color == "black")

@@ -844,6 +844,32 @@
 			reagents.add_reagent("tricordrazine", 30)
 			bitesize = 2
 
+	anti_toxin
+		name = "anti-toxin pill"
+
+		New()
+			..()
+			reagents.add_reagent("anti_toxin", 30)
+			bitesize = 2
+
+	leporazine
+		name = "leporazine pill"
+		desc = "Leporazine can be use to stabilize an individuals body temperature."
+
+		New()
+			..()
+			reagents.add_reagent("leporazine", 30)
+			bitesize = 2
+
+	dexalin
+		name = "dexalin pill"
+		desc = "Dexalin is used in the treatment of oxygen deprivation."
+
+		New()
+			..()
+			reagents.add_reagent("dexalin", 30)
+			bitesize = 2
+
 	sleeping
 		name = "sleeping pill"
 		icon_state = "pills"

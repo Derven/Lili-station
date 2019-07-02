@@ -591,11 +591,6 @@ datum/reagent/medicine/tricordrazine
 	id = "ketchup"
 	description = "Ketchup, catsup, whatever. It's tomato paste."
 
-/datum/reagent/consumable/capsaicin
-	name = "Capsaicin Oil"
-	id = "capsaicin"
-	description = "This is what makes chilis hot."
-
 /datum/reagent/consumable/frostoil
 	name = "Frost Oil"
 	id = "frostoil"

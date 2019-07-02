@@ -28,9 +28,6 @@ datum
 			required_reagents = list("nutriments" = 1, "milk" = 1)
 			result_amount = 5
 
-			on_reaction(var/datum/reagents/holder, var/created_volume)
-				world << "PIZDEC"
-
 		flash
 			name = "Flash"
 			id = "flash"
@@ -120,6 +117,315 @@ datum
 					new /obj/item/weapon/reagent_containers/food/snacks/meat(holder.my_atom.loc)
 				else
 					new /obj/item/weapon/reagent_containers/food/snacks/meat(holder.my_atom.loc.loc)
+		//SLIME
+
+		monkey
+			name = "Monkeys acid"
+			id = "monkey"
+			result = "monkey"
+			required_reagents = list("blood" = 1, "gslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					new /mob/simulated/living/monkey(holder.my_atom.loc)
+				else
+					new /mob/simulated/living/monkey(holder.my_atom.loc.loc)
+
+		grayslime
+			name = "grayslime acid"
+			id = "grayslime"
+			result = "grayslime"
+			required_reagents = list("plasma" = 1, "gslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					new /mob/simulated/living/slime(holder.my_atom.loc)
+				else
+					new /mob/simulated/living/slime(holder.my_atom.loc.loc)
+
+		greenmush
+			name = "greenslime acid"
+			id = "mushslime"
+			result = "mushslime"
+			required_reagents = list("plasma" = 1, "grslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					new /obj/plant/mushroom(holder.my_atom.loc)
+				else
+					new /obj/plant/mushroom(holder.my_atom.loc.loc)
+
+		yellowsmoke
+			name = "yellowslime acid"
+			id = "smokeslime"
+			result = "smokeslime"
+			required_reagents = list("blood" = 1, "yslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				var/location = get_turf(holder.my_atom)
+				var/datum/effect/effect/system/chem_smoke_spread/S = new /datum/effect/effect/system/chem_smoke_spread
+				S.attach(location)
+				S.set_up(holder, 10, 0, location)
+				spawn(0)
+					S.start()
+					sleep(10)
+					S.start()
+				holder.clear_reagents()
+				return
+
+		yellowflash
+			name = "yellowslime acid"
+			id = "yellowflash"
+			result = "yellowflash"
+			required_reagents = list("plasma" = 1, "yslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					for(var/mob/simulated/living/humanoid/M in range(2, holder.my_atom.loc))
+						M.playsoundforme('flash.ogg')
+						M << "\red flasher blinds [M] with the flash!"
+						M.rest()
+						if(M.client)
+							M.client.show_map = 0
+							sleep(rand(3,9))
+							M.client.show_map = 1
+							sleep(rand(2,5))
+							M.rest()
+
+				else
+					for(var/mob/simulated/living/humanoid/M in range(2, holder.my_atom.loc.loc))
+						M.playsoundforme('flash.ogg')
+						M << "\red flasher blinds [M] with the flash!"
+						M.rest()
+						if(M.client)
+							M.client.show_map = 0
+							sleep(rand(3,9))
+							M.client.show_map = 1
+							sleep(rand(2,5))
+							M.rest()
+
+		strongbrown
+			name = "strong brown"
+			id = "strongbrown"
+			result = "strongbrown"
+			required_reagents = list("plasma" = 1, "brslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					var/mob/simulated/living/slime/SL = new /mob/simulated/living/slime(holder.my_atom.loc)
+					SL.colortype = pick("black", "violet", "red", "orange")
+					SL.recolor()
+				else
+					var/mob/simulated/living/slime/SL = new /mob/simulated/living/slime(holder.my_atom.loc.loc)
+					SL.colortype = pick("black", "violet", "red", "orange")
+					SL.recolor()
+
+		aquafood
+			name = "Aquafood"
+			id = "aquafood"
+			result = "aquafood"
+			required_reagents = list("blood" = 1, "aslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc)
+				else
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc.loc)
+					new /obj/item/weapon/reagent_containers/food/snacks/clownburger(holder.my_atom.loc.loc)
+
+		orangefire
+			name = "orangefire"
+			id = "orangefire"
+			result = "orangefire"
+			required_reagents = list("blood" = 1, "oslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					holder.my_atom.loc:hotspot_expose(1000,1000)
+				else
+					holder.my_atom.loc.loc:hotspot_expose(1000,1000)
+
+		orangeplasma
+			name = "orange plasma"
+			id = "orangeplasma"
+			result = "orangeplasma"
+			required_reagents = list("plasma" = 1, "oslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				var/datum/gas_mixture/air_contents = new
+				var/filled = 0.5
+				var/maximum_pressure = 90*ONE_ATMOSPHERE
+				air_contents.volume = 1000
+				air_contents.temperature = T20C
+				air_contents.update_values()
+				air_contents.toxins = (maximum_pressure*filled)*air_contents.volume/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
+				air_contents.update_values()
+				var/datum/gas_mixture/environment
+
+				if(istype(holder.my_atom.loc, /turf))
+					environment = holder.my_atom.loc:return_air()
+					var/transfer_moles = 100*environment.volume/(air_contents.temperature * R_IDEAL_GAS_EQUATION)
+					var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
+					holder.my_atom.loc.assume_air(removed)
+				else
+					environment = holder.my_atom.loc.loc:return_air()
+					var/transfer_moles = 100*environment.volume/(air_contents.temperature * R_IDEAL_GAS_EQUATION)
+					var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
+					holder.my_atom.loc.loc.assume_air(removed)
+
+		violetcreatures
+			name = "Violet Slime Extract"
+			id = "vcreature"
+			result = "vcreature"
+			required_reagents = list("blood" = 1, "vslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					new /obj/critter/killertomato/metroid(holder.my_atom.loc)
+				else
+					new /obj/critter/killertomato/metroid(holder.my_atom.loc.loc)
+
+		violetteleport
+			name = "Violet Slime Extract"
+			id = "vteleport"
+			result = "vteleport"
+			required_reagents = list("plasma" = 1, "vslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					for(var/atom/movable/M in range(rand(1,3), holder.my_atom.loc))
+						M.x = rand(1,255)
+						M.y = rand(1, 255)
+				else
+					for(var/atom/movable/M in range(rand(1,3), holder.my_atom.loc.loc))
+						M.x = rand(1,255)
+						M.y = rand(1, 255)
+
+		greenplant
+			name = "greenslime acid"
+			id = "mushslime"
+			result = "mushslime"
+			required_reagents = list("blood" = 1, "grslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					new /obj/plant(holder.my_atom.loc)
+				else
+					new /obj/plant(holder.my_atom.loc.loc)
+
+		redalert
+			name = "redslime acid"
+			id = "redslimegbs"
+			result = "redslimegbs"
+			required_reagents = list("blood" = 1, "rslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					for(var/mob/simulated/living/humanoid/H in range(1, holder.my_atom))
+						H.gib()
+				else
+					for(var/mob/simulated/living/humanoid/H in range(1, holder.my_atom.loc))
+						H.gib()
+
+		redbingbang
+			name = "redslime polyacid"
+			id = "redboom"
+			result = "redboom"
+			required_reagents = list("plasma" = 1, "rslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				if(istype(holder.my_atom.loc, /turf))
+					boom(rand(3, 6), holder.my_atom.loc)
+				else
+					for(var/mob/simulated/living/humanoid/H in range(1, holder.my_atom.loc))
+						boom(rand(3, 6), holder.my_atom.loc.loc)
+
+
+		oxygenerate
+			name = "blue air"
+			id = "bair"
+			result = "bair"
+			required_reagents = list("blood" = 1, "bslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				var/datum/gas_mixture/air_contents = new
+				var/filled = 0.5
+				var/maximum_pressure = 90*ONE_ATMOSPHERE
+				air_contents.volume = 1000
+				air_contents.temperature = T20C
+				air_contents.update_values()
+				air_contents.oxygen = (maximum_pressure*filled)*air_contents.volume/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
+				air_contents.update_values()
+				var/datum/gas_mixture/environment
+
+				if(istype(holder.my_atom.loc, /turf))
+					environment = holder.my_atom.loc:return_air()
+					var/transfer_moles = 100*environment.volume/(air_contents.temperature * R_IDEAL_GAS_EQUATION)
+					var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
+					holder.my_atom.loc.assume_air(removed)
+				else
+					environment = holder.my_atom.loc.loc:return_air()
+					var/transfer_moles = 100*environment.volume/(air_contents.temperature * R_IDEAL_GAS_EQUATION)
+					var/datum/gas_mixture/removed = air_contents.remove(transfer_moles)
+					holder.my_atom.loc.loc.assume_air(removed)
+
+		strongblack
+			name = "strong black"
+			id = "sblack"
+			result = "sblack"
+			required_reagents = list("blood" = 1, "blslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				var/datum/gas_mixture/air_contents = new
+				var/filled = 0.5
+				var/maximum_pressure = 90*ONE_ATMOSPHERE
+				air_contents.volume = 1000
+				air_contents.temperature = T20C
+				air_contents.update_values()
+				air_contents.oxygen = (maximum_pressure*filled)*air_contents.volume/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
+				air_contents.update_values()
+				var/datum/gas_mixture/environment
+
+				if(istype(holder.my_atom.loc, /turf))
+					environment = holder.my_atom.loc:return_air()
+					environment.temperature = environment.temperature+rand(200, 300)
+				else
+					environment = holder.my_atom.loc.loc:return_air()
+					environment.temperature = environment.temperature+rand(200, 300)
+
+		coolblue
+			name = "cool blue"
+			id = "cblue"
+			result = "cblue"
+			required_reagents = list("plasma" = 1, "bslime" = 1)
+
+			on_reaction(var/datum/reagents/holder, var/created_volume)
+				var/datum/gas_mixture/air_contents = new
+				var/filled = 0.5
+				var/maximum_pressure = 90*ONE_ATMOSPHERE
+				air_contents.volume = 1000
+				air_contents.temperature = T20C
+				air_contents.update_values()
+				air_contents.oxygen = (maximum_pressure*filled)*air_contents.volume/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
+				air_contents.update_values()
+				var/datum/gas_mixture/environment
+
+				if(istype(holder.my_atom.loc, /turf))
+					environment = holder.my_atom.loc:return_air()
+					environment.temperature = environment.temperature-rand(200, 300)
+				else
+					environment = holder.my_atom.loc.loc:return_air()
+					environment.temperature = environment.temperature-rand(200, 300)
+		//SLIME
 
 		thermite
 			name = "Thermite"

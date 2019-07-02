@@ -18,6 +18,16 @@
 		..()
 		reagents.add_reagent("milk", 40)
 
+/obj/item/weapon/reagent_containers/glass/bottle/plasma
+	name = "plasma bottle"
+	desc = "A small bottle of plasma."
+	icon = 'chemical.dmi'
+	icon_state = "bottle"
+
+	New()
+		..()
+		reagents.add_reagent("plasma", 40)
+
 /obj/item/weapon/reagent_containers/glass/bottle/cola
 	name = "cola"
 	desc = "space cola"

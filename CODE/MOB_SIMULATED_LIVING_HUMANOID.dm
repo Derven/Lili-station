@@ -257,11 +257,13 @@
 /mob/simulated/living/humanoid/proc/u_equip(obj/item/W as obj)
 	if (W == r_hand)
 		r_hand = null
-		W.del_inhand(usr)
+		if(W)
+			W.del_inhand(usr)
 
 	else if (W == l_hand)
 		l_hand = null
-		W.del_inhand(usr)
+		if(W)
+			W.del_inhand(usr)
 
 	else if (W == cloth)
 		cloth = null
@@ -279,7 +281,7 @@
 	else if (W == id)
 		id = null
 
-/mob/simulated/living/humanoid/proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
+/mob/simulated/living/proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
 	if(nodamage) return
 
 	if(exposed_temperature > bodytemperature)
@@ -391,7 +393,8 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 
 /mob/simulated/living/humanoid/proc/drop_item(var/atom/target)
 	var/obj/item/W = equipped()
-	W.del_inhand(src)
+	if(W)
+		W.del_inhand(src)
 	if (W)
 		if (client)
 			client.screen -= W

@@ -14,8 +14,16 @@
 				i -= 1
 				contents += new /obj/item/weapon/reagent_containers/food/snacks/pill/tric_pill()
 				contents += new /obj/item/weapon/reagent_containers/food/snacks/pill/kelotane()
-		emergency_medbox
-			icon_state = "emergencymedbox"
+
+	emergency_medbox
+		icon_state = "emergencymedbox"
+		desc = "A box that can save you."
+
+		New()
+			..()
+			contents += new /obj/item/weapon/reagent_containers/food/snacks/pill/anti_toxin
+			contents += new /obj/item/weapon/reagent_containers/food/snacks/pill/leporazine
+			contents += new /obj/item/weapon/reagent_containers/food/snacks/pill/dexalin
 
 	toolbox
 		inhandstate = "blue_toolbox"

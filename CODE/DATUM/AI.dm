@@ -146,11 +146,38 @@
 				if(prob(10))
 					talking()
 				walk_to(brain, M, 0, 3, 64)
+			var/moveto = locate(brain.x + rand(-1,1),brain.y + rand(-1, 1),brain.z)
+			if (istype(moveto, /turf/simulated/floor) || istype(moveto, /turf/unsimulated/floor)) step_towards(brain, moveto)
 
 		talking()
 			for(var/mob/M in range(5, brain))
 				M << pick('buzz-sigh.ogg', 'chime.ogg')
 
+		slime
+			talking()
+				if(prob(15))
+					for(var/mob/M in range(5, brain))
+						M << pick("[brain] gurgles")
+
+			proc/attack(var/mob/simulated/living/L)
+				if(istype(brain, /mob/simulated/living/slime))
+					if(L.type != brain.type)
+						if(prob(35))
+							for(var/mob/simulated/living/slime/SL in L)
+								return
+							brain:eat(L)
+			life()
+				var/deathfactor = 0
+				while(deathfactor == 0)
+					if(istype(brain.loc, /turf))
+						for(var/mob/simulated/living/L in range(1, brain))
+							attack(L)
+					if(istype(brain, /mob/simulated/living))
+						deathfactor = brain.death
+					sleep(rand(7,25))
+					if(prob(75))
+						if(istype(brain.loc, /turf))
+							mobmovement()
 		life()
 			var/deathfactor = 0
 			while(deathfactor == 0)

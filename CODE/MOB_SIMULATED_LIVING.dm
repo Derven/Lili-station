@@ -19,13 +19,13 @@
 /mob/simulated/living/var/last_pain_message = "" //PAIN
 /mob/simulated/living/var/next_pain_time = 0 //PAIN
 /mob/simulated/living/var/stamina = 100
+/mob/simulated/living/var/icon/slimeoverlay
 // /mob/simulated/living procs
 //---------------------
 /mob/simulated/living/proc/handle_chemicals_in_body()
 	if(reagents) reagents.metabolize(src)
 
 /mob/simulated/living/New()
-	START_PROCESSING(SSmobs, src)
 	select_overlay = image(usr)
 	overlay_cur = image('sign.dmi', icon_state = "say", layer = 10)
 	overlay_cur.layer = 16
@@ -63,6 +63,7 @@
 
 	reagents.add_reagent("blood",300)
 	..()
+	START_PROCESSING(SSmobs, src)
 
 /mob/simulated/living/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0)
 	if((damagetype != BRUTE) && (damagetype != BURN))
@@ -196,6 +197,7 @@
 	del(src)
 
 /mob/simulated/living/proc/blood_flow()
+	//world << "[src] the wordu"
 	if(nutrition > 0)
 		if(prob(rand(25, 45)))
 			nutrition -= rand(0,2) //hungry
@@ -243,16 +245,17 @@
 			if(nutrition > 250)
 				reagents.add_reagent("blood", 20)
 
-	if(prob(25))
-		var/sum_damage = 0
-		for(var/datum/organ/external/EX in organs)
-			EX.blood_flow(src)
-			sum_damage += EX.brute_dam + EX.burn_dam
-		if(sum_damage > 140)
-			gib()
-		if(istype(src, /mob/simulated/living/humanoid/human))
-			var/mob/simulated/living/humanoid/human/H = src
-			H.update_mydamage(sum_damage)
+	if(istype(HUM, /mob/simulated/living/humanoid))
+		if(prob(25))
+			var/sum_damage = 0
+			for(var/datum/organ/external/EX in organs)
+				EX.blood_flow(src)
+				sum_damage += EX.brute_dam + EX.burn_dam
+			if(sum_damage > 350)
+				gib()
+			if(istype(src, /mob/simulated/living/humanoid/human))
+				var/mob/simulated/living/humanoid/human/H = src
+				H.update_mydamage(sum_damage)
 
 	if(!reagents.has_reagent("blood", 50))
 		death()

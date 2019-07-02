@@ -18,7 +18,53 @@ datum
 						T.overlays -= T.wet_overlay
 						T.wet_overlay = null
 					return
-
+		//SLIMES
+		grayslime
+			name = "Gray Slime Extract"
+			id = "gslime"
+			description = "Gray slime extract."
+			reagent_state = LIQUID
+		blueslime
+			name = "Blue Slime Extract"
+			id = "bslime"
+			description = "Blue slime extract."
+			reagent_state = LIQUID
+		greenslime
+			name = "Green Slime Extract"
+			id = "grslime"
+			description = "Green slime extract."
+			reagent_state = LIQUID
+		redslime
+			name = "Red Slime Extract"
+			id = "rslime"
+			description = "Red slime extract."
+			reagent_state = LIQUID
+		yellowslime
+			name = "Yellow Slime Extract"
+			id = "yslime"
+			description = "Yellow slime extract."
+			reagent_state = LIQUID
+		violetslime
+			name = "Violet Slime Extract"
+			id = "vslime"
+			description = "Violet slime extract."
+			reagent_state = LIQUID
+		blackslime
+			name = "Black Slime Extract"
+			id = "blslime"
+			description = "Black slime extract."
+			reagent_state = LIQUID
+		brownslime
+			name = "Brown Slime Extract"
+			id = "brslime"
+			description = "Brown slime extract."
+			reagent_state = LIQUID
+		aquaslime
+			name = "Aqua Slime Extract"
+			id = "aslime"
+			description = "Aqua slime extract."
+			reagent_state = LIQUID
+		//SLIMES
 		bilk
 			name = "Bilk"
 			id = "bilk"
@@ -706,8 +752,9 @@ datum
 			on_mob_life(var/mob/simulated/M as mob)
 				if(!M) M = holder.my_atom
 				M:bodytemperature += 5
-				if(prob(40))
+				if(prob(10))
 					M:rand_damage(5, 10)
+				M:stunned += rand(0,1)
 				..()
 				return
 

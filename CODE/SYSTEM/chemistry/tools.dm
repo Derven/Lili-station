@@ -233,6 +233,17 @@
 		..()
 		reagents.add_reagent("water",1000)
 
+/obj/structure/reagent_dispensers/capsaicin
+	name = "capsaicintank"
+	desc = "A capsaicintank"
+	anchored = 1
+	icon = 'stationobjs.dmi'
+	icon_state = "capsaicintank"
+	amount_per_transfer_from_this = 10
+	New()
+		..()
+		reagents.add_reagent("capsaicin",1000)
+
 /obj/structure/reagent_dispensers/dieseltank
 	name = "dieseltank"
 	desc = "A dieseltank"
