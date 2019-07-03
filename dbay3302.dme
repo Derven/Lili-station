@@ -75,6 +75,7 @@
 #include "CODE\DATUM\jobs.dm"
 #include "CODE\DATUM\operations.dm"
 #include "CODE\DATUM\organs.dm"
+#include "CODE\DATUM\popup_topics.dm"
 #include "CODE\DATUM\powernet.dm"
 #include "CODE\DATUM\recipes.dm"
 #include "CODE\DATUM\restarter.dm"

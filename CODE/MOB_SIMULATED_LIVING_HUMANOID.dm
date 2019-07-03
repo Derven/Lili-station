@@ -24,8 +24,9 @@
 /mob/simulated/living/humanoid/var/obj/hud/id/ID //HUD
 /mob/simulated/living/humanoid/var/obj/hud/switcher/SW //HUD
 /mob/simulated/living/humanoid/var/obj/hud/rest/R //HUD
-/mob/simulated/living/humanoid/var/obj/hud/movement/M //HUD
 /mob/simulated/living/humanoid/var/obj/hud/back/B //HUD
+/mob/simulated/living/humanoid/var/obj/hud/hide/HIDE //HUD
+/mob/simulated/living/humanoid/var/obj/hud/show/SHOW //HUD
 /mob/simulated/living/humanoid/var/obj/hud/swap/S //HUD
 /mob/simulated/living/humanoid/var/obj/hud/backpack/BP //HUD
 /mob/simulated/living/humanoid/var/obj/hud/throwbutton/TH //HUD
@@ -144,10 +145,11 @@
 		ID = new(src)
 		SW = new(src)
 		R = new(src)
-		M = new(src)
 		B = new(src)
 		S = new(src)
 		BP = new(src)
+		HIDE = new(src)
+		SHOW = new(src)
 		TH = new(src)
 		SB = new(src)
 		BL = new(src)
@@ -234,10 +236,11 @@
 		C.screen.Add(ID)
 		ID.update_slot(id)
 		C.screen.Add(R)
-		C.screen.Add(M)
 		C.screen.Add(B)
 		C.screen.Add(S)
 		C.screen.Add(BP)
+		C.screen.Add(HIDE)
+		C.screen.Add(SHOW)
 		BP.update_slot(back)
 		C.screen.Add(TH)
 		C.screen.Add(SB)

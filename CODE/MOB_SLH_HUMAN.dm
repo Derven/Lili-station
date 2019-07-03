@@ -15,6 +15,7 @@
 	name = player.pregame_name
 	flavor = player.pregame_flavor
 	myhair = player.pregame_hair
+	middle_move_right_objects = player.middle_move_right_objects
 
 	if(gender == "male")
 		icon_state = "mob"

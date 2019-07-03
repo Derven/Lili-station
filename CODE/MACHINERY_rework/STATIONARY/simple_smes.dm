@@ -3,7 +3,7 @@
 	icon = 'power.dmi'
 	icon_state = "smes"
 	var/list/obj/machinery/simple_apc/SA = list()
-	charge = 5000000
+	charge = 9000000
 	load = 0
 	anchored = 1
 

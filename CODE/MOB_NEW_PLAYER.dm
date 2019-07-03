@@ -68,6 +68,11 @@ var/chaplain_in_game = 0 //max 1
                   "Your hair",
                   hair_name) in list("bald","afro","mohawk", "helipad", "short", "long", "very long", "stylish", "something weird")
 
+	if(href_list["mouse_behavarior"] == "1")
+		middle_move_right_objects = 0
+	if(href_list["mouse_behavarior"] == "2")
+		middle_move_right_objects = 1
+
 	switch(href_list["job"])
 		if("1")
 			pregame_job = "assistant"
@@ -334,7 +339,8 @@ var/chaplain_in_game = 0 //max 1
 				gender: <a href='?src=\ref[src];gender=1'>male</a>/<a href='?src=\ref[src];gender=0'>female</a> </br>
                 haircut:<a href='?src=\ref[src];hair=1'>[hair_name]</a> </br>
                 <a href='?src=\ref[src];hcolor=1'>hair color</a> </br>
-                <a href='?src=\ref[src];bcolor=1'>body color</a> </br></br>
+                <a href='?src=\ref[src];bcolor=1'>body color</a> </br>
+                Mouse:</br>(<a href='?src=\ref[src];mouse_behavarior=1'>r click - popup menu, m click - moving</a>;</br><a href='?src=\ref[src];mouse_behavarior=2'>r click - moving, m click - popup menu</a>)</br></br>
 				<table class="pure-table">
 				    <thead>
 				        <tr>
@@ -375,4 +381,4 @@ var/chaplain_in_game = 0 //max 1
 		</body>
 	</html>"}
 	usr << browse_rsc(pregame_human,"preview")
-	usr << browse(lobby_text,"window=setup;size=700x500;can_resize=0;can_close=0")
+	usr << browse(lobby_text,"window=setup;size=700x570;can_resize=0;can_close=0")

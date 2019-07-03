@@ -1,9 +1,53 @@
 /obj/hud
 	var/cur_cloth_slot = 1
 
+	show
+		icon_state = "show"
+		screen_loc = "WEST, SOUTH"
+		invisibility = 0
+
+		Click()
+			var/mob/simulated/living/humanoid/H = iam
+			H.ID.invisibility = 0
+			H.CL.invisibility = 0
+			H.BP.invisibility = 0
+			H.PPDDAA.invisibility = 0
+			H.SHOW.invisibility = 101
+			H.HIDE.invisibility = 0
+			if(H.id)
+				H.id.invisibility = 0
+			if(H.cloth)
+				H.cloth.invisibility = 0
+			if(H.back)
+				H.back.invisibility = 0
+			if(H.PDA)
+				H.PDA.invisibility = 0
+
+	hide
+		icon_state = "hide"
+		screen_loc = "WEST+2, SOUTH"
+		invisibility = 101
+
+		Click()
+			var/mob/simulated/living/humanoid/H = iam
+			H.ID.invisibility = 101
+			H.CL.invisibility = 101
+			H.BP.invisibility = 101
+			H.PPDDAA.invisibility = 101
+			H.SHOW.invisibility = 0
+			H.HIDE.invisibility = 101
+			if(H.id)
+				H.id.invisibility = 101
+			if(H.cloth)
+				H.cloth.invisibility = 101
+			if(H.back)
+				H.back.invisibility = 101
+			if(H.PDA)
+				H.PDA.invisibility = 101
 	cloth
 		icon_state = "cloth"
-		screen_loc = "SOUTH-1, WEST+4"
+		screen_loc = "WEST, SOUTH"
+		invisibility = 101
 
 		Click()
 			var/mob/simulated/living/humanoid/H = iam
@@ -20,7 +64,8 @@
 /obj/hud
 	id
 		icon_state = "id"
-		screen_loc = "SOUTH-1, WEST+5"
+		screen_loc = "WEST+1, SOUTH+1"
+		invisibility = 101
 
 		Click()
 			var/mob/simulated/living/humanoid/H = iam
@@ -36,7 +81,8 @@
 /obj/hud
 	PDA
 		icon_state = "pda"
-		screen_loc = "SOUTH-1, WEST+7"
+		screen_loc = "WEST, SOUTH+1"
+		invisibility = 101
 
 		Click()
 			var/mob/simulated/living/humanoid/H = iam
@@ -54,6 +100,8 @@
 		icon_state = "backpack"
 		screen_loc = "SOUTH-1, WEST+6"
 		var/image/backoverlay
+		screen_loc = "WEST+1, SOUTH"
+		invisibility = 101
 
 		Click()
 			var/mob/simulated/living/humanoid/H = iam

@@ -27,7 +27,7 @@ mob/proc/camera_refresh()
 client
 	// I made key_info literally just to grab your member icon URL from the hub.
 	var key_info/key_info
-
+	show_popup_menus = 0
 	verb
 		// Basic chat command, but with an added webhook.
 		say_to_discord(text as message)
