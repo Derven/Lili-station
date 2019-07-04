@@ -7,6 +7,17 @@
 	icon_state = "soviet_spacesuit"
 	space_suit = 1
 
+/obj/item/clothing/helmet/cap
+	icon = 'suit.dmi'
+	name = "Black cap"
+	desc = "good grief"
+	icon_state = "black_cap"
+
+/obj/item/clothing/helmet/sec_cap
+	icon = 'suit.dmi'
+	icon_state = "sec_cap"
+	name = "security cap"
+
 /obj/item/clothing/suit/assistant
 	icon_state = "assistant_suit"
 

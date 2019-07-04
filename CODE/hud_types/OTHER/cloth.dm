@@ -11,6 +11,7 @@
 			H.ID.invisibility = 0
 			H.CL.invisibility = 0
 			H.BP.invisibility = 0
+			H.CAP.invisibility = 0
 			H.PPDDAA.invisibility = 0
 			H.SHOW.invisibility = 101
 			H.HIDE.invisibility = 0
@@ -22,6 +23,8 @@
 				H.back.invisibility = 0
 			if(H.PDA)
 				H.PDA.invisibility = 0
+			if(H.cap)
+				H.cap.invisibility = 0
 
 	hide
 		icon_state = "hide"
@@ -34,6 +37,7 @@
 			H.CL.invisibility = 101
 			H.BP.invisibility = 101
 			H.PPDDAA.invisibility = 101
+			H.CAP.invisibility = 101
 			H.SHOW.invisibility = 0
 			H.HIDE.invisibility = 101
 			if(H.id)
@@ -44,6 +48,8 @@
 				H.back.invisibility = 101
 			if(H.PDA)
 				H.PDA.invisibility = 101
+			if(H.cap)
+				H.cap.invisibility = 101
 	cloth
 		icon_state = "cloth"
 		screen_loc = "WEST, SOUTH"
@@ -94,6 +100,32 @@
 					MYPDA.layer = 22
 					H.PDA = MYPDA
 					update_slot(MYPDA)
+
+/obj/hud
+	head
+		icon_state = "head"
+		screen_loc = "WEST+2, SOUTH+1"
+		invisibility = 101
+		var/image/helmetoverlay
+
+		Click()
+			var/mob/simulated/living/humanoid/H = iam
+			var/obj/item/I = H.get_active_hand()
+			var/obj/item/clothing/helmet/mycap = I
+			if(mycap && istype(mycap,/obj/item/clothing/helmet))
+				if(mycap && H.cap == null)
+					H.drop_item(src)
+					mycap.layer = 22
+					H.cap = mycap
+
+					if(H.gender == "male")
+						helmetoverlay = image('suit.dmi',icon_state = "[mycap.icon_state]_onmob")
+					else
+						helmetoverlay = image('suit.dmi',icon_state = "[mycap.icon_state]_onfem")
+					helmetoverlay.layer = 23
+					H.overlays += helmetoverlay
+
+					update_slot(mycap)
 
 /obj/hud
 	backpack

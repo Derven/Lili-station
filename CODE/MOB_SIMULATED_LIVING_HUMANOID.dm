@@ -14,6 +14,7 @@
 /mob/simulated/living/humanoid/var/obj/item/clothing/mask/wear_mask = null//Carbon
 /mob/simulated/living/humanoid/var/obj/item/clothing/suit/cloth= null//Carbon
 /mob/simulated/living/humanoid/var/obj/item/clothing/PDA/PDA = null
+/mob/simulated/living/humanoid/var/obj/item/clothing/helmet/cap = null
 /mob/simulated/living/humanoid/var/obj/item/clothing/id/id= null//Carbon
 /mob/simulated/living/humanoid/var/in_throw_hyuow_mode = 0
 /mob/simulated/living/humanoid/var/flavor
@@ -21,6 +22,7 @@
 /mob/simulated/living/humanoid/var/obj/hud/health/H //HUD
 /mob/simulated/living/humanoid/var/obj/hud/stamina/STAMINABAR //HUD
 /mob/simulated/living/humanoid/var/obj/hud/cloth/CL //HUD
+/mob/simulated/living/humanoid/var/obj/hud/head/CAP //HUD
 /mob/simulated/living/humanoid/var/obj/hud/id/ID //HUD
 /mob/simulated/living/humanoid/var/obj/hud/switcher/SW //HUD
 /mob/simulated/living/humanoid/var/obj/hud/rest/R //HUD
@@ -148,6 +150,7 @@
 		B = new(src)
 		S = new(src)
 		BP = new(src)
+		CAP = new(src)
 		HIDE = new(src)
 		SHOW = new(src)
 		TH = new(src)
@@ -243,6 +246,7 @@
 		C.screen.Add(SHOW)
 		BP.update_slot(back)
 		C.screen.Add(TH)
+		C.screen.Add(CAP)
 		C.screen.Add(SB)
 		C.screen.Add(BL)
 		C.screen.Add(SW)
@@ -273,6 +277,10 @@
 
 	else if (W == PDA)
 		PDA = null
+
+	else if (W == cap)
+		cap = null
+		overlays -= CAP.helmetoverlay
 
 	else if (W == back)
 		back = null

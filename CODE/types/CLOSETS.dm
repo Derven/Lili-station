@@ -286,6 +286,15 @@
 		icon_closed = "sec_closed"
 		icon_opened = "sec_open"
 
+		New()
+			..()
+			new /obj/item/clothing/helmet/sec_cap(src)
+			new /obj/item/weapon/gun/energy/laser/taser(src)
+			new /obj/item/weapon/stunbaton(src)
+			new /obj/item/weapon/flasher(src)
+			new /obj/item/weapon/handcuffs(src)
+			new /obj/item/weapon/handcuffs(src)
+
 	eng
 		name = "engineering closet"
 		desc = "It's a closet for the storage of engenireeng equipment."
