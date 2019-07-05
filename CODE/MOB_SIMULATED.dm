@@ -48,6 +48,7 @@
 						...id card <a href='?src=\ref[src];idcard=[target]'>[target.id]</a><br>
 						...backpack <a href='?src=\ref[src];backpack=[target]'>[target.back]</a>
 						...PDA <a href='?src=\ref[src];pda=[target]'>[target.PDA]</a>
+						...helmet <a href='?src=\ref[src];cap=[target]'>[target.cap]</a>
 					</div>
 				</body>
 			</html>"}
@@ -132,6 +133,19 @@
 				clthg.invisibility = 0
 				if(H.client)
 					H.client.screen.Remove(H.back)
+				H.u_equip(clthg)
+				clthg.loc = H.loc
+				clthg.wear_clothing(H)
+			return
+
+		if(href_list["cap"])
+			var/mob/simulated/living/humanoid/H = my_last_looting
+			usr << "\blue You trying to take off [H.cap]"
+			if(do_after(10))
+				var/obj/item/clthg = H.cap
+				clthg.invisibility = 0
+				if(H.client)
+					H.client.screen.Remove(H.cap)
 				H.u_equip(clthg)
 				clthg.loc = H.loc
 				clthg.wear_clothing(H)

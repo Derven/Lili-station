@@ -17,38 +17,42 @@
 	var/list/myparapams = params2list(params)
 	for(var/param in myparapams)
 		if(param == "right")
+			var/popup_text
 			if(usr.middle_move_right_objects == 0)
+				popup_text = {"
+				<html>
+				<head><title> Popup menu </title>
+				<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+				</head><body>
+				<table class="pure-table">
+				<thead>
+				<tr>
+					<th>Names</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody><td>
+				"}
+				if(istype(src, /mob))
+					return
 				if(istype(src, /turf))
-					var/popup_text = {"
-					<html>
-					<head><title> Popup menu </title>
-					<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-					</head><body>
-					<table class="pure-table">
-					<thead>
-					<tr>
-						<th>Names</th>
-						<th>Actions</th>
-					</tr>
-					</thead>
-					<tbody><td>
-					"}
 					for(var/atom/A in src)
-						if(A != usr)
+						if(!istype(A, /mob))
 							popup_text += {"<tr><td>[A]</td><td>"}
 							for(var/iverb in A.verbs)
 								var/myverb = findtext("[iverb]","/verb/", 1, -1)
 								var/iamverb = copytext("[iverb]",myverb + 6,0)
 								popup_text += "<a href='?src=\ref[TC];action=[iamverb];target=\ref[A]'>[iamverb]</a><br>"
 							popup_text += "</td></tr>"
-					popup_text += {"<tr><td>[src]</td><td>"}
-					for(var/iverb in src.verbs)
-						var/myverb = findtext("[iverb]","/verb/", 1, -1)
-						var/iamverb = copytext("[iverb]",myverb + 6,0)
-						popup_text += "<a href='?src=\ref[TC];action=[iamverb];target=\ref[src]'>[iamverb]</a><br>"
-					popup_text += "</td></tr>"
-					popup_text += "</tbody></html>"
-					usr << browse(popup_text,"window=popup")
+				popup_text += {"<tr><td>[src]</td><td>"}
+				for(var/iverb in src.verbs)
+					var/myverb = findtext("[iverb]","/verb/", 1, -1)
+					var/iamverb = copytext("[iverb]",myverb + 6,0)
+					popup_text += "<a href='?src=\ref[TC];action=[iamverb];target=\ref[src]'>[iamverb]</a><br>"
+				popup_text += "</td></tr>"
+				popup_text += "</tbody></html>"
+				usr << browse(popup_text,"window=popup")
+				return
 			else
 				var/image/movingimage = image('floors.dmi',src,"movement_overlay",15)
 				var/movelag = 0
@@ -66,6 +70,7 @@
 				walk_to(usr,src,0,movelag,64)
 
 		if(param == "middle")
+			var/popup_text
 			if(usr.middle_move_right_objects == 0)
 				var/image/movingimage = image('floors.dmi',src,"movement_overlay",15)
 				var/movelag = 0
@@ -82,38 +87,40 @@
 					del(movingimage)
 				walk_to(usr,src,0,movelag,64)
 			else
+				popup_text = {"
+				<html>
+				<head><title> Popup menu </title>
+				<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+				</head><body>
+				<table class="pure-table">
+				<thead>
+				<tr>
+					<th>Names</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody><td>
+				"}
+				if(istype(src, /mob))
+					return
 				if(istype(src, /turf))
-					var/popup_text = {"
-					<html>
-					<head><title> Popup menu </title>
-					<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-					</head><body>
-					<table class="pure-table">
-					<thead>
-					<tr>
-						<th>Names</th>
-						<th>Actions</th>
-					</tr>
-					</thead>
-					<tbody><td>
-					"}
 					for(var/atom/A in src)
-						if(A != usr)
+						if(!istype(A, /mob))
 							popup_text += {"<tr><td>[A]</td><td>"}
 							for(var/iverb in A.verbs)
 								var/myverb = findtext("[iverb]","/verb/", 1, -1)
 								var/iamverb = copytext("[iverb]",myverb + 6,0)
 								popup_text += "<a href='?src=\ref[TC];action=[iamverb];target=\ref[A]'>[iamverb]</a><br>"
 							popup_text += "</td></tr>"
-					popup_text += {"<tr><td>[src]</td><td>"}
-					for(var/iverb in src.verbs)
-						var/myverb = findtext("[iverb]","/verb/", 1, -1)
-						var/iamverb = copytext("[iverb]",myverb + 6,0)
-						popup_text += "<a href='?src=\ref[TC];action=[iamverb];target=\ref[src]'>[iamverb]</a><br>"
-					popup_text += "</td></tr>"
-					popup_text += "</tbody></html>"
-					usr << browse(popup_text,"window=popup")
-
+				popup_text += {"<tr><td>[src]</td><td>"}
+				for(var/iverb in src.verbs)
+					var/myverb = findtext("[iverb]","/verb/", 1, -1)
+					var/iamverb = copytext("[iverb]",myverb + 6,0)
+					popup_text += "<a href='?src=\ref[TC];action=[iamverb];target=\ref[src]'>[iamverb]</a><br>"
+				popup_text += "</td></tr>"
+				popup_text += "</tbody></html>"
+				usr << browse(popup_text,"window=popup")
+				return
 	usr.ClickOn(src, params)
 	return M.myclick(src)
 

@@ -27,6 +27,7 @@
 
 	toolbox
 		inhandstate = "blue_toolbox"
+		force = 10
 		New()
 			..()
 			var/i = rand(2,4)
