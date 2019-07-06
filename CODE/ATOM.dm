@@ -11,16 +11,11 @@
 
 //atom procs
 //---------------------
-
-/atom/MouseMove(location,control,params)
-	if(get_dist(usr, src) <= 2)
-		sleep(1)
-		usr.dir = turn(get_dir(src, usr), 180)
-
 /atom/Click(location,control,params)
 	var/mob/M = usr
 	sleep(rand(1,2))
 	var/list/myparapams = params2list(params)
+	usr.dir = turn(get_dir(src, usr), 180)
 	for(var/param in myparapams)
 		if(param == "right")
 			var/popup_text
