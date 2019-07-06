@@ -1,7 +1,7 @@
 /obj/hud
 	sleepbut
 		icon_state = "sleep1"
-		screen_loc = "SOUTH-1, WEST+3"
+		screen_loc = "SOUTH-1, WEST+1"
 
 		Click()
 			iam << 'button.ogg'

@@ -32,8 +32,8 @@ world
 	hub = "Exadv1.spacestation13"
 	hub_password = "kMZy3U5jJHSiBQjr"
 	name = "Isometric Space Station 13"
-	status = {"<a href=\"https://github.com/Derven/Lili-station\"><big><b>ISOMETRIC STATION 13 \[IN WORK BUT YOU CAN TEST THIS; Map: Metastation\]</b></big><br>
-	<img src="https://i.imgur.com/WX7hsx2.png"></a>
+	status = {"<big><b>Isometric Station 13: map: Metastation, respawn, grief allowed, in development, mode extended</b></big>(<a href=\"https://github.com/Derven/Lili-station/wiki\">Wiki</a>;<a href=\"https://github.com/Derven/Lili-station\">Github</a>;<a href=\"https://discordapp.com/invite/5K2VQEq\">Discord</a>;<a href=\"https://ss13.pp.ua/forum/\">Forum</a>)<br>
+	<img src="https://i.imgur.com/Nl8oBKj.png"></a>
 	"}
 
 	tick_lag = 0.3

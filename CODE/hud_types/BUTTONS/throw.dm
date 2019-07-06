@@ -1,7 +1,7 @@
 /obj/hud
 	throwbutton
 		icon_state = "throw1"
-		screen_loc = "SOUTH-1, WEST+3"
+		screen_loc = "SOUTH-1, WEST"
 
 		Click()
 			iam << 'button.ogg'

@@ -1,13 +1,13 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1562307234
-DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\DATUM CODE\hud_types CODE\hud_types\BUTTONS CODE\hud_types\INDICATORS CODE\hud_types\OTHER CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\STATIONARY CODE\porting CODE\types ICONS MAPS 
+LAST_COMPILE_TIME: 1562416219
+DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\DATUM CODE\hud_types CODE\hud_types\BUTTONS CODE\hud_types\INDICATORS CODE\hud_types\OTHER CODE\inwork CODE\types ICONS MAPS 
 AUTO_FILE_DIR: ON
 NUDGE_AS_PIXELS: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 512.1470
-WINDOW: MAPS\metatest.dmm;CODE\types\SLIMECORE.dm;CODE\MOB_SIMULATED_LIVING_SLIME.dm;CODE\hud_types\INDICATORS\movement.dm;CODE\MOB_SIMULATED_LIVING_HUMANOID.dm;CODE\CLIENT.dm;CODE\hud_types\OTHER\back.dm;CODE\hud_types\OTHER\cloth.dm;ICONS\screen1.dmi;CODE\MACHINERY_rework\STATIONARY\lamp.dm;ICONS\stationobjs.dmi;ICONS\vending.dmi;ICONS\vendomat.dmi;ICONS\vendomat_2.dmi;ICONS\walls.dmi;ICONS\virology.dmi;ICONS\vendomat_9.dmi;ICONS\vendomat_3.dmi;ICONS\stock_parts.dmi;CODE\ATOM.dm;CODE\MOB_SIMULATED.dm;CODE\porting\boxes.dm
-FILE: CODE\ATOM.dm
+WINDOW: MAPS\metatest.dmm;CODE\types\SLIMECORE.dm;CODE\MOB_SIMULATED_LIVING_SLIME.dm;CODE\hud_types\INDICATORS\movement.dm;CODE\MOB_SIMULATED_LIVING_HUMANOID.dm;CODE\CLIENT.dm;CODE\hud_types\OTHER\back.dm;CODE\hud_types\OTHER\cloth.dm;ICONS\screen1.dmi;CODE\hud_types\OTHER\l_hand.dm;CODE\hud_types\OTHER\r_hand.dm;CODE\hud_types\BUTTONS\act_intent.dm;CODE\hud_types\BUTTONS\def_zone_sel.dm;CODE\hud_types\BUTTONS\drive.dm;CODE\hud_types\BUTTONS\drop.dm;CODE\hud_types\BUTTONS\hide_walls.dm;CODE\hud_types\BUTTONS\rest_button.dm;CODE\hud_types\BUTTONS\run_intent.dm;CODE\hud_types\BUTTONS\sleep_button.dm;CODE\hud_types\BUTTONS\swap_hand.dm;CODE\hud_types\BUTTONS\throw.dm;CODE\hud_types\BUTTONS\zone_sel.dm;CODE\hud_types\INDICATORS\pulling.dm
+FILE: MAPS\metatest.dmm
 */
 // END_INTERNALS

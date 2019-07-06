@@ -1,7 +1,7 @@
 /obj/hud
 	act_intent
 		icon_state = "help"
-		screen_loc = "SOUTH-1, WEST+2"
+		screen_loc = "SOUTH-1, WEST+1"
 
 		Click()
 			iam << 'button.ogg'
