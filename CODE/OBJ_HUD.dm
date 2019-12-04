@@ -1,3 +1,9 @@
+#define ui_acti "SOUTH-1,12"
+#define ui_movi "SOUTH-1,14"
+
+#define ui_iarrowleft "SOUTH-1,11"
+#define ui_iarrowright "SOUTH-1,13"
+
 // /obj/hud vars
 //---------------------
 /obj/hud/layer = 18

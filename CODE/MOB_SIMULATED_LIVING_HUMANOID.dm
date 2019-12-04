@@ -39,6 +39,7 @@
 /mob/simulated/living/humanoid/var/obj/hud/craft/CRFT //HUD
 /mob/simulated/living/humanoid/var/obj/hud/glitch/GLTCH //HUD
 /mob/simulated/living/humanoid/var/obj/hud/PDA/PPDDAA //HUD
+/mob/simulated/living/humanoid/var/no_control = 0 //CYBORG'SSS
 //---------------------
 
 // /mob/simulated/living/humanoid procs
@@ -65,6 +66,8 @@
 
 /mob/simulated/living/humanoid/Move()
 	if((lying && mypool == 0) || (handcuffed == 1 && mypool == 1))
+		return
+	if(no_control == 1)
 		return
 
 	var/atom/A = src.loc
@@ -469,21 +472,27 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 				dream()
 
 /mob/simulated/living/humanoid/proc/resting()
-	if(!lying)
-		src.transform = turn(src.transform, 90)
-		lying = 1
-		density = 0
-		pixel_y = -32
-		pixel_x = 22
-		return
-	else
-		if(death == 0 && reagents.has_reagent("blood", 80))
-			src.transform = turn(src.transform, -90)
-			density = 1
-			lying = 0
-			pixel_y = 0
-			pixel_x = 0
+	if(!istype(src, /mob/simulated/living/humanoid/cyborg))
+		if(!lying)
+			src.transform = turn(src.transform, 90)
+			lying = 1
+			density = 0
+			pixel_y = -32
+			pixel_x = 22
 			return
+		else
+			if(death == 0 && reagents.has_reagent("blood", 80))
+				src.transform = turn(src.transform, -90)
+				density = 1
+				lying = 0
+				pixel_y = 0
+				pixel_x = 0
+				return
+	else
+		if(no_control == 0)
+			no_control = 1
+		else
+			no_control = 0
 
 /mob/simulated/living/humanoid/proc/sleeping()
 	sleeping = 1

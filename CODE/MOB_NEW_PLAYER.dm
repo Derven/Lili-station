@@ -7,6 +7,7 @@ var/chef_in_game = 0 //max 1
 var/clown_in_game = 0 //max 2
 var/botanist_in_game = 0 //max 2
 var/chaplain_in_game = 0 //max 1
+var/borgs_in_game = 0 //max 3
 //---------------------
 
 // /mob/new_player vars
@@ -128,7 +129,6 @@ var/chaplain_in_game = 0 //max 1
 
 		if("10")
 			pregame_job = "chef"
-			pregame_job = "chef"
 			if(chef_in_game < 1)
 				pregame_job = "chef"
 				chef_in_game += 1
@@ -138,10 +138,19 @@ var/chaplain_in_game = 0 //max 1
 
 		if("11")
 			pregame_job = "chaplain"
-			pregame_job = "chaplain"
 			if(chaplain_in_game < 1)
 				pregame_job = "chaplain"
 				chaplain_in_game += 1
+			else
+				usr << "\red This job is already taken"
+				pregame_job = "assistant"
+
+		if("12")
+			pregame_job = "cyborg"
+			pregame_job = "cyborg"
+			if(chaplain_in_game < 3)
+				pregame_job = "cyborg"
+				borgs_in_game += 1
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
@@ -319,9 +328,13 @@ var/chaplain_in_game = 0 //max 1
 				suit = new('suit.dmi', icon_state = "chaplain_suit_onmob")
 			if(gender == "female")
 				suit = new('suit.dmi', icon_state = "chaplain_suit_onfem")
+		if("cyborg")
+			suit = null
+			pregame_human = new('mob.dmi',icon_state = "cyborg")
 
-	pregame_human.Blend(suit, ICON_OVERLAY)
-	pregame_human.Blend(pregame_hair, ICON_OVERLAY)
+	if(pregame_job != "cyborg")
+		pregame_human.Blend(suit, ICON_OVERLAY)
+		pregame_human.Blend(pregame_hair, ICON_OVERLAY)
 
 	lobby_text = {"
 	<html>
@@ -371,6 +384,7 @@ var/chaplain_in_game = 0 //max 1
 				        	<td></td>
 				        	<td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=10'>Chef</a></span></td>
 				        	<td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=11'>Chaplain</a></span></td>
+				        	<td><span class='doc' style=\"{color: pink};\"><a href='?src=\ref[src];job=12'>Cyborg</a></span></td>
 				        <tr>
 				        </tr>
 				    </tbody>

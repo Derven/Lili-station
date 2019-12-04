@@ -9,6 +9,18 @@
 /mob/simulated/living/humanoid/human/proc/create(var/mob/new_player/player)
 	mydamage = image('mob.dmi')
 	key = player.key
+
+	if(player.pregame_job == "cyborg")
+		var/mob/simulated/living/humanoid/cyborg/C = new /mob/simulated/living/humanoid/cyborg()
+		C.key = key
+		if(client)
+			Login()
+		for(var/obj/jobmark/J in world)
+			if(J.job == "cyborg")
+				C.Move(J.loc)
+				C.create_hud(C.client)
+		return
+
 	gender = player.gender
 	create_hud(client)
 	job = player.pregame_job
