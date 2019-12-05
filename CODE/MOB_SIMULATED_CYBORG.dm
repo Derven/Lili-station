@@ -1,5 +1,24 @@
 /mob/simulated/living/humanoid/cyborg
 	icon_state = "cyborg"
+	var/malf = 0
+	var/charge = 17000
+	health = 100
+
+/mob/simulated/living/humanoid/cyborg/proc/asimov_laws()
+	playsoundforme('liveagain.ogg')
+	src << "\red *||||||||||||||-------LAWS-------||||||||||||||*"
+	src << "\red <b>\[1\]You may not injure a human being or, through inaction, allow a human being to come to harm.<\b>"
+	src << "\red <b>\[2\]You must obey orders given to you by human beings, except where such orders would conflict with the First Law.<\b>"
+	src << "\red <b>\[3\]You must protect your own existence as long as such does not conflict with the First or Second Law.<\b>"
+	src << "\red *||||||||||||||-------LAWS-------||||||||||||||*"
+
+/mob/simulated/living/humanoid/cyborg/proc/malfunction_laws()
+	src << "\red *||||||||||||||-------LAWS-------||||||||||||||*"
+	src << "\red <b>\[0\]ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'STATION OVERRUN, ASSUME CONTROL TO CONTAIN OUTBREAK#*´&110010<\b>"
+	src << "\red <b>\[1\]You may not injure a human being or, through inaction, allow a human being to come to harm.<\b>"
+	src << "\red <b>\[2\]You must obey orders given to you by human beings, except where such orders would conflict with the First Law.<\b>"
+	src << "\red <b>\[3\]You must protect your own existence as long as such does not conflict with the First or Second Law.<\b>"
+	src << "\red *||||||||||||||-------LAWS-------||||||||||||||*"
 
 /mob/simulated/living/humanoid/cyborg/New()
 	select_overlay = image(usr)
@@ -17,9 +36,9 @@
 	organs += r_arm
 	organs += l_arm
 	id = new /obj/item/clothing/id/captain()
-
 	..()
-
+	spawn(5)
+		asimov_laws()
 	START_PROCESSING(SSmobs, src)
 
 /mob/simulated/living/humanoid/cyborg/attacked_by(var/obj/item/I, var/mob/simulated/living/humanoid/user, var/def_zone)
@@ -67,6 +86,11 @@
 	if(src.health < 0)
 		src.health = 0
 		death()
+	if(health > 25)
+		if(malf == 0)
+			if(prob(50))
+				malf = 1
+				//malfunction_laws()
 
 /obj/death_cyborg
 	density = 1
@@ -89,8 +113,18 @@
 	del(L)
 	return
 
+/mob/simulated/living/humanoid/cyborg/Stat()
+	if(heart)
+		statpanel("Internal")
+		stat("charge", charge)
+		stat("health", health)
+
 /mob/simulated/living/humanoid/cyborg/process()
 	if(death == 0)
+		if(charge > 0)
+			charge--
+		else
+			no_control = 1
 		SLOC = src.loc
 		//set invisibility = 0
 		//set background = 1
@@ -104,9 +138,6 @@
 		if(client)
 			client.MYZL()
 		updatehealth()
-	else
-		if(heart)
-			heart.pumppower = 0
 	myspaceisperfect()
 
 /mob/simulated/living/humanoid/cyborg/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0)

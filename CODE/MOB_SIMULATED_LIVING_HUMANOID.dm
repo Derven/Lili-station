@@ -492,7 +492,9 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 		if(no_control == 0)
 			no_control = 1
 		else
-			no_control = 0
+			if(istype(src, /mob/simulated/living/humanoid/cyborg))
+				if(src:charge > 0)
+					no_control = 0
 
 /mob/simulated/living/humanoid/proc/sleeping()
 	sleeping = 1

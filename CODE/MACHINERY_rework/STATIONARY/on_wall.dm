@@ -48,9 +48,51 @@
 				O.loc = src.loc
 
 		process()
-			for(var/obj/item/weapon/gun/energy/O in contents)
-				if(O.mycharge < 1000)
-					O.mycharge += 10
-					icon_state = "recharger2"
-					sleep(3)
-					icon_state = "recharger1"
+			if(charge > 0)
+				for(var/obj/item/weapon/gun/energy/O in contents)
+					if(O.mycharge < 1000)
+						O.mycharge += 10
+						icon_state = "recharger2"
+						sleep(3)
+						icon_state = "recharger1"
+
+		cyborg_recharger
+			icon = 'stationobjs.dmi'
+			name = "cyborg_recharger"
+			icon_state = "cy_charge1"
+			anchored = 1
+			var/charger_mode = 0
+
+			attack_hand()
+				if(istype(usr, /mob/simulated/living/humanoid/cyborg))
+					if(src.loc == usr.loc)
+						if(charger_mode == 0)
+							charger_mode = 1
+							icon_state = "cy_charge2"
+							layer = 17
+							return
+						else
+							charger_mode = 0
+							icon_state = "cy_charge1"
+							layer = initial(layer)
+							return
+
+			process()
+				if(charge > 0)
+					if(charger_mode == 1)
+						var/cy_counter = 0
+						for(var/mob/simulated/living/humanoid/cyborg/O in loc)
+							cy_counter = 1
+							if(O.charge < initial(O.charge))
+								O.charge += 5
+								if(O.charge > initial(O.charge))
+									O.charge = initial(O.charge)
+							O.dir = NORTH
+						if(cy_counter == 0)
+							charger_mode = 0
+							icon_state = "cy_charge1"
+							layer = initial(layer)
+				else
+					charger_mode = 0
+					icon_state = "cy_charge1"
+					layer = initial(layer)
