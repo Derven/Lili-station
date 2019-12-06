@@ -106,6 +106,7 @@
 #include "CODE\hud_types\OTHER\cloth.dm"
 #include "CODE\hud_types\OTHER\l_hand.dm"
 #include "CODE\hud_types\OTHER\r_hand.dm"
+#include "CODE\inwork\cart.dm"
 #include "CODE\inwork\cigarettes.dm"
 #include "CODE\inwork\defib.dm"
 #include "CODE\inwork\fields.dm"

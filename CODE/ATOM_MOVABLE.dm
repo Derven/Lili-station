@@ -30,6 +30,10 @@
 		if(.)
 			for(var/mob/simulated/M in pullers)
 				M.update_pulling()
+	else
+		if(istype(src, /mob/simulated/living/humanoid))
+			if(src:buckled)
+				src:buckled:relaymove(src, src.dir)
 
 /atom/movable/Bump(var/atom/A as mob|obj|turf)
 	spawn( 0 )

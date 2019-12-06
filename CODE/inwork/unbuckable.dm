@@ -55,9 +55,6 @@
 					N++
 			return N
 
-		attack_hand()
-			manual_unbuckle_all(usr)
-
 /obj/structure/stool
 	icon = 'stationobjs.dmi'
 	icon_state = "stool"
@@ -125,6 +122,20 @@
 				buckled_mobs -= M
 				N++
 		return N
+
+
+	attack_hand()
+		if(usr.buckled == src)
+			manual_unbuckle_all(usr)
+		else
+			if(usr.loc != src.loc)
+				for(var/mob/simulated/S in src.loc)
+					if(S.buckled == src)
+						manual_unbuckle_all(usr)
+					else
+						buckle_mob(S, usr)
+					return
+				return
 
 
 	proc/buckle_mob(mob/M as mob, mob/user as mob)
