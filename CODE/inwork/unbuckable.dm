@@ -59,6 +59,7 @@
 	icon = 'stationobjs.dmi'
 	icon_state = "stool"
 	climbcan = 1
+	var/speed = 0
 
 	attackby(obj/item/O as obj, mob/user as mob)
 		if(istype(O, /obj/item/weapon/weldingtool))

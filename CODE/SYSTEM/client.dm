@@ -153,7 +153,10 @@ client
 					if(M && M.nutrition < 150)
 						hungryeffect = 1
 					if(M.heart)
-						sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects + gravity)
+						if(M:buckled)
+							sleep(run_intent - round(M.heart.pumppower/100) - jp - M:buckled:speed + hungryeffect + other_effects + gravity)
+						else
+							sleep(run_intent - round(M.heart.pumppower/100) - jp + hungryeffect + other_effects + gravity)
 						if(run_intent < 4 && jp == 0)
 							if(M && M.stamina > 1)
 								M.stamina -= 1

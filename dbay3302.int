@@ -1,13 +1,13 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1575643687
-DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\DATUM CODE\hud_types\BUTTONS CODE\hud_types\INDICATORS CODE\hud_types\OTHER CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\PORTABLE CODE\SYSTEM CODE\TURFS ICONS MAPS 
-NUDGE_AS_PIXELS: OFF
+LAST_COMPILE_TIME: 1575777294
+DIR: CODE CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\DATUM CODE\hud_types CODE\hud_types\BUTTONS CODE\hud_types\INDICATORS CODE\hud_types\OTHER CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\STATIONARY CODE\SYSTEM CODE\SYSTEM\rnd ICONS MAPS 
 AUTO_FILE_DIR: ON
+NUDGE_AS_PIXELS: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 512.1477
-WINDOW: CODE\MOB_SIMULATED_CYBORG.dm;CODE\inwork\singularity.dm;CODE\MACHINERY_rework\STATIONARY\consol.dm;CODE\MACHINERY_rework\STATIONARY\machinery.dm;CODE\inwork\mulitiletransport.dm;CODE\inwork\cart.dm;CODE\OBJ_ITEMS.dm;CODE\OBJ_STRUCTURE.dm;CODE\effects_and_decor\decor.dm;CODE\inwork\someshit.dm;CODE\inwork\ladders.dm;ICONS\vending.dmi;ICONS\venicles.dmi;ICONS\stationobjs.dmi;ICONS\bots.dmi;CODE\CLIENT.dm;CODE\MOB_SIMULATED.dm;CODE\MOB_SIMULATED_LIVING_HUMANOID.dm;CODE\ATMOS\ZAS\Airflow.dm;CODE\SYSTEM\client.dm;CODE\MOB_SIMULATED_LIVING.dm;CODE\ATOM_MOVABLE.dm;CODE\MOB.dm;CODE\inwork\unbuckable.dm;CODE\MOB_SLH_HUMAN.dm;CODE\MACHINERY_rework\PORTABLE\bots.dm;CODE\OBJ_CRITTER.dm;CODE\DATUM\AI.dm;ICONS\mob.dmi;ICONS\vendomat_9.dmi
-FILE: CODE\inwork\cart.dm
+WINDOW: CODE\MACHINERY_rework\STATIONARY\industrial_smelter.dm;CODE\MOB_SIMULATED.dm;CODE\DATUM\popup_topics.dm;CODE\MACHINERY_rework\STATIONARY\autholate.dm;CODE\MOB.dm;CODE\OBJ_HUD.dm;CODE\hud_types\INDICATORS\craft.dm;CODE\hud_types\INDICATORS\health.dm;MAPS\metatest.dmm;CODE\SYSTEM\rnd\rd_console.dm;CODE\SYSTEM\rnd\machines.dm;CODE\SYSTEM\rnd\protolathe.dm;CODE\SYSTEM\rnd\destructor.dm;ICONS\stationobjs.dmi;CODE\inwork\tables.dm;CODE\SYSTEM\surgery_tools.dm
+FILE: CODE\SYSTEM\rnd\rd_console.dm
 */
 // END_INTERNALS

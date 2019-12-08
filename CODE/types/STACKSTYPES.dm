@@ -51,6 +51,12 @@
 		icon = 'mineral.dmi'
 		icon_state = "uranus"
 
+	gold
+	silver
+	plasma
+	clown
+	adamantine
+
 /obj/item/stack
 	table_parts
 		icon = 'mineral.dmi'

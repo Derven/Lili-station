@@ -8,6 +8,7 @@
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/callme = "pimpin' ride"	//how do people refer to it?
+	speed = 3
 
 	manual_unbuckle_all(mob/user as mob)
 		var/N = 0;
@@ -33,8 +34,10 @@
 			return
 		if (M == usr)
 			usr << "\blue You buckle yourself"
+			usr << "\red Hint: Driving a car with the middle or right mouse button. Pressing the forward arrow is equal to the gas accelerator."
 		else
 			usr << "\blue [M] buckled by [usr]"
+			usr << "\red Hint: Driving a car with the middle or right mouse button. Pressing the forward arrow is equal to the gas accelerator."
 		overlays += image(src.icon,icon_state = "jani_overlay",layer = 18)
 		usr.pixel_z = 16
 		usr:onstructure = 1
@@ -57,6 +60,10 @@
 
 /obj/structure/stool/chair/janicart/Move()
 	. = ..()
+	for(var/obj/blood/B in view(2, src))
+		del(B)
+	for(var/obj/dirt/D in view(2, src))
+		del(D)
 	if(buckled_mobs)
 		for(var/mob/M in buckled_mobs)
 			M.loc = src.loc
