@@ -1,13 +1,13 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1575777294
-DIR: CODE CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\DATUM CODE\hud_types CODE\hud_types\BUTTONS CODE\hud_types\INDICATORS CODE\hud_types\OTHER CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\STATIONARY CODE\SYSTEM CODE\SYSTEM\rnd ICONS MAPS 
+LAST_COMPILE_TIME: 1575809920
+DIR: CODE CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\DATUM CODE\hud_types\BUTTONS CODE\hud_types\INDICATORS CODE\hud_types\OTHER CODE\inwork CODE\inwork\Rust CODE\MACHINERY_rework CODE\MACHINERY_rework\STATIONARY ICONS MAPS 
 AUTO_FILE_DIR: ON
 NUDGE_AS_PIXELS: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 512.1477
-WINDOW: CODE\MACHINERY_rework\STATIONARY\industrial_smelter.dm;CODE\MOB_SIMULATED.dm;CODE\DATUM\popup_topics.dm;CODE\MACHINERY_rework\STATIONARY\autholate.dm;CODE\MOB.dm;CODE\OBJ_HUD.dm;CODE\hud_types\INDICATORS\craft.dm;CODE\hud_types\INDICATORS\health.dm;MAPS\metatest.dmm;CODE\SYSTEM\rnd\rd_console.dm;CODE\SYSTEM\rnd\machines.dm;CODE\SYSTEM\rnd\protolathe.dm;CODE\SYSTEM\rnd\destructor.dm;ICONS\stationobjs.dmi;CODE\inwork\tables.dm;CODE\SYSTEM\surgery_tools.dm
-FILE: CODE\SYSTEM\rnd\rd_console.dm
+WINDOW: CODE\inwork\Rust\core_monitor.dm;CODE\inwork\Rust\gyrotron_controller.dm;CODE\inwork\Rust\fuel_control.dm;CODE\inwork\Rust\particles.dm;ICONS\effects.dmi;CODE\MOB_SIMULATED_LIVING.dm;CODE\MOB_SIMULATED_LIVING_HUMANOID.dm;CODE\PROJECTILES.dm;CODE\inwork\Rust\core_field.dm;ICONS\projectiles.dmi;ICONS\stationobjs.dmi;CODE\inwork\Rust\core_gen.dm;CODE\inwork\Rust\core.dmi;CODE\inwork\Rust\fuel_assembly_port.dm;CODE\inwork\Rust\fuel_assembly.dmi;CODE\inwork\Rust\fuel_assembly_port.dmi;ICONS\tools.dmi;ICONS\terminals.dmi;ICONS\tank.dmi;CODE\inwork\Rust\fuel_assembly.dm;CODE\inwork\Rust\fuel_compressor.dmi;CODE\inwork\Rust\fuel_injector.dmi;CODE\inwork\Rust\gyrotron.dmi;CODE\inwork\Rust\rust.dmi;CODE\inwork\Rust\rust_computers.dmi;CODE\inwork\Rust\radiation.dm;CODE\MACHINERY_rework\STATIONARY\reactor.dm;CODE\MACHINERY_rework\STATIONARY\consol.dm;CODE\inwork\Rust\fuel_injector.dm;MAPS\metatest.dmm
+FILE: MAPS\metatest.dmm
 */
 // END_INTERNALS

@@ -65,7 +65,7 @@ datum
 				reliability = new_reliability
 				return
 
-
+/*
 ///////////////////Computer Boards///////////////////////////////////
 
 		camera
@@ -1566,7 +1566,7 @@ datum
 				build_type = PROTOLATHE
 				materials = list("$metal" = 200, "$glass" = 20, "$silver" = 10)
 				build_path = "/obj/item/weapon/secstorage/sbriefcase"
-
+*/
 /////////////////////////////////////////
 //////////////////Test///////////////////
 /////////////////////////////////////////

@@ -86,7 +86,7 @@
 	rotatable = 1
 
 	wood
-		color = "#633213"
+		icon_state = "bench"
 
 	attackby(obj/item/O as obj, mob/user as mob)
 		if(istype(O, /obj/item/weapon/weldingtool))
