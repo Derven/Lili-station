@@ -360,6 +360,9 @@
 
 	return return_color
 
+/mob/simulated/living/proc/select_attack(var/datum/organ/external/O)
+	return "red"
+
 /mob/simulated/living/proc/UpdateDamageIcon()
 	return
 
@@ -405,8 +408,12 @@
 		if(1 to 10)
 			msg = "<b>Your [partname] hurts a bit."
 		if(11 to 90)
+			if(src:PAAAAIN)
+				src:PAAAAIN.ouch()
 			msg = "<b><font size=1>Ouch! Your [partname] hurts."
 		if(91 to 10000)
+			if(src:PAAAAIN)
+				src:PAAAAIN.ouch()
 			msg = "<b><font size=3>OH GOD! Your [partname] is hurting terribly!"
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg

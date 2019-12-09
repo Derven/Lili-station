@@ -39,6 +39,7 @@
 /mob/simulated/living/humanoid/var/obj/hud/craft/CRFT //HUD
 /mob/simulated/living/humanoid/var/obj/hud/glitch/GLTCH //HUD
 /mob/simulated/living/humanoid/var/obj/hud/PDA/PPDDAA //HUD
+/mob/simulated/living/humanoid/var/obj/hud/pain/PAAAAIN //HUD
 /mob/simulated/living/humanoid/var/no_control = 0 //CYBORG'SSS
 //---------------------
 
@@ -164,6 +165,7 @@
 		CRFT = new(src)
 		GLTCH = new(src)
 		PPDDAA = new(src)
+		PAAAAIN = new(src)
 		update_hud(C)
 
 /mob/simulated/living/humanoid/Login()
@@ -258,6 +260,7 @@
 		C.screen.Add(CRFT)
 		C.screen.Add(GLTCH)
 		C.screen.Add(PPDDAA)
+		C.screen.Add(PAAAAIN)
 
 		for(var/datum/organ/external/EX in organs)
 			EX.update_hud(C)
@@ -429,6 +432,14 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 			if(W:on == 1)
 				usr.sd_SetLuminosity(0)
 				W:sd_SetLuminosity(5)
+		if(istype(W, /obj/item/weapon/storage/box))
+			for(var/obj/hud/box/B in boxes)
+				client.screen.Remove(B)
+				boxes -= B
+				client.screen.Remove(B.myitem)
+				B.myitem = null
+			for(var/obj/hud/box_close/B in client.screen)
+				client.screen.Remove(B)
 	return
 
 /mob/simulated/living/humanoid/proc/swap_hand()
@@ -441,10 +452,18 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 			r_arm.HUD.icon_state = "r_hand_a"
 			l_arm.HUD.icon_state = "l_hand"
 
+/mob/simulated/living/humanoid/verb/swaphand()
+	swap_hand()
+
+/mob/simulated/living/humanoid/verb/dropme()
+	drop_item_v()
+
 /mob/simulated/living/humanoid/proc/drop_item_v()
 	if (stat == 0)
 		drop_item()
 	return
+
+
 
 /mob/simulated/living/humanoid/proc/parstunweak()
 	if (sleeping || stunned || weakened) //Stunned etc.

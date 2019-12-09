@@ -154,6 +154,11 @@ mob/var/inlobby = 1
 		if(M.client)
 			usr << M.ckey
 
+/mob/verb/hotkeys()
+	set name = "hotkeys"
+	set category = "OOC"
+	usr << "\red swap hands - \[*\];drop - \[/\];OOC - \[F2\];rotate building - \[F3\]"
+
 /mob/verb/OOC(msg as text)
 	set name = "OOC"
 	set category = "OOC"

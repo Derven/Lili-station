@@ -11,6 +11,18 @@ var/DE_FILTER_CUSTOM_COLOR = rgb(222,0,170)//custom color for filter, rgb() or "
 		screen_loc = "SOUTH, WEST to NORTH, EAST"
 		invisibility = 101
 
+/obj/hud
+	pain
+		icon_state = null
+		screen_loc = "SOUTH, WEST to NORTH, EAST"
+		invisibility = 101
+		layer = 45
+
+		proc/ouch()
+			invisibility = 0
+			flick("pain", src)
+			sleep(2)
+			invisibility = 101
 
 proc
 	DE_SFL_U(var/obj/hud/glitch/SF)
