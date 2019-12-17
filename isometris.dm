@@ -64,7 +64,7 @@ proc/autoreboot()
 	init_z_pixel()
 
 	//global_turf_init()
-	sd_SetDarkIcon()
+	//sd_SetDarkIcon()
 
 	start_processing()
 	spawn(1)

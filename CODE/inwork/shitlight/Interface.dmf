@@ -1,0 +1,242 @@
+macro "macro"
+	elem 
+		name = "TAB"
+		command = "TestVerbs"
+		is-disabled = false
+	elem 
+		name = "RETURN"
+		command = "say"
+		is-disabled = false
+	elem 
+		name = "SPACE"
+		command = "OutputTest"
+		is-disabled = false
+	elem 
+		name = "WEST"
+		command = "SetKey \"WEST\" 1"
+		is-disabled = false
+	elem 
+		name = "WEST+UP"
+		command = "SetKey \"WEST\" 0"
+		is-disabled = false
+	elem 
+		name = "NORTH"
+		command = "SetKey \"NORTH\" 1"
+		is-disabled = false
+	elem 
+		name = "NORTH+UP"
+		command = "SetKey \"NORTH\" 0"
+		is-disabled = false
+	elem 
+		name = "EAST"
+		command = "SetKey \"EAST\" 1"
+		is-disabled = false
+	elem 
+		name = "EAST+UP"
+		command = "SetKey \"EAST\" 0"
+		is-disabled = false
+	elem 
+		name = "SOUTH"
+		command = "SetKey \"SOUTH\" 1"
+		is-disabled = false
+	elem 
+		name = "SOUTH+UP"
+		command = "SetKey \"SOUTH\" 0"
+		is-disabled = false
+	elem 
+		name = "A"
+		command = "SetKey \"a\" 1"
+		is-disabled = false
+	elem 
+		name = "A+UP"
+		command = "SetKey \"a\" 0"
+		is-disabled = false
+	elem 
+		name = "D"
+		command = "SetKey \"d\" 1"
+		is-disabled = false
+	elem 
+		name = "D+UP"
+		command = "SetKey \"d\" 0"
+		is-disabled = false
+	elem 
+		name = "S"
+		command = "SetKey \"s\" 1"
+		is-disabled = false
+	elem 
+		name = "S+UP"
+		command = "SetKey \"s\" 0"
+		is-disabled = false
+	elem 
+		name = "W"
+		command = "SetKey \"w\" 1"
+		is-disabled = false
+	elem 
+		name = "W+UP"
+		command = "SetKey \"w\" 0"
+		is-disabled = false
+	elem 
+		name = "ALT"
+		command = "SetKey \"alt\" 1"
+		is-disabled = false
+	elem 
+		name = "SHIFT"
+		command = "SetKey \"shift\" 1"
+		is-disabled = false
+	elem 
+		name = "ALT+UP"
+		command = "SetKey \"alt\" 0"
+		is-disabled = false
+	elem 
+		name = "SHIFT+UP"
+		command = "SetKey \"shift\" 0"
+		is-disabled = false
+
+
+menu "menu"
+	elem 
+		name = "&Quit"
+		command = ".quit"
+		category = "&File"
+		is-checked = false
+		can-check = false
+		group = ""
+		is-disabled = false
+		saved-params = "is-checked"
+
+
+window "default"
+	elem "default"
+		type = MAIN
+		pos = 281,0
+		size = 640x640
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = true
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		on-size = ""
+		title = ""
+		titlebar = true
+		statusbar = false
+		can-close = true
+		can-minimize = true
+		can-resize = false
+		is-pane = false
+		is-minimized = false
+		is-maximized = false
+		can-scroll = none
+		icon = ""
+		image = ""
+		image-mode = stretch
+		keep-aspect = false
+		transparent-color = none
+		alpha = 255
+		macro = "macro"
+		menu = "menu"
+		on-close = ""
+	elem "map1"
+		type = MAP
+		pos = 0,0
+		size = 640x640
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = none
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = true
+		border = none
+		drop-zone = true
+		right-click = true
+		saved-params = "icon-size"
+		on-size = ""
+		icon-size = 32
+		text-mode = false
+		letterbox = true
+		zoom = 1
+		on-show = ""
+		on-hide = ""
+		style = ""
+
+window "window1"
+	elem "window1"
+		type = MAIN
+		pos = 281,0
+		size = 289x480
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		on-size = ""
+		title = ""
+		titlebar = true
+		statusbar = true
+		can-close = true
+		can-minimize = true
+		can-resize = true
+		is-pane = false
+		is-minimized = false
+		is-maximized = false
+		can-scroll = none
+		icon = ""
+		image = ""
+		image-mode = stretch
+		keep-aspect = false
+		transparent-color = none
+		alpha = 255
+		macro = ""
+		menu = ""
+		on-close = ""
+	elem "output1"
+		type = OUTPUT
+		pos = 0,0
+		size = 289x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = #ffffff
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = true
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "max-lines"
+		on-size = ""
+		link-color = #0000ff
+		visited-color = #ff00ff
+		style = ""
+		enable-http-images = false
+		max-lines = 1000
+		image = ""
+

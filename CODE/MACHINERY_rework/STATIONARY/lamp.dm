@@ -7,11 +7,11 @@
 		mystate = !mystate
 		switch(mystate)
 			if(1)
-				for(var/obj/machinery/lamp/LAMP in range(8, src))
+				for(var/obj/machinery/lamp/LAMP in range(1, src))
 					LAMP.switcher = 1
 				icon_state = "switcher_on"
 			else
-				for(var/obj/machinery/lamp/LAMP in range(8, src))
+				for(var/obj/machinery/lamp/LAMP in range(1, src))
 					LAMP.switcher = 0
 				icon_state = "switcher_off"
 
@@ -28,6 +28,7 @@
 	var/max_charge = 1000
 	load = 5
 	var/datum/emodule/central/basic_power_controller/BPC
+	lumpower = 7
 
 	attack_hand()
 		usr << "\red You burned your hand, paw the lamp was stupid ideas."
@@ -37,9 +38,6 @@
 		..()
 		charge = 0
 		// if this is not an area and is luminous
-		if(!isarea(src)&&(luminosity>0))
-			spawn(1)			// delay to allow map load
-				sd_ApplyLum()
 
 	//attack_hand()
 	//	switcher = 0
@@ -57,9 +55,6 @@
 			..()
 			EPB = new(src)
 			// if this is not an area and is luminous
-			if(!isarea(src)&&(luminosity>0))
-				spawn(1)			// delay to allow map load
-					sd_ApplyLum()
 
 		process()
 			if(!broken)
@@ -86,23 +81,21 @@
 
 
 	proc/light_process()
-		if(src)
-			sd_SetLuminosity(round(charge/200))
+		//if(src)
+			//SetLuminosity(round(charge/200))
 		..()
 		//lumina()
 
 	proc/nolight()
-		if(src)
-			sd_SetLuminosity(0)
+		//if(src)
+			//SetLuminosity(0)
 		..()
 		//dark()
 
 	ex_act()
 		..()
-		sd_SetLuminosity(0)
+		//SetLuminosity(0)
 		// if this is not an area and is luminous
-		if(!isarea(src)&&(luminosity>0))
-			sd_StripLum()
 		..()
 		sleep(1)
 		del(src)
@@ -129,15 +122,10 @@
 
 	New()
 		..()
-		if(!isarea(src)&&(luminosity>0))
-			spawn(1)			// delay to allow map load
-				sd_ApplyLum()
 
 	Del()
-		sd_SetLuminosity(0)
+		//SetLuminosity(0)
 		// if this is not an area and is luminous
-		if(!isarea(src)&&(luminosity>0))
-			sd_StripLum()
 		..()
 
 	brainlamp
@@ -161,6 +149,6 @@
 /obj/machinery/lamp/process()
 	if(!broken)
 		if(charge <= 0 || switcher == 0)
-			sd_SetLuminosity(0)
+			SetLuminosity(0)
 		else
-			sd_SetLuminosity(7)
+			SetLuminosity(lumpower)

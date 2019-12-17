@@ -68,7 +68,8 @@ turf
 
 		New()
 			..()
-
+			spawn(30)
+				photon()
 			if(!blocks_air)
 				air = new
 
@@ -135,6 +136,7 @@ turf
 
 		proc/update_air_properties()
 			. = 1
+			photon()
 			var/air_directions_archived = air_check_directions
 			air_check_directions = 0
 

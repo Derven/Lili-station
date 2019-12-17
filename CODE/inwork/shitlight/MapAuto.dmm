@@ -1,0 +1,57 @@
+"a" = (/turf/walls/void,/area)
+"b" = (/turf/walls,/area)
+"c" = (/turf/floors/dirt,/area)
+"d" = (/obj/Lamp/Directional,/turf/floors/dirt,/area)
+"e" = (/obj/Lamp,/turf/floors/dirt,/area)
+
+(1,1,1) = {"
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+abbbbbbbbbbbbbbbbbbbbbbbbbbbbbba
+abccccccccccccccccccccccccccccba
+abccccccccccccccccccccccccccccba
+abbbbbbbbbbbbbbbbbbbbbbbbbccccba
+abbbbbbbbbbbbbbbbbbbbbbbbbccccba
+abccccccccccccccccccccccbbccccba
+abccccccccccccccccccccccbbccccba
+abcbccbccbccbccbccbccbccbbccccba
+abccccccccccccccccccccccbbccccba
+abccccccccccccccccccccccbbccccba
+abcbccbccbccbccbccbccbccbbccccba
+abccccccccccccccdcccccccccccccba
+abccccccccccccccccccccccccccccba
+abcbccbccbccbccbccbccbccbbccccba
+abccccccccccccccccccccccbbccccba
+abccccccccccccccccccccccbbccccba
+abcbccbccbccbccbccbccbccbbccccba
+abccccccccccccccccccccccbbccccba
+abccccccccccccccccccccccccccccba
+abccccccccccccccccccccccccccccba
+abbbbbbbbbccbbbbbbbbbbbbbbccccba
+abbbbbbbbbccbbbbbbbbbbbbbbccccba
+abccccccccccccccccccccccbbccccba
+abccccccccdcccccccccccccbbccccba
+abccccccccccccccccccccccbbccccba
+abbbbbbbbbccbbbbbbbbbcccbbccccba
+abbbbbbbbbccbbbbbbbbbcccbbccccba
+abcccccccccccccccccbbcccbbccccba
+abcccccccccccccccccbbcccccccccba
+abcccccccccccccecccbbcccbbccccba
+abccccccbbbccccccccbbcccbbccccba
+abccccccccbbccccbccbbcccbbccccba
+abcccccccccbbccbbccbbcccbbccccba
+abcccccccbbcccbbcccbbcccbbccccba
+abcccccbbbbccbbccccbbcccbbccccba
+abcccccbbccccbcccccbbcccbbccccba
+abcccccccccccccccccbbcccbbccccba
+abcccccccccccccccccbbcccbbccccba
+abcbbccccccccccccccbbcccbbccccba
+abcbbcccccccccccccccccccbbccccba
+abccccccccccccccccccccccbbccccba
+abcceccceccccccccccbbcccbbccccba
+abcccccccccccccccccbbcccbbccccba
+abcccccccccccccccccbbcccbbccccba
+abcccccccccccccccccbbcccbbccccba
+abcccccccccccccccccbbcccbbccccba
+abbbbbbbbbbbbbbbbbbbbbbbbbbbbbba
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+"}

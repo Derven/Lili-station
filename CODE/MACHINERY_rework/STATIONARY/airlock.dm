@@ -70,12 +70,12 @@
 					density = 0
 					opacity = 0
 					if(istype(loc, /turf/simulated))
-						sd_SetOpacity(0)
+						//SetOpacity(0)
 						T.blocks_air = 0
 						update_nearby_tiles()
 				else
 					close = 1
-					sd_SetOpacity(1)
+					//SetOpacity(1)
 					T.blocks_air = 1
 					update_nearby_tiles()
 					update_nearby_tiles()
@@ -100,7 +100,7 @@
 			opacity = 0
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/floor/T = get_turf(src)
-			sd_SetOpacity(0)
+			//SetOpacity(0)
 			T.blocks_air = 0
 			update_nearby_tiles()
 		spawn(150)
@@ -122,7 +122,9 @@
 		close = 1
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/floor/T = get_turf(src)
-			sd_SetOpacity(1)
+			//SetOpacity(1)
+			T.check_in_your_pocket()
+			T.check_in_your_pocket()
 			T.blocks_air = 1
 			update_nearby_tiles()
 		density = 1

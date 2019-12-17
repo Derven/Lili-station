@@ -11,6 +11,10 @@
 
 //atom procs
 //---------------------
+///atom/New()
+//	..()
+//	my_lum = new /obj/lum(src)
+
 /atom/Click(location,control,params)
 	var/mob/M = usr
 	sleep(rand(1,2))

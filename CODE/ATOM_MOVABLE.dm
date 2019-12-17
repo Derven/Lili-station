@@ -17,6 +17,10 @@
 
 // /atom/movable procs
 //---------------------
+/atom/movable/New()
+	..()
+	loc?.Entered(src)
+
 /atom/movable/Move()
 	var/turf/T = loc
 	if(T)

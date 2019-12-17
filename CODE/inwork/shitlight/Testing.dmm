@@ -1,0 +1,17 @@
+"a" = (/turf/walls/void,/area)
+"b" = (/turf/walls,/area)
+"c" = (/turf/floors/dirt,/area)
+"d" = (/obj/Lamp{step_x = -10; step_y = 14},/turf/floors/dirt,/area)
+
+(1,1,1) = {"
+aaaaaaaaaa
+abbbbbbbba
+abccccccba
+abccccccba
+abccbbccba
+abccbbccba
+abccccccba
+abcccdccba
+abbbbbbbba
+aaaaaaaaaa
+"}

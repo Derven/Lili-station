@@ -7,6 +7,7 @@ var/list/admin_verbs = list(\
 	/client/proc/small_boom,\
 	/client/proc/world_reboot,\
 	/client/proc/read_players,\
+	/client/proc/cmd_viewvariables,\
 	/client/proc/savemymap)
 
 /client/proc/pm(mob/m as mob in world, msg as text)

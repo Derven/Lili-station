@@ -7,7 +7,7 @@
 /area/var/sound = null
 /area/var/probality = 85
 /area/var/has_gravity = 0
-/area/var/list/related			// the other areas of the same type as this
+/area/var/list/area/related = list()			// the other areas of the same type as this
 /area/var/atmos = 1
 /area/layer = 1
 /area/name = "Space"
@@ -18,7 +18,6 @@
 /area/New()
 	..()
 	var/sd_created = 0
-	sd_New(sd_created)
 	if(sd_created)
 		related += src
 		return

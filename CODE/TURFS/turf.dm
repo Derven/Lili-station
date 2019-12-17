@@ -70,6 +70,9 @@ turf
 	layer = 1
 
 turf
+	Entered(var/atom/A)
+		..()
+
 	Enter(var/mob/A)
 		if(istype(A, /mob/ghost))
 			return 1

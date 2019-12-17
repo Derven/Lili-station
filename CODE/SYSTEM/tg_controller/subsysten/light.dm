@@ -19,7 +19,6 @@ var/datum/controller/subsystem/light/SSlight
 		src.currentrun = processing.Copy()
 	//cache for sanic speed (lists are references anyways)
 	var/list/currentrun = src.currentrun
-	lighting_controller.process()
 	while(currentrun.len)
 		var/datum/thing = currentrun[currentrun.len]
 		currentrun.len--

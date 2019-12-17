@@ -11,8 +11,3 @@
 			icon_state = "mineralradioactive"
 			my_mineral = /obj/item/stack/uranus
 			luminosity = 2
-
-			New()
-				spawn(2)
-					sd_ApplyLum()
-				..()

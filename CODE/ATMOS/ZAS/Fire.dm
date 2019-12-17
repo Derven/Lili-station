@@ -126,13 +126,13 @@ obj
 							//Change icon depending on the fuel, and thus temperature.
 							if(firelevel > 6)
 								icon_state = "3"
-									//ul_SetLuminosity(11,9,0)
+									//ul_//SetLuminosity(11,9,0)
 							else if(firelevel > 2.5)
 								icon_state = "2"
-									//ul_SetLuminosity(8,7,0)
+									//ul_//SetLuminosity(8,7,0)
 							else
 								icon_state = "1"
-									//ul_SetLuminosity(5,4,0)
+									//ul_//SetLuminosity(5,4,0)
 
 							//Ensure flow temperature is higher than minimum fire temperatures.
 							flow.temperature = max(PLASMA_MINIMUM_BURN_TEMPERATURE+0.1,flow.temperature)
@@ -162,16 +162,13 @@ obj
 				del src
 
 			dir = pick(cardinal)
-			//ul_SetLuminosity(3,2,0)
+			//ul_//SetLuminosity(3,2,0)
 			firelevel = fl
 			air_master.active_hotspots.Add(src)
-			if(!isarea(src)&&(luminosity>0))
-				spawn(1)			// delay to allow map load
-					sd_ApplyLum()
 
 		Del()
 			if (istype(loc, /turf/simulated))
-				//ul_SetLuminosity(0)
+				//ul_//SetLuminosity(0)
 
 				loc = null
 			air_master.active_hotspots.Remove(src)

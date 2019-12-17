@@ -1,0 +1,35 @@
+// DM Environment file for Torchbearer.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+#define DEBUG
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include "00_Defines.dm"
+#include "00_World.dm"
+#include "10_Interface.dm"
+#include "10_Keyboard.dm"
+#include "20_Movement.dm"
+#include "30_Turfs.dm"
+#include "40_Mob.dm"
+#include "41_Lamp.dm"
+#include "70_Lighting.dm"
+#include "70_LightProcessing.dm"
+#include "72_GradientGenerator.dm"
+#include "72_LightStrip.dm"
+#include "72_Occluder.dm"
+#include "72_Surface.dm"
+#include "80_SpatialGrid.dm"
+#include "Interface.dmf"
+#include "MapAuto.dmm"
+// END_INCLUDE
+

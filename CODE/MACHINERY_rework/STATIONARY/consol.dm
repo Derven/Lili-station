@@ -21,15 +21,12 @@ var/messages = ""
 		..()
 		consolid += 1
 		conid = consolid
-		if(!isarea(src)&&(luminosity>0))
-			spawn(1)			// delay to allow map load
-				sd_ApplyLum()
 
 	var
 		mystate = "off"
 
 	process()
-		sd_SetLuminosity(2)
+		//SetLuminosity(2)
 
 	message
 		name = "messaging console"
@@ -388,8 +385,6 @@ var/messages = ""
 				for(var/obj/machinery/simple_apc/SA in range(8, src))
 					SA.charge = 0
 					SA.my_smes.charge = 0
-				for(var/turf/T in locate(src.loc.loc.type))
-					T.sd_LumReset()
 				world << "\red Restarting in 5 seconds..."
 				sleep(50)
 				world.Reboot(1)

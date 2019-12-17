@@ -194,7 +194,7 @@
 	icon_state = "flashlight"
 	inhandstate = "flashlight"
 	var/on = 0
-	var/brightness_on = 5 //luminosity when on
+	lumpower = 5
 
 	attack_hand()
 		..()
@@ -204,24 +204,26 @@
 	..()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		sd_SetLuminosity(brightness_on)
 	else
 		icon_state = initial(icon_state)
-		sd_SetLuminosity(0)
+		SetLuminosity(0)
 
 /obj/item/device/flashlight/proc/update_brightness(var/mob/user = null)
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
 		if(loc == usr)
-			usr.sd_SetLuminosity(brightness_on)
+			usr.SetLuminosity(lumpower)
+			usr.lumpower = lumpower
 		else if(isturf(loc))
-			sd_SetLuminosity(brightness_on)
+			SetLuminosity(lumpower)
 	else
 		icon_state = initial(icon_state)
 		if(loc == user)
-			usr.sd_SetLuminosity(0)
+			usr.SetLuminosity(0)
+			usr.lumpower = lumpower
 		else if(isturf(loc))
-			sd_SetLuminosity(0)
+			SetLuminosity(0)
+
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(!isturf(usr.loc))
