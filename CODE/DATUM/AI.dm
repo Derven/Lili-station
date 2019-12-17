@@ -40,6 +40,50 @@
 
 	patrol_bots
 
+		kate_bot
+
+			mobmovement()
+				var/mindist = min(distances)
+				dist_calculate()
+				for(var/obj/botsignaler/BS in signalers)
+					if(get_dist(BS,brain) == mindist && !myway.Find(BS))
+						if(prob(10))
+							talking()
+						walk_to(brain, BS, 0, 3, 64)
+						myway.Add(BS)
+						dist_calculate()
+						if(length(myway) == length(signalers) - 1 || length(myway) == length(signalers))
+							for(var/mob/M in range(5, brain))
+								M << 'buzz-two.ogg'
+							myway.Cut()
+							dist_calculate()
+						for(var/mob/simulated/living/humanoid/H in oview(5, src))
+							if(H.health < 70)
+								if(prob(5))
+									helptalk(pick("Hey [H], seek help from a doctor", "[H] health status is very bad"))
+
+					if(prob(5))
+						for(var/atom/movable/M in orange(3, brain))
+							if(!istype(M, /obj/machinery/lamp))
+								if(prob(3))
+									walk_to(brain, M, 0, 3, 64)
+									if(M != brain)
+										M:attack_hand(brain)
+									brain:drop_item_v()
+					if(istype(brain.loc, /obj/structure))
+						brain.loc:attack_hand(brain)
+
+			talking()
+				for(var/mob/M in range(5, brain))
+					M << pick('buzz-sigh.ogg', 'chime.ogg')
+					M << pick("Kate states, \"Hello dear, how are you? Oh, cool!\"", "Kate states, \"I launch the destruction protocol... It was a joke!\"", \
+					"Kate states, \"Azimov was not a fool!\"", "Kate states, \"Maybe you are a clone with already loaded memories?!\"", "Kate states, \"My drives have long been rusted...\"", \
+					"Kate states, \"This place is wonderful!\"")
+
+			proc/helptalk(var/msg)
+				for(var/mob/M in range(5, brain))
+					M << pick("Kate states, \"[msg]!\"")
+
 		clean_bot
 			mobmovement()
 				var/mindist = min(distances)

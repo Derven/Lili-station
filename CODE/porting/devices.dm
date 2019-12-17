@@ -213,7 +213,6 @@
 		icon_state = "[initial(icon_state)]-on"
 		if(loc == usr)
 			usr.SetLuminosity(lumpower)
-			usr.lumpower = lumpower
 		else if(isturf(loc))
 			SetLuminosity(lumpower)
 	else

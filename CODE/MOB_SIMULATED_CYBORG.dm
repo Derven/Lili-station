@@ -4,6 +4,50 @@
 	var/charge = 17000
 	health = 100
 
+	Kate
+		icon_state = "kate_NPC"
+		charge = 9999999999
+
+		New()
+			..()
+			addai(src, /datum/AI/patrol_bots/kate_bot)
+			select_overlay = image(usr)
+			overlay_cur = image('sign.dmi', icon_state = "say", layer = 10)
+			overlay_cur.layer = 16
+			overlay_cur.pixel_z = 5
+			overlay_cur.pixel_x = -14
+			usr.select_overlay.override = 1
+
+			l_arm = new /datum/organ/external/arm/l_arm(src)
+			r_arm = new /datum/organ/external/arm/r_arm(src)
+
+			r_arm.owner = src
+			l_arm.owner = src
+			organs += r_arm
+			organs += l_arm
+			id = new /obj/item/clothing/id/captain()
+			..()
+			spawn(5)
+				asimov_laws()
+			START_PROCESSING(SSmobs, src)
+
+		death()
+			death = 1
+			src << "\red You are dead"
+			var/mob/simulated/living/L = src
+			if(client)
+				client.screen.Cut()
+			//STOP_PROCESSING(SSmobs, src)
+			var/mob/ghost/zhmur = new()
+			zhmur.key = key
+			if(client)
+				Login()
+			zhmur.loc = loc
+			new /obj/death_cyborg/kate(zhmur.loc)
+			del(L)
+			return
+
+
 /mob/simulated/living/humanoid/cyborg/proc/asimov_laws()
 	playsoundforme('liveagain.ogg')
 	src << "\red *||||||||||||||-------LAWS-------||||||||||||||*"
@@ -96,6 +140,9 @@
 	density = 1
 	icon = 'mob.dmi'
 	icon_state = "death_cyborg"
+
+	kate
+		icon_state = "death_kate_NPC"
 
 /mob/simulated/living/humanoid/cyborg/death()
 	death = 1
