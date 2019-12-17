@@ -33,7 +33,7 @@ world
 	hub_password = "kMZy3U5jJHSiBQjr"
 	name = "Isometric Space Station 13"
 	status = {"<big><b>Isometric Station 13</b></big>:Metastation, respawn, grief allowed, in development(<a href=\"https://github.com/Derven/Lili-station\">Github</a>)<br>
-	<img src="https://i.imgur.com/Nl8oBKj.png">
+	<img src="https://i.imgur.com/gD8AcC6.png">
 	"}
 
 	tick_lag = 0.3

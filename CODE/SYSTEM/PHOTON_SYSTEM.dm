@@ -57,11 +57,15 @@
 					src:lighters.Remove(src)
 
 /turf/proc/photon()
-	if(refreshing == 0)
-		drawlight()
-		for(var/atom/A in src)
-			if(!istype(A, /area))
-				A.drawlight()
+	if(istype(src, /turf/space))
+		lumpower = 3
+		SetLuminosity(3)
+	else
+		if(refreshing == 0)
+			drawlight()
+			for(var/atom/A in src)
+				if(!istype(A, /area))
+					A.drawlight()
 
 /turf/proc/check_in_your_pocket()
 	for(var/turf/T in orange(8))
