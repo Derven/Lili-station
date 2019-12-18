@@ -195,10 +195,14 @@
 	inhandstate = "flashlight"
 	var/on = 0
 	lumpower = 5
+	var/mob/user_of_flashlight = null
 
 	attack_hand()
 		..()
 		update_brightness(usr)
+
+	Move()
+		..()
 
 /obj/item/device/flashlight/initialize()
 	..()
@@ -212,16 +216,26 @@
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
 		if(loc == usr)
-			usr.SetLuminosity(lumpower)
+			usr.MovementLuminosity(lumpower)
+			usr.lumpower = lumpower
+			usr:moblighting = 1
+			user_of_flashlight = usr
 		else if(isturf(loc))
-			SetLuminosity(lumpower)
+			MovementLuminosity(lumpower)
+			user_of_flashlight:moblighting = 0
+			user_of_flashlight = null
 	else
 		icon_state = initial(icon_state)
 		if(loc == user)
-			usr.SetLuminosity(0)
-			usr.lumpower = lumpower
+			//usr.MovementLuminosity(0)
+			//usr.lumpower = 0
+			usr:moblighting = 0
+			user_of_flashlight = null
 		else if(isturf(loc))
-			SetLuminosity(0)
+			MovementLuminosity(0)
+			user_of_flashlight:moblighting = 0
+			user_of_flashlight = null
+
 
 
 /obj/item/device/flashlight/attack_self(mob/user)

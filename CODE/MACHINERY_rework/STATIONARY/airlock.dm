@@ -124,7 +124,6 @@
 			var/turf/simulated/floor/T = get_turf(src)
 			//SetOpacity(1)
 			T.check_in_your_pocket()
-			T.check_in_your_pocket()
 			T.blocks_air = 1
 			update_nearby_tiles()
 		density = 1

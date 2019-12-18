@@ -9,6 +9,21 @@
 	var/obj/light/lum = null
 	var/lumpower = 0
 
+	proc/MovementLuminosity(var/power)
+		for(var/turf/T in view(lumpower, src))
+			if(T.lighters.Find(src) == 0 && power > 0)
+				if(T.darkness >= 0)
+					T.darkness += lumpower - get_dist(src, T)
+				if(T.darkness < 0)
+					T.darkness = 0
+				T.lighters.Add(src)
+
+	proc/MovementNoLum(var/lum)
+		for(var/turf/T in view(lumpower + 1, src))
+			if(src in T.lighters)
+				T.darkness -= lumpower - get_dist(src, T)
+				T.lighters.Remove(src)
+
 	proc/SetLuminosity(var/power)
 		for(var/turf/T in view(lumpower, src))
 			if(T.lighters.Find(src) == 0 && power > 0)
@@ -68,12 +83,13 @@
 					A.drawlight()
 
 /turf/proc/check_in_your_pocket()
-	for(var/turf/T in orange(8))
+	for(var/turf/T in range(8, src))
 		T.refreshing = 1
 		T.darkness = 0
 		T.lighters.Cut()
 		spawn(12)
 			T.refreshing = 0
+
 
 /turf/simulated/process()
 	photon()

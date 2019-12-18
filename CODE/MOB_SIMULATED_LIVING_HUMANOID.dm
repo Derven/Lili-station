@@ -41,6 +41,7 @@
 /mob/simulated/living/humanoid/var/obj/hud/PDA/PPDDAA //HUD
 /mob/simulated/living/humanoid/var/obj/hud/pain/PAAAAIN //HUD
 /mob/simulated/living/humanoid/var/no_control = 0 //CYBORG'SSS
+/mob/simulated/living/humanoid/var/moblighting = 0
 //---------------------
 
 // /mob/simulated/living/humanoid procs
@@ -73,6 +74,8 @@
 
 	var/atom/A = src.loc
 
+	MovementNoLum()
+
 	see_invisible = 16 * (ZLevel-1)
 	var/turf/simulated/wall_east
 
@@ -98,6 +101,12 @@
 
 	var/oldloc = src.loc
 	..()
+
+	if(moblighting == 1)
+		MovementLuminosity(lumpower)
+	else
+		MovementNoLum()
+		lumpower = 0
 
 	if ((A != src.loc && A && A.z == src.z))
 		src.last_move = get_dir(A, src.loc)
@@ -440,6 +449,9 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 				B.myitem = null
 			for(var/obj/hud/box_close/B in client.screen)
 				client.screen.Remove(B)
+		if(istype(W, /obj/item/device/flashlight))
+			W:update_brightness(usr)
+			W.loc:check_in_your_pocket()
 	return
 
 /mob/simulated/living/humanoid/proc/swap_hand()
