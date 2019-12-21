@@ -281,21 +281,26 @@
 		r_hand = null
 		if(W)
 			W.del_inhand(usr)
+		return
 
 	else if (W == l_hand)
 		l_hand = null
 		if(W)
 			W.del_inhand(usr)
+		return
 
 	else if (W == cloth)
 		cloth = null
+		return
 
 	else if (W == PDA)
 		PDA = null
+		return
 
 	else if (W == cap)
 		cap = null
 		overlays -= CAP.helmetoverlay
+		return
 
 	else if (W == back)
 		back = null
@@ -303,9 +308,11 @@
 		var/obj/item/weapon/storage/box/backpack/jetpack/JP = W
 		JP.jetpacked = null
 		src.myjetpack = 0
+		return
 
 	else if (W == id)
 		id = null
+		return
 
 /mob/simulated/living/proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
 	if(nodamage) return
@@ -445,7 +452,8 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 			for(var/obj/hud/box/B in boxes)
 				client.screen.Remove(B)
 				boxes -= B
-				client.screen.Remove(B.myitem)
+				if(B.myitem.loc != src)
+					client.screen.Remove(B.myitem)
 				B.myitem = null
 			for(var/obj/hud/box_close/B in client.screen)
 				client.screen.Remove(B)

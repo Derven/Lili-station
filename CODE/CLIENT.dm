@@ -16,6 +16,8 @@
 /client/var/south
 /client/var/west
 /client/var/leftclick
+/client/var/movetomouse = 0
+/client/var/turf/TLOC = null
 
 //client procs
 //---------------------
@@ -72,7 +74,7 @@ client/verb/MLCR()
 	set hidden = 1
 	leftclick = 0
 
-client/MouseDown(var/atom/O, var/turf/T)
+client/MouseDown(var/atom/O, var/turf/T, control,params)
 	for(var/obj/structure/table/TABLE in T)
 		if(get_dist(T, mob) < 2)
 			return
@@ -202,10 +204,52 @@ client/MouseDown(var/atom/O, var/turf/T)
 	mloc = T
 	..()
 
-/client/MouseDrag(over_object,src_location,over_location,src_control,over_control,params)
-	var/atom/A = src_location
+/client/MouseDrag(src_object,over_object,src_location,over_location,src_control,over_control,params)
+	var/atom/A = over_location
 	if(istype(A, /turf))
-		mloc = A
+		TLOC = A
+		if(istype(mob, /mob/simulated/living/humanoid))
+			var/list/myparapams = params2list(params)
+			for(var/param in myparapams)
+				if(param == "right")
+					if(mob:middle_move_right_objects == 1)
+						var/image/movingimage = image('floors.dmi',TLOC,"movement_overlay",15)
+						var/movelag = 0
+						if(istype(mob, /mob/simulated/living/humanoid))
+							var/hungryeffect = 0
+							if(mob && mob:nutrition < 150)
+								hungryeffect = 1
+							var/area/A2 = mob:loc.loc
+							var/gravity = A2.gravitypower
+							var/sleepy = mob:client:run_intent - round(mob:heart.pumppower/100) + hungryeffect + gravity
+							movelag += sleepy
+						mob << movingimage
+						spawn(3)
+							del(movingimage)
+						if(get_dist(TLOC, mob) <= 1)
+							for(var/obj/machinery/airlock/AIRLOCK in TLOC)
+								AIRLOCK.attack_hand(mob)
+						walk_to(mob,TLOC,0,movelag,64)
+				if(param == "middle")
+					if(mob:middle_move_right_objects == 0)
+						var/image/movingimage = image('floors.dmi',TLOC,"movement_overlay",15)
+						var/movelag = 0
+						if(istype(mob, /mob/simulated/living/humanoid))
+							var/hungryeffect = 0
+							if(mob && mob:nutrition < 150)
+								hungryeffect = 1
+							var/area/A2 = mob:loc.loc
+							var/gravity = A2.gravitypower
+							var/sleepy = mob:client:run_intent - round(mob:heart.pumppower/100) + hungryeffect + gravity
+							movelag += sleepy
+						mob << movingimage
+						spawn(3)
+							del(movingimage)
+						if(get_dist(TLOC, mob) <= 1)
+							for(var/obj/machinery/airlock/AIRLOCK in TLOC)
+								AIRLOCK.attack_hand(mob)
+						walk_to(mob,TLOC,0,movelag,64)
+
 	else if(istype(A, /area))
 		return
 	else
@@ -215,3 +259,4 @@ client/MouseDown(var/atom/O, var/turf/T)
 
 /client/MouseUp()
 	mdown = 0
+	mob.client.movetomouse = 0

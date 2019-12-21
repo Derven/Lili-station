@@ -1,6 +1,5 @@
 obj/machinery/atmospherics/pipe
 
-	alpha = 25
 	var/datum/gas_mixture/air_temporary //used when reconstructing a pipeline that broke
 	var/datum/pipeline/parent
 

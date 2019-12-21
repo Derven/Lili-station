@@ -58,40 +58,10 @@
 				popup_text += "</tbody></html>"
 				usr << browse(popup_text,"window=popup")
 				return
-			else
-				var/image/movingimage = image('floors.dmi',src,"movement_overlay",15)
-				var/movelag = 0
-				if(istype(usr, /mob/simulated/living/humanoid))
-					var/hungryeffect = 0
-					if(usr && usr:nutrition < 150)
-						hungryeffect = 1
-					var/area/A = usr.loc.loc
-					var/gravity = A.gravitypower
-					var/sleepy = usr.client:run_intent - round(usr:heart.pumppower/100) + hungryeffect + gravity
-					movelag += sleepy
-				usr << movingimage
-				spawn(3)
-					del(movingimage)
-				walk_to(usr,src,0,movelag,64)
 
 		if(param == "middle")
 			var/popup_text
-			if(usr.middle_move_right_objects == 0)
-				var/image/movingimage = image('floors.dmi',src,"movement_overlay",15)
-				var/movelag = 0
-				if(istype(usr, /mob/simulated/living/humanoid))
-					var/hungryeffect = 0
-					if(usr && usr:nutrition < 150)
-						hungryeffect = 1
-					var/area/A = usr.loc.loc
-					var/gravity = A.gravitypower
-					var/sleepy = usr.client:run_intent - round(usr:heart.pumppower/100) + hungryeffect + gravity
-					movelag += sleepy
-				usr << movingimage
-				spawn(3)
-					del(movingimage)
-				walk_to(usr,src,0,movelag,64)
-			else
+			if(usr.middle_move_right_objects == 1)
 				popup_text = {"
 				<html>
 				<head><title> Popup menu </title>
@@ -128,6 +98,11 @@
 				return
 	usr.ClickOn(src, params)
 	return M.myclick(src)
+
+/atom/MouseUp(null,control,params)
+	..()
+	world << "debug2"
+	usr.client.movetomouse = 0
 
 /atom/MouseEntered()
 	if(istype(usr, /mob/simulated))

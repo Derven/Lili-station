@@ -60,28 +60,35 @@ var/borgs_in_game = 0 //max 3
 	//from inputs
 	if(href_list["gender"] == "1")
 		gender = "male"
+		show_lobby()
 	if(href_list["gender"] == "0")
 		gender = "female"
+		show_lobby()
 	if(gender == "neuter")
 		gender = "male"
+		show_lobby()
 	if(href_list["hair"] == "1")
 		hair_name = input("Select a hair style for your character.",
                   "Your hair",
                   hair_name) in list("bald","afro","mohawk", "helipad", "short", "long", "very long", "stylish", "something weird")
-
+		show_lobby()
 	if(href_list["mouse_behavarior"] == "1")
 		middle_move_right_objects = 0
+		show_lobby()
 	if(href_list["mouse_behavarior"] == "2")
 		middle_move_right_objects = 1
+		show_lobby()
 
 	switch(href_list["job"])
 		if("1")
 			pregame_job = "assistant"
+			show_lobby()
 		if("2")
 			pregame_job = "botanist"
 			if(botanist_in_game < 2)
 				pregame_job = "botanist"
 				botanist_in_game += 1
+				show_lobby()
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
@@ -91,21 +98,26 @@ var/borgs_in_game = 0 //max 3
 			if(bartender_in_game < 1)
 				pregame_job = "bartender"
 				bartender_in_game += 1
+				show_lobby()
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
 
 		if("4")
 			pregame_job = "security"
+			show_lobby()
 		if("5")
 			pregame_job = "engineer"
+			show_lobby()
 		if("6")
 			pregame_job = "doctor"
+			show_lobby()
 
 		if("7")
 			if(captain_in_game < 1)
 				pregame_job = "captain"
 				captain_in_game += 1
+				show_lobby()
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
@@ -115,6 +127,7 @@ var/borgs_in_game = 0 //max 3
 			if(clown_in_game < 2)
 				pregame_job = "clown"
 				clown_in_game += 1
+				show_lobby()
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
@@ -123,6 +136,7 @@ var/borgs_in_game = 0 //max 3
 			if(detective_in_game < 1)
 				pregame_job = "detective"
 				detective_in_game += 1
+				show_lobby()
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
@@ -132,6 +146,7 @@ var/borgs_in_game = 0 //max 3
 			if(chef_in_game < 1)
 				pregame_job = "chef"
 				chef_in_game += 1
+				show_lobby()
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
@@ -141,16 +156,17 @@ var/borgs_in_game = 0 //max 3
 			if(chaplain_in_game < 1)
 				pregame_job = "chaplain"
 				chaplain_in_game += 1
+				show_lobby()
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
 
 		if("12")
 			pregame_job = "cyborg"
-			pregame_job = "cyborg"
 			if(chaplain_in_game < 3)
 				pregame_job = "cyborg"
 				borgs_in_game += 1
+				show_lobby()
 			else
 				usr << "\red This job is already taken"
 				pregame_job = "assistant"
@@ -158,20 +174,21 @@ var/borgs_in_game = 0 //max 3
 	if(href_list["hcolor"] == "1")
 		pregame_hair_color = input("Select a hair color for your character.",
 		"Your color",pregame_hair_color) in list("black","yellow","orange", "red", "green", "blue")
+		show_lobby()
 
 	if(href_list["bcolor"] == "1")
 		pregame_body_color = input("Select a body color for your character.",
 		"Your color",pregame_body_color) in list("black","white")
+		show_lobby()
 
 	if(href_list["myname"] == "1")
 		pregame_name = input("Choose a name for your character.",
 		"Your Name",pregame_name)
+		show_lobby()
 
 	if(href_list["flavor"] == "1")
 		pregame_flavor = input("Write flavor for your character.",
 		"Your flavor",pregame_flavor)
-
-	if(href_list["preview"] == "1")
 		show_lobby()
 
 	if(href_list["preview"] == "1")
@@ -341,13 +358,19 @@ var/borgs_in_game = 0 //max 3
 		<head>
 		<title> lobby </title>
 		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+		<style type="text/css">
+			a {
+			text-decoration:none;
+ 			color: #00FFFF !important;
+			}
+		</style>
 		</head>
-		<body>
+		<body bgcolor="#007F7F">
 			<div id="stars"></div>
 		    <div id="stars2"></div>
 		    <div id="stars3"></div>
 			<div class=lobby style=\"{font-size: 24px;z-index: -1;content: " ";position: absolute;top: 2000px;width: 1px;height: 1px;background: transparent;}"> \
-				<div class=character style=\"{margin: 1px, 15px, 15px, 1px; float: left; padding: 32px; color: #FFDE40; background-color: whitesmoke; width: 64px; height: 64px; border: 4px double #CE24CB;}\"><img src="preview"></div> \
+				<div class=character style=\"{margin: 1px, 15px, 15px, 1px; float: left; padding: 32px; color: #FFDE40; background-color: "#007F7F"; width: 64px; height: 64px; border: 4px double #CE24CB;}\"><img src="preview"></div> \
 				name: <a href='?src=\ref[src];myname=1'>[pregame_name]</a></br>
 				gender: <a href='?src=\ref[src];gender=1'>male</a>/<a href='?src=\ref[src];gender=0'>female</a> </br>
                 haircut:<a href='?src=\ref[src];hair=1'>[hair_name]</a> </br>

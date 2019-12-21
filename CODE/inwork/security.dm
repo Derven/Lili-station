@@ -8,13 +8,15 @@
 		if(inhandstate != "" && inhand)
 			if(istype(H, /mob/simulated/living/humanoid))
 				if(src == H.r_hand)
-					if(!H.l_hand || (!istype(H.l_hand, src) && !istype(src, H.l_hand)))
+					if((!H.l_hand || (!istype(H.l_hand, src)) && !istype(src, H.l_hand)))
 						H.overlays -= inhand
 						inhand = null
+						return
 				if(src == H.l_hand)
-					if(!H.r_hand || (!istype(H.r_hand, src) && !istype(src, H.r_hand)))
+					if((!H.r_hand || (!istype(H.r_hand, src)) && !istype(src, H.r_hand)))
 						H.overlays -= inhand
 						inhand = null
+						return
 
 
 

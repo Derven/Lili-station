@@ -106,6 +106,7 @@
 
 				density = 0
 				invisibility = 101
+				world << A
 				del(src)
 		return
 
@@ -125,11 +126,13 @@
 			if((!( current ) || loc == current))
 				current = locate(min(max(x + xo, 1), world.maxx), min(max(y + yo, 1), world.maxy), z)
 			for(var/atom/A in loc)
-				if(density == 1)
+				if(A.density == 1)
 					if(!istype(A, /mob))
-						A.bullet_act(src)
+						if(!istype(A, /obj/item/projectile))
+							A.bullet_act(src)
 					else
-						A.bullet_act(src, def_zone)
+						if(A != firer)
+							A.bullet_act(src, def_zone)
 			var/turf/T = loc
 			if(T.density == 1 && T.opacity == 1)
 				T.bullet_act(src)
