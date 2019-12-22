@@ -9,6 +9,9 @@
 			for(var/datum/organ/O in H.organs)
 				usr << "\blue [O.name]: brute [O:brute_dam]; burn [O:burn_dam]"
 
+	attack_self(var/mob/M)
+		afterattack(M, usr)
+
 /obj/item/device/defib
 	name = "defib"
 	icon = 'tools.dmi'

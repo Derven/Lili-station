@@ -24,6 +24,12 @@ var/DE_FILTER_CUSTOM_COLOR = rgb(222,0,170)//custom color for filter, rgb() or "
 			sleep(2)
 			invisibility = 101
 
+	glass
+		icon_state = "glass"
+		screen_loc = "SOUTH, WEST to NORTH, EAST"
+		invisibility = 0
+		layer = 45
+
 proc
 	DE_SFL_U(var/obj/hud/glitch/SF)
 		var/vcheck = DE_FILTER_CLIENT_VIEW

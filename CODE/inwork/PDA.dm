@@ -7,7 +7,7 @@ var/ids = 0
 	name = "PDA v0.0.2"
 	icon = 'tools.dmi'
 	icon_state = "pda"
-	var/obj/item/mydevice
+	var/obj/item/mydevice = /obj/item/device/health_analyzer
 	var/obj/item/floppy/FL
 	var/maininfo
 	var/mymessages
@@ -19,6 +19,7 @@ var/ids = 0
 
 	New()
 		..()
+		mydevice = new /obj/item/device/health_analyzer(src)
 		initUI(list("floopy","devices","messages"), list("updatefloppy=1","updatedevices=1","updatemessages=1"))
 
 	proc/interface()

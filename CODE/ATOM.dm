@@ -7,6 +7,7 @@
 /atom/var/last_bumped = 0
 /atom/var/pass_flags = 0
 /atom/var/middle_move_right_objects = 0
+/atom/var/wikilink = 'WIKI/1.html'
 //---------------------
 
 //atom procs
@@ -192,8 +193,10 @@
 	if (!( usr ))
 		return
 
-	usr << "This is \an [name]."
-	usr << desc
+	//usr << "This is \an [name].<br>"
+	//usr << desc
+	usr << browse(wikilink,"window=[name];file=name;display=1;\
+	size=500x500;border=0;can_close=1;can_resize=1;can_minimize=1;titlebar=1")
 	// *****RM
 	//usr << "[name]: Dn:[density] dir:[dir] cont:[contents] icon:[icon] is:[icon_state] loc:[loc]"
 	return

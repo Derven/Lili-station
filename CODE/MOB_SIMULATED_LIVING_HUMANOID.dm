@@ -483,8 +483,6 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 		drop_item()
 	return
 
-
-
 /mob/simulated/living/humanoid/proc/parstunweak()
 	if (sleeping || stunned || weakened) //Stunned etc.
 		if (stunned > 0)
@@ -536,6 +534,8 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 					no_control = 0
 
 /mob/simulated/living/humanoid/proc/sleeping()
+	if(istype(src, /mob/simulated/living/humanoid/cyborg))
+		return
 	sleeping = 1
 	if(BL)
 		BL.invisibility = 0
@@ -546,6 +546,8 @@ mob/simulated/living/humanoid/proc/get_active_hand()
 
 
 /mob/simulated/living/humanoid/proc/awake()
+	if(istype(src, /mob/simulated/living/humanoid/cyborg))
+		return
 	sleeping = 0
 	if(BL)
 		BL.invisibility = 101

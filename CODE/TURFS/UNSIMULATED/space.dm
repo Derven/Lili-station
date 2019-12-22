@@ -5,6 +5,7 @@
 	luminosity = 2
 	layer = 0.5
 	color = "#2a4347"
+	wikilink = 'WIKI/space.html'
 
 	oxygen = 0
 	nitrogen = 0

@@ -155,6 +155,7 @@
 #include "CODE\MACHINERY_rework\STATIONARY\consol.dm"
 #include "CODE\MACHINERY_rework\STATIONARY\conveyor.dm"
 #include "CODE\MACHINERY_rework\STATIONARY\copier.dm"
+#include "CODE\MACHINERY_rework\STATIONARY\cryojoiner.dm"
 #include "CODE\MACHINERY_rework\STATIONARY\dnamodifer.dm"
 #include "CODE\MACHINERY_rework\STATIONARY\emitter.dm"
 #include "CODE\MACHINERY_rework\STATIONARY\fieldgen.dm"
