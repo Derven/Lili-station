@@ -129,6 +129,7 @@
 #include "CODE\inwork\unbuckable.dm"
 #include "CODE\inwork\uncategorized.dm"
 #include "CODE\inwork\weldingtool.dm"
+#include "CODE\inwork\WIKI.dm"
 #include "CODE\inwork\Rust\areas.dm"
 #include "CODE\inwork\Rust\core_field.dm"
 #include "CODE\inwork\Rust\core_gen.dm"

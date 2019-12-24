@@ -27,6 +27,9 @@
 	detective
 		jobmarktype = /obj/jobmark/detective
 
+	engineer
+		jobmarktype = /obj/jobmark/engineer
+
 	clown
 		jobmarktype = /obj/jobmark/clown
 
@@ -83,3 +86,6 @@
 
 /obj/jobmark/chaplain
 	job = "chaplain"
+
+/obj/jobmark/engineer
+	job = "engineer"

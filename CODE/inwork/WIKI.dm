@@ -1,8 +1,10 @@
+proc/wiki_text(var/idesc, var/iname, var/note = "no notes")
+	var/wtext = {"
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
-<title>РќР°Р·РІР°РЅРёРµ СЃР°Р№С‚Р°</title>
+<title>Название сайта</title>
 <style>
 a{
   text-decoration: none;
@@ -26,7 +28,7 @@ style="width:100%">
 <tr>
 <th>
 <h1><font color="white">ISOMETRIC WIKI</font></h1>
-<h3><font color="white">Page: HUMANS</font></h3>
+<h3><font color="white">Page: [iname]</font></h3>
 </th>
 </tr>
 </table>
@@ -38,16 +40,12 @@ style="width:100%; border-radius:5px;">
 <td
 rowspan="2"
 style="width:80%">
-<h2>Page 1</h2>
+<h2>Page [iname]</h2>
 <p style="text-indent:20px">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+[idesc]</p>
 </td>
 <td bgcolor="#E0EAF1">
 <h3>Pages</h3>
-<p>
 </p>
 </td>
 </tr>
@@ -55,7 +53,7 @@ fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in c
 <td
 bgcolor="#E0EAF1">
 <h3>Notes</h3>
-<p>Note</p>
+<p>[note]</p>
 </td>
 </tr>
 </table>
@@ -78,3 +76,7 @@ style="width:100%; border-radius:5px;">
 </table>
 </body>
 </html>
+
+"}
+
+	return wtext

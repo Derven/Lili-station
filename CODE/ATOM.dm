@@ -195,7 +195,7 @@
 
 	//usr << "This is \an [name].<br>"
 	//usr << desc
-	usr << browse(wikilink,"window=[name];file=name;display=1;\
+	usr << browse(wiki_text(desc, name, "no note"),"window=[name];file=name;display=1;\
 	size=500x500;border=0;can_close=1;can_resize=1;can_minimize=1;titlebar=1")
 	// *****RM
 	//usr << "[name]: Dn:[density] dir:[dir] cont:[contents] icon:[icon] is:[icon_state] loc:[loc]"
