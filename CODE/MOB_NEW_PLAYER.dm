@@ -51,7 +51,7 @@ var/borgs_in_game = 0 //max 3
 	create_lobby(usr.client)
 	pregame_human = new('mob.dmi',icon_state = "mob")
 	suit = new('suit.dmi', icon_state = "assistant_suit_onmob")
-	lobbysound = pick(sound('space_oddity.ogg'), sound('title2.ogg'))
+	lobbysound = pick(sound('spaceoddity.ogg'), sound('title2.ogg'))
 	usr << lobbysound
 	pregame_name = rand_name(src)
 	show_lobby()

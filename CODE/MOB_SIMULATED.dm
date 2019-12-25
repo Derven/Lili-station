@@ -185,6 +185,9 @@
 /mob/simulated/proc/death()
 	death = 1
 	src << "\red You are dead"
+	if(SPLAYER)
+		SPLAYER.IAM << sound(null, 0, 0, SPLAYER.ichannel, 100)
+		SPLAYER = null
 	if(client)
 		client.screen.Cut()
 	//STOP_PROCESSING(SSmobs, src)

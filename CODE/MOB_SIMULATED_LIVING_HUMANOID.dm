@@ -40,6 +40,10 @@
 /mob/simulated/living/humanoid/var/obj/hud/glitch/GLTCH //HUD
 /mob/simulated/living/humanoid/var/obj/hud/PDA/PPDDAA //HUD
 /mob/simulated/living/humanoid/var/obj/hud/pain/PAAAAIN //HUD
+/mob/simulated/living/humanoid/var/obj/hud/play/PLAY //HUD
+/mob/simulated/living/humanoid/var/obj/hud/freq/FREQ //HUD
+/mob/simulated/living/humanoid/var/obj/hud/stop/STOP //HUD
+/mob/simulated/var/datum/soundplayer/SPLAYER
 /mob/simulated/living/humanoid/var/no_control = 0 //CYBORG'SSS
 /mob/simulated/living/humanoid/var/moblighting = 0
 //---------------------
@@ -47,6 +51,10 @@
 // /mob/simulated/living/humanoid procs
 //---------------------
 /mob/simulated/living/humanoid/process()
+	if(SPLAYER)
+		if(prob(3))
+			spawn(rand(100, 150))
+				SPLAYER.soundprocess()
 	if(death == 0)
 		SLOC = src.loc
 		//set invisibility = 0
@@ -175,11 +183,18 @@
 		GLTCH = new(src)
 		PPDDAA = new(src)
 		PAAAAIN = new(src)
+		PLAY = new(src)
+		STOP = new(src)
+		FREQ = new(src)
 		update_hud(C)
 
 /mob/simulated/living/humanoid/Login()
 	if(length(usr.client.screen) == 0)
 		update_hud(usr.client)
+	if(!SPLAYER)
+		SPLAYER = new /datum/soundplayer()
+		if(!SPLAYER.IAM)
+			SPLAYER.IAM = src
 		..()
 
 /mob/simulated/living/humanoid/verb/Say(msg as text)
@@ -270,6 +285,9 @@
 		C.screen.Add(GLTCH)
 		C.screen.Add(PPDDAA)
 		C.screen.Add(PAAAAIN)
+		C.screen.Add(PLAY)
+		C.screen.Add(STOP)
+		C.screen.Add(FREQ)
 
 		for(var/datum/organ/external/EX in organs)
 			EX.update_hud(C)
