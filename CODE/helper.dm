@@ -90,7 +90,7 @@ var/timezoneOffset = 0 // The difference betwen midnight (of the host computer) 
     }
     a:hover{
     	text-decoration: none;
-    	color: #E0F9E6;
+    	color: #5B0000;
     }
     </style>"}
 	var/i = 0

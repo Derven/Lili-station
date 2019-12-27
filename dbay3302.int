@@ -1,13 +1,13 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1577282980
-DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\ATMOS\ZAS CODE\effects_and_decor CODE\hud_types CODE\hud_types\BUTTONS CODE\hud_types\OTHER CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\STATIONARY CODE\SYSTEM 
+LAST_COMPILE_TIME: 1577462431
+DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\ATMOS\ZAS CODE\effects_and_decor CODE\hud_types CODE\hud_types\BUTTONS CODE\hud_types\OTHER CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\STATIONARY CODE\types ICONS MAPS 
 AUTO_FILE_DIR: ON
 NUDGE_AS_PIXELS: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 512.1488
-WINDOW: CODE\inwork\bs12lunalight.dm;CODE\inwork\mecha.dm;CODE\MACHINERY_rework\STATIONARY\lamp.dm;CODE\MACHINERY_rework\STATIONARY\airlock.dm;CODE\SYSTEM\lcontroller.dm;CODE\ATMOS\ZAS\ZAS_Turfs.dm;CODE\SYSTEM\PHOTON_SYSTEM.dm;CODE\inwork\security.dm;CODE\inwork\sound_player.dm;CODE\hud_types\OTHER\soundplayer.dm;CODE\MOB_SIMULATED.dm;CODE\MOB_SIMULATED_LIVING_HUMANOID.dm
-FILE: CODE\inwork\sound_player.dm
+WINDOW: MAPS\metatest.dmm;CODE\inwork\craft.dm;isometris.dm;ICONS\effects.dmi;CODE\ATMOS\ZAS\Fire.dm;CODE\effects_and_decor\sparks.dm;CODE\MOB_SIMULATED.dm;CODE\MOB_SIMULATED_LIVING.dm;CODE\effects_and_decor\explosions.dm;CODE\MACHINERY_rework\STATIONARY\igniter.dm;CODE\inwork\weldingtool.dm;CODE\MOB_SIMULATED_LIVING_HUMANOID.dm;ICONS\tools.dmi;ICONS\tank.dmi;CODE\ATMOS\ATMOSPHERICS\components\tanks.dm;CODE\types\OBJTYPES.dm;ICONS\inhand.dmi;CODE\inwork\fire_ext.dm
+FILE: MAPS\metatest.dmm
 */
 // END_INTERNALS

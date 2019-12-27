@@ -80,7 +80,6 @@ proc/autoreboot()
 	for(var/obj/machinery/atmospherics/machine in world)
 		machine.build_network()
 	autoreboot()
-
 	return
 
 /*

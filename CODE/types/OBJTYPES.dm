@@ -14,6 +14,15 @@
 	icon_state = "screwdriver"
 	name = "screwdriver"
 
+/obj/item/weapon/spare
+	icon = 'tools.dmi'
+	icon_state = "spare"
+	name = "spare"
+	desc = "Visit the ancient centuries, creating this ingenious device."
+	force = 15
+	layer = 15
+	pixel_z = 7
+
 /obj/item/weapon/wrench
 	name = "wrench"
 	icon = 'tools.dmi'

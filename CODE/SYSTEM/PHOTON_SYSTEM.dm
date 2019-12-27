@@ -91,7 +91,8 @@
 			T.refreshing = 0
 
 
-/turf/simulated/process()
+turf/simulated/process()
+	..()
 	photon()
 
 /atom/proc/drawlight()

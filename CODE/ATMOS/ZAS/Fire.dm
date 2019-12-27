@@ -23,7 +23,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 
 turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
-	if(fire_protection > world.time-300) return
+	//if(fire_protection > world.time-300) return
 	var/datum/gas_mixture/air_contents = return_air(1)
 	if(!air_contents)
 		return 0

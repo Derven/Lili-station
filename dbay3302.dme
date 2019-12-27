@@ -16,6 +16,7 @@
 #define FILE_DIR "ICONS"
 #define FILE_DIR "SOUNDS"
 #define FILE_DIR "SOUNDS/piano"
+#define FILE_DIR "SOUNDS/sounds"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES

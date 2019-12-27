@@ -346,6 +346,20 @@
 		//adjustFireLoss(2.5*discomfort)
 		rand_burn_damage(20.0*discomfort, 20.0*discomfort)
 
+/mob/simulated/living/proc/temperature_damage(body_part, exposed_temperature, exposed_intensity)
+	if(nodamage) return
+
+	if(exposed_temperature > bodytemperature)
+		var/discomfort = abs(exposed_temperature - 310)/2000
+		//adjustFireLoss(2.5*discomfort)
+		//adjustFireLoss(5.0*discomfort)
+		rand_burn_damage(20.0*discomfort, 20.0*discomfort)
+
+	else
+		var/discomfort = abs(exposed_temperature - 310)/2000
+		//adjustFireLoss(2.5*discomfort)
+		rand_burn_damage(20.0*discomfort, 20.0*discomfort)
+
 /mob/simulated/living/humanoid/proc/handle_temperature(var/datum/gas_mixture/environment)
 	if(cloth == null || cloth.space_suit == 0)
 		if(H)
