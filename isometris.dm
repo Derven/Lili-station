@@ -35,7 +35,6 @@ world
 	status = {"<big><b>Isometric Station 13</b></big>:Metastation, respawn, grief allowed, in development(<a href=\"https://github.com/Derven/Lili-station\">Github</a>)<br>
 	<img src="https://i.imgur.com/gD8AcC6.png">
 	"}
-
 	tick_lag = 0.3
 
 var/contentlist = list(/datum/content/library, /datum/content/dream, /datum/content/dream2, /datum/content/dream3, /datum/content/dream4, /datum/content/dream5, /datum/content/whatstorymark, /datum/content/forkmypork, /datum/content/racers)

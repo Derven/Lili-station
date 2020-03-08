@@ -5,6 +5,14 @@
 	proc/activate()
 		return null
 
+
+	spiders
+		announce = "\red <h3>Biohazard Level 1.1 \[code BLACK\]</h3>"
+
+		activate()
+			world << announce
+			SpawnSpiders()
+
 	global_alcotrip
 		announce = "\red <h2>WHAT??? Why everyone is drunk!?</h2>"
 
@@ -79,7 +87,7 @@
 		while(derven == genius)
 			sleep(rand(400,1300))
 			if(prob(30))
-				var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/gravity_anomaly, /datum/event/mushroom, /datum/event/parasite, /datum/event/communications_blackout)
+				var/EBOY = pick(/datum/event/global_alcotrip, /datum/event/poweroff, /datum/event/plants, /datum/event/spiders, /datum/event/gravity_anomaly, /datum/event/mushroom, /datum/event/parasite, /datum/event/communications_blackout)
 				var/datum/event/EP = new EBOY()
 				EP.activate()
 

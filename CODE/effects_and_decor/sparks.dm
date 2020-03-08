@@ -11,6 +11,17 @@
 		sleep(rand(2,5))
 		del(src)
 
+/obj/effect/bloodyblood
+	icon='blood.dmi'
+	icon_state = "humanblood"
+	layer = 25
+
+	New()
+		..()
+		sleep(rand(2,5))
+		del(src)
+
+
 /obj/effect/smoke
 	icon='effects.dmi'
 	icon_state = "smoke"
@@ -44,6 +55,8 @@
 					M.health -= rand(70, 120)
 			for(var/obj/plant/P in range(1, src))
 				del(P)
+			for(var/obj/critter/C in range(1, src))
+				C.health -= rand(5, 45)
 			src.loc:hotspot_expose(1000,500,1)
 			spawn(9)
 				del(src)

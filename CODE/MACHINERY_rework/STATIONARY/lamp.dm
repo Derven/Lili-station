@@ -78,7 +78,15 @@
 			"Your maximum charge",newmaxcharge)
 			if(newmaxcharge > 0 && newmaxcharge < 2000)
 				BP.max_charge = newmaxcharge
-
+		else
+			if(W.force > 5)
+				new /obj/effect/sparks(src.loc)
+				flick("lamp_broke",src)
+				SetLuminosity(9)
+				sleep(2)
+				SetLuminosity(0)
+				broken = 1
+				icon_state = "lamp_broken"
 
 	proc/light_process()
 		//if(src)

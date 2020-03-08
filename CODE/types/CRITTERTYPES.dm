@@ -1,6 +1,11 @@
 //
 // Critter Defines
 //
+var/list/obj/spidermarks = list()
+
+proc/SpawnSpiders()
+	var/obj/O = pick(spidermarks)
+	new /obj/critter/killertomato/fox_on_bike/spider(O.loc)
 
 /obj/critter/roach
 	name = "cockroach"
@@ -33,6 +38,51 @@
 		Crossed()
 			for(var/mob/M in range(src, 5))
 				M << 'mousesqueek.ogg'
+
+		angry
+			icon_state = "angry_mouse"
+
+			seek_target()
+				src.anchored = 0
+				for (var/mob/C in view(src.seekrange,src))
+					if ((C.name == src.oldtarget_name) && (world.time < src.last_found + 100)) continue
+					if (istype(C, /mob/) && !src.atkcarbon) continue
+					if (C.death != 0) continue
+					if (C.name == src.attacker) src.attack = 1
+					if (istype(C, /mob) && src.atkcarbon) src.attack = 1
+
+					if (src.attack)
+						src.target = C
+						src.oldtarget_name = C.name
+						for(var/mob/O in viewers(src, null))
+							O.show_message("\red <b>[src]</b> charges at [C:name]!", 1)
+						//////playsound(src.loc, pick('MEhunger.ogg', 'MEraaargh.ogg', 'MEruncoward.ogg', 'MEbewarecoward.ogg'), 50, 0)	Strumpetplaya - Not supported
+						src.task = "chasing"
+						break
+					else
+						continue
+
+			ChaseAttack(mob/simulated/living/M)
+				for(var/mob/O in viewers(src, null))
+					O.show_message("\red <B>[src]</B> viciously lunges at [M]!", 1)
+				M.rand_damage(5, 15)
+
+			CritterAttack(mob/simulated/living/M)
+				src.attacking = 1
+				for(var/mob/O in viewers(src, null))
+					O.show_message("\red <B>[src]</B> bites [src.target]!", 1)
+				M.rand_damage(7, 15)
+				spawn(10)
+					src.attacking = 0
+
+			CritterDeath()
+				for(var/mob/M in range(3, src))
+					M << "<b>[src]</b> messily splatters into a puddle of tomato sauce!"
+				src.alive = 0
+				////playsound(src.loc, 'sound/effects/splat.ogg', 100, 1)
+				var/obj/blood/B = new(src.loc)
+				B.name = "ruined tomato"
+				del src
 
 /obj/critter/maneater
 	name = "man-eating plant"
@@ -213,6 +263,16 @@
 		src.target:bruteloss += 1
 		spawn(10)
 			src.attacking = 0
+
+/obj/spider_mark
+
+	New()
+		..()
+		spidermarks += src
+
+/obj/critter/killertomato/fox_on_bike/spider
+	name = "spider"
+	icon_state = "spider"
 
 /obj/critter/killertomato/fox_on_bike
 	icon_state = "fox"
