@@ -40,6 +40,7 @@
 #include "CODE\MOB_SIMULATED_LIVING.dm"
 #include "CODE\MOB_SIMULATED_LIVING_HUMANOID.dm"
 #include "CODE\MOB_SIMULATED_LIVING_SLIME.dm"
+#include "CODE\MOB_SIMULATED_ZOMBIE.dm"
 #include "CODE\MOB_SLH_HUMAN.dm"
 #include "CODE\OBJ.dm"
 #include "CODE\OBJ_CRITTER.dm"
@@ -320,5 +321,5 @@
 #include "CODE\types\SLIMECORE.dm"
 #include "CODE\types\STACKSTYPES.dm"
 #include "CODE\types\TILETYPES.dm"
-#include "MAPS\metatest.dmm"
+#include "MAPS\arena.dmm"
 // END_INCLUDE

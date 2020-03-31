@@ -162,29 +162,24 @@
 			life()
 				var/deathfactor = 0
 				while(deathfactor == 0)
-					if(istype(brain, /mob/simulated/living/humanoid/human))
-						var/mob/simulated/living/humanoid/human/zombie = brain
-						zombie.death = 0
-						if(zombie.lying == 1)
-							zombie.resting()
-						var/sum_damage = 0
-						for(var/datum/organ/external/EX in zombie.organs)
-							sum_damage += EX.brute_dam + EX.burn_dam
-						if(sum_damage > 140)
-							deathfactor = 1
+					brain.process()
+					if(brain.death == 1)
+						deathfactor = 1
 					sleep(rand(7,25))
 					if(prob(75))
 						mobmovement()
-						for(var/mob/simulated/living/humanoid/human/MOB in range(1,src))
-							for(var/mob/O in viewers(src, null))
-								O.show_message("\red <B>[src]</B> bites [MOB]!", 1)
-							MOB.rand_damage(7, 15)
+						for(var/mob/simulated/living/humanoid/human/MOB in range(1,brain))
+							if(brain.type != MOB.type)
+								for(var/mob/O in viewers(brain, null))
+									O.show_message("\red <B>[brain]</B> bites [MOB]!", 1)
+								MOB.rand_damage(7, 15)
 
 			mobmovement()
 				for(var/mob/simulated/living/humanoid/human/M in range(9, brain))
-					if(prob(10))
-						talking()
-					walk_to(brain, M, 0, 3, 64)
+					if(brain.type != M.type)
+						if(prob(10))
+							talking()
+						walk_to(brain, M, 0, 3, 64)
 
 		mobmovement()
 			for(var/mob/M in range(5, brain))

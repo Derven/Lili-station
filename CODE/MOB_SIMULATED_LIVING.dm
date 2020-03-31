@@ -164,6 +164,7 @@
 		stat("hungry", nutrition / (400 / 100))
 
 /mob/simulated/living/bullet_act(var/obj/item/projectile/Proj)
+	world << "debug210"
 	if(Proj.firer != src)
 		if(Proj.damage > 0)
 			rand_damage(Proj.damage - rand(1,4), Proj.damage)
@@ -275,6 +276,7 @@
 /mob/simulated/living/proc/attacked_by(var/obj/item/I, var/mob/simulated/living/humanoid/user, var/def_zone)
 	user = usr
 	var/mob/simulated/living/humanoid/H = src
+	world << "debug0"
 
 	var/staminamodify = 0
 	if(istype(usr, /mob/simulated/living/humanoid))
@@ -283,6 +285,8 @@
 			USRH.stamina -= 1
 		if(USRH.stamina < 30)
 			staminamodify = rand(2,3)
+
+	world << "debug11"
 
 	if((!I || !user) && istype(I, /obj/item/weapon/reagent_containers))	return 0
 
@@ -298,16 +302,27 @@
 					M.playsoundforme('handcuffs.ogg')
 				return
 
+	world << "debug12"
+
 	var/datum/organ/external/defen_zone
 	if(client)
 		defen_zone = get_organ(ran_zone(DF_ZONE.selecting))
 
-	var/datum/organ/external/affecting = get_organ(ran_zone(user.ZN_SEL.selecting))
-	var/hit_area = parse_zone(affecting.name)
-	var/def_area
-	if(def_zone && client)
-		def_area = parse_zone(defen_zone.name)
+	world << "debug13"
 
+	var/datum/organ/external/affecting = get_organ(ran_zone(user.ZN_SEL.selecting))
+	var/hit_area
+	var/def_area
+	if(affecting)
+		hit_area = parse_zone(affecting.name)
+		if(def_zone && client)
+			def_area = parse_zone(defen_zone.name)
+	else
+		hit_area = pick("chest", "head")
+		def_area = pick("chest", "head")
+
+
+	world << "debug1"
 	usr << "\red <B>[src] attacked [user] to [hit_area] by [I.name] !</B>"
 
 	if(istype(I, /obj/item/weapon/flasher))

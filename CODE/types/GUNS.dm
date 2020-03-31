@@ -281,7 +281,7 @@ obj/item/weapon/gun/energy/laser/retro
 	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 20
+	damage = 70
 	damage_type = BURN
 	flag = "laser"
 	eyeblur = 2
