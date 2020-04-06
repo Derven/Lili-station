@@ -54,6 +54,10 @@ var/list/accessable_z_levels = list(1, 2)
 	use_power = 1
 	idle_power_usage = 200
 	active_power_usage = 1000
+	plane = 80
+	bound_height = 200
+	bound_width = 120
+
 	var/on = 1
 	var/list/localareas = list()
 	var/effectiverange = 25

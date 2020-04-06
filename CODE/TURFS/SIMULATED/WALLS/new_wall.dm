@@ -2,6 +2,7 @@
 	var/w = "w"
 	icon_state = "w"
 	walltype = "w"
+	layer = 1
 
 	proc/check_airlock(var/turf/iloc)
 		if(locate(/obj/machinery/airlock, iloc))

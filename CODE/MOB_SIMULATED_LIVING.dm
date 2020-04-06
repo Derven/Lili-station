@@ -276,7 +276,6 @@
 /mob/simulated/living/proc/attacked_by(var/obj/item/I, var/mob/simulated/living/humanoid/user, var/def_zone)
 	user = usr
 	var/mob/simulated/living/humanoid/H = src
-	world << "debug0"
 
 	var/staminamodify = 0
 	if(istype(usr, /mob/simulated/living/humanoid))
@@ -286,7 +285,6 @@
 		if(USRH.stamina < 30)
 			staminamodify = rand(2,3)
 
-	world << "debug11"
 
 	if((!I || !user) && istype(I, /obj/item/weapon/reagent_containers))	return 0
 
@@ -302,13 +300,10 @@
 					M.playsoundforme('handcuffs.ogg')
 				return
 
-	world << "debug12"
-
 	var/datum/organ/external/defen_zone
 	if(client)
 		defen_zone = get_organ(ran_zone(DF_ZONE.selecting))
 
-	world << "debug13"
 
 	var/datum/organ/external/affecting = get_organ(ran_zone(user.ZN_SEL.selecting))
 	var/hit_area
@@ -322,7 +317,6 @@
 		def_area = pick("chest", "head")
 
 
-	world << "debug1"
 	usr << "\red <B>[src] attacked [user] to [hit_area] by [I.name] !</B>"
 
 	if(istype(I, /obj/item/weapon/flasher))

@@ -1,4 +1,4 @@
-/obj/machinery/airlock
+///obj/machinery/airlock
 
-	med
-		icon = 'airlock_med.dmi'
+//	med
+//		icon = 'airlock_med.dmi'

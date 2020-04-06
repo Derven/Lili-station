@@ -5,7 +5,7 @@
 
 	attackby(obj/item/weapon/W as obj, mob/simulated/living/humanoid/user as mob)
 		if(istype(W, /obj/item/stack/metalore))
-			usr << "You smelt the ore..."
+			usr << "You smelt the ore..." ///hhmmm
 			if(do_after(usr, 5))
 				user.drop_item_v()
 				del(W)

@@ -1,5 +1,5 @@
-
-
+/////rework this shit please
+/*
 /obj/machinery/supertelepad
 	name = "advanced teleporter pad"
 	icon = 'stationobjs.dmi'
@@ -23,3 +23,4 @@
 	attack_hand()
 		if(usr.do_after(10))
 			sell()
+*/
