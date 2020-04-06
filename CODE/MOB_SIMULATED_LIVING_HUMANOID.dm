@@ -43,6 +43,7 @@
 /mob/simulated/living/humanoid/var/obj/hud/play/PLAY //HUD
 /mob/simulated/living/humanoid/var/obj/hud/freq/FREQ //HUD
 /mob/simulated/living/humanoid/var/obj/hud/stop/STOP //HUD
+/mob/simulated/living/humanoid/var/obj/hud/hungry/HUN //HUD
 /mob/simulated/var/datum/soundplayer/SPLAYER
 /mob/simulated/living/humanoid/var/no_control = 0 //CYBORG'SSS
 /mob/simulated/living/humanoid/var/moblighting = 0
@@ -57,6 +58,7 @@
 				SPLAYER.soundprocess()
 	if(death == 0)
 		SLOC = src.loc
+		HUN.food_update(nutrition / (400 / 100))
 		//set invisibility = 0
 		//set background = 1
 		var/datum/gas_mixture/environment = SLOC.return_air()
@@ -186,6 +188,7 @@
 		PLAY = new(src)
 		STOP = new(src)
 		FREQ = new(src)
+		HUN = new(src)
 		update_hud(C)
 
 /mob/simulated/living/humanoid/Login()
@@ -288,6 +291,7 @@
 		C.screen.Add(PLAY)
 		C.screen.Add(STOP)
 		C.screen.Add(FREQ)
+		C.screen.Add(HUN)
 
 		for(var/datum/organ/external/EX in organs)
 			EX.update_hud(C)
@@ -391,6 +395,20 @@
 			if(prob(85))
 				stamina += 1
 				STAMINABAR.staminapixels(round(stamina))
+
+		if(nutrition / (400 / 100) < 50 && nutrition / (400 / 100) > 30)
+			if(prob(2))
+				src << "\red You feel the hungry"
+
+		if(nutrition / (400 / 100) < 30 && nutrition / (400 / 100) > 10)
+			if(prob(3))
+				src << "\red You feel THE HhUuNnGgRrYy"
+
+		if(nutrition / (400 / 100) < 10)
+			if(prob(5))
+				src << "\red You feel THE HhUuNnGgRrYy!!!"
+				rand_damage(4, 10)
+
 		if(istype(src, /mob) && stat != 2)
 			for(var/datum/organ/external/O in organs)
 				if(istype(O, /datum/organ/external/leg))

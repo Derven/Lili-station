@@ -320,5 +320,5 @@
 #include "CODE\types\SLIMECORE.dm"
 #include "CODE\types\STACKSTYPES.dm"
 #include "CODE\types\TILETYPES.dm"
-#include "MAPS\lunamapsave.dmm"
+#include "MAPS\dust2.dmm"
 // END_INCLUDE

@@ -2,6 +2,7 @@
 	pixelzheight = 0
 	icon ='stationobjs.dmi'
 	icon_state = "cryo"
+	anchored = 1
 	cryo_spawn
 		density = 1
 		anchored = 1

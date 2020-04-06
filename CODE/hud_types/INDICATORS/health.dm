@@ -81,7 +81,24 @@
 				if(0)
 					return "zero"
 
+	hungry
+		name = "hungry"
+		icon = 'screen1.dmi'
+		icon_state = "food100"
+		screen_loc = "WEST, NORTH-3"
 
+		proc/food_update(var/num)
+			switch(num)
+				if(70 to 100)
+					icon_state = "food100"
+				if(50 to 70)
+					icon_state = "food70"
+				if(30 to 50)
+					icon_state = "food50"
+				if(10 to 30)
+					icon_state = "food30"
+				if(0 to 10)
+					icon_state = "food10"
 	health
 		name = "Health"
 		icon = 'screen1.dmi'

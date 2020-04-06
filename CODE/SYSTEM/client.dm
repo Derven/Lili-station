@@ -161,7 +161,7 @@ client
 							if(M && M.stamina > 1)
 								M.stamina -= 1
 								M.STAMINABAR.staminapixels()
-								if(prob(5))
+								if(prob(10))
 									M.nutrition -= 1
 
 				else

@@ -204,8 +204,8 @@
 /mob/simulated/living/proc/blood_flow()
 	//world << "[src] the wordu"
 	if(nutrition > 0)
-		if(prob(rand(25, 45)))
-			nutrition -= rand(0,2) //hungry
+		if(prob(rand(35, 55)))
+			nutrition -= rand(1,2) //hungry
 	if(prob(37))
 		if(dizziness > 0)
 			dizziness -= rand(3,7)
