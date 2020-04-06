@@ -44,6 +44,7 @@
 /mob/simulated/living/humanoid/var/obj/hud/freq/FREQ //HUD
 /mob/simulated/living/humanoid/var/obj/hud/stop/STOP //HUD
 /mob/simulated/living/humanoid/var/obj/hud/hungry/HUN //HUD
+/mob/simulated/living/humanoid/var/obj/hud/drinking/THRI //HUD
 /mob/simulated/var/datum/soundplayer/SPLAYER
 /mob/simulated/living/humanoid/var/no_control = 0 //CYBORG'SSS
 /mob/simulated/living/humanoid/var/moblighting = 0
@@ -59,6 +60,7 @@
 	if(death == 0)
 		SLOC = src.loc
 		HUN.food_update(nutrition / (400 / 100))
+		THRI.food_update(drinking / (400 / 100))
 		//set invisibility = 0
 		//set background = 1
 		var/datum/gas_mixture/environment = SLOC.return_air()
@@ -189,6 +191,7 @@
 		STOP = new(src)
 		FREQ = new(src)
 		HUN = new(src)
+		THRI = new(src)
 		update_hud(C)
 
 /mob/simulated/living/humanoid/Login()
@@ -292,6 +295,7 @@
 		C.screen.Add(STOP)
 		C.screen.Add(FREQ)
 		C.screen.Add(HUN)
+		C.screen.Add(THRI)
 
 		for(var/datum/organ/external/EX in organs)
 			EX.update_hud(C)
@@ -407,6 +411,20 @@
 		if(nutrition / (400 / 100) < 10)
 			if(prob(5))
 				src << "\red You feel THE HhUuNnGgRrYy!!!"
+				rand_damage(4, 10)
+
+
+		if(drinking / (400 / 100) < 50 && drinking / (400 / 100) > 30)
+			if(prob(2))
+				src << "\red You feel the thirst"
+
+		if(drinking / (400 / 100) < 30 && drinking / (400 / 100) > 10)
+			if(prob(3))
+				src << "\red You feel THE THIRST"
+
+		if(drinking / (400 / 100) < 10)
+			if(prob(5))
+				src << "\red You feel THE THIRST-T-T!!!"
 				rand_damage(4, 10)
 
 		if(istype(src, /mob) && stat != 2)

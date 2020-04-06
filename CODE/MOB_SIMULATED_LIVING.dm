@@ -162,6 +162,7 @@
 		statpanel("Internal")
 		stat("pulse", (heart.pumppower / 100) * 60)
 		stat("hungry", nutrition / (400 / 100))
+		stat("drinking", drinking / (400 / 100))
 
 /mob/simulated/living/bullet_act(var/obj/item/projectile/Proj)
 	world << "debug210"
@@ -206,6 +207,7 @@
 	if(nutrition > 0)
 		if(prob(rand(35, 55)))
 			nutrition -= rand(1,2) //hungry
+			drinking -= rand(1,2)
 	if(prob(37))
 		if(dizziness > 0)
 			dizziness -= rand(3,7)

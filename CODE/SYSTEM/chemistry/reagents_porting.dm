@@ -357,6 +357,7 @@ datum
 			on_mob_life(var/mob/simulated/M as mob)
 				if(!M) M = holder.my_atom
 				M:toxloss += 1
+				M:drinking -= 20
 				..()
 				return
 
@@ -720,6 +721,7 @@ datum
 					if(1)
 						M:confused += 2
 						M:drowsyness += 2
+						M:drinking += 2
 					if(2 to 50)
 						M:sleeping += 1
 					if(51 to 99999999)
@@ -752,6 +754,7 @@ datum
 			on_mob_life(var/mob/simulated/M as mob)
 				if(!M) M = holder.my_atom
 				M:bodytemperature += 5
+				M:drinking -= 2
 				if(prob(10))
 					M:rand_damage(5, 10)
 				M:stunned += rand(0,1)
@@ -917,6 +920,7 @@ datum
 				if(!M) M = holder.my_atom
 				if(M:bruteloss && prob(10)) M:heal_brute(3,5)
 				M:nutrition++
+				M:drinking += 2
 				..()
 				return
 
@@ -929,6 +933,7 @@ datum
 				if(!M) M = holder.my_atom
 				if(M:bruteloss && prob(10)) M:heal_brute(3)
 				M:nutrition++
+				M:drinking += 2
 				..()
 				return
 
@@ -941,6 +946,7 @@ datum
 				..()
 				M:drowsyness = max(0,M:drowsyness-3)
 				M:sleeping = 0
+				M:drinking += 2
 				if (M.bodytemperature < 310)//310 is the normal bodytemp. 310.055
 					M.bodytemperature = min(310, M.bodytemperature+5)
 				..()
@@ -956,6 +962,7 @@ datum
 				M:drowsyness = max(0,M:drowsyness-1)
 				M:jitteriness = max(0,M:jitteriness-3)
 				M:sleeping = 0
+				M:drinking += 2
 				if(M:toxloss && prob(50))
 					M:toxloss--
 				if (M.bodytemperature < 310)  //310 is the normal bodytemp. 310.055
@@ -972,6 +979,7 @@ datum
 				..()
 				M:drowsyness = max(0,M:drowsyness-3)
 				M:sleeping = 0
+				M:drinking += 2
 				if (M.bodytemperature > 310)//310 is the normal bodytemp. 310.055
 					M.bodytemperature = min(310, M.bodytemperature-5)
 				..()
@@ -986,6 +994,7 @@ datum
 				..()
 				M:drowsyness = max(0,M:drowsyness-1)
 				M:sleeping = 0
+				M:drinking += 2
 				if(M:toxloss && prob(50)) M:toxloss--
 				if (M.bodytemperature > 310)//310 is the normal bodytemp. 310.055
 					M.bodytemperature = min(310, M.bodytemperature-5)
@@ -1012,6 +1021,7 @@ datum
 				M:drowsyness = max(0,M:drowsyness-5)
 				if (M.bodytemperature > 310)//310 is the normal bodytemp. 310.055
 					M.bodytemperature = max(310, M.bodytemperature-5)
+					M:drinking += 2
 				M:nutrition += 1
 				..()
 				return
@@ -1026,6 +1036,7 @@ datum
 				M:sleeping = 0
 				if (M.bodytemperature > 310)
 					M.bodytemperature = max(310, M.bodytemperature-5)
+				M:drinking += 2
 				M:nutrition += 1
 				..()
 				return
@@ -1039,6 +1050,7 @@ datum
 				M:drowsyness = max(0,M:drowsyness-6)
 				if (M.bodytemperature > 310)
 					M.bodytemperature = max(310, M.bodytemperature-5) //310 is the normal bodytemp. 310.055
+				M:drinking += 2
 				M:nutrition += 1
 				..()
 				return
@@ -1051,6 +1063,7 @@ datum
 			on_mob_life(var/mob/simulated/M as mob)
 				if (M.bodytemperature > 310)
 					M.bodytemperature = max(310, M.bodytemperature-8) //310 is the normal bodytemp. 310.055
+				M:drinking += 2
 				M:nutrition += 1
 				..()
 				return
@@ -1065,6 +1078,7 @@ datum
 				M:sleeping = 0
 				if (M.bodytemperature > 310)
 					M.bodytemperature = max(310, M.bodytemperature-5)
+				M:drinking += 2
 				..()
 				return
 
@@ -1076,5 +1090,6 @@ datum
 			on_mob_life(var/mob/simulated/M as mob)
 				if(!M) M = holder.my_atom
 				M:bodytemperature -= 5
+				M:drinking += 2
 				..()
 				return

@@ -17,6 +17,7 @@
 /mob/simulated/var/atom/movable/pulling = null
 /mob/simulated/var/list/stomach_contents = list()
 /mob/simulated/var/nutrition = 400.0
+/mob/simulated/var/drinking = 400.0
 /mob/simulated/var/mob/my_last_looting
 /mob/simulated/var/image/overlay_cur
 /mob/simulated/var/obj/hud/pulling/PULL //HUD
