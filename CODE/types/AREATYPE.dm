@@ -16,6 +16,21 @@
 			color = "blue"
 			invisibility = 101
 
+		deck_spaceasteroid
+			name = "test_deeeeck"
+			probality = 45
+			icon = 'area.dmi'
+			color = "green"
+			invisibility = 101
+
+		deck_oldstation
+			name = "test_deck"
+			probality = 45
+			icon = 'area.dmi'
+			color = "yellow"
+			invisibility = 101
+
+
 		deck_2
 			icon = 'area.dmi'
 			name = "test_deck"

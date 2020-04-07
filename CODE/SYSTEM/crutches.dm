@@ -146,12 +146,14 @@ client/proc/clear_MYZL()
 	var/list/fromupdate = new/list()
 	var/list/toupdate = new/list()
 
+
 	moving:
 		for (var/turf/T in refined_src)
 			var/datum/coords/C_src = refined_src[T]
 			for (var/turf/B in refined_trg)
 				var/datum/coords/C_trg = refined_trg[B]
 				if(C_src.x_pos == C_trg.x_pos && C_src.y_pos == C_trg.y_pos)
+
 
 					var/old_dir1 = T.dir
 					var/old_icon_state1 = T.icon_state
@@ -162,12 +164,14 @@ client/proc/clear_MYZL()
 					X.icon_state = old_icon_state1
 					X.icon = old_icon1 //Shuttle floors are in shuttle.dmi while the defaults are floors.dmi
 
+
 					for(var/obj/O in T)
 						if(!istype(O,/obj)) continue
 						O.loc = X
 					for(var/mob/M in T)
 						if(!istype(M,/mob)) continue
 						M.loc = X
+
 
 					toupdate += X
 
@@ -178,8 +182,10 @@ client/proc/clear_MYZL()
 					else
 						T.ReplaceWithSpace()
 
+
 					refined_src -= T
 					refined_trg -= B
+
 					continue moving
 
 /datum/coords //Simple datum for storing coordinates.

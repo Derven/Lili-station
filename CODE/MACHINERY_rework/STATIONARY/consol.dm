@@ -382,12 +382,6 @@ var/messages = ""
 					M << "\red Engines are being prepared..."
 				sleep(3)
 				send_supply_shuttle()
-				for(var/obj/machinery/simple_apc/SA in range(8, src))
-					SA.charge = 0
-					SA.my_smes.charge = 0
-				world << "\red Restarting in 5 seconds..."
-				sleep(50)
-				world.Reboot(1)
 
 
 /obj/machinery/consol/shuttle

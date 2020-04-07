@@ -1,6 +1,6 @@
 //this file contents areas and areas processing
-#define SUPPLY_STATION_AREATYPE "/area/ship/shuttle_mining" //Type of the supply shuttle area for station
-#define SUPPLY_DOCK_AREATYPE "/area/ship/shuttle_station" //Type of the supply shuttle area for dock
+var/SUPPLY_STATION_AREATYPE = "/area/ship/deck_spaceasteroid" //Type of the supply shuttle area for station
+var/SUPPLY_DOCK_AREATYPE = "/area/ship/deck_1" //Type of the supply shuttle area for dock
 
 //area vars
 //---------------------
@@ -81,6 +81,8 @@
 	var/area/from = locate(text2path(shuttleat))
 	var/area/dest = locate(text2path(shuttleto))
 
+	world << from
+	world << dest
 	if(!from || !dest) return
 
 	from.move_contents_to(dest)

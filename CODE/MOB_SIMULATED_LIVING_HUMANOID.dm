@@ -402,29 +402,29 @@
 
 		if(nutrition / (400 / 100) < 50 && nutrition / (400 / 100) > 30)
 			if(prob(2))
-				src << "\red You feel the hungry"
+				src << "\red You feel hungry"
 
 		if(nutrition / (400 / 100) < 30 && nutrition / (400 / 100) > 10)
 			if(prob(3))
-				src << "\red You feel THE HhUuNnGgRrYy"
+				src << "\red You feel HhUuNnGgRrYy"
 
 		if(nutrition / (400 / 100) < 10)
 			if(prob(5))
-				src << "\red You feel THE HhUuNnGgRrYy!!!"
+				src << "\red You feel HhUuNnGgRrYy!!!"
 				rand_damage(4, 10)
 
 
 		if(drinking / (400 / 100) < 50 && drinking / (400 / 100) > 30)
 			if(prob(2))
-				src << "\red You feel the thirst"
+				src << "\red You feel thirst"
 
 		if(drinking / (400 / 100) < 30 && drinking / (400 / 100) > 10)
 			if(prob(3))
-				src << "\red You feel THE THIRST"
+				src << "\red You feel THIRST"
 
 		if(drinking / (400 / 100) < 10)
 			if(prob(5))
-				src << "\red You feel THE THIRST-T-T!!!"
+				src << "\red You feel THIRST-T-T!!!"
 				rand_damage(4, 10)
 
 		if(istype(src, /mob) && stat != 2)

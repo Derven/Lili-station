@@ -1,5 +1,6 @@
 /mob/simulated/living/humanoid/human/zombie
 	name = "zombie"
+	icon_state = "zombie"
 	death = 0
 
 /mob/simulated/living/humanoid/human/zombie/process()
