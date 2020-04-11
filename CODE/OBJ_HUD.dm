@@ -7,6 +7,7 @@
 // /obj/hud vars
 //---------------------
 /obj/hud/layer = 18
+/obj/hud/plane = 71
 /obj/hud/icon = 'screen1.dmi'
 /obj/hud/mouse_over_pointer = MOUSE_HAND_POINTER
 /obj/hud/var/mob/iam = null

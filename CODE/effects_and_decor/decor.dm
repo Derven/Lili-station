@@ -24,6 +24,7 @@
 	icon ='stationobjs.dmi'
 	icon_state = "washing"
 
+
 /obj/structure/sign
 	name = "sign"
 	icon ='sign.dmi'

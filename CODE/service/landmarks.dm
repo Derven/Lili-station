@@ -65,6 +65,15 @@ var/list/plantmarks = list()
 		invisibility = 101
 		plantmarks.Add(src)
 
+/obj/flycatchermark
+	icon = 'landmarks.dmi'
+
+	New()
+		..()
+		invisibility = 101
+		if(prob(rand(25,75)))
+			new /obj/critter/flycatcher(src.loc)
+
 //ok
 /obj/landmark
 	icon = 'landmarks.dmi'

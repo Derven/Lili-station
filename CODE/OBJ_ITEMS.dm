@@ -1,6 +1,7 @@
 // /obj/items vars
 //-----------------------
 /obj/item/name = "item"
+/obj/item/plane = 72
 /obj/item/flags = FPRINT | TABLEPASS
 /obj/item/pass_flags = PASSTABLE
 /obj/item/pressure_resistance = 50

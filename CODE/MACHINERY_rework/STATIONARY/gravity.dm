@@ -208,6 +208,8 @@ var/list/accessable_z_levels = list(1, 2)
 			return 0
 	*/
 	if(istype(src.loc, /turf))
+		if(istype(src.loc, /turf/unsimulated/floor))
+			return 1
 		var/area/A = src.loc.loc
 		var/dense_object = 0
 		for(var/turf/turf in oview(1,src))

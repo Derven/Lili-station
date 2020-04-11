@@ -59,8 +59,9 @@
 				SPLAYER.soundprocess()
 	if(death == 0)
 		SLOC = src.loc
-		HUN.food_update(nutrition / (400 / 100))
-		THRI.food_update(drinking / (400 / 100))
+		if(client)
+			HUN.food_update(nutrition / (400 / 100))
+			THRI.food_update(drinking / (400 / 100))
 		//set invisibility = 0
 		//set background = 1
 		var/datum/gas_mixture/environment = SLOC.return_air()

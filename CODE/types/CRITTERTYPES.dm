@@ -388,11 +388,11 @@ proc/SpawnSpiders()
 		for(var/mob/O in viewers(src, null))
 			O.show_message("\red <B>[src]</B> hurls itself at [M]!", 1)
 
-	CritterAttack(mob/M)
+	CritterAttack(mob/simulated/living/M)
 		src.attacking = 1
 		for(var/mob/O in viewers(src, null))
 			O.show_message("\red <B>[src]</B> bites [src.target]!", 1)
-		src.target:bruteloss += rand(2,4)
+		M.rand_damage(8, 19)
 		spawn(25)
 			src.attacking = 0
 
@@ -401,3 +401,49 @@ proc/SpawnSpiders()
 		density = 0
 		walk_to(src,0)
 		src.icon_state = "mimic-dead"
+
+/obj/critter/flycatcher
+	name = "flycatcher"
+	desc = null
+	icon_state = "flycatcher"
+	health = 20
+	aggressive = 1
+	defensive = 1
+	wanderer = 0
+	atkcarbon = 1
+	atksilicon = 1
+	brutevuln = 0.5
+	seekrange = 1
+	angertext = "suddenly comes to life and lunges at"
+
+	process()
+		..()
+		if (src.alive)
+			switch(task)
+				if("thinking")
+					pixel_x = initial(pixel_x)
+					pixel_y = initial(pixel_y)
+				if("chasing")
+					pixel_x = rand(initial(pixel_x) - 3, initial(pixel_x) + 3)
+					pixel_y = rand(initial(pixel_y) - 3, initial(pixel_y) + 3)
+				if("attacking")
+					pixel_x = rand(initial(pixel_x) - 6, initial(pixel_x) + 6)
+					pixel_y = rand(initial(pixel_y) - 6, initial(pixel_y) + 6)
+
+	ChaseAttack(mob/M)
+		for(var/mob/O in viewers(src, null))
+			O.show_message("\red <B>[src]</B> hurls itself at [M]!", 1)
+
+	CritterAttack(mob/simulated/living/M)
+		src.attacking = 1
+		for(var/mob/O in viewers(src, null))
+			O.show_message("\red <B>[src]</B> bites [src.target]!", 1)
+		M.rand_damage(8, 19)
+		spawn(25)
+			src.attacking = 0
+
+	CritterDeath()
+		src.alive = 0
+		density = 0
+		walk_to(src,0)
+		del(src)

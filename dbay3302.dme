@@ -118,6 +118,7 @@
 #include "CODE\inwork\defib.dm"
 #include "CODE\inwork\fields.dm"
 #include "CODE\inwork\fire_ext.dm"
+#include "CODE\inwork\forestworld.dm"
 #include "CODE\inwork\ladders.dm"
 #include "CODE\inwork\modules.dm"
 #include "CODE\inwork\mulitiletransport.dm"

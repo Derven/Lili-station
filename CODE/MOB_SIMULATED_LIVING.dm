@@ -548,29 +548,33 @@
 			else
 				oxyloss += 2
 
+
 		else if(istype(src.loc, /obj) && !istype(src.loc, /obj/structure/disposalholder))
 			var/obj/O = src.loc
 			var/turf/simulated/floor/F = O.loc
 			var/datum/gas_mixture/G = F.return_air()
 			if(lungs)
 				if(G.oxygen - (lungs.my_func()/5 + rand(1,10)) < HUMAN_NEEDED_OXYGEN + heart.pumppower/1000)
-					Emote(pick("gasps", "cough"))
-					for(var/mob/M in range(5, src))
-						if(prob(35))
-							M << 'gasp.ogg'
-					oxyloss += 1
+					if(!istype(src.loc, /turf/unsimulated/floor))
+						Emote(pick("gasps", "cough"))
+						for(var/mob/M in range(5, src))
+							if(prob(35))
+								M << 'gasp.ogg'
+						oxyloss += 1
 				else
 					if(oxyloss > 1)
 						oxyloss -= 1
 			else
-				oxyloss += 2
+				if(!istype(src.loc, /turf/unsimulated/floor))
+					oxyloss += 2
 
 		else
-			Emote(pick("gasps", "cough"))
-			for(var/mob/M in range(5, src))
-				if(prob(35))
-					M << 'gasp.ogg'
-			oxyloss += 1
+			if(!istype(H.loc, /turf/unsimulated/floor))
+				Emote(pick("gasps", "cough"))
+				for(var/mob/M in range(5, src))
+					if(prob(35))
+						M << 'gasp.ogg'
+				oxyloss += 1
 	if(oxyloss > 75)
 		if(istype(H, /mob/simulated/living/humanoid))
 			H.sleeping()
