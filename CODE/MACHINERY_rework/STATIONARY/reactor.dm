@@ -6,7 +6,7 @@
 	proc/openwindow()
 
 	control
-		icon_state = "reactorcontrol"
+		icon_state = "eng_console"
 		var/list/obj/machinery/reactor/watertank/watertanks = list()
 		var/list/obj/machinery/reactor/watercapacitor/watercapacitors = list()
 		var/list/obj/machinery/reactor/steamgenerator/steamgenerators = list()
