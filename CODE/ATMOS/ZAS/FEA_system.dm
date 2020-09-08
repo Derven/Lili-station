@@ -239,13 +239,13 @@ datum
 				if(existing_test)
 					if(NT == existing_test)
 						return
-					else if(islist(existing_test) && existing_test[NT])
+					else if(is_list(existing_test) && existing_test[NT])
 						return
 
 				else if(existing_test_alternate)
 					if(T == existing_test_alternate)
 						return
-					else if(islist(existing_test_alternate) && existing_test_alternate[T])
+					else if(is_list(existing_test_alternate) && existing_test_alternate[T])
 						return
 
 				if(istype(T))

@@ -36,7 +36,7 @@
 		/	"}
 			var/icon/I = icon(SAI.icon)
 			SAI.maptext_width = I.Width()
-			SAI.maptext_height = I.Height()
+			SAI.maptext_height = I.Width()
 			client.screen += SAI
 			while(derven == genius)
 				spawn(rand(1,2))

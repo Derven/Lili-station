@@ -1,13 +1,13 @@
 // BEGIN_INTERNALS
 /*
 MAP_ZOOM: 1.000
-LAST_COMPILE_TIME: 1587046323
-DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\DATUM CODE\effects_and_decor CODE\hud_types CODE\hud_types\BUTTONS CODE\hud_types\INDICATORS CODE\MACHINERY_rework CODE\MACHINERY_rework\STATIONARY CODE\MACHINERY_rework\STATIONARY\airlocks ICONS MAPS 
-NUDGE_AS_PIXELS: OFF
+LAST_COMPILE_TIME: 1599575534
+DIR: CODE CODE\ATMOS CODE\ATMOS\ATMOSPHERICS\components CODE\ATMOS\ATMOSPHERICS\components\trinary_devices CODE\ATMOS\ATMOSPHERICS\components\unary CODE\ATMOS\ZAS CODE\DATUM CODE\effects_and_decor CODE\hud_types CODE\hud_types\BUTTONS CODE\hud_types\INDICATORS CODE\inwork CODE\MACHINERY_rework CODE\MACHINERY_rework\STATIONARY CODE\MACHINERY_rework\STATIONARY\airlocks ICONS MAPS 
 AUTO_FILE_DIR: ON
+NUDGE_AS_PIXELS: OFF
 MAP_ICON_TYPE: 0
-LAST_COMPILE_VERSION: 512.1488
-WINDOW: MAPS\dust2.dmm;CODE\MACHINERY_rework\STATIONARY\airlocks\glass.dm;ICONS\airlock.dmi;ICONS\glassairlock.dmi;ICONS\glassairlock1.dmi;ICONS\glassairlock2.dmi;CODE\MACHINERY_rework\STATIONARY\airlock.dm
-FILE: ICONS\glassairlock2.dmi
+LAST_COMPILE_VERSION: 513.1528
+WINDOW: MAPS\dust2.dmm;CODE\MACHINERY_rework\STATIONARY\airlocks\glass.dm;ICONS\airlock.dmi;ICONS\glassairlock.dmi;ICONS\glassairlock1.dmi;ICONS\glassairlock2.dmi;CODE\MACHINERY_rework\STATIONARY\airlock.dm;defines.dm;CODE\ATMOS\ZAS\FEA_system.dm;CODE\inwork\mecha.dm;CODE\MACHINERY_rework\STATIONARY\piano.dm;CODE\MACHINERY_rework\STATIONARY\newscaster.dm;CODE\inwork\someshit.dm
+FILE: CODE\inwork\someshit.dm
 */
 // END_INTERNALS

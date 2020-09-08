@@ -399,7 +399,7 @@
 
 #define CLOSED 0
 
-proc/islist(list/list)
+proc/is_list(list/list)
 	if(istype(list))
 		return 1
 	return 0
